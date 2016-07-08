@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="Libraries">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/lib/commons-dbcp.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/commons-io-2.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/commons-pool-1.5.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/dbunit-2.4.8.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/hamcrest-core-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/jdbc-oracle.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/junit-4.12.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/ojdbc6.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/selenium-java-2.45.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/selenium-server-2.45.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/slf4j-api-1.6.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/slf4j-simple-1.6.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/spring-core-2.5.6.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/spring.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/lib/jboss-logging.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
