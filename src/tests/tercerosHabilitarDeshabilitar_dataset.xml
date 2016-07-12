@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <TERCERO_HABILITAR_DESHABILITAR PRUEBA="1" TIPO_TERCERO="PersonaNatural" TIPO_DOC_IDENTIDAD="38942817" CEDULA="6056001"
-                                  NOMBRE="Pedro" APELLIDO=""/>
+                                  NOMBRE="Pedro" APELLIDO=""
+                                  PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="12-07-2016" FECHA_HASTA=""
+                                  EVENTO_APLICAR="Emitir" SUCURSAL="24651917" TIPO_PRODUCCION="24652617" LINEA_CREDITO="41249717"
+                                  UNIDAD_NEGOCIO="23913017" CANAL_VENTA="20.0" TIPO_VALOR_ASEGURADO="23916617"/>
 </dataset>

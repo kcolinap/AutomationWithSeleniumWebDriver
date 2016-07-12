@@ -11,7 +11,7 @@ import util.DataSetManager;
 import java.util.ArrayList;
 
 /**
- * Created by agil on 05/07/2016.
+ * Created by agil on 12/07/2016.
  */
 public class VistaTercerosHabilitarDeshabilitarTest {
 
@@ -20,17 +20,16 @@ public class VistaTercerosHabilitarDeshabilitarTest {
     @Test
     public void mainTest(){
 
-        ArrayList terceros = TercerosHabilitarDeshabilitarBean.getTercerosHabilitarDeshabilitar();
+        ArrayList tercerosHabDes = TercerosHabilitarDeshabilitarBean.getTerceroHabilitarDeshabilitar();
 
-        for (int i = 0; i < terceros.size(); i++){
-            TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean = (TercerosHabilitarDeshabilitarBean) terceros.get(i);
+        for (int i = 0; i < tercerosHabDes.size(); i++){
+            TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean = (TercerosHabilitarDeshabilitarBean) tercerosHabDes.get(i);
             TercerosHabilitarDeshabilitar a = new TercerosHabilitarDeshabilitar();
 
             try {
                 a.testLink(tercerosHabilitarDeshabilitarBean, i);
             } catch (Exception e){
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
@@ -39,11 +38,11 @@ public class VistaTercerosHabilitarDeshabilitarTest {
     @Before
     public void setUp() throws Exception {
 
-/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM TERCERO_HABILITAR_DESHABILITAR  ORDER BY PRUEBA ASC",
+/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO FROM TERCERO_HABILITAR_DESHABILITAR  ORDER BY PRUEBA ASC",
                 "TERCERO_HABILITAR_DESHABILITAR",
                 "C:/AcseleTests/AutomationTestAcsele/src/tests/tercerosHabilitarDeshabilitar_dataset.xml");
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM TERCERO_HABILITAR_DESHABILITAR  ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO FROM TERCERO_HABILITAR_DESHABILITAR  ORDER BY PRUEBA ASC",
                 "TERCERO_HABILITAR_DESHABILITAR",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/tests/tercerosHabilitarDeshabilitar_dataset.xml");
 */
