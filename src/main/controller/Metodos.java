@@ -37,7 +37,7 @@ public class Metodos {
     public WebDriver entrarPagina(){
         System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("http://qa19:7001/WController/");
+        driver.get("http://qa32:7001/WController/");
 //        WebDriver driver = new FirefoxDriver();
 //        driver.get("http://qa19:7001/WController"); // lineas para usar el driver de firefox
         driver.manage().window().maximize();
