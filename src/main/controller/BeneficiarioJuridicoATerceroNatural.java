@@ -51,8 +51,8 @@ public class BeneficiarioJuridicoATerceroNatural {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//buscar tercero
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//Mantenimiento de terceros
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[2]"));//buscar tercero
             menu1.click();
             menu2.click();
             a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2

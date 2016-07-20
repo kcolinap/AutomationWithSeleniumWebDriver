@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by mchurion on 13/07/2016.
  */
-public class BeneficiarioJuridicoATerceroNaturalBean {
+public class BeneficiarioJuridicoATerceroNaturalBean implements Serializable{
 
     private String tipoTercero;
     private String tipoDocId;

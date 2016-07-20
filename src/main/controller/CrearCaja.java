@@ -25,31 +25,29 @@ public class CrearCaja {
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
-        Thread.sleep(4000);
+        Thread.sleep(5000);
 
         // Consulta Caja
         IngresarMenuConsultarCaja(driver, a); //Menu
-        Thread.sleep(2000);
-        //Insertar(a, driver, crearCajaBean); //Crear nueva caja
-
-        // Insertar Caja
-/*        WebElement botoneditar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
-        botoneditar.click();*/
-        driver.findElement(By.name("//*[@id=\"idb_040203703_casierRegisterMaintenance_03\"]")).click();
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/div/input")).click();
+
         InsertarDatosCaja(a, driver, crearCajaBean); //Insertar Datos de Caja
 
-
+        a.cambiarVentana(driver);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/div/input[1]")).click();
+        a.cambiarVentana(driver);
     }
 
     public void IngresarMenuConsultarCaja(WebDriver driver, Metodos a) throws IOException, InterruptedException {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[7]"));//Administrador de Cuentas Universal
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[38]/div[4]"));//Consultar Cajas
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//Administrador de Cuentas Universal
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[4]"));//Consultar Cajas
             menu1.click();
             menu2.click();
             a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2

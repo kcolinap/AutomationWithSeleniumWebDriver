@@ -1,6 +1,5 @@
 package tests;
 
-import beans.BeneficiarioJuridicoATerceroNaturalBean;
 import beans.CrearCajaBean;
 import main.controller.CrearCaja;
 import org.apache.log4j.Logger;
