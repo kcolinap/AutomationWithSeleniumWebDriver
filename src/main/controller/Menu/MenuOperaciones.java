@@ -9,270 +9,332 @@ public class MenuOperaciones {
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
-    /** Operaciones **/
+    /** Operaciones (Workflow) **/
 
-    public void OperacionesWorkflow(){
+    public void OperacionesWorkflow(){}
 
-    }
+    /** -- Operaciones (Workflow) -- **/
+
+
 
     /** Operaciones Polizas **/
 
-    public void OpePol_CrearWController(){
+        public void OpePol_CrearWController(){}
 
-    }
+        public void OpePol_Crear(){}
 
-    public void OpePol_Crear(){
+        public void OpePol_CrearCotizacion(){}
 
-    }
+        public void OpePol_BusquedaCotizaciones(){}
 
-    public void OpePol_CrearCotizacion(){
+        public void OpePol_SuscripcionMantenimientoPolizasWController(){}
 
-    }
+        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(){}
 
-    public void OpePol_BúsquedaCotizaciones(){
+        public void OpePol_BusquedaSolicitud(){}
 
-    }
+        public void OpePol_AdministracionCuotasComodin(){}
 
-    public void OpePol_SuscripciónMantenimientoPólizasWController(){
+        public void OpePol_EmisionMasivaPropuestas(){}
 
-    }
+        public void OpePol_RecuperacionOperacionesPendientesWController(){}
 
-    public void OpePol_CotizaciónSuscripciónMantenimientoPólizas(){
+        public void OpePol_RecuperacionOperacionesPendientes(){}
 
-    }
+        /** OpePol_EndososMasivos **/
+            public void OpePol_EndososMasivos_IncluirExcluirCoberturas(){}
 
-    public void OpePol_BúsquedaSolicitud(){
+            public void OpePol_EndososMasivos_CambioPlan(){}
+        /** -- OpePol_EndososMasivos -- **/
 
-    }
+        public void OpePol_CargaASL(){}
 
-    public void OpePol_AdministracionCuotasComodin(){
+        public void OpePol_ultimaOperacionReserva(){}
 
-    }
+        public void OpePol_ProcesoCancelacionPorFaltaPago(){}
 
-    public void OpePol_EmisiónMasivaPropuestas(){
+        /** OpePol_PolizasArchivosProcesados **/
+            public void OpePol_ArchivosProcesados_ListaArchivosProcesados(){}
 
-    }
+            public void OpePol_ArchivosProcesados_ReordenarArchivos(){}
 
-    public void OpePol_RecuperaciónOperacionesPendientesWController(){
+            public void OpePol_ArchivosProcesados_AplicarAccionMasiva(){}
+        /** -- OpePol_PolizasArchivosProcesados -- **/
 
-    }
+        public void OpePol_BusquedaDocumentos(){}
 
-    public void OpePol_RecuperaciónOperacionesPendientes(){
+        /** OpePol_PolizasMasivo **/
+            public void OpePol_PolizasMasivo_Importar(){}
 
-    }
+            public void OpePol_PolizasMasivo_Exportar(){}
 
-            /** OpePol_EndososMasivos **/
-        public void OpePol_EndososMasivos_IncluirExcluirCoberturas(){
+            public void OpePol_PolizasMasivo_HistoricoPolizasRechazadas(){}
+        /** -- OpePol_PolizasMasivo -- **/
 
-    }
-
-        public void OpePol_EndososMasivos_CambioPlan(){
-
-    }
-            /** **/
-
-    public void OpePol_CargaASL(){
-
-    }
-
-    public void OpePol_ÚltimaOperaciónReserva(){
-
-    }
-
-    public void OpePol_ProcesoCancelaciónPorFaltaPago(){
-
-    }
-
-        /** OpePol_PolizasArchivosProcesados**/
-        public void OpePol_ArchivosProcesados_ListaArchivosProcesados(){
-
-        }
-
-        public void OpePol_ArchivosProcesados_ReordenarArchivos(){
-
-        }
-
-        public void OpePol_ArchivosProcesados_AplicarAcciónMasiva(){
-
-        }
-        /** **/
-
-    public void OpePol_BusquedaDocumentos(){
-
-    }
-
-        /** OpePol_PólizasMasivo **/
-        public void OpePol_PólizasMasivo_Importar(){
-
-        }
-
-        public void OpePol_PólizasMasivo_Exportar(){
-
-        }
-
-        public void OpePol_PólizasMasivo_HistóricoPólizasRechazadas(){
-
-        }
-        /** **/
-
-    public void OpePol_CotizacionesPendientes(){
-
-    }
+        public void OpePol_CotizacionesPendientes(){}
+    /**  -- Operaciones Polizas --  **/
 
 
 
 
     /** Operaciones Siniestros**/
 
-    public void OpeSini_DeclaraciónSiniestro(){}
+        public void OpeSini_DeclaracionSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestro(){}
+        public void OpeSini_MantenimientoSiniestro(){}
 
-    public void OpeSini_CreacionSiniestroFrontEnd(){}
+        public void OpeSini_CreacionSiniestroFrontEnd(){}
 
-    public void OpeSini_NotificacionSiniestro(){}
+        public void OpeSini_NotificacionSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestroVaadin(){}
+        public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-    public void OpeSini_CreaciónSiniestro(){}
+        public void OpeSini_CreacionSiniestro(){}
 
-    public void OpeSini_Recuperaciones(){}
+        public void OpeSini_Recuperaciones(){}
 
-    public void OpeSini_MantenimientoRecuperación(){}
+        public void OpeSini_MantenimientoRecuperacion(){}
 
-    public void OpeSini_CargaSiniestrosAPartirDeUnaMediaExternaASL(){}
+        public void OpeSini_CargaSiniestrosAPartirDeUnaMediaExternaASL(){}
 
-    public void OpeSini_BuscadorSiniestrosPendientes(){}
+        public void OpeSini_BuscadorSiniestrosPendientes(){}
 
-    public void OpeSini_ActividadesPendientesReclamo(){}
+        public void OpeSini_ActividadesPendientesReclamo(){}
 
-    public void OpeSini_HistorialActividadesReclamo(){}
+        public void OpeSini_HistorialActividadesReclamo(){}
 
-    public void OpeSini_HistorialReclamo(){}
+        public void OpeSini_HistorialReclamo(){}
 
-    public void OpeSini_ArchivosProcesadosPorASLClaim(){}
+        public void OpeSini_ArchivosProcesadosPorASLClaim(){}
 
-    public void OpeSini_SiniestrosPorProcesar(){}
+        public void OpeSini_SiniestrosPorProcesar(){}
 
-    public void OpeSini_BusquedaDocumentos(){}
+        public void OpeSini_BusquedaDocumentos(){}
 
-    public void OpeSini_LiquidaciónSiniestro(){}
+        public void OpeSini_LiquidacionSiniestro(){}
 
-    public void OpeSini_DeclaracionCartaGarantia(){}
+        public void OpeSini_DeclaracionCartaGarantia(){}
 
-    public void OpeSini_AuditarCartaGarantia(){}
+        public void OpeSini_AuditarCartaGarantia(){}
 
-    public void OpeSini_SiniestrosLiquidadosPorUsuarios(){}
+        public void OpeSini_SiniestrosLiquidadosPorUsuarios(){}
 
-    public void OpeSini_ConsultaOrdenesPago(){}
+        public void OpeSini_ConsultaOrdenesPago(){}
 
-    public void OpeSini_GeneraciónPlanillasLiquidaciónPagos(){}
+        public void OpeSini_GeneracionPlanillasLiquidacionPagos(){}
 
+    /** -- Operaciones Siniestros -- **/
 
 
 
     /** Coaseguro Reaseguro **/
 
-    public void CoaRea_OperaciónConsultaReaseguros(){}
+        public void CoaRea_OperacionConsultaReaseguros(){}
 
-    public void CoaRea_MantenimientoDistribuciónReaseguro(){}
+        public void CoaRea_MantenimientoDistribucionReaseguro(){}
 
-    public void CoaRea_ContratoFacultativo(){}
+        public void CoaRea_ContratoFacultativo(){}
 
-        /** CoaRea_CuentasTécnicas **/
-        public void CoaRea_CuentasTécnicas_LiquidaciónCuentaTécnica(){}
-        public void CoaRea_CuentasTécnicas_ConsultaCuentaTécnica(){}
-        public void CoaRea_CuentasTécnicas_PrevisualizacionCuentasTecnicas(){}
-        /** **/
+        /** CoaRea_CuentasTecnicas **/
+            public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(){}
+            public void CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(){}
+            public void CoaRea_CuentasTecnicas_PrevisualizacionCuentasTecnicas(){}
+        /** -- CoaRea_CuentasTecnicas -- **/
 
-    public void CoaRea_LiquidaciónCoasegurador(){}
+        public void CoaRea_LiquidacionCoasegurador(){}
 
-    public void CoaRea_LiquidaciónReaseguro(){}
+        public void CoaRea_LiquidacionReaseguro(){}
 
-    public void CoaRea_UtilidadesReaseguro(){}
+        public void CoaRea_UtilidadesReaseguro(){}
 
-    public void CoaRea_BúsquedaLiquidacionReaseguro(){}
+        public void CoaRea_BusquedaLiquidacionReaseguro(){}
 
-    public void CoaRea_ConsultaCoaseguros(){}
+        public void CoaRea_ConsultaCoaseguros(){}
 
-    public void CoaRea_SiniestrosCoaseguroContado(){}
+        public void CoaRea_SiniestrosCoaseguroContado(){}
 
-    public void CoaRea_HistúricoReaseguro(){}
+        public void CoaRea_HisturicoReaseguro(){}
 
-    public void CoaRea_ConsultaReaseguroPolizaMaestra(){}
+        public void CoaRea_ConsultaReaseguroPolizaMaestra(){}
 
-    public void CoaRea_PrimasDepositoReaseguro(){}
+        public void CoaRea_PrimasDepositoReaseguro(){}
 
-    public void CoaRea_ConsultaSiniestrosContratosNoProporcionales(){}
+        public void CoaRea_ConsultaSiniestrosContratosNoProporcionales(){}
 
-    public void CoaRea_ReinstalaciónLímiteAgregadoAnual(){}
+        public void CoaRea_ReinstalacionLimiteAgregadoAnual(){}
 
-    public void CoaRea_AjustePrimasReaseguro(){}
+        public void CoaRea_AjustePrimasReaseguro(){}
 
-    public void CoaRea_FraccionamientoReaseguradoresFacultativos(){}
+        public void CoaRea_FraccionamientoReaseguradoresFacultativos(){}
 
+    /** -- Coaseguro Reaseguro -- **/
 
 
 
     /** UAA (Administrador de Cuentas Universal) **/
 
         /** Caja **/
-        public void UAA_Caja_AperturaCaja(){}
+            public void UAA_Caja_AperturaCaja(){}
 
-        public void UAA_Caja_InicioSesión(){}
+            public void UAA_Caja_InicioSesion(){}
 
-        public void UAA_Caja_AplicaciónCobro(){}
+            public void UAA_Caja_AplicacionCobro(){}
 
-        public void UAA_Caja_ConsultaOperacionesCobranza(){}
+            public void UAA_Caja_ConsultaOperacionesCobranza(){}
 
-        public void UAA_Caja_ReversoRecaudación(){}
+            public void UAA_Caja_ReversoRecaudacion(){}
 
-        public void UAA_Caja_AplicaciónPagoSobreIngresosNoImputados(){}
+            public void UAA_Caja_AplicacionPagoSobreIngresosNoImputados(){}
 
-        public void UAA_Caja_Reportes(){}
+            public void UAA_Caja_Reportes(){}
 
-        public void UAA_Caja_SaldoDiarioPorCajero(){}
+            public void UAA_Caja_SaldoDiarioPorCajero(){}
 
-        public void UAA_Caja_ReAperturaCaja(){}
+            public void UAA_Caja_ReAperturaCaja(){}
 
-        public void UAA_Caja_CierreSesión(){}
+            public void UAA_Caja_CierreSesion(){}
 
-        public void UAA_Caja_CierreVariosCajeros(){}
+            public void UAA_Caja_CierreVariosCajeros(){}
 
-        public void UAA_Caja_CierreCaja(){}
+            public void UAA_Caja_CierreCaja(){}
 
-        public void UAA_Caja_PrimasPagadasACancelar(){}
+            public void UAA_Caja_PrimasPagadasACancelar(){}
 
-        public void UAA_Caja_PrimasPendientesACancelar(){}
+            public void UAA_Caja_PrimasPendientesACancelar(){}
 
-        public void UAA_Caja_PrimasVencidasNoPagadasYFondosInversión(){}
+            public void UAA_Caja_PrimasVencidasNoPagadasYFondosInversion(){}
 
-        public void UAA_Caja_ConsultaFacturasGeneradas(){}
+            public void UAA_Caja_ConsultaFacturasGeneradas(){}
 
-        /** Caja **/
+        /** -- Caja -- **/
 
-    public void UAA_FacturaciónCobro(){}
+        /** Facturacion y Cobro **/
 
-    public void UAA_ModificaciónMovimientosTercero(){}
+            public void UAA_FactCobro_GeneracionAvisoCobro(){}
+            public void UAA_FactCobro_ImportarArchivoValidacionPagos(){}
+            public void UAA_FactCobro_RealizarRecaudacionMasiva(){}
+            public void UAA_FactCobro_ReversoRecaudacionMasiva(){}
+            public void UAA_FactCobro_CerrandoOperacionesManuales(){}
+            public void UAA_FactCobro_ConsultaRecibosEnviadosAlCobro(){}
+            public void UAA_FactCobro_GeneracionAvisoCobroMasivo(){}
+            public void UAA_FactCobro_ProcesoPagosPorProducto(){}
 
-    public void UAA_Reportes(){}
+        /** -- Facturacion y Cobro -- **/
 
-    public void UAA_EstadosCuenta(){}
+        public void UAA_ModificacionMovimientosTercero(){}
 
-    public void UAA_Agentes(){}
+        /** Reportes **/
+            public void UAA_Rep_ReporteAntiguedad(){}
+            public void UAA_Rep_ContratantesMorosos(){}
+            public void UAA_Rep_AvisosDeCobros(){}
+        /** -- Reportes -- **/
 
-    public void UAA_LiquidaciónTercero(){}
+        public void UAA_EstadosCuenta(){}
 
-    public void UAA_ExportarMovimientosSAP(){}
+        /** Agentes **/
+            public void UAA_Agentes_LiquidacionAgente(){}
+            public void UAA_Agentes_ReversoLiquidacionAgente(){}
+            public void UAA_Agentes_TraspasoDeCartera(){}
+        /** -- Agentes -- **/
 
-    public void UAA_DevoluciúnPrimaDepúsito(){}
+        public void UAA_LiquidacionTercero(){}
 
-    public void UAA_NotificaciónVencimiento(){}
+        public void UAA_ExportarMovimientosSAP(){}
 
-    public void UAA_ReconciliaciónPagoPrima(){}
+        public void UAA_DevoluciunPrimaDepusito(){}
 
-    public void UAA_ConsultaMultimoneda(){}
+        public void UAA_NotificacionVencimiento(){}
 
-    public void UAA_AgrupacionAsientosContables(){}
+        public void UAA_ReconciliacionPagoPrima(){}
+
+        /** ConsultaMultimoneda **/
+            public void UAA_ConsMulti_TasaCambio(){}
+            public void UAA_ConsMulti_Moneda(){}
+        /** -- ConsultaMultimoneda -- **/
+
+        public void UAA_AgrupacionAsientosContables(){}
+
+    /** UAA (Administrador de Cuentas Universal) **/
+
+
+
+
+    /** Reportes **/
+        public void Repor_ReportesGenerales(){}
+        public void Repor_ImprimirReportesPorLotes(){}
+        public void Repor_ReportesGenerados(){}
+        public void Repor_MantenimientoReportes(){}
+    /** -- Reportes -- **/
+
+
+
+
+
+    /** Fondos de Inversion **/
+        public void Inv_Adquisicion(){}
+        public void Inv_EstadoCuentaFondos(){}
+        public void Inv_OperacionesCambios(){}
+    /** -- Fondos de Inversion -- **/
+
+
+
+
+
+    /** Solicitud de Inspecciones **/
+    public void SolicitudInspecciones(){}
+    /** -- Solicitud de Inspecciones -- **/
+
+
+
+    /** Operaciones de Vida **/
+        public void OpeVida_SaldarOProrrogar(){}
+        public void OpeVida_MostrarReservas(){}
+        public void OpeVida_MostrarPrestamosWController(){}
+        public void OpeVida_MostrarPrestamos(){}
+        public void OpeVida_RescateWController(){}
+        public void OpeVida_Rescate(){}
+        public void OpeVida_MostrarLogsReserva(){}
+        public void OpeVida_ConsultarTablasFlujo(){}
+    /** -- Operaciones de Vida -- **/
+
+
+
+
+    /** Administracion de Cotizaciones **/
+        public void AdminCoti_NuevaCotizacion(){}
+        public void AdminCoti_BuscarCotizacion(){}
+        public void AdminCoti_BuscarPoliza(){}
+    /** -- Administracion de Cotizaciones -- **/
+
+
+
+
+    /** Cumulos **/
+    public void Cumulos_CumulosPorTerceros(){}
+    public void Cumulos_CumulosPorProducto(){}
+    public void Cumulos_CumulosPorAsegurado(){}
+    /** -- Cumulos -- **/
+
+
+
+
+    /** Operaciones de Renta **/
+        public void OperaRenta_OperacionesRentaVitalicia(){}
+    /** -- Operaciones de Renta -- **/
+
+
+
+
+    /** Consultar en Lista Restrictiva **/
+    public void ConsultarListaRestrictiva(){}
+    /** -- Consultar en Lista Restrictiva -- **/
+
+
+
+    /** Facturacion Automatica **/
+        public void FactAut_GeneracionFacturacionAutomatica(){}
+        public void FactAut_ConsultaFacturacion(){}
+        public void FactAut_LogProcesamiento(){}
+    /** -- Facturacion Automatica -- **/
 
 }
