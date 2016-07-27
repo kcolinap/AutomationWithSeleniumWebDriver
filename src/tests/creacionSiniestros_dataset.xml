@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <CREACION_SINIESTROS PRUEBA="1" ORDENAR_POR="Ordenar_Por" PRODUCTO="Producto" ESTADOS_CICLO_VIDA="Estados_ciclo_vida"
+                       CONTRATANTE="Contratante" ASEGURADO="Asegurado" ID_POLIZA="ID_Poliza" FECHA_DESDE="Fecha_Desde"
+                       FECHA_HASTA="Fecha_Hasta" SUCURSAL_POLIZA="Sucursal_Poliza" NUMERO_POLIZA="Numero_Poliza"
+                       FECHA_EMISION="Fecha_Emision" MONEDA_POLIZA="Moneda_Poliza" TIPO_PRODUCCION="Tipo_Produccion"
+                       TIPO_VIGENCIA="Tipo_Vigencia" VIGENCIA="Vigencia" CANAL_VENTA="Canal_Venta"
+                       FRECUENCIA_PAGO="Frecuencia_Pago" FECHA_EVENTO_ANTERIOR="Fecha_Evento_Anterior"
+                       FECHA_PROXIMA_GENERACION_PRIMA="Fecha_Proxima_Generacion_Prima"
+                       FECHA_PROXIMA_FACTURACION="Fecha_Proxima_Facturacion" TIPO_POLIZA="Tipo_Poliza"
+                       NUMERO_COTIZACION="Numero_Cotizacion" NUMERO_PROPUESTA="Numero_Propuesta"
+                       TIPO_MONEDA="Tipo_Moneda" FECHA_OCURRENCIA_SINIESTRO="fecha_ocurrencia_siniestro"
+                       SUCURSAL_SINIESTROS="Sucursal_siniestros" HORA_OCURRENCIA="Hora_Ocurrencia"
+                       FECHA_AVISO_COMPANIA="Fecha_Aviso_Compania" HORA_NOTIFICACION="Hora_Notificacion"
+                       FECHA_RECL_FORMALIZACION="Fecha_Recl_Formalizacion"
+                       FECHA_INTERRUPCION_TERMINOS="Fecha_Interrupcion_Terminos" RECLAMANTE="Reclamante"
+                       CAUSA_MUERTE="Causa_Muerte" CAUSALES_COBERTURA_MUERTE="Causales_cobertura_Muerte"
+                       DEPARTAMENTO="Departamento" CIUDAD="Ciudad" ACTIVIDAD_SINIESTRO="Actividad_Siniestro"
+                       FECHA_ACTIVIDAD="Fecha_Actividad" OBSERVACIONES_SINIESTRO="Observaciones_Siniestro"
+                       CERTIFICADO="Certificado" OBJETOS_ASEGURADOS="Objetos_Asegurados"
+                       COBERTURA_AFECTADA="Cobertura_Afectada" PAGO_MAXIMO="Pago_Maximo"
+                       MONEDA_SINIESTRO="Moneda_siniestro" FECHA_COMPROMISO="Fecha_Compromiso"
+                       FECHA_INICIAL="Fecha_inicial" FECHA_FINAL="Fecha_Final" RAZON="Razon" ESTADO="Estado"
+                       TIPO="Tipo" MONTO_SINIESTRO="Monto_Siniestro"/>
+</dataset>

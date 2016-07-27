@@ -415,7 +415,7 @@ public class CreacionSiniestrosBean implements Serializable {
         this.montoSiniestro = montoSiniestro;
     }
 
-    public static ArrayList getTercerosUpdateRoles() {
+    public static ArrayList getCreacionSiniestros() {
 
         Connection conn;
         Statement stmt;
@@ -433,99 +433,57 @@ public class CreacionSiniestrosBean implements Serializable {
             while (rs.next()) {
                 CreacionSiniestrosBean creacionSiniestrosBean = new CreacionSiniestrosBean();
 
-                // , , , , CONTRATANTE, ASEGURADO,
-                // ID_POLIZA, FECHA_DESDE, FECHA_HASTA, SUCURSAL_POLIZA, NUMERO_POLIZA, FECHA_EMISION,
-                // MONEDA_POLIZA, TIPO_PRODUCCION, TIPO_VIGENCIA, VIGENCIA, CANAL_VENTA, FRECUENCIA_PAGO,
-                // FECHA_EVENTO_ANTERIOR, FECHA_PROXIMA_GENERACION_PRIMA, FECHA_PROXIMA_FACTURACION, TIPO_POLIZA,
-                // NUMERO_COTIZACION, NUMERO_PROPUESTA, TIPO_MONEDA, FECHA_OCURRENCIA_SINIESTRO, SUCURSAL_SINIESTROS,
-                // HORA_OCURRENCIA, FECHA_AVISO_COMPANIA, HORA_NOTIFICACION, FECHA_RECL_FORMALIZACION,
-                // FECHA_INTERRUPCION_TERMINOS, RECLAMANTE, CAUSA_MUERTE, CAUSALES_COBERTURA_MUERTE, DEPARTAMENTO,
-                // CIUDAD, ACTIVIDAD_SINIESTRO, FECHA_ACTIVIDAD, OBSERVACIONES_SINIESTRO, CERTIFICADO,
-                // OBJETOS_ASEGURADOS, COBERTURA_AFECTADA, PAGO_MAXIMO, MONEDA_SINIESTRO, FECHA_COMPROMISO,
-                // FECHA_INICIAL, FECHA_FINAL, RAZON, ESTADO, TIPO, MONTO_SINIESTRO
-
                 creacionSiniestrosBean.setOrdenarPor(rs.getString("ORDENAR_POR"));
                 creacionSiniestrosBean.setProducto(rs.getString("PRODUCTO"));
                 creacionSiniestrosBean.setEstadosCicloVida(rs.getString("ESTADOS_CICLO_VIDA"));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
-                creacionSiniestrosBean.(rs.getString(""));
+                creacionSiniestrosBean.setContratante(rs.getString("CONTRATANTE"));
+                creacionSiniestrosBean.setAsegurado(rs.getString("ASEGURADO"));
+                creacionSiniestrosBean.setIdPoliza(rs.getString("ID_POLIZA"));
+                creacionSiniestrosBean.setFechaDesde(rs.getString("FECHA_DESDE"));
+                creacionSiniestrosBean.setFechaHasta(rs.getString("FECHA_HASTA"));
+                creacionSiniestrosBean.setSucursalPoliza(rs.getString("SUCURSAL_POLIZA"));
+                creacionSiniestrosBean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
+                creacionSiniestrosBean.setFechaEmision(rs.getString("FECHA_EMISION"));
+                creacionSiniestrosBean.setMonedaPoliza(rs.getString("MONEDA_POLIZA"));
+                creacionSiniestrosBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
+                creacionSiniestrosBean.setTipoVigencia(rs.getString("TIPO_VIGENCIA"));
+                creacionSiniestrosBean.setVigencia(rs.getString("VIGENCIA"));
+                creacionSiniestrosBean.setCanalVenta(rs.getString("CANAL_VENTA"));
+                creacionSiniestrosBean.setFrecuenciaPago(rs.getString("FRECUENCIA_PAGO"));
+                creacionSiniestrosBean.setFechaEventoAnterior(rs.getString("FECHA_EVENTO_ANTERIOR"));
+                creacionSiniestrosBean.setFechaProximaGeneracionPrima(rs.getString("FECHA_PROXIMA_GENERACION_PRIMA"));
+                creacionSiniestrosBean.setFechaProximaFacturacion(rs.getString("FECHA_PROXIMA_FACTURACION"));
+                creacionSiniestrosBean.setTipoPoliza(rs.getString("TIPO_POLIZA"));
+                creacionSiniestrosBean.setNumeroCotizacion(rs.getString("NUMERO_COTIZACION"));
+                creacionSiniestrosBean.setNumeroPropuesta(rs.getString("NUMERO_PROPUESTA"));
+                creacionSiniestrosBean.setTipoMoneda(rs.getString("TIPO_MONEDA"));
+                creacionSiniestrosBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
+                creacionSiniestrosBean.setSucursalSiniestros(rs.getString("SUCURSAL_SINIESTROS"));
+                creacionSiniestrosBean.setHoraOcurrencia(rs.getString("HORA_OCURRENCIA"));
+                creacionSiniestrosBean.setFechaAvisoCompania(rs.getString("FECHA_AVISO_COMPANIA"));
+                creacionSiniestrosBean.setHoraNotificacion(rs.getString("HORA_NOTIFICACION"));
+                creacionSiniestrosBean.setFechaReclFormalizacion(rs.getString("FECHA_RECL_FORMALIZACION"));
+                creacionSiniestrosBean.setFechaInterrupcionTerminos(rs.getString("FECHA_INTERRUPCION_TERMINOS"));
+                creacionSiniestrosBean.setReclamante(rs.getString("RECLAMANTE"));
+                creacionSiniestrosBean.setCausaMuerte(rs.getString("CAUSA_MUERTE"));
+                creacionSiniestrosBean.setCausalesCoberturaMuerte(rs.getString("CAUSALES_COBERTURA_MUERTE"));
+                creacionSiniestrosBean.setDepartamento(rs.getString("DEPARTAMENTO"));
+                creacionSiniestrosBean.setCiudad(rs.getString("CIUDAD"));
+                creacionSiniestrosBean.setActividadSiniestro(rs.getString("ACTIVIDAD_SINIESTRO"));
+                creacionSiniestrosBean.setFechaActividad(rs.getString("FECHA_ACTIVIDAD"));
+                creacionSiniestrosBean.setObservacionesSiniestro(rs.getString("OBSERVACIONES_SINIESTRO"));
+                creacionSiniestrosBean.setCertificado(rs.getString("CERTIFICADO"));
+                creacionSiniestrosBean.setObjetosAsegurados(rs.getString("OBJETOS_ASEGURADOS"));
+                creacionSiniestrosBean.setCoberturaAfectada(rs.getString("COBERTURA_AFECTADA"));
+                creacionSiniestrosBean.setPagoMaximo(rs.getString("PAGO_MAXIMO"));
+                creacionSiniestrosBean.setMonedaSiniestro(rs.getString("MONEDA_SINIESTRO"));
+                creacionSiniestrosBean.setFechaCompromiso(rs.getString("FECHA_COMPROMISO"));
+                creacionSiniestrosBean.setFechaInicial(rs.getString("FECHA_INICIAL"));
+                creacionSiniestrosBean.setFechaFinal(rs.getString("FECHA_FINAL"));
+                creacionSiniestrosBean.setRazon(rs.getString("RAZON"));
+                creacionSiniestrosBean.setEstado(rs.getString("ESTADO"));
+                creacionSiniestrosBean.setTipo(rs.getString("TIPO"));
+                creacionSiniestrosBean.setMontoSiniestro(rs.getString("MONTO_SINIESTRO"));
 
                 siniestro.add(creacionSiniestrosBean);
             }
