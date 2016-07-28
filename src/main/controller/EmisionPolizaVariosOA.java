@@ -29,13 +29,13 @@ public class EmisionPolizaVariosOA {
         Thread.sleep(5000);
 
         // Creación de Póliza
-    //    IngresarMenuEmisionPoliza(driver, a);
+        IngresarMenuEmisionPoliza(driver, a);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
-  //      CrearPoliza(a, driver, emisionPolizaVariosOABean);
+        CrearPoliza(a, driver, emisionPolizaVariosOABean);
     }
-/*
+
     public void IngresarMenuEmisionPoliza(WebDriver driver, Metodos a) throws IOException, InterruptedException {
 
         try {
@@ -64,6 +64,8 @@ public class EmisionPolizaVariosOA {
         Thread.sleep(4000);
         InformacionGeneral(a, driver, emisionPolizaVariosOABean);
         Thread.sleep(4000);
+
+        /***Espera***/
         TomadorTercero(a, driver, emisionPolizaVariosOABean);
         UnidadRiesgo(a, driver, emisionPolizaVariosOABean);
         BotonCalcular(a, driver);
@@ -125,7 +127,7 @@ public class EmisionPolizaVariosOA {
     }
 
     /**Poliza**/
-  /*  public void InformacionGeneral(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
+    public void InformacionGeneral(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
         try {
             Select sucursalSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
             sucursalSelect.selectByValue(emisionPolizaVariosOABean.getSucursal()); //24651917 = Direccion General
@@ -179,6 +181,13 @@ public class EmisionPolizaVariosOA {
             WebElement btnGuardarInfGeneral = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_calculateButton']"));
             btnGuardarInfGeneral.click();
 
+            /** Experimento de Espera que se deshabilite el mensaje de Espera**/
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()){
+                Thread.sleep(5000);
+                //System.out.println("Experimento de Espera 1");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
@@ -203,8 +212,8 @@ public class EmisionPolizaVariosOA {
             if (emisionPolizaVariosOABean.getTipoTercero() != null){
                 tipoTeceroSelect.selectByValue(emisionPolizaVariosOABean.getTipoTercero());
             }
-            if (emisionPolizaVariosOABean.getTipoDocId() != null){
-                tipoDocIdSelect.selectByValue(emisionPolizaVariosOABean.getTipoDocId());
+            if (emisionPolizaVariosOABean.getTipoDicIdentidad() != null){
+                tipoDocIdSelect.selectByValue(emisionPolizaVariosOABean.getTipoDicIdentidad());
             }
             if (emisionPolizaVariosOABean.getCedula() != null){
                 cedulaInput.sendKeys(emisionPolizaVariosOABean.getCedula());
@@ -270,14 +279,14 @@ public class EmisionPolizaVariosOA {
             Thread.sleep(6000);
 
             WebElement numCredito1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field']"));
-            numCredito1.sendKeys(emisionPolizaVariosOABean.getNumCredito1());
+            numCredito1.sendKeys(emisionPolizaVariosOABean.getNumCredito());
             Thread.sleep(3000);
             driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']")).click();
 
             Thread.sleep(2000);
             WebElement montoAseg1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
             montoAseg1.clear();
-            montoAseg1.sendKeys(emisionPolizaVariosOABean.getMontoAsegurado1());
+            montoAseg1.sendKeys(emisionPolizaVariosOABean.getMontoAsgurado());
             Thread.sleep(2000);
             driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']")).click();
             Thread.sleep(3000);
@@ -293,38 +302,15 @@ public class EmisionPolizaVariosOA {
             a.ScreenShot(driver, "screen11", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
 
-            ObjetoAsegurado(a, driver, emisionPolizaVariosOABean);
+            ObjetoAsegurado1(a, driver, emisionPolizaVariosOABean);
 
-            // Segunda UR
-            WebElement btnNuevaUR2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
-            btnNuevaUR2.click();
-            Thread.sleep(6000);
-
-            WebElement numCredito2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field']"));
-            numCredito2.sendKeys(emisionPolizaVariosOABean.getNumCredito2());
             Thread.sleep(3000);
-            driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']")).click();
-
-            Thread.sleep(2000);
-            WebElement montoAseg2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
-            montoAseg2.clear();
-            montoAseg2.sendKeys(emisionPolizaVariosOABean.getMontoAsegurado2());
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']")).click();
+            WebElement btnNuevoOA = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_registerFormInsurance_containerButton_NewButtonInsurance']"));
+            btnNuevoOA.click();
             Thread.sleep(3000);
 
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen12", nombreAutomatizacion); //screenshot2
-            Toolkit.getDefaultToolkit().beep();
 
-            WebElement btnGuardar2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_saveButtonRU']"));
-            btnGuardar2.click();
-
-            Thread.sleep(4000);
-            a.ScreenShot(driver, "screen13", nombreAutomatizacion); //screenshot2
-            Toolkit.getDefaultToolkit().beep();
-
-            ObjetoAsegurado(a, driver, emisionPolizaVariosOABean);
+            ObjetoAsegurado2(a, driver, emisionPolizaVariosOABean);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -333,23 +319,16 @@ public class EmisionPolizaVariosOA {
         }
     }
 
-    public void ObjetoAsegurado(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
+    public void ObjetoAsegurado1(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
         try{
             Thread.sleep(3000);
             WebElement porExPrima = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_field']"));
             porExPrima.clear();
-            porExPrima.sendKeys(emisionPolizaVariosOABean.getPorcExtraPrima());
+            porExPrima.sendKeys(emisionPolizaVariosOABean.getPorcExtraPrima1());
             Thread.sleep(2000);
             driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_styleAcordeon_label']"));
             Thread.sleep(3000);
 
-            Thread.sleep(2000);
-            WebElement porDescuento = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_field']"));
-            porDescuento.clear();
-            porDescuento.sendKeys(emisionPolizaVariosOABean.getPorcDescuento());
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_styleAcordeon_label']"));
-            Thread.sleep(3000);
 
             Thread.sleep(4000);
             a.ScreenShot(driver, "screen14", nombreAutomatizacion); //screenshot2
@@ -367,12 +346,39 @@ public class EmisionPolizaVariosOA {
         }
     }
 
+    public void ObjetoAsegurado2(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
+        try{
+            Thread.sleep(3000);
+            WebElement porExPrima = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_field']"));
+            porExPrima.clear();
+            porExPrima.sendKeys(emisionPolizaVariosOABean.getPorcExtraPrima2());
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+            Thread.sleep(3000);
+
+
+            Thread.sleep(4000);
+            a.ScreenShot(driver, "screen15", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+            btnGuardar.click();
+
+            AseguradoVida2(a, driver, emisionPolizaVariosOABean);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            //log.info(e);
+            log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
     public void AseguradoVida(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
         try{
             Thread.sleep(3000);
 
             /*********************************************************/
-/*            WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
+            WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
             btnBusquedaAvanzada.click();
 
             Thread.sleep(2000);
@@ -387,8 +393,8 @@ public class EmisionPolizaVariosOA {
             if (emisionPolizaVariosOABean.getTipoTercero() != null){
                 tipoTeceroSelect.selectByValue(emisionPolizaVariosOABean.getTipoTercero());
             }
-            if (emisionPolizaVariosOABean.getTipoDocId() != null){
-                tipoDocIdSelect.selectByValue(emisionPolizaVariosOABean.getTipoDocId());
+            if (emisionPolizaVariosOABean.getTipoDicIdentidad() != null){
+                tipoDocIdSelect.selectByValue(emisionPolizaVariosOABean.getTipoDicIdentidad());
             }
             if (emisionPolizaVariosOABean.getCedula() != null){
                 cedulaInput.sendKeys(emisionPolizaVariosOABean.getCedula());
@@ -401,7 +407,7 @@ public class EmisionPolizaVariosOA {
             }
 
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen15", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen16", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -412,7 +418,7 @@ public class EmisionPolizaVariosOA {
             btnSelTercero.click();
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen16", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen17", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
 
             WebElement btnAsociar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_showDetailSearchTable_proof_TableForm_associateButton']"));
@@ -426,19 +432,97 @@ public class EmisionPolizaVariosOA {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen17", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen18", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
 
             WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
             btnGuardar.click();
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen18", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen19", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             /*********************************************************/
 
 
-/*        }catch (Exception e) {
+        }catch (Exception e) {
+            e.printStackTrace();
+            //log.info(e);
+            log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void AseguradoVida2(Metodos a, WebDriver driver, EmisionPolizaVariosOABean emisionPolizaVariosOABean){
+        try{
+            Thread.sleep(3000);
+
+            /*********************************************************/
+            WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
+            btnBusquedaAvanzada.click();
+
+            Thread.sleep(2000);
+
+            Select tipoTeceroSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_thirdPartyTypes']")));
+            Select tipoDocIdSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+            WebElement cedulaInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+            WebElement nombreInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
+            WebElement apellidoInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+            WebElement btnBuscarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_searchButton']"));
+
+            if (emisionPolizaVariosOABean.getTipoTercero() != null){
+                tipoTeceroSelect.selectByValue(emisionPolizaVariosOABean.getTipoTercero());
+            }
+            if (emisionPolizaVariosOABean.getTipoDicIdentidad() != null){
+                tipoDocIdSelect.selectByValue(emisionPolizaVariosOABean.getTipoDicIdentidad());
+            }
+            if (emisionPolizaVariosOABean.getCedula() != null){
+                cedulaInput.sendKeys(emisionPolizaVariosOABean.getCedula());
+            }
+            if (emisionPolizaVariosOABean.getNombre() != null){
+                nombreInput.sendKeys(emisionPolizaVariosOABean.getNombre());
+            }
+            if (emisionPolizaVariosOABean.getApellido() != null){
+                apellidoInput.sendKeys(emisionPolizaVariosOABean.getApellido());
+            }
+
+            Thread.sleep(2000);
+            a.ScreenShot(driver, "screen16", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            btnBuscarTomador.click();
+            Thread.sleep(3000);
+
+            WebElement btnSelTercero = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+            btnSelTercero.click();
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen17", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnAsociar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_showDetailSearchTable_proof_TableForm_associateButton']"));
+            btnAsociar.click();
+            Thread.sleep(4000);
+
+            if (emisionPolizaVariosOABean.getPorcentajeTomador() != null) {
+                WebElement porcentajeTomadorInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+                porcentajeTomadorInput.clear();
+                porcentajeTomadorInput.sendKeys(emisionPolizaVariosOABean.getPorcentajeTomador());
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen18", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            btnGuardar.click();
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen19", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+            /*********************************************************/
+
+
+        }catch (Exception e) {
             e.printStackTrace();
             //log.info(e);
             log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
@@ -452,7 +536,7 @@ public class EmisionPolizaVariosOA {
             btnCalcular.click();
             Thread.sleep(3000); //Implementar la busqueda por texto
             /** Experimento de Espera que se deshabilite el mensaje de Espera**/
-/*            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Experimento de Espera 1");
@@ -460,12 +544,12 @@ public class EmisionPolizaVariosOA {
 
             WebElement btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen19", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen20", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
             btnAplicar.click();
             /** Experimento de Espera que se deshabilite el mensaje de Espera**/
-/*            WebElement mensajeEspera2 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera2 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera2.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Experimento de Espera 2");
@@ -474,20 +558,20 @@ public class EmisionPolizaVariosOA {
             WebElement ignorarValidaciones = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']"));
             ignorarValidaciones.click();
 
-            a.ScreenShot(driver, "screen20", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen21", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
             WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
             btnContinuar.click();
             /** Experimento de Espera que se deshabilite el mensaje de Espera**/
-/*            WebElement mensajeEspera3 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera3 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera3.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Experimento de Espera 3");
             }
 
-            a.ScreenShot(driver, "screen21", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen22", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -497,5 +581,5 @@ public class EmisionPolizaVariosOA {
             log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
         }
     }
-    */
+
 }

@@ -2,7 +2,6 @@ package beans;
 
 import util.DBUnitConnectionManager;
 
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,232 +9,236 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by agil on 20/07/2016.
+ * Created by agil on 27/07/2016.
  */
-public class EmisionPolizaVariosOABean implements Serializable {
+public class EmisionPolizaVariosOABean {
 
-    private String productoOA;
-    private String vigenciaOA;
-    private String fechaDesdeOA;
-    private String fechaHastaOA;
-    private String eventoAplicarOA;
-    private String sucursalOA;
-    private String tipoProduccionOA;
-    private String periodoGraciaOA;
-    private String lineaCreditoOA;
-    private String unidadNegocioOA;
-    private String canalVentaOA;
-    private String tipoValorAseguradoOA;
-    private String tasaOA;
-    private String tipoTasaOA;
-    private String tipoTerceroOA;
-    private String tipoDocIdOA;
-    private String cedulaOA;
-    private String nombreOA;
-    private String apellidoOA;
-    private String porcenTomadorOA;
-    private String numUnidRiesgoOA;
-    private String numCreditoOA;
-    private String montoAsegOA;
-    private String porcenExtraPrima1OA;
-    private String porcenDescuento1OA;
-    private String porcenExtraPrima2OA;
-    private String porcenDescuento2OA;
 
-    public String getProductoOA(){
-        return productoOA;
-    }
-    public void setProductoOA(String productoOA){
-        this.productoOA = productoOA;
-    }
+    // PORCETAJE_EXTRA_PRIMA_1, PORCETAJE_DESCUENTO_1, PORCETAJE_EXTRA_PRIMA_2, PORCETAJE_DESCUENTO_2
 
-    public String getVigenciaOA(){
-        return vigenciaOA;
+    private String producto;
+    private String vigencia;
+    private String fechaDesde;
+    private String fechaHasta;
+    private String eventoAplicar;
+    private String sucursal;
+    private String tipoProduccion;
+    private String periodoGracia;
+    private String lineaCredito;
+    private String unidadNegocio;
+    private String canalVenta;
+    private String tipoValorAsegurado;
+    private String tasa;
+    private String tipoTasa;
+    private String tipoTercero;
+    private String tipoDicIdentidad;
+    private String cedula;
+    private String nombre;
+    private String apellido;
+    private String porcentajeTomador;
+    private String numUnidRiesgo;
+    private String numCredito;
+    private String montoAsgurado;
+    private String porcExtraPrima1;
+    private String porcDescuento1;
+    private String porcExtraPrima2;
+    private String porcDescuento2;
+
+    public String getProducto() {
+        return producto;
     }
-    public void setVigenciaOA(String vigenciaOA){
-        this.vigenciaOA = vigenciaOA;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
-    public String getFechaDesdeOA(){
-        return fechaDesdeOA;
+    public String getVigencia() {
+        return vigencia;
     }
-    public void setFechaDesdeOA(String fechaDesdeOA){
-        this.fechaDesdeOA = fechaDesdeOA;
-    }
-
-    public String getFechaHastaOA(){
-        return fechaHastaOA;
-    }
-    public void setFechaHastaOA(String fechaHastaOA){
-        this.fechaHastaOA = fechaHastaOA;
+    public void setVigencia(String vigencia) {
+        this.vigencia = vigencia;
     }
 
-    public String getEventoAplicarOA(){
-        return eventoAplicarOA;
+    public String getFechaDesde() {
+        return fechaDesde;
     }
-    public void setEventoAplicarOA(String eventoAplicarOA){
-        this.eventoAplicarOA = eventoAplicarOA;
-    }
-
-    public String getSucursalOA(){
-        return sucursalOA;
-    }
-    public void setSucursalOA(String sucursalOA){
-        this.sucursalOA = sucursalOA;
+    public void setFechaDesde(String fechaDesde) {
+        this.fechaDesde = fechaDesde;
     }
 
-    public String getTipoProduccionOA(){
-        return tipoProduccionOA;
+    public String getFechaHasta() {
+        return fechaHasta;
     }
-    public void setTipoProduccionOA(String tipoProduccionOA){
-        this.tipoProduccionOA = tipoProduccionOA;
-    }
-
-    public String getPeriodoGraciaOA(){
-        return periodoGraciaOA;
-    }
-    public void setPeriodoGraciaOA(String periodoGraciaOA){
-        this.periodoGraciaOA = periodoGraciaOA;
+    public void setFechaHasta(String fechaHasta) {
+        this.fechaHasta = fechaHasta;
     }
 
-    public String getLineaCreditoOA(){
-        return lineaCreditoOA;
+    public String getEventoAplicar() {
+        return eventoAplicar;
     }
-    public void setLineaCreditoOA(String lineaCreditoOA){
-        this.lineaCreditoOA = lineaCreditoOA;
-    }
-
-    public String getUnidadNegocioOA(){
-        return unidadNegocioOA;
-    }
-    public void setUnidadNegocioOA(String unidadNegocioOA){
-        this.unidadNegocioOA = unidadNegocioOA;
+    public void setEventoAplicar(String eventoAplicar) {
+        this.eventoAplicar = eventoAplicar;
     }
 
-    public String getCanalVentaOA(){
-        return canalVentaOA;
+    public String getSucursal() {
+        return sucursal;
     }
-    public void setCanalVentaOA(String canalVentaOA){
-        this.canalVentaOA = canalVentaOA;
-    }
-
-    public String getTipoValorAseguradoOA(){
-        return tipoValorAseguradoOA;
-    }
-    public void setTipoValorAseguradoOA(String tipoValorAseguradoOA){
-        this.tipoValorAseguradoOA = tipoValorAseguradoOA;
+    public void setSucursal(String sucursal) {
+        this.sucursal = sucursal;
     }
 
-    public String getTasaOA(){
-        return tasaOA;
+    public String getTipoProduccion() {
+        return tipoProduccion;
     }
-    public void setTasaOA(String tasaOA){
-        this.tasaOA = tasaOA;
-    }
-
-    public String getTipoTasaOA(){
-        return tipoTasaOA;
-    }
-    public void setTipoTasaOA(String tipoTasaOA){
-        this.tipoTasaOA = tipoTasaOA;
+    public void setTipoProduccion(String tipoProduccion) {
+        this.tipoProduccion = tipoProduccion;
     }
 
-    public String getTipoTerceroOA(){
-        return tipoTerceroOA;
+    public String getPeriodoGracia() {
+        return periodoGracia;
     }
-    public void setTipoTerceroOA(String tipoTerceroOA){
-        this.tipoTerceroOA = tipoTerceroOA;
-    }
-
-    public String getTipoDocIdOA(){
-        return tipoDocIdOA;
-    }
-    public void setTipoDocIdOA(String tipoDocIdOA){
-        this.tipoDocIdOA = tipoDocIdOA;
+    public void setPeriodoGracia(String periodoGracia) {
+        this.periodoGracia = periodoGracia;
     }
 
-    public String getCedulaOA(){
-        return cedulaOA;
+    public String getLineaCredito() {
+        return lineaCredito;
     }
-    public void setCedulaOA(String cedulaOA){
-        this.cedulaOA = cedulaOA;
-    }
-
-    public String getNombreOA(){
-        return nombreOA;
-    }
-    public void setNombreOA(String nombreOA){
-        this.nombreOA = nombreOA;
+    public void setLineaCredito(String lineaCredito) {
+        this.lineaCredito = lineaCredito;
     }
 
-    public String getApellidoOA(){
-        return apellidoOA;
+    public String getUnidadNegocio() {
+        return unidadNegocio;
     }
-    public void setApellidoOA(String apellidoOA){
-        this.apellidoOA = apellidoOA;
-    }
-
-    public String getPorcenTomadorOA(){
-        return porcenTomadorOA;
-    }
-    public void setPorcenTomadorOA(String porcenTomadorOA){
-        this.porcenTomadorOA = porcenTomadorOA;
+    public void setUnidadNegocio(String unidadNegocio) {
+        this.unidadNegocio = unidadNegocio;
     }
 
-    public String getNumUnidRiesgoOA(){
-        return numUnidRiesgoOA;
+    public String getCanalVenta() {
+        return canalVenta;
     }
-    public void setNumUnidRiesgoOA(String numUnidRiesgoOA){
-        this.numUnidRiesgoOA = numUnidRiesgoOA;
-    }
-
-    public String getNumCreditoOA(){
-        return numCreditoOA;
-    }
-    public void setNumCreditoOA(String numCreditoOA){
-        this.numCreditoOA = numCreditoOA;
+    public void setCanalVenta(String canalVenta) {
+        this.canalVenta = canalVenta;
     }
 
-    public String getMontoAsegOA(){
-        return montoAsegOA;
+    public String getTipoValorAsegurado() {
+        return tipoValorAsegurado;
     }
-    public void setMontoAsegOA(String montoAsegOA){
-        this.montoAsegOA = montoAsegOA;
-    }
-
-    public String getPorcenExtraPrima1OA(){
-        return porcenExtraPrima1OA;
-    }
-    public void setPorcenExtraPrima1OA(String porcenExtraPrima1OA){
-        this.porcenExtraPrima1OA = porcenExtraPrima1OA;
+    public void setTipoValorAsegurado(String tipoValorAsegurado) {
+        this.tipoValorAsegurado = tipoValorAsegurado;
     }
 
-    public String getPorcenDescuento1OA(){
-        return porcenDescuento1OA;
+    public String getTasa() {
+        return tasa;
     }
-    public void setPorcenDescuento1OA(String porcenDescuento1OA){
-        this.porcenDescuento1OA = porcenDescuento1OA;
-    }
-
-    public String getPorcenExtraPrima2OA(){
-        return porcenExtraPrima2OA;
-    }
-    public void setPorcenExtraPrima2OA(String porcenExtraPrima2OA){
-        this.porcenExtraPrima2OA = porcenExtraPrima2OA;
+    public void setTasa(String tasa) {
+        this.tasa = tasa;
     }
 
-    public String getPorcenDescuento2OA(){
-        return porcenDescuento2OA;
+    public String getTipoTasa() {
+        return tipoTasa;
     }
-    public void setPorcenDescuento2OA(String porcenDescuento2OA){
-        this.porcenDescuento2OA = porcenDescuento2OA;
+    public void setTipoTasa(String tipoTasa) {
+        this.tipoTasa = tipoTasa;
     }
 
-    public static ArrayList getEmisionPolizaVariosOA(){
+    public String getTipoTercero() {
+        return tipoTercero;
+    }
+    public void setTipoTercero(String tipoTercero) {
+        this.tipoTercero = tipoTercero;
+    }
+
+    public String getTipoDicIdentidad() {
+        return tipoDicIdentidad;
+    }
+    public void setTipoDicIdentidad(String tipoDicIdentidad) {
+        this.tipoDicIdentidad = tipoDicIdentidad;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getPorcentajeTomador() {
+        return porcentajeTomador;
+    }
+    public void setPorcentajeTomador(String porcentajeTomador) {
+        this.porcentajeTomador = porcentajeTomador;
+    }
+
+    public String getNumUnidRiesgo() {
+        return numUnidRiesgo;
+    }
+    public void setNumUnidRiesgo(String numUnidRiesgo) {
+        this.numUnidRiesgo = numUnidRiesgo;
+    }
+
+    public String getNumCredito() {
+        return numCredito;
+    }
+    public void setNumCredito(String numCredito) {
+        this.numCredito = numCredito;
+    }
+
+    public String getMontoAsgurado() {
+        return montoAsgurado;
+    }
+    public void setMontoAsgurado(String montoAsgurado) {
+        this.montoAsgurado = montoAsgurado;
+    }
+
+    public String getPorcExtraPrima1() {
+        return porcExtraPrima1;
+    }
+    public void setPorcExtraPrima1(String porcExtraPrima1) {
+        this.porcExtraPrima1 = porcExtraPrima1;
+    }
+
+    public String getPorcDescuento1() {
+        return porcDescuento1;
+    }
+    public void setPorcDescuento1(String porcDescuento1) {
+        this.porcDescuento1 = porcDescuento1;
+    }
+
+    public String getPorcExtraPrima2() {
+        return porcExtraPrima2;
+    }
+    public void setPorcExtraPrima2(String porcExtraPrima2) {
+        this.porcExtraPrima2 = porcExtraPrima2;
+    }
+
+    public String getPorcDescuento2() {
+        return porcDescuento2;
+    }
+    public void setPorcDescuento2(String porcDescuento2) {
+        this.porcDescuento2 = porcDescuento2;
+    }
+
+    public static ArrayList getEmisionPolizaVariosOA() {
+
         Connection conn;
         Statement stmt;
         ResultSet rs;
-        ArrayList poliza = new ArrayList();
+        ArrayList emision = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
         queryLoad.append("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TASA, TIPO_TASA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO, PORCENTAJE_TOMADOR, NUM_UNIDAD_RIESGO, NUM_CREDITO, MONTO_ASEGURADO, PORCETAJE_EXTRA_PRIMA_1, PORCETAJE_DESCUENTO_1, PORCETAJE_EXTRA_PRIMA_2, PORCETAJE_DESCUENTO_2 FROM POLIZA_OBJETOS_ASEGURADOS ORDER BY PRUEBA ASC");
@@ -247,20 +250,40 @@ public class EmisionPolizaVariosOABean implements Serializable {
 
             while (rs.next()) {
                 EmisionPolizaVariosOABean emisionPolizaVariosOABean = new EmisionPolizaVariosOABean();
-                // , PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA,
-                // EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA,
-                // LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO,
-                // TASA, TIPO_TASA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE,
-                // APELLIDO, PORCENTAJE_TOMADOR, NUM_UNIDAD_RIESGO, NUM_CREDITO, MONTO_ASEGURADO,
-                // PORCETAJE_EXTRA_PRIMA_1, PORCETAJE_DESCUENTO_1, PORCETAJE_EXTRA_PRIMA_2,
-                // PORCETAJE_DESCUENTO_2
-                emisionPolizaVariosOABean.setProductoOA(rs.getString("PRODUCTO"));
-                poliza.add(emisionPolizaVariosOABean);
+                emisionPolizaVariosOABean.setProducto(rs.getString("PRODUCTO"));
+                emisionPolizaVariosOABean.setVigencia(rs.getString("VIGENCIA"));
+                emisionPolizaVariosOABean.setFechaDesde(rs.getString("FECHA_DESDE"));
+                emisionPolizaVariosOABean.setFechaHasta(rs.getString("FECHA_HASTA"));
+                emisionPolizaVariosOABean.setEventoAplicar(rs.getString("EVENTO_APLICAR"));
+                emisionPolizaVariosOABean.setSucursal(rs.getString("SUCURSAL"));
+                emisionPolizaVariosOABean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
+                emisionPolizaVariosOABean.setPeriodoGracia(rs.getString("PERIODO_GRACIA"));
+                emisionPolizaVariosOABean.setLineaCredito(rs.getString("LINEA_CREDITO"));
+                emisionPolizaVariosOABean.setUnidadNegocio(rs.getString("UNIDAD_NEGOCIO"));
+                emisionPolizaVariosOABean.setCanalVenta(rs.getString("CANAL_VENTA"));
+                emisionPolizaVariosOABean.setTipoValorAsegurado(rs.getString("TIPO_VALOR_ASEGURADO"));
+                emisionPolizaVariosOABean.setTasa(rs.getString("TASA"));
+                emisionPolizaVariosOABean.setTipoTasa(rs.getString("TIPO_TASA"));
+                emisionPolizaVariosOABean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                emisionPolizaVariosOABean.setTipoDicIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
+                emisionPolizaVariosOABean.setCedula(rs.getString("CEDULA"));
+                emisionPolizaVariosOABean.setNombre(rs.getString("NOMBRE"));
+                emisionPolizaVariosOABean.setApellido(rs.getString("APELLIDO"));
+                emisionPolizaVariosOABean.setPorcentajeTomador(rs.getString("PORCENTAJE_TOMADOR"));
+                emisionPolizaVariosOABean.setNumUnidRiesgo(rs.getString("NUM_UNIDAD_RIESGO"));
+                emisionPolizaVariosOABean.setNumCredito(rs.getString("NUM_CREDITO"));
+                emisionPolizaVariosOABean.setMontoAsgurado(rs.getString("MONTO_ASEGURADO"));
+                emisionPolizaVariosOABean.setPorcExtraPrima1(rs.getString("PORCETAJE_EXTRA_PRIMA_1"));
+                emisionPolizaVariosOABean.setPorcDescuento1(rs.getString("PORCETAJE_DESCUENTO_1"));
+                emisionPolizaVariosOABean.setPorcExtraPrima2(rs.getString("PORCETAJE_EXTRA_PRIMA_2"));
+                emisionPolizaVariosOABean.setPorcDescuento2(rs.getString("PORCETAJE_DESCUENTO_2"));
+                emision.add(emisionPolizaVariosOABean);
             }
         }catch(SQLException e){
             //log.error(e);
             //conn.close();
         }
-        return poliza;
+        return emision;
     }
+
 }
