@@ -17,9 +17,9 @@
                        CAUSA_MUERTE="" CAUSALES_COBERTURA_MUERTE=""
                        DEPARTAMENTO="BOGOTA" CIUDAD="" ACTIVIDAD_SINIESTRO=""
                        FECHA_ACTIVIDAD="" OBSERVACIONES_SINIESTRO=""
-                       CERTIFICADO="Certificado" OBJETOS_ASEGURADOS="Objetos_Asegurados"
-                       COBERTURA_AFECTADA="Cobertura_Afectada" PAGO_MAXIMO="Pago_Maximo"
-                       MONEDA_SINIESTRO="Moneda_siniestro" FECHA_COMPROMISO="Fecha_Compromiso"
+                       CERTIFICADO="" OBJETOS_ASEGURADOS=""
+                       COBERTURA_AFECTADA="" PAGO_MAXIMO="100"
+                       MONEDA_SINIESTRO="2983" FECHA_COMPROMISO="Fecha_Compromiso"
                        FECHA_INICIAL="Fecha_inicial" FECHA_FINAL="Fecha_Final" RAZON="Razon" ESTADO="Estado"
                        TIPO="Tipo" MONTO_SINIESTRO="Monto_Siniestro"/>
 </dataset>
