@@ -10,9 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by agil on 28/07/2016.
+ * Created by agil on 29/07/2016.
  */
-public class EmisionPolizaInclusionTomadoresBean implements Serializable{
+public class EmisionPolizaEdicionTomadoresBean implements Serializable{
+
 
     private String producto;
     private String vigencia;
@@ -40,6 +41,8 @@ public class EmisionPolizaInclusionTomadoresBean implements Serializable{
     private String nombre2;
     private String apellido2;
     private String porcentajeTomador2;
+    private String nuevoPorcentajeTomador1;
+    private String nuevoPorcentajeTomador2;
 
     public String getProducto(){
         return producto;
@@ -223,14 +226,28 @@ public class EmisionPolizaInclusionTomadoresBean implements Serializable{
         this.porcentajeTomador2 = porcentajeTomador2;
     }
 
-    public static ArrayList getEmisionPolizaInclusionTomadores(){
+    public String getNuevoPorcentajeTomador1(){
+        return nuevoPorcentajeTomador1;
+    }
+    public void setNuevoPorcentajeTomador1(String nuevoPorcentajeTomador1){
+        this.nuevoPorcentajeTomador1 = nuevoPorcentajeTomador1;
+    }
+
+    public String getNuevoPorcentajeTomador2(){
+        return nuevoPorcentajeTomador2;
+    }
+    public void setNuevoPorcentajeTomador2(String nuevoPorcentajeTomador2){
+        this.nuevoPorcentajeTomador2 = nuevoPorcentajeTomador2;
+    }
+
+    public static ArrayList getEmisionPolizaEdicionTomadores(){
         Connection conn;
         Statement stmt;
         ResultSet rs;
         ArrayList emision = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TASA, TIPO_TASA, TIPO_TERCERO1, TIPO_DOC_IDENTIDAD1, CEDULA1, NOMBRE1, APELLIDO1, PORCENTAJE_TOMADOR1, TIPO_TERCERO2, TIPO_DOC_IDENTIDAD2, CEDULA2, NOMBRE2, APELLIDO2, PORCENTAJE_TOMADOR2 FROM POLIZA_INCLUSION_TOMADORES ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TASA, TIPO_TASA, TIPO_TERCERO1, TIPO_DOC_IDENTIDAD1, CEDULA1, NOMBRE1, APELLIDO1, PORCENTAJE_TOMADOR1, TIPO_TERCERO2, TIPO_DOC_IDENTIDAD2, CEDULA2, NOMBRE2, APELLIDO2, PORCENTAJE_TOMADOR2, NUEVO_PORCENTAJE_TOMADOR1, NUEVO_PORCENTAJE_TOMADOR2 FROM POLIZA_EDICION_TOMADORES ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -238,35 +255,37 @@ public class EmisionPolizaInclusionTomadoresBean implements Serializable{
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean = new EmisionPolizaInclusionTomadoresBean();
+                EmisionPolizaEdicionTomadoresBean emisionPolizaEdicionTomadoresBean = new EmisionPolizaEdicionTomadoresBean();
 
-                emisionPolizaInclusionTomadoresBean.setProducto(rs.getString("PRODUCTO"));
-                emisionPolizaInclusionTomadoresBean.setVigencia(rs.getString("VIGENCIA"));
-                emisionPolizaInclusionTomadoresBean.setFechaDesde(rs.getString("FECHA_DESDE"));
-                emisionPolizaInclusionTomadoresBean.setFechaHasta(rs.getString("FECHA_HASTA"));
-                emisionPolizaInclusionTomadoresBean.setEventoAplicar(rs.getString("EVENTO_APLICAR"));
-                emisionPolizaInclusionTomadoresBean.setSucursal(rs.getString("SUCURSAL"));
-                emisionPolizaInclusionTomadoresBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
-                emisionPolizaInclusionTomadoresBean.setPeriodoGracia(rs.getString("PERIODO_GRACIA"));
-                emisionPolizaInclusionTomadoresBean.setLineaCredito(rs.getString("LINEA_CREDITO"));
-                emisionPolizaInclusionTomadoresBean.setUnidadNegocio(rs.getString("UNIDAD_NEGOCIO"));
-                emisionPolizaInclusionTomadoresBean.setCanalVenta(rs.getString("CANAL_VENTA"));
-                emisionPolizaInclusionTomadoresBean.setTipoValorAsegurado(rs.getString("TIPO_VALOR_ASEGURADO"));
-                emisionPolizaInclusionTomadoresBean.setTasa(rs.getString("TASA"));
-                emisionPolizaInclusionTomadoresBean.setTipoTasa(rs.getString("TIPO_TASA"));
-                emisionPolizaInclusionTomadoresBean.setTipoTercero1(rs.getString("TIPO_TERCERO1"));
-                emisionPolizaInclusionTomadoresBean.setTipoDocId1(rs.getString("TIPO_DOC_IDENTIDAD1"));
-                emisionPolizaInclusionTomadoresBean.setCedula1(rs.getString("CEDULA1"));
-                emisionPolizaInclusionTomadoresBean.setNombre1(rs.getString("NOMBRE1"));
-                emisionPolizaInclusionTomadoresBean.setApellido1(rs.getString("APELLIDO1"));
-                emisionPolizaInclusionTomadoresBean.setPorcentajeTomador1(rs.getString("PORCENTAJE_TOMADOR1"));
-                emisionPolizaInclusionTomadoresBean.setTipoTercero2(rs.getString("TIPO_TERCERO2"));
-                emisionPolizaInclusionTomadoresBean.setTipoDocId2(rs.getString("TIPO_DOC_IDENTIDAD2"));
-                emisionPolizaInclusionTomadoresBean.setCedula2(rs.getString("CEDULA2"));
-                emisionPolizaInclusionTomadoresBean.setNombre2(rs.getString("NOMBRE2"));
-                emisionPolizaInclusionTomadoresBean.setApellido2(rs.getString("APELLIDO2"));
-                emisionPolizaInclusionTomadoresBean.setPorcentajeTomador2(rs.getString("PORCENTAJE_TOMADOR2"));
-                emision.add(emisionPolizaInclusionTomadoresBean);
+                emisionPolizaEdicionTomadoresBean.setProducto(rs.getString("PRODUCTO"));
+                emisionPolizaEdicionTomadoresBean.setVigencia(rs.getString("VIGENCIA"));
+                emisionPolizaEdicionTomadoresBean.setFechaDesde(rs.getString("FECHA_DESDE"));
+                emisionPolizaEdicionTomadoresBean.setFechaHasta(rs.getString("FECHA_HASTA"));
+                emisionPolizaEdicionTomadoresBean.setEventoAplicar(rs.getString("EVENTO_APLICAR"));
+                emisionPolizaEdicionTomadoresBean.setSucursal(rs.getString("SUCURSAL"));
+                emisionPolizaEdicionTomadoresBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
+                emisionPolizaEdicionTomadoresBean.setPeriodoGracia(rs.getString("PERIODO_GRACIA"));
+                emisionPolizaEdicionTomadoresBean.setLineaCredito(rs.getString("LINEA_CREDITO"));
+                emisionPolizaEdicionTomadoresBean.setUnidadNegocio(rs.getString("UNIDAD_NEGOCIO"));
+                emisionPolizaEdicionTomadoresBean.setCanalVenta(rs.getString("CANAL_VENTA"));
+                emisionPolizaEdicionTomadoresBean.setTipoValorAsegurado(rs.getString("TIPO_VALOR_ASEGURADO"));
+                emisionPolizaEdicionTomadoresBean.setTasa(rs.getString("TASA"));
+                emisionPolizaEdicionTomadoresBean.setTipoTasa(rs.getString("TIPO_TASA"));
+                emisionPolizaEdicionTomadoresBean.setTipoTercero1(rs.getString("TIPO_TERCERO1"));
+                emisionPolizaEdicionTomadoresBean.setTipoDocId1(rs.getString("TIPO_DOC_IDENTIDAD1"));
+                emisionPolizaEdicionTomadoresBean.setCedula1(rs.getString("CEDULA1"));
+                emisionPolizaEdicionTomadoresBean.setNombre1(rs.getString("NOMBRE1"));
+                emisionPolizaEdicionTomadoresBean.setApellido1(rs.getString("APELLIDO1"));
+                emisionPolizaEdicionTomadoresBean.setPorcentajeTomador1(rs.getString("PORCENTAJE_TOMADOR1"));
+                emisionPolizaEdicionTomadoresBean.setTipoTercero2(rs.getString("TIPO_TERCERO2"));
+                emisionPolizaEdicionTomadoresBean.setTipoDocId2(rs.getString("TIPO_DOC_IDENTIDAD2"));
+                emisionPolizaEdicionTomadoresBean.setCedula2(rs.getString("CEDULA2"));
+                emisionPolizaEdicionTomadoresBean.setNombre2(rs.getString("NOMBRE2"));
+                emisionPolizaEdicionTomadoresBean.setApellido2(rs.getString("APELLIDO2"));
+                emisionPolizaEdicionTomadoresBean.setPorcentajeTomador2(rs.getString("PORCENTAJE_TOMADOR2"));
+                emisionPolizaEdicionTomadoresBean.setNuevoPorcentajeTomador1(rs.getString("NUEVO_PORCENTAJE_TOMADOR1"));
+                emisionPolizaEdicionTomadoresBean.setNuevoPorcentajeTomador2(rs.getString("NUEVO_PORCENTAJE_TOMADOR2"));
+                emision.add(emisionPolizaEdicionTomadoresBean);
             }
         }catch(SQLException e){
             //log.error(e);
@@ -274,10 +293,4 @@ public class EmisionPolizaInclusionTomadoresBean implements Serializable{
         }
         return emision;
     }
-
 }
-// PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA,
-// EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA,
-// LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO,
-// TASA, TIPO_TASA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE,
-// APELLIDO, PORCENTAJE_TOMADOR

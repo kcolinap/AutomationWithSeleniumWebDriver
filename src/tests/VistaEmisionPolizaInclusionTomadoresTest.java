@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class VistaEmisionPolizaInclusionTomadoresTest {
 
-    private final static Logger log = Logger.getLogger(VistaEmisionPolizaVariasURTest.class);
+    private final static Logger log = Logger.getLogger(VistaEmisionPolizaInclusionTomadoresTest.class);
 
     @Test
     public void mainTest(){
