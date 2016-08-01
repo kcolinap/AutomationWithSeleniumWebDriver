@@ -19,7 +19,7 @@
                        FECHA_ACTIVIDAD="" OBSERVACIONES_SINIESTRO=""
                        CERTIFICADO="" OBJETOS_ASEGURADOS=""
                        COBERTURA_AFECTADA="" PAGO_MAXIMO="100"
-                       MONEDA_SINIESTRO="2983" FECHA_COMPROMISO="Fecha_Compromiso"
-                       FECHA_INICIAL="Fecha_inicial" FECHA_FINAL="Fecha_Final" RAZON="Razon" ESTADO="Estado"
-                       TIPO="Tipo" MONTO_SINIESTRO="Monto_Siniestro"/>
+                       MONEDA_SINIESTRO="2983" FECHA_COMPROMISO=""
+                       FECHA_INICIAL="" FECHA_FINAL="" RAZON="" ESTADO=""
+                       TIPO="" MONTO_SINIESTRO="80"/>
 </dataset>

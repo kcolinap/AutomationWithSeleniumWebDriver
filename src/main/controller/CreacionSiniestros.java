@@ -6,9 +6,12 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by aazuaje on 27/07/2016.
@@ -36,6 +39,7 @@ public class CreacionSiniestros {
         AgregarObjetoAfectado(driver, a, creacionSiniestrosBean);
         AgregarCobertura(driver, a, creacionSiniestrosBean);
         AgregarRequisitos(driver, a, creacionSiniestrosBean);
+        AgregarPagos(driver, a, creacionSiniestrosBean);
 
     }
 
@@ -400,9 +404,17 @@ public class CreacionSiniestros {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
-            Thread.sleep(3000);
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
+            Thread.sleep(5000);
+
+
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -412,9 +424,145 @@ public class CreacionSiniestros {
     }
 
     public void AgregarRequisitos (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
-    }
-}
+        try {
 
+            Thread.sleep(6000);
+            Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));
+            cobertura.selectByIndex(0);
+            Thread.sleep(4000);
+            WebElement cobertura2 = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]"));
+            cobertura2.click();
+
+            Thread.sleep(2000);
+            WebElement btnRequisitos = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_14\"]"));
+            btnRequisitos.click();
+
+
+            Thread.sleep(10000);
+            WebElement btnRecibido = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/thead/tr/th[3]/input"));
+            btnRecibido.click();
+            Thread.sleep(2000);
+            a.ScreenShot(driver,"screen12",nombreAutomatizacion);
+
+            Thread.sleep(2000);
+            WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_requisites_02\"]"));
+            btnEnviar.click();
+            Thread.sleep(10000);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void AgregarPagos (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
+        try {
+            Thread.sleep(5000);
+            Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));
+            cobertura.selectByIndex(0);
+
+            Thread.sleep(4000);
+            WebElement cobertura2 = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]"));
+            cobertura2.click();
+
+            Thread.sleep(2000);
+            WebElement btnPagos = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_09\"]"));
+            btnPagos.click();
+
+            Thread.sleep(20000);
+            a.ScreenShot(driver,"screen13",nombreAutomatizacion);
+            WebElement tercerosPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
+            tercerosPoliza.click();
+
+            Thread.sleep(10000);
+            WebElement seleccionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
+            seleccionTercero.click();
+            a.ScreenShot(driver,"screen14",nombreAutomatizacion);
+
+            Thread.sleep(4000);
+            WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_resultClaimThirdParty_01\"]"));
+            btnEnviar.click();
+
+            Thread.sleep(15000);
+            a.ScreenShot(driver,"screen15",nombreAutomatizacion);
+            WebElement btnEditar = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]"));
+            btnEditar.click();
+            Thread.sleep(10000);
+            a.ScreenShot(driver,"screen16",nombreAutomatizacion);
+
+            if (creacionSiniestrosBean.getFechaCompromiso() != null){
+                Thread.sleep(2000);
+                WebElement fechaCompromiso = driver.findElement(By.xpath("//*[@id=\"calendarcommitmentDateShow\"]"));
+                fechaCompromiso.sendKeys(creacionSiniestrosBean.getFechaCompromiso());
+            }
+
+            if (creacionSiniestrosBean.getFechaInicial() != null){
+                Thread.sleep(2000);
+                WebElement fechaInicial = driver.findElement(By.xpath("//*[@id=\"calendarstartDateShow\"]"));
+                fechaInicial.sendKeys(creacionSiniestrosBean.getFechaInicial());
+            }
+
+            if (creacionSiniestrosBean.getFechaFinal() != null){
+                Thread.sleep(2000);
+                WebElement fechaFinal = driver.findElement(By.xpath("//*[@id=\"calendarendDateShow\"]"));
+                fechaFinal.sendKeys(creacionSiniestrosBean.getFechaFinal());
+            }
+
+            if (creacionSiniestrosBean.getRazon() != null){
+                Thread.sleep(2000);
+                WebElement razon = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[11]/textarea"));
+                razon.sendKeys(creacionSiniestrosBean.getRazon());
+            }
+
+            if (creacionSiniestrosBean.getEstado() != null){
+                Thread.sleep(2000);
+                Select estado = new Select(driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[12]/select")));
+                estado.selectByValue(creacionSiniestrosBean.getEstado());
+            }
+
+            if (creacionSiniestrosBean.getTipo() != null){
+                Thread.sleep(2000);
+                Select tipo = new Select(driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[13]/select")));
+                tipo.selectByValue(creacionSiniestrosBean.getTipo());
+            }
+
+            Thread.sleep(4000);
+            WebElement montoSiniestro = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
+            montoSiniestro.clear();
+            montoSiniestro.sendKeys(creacionSiniestrosBean.getMontoSiniestro());
+            Thread.sleep(1000);
+            WebElement razon2 = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[11]/textarea"));
+            razon2.click();
+
+
+            Thread.sleep(15000);
+            a.ScreenShot(driver,"screen17",nombreAutomatizacion);
+
+            Thread.sleep(1000);
+            WebElement btnEnviar2 = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
+            btnEnviar2.click();
+            Thread.sleep(20000);
+
+
+            if (ExpectedConditions.alertIsPresent() != null) {
+                driver.switchTo().alert();
+                driver.switchTo().alert().accept();
+                driver.switchTo().defaultContent();
+            }
+
+            Thread.sleep(4000);
+            a.ScreenShot(driver,"screen18",nombreAutomatizacion);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+
+}
 
 
 
