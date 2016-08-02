@@ -32,18 +32,14 @@ public class CerrarCaja {
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[4]/td/input")).click();
-        a.cambiarVentana(driver);
-        Thread.sleep(3000);
+
 
         //Seleccion y Cierre de Caja
         SeleccionCierreCaja(a, driver, cerrarCajaBean); //Menu
         Thread.sleep(3000);
-        a.cambiarVentana(driver);
-        Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[4]/td/input")).click();
-        a.cambiarVentana(driver);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
+        a.ScreenShot(driver, "screen5", nombreAutomatizacion);
     }
 
     public void IngresarMenuCierreCaja(WebDriver driver, Metodos a) throws IOException, InterruptedException {
@@ -56,6 +52,7 @@ public class CerrarCaja {
             menu1.click();
             menu2.click();
             menu3.click();
+            Thread.sleep(1000);
             a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
             menu4.click();
 
@@ -74,8 +71,8 @@ public class CerrarCaja {
             System.out.println("Titulo de la pagina: " + title);
 
             if (cerrarCajaBean.getCajaAbierta() != null) {
-                Select cajaAbierta = new Select(driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td/div/table/tbody/tr[3]/td[2]/select")));
-                cajaAbierta.selectByValue(cerrarCajaBean.getCajaAbierta());
+                Select cajaAbierta = new Select(driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[3]/td[2]/select")));
+                cajaAbierta.selectByVisibleText(cerrarCajaBean.getCajaAbierta());
             }
 
             Thread.sleep(2000);

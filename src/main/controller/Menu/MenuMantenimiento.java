@@ -1,6 +1,10 @@
 package main.controller.Menu;
 
+import main.controller.Metodos;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by agil on 25/07/2016.
@@ -8,6 +12,10 @@ import org.openqa.selenium.WebDriver;
 public class MenuMantenimiento {
 
     protected ThreadLocal<WebDriver> threadDriver = null;
+
+    private final static Logger log = Logger.getLogger(MenuMantenimiento.class);
+
+    Metodos a = new Metodos();
 
     /** Mantenimiento de Tercero (Wcontroller) **/
     public void MantenimientoTerceroWcontroller(){}
@@ -38,7 +46,23 @@ public class MenuMantenimiento {
         public void UAA_HerenciRoles(){}
         public void UAA_Documentos(){}
         public void UAA_RolesDocumentos(){}
-        public void UAA_Caja(){}
+        public void UAA_Caja(WebDriver driver, Metodos a, String nombrePrueba){
+
+        try {
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//Administrador de Cuentas Universal
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[4]"));//Consultar Cajas
+            menu1.click();
+            menu2.click();
+            a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+            menu3.click();
+
+        } catch (Exception e){
+            e.printStackTrace();
+//             log.info(e);
+            log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
+        }
+    }
         public void UAA_AsociarCajaCajero(){}
         public void UAA_Moneda(){}
         public void UAA_TasaCambio(){}

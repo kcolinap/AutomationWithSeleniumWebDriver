@@ -1,6 +1,7 @@
 package main.controller;
 
 import beans.CrearCajaBean;
+import main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,13 +23,15 @@ public class CrearCaja {
     public void testLink(CrearCajaBean crearCajaBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
         Metodos a = new Metodos();
+        MenuMantenimiento m = new MenuMantenimiento();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
         // Consulta Caja
-        IngresarMenuConsultarCaja(driver, a); //Menu
+        m.UAA_Caja(driver,a,nombreAutomatizacion);
+        //IngresarMenuConsultarCaja(driver, a); //Menu
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         Thread.sleep(3000);
@@ -42,7 +45,7 @@ public class CrearCaja {
         a.cambiarVentana(driver);
     }
 
-    public void IngresarMenuConsultarCaja(WebDriver driver, Metodos a) throws IOException, InterruptedException {
+/*    public void IngresarMenuConsultarCaja(WebDriver driver, Metodos a) throws IOException, InterruptedException {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -58,7 +61,7 @@ public class CrearCaja {
 //             log.info(e);
             log.info("Test Case ?? - Crear Caja- " + e);
         }
-    }
+    }*/
 
     public void InsertarDatosCaja(Metodos a, WebDriver driver, CrearCajaBean crearCajaBean) throws InterruptedException, IOException {
 

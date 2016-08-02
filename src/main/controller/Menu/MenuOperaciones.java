@@ -1,6 +1,12 @@
 package main.controller.Menu;
 
+import main.controller.Metodos;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.io.IOException;
 
 /**
  * Created by agil on 25/07/2016.
@@ -8,6 +14,10 @@ import org.openqa.selenium.WebDriver;
 public class MenuOperaciones {
 
     protected ThreadLocal<WebDriver> threadDriver = null;
+
+    private final static Logger log = Logger.getLogger(MenuOperaciones.class);
+
+    Metodos a = new Metodos();
 
     /** Operaciones (Workflow) **/
 
@@ -196,7 +206,25 @@ public class MenuOperaciones {
 
             public void UAA_Caja_CierreVariosCajeros(){}
 
-            public void UAA_Caja_CierreCaja(){}
+            public void UAA_Caja_CierreCaja(WebDriver driver, Metodos a,String nombrePrueba) throws IOException, InterruptedException {
+                try {
+                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]"));//Cierre de Caja
+                    menu1.click();
+                    menu2.click();
+                    menu3.click();
+                    a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+                    menu4.click();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+    //             log.info(e);
+                    log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
+                }
+
+            }
 
             public void UAA_Caja_PrimasPagadasACancelar(){}
 
