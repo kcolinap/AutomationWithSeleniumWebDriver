@@ -1,6 +1,7 @@
 package main.controller;
 
 import beans.CerrarCajaBean;
+import main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,13 +23,15 @@ public class CerrarCaja {
     public void testLink(CerrarCajaBean cerrarCajaBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
         //Cierre de Caja
-        IngresarMenuCierreCaja(driver, a); //Menu
+        //IngresarMenuCierreCaja(driver, a); //Menu
+        m.UAA_Caja_CierreCaja(driver,a,nombreAutomatizacion);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         Thread.sleep(3000);
@@ -38,29 +41,8 @@ public class CerrarCaja {
         SeleccionCierreCaja(a, driver, cerrarCajaBean); //Menu
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[4]/td/input")).click();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
-    }
-
-    public void IngresarMenuCierreCaja(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-
-        try {
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
-            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]"));//Cierre de Caja
-            menu1.click();
-            menu2.click();
-            menu3.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
-            menu4.click();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case ?? - Cerrar Caja- " + e);
-        }
     }
 
     public void SeleccionCierreCaja(Metodos a, WebDriver driver, CerrarCajaBean cerrarCajaBean) throws InterruptedException, IOException {

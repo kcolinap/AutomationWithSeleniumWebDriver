@@ -184,7 +184,26 @@ public class MenuOperaciones {
     /** UAA (Administrador de Cuentas Universal) **/
 
         /** Caja **/
-            public void UAA_Caja_AperturaCaja(){}
+            public void UAA_Caja_AperturaCaja(WebDriver driver, Metodos a,String nombrePrueba){
+
+                try {
+                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]"));//Aperturar Caja
+                    menu1.click();
+                    menu2.click();
+                    menu3.click();
+                    a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+                    Thread.sleep(1000);
+                    menu4.click();
+
+                } catch (Exception e){
+                    e.printStackTrace();
+//             log.info(e);
+                    log.info("Test Case 28 - " + nombrePrueba + " -  " + e);
+                }
+            }
 
             public void UAA_Caja_InicioSesion(){}
 
@@ -215,6 +234,7 @@ public class MenuOperaciones {
                     menu1.click();
                     menu2.click();
                     menu3.click();
+                    Thread.sleep(1500);
                     a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
                     menu4.click();
 
