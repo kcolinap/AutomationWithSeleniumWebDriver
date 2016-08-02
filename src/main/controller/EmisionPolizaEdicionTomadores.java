@@ -17,7 +17,7 @@ public class EmisionPolizaEdicionTomadores {
 
     private final static Logger log = Logger.getLogger(EmisionPolizaEdicionTomadores.class);
 
-    public String nombreAutomatizacion = "Emision de Póliza Edicion Tomadores";
+    public String nombreAutomatizacion = "Edicion de Póliza Edicion Tomadores";
 
     public void testLink(EmisionPolizaEdicionTomadoresBean emisionPolizaInclusionTomadoresBean, int i) throws IOException, InterruptedException {
 
@@ -183,6 +183,14 @@ public class EmisionPolizaEdicionTomadores {
 
             WebElement btnGuardarInfGeneral = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_calculateButton']"));
             btnGuardarInfGeneral.click();
+
+            /** Espere **/
+            while (driver.findElement(By.id("waitMessage")).isDisplayed()){
+                Thread.sleep(5000);
+                int z = 0;
+                System.out.println("Espere Informacion General = " + z);
+                z++;
+            }
 
         }catch (Exception e){
             e.printStackTrace();

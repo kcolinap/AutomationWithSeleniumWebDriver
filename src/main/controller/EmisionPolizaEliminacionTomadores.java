@@ -1,6 +1,6 @@
 package main.controller;
 
-import beans.EmisionPolizaInclusionTomadoresBean;
+import beans.EmisionPolizaEliminacionTomadoresBean;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,15 +11,16 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Created by agil on 28/07/2016.
+ * Created by agil on 01/08/2016.
  */
-public class EmisionPolizaInclusionTomadores {
+public class EmisionPolizaEliminacionTomadores {
 
-    private final static Logger log = Logger.getLogger(EmisionPolizaInclusionTomadores.class);
+    private final static Logger log = Logger.getLogger(EmisionPolizaEliminacionTomadores.class);
 
-    public String nombreAutomatizacion = "Emision de Póliza Inclusion Tomadores";
+    public String nombreAutomatizacion = "Eliminacion de Póliza Edicion Tomadores";
 
-    public void testLink(EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean, int i) throws IOException, InterruptedException {
+    public void testLink(EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean, int i) throws IOException, InterruptedException {
+
 
         //implementando clase de metodos
         Metodos a = new Metodos();
@@ -33,7 +34,7 @@ public class EmisionPolizaInclusionTomadores {
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
-        CrearPoliza(a, driver, emisionPolizaInclusionTomadoresBean);
+        CrearPoliza(a, driver, emisionPolizaEliminacionTomadoresBean);
     }
 
     public void IngresarMenuEmisionPoliza(WebDriver driver, Metodos a) throws IOException, InterruptedException {
@@ -54,39 +55,44 @@ public class EmisionPolizaInclusionTomadores {
         }
     }
 
-    public void CrearPoliza(Metodos a, WebDriver driver, EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean) throws InterruptedException {
+    public void CrearPoliza(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean) throws InterruptedException, IOException {
 
         // //TipoElemento[@wicketpath='WicketpathElemento']
         Thread.sleep(2000);
-        AdminitracionPropuestaPoliza(a, driver, emisionPolizaInclusionTomadoresBean);
+        AdminitracionPropuestaPoliza(a, driver, emisionPolizaEliminacionTomadoresBean);
         Thread.sleep(3000);
-        EventoAplicar(a, driver, emisionPolizaInclusionTomadoresBean);
+        EventoAplicar(a, driver, emisionPolizaEliminacionTomadoresBean);
         Thread.sleep(4000);
-        InformacionGeneral(a, driver, emisionPolizaInclusionTomadoresBean);
+        InformacionGeneral(a, driver, emisionPolizaEliminacionTomadoresBean);
         Thread.sleep(4000);
-        TomadorTercero1(a, driver, emisionPolizaInclusionTomadoresBean);
+        TomadorTercero1(a, driver, emisionPolizaEliminacionTomadoresBean);
         Thread.sleep(2000);
-        TomadorTercero2(a, driver, emisionPolizaInclusionTomadoresBean);
+        TomadorTercero2(a, driver, emisionPolizaEliminacionTomadoresBean);
+        Thread.sleep(2000);
+        EliminarTomador(a, driver);
+        Thread.sleep(2000);
+        //EditarTomadorTercero1(a, driver, emisionPolizaEliminacionTomadoresBean);
+        Thread.sleep(2000);
 
     }
 
-    public void AdminitracionPropuestaPoliza(Metodos a, WebDriver driver, EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean){
+    public void AdminitracionPropuestaPoliza(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean){
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
-            productoSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getProducto()); //VidaDeudoresAvVillas
+            productoSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getProducto()); //VidaDeudoresAvVillas
             Thread.sleep(2000);
 
             Select vigenciaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_validitiesComboBox']")));
-            vigenciaSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getVigencia()); //12= Anual
+            vigenciaSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getVigencia()); //12= Anual
             Thread.sleep(2000);
 
             WebElement fechaDes = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_initialDate']"));
-            fechaDes.sendKeys(emisionPolizaInclusionTomadoresBean.getFechaDesde()); // 19-07-2016
+            fechaDes.sendKeys(emisionPolizaEliminacionTomadoresBean.getFechaDesde()); // 19-07-2016
             Thread.sleep(2000);
 
             WebElement fechaHas = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_finalDate']"));
-            if (emisionPolizaInclusionTomadoresBean.getFechaHasta() != null) {
-                fechaHas.sendKeys(emisionPolizaInclusionTomadoresBean.getFechaHasta());
+            if (emisionPolizaEliminacionTomadoresBean.getFechaHasta() != null) {
+                fechaHas.sendKeys(emisionPolizaEliminacionTomadoresBean.getFechaHasta());
             }
 
             Thread.sleep(2000);
@@ -104,12 +110,12 @@ public class EmisionPolizaInclusionTomadores {
         }
     }
 
-    public void EventoAplicar(Metodos a, WebDriver driver, EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean){
+    public void EventoAplicar(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean){
         try {
             Thread.sleep(3000);
             Select eventoAplicarSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']")));
 
-            eventoAplicarSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getEventoAplicar()); // Emitir
+            eventoAplicarSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getEventoAplicar()); // Emitir
             Thread.sleep(2000);
             a.ScreenShot(driver, "screen4", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
@@ -126,42 +132,42 @@ public class EmisionPolizaInclusionTomadores {
     }
 
     /**Poliza**/
-    public void InformacionGeneral(Metodos a, WebDriver driver, EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean){
+    public void InformacionGeneral(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean){
         try {
             Select sucursalSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
-            sucursalSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getSucursal()); //24651917 = Direccion General
+            sucursalSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getSucursal()); //24651917 = Direccion General
 
             Thread.sleep(2000);
             Select tipoProduccionSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_repeaterSelect_1_field']")));
-            tipoProduccionSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoProduccion()); // 24652617 = Directa
+            tipoProduccionSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoProduccion()); // 24652617 = Directa
 
             WebElement periodoGracia = driver. findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_field']"));
-            periodoGracia.sendKeys(emisionPolizaInclusionTomadoresBean.getPeriodoGracia()); // 15
+            periodoGracia.sendKeys(emisionPolizaEliminacionTomadoresBean.getPeriodoGracia()); // 15
             Thread.sleep(2000);
             driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']")).click();
 
             Thread.sleep(2000);
             WebElement tasaInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_5_fila_field']"));
             tasaInput.clear();
-            tasaInput.sendKeys(emisionPolizaInclusionTomadoresBean.getTasa()); // 10
+            tasaInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getTasa()); // 10
             Thread.sleep(2000);
             driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']")).click();
 
             Thread.sleep(3000);
             Select lineaCreditoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_6_fila_repeaterSelect_1_field']")));
-            lineaCreditoSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getLineaCredito()); // 41249817 = Educativa
+            lineaCreditoSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getLineaCredito()); // 41249817 = Educativa
 
             Thread.sleep(2000);
             Select unidadNegocioSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_1_field']")));
-            unidadNegocioSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getUnidadNegocio()); // 23913017 = Bancaseguros
+            unidadNegocioSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getUnidadNegocio()); // 23913017 = Bancaseguros
 
             Thread.sleep(2000);
             Select canalVentaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_2_field']")));
-            canalVentaSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getCanalVenta()); // 21.0 = ATM
+            canalVentaSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getCanalVenta()); // 21.0 = ATM
 
             Thread.sleep(2000);
             Select tipoValorAseguradoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_repeaterSelect_1_field']")));
-            tipoValorAseguradoSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoValorAsegurado()); // 23916617 = Valor inicial del desembolso
+            tipoValorAseguradoSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoValorAsegurado()); // 23916617 = Valor inicial del desembolso
 
 
 //            Thread.sleep(3000);
@@ -169,7 +175,7 @@ public class EmisionPolizaInclusionTomadores {
 
             Thread.sleep(2000);
             Select tipoTasaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
-            tipoTasaSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoTasa()); // 24650617 = Por 100
+            tipoTasaSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoTasa()); // 24650617 = Por 100
 
 
             Thread.sleep(2000);
@@ -195,7 +201,7 @@ public class EmisionPolizaInclusionTomadores {
         }
     }
 
-    public void TomadorTercero1(Metodos a, WebDriver driver, EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean){
+    public void TomadorTercero1(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean){
         try {
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
             btnBusquedaAvanzada.click();
@@ -209,20 +215,20 @@ public class EmisionPolizaInclusionTomadores {
             WebElement apellidoInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
             WebElement btnBuscarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_searchButton']"));
 
-            if (emisionPolizaInclusionTomadoresBean.getTipoTercero1() != null){
-                tipoTeceroSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoTercero1());
+            if (emisionPolizaEliminacionTomadoresBean.getTipoTercero1() != null){
+                tipoTeceroSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoTercero1());
             }
-            if (emisionPolizaInclusionTomadoresBean.getTipoDocId1() != null){
-                tipoDocIdSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoDocId1());
+            if (emisionPolizaEliminacionTomadoresBean.getTipoDocId1() != null){
+                tipoDocIdSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoDocId1());
             }
-            if (emisionPolizaInclusionTomadoresBean.getCedula1() != null){
-                cedulaInput.sendKeys(emisionPolizaInclusionTomadoresBean.getCedula1());
+            if (emisionPolizaEliminacionTomadoresBean.getCedula1() != null){
+                cedulaInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getCedula1());
             }
-            if (emisionPolizaInclusionTomadoresBean.getNombre1() != null){
-                nombreInput.sendKeys(emisionPolizaInclusionTomadoresBean.getNombre1());
+            if (emisionPolizaEliminacionTomadoresBean.getNombre1() != null){
+                nombreInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getNombre1());
             }
-            if (emisionPolizaInclusionTomadoresBean.getApellido1() != null){
-                apellidoInput.sendKeys(emisionPolizaInclusionTomadoresBean.getApellido1());
+            if (emisionPolizaEliminacionTomadoresBean.getApellido1() != null){
+                apellidoInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getApellido1());
             }
 
             Thread.sleep(2000);
@@ -244,10 +250,10 @@ public class EmisionPolizaInclusionTomadores {
             btnAsociar.click();
             Thread.sleep(4000);
 
-            if (emisionPolizaInclusionTomadoresBean.getPorcentajeTomador1() != null) {
+            if (emisionPolizaEliminacionTomadoresBean.getPorcentajeTomador1() != null) {
                 WebElement porcentajeTomadorInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
                 porcentajeTomadorInput.clear();
-                porcentajeTomadorInput.sendKeys(emisionPolizaInclusionTomadoresBean.getPorcentajeTomador1());
+                porcentajeTomadorInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getPorcentajeTomador1());
             }
 
             WebElement btnModoPago = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_radio']"));
@@ -271,7 +277,7 @@ public class EmisionPolizaInclusionTomadores {
         }
     }
 
-    public void TomadorTercero2(Metodos a, WebDriver driver, EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean){
+    public void TomadorTercero2(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean){
         try {
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
             btnBusquedaAvanzada.click();
@@ -285,20 +291,20 @@ public class EmisionPolizaInclusionTomadores {
             WebElement apellidoInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
             WebElement btnBuscarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_searchButton']"));
 
-            if (emisionPolizaInclusionTomadoresBean.getTipoTercero2() != null){
-                tipoTeceroSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoTercero2());
+            if (emisionPolizaEliminacionTomadoresBean.getTipoTercero2() != null){
+                tipoTeceroSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoTercero2());
             }
-            if (emisionPolizaInclusionTomadoresBean.getTipoDocId2() != null){
-                tipoDocIdSelect.selectByValue(emisionPolizaInclusionTomadoresBean.getTipoDocId2());
+            if (emisionPolizaEliminacionTomadoresBean.getTipoDocId2() != null){
+                tipoDocIdSelect.selectByValue(emisionPolizaEliminacionTomadoresBean.getTipoDocId2());
             }
-            if (emisionPolizaInclusionTomadoresBean.getCedula2() != null){
-                cedulaInput.sendKeys(emisionPolizaInclusionTomadoresBean.getCedula2());
+            if (emisionPolizaEliminacionTomadoresBean.getCedula2() != null){
+                cedulaInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getCedula2());
             }
-            if (emisionPolizaInclusionTomadoresBean.getNombre2() != null){
-                nombreInput.sendKeys(emisionPolizaInclusionTomadoresBean.getNombre2());
+            if (emisionPolizaEliminacionTomadoresBean.getNombre2() != null){
+                nombreInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getNombre2());
             }
-            if (emisionPolizaInclusionTomadoresBean.getApellido2() != null){
-                apellidoInput.sendKeys(emisionPolizaInclusionTomadoresBean.getApellido2());
+            if (emisionPolizaEliminacionTomadoresBean.getApellido2() != null){
+                apellidoInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getApellido2());
             }
 
             Thread.sleep(2000);
@@ -320,10 +326,10 @@ public class EmisionPolizaInclusionTomadores {
             btnAsociar.click();
             Thread.sleep(4000);
 
-            if (emisionPolizaInclusionTomadoresBean.getPorcentajeTomador2() != null) {
+            if (emisionPolizaEliminacionTomadoresBean.getPorcentajeTomador2() != null) {
                 WebElement porcentajeTomadorInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
                 porcentajeTomadorInput.clear();
-                porcentajeTomadorInput.sendKeys(emisionPolizaInclusionTomadoresBean.getPorcentajeTomador2());
+                porcentajeTomadorInput.sendKeys(emisionPolizaEliminacionTomadoresBean.getPorcentajeTomador2());
             }
 
             WebElement btnModoPago = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_radio']"));
@@ -345,6 +351,102 @@ public class EmisionPolizaInclusionTomadores {
 //             log.info(e);
             log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
         }
+    }
+
+    public void EliminarTomador(Metodos a, WebDriver driver) {
+
+        try {
+            Thread.sleep(5000);
+            WebElement closeSearcher = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_closeDetailSearch_container']"));
+            closeSearcher.click();
+
+            Thread.sleep(1000);
+            WebElement selTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_Container_sorting_5_Checked']"));
+            selTomador.click();
+            Thread.sleep(2000);
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen14", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement eliminarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_DeleteButton']"));
+            eliminarTomador.click();
+
+            Thread.sleep(3000);
+            WebElement btnSi = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_modalDialogSecurity_content_questionForm_yesOption']"));
+            btnSi.click();
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen15", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            /** Espere **/
+            WebElement mensajeEspera3 = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera3.isDisplayed()){
+                Thread.sleep(5000);
+                System.out.println("Experimento de Eliminar Tomador");
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen16", nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+//             log.info(e);
+            log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
+
+    public void EditarTomadorTercero1(Metodos a, WebDriver driver, EmisionPolizaEliminacionTomadoresBean emisionPolizaEliminacionTomadoresBean) throws InterruptedException, IOException {
+
+        //TipoElemento[@wicketpath='WicketpathElemento']
+        Thread.sleep(2000);
+        WebElement cerrarBuscador = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_closeDetailSearch_container']"));
+        cerrarBuscador.click();
+        Thread.sleep(2000);
+
+        WebElement selTomador1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_Container_sorting_3_Checked']"));
+        selTomador1.click();
+
+        Thread.sleep(1000);
+        a.ScreenShot(driver, "screen15", nombreAutomatizacion); //screenshot2
+        Toolkit.getDefaultToolkit().beep();
+
+        WebElement btnParticipacion = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_EditButton']"));
+        btnParticipacion.click();
+
+        Thread.sleep(2000);
+
+        WebElement nuevoPorcentaje = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+        nuevoPorcentaje.clear();
+        nuevoPorcentaje.sendKeys(emisionPolizaEliminacionTomadoresBean.getNuevoPorcentajeTomador1());
+
+        WebElement btnAgregar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_addPaymentModeButton']"));
+        btnAgregar.click();
+
+        /**Espere*/
+        /** Experimento de Espera que se deshabilite el mensaje de Espera**/
+        WebElement mensajeEspera3 = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera3.isDisplayed()){
+            Thread.sleep(5000);
+            System.out.println("Experimento de Espera Agregar Tomador");
+        }
+
+        Thread.sleep(1000);
+        a.ScreenShot(driver, "screen16", nombreAutomatizacion); //screenshot2
+        Toolkit.getDefaultToolkit().beep();
+
+        WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+        btnGuardar.click();
+
+        Thread.sleep(4000);
+        a.ScreenShot(driver, "screen17", nombreAutomatizacion); //screenshot2
+        Toolkit.getDefaultToolkit().beep();
+
+
     }
 
 
