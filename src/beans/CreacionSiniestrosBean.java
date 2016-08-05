@@ -494,28 +494,4 @@ public class CreacionSiniestrosBean implements Serializable {
         return siniestro;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
