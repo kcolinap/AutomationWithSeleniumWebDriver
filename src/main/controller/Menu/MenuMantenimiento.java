@@ -50,8 +50,8 @@ public class MenuMantenimiento {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//Administrador de Cuentas Universal
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[4]"));//Consultar Cajas
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[7]"));//Administrador de Cuentas Universal
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[38]/div[4]"));//Consultar Cajas
             menu1.click();
             menu2.click();
             a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
