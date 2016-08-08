@@ -77,7 +77,11 @@ public class Metodos {
             WebElement acep = getDriver.findElement(By.name("SecuritySubmit"));
             acep.click();
             WebElement menuUsuario = getDriver.findElement(By.xpath("/html/body/div[3]/div[5]"));
+<<<<<<< HEAD
             WebElement menuSalir = getDriver.findElement(By.xpath("/html/body/div[50]/div[3]"));
+=======
+            WebElement menuSalir = getDriver.findElement(By.xpath("/html/body/div[48]/div[3]"));
+>>>>>>> ContinuacionClaseMenu
             menuUsuario.click();
             menuSalir.click();
             IniciarSesion(getDriver, nombrePrueba);

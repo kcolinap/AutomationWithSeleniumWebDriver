@@ -1,6 +1,7 @@
 package main.controller;
 
 import beans.CajaAperturarBean;
+import main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,38 +24,21 @@ public class CajaAperturar {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
         // Asociar caja a cajero
-        MenuAperturarCaja(driver, a); //Menu Asociar caja con cajero
+        //MenuAperturarCaja(driver, a); //Menu Asociar caja con cajero
+        m.UAA_Caja_AperturaCaja(driver,a,nombreAutomatizacion);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
         AperturarCaja(a, driver, cajaAperturarBean); //Busqueda Tercero
-    }
-
-    public void MenuAperturarCaja(WebDriver driver, Metodos a){
-
-        try {
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
-            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]"));//Aperturar Caja
-            menu1.click();
-            menu2.click();
-            menu3.click();
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
-            Thread.sleep(1000);
-            menu4.click();
-
-        } catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 28 - " + nombreAutomatizacion + " -  " + e);
-        }
+        a.cambiarVentana(driver);
+        a.ScreenShot(driver, "screen5", nombreAutomatizacion);
     }
 
     public void AperturarCaja(Metodos a, WebDriver driver, CajaAperturarBean cajaAperturarBean) throws InterruptedException {
@@ -73,13 +57,8 @@ public class CajaAperturar {
             a.ScreenShot(driver, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(2000);
-
             btnAceptar.click();
-            Thread.sleep(5000);
-
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
         } catch (Exception e){
             e.printStackTrace();
