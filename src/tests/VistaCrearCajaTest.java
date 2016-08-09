@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,7 @@ public class VistaCrearCajaTest {
     private final static Logger log = Logger.getLogger(VistaCrearCajaTest.class);
 
     @Test
-    public void mainTest(){
+    public void mainTest() throws SQLException {
 
         ArrayList caja = CrearCajaBean.getCrearCaja();
 
