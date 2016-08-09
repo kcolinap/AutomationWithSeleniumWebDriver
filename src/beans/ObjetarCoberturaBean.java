@@ -1,5 +1,6 @@
 package beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
  */
 public class ObjetarCoberturaBean implements Serializable {
 
+    private final static Logger log = Logger.getLogger(CreacionSiniestrosBean.class);
     private String ordenarPor;
     private String producto;
     private String estadosCicloVida;
@@ -27,6 +29,7 @@ public class ObjetarCoberturaBean implements Serializable {
     private String numeroPoliza;
     private String fechaEmision;
     private String monedaPoliza;
+    private String tipoMonedaPoliza;
     private String tipoProduccion;
     private String tipoVigencia;
     private String vigencia;
@@ -38,19 +41,22 @@ public class ObjetarCoberturaBean implements Serializable {
     private String tipoPoliza;
     private String numeroCotizacion;
     private String numeroPropuesta;
-    private String tipoMoneda;
     private String fechaOcurrenciaSiniestro;
     private String sucursalSiniestros;
     private String horaOcurrencia;
     private String fechaAvisoCompania;
     private String horaNotificacion;
+    private String fechaOperConstSiniestro;
     private String fechaReclFormalizacion;
     private String fechaInterrupcionTerminos;
+    private String documentoIdentReclamante;
     private String reclamante;
-    private String causaMuerte;
-    private String causalesCoberturaMuerte;
+    private String causaGeneralMuerte;
+    private String causalesEspecifCobertMuerte;
     private String departamento;
     private String ciudad;
+    private String generoAsegurado;
+    private String profesionAsegurado;
     private String actividadSiniestro;
     private String fechaActividad;
     private String observacionesSiniestro;
@@ -145,6 +151,13 @@ public class ObjetarCoberturaBean implements Serializable {
         this.monedaPoliza = monedaPoliza;
     }
 
+    public String getTipoMonedaPoliza() {
+        return tipoMonedaPoliza;
+    }
+    public void setTipoMonedaPoliza(String tipoMonedaPoliza) {
+        this.tipoMonedaPoliza = tipoMonedaPoliza;
+    }
+
     public String getTipoProduccion() {
         return tipoProduccion;
     }
@@ -220,13 +233,6 @@ public class ObjetarCoberturaBean implements Serializable {
         this.numeroPropuesta = numeroPropuesta;
     }
 
-    public String getTipoMoneda() {
-        return tipoMoneda;
-    }
-    public void setTipoMoneda(String tipoMoneda) {
-        this.tipoMoneda = tipoMoneda;
-    }
-
     public String getFechaOcurrenciaSiniestro() {
         return fechaOcurrenciaSiniestro;
     }
@@ -261,6 +267,12 @@ public class ObjetarCoberturaBean implements Serializable {
         this.horaNotificacion= horaNotificacion;
     }
 
+    public String getFechaOperConstSiniestro() {
+        return fechaOperConstSiniestro;
+    }
+    public void setFechaOperConstSiniestro(String fechaOperConstSiniestro) {
+        this.fechaOperConstSiniestro= fechaOperConstSiniestro;}
+
     public String getFechaReclFormalizacion() {
         return fechaReclFormalizacion;
     }
@@ -273,6 +285,12 @@ public class ObjetarCoberturaBean implements Serializable {
     public void setFechaInterrupcionTerminos(String fechaInterrupcionTerminos) {
         this.fechaInterrupcionTerminos = fechaInterrupcionTerminos;}
 
+    public String getDocumentoIdentReclamante() {
+        return documentoIdentReclamante;
+    }
+    public void setDocumentoIdentReclamante(String documentoIdentReclamante) {
+        this.documentoIdentReclamante = documentoIdentReclamante;}
+
     public String getReclamante() {
         return reclamante;
     }
@@ -280,18 +298,18 @@ public class ObjetarCoberturaBean implements Serializable {
         this.reclamante = reclamante;
     }
 
-    public String getCausaMuerte() {
-        return causaMuerte;
+    public String getCausaGeneralMuerte() {
+        return causaGeneralMuerte;
     }
-    public void setCausaMuerte(String causaMuerte) {
-        this.causaMuerte = causaMuerte;
+    public void setCausaGeneralMuerte(String causaGeneralMuerte) {
+        this.causaGeneralMuerte = causaGeneralMuerte;
     }
 
-    public String getCausalesCoberturaMuerte() {
-        return causalesCoberturaMuerte;
+    public String getCausalesEspecifCobertMuerte() {
+        return causalesEspecifCobertMuerte;
     }
-    public void setCausalesCoberturaMuerte(String causalesCoberturaMuerte) {
-        this.causalesCoberturaMuerte = causalesCoberturaMuerte;}
+    public void setCausalesEspecifCobertMuerte(String causalesEspecifCobertMuerte) {
+        this.causalesEspecifCobertMuerte = causalesEspecifCobertMuerte;}
 
     public String getDepartamento() {
         return departamento;
@@ -305,6 +323,20 @@ public class ObjetarCoberturaBean implements Serializable {
     }
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String getGeneroAsegurado() {
+        return generoAsegurado;
+    }
+    public void setGeneroAsegurado(String generoAsegurado) {
+        this.generoAsegurado = generoAsegurado;
+    }
+
+    public String getProfesionAsegurado() {
+        return profesionAsegurado;
+    }
+    public void setProfesionAsegurado(String profesionAsegurado) {
+        this.profesionAsegurado = profesionAsegurado;
     }
 
     public String getActividadSiniestro() {
@@ -383,15 +415,15 @@ public class ObjetarCoberturaBean implements Serializable {
         this.comentariosSiniestro = comentariosSiniestro;}
 
 
-    public static ArrayList getObjetarCobertura() {
+    public static ArrayList getObjetarCobertura() throws SQLException {
 
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList cobertura = new ArrayList();
-        StringBuilder queryLoad = new StringBuilder();
 
-        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_ciclo_vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, Tipo_Moneda, fecha_ocurrencia_siniestro, Sucursal_siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos, Reclamante, Causa_Muerte, Causales_cobertura_Muerte, Departamento, Ciudad, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_siniestro, Fecha_Compromiso, Fecha_inicial, Fecha_Final, Razon, Estado, Tipo, Monto_Siniestro, Motivos_Objecion, Fecha_Objecion, Comentarios_Siniestro from CREACION_SINIESTROS ORDER BY PRUEBA ASC;");
+        StringBuilder queryLoad = new StringBuilder();
+        queryLoad.append("select Prueba,Ordenar_Por, Producto, Estados_Ciclo_Vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza, Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, Fecha_Ocurrencia_Siniestro,Sucursal_Siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos, Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_Siniestro,Motivos_Objecion, Fecha_Objecion, Comentarios_Siniestro from CREAC_SINI_OBJET_COB ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -413,6 +445,7 @@ public class ObjetarCoberturaBean implements Serializable {
                 objetarCoberturaBean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
                 objetarCoberturaBean.setFechaEmision(rs.getString("FECHA_EMISION"));
                 objetarCoberturaBean.setMonedaPoliza(rs.getString("MONEDA_POLIZA"));
+                objetarCoberturaBean.setTipoMonedaPoliza(rs.getString("TIPO_MONEDA_POLIZA"));
                 objetarCoberturaBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
                 objetarCoberturaBean.setTipoVigencia(rs.getString("TIPO_VIGENCIA"));
                 objetarCoberturaBean.setVigencia(rs.getString("VIGENCIA"));
@@ -424,19 +457,22 @@ public class ObjetarCoberturaBean implements Serializable {
                 objetarCoberturaBean.setTipoPoliza(rs.getString("TIPO_POLIZA"));
                 objetarCoberturaBean.setNumeroCotizacion(rs.getString("NUMERO_COTIZACION"));
                 objetarCoberturaBean.setNumeroPropuesta(rs.getString("NUMERO_PROPUESTA"));
-                objetarCoberturaBean.setTipoMoneda(rs.getString("TIPO_MONEDA"));
                 objetarCoberturaBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
                 objetarCoberturaBean.setSucursalSiniestros(rs.getString("SUCURSAL_SINIESTROS"));
                 objetarCoberturaBean.setHoraOcurrencia(rs.getString("HORA_OCURRENCIA"));
                 objetarCoberturaBean.setFechaAvisoCompania(rs.getString("FECHA_AVISO_COMPANIA"));
                 objetarCoberturaBean.setHoraNotificacion(rs.getString("HORA_NOTIFICACION"));
+                objetarCoberturaBean.setFechaOperConstSiniestro(rs.getString("FECHA_OPER_CONST_SINIESTRO"));
                 objetarCoberturaBean.setFechaReclFormalizacion(rs.getString("FECHA_RECL_FORMALIZACION"));
                 objetarCoberturaBean.setFechaInterrupcionTerminos(rs.getString("FECHA_INTERRUPCION_TERMINOS"));
+                objetarCoberturaBean.setDocumentoIdentReclamante(rs.getString("DOCUMENTO_IDENT_RECLAMANTE"));
                 objetarCoberturaBean.setReclamante(rs.getString("RECLAMANTE"));
-                objetarCoberturaBean.setCausaMuerte(rs.getString("CAUSA_MUERTE"));
-                objetarCoberturaBean.setCausalesCoberturaMuerte(rs.getString("CAUSALES_COBERTURA_MUERTE"));
+                objetarCoberturaBean.setCausaGeneralMuerte(rs.getString("CAUSA_GENERAL_MUERTE"));
+                objetarCoberturaBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIFIC_COBERT_MUERTE"));
                 objetarCoberturaBean.setDepartamento(rs.getString("DEPARTAMENTO"));
                 objetarCoberturaBean.setCiudad(rs.getString("CIUDAD"));
+                objetarCoberturaBean.setGeneroAsegurado(rs.getString("GENERO_ASEGURADO"));
+                objetarCoberturaBean.setProfesionAsegurado(rs.getString("PROFESION_ASEGURADO"));
                 objetarCoberturaBean.setActividadSiniestro(rs.getString("ACTIVIDAD_SINIESTRO"));
                 objetarCoberturaBean.setFechaActividad(rs.getString("FECHA_ACTIVIDAD"));
                 objetarCoberturaBean.setObservacionesSiniestro(rs.getString("OBSERVACIONES_SINIESTRO"));
@@ -454,8 +490,11 @@ public class ObjetarCoberturaBean implements Serializable {
         }
 
      }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
+            log.error(e);
+        }finally{
+            if (conn != null) {
+                conn.close();
+            }
         }
         return cobertura;
     }

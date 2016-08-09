@@ -50,9 +50,11 @@ public class CreacionSiniestros {
 
         menu1.click();
         menu2.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+        Thread.sleep(2000);
         menu3.click();
+
     }
 
     public void BuscarPoliza(WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean) throws IOException, InterruptedException{

@@ -8,14 +8,14 @@
                        FRECUENCIA_PAGO="" FECHA_EVENTO_ANTERIOR=""
                        FECHA_PROXIMA_GENERACION_PRIMA="" FECHA_PROXIMA_FACTURACION=""
                        TIPO_POLIZA="" NUMERO_COTIZACION="" NUMERO_PROPUESTA=""
-                       FECHA_OCURRENCIA_SINIESTRO="08-08-2016" SUCURSAL_SINIESTROS="San Diego"
+                       FECHA_OCURRENCIA_SINIESTRO="08-08-2016" SUCURSAL_SINIESTROS="421"
                        HORA_OCURRENCIA="1:30" FECHA_AVISO_COMPANIA="08-08-2016" HORA_NOTIFICACION=""
                        FECHA_OPER_CONST_SINIESTRO="" FECHA_RECL_FORMALIZACION=""
                        FECHA_INTERRUPCION_TERMINOS="" DOCUMENTO_IDENT_RECLAMANTE="" RECLAMANTE="" CAUSA_GENERAL_MUERTE="Muerte Natural"
                        CAUSALES_ESPECIF_COBERT_MUERTE="Arterioesclerosis" DEPARTAMENTO="BOGOTA" CIUDAD="BOGOTA, D.C."
                        GENERO_ASEGURADO="" PROFESION_ASEGURADO="" ACTIVIDAD_SINIESTRO=""
-                       FECHA_ACTIVIDAD="" OBSERVACIONES_SINIESTRO="" CERTIFICADO="Certificado"
-                       OBJETOS_ASEGURADOS="Objetos_Asegurados" COBERTURA_AFECTADA="Cobertura_Afectada" PAGO_MAXIMO="Pago_Maximo"
+                       FECHA_ACTIVIDAD="" OBSERVACIONES_SINIESTRO="" CERTIFICADO=""
+                       OBJETOS_ASEGURADOS="" COBERTURA_AFECTADA="" PAGO_MAXIMO="100"
                        MONEDA_SINIESTRO="Moneda_siniestro" FECHA_COMPROMISO="Fecha_Compromiso" FECHA_INICIAL="Fecha_inicial"
                        FECHA_FINAL="Fecha_Final" RAZON="Razon" ESTADO="Estado" TIPO="Tipo" MONTO_SINIESTRO="Monto_Siniestro"/>
 </dataset>

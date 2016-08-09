@@ -1,5 +1,6 @@
 package beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  */
 public class CreacionSiniestrosBean implements Serializable {
 
+    private final static Logger log = Logger.getLogger(CreacionSiniestrosBean.class);
     private String ordenarPor;
     private String producto;
     private String estadosCicloVida;
@@ -443,15 +445,15 @@ public class CreacionSiniestrosBean implements Serializable {
         this.montoSiniestro = montoSiniestro;
     }
 
-    public static ArrayList getCreacionSiniestros() {
+    public static ArrayList getCreacionSiniestros() throws SQLException {
 
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList siniestro = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_ciclo_vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza, Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, Tipo_Moneda, fecha_ocurrencia_siniestro, Sucursal_siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos, Reclamante, Causa_Muerte, Causales_cobertura_Muerte, Departamento, Ciudad, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_siniestro, Fecha_Compromiso, Fecha_inicial, Fecha_Final, Razon, Estado, Tipo, Monto_Siniestro from CREACION_SINIESTROS ORDER BY PRUEBA ASC");
+        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_ciclo_vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza,Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, fecha_ocurrencia_siniestro, Sucursal_siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos,Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_siniestro, Fecha_Compromiso, Fecha_inicial, Fecha_Final, Razon, Estado, Tipo, Monto_Siniestro from CREACION_SINIESTROS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -520,9 +522,14 @@ public class CreacionSiniestrosBean implements Serializable {
                 siniestro.add(creacionSiniestrosBean);
             }
         }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
+            log.error(e);
+        }finally{
+            if (conn != null) {
+                conn.close();
+            }
         }
+
+
         return siniestro;
     }
 

@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +21,12 @@ public class VistaCreacionSiniestrosTest {
     @Test
     public void mainTest() {
 
-        ArrayList siniestro = CreacionSiniestrosBean.getCreacionSiniestros();
+        ArrayList siniestro = null;
+        try {
+            siniestro = CreacionSiniestrosBean.getCreacionSiniestros();
+        } catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < siniestro.size(); i++) {
             CreacionSiniestrosBean creacionSiniestrosBean = (CreacionSiniestrosBean) siniestro.get(i);
