@@ -47,6 +47,7 @@ public class HistorialReclamos {
     }
 
     public void BuscarHistorialReclamos (WebDriver driver, Metodos a, HistorialReclamosBean historialReclamosBean) throws IOException, InterruptedException {
+        Thread.sleep(3000);
         WebElement numeroReclamo = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr[1]/td[2]/input"));
         numeroReclamo.sendKeys(historialReclamosBean.getNumeroReclamo());
 
