@@ -28,7 +28,7 @@ public class VistaEmisionPolizaBeneficiarioNaturalTest {
             EmisionPolizaBeneficiarioNatural a = new EmisionPolizaBeneficiarioNatural();
 
             try {
-                //a.testLink(emisionPolizaInclusionBeneficiarioNaturalBean, i);
+                a.testLink(emisionPolizaInclusionBeneficiarioNaturalBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);

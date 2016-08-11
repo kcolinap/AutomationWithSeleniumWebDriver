@@ -36,6 +36,7 @@ public class EmisionPolizaBeneficiarioNatural {
 
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
+        Thread.sleep(2000);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
@@ -60,6 +61,11 @@ public class EmisionPolizaBeneficiarioNatural {
         adminitracionPropuestaPoliza.AdminPropuestaPoliza(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
 
         /***Espera***/
+        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera.isDisplayed()){
+            Thread.sleep(5000);
+            System.out.println("Espera 1");
+        }
 
         Thread.sleep(3000);
         adminitracionPropuestaPoliza.EvAplicar(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);

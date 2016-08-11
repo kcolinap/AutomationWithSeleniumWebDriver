@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <POLIZA_BENEFICIARIO_NATURAL PRUEBA="1" PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="10-08-2016" FECHA_HASTA=""
+  <POLIZA_BENEFICIARIO_NATURAL PRUEBA="1" PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="11-08-2016" FECHA_HASTA=""
 
                                EVENTO_APLICAR="Emitir"
                                FECHA_MOVIMIENTO="" FECHA_EFECTIVA_APLI_EV=""
@@ -21,12 +21,12 @@
                                PORCENTAJE_T="100"
 
                                NUM_UNIDAD_RIESGO=""
-                               NUM_CREDITO="3" MONTO_ASEGURADO="150000"
+                               NUM_CREDITO="3" MONTO_ASEGURADO=""
                                FACTOR_VIDA="" VALOR_SEGURO_PRIMA=""
                                FECHA_DESEMBOLSO="" VALOR_PRESTAMO=""
                                CUOTAS_PACTADAS="" SALDO_CAPITAL=""
                                ESTADO_CREDITO="" CUOTAS_MORA=""
-                               FECHA_PROCESO="10-08-2016" FECHA_PAGO=""
+                               FECHA_PROCESO="11-08-2016" FECHA_PAGO=""
                                CUOTA_PAGADA="" FECHA_MORA=""
                                PORCENTAJE_FACULTATIVO=""
 
@@ -44,9 +44,9 @@
                                PORCENTAJE_BENEFICIARIO="" CODIGO_BENEFICIARIO=""
                                PARENTEZCO="43744517"
 
-                               NUEVO_TIPO_DEBENIFICARIO="NUEVO_TIPO_DEBENIFICARIO"
-                               NUEVO_BENEFICIARIO_IRREVOCABLE="NUEVO_BENEFICIARIO_IRREVOCABLE"
-                               NUEVO_PORCENTAJE_BENEFICIARIO="NUEVO_PORCENTAJE_BENEFICIARIO"
-                               NUEVO_CODIGO_BENEFICIARIO="NUEVO_CODIGO_BENEFICIARIO"
-                               NUEVO_PARENTEZCO="NUEVO_PARENTEZCO"/>
+                               NUEVO_TIPO_DEBENIFICARIO=""
+                               NUEVO_BENEFICIARIO_IRREVOCABLE=""
+                               NUEVO_PORCENTAJE_BENEFICIARIO="50"
+                               NUEVO_CODIGO_BENEFICIARIO=""
+                               NUEVO_PARENTEZCO=""/>
 </dataset>

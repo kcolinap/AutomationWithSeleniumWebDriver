@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by agil on 02/08/2016.
  */
-public class EmisionPolizaBeneficiarioNaturalBean implements Serializable {
+public class EmisionPolizaBeneficiarioNaturalBean extends PruebaBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(EmisionPolizaBeneficiarioNaturalBean.class);
 
