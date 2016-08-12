@@ -76,6 +76,11 @@ public class EmisionPolizaBeneficiarioNatural {
         Thread.sleep(4000);
 
         /***Espera***/
+        WebElement mensajeEspera2 = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera2.isDisplayed()){
+            Thread.sleep(5000);
+            System.out.println("Espera 2");
+        }
         terceroTomador.TomadorTercero(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
 
         Thread.sleep(2000);
