@@ -1,6 +1,6 @@
 package AcseleV13_8_Alfa.beans;
 
-import AcseleV13_8.beans.CreacionSiniestrosBean;
+import AcseleV13_8_Alfa.beans.ObjetarCoberturaBean;
 import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
@@ -395,12 +395,12 @@ public class ObjetarCoberturaBean implements Serializable {
         this.monedaSiniestro = monedaSiniestro;
     }
 
-    public String getMotivosObjecion() {
+    /*public String getMotivosObjecion() {
         return motivosObjecion;
     }
     public void setMotivosObjecion(String motivosObjecion) {
         this.motivosObjecion = motivosObjecion;
-    }
+    }*/
 
     public String getFechaObjecion() {
         return fechaObjecion;
@@ -424,7 +424,7 @@ public class ObjetarCoberturaBean implements Serializable {
         ArrayList cobertura = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select Prueba,Ordenar_Por, Producto, Estados_Ciclo_Vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza, Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, Fecha_Ocurrencia_Siniestro,Sucursal_Siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos, Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_Siniestro,Motivos_Objecion, Fecha_Objecion, Comentarios_Siniestro from CREAC_SINI_OBJET_COB ORDER BY PRUEBA ASC");
+        queryLoad.append("select Prueba,Ordenar_Por, Producto, Estados_Ciclo_Vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza, Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, Fecha_Ocurrencia_Siniestro,Sucursal_Siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos, Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_Siniestro, Fecha_Objecion, Comentarios_Siniestro from CREAC_SINI_OBJET_COB ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -469,7 +469,7 @@ public class ObjetarCoberturaBean implements Serializable {
                 objetarCoberturaBean.setDocumentoIdentReclamante(rs.getString("DOCUMENTO_IDENT_RECLAMANTE"));
                 objetarCoberturaBean.setReclamante(rs.getString("RECLAMANTE"));
                 objetarCoberturaBean.setCausaGeneralMuerte(rs.getString("CAUSA_GENERAL_MUERTE"));
-                objetarCoberturaBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIFIC_COBERT_MUERTE"));
+                objetarCoberturaBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIF_COBERT_MUERTE"));
                 objetarCoberturaBean.setDepartamento(rs.getString("DEPARTAMENTO"));
                 objetarCoberturaBean.setCiudad(rs.getString("CIUDAD"));
                 objetarCoberturaBean.setGeneroAsegurado(rs.getString("GENERO_ASEGURADO"));
@@ -482,7 +482,7 @@ public class ObjetarCoberturaBean implements Serializable {
                 objetarCoberturaBean.setCoberturaAfectada(rs.getString("COBERTURA_AFECTADA"));
                 objetarCoberturaBean.setPagoMaximo(rs.getString("PAGO_MAXIMO"));
                 objetarCoberturaBean.setMonedaSiniestro(rs.getString("MONEDA_SINIESTRO"));
-                objetarCoberturaBean.setMotivosObjecion(rs.getString("MOTIVOS_OBEJECION"));
+                //objetarCoberturaBean.setMotivosObjecion(rs.getString("MOTIVOS_OBJECION"));
                 objetarCoberturaBean.setFechaObjecion(rs.getString("FECHA_OBJECION"));
                 objetarCoberturaBean.setComentariosSiniestro(rs.getString("COMENTARIOS_SINIESTRO"));
 
