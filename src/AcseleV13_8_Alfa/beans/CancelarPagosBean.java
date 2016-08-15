@@ -1,4 +1,4 @@
-package AcseleV13_8.beans;
+package AcseleV13_8_Alfa.beans;
 
 import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
@@ -9,13 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 /**
- * Created by aazuaje on 26/07/2016.
+ * Created by aazuaje on 10/08/2016.
  */
-public class CreacionSiniestrosBean implements Serializable {
+public class CancelarPagosBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(CreacionSiniestrosBean.class);
+    private final static Logger log = Logger.getLogger(CancelarPagosBean.class);
     private String ordenarPor;
     private String producto;
     private String estadosCicloVida;
@@ -71,6 +70,8 @@ public class CreacionSiniestrosBean implements Serializable {
     private String estado;
     private String tipo;
     private String montoSiniestro;
+    private String cancelar;
+    private String aprobar;
 
 
     public String getOrdenarPor() {
@@ -445,15 +446,30 @@ public class CreacionSiniestrosBean implements Serializable {
         this.montoSiniestro = montoSiniestro;
     }
 
-    public static ArrayList getCreacionSiniestros() throws SQLException {
+    public String getCancelar() {
+        return cancelar;
+    }
+    public void setCancelar(String cancelar) {
+        this.cancelar = cancelar;
+    }
+
+    public String getAprobar() {
+        return aprobar;
+    }
+    public void setAprobar(String aprobar) {
+        this.aprobar = aprobar;
+    }
+
+
+
+    public static ArrayList getCancelarPagos() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
         ResultSet rs;
-        ArrayList siniestro = new ArrayList();
-
+        ArrayList pagos = new ArrayList();
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_ciclo_vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza,Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, fecha_ocurrencia_siniestro, Sucursal_siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos,Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_siniestro, Fecha_Compromiso, Fecha_inicial, Fecha_Final, Razon, Estado, Tipo, Monto_Siniestro from CREACION_SINIESTROS ORDER BY PRUEBA ASC");
+        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_ciclo_vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza,Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, fecha_ocurrencia_siniestro, Sucursal_siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos,Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_siniestro, Fecha_Compromiso, Fecha_inicial, Fecha_Final, Razon, Estado, Tipo, Monto_Siniestro, Cancelar, Aprobar from CANCELAR_PAGOS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -461,65 +477,67 @@ public class CreacionSiniestrosBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                CreacionSiniestrosBean creacionSiniestrosBean = new CreacionSiniestrosBean();
+                CancelarPagosBean cancelarPagosBean = new CancelarPagosBean();
 
-                creacionSiniestrosBean.setOrdenarPor(rs.getString("ORDENAR_POR"));
-                creacionSiniestrosBean.setProducto(rs.getString("PRODUCTO"));
-                creacionSiniestrosBean.setEstadosCicloVida(rs.getString("ESTADOS_CICLO_VIDA"));
-                creacionSiniestrosBean.setContratante(rs.getString("CONTRATANTE"));
-                creacionSiniestrosBean.setAsegurado(rs.getString("ASEGURADO"));
-                creacionSiniestrosBean.setIdPoliza(rs.getString("ID_POLIZA"));
-                creacionSiniestrosBean.setFechaDesde(rs.getString("FECHA_DESDE"));
-                creacionSiniestrosBean.setFechaHasta(rs.getString("FECHA_HASTA"));
-                creacionSiniestrosBean.setSucursalPoliza(rs.getString("SUCURSAL_POLIZA"));
-                creacionSiniestrosBean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
-                creacionSiniestrosBean.setFechaEmision(rs.getString("FECHA_EMISION"));
-                creacionSiniestrosBean.setMonedaPoliza(rs.getString("MONEDA_POLIZA"));
-                creacionSiniestrosBean.setMonedaPoliza(rs.getString("TIPO_MONEDA_POLIZA"));
-                creacionSiniestrosBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
-                creacionSiniestrosBean.setTipoVigencia(rs.getString("TIPO_VIGENCIA"));
-                creacionSiniestrosBean.setVigencia(rs.getString("VIGENCIA"));
-                creacionSiniestrosBean.setCanalVenta(rs.getString("CANAL_VENTA"));
-                creacionSiniestrosBean.setFrecuenciaPago(rs.getString("FRECUENCIA_PAGO"));
-                creacionSiniestrosBean.setFechaEventoAnterior(rs.getString("FECHA_EVENTO_ANTERIOR"));
-                creacionSiniestrosBean.setFechaProximaGeneracionPrima(rs.getString("FECHA_PROXIMA_GENERACION_PRIMA"));
-                creacionSiniestrosBean.setFechaProximaFacturacion(rs.getString("FECHA_PROXIMA_FACTURACION"));
-                creacionSiniestrosBean.setTipoPoliza(rs.getString("TIPO_POLIZA"));
-                creacionSiniestrosBean.setNumeroCotizacion(rs.getString("NUMERO_COTIZACION"));
-                creacionSiniestrosBean.setNumeroPropuesta(rs.getString("NUMERO_PROPUESTA"));
-                creacionSiniestrosBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
-                creacionSiniestrosBean.setSucursalSiniestros(rs.getString("SUCURSAL_SINIESTROS"));
-                creacionSiniestrosBean.setHoraOcurrencia(rs.getString("HORA_OCURRENCIA"));
-                creacionSiniestrosBean.setFechaAvisoCompania(rs.getString("FECHA_AVISO_COMPANIA"));
-                creacionSiniestrosBean.setHoraNotificacion(rs.getString("HORA_NOTIFICACION"));
-                creacionSiniestrosBean.setFechaOperConstSiniestro(rs.getString("FECHA_OPER_CONST_SINIESTRO"));
-                creacionSiniestrosBean.setFechaReclFormalizacion(rs.getString("FECHA_RECL_FORMALIZACION"));
-                creacionSiniestrosBean.setFechaInterrupcionTerminos(rs.getString("FECHA_INTERRUPCION_TERMINOS"));
-                creacionSiniestrosBean.setDocumentoIdentReclamante(rs.getString("DOCUMENTO_IDENT_RECLAMANTE"));
-                creacionSiniestrosBean.setReclamante(rs.getString("RECLAMANTE"));
-                creacionSiniestrosBean.setCausaGeneralMuerte(rs.getString("CAUSA_GENERAL_MUERTE"));
-                creacionSiniestrosBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIF_COBERT_MUERTE"));
-                creacionSiniestrosBean.setDepartamento(rs.getString("DEPARTAMENTO"));
-                creacionSiniestrosBean.setCiudad(rs.getString("CIUDAD"));
-                creacionSiniestrosBean.setGeneroAsegurado(rs.getString("GENERO_ASEGURADO"));
-                creacionSiniestrosBean.setProfesionAsegurado(rs.getString("PROFESION_ASEGURADO"));
-                creacionSiniestrosBean.setActividadSiniestro(rs.getString("ACTIVIDAD_SINIESTRO"));
-                creacionSiniestrosBean.setFechaActividad(rs.getString("FECHA_ACTIVIDAD"));
-                creacionSiniestrosBean.setObservacionesSiniestro(rs.getString("OBSERVACIONES_SINIESTRO"));
-                creacionSiniestrosBean.setCertificado(rs.getString("CERTIFICADO"));
-                creacionSiniestrosBean.setObjetosAsegurados(rs.getString("OBJETOS_ASEGURADOS"));
-                creacionSiniestrosBean.setCoberturaAfectada(rs.getString("COBERTURA_AFECTADA"));
-                creacionSiniestrosBean.setPagoMaximo(rs.getString("PAGO_MAXIMO"));
-                creacionSiniestrosBean.setMonedaSiniestro(rs.getString("MONEDA_SINIESTRO"));
-                creacionSiniestrosBean.setFechaCompromiso(rs.getString("FECHA_COMPROMISO"));
-                creacionSiniestrosBean.setFechaInicial(rs.getString("FECHA_INICIAL"));
-                creacionSiniestrosBean.setFechaFinal(rs.getString("FECHA_FINAL"));
-                creacionSiniestrosBean.setRazon(rs.getString("RAZON"));
-                creacionSiniestrosBean.setEstado(rs.getString("ESTADO"));
-                creacionSiniestrosBean.setTipo(rs.getString("TIPO"));
-                creacionSiniestrosBean.setMontoSiniestro(rs.getString("MONTO_SINIESTRO"));
+                cancelarPagosBean.setOrdenarPor(rs.getString("ORDENAR_POR"));
+                cancelarPagosBean.setProducto(rs.getString("PRODUCTO"));
+                cancelarPagosBean.setEstadosCicloVida(rs.getString("ESTADOS_CICLO_VIDA"));
+                cancelarPagosBean.setContratante(rs.getString("CONTRATANTE"));
+                cancelarPagosBean.setAsegurado(rs.getString("ASEGURADO"));
+                cancelarPagosBean.setIdPoliza(rs.getString("ID_POLIZA"));
+                cancelarPagosBean.setFechaDesde(rs.getString("FECHA_DESDE"));
+                cancelarPagosBean.setFechaHasta(rs.getString("FECHA_HASTA"));
+                cancelarPagosBean.setSucursalPoliza(rs.getString("SUCURSAL_POLIZA"));
+                cancelarPagosBean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
+                cancelarPagosBean.setFechaEmision(rs.getString("FECHA_EMISION"));
+                cancelarPagosBean.setMonedaPoliza(rs.getString("MONEDA_POLIZA"));
+                cancelarPagosBean.setMonedaPoliza(rs.getString("TIPO_MONEDA_POLIZA"));
+                cancelarPagosBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
+                cancelarPagosBean.setTipoVigencia(rs.getString("TIPO_VIGENCIA"));
+                cancelarPagosBean.setVigencia(rs.getString("VIGENCIA"));
+                cancelarPagosBean.setCanalVenta(rs.getString("CANAL_VENTA"));
+                cancelarPagosBean.setFrecuenciaPago(rs.getString("FRECUENCIA_PAGO"));
+                cancelarPagosBean.setFechaEventoAnterior(rs.getString("FECHA_EVENTO_ANTERIOR"));
+                cancelarPagosBean.setFechaProximaGeneracionPrima(rs.getString("FECHA_PROXIMA_GENERACION_PRIMA"));
+                cancelarPagosBean.setFechaProximaFacturacion(rs.getString("FECHA_PROXIMA_FACTURACION"));
+                cancelarPagosBean.setTipoPoliza(rs.getString("TIPO_POLIZA"));
+                cancelarPagosBean.setNumeroCotizacion(rs.getString("NUMERO_COTIZACION"));
+                cancelarPagosBean.setNumeroPropuesta(rs.getString("NUMERO_PROPUESTA"));
+                cancelarPagosBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
+                cancelarPagosBean.setSucursalSiniestros(rs.getString("SUCURSAL_SINIESTROS"));
+                cancelarPagosBean.setHoraOcurrencia(rs.getString("HORA_OCURRENCIA"));
+                cancelarPagosBean.setFechaAvisoCompania(rs.getString("FECHA_AVISO_COMPANIA"));
+                cancelarPagosBean.setHoraNotificacion(rs.getString("HORA_NOTIFICACION"));
+                cancelarPagosBean.setFechaOperConstSiniestro(rs.getString("FECHA_OPER_CONST_SINIESTRO"));
+                cancelarPagosBean.setFechaReclFormalizacion(rs.getString("FECHA_RECL_FORMALIZACION"));
+                cancelarPagosBean.setFechaInterrupcionTerminos(rs.getString("FECHA_INTERRUPCION_TERMINOS"));
+                cancelarPagosBean.setDocumentoIdentReclamante(rs.getString("DOCUMENTO_IDENT_RECLAMANTE"));
+                cancelarPagosBean.setReclamante(rs.getString("RECLAMANTE"));
+                cancelarPagosBean.setCausaGeneralMuerte(rs.getString("CAUSA_GENERAL_MUERTE"));
+                cancelarPagosBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIF_COBERT_MUERTE"));
+                cancelarPagosBean.setDepartamento(rs.getString("DEPARTAMENTO"));
+                cancelarPagosBean.setCiudad(rs.getString("CIUDAD"));
+                cancelarPagosBean.setGeneroAsegurado(rs.getString("GENERO_ASEGURADO"));
+                cancelarPagosBean.setProfesionAsegurado(rs.getString("PROFESION_ASEGURADO"));
+                cancelarPagosBean.setActividadSiniestro(rs.getString("ACTIVIDAD_SINIESTRO"));
+                cancelarPagosBean.setFechaActividad(rs.getString("FECHA_ACTIVIDAD"));
+                cancelarPagosBean.setObservacionesSiniestro(rs.getString("OBSERVACIONES_SINIESTRO"));
+                cancelarPagosBean.setCertificado(rs.getString("CERTIFICADO"));
+                cancelarPagosBean.setObjetosAsegurados(rs.getString("OBJETOS_ASEGURADOS"));
+                cancelarPagosBean.setCoberturaAfectada(rs.getString("COBERTURA_AFECTADA"));
+                cancelarPagosBean.setPagoMaximo(rs.getString("PAGO_MAXIMO"));
+                cancelarPagosBean.setMonedaSiniestro(rs.getString("MONEDA_SINIESTRO"));
+                cancelarPagosBean.setFechaCompromiso(rs.getString("FECHA_COMPROMISO"));
+                cancelarPagosBean.setFechaInicial(rs.getString("FECHA_INICIAL"));
+                cancelarPagosBean.setFechaFinal(rs.getString("FECHA_FINAL"));
+                cancelarPagosBean.setRazon(rs.getString("RAZON"));
+                cancelarPagosBean.setEstado(rs.getString("ESTADO"));
+                cancelarPagosBean.setTipo(rs.getString("TIPO"));
+                cancelarPagosBean.setMontoSiniestro(rs.getString("MONTO_SINIESTRO"));
+                cancelarPagosBean.setCancelar(rs.getString("CANCELAR"));
+                cancelarPagosBean.setAprobar(rs.getString("APROBAR"));
 
-                siniestro.add(creacionSiniestrosBean);
+                pagos.add(cancelarPagosBean);
             }
         }catch(SQLException e){
             log.error(e);
@@ -530,7 +548,9 @@ public class CreacionSiniestrosBean implements Serializable {
         }
 
 
-        return siniestro;
+        return pagos;
     }
 
+
 }
+

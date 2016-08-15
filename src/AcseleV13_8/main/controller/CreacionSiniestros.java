@@ -48,9 +48,11 @@ public class CreacionSiniestros {
 
         menu1.click();
         menu2.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+        Thread.sleep(2000);
         menu3.click();
+
     }
 
     public void BuscarPoliza(WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean) throws IOException, InterruptedException{
@@ -99,6 +101,12 @@ public class CreacionSiniestros {
                 fechaDesde.sendKeys(creacionSiniestrosBean.getFechaDesde());
             }
 
+            if (creacionSiniestrosBean.getFechaHasta() != null){
+                Thread.sleep(2000);
+                WebElement fechaHasta = driver.findElement(By.xpath("//*[@id=\"_toDateShow\"]" ));
+                fechaHasta.sendKeys(creacionSiniestrosBean.getFechaHasta());
+            }
+
             if (creacionSiniestrosBean.getSucursalPoliza() != null){
                 Thread.sleep(2000);
                 Select sucursalPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"1829934\"]/td[3]/font/select")));
@@ -121,6 +129,12 @@ public class CreacionSiniestros {
                 Thread.sleep(2000);
                 Select monedaPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"1828494\"]/td[3]/font/select")));
                 monedaPoliza.selectByValue(creacionSiniestrosBean.getMonedaPoliza());
+            }
+
+            if (creacionSiniestrosBean.getTipoMonedaPoliza() != null){
+                Thread.sleep(2000);
+                Select tipoMonedaPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"30598294\"]/td[3]/font/select")));
+                tipoMonedaPoliza.selectByValue(creacionSiniestrosBean.getTipoMonedaPoliza());
             }
 
             if (creacionSiniestrosBean.getTipoProduccion() != null){
@@ -187,12 +201,6 @@ public class CreacionSiniestros {
                 Thread.sleep(2000);
                 WebElement numeroPropuesta = driver.findElement(By.xpath("//*[@id=\"9452594\"]/td[3]/font/input[1]" ));
                 numeroPropuesta.sendKeys(creacionSiniestrosBean.getNumeroPropuesta());
-            }
-
-            if (creacionSiniestrosBean.getTipoMoneda() != null){
-                Thread.sleep(2000);
-                Select tipoMoneda = new Select(driver.findElement(By.xpath("//*[@id=\"29008194\"]/td[3]/font/select")));
-                tipoMoneda.selectByValue(creacionSiniestrosBean.getTipoMoneda());
             }
 
             Thread.sleep(1000);
@@ -306,8 +314,13 @@ public class CreacionSiniestros {
            }
 
            if (creacionSiniestrosBean.getFechaInterrupcionTerminos() != null){
-           WebElement fechaInterrupcionTerminos = driver.findElement(By.xpath("//*[@id=\"30022594\"]/td[3]/font/input[1]"));
-           fechaInterrupcionTerminos.sendKeys(creacionSiniestrosBean.getFechaInterrupcionTerminos());
+               WebElement fechaInterrupcionTerminos = driver.findElement(By.xpath("//*[@id=\"30022594\"]/td[3]/font/input[1]"));
+               fechaInterrupcionTerminos.sendKeys(creacionSiniestrosBean.getFechaInterrupcionTerminos());
+           }
+
+           if (creacionSiniestrosBean.getDocumentoIdentReclamante() != null){
+               WebElement documentoIdentReclamante = driver.findElement(By.xpath("//*[@id=\"31763194\"]/td[3]/font/input[1]"));
+               documentoIdentReclamante.sendKeys(creacionSiniestrosBean.getDocumentoIdentReclamante());
            }
 
            if (creacionSiniestrosBean.getReclamante() != null){
@@ -315,22 +328,26 @@ public class CreacionSiniestros {
            reclamante.sendKeys(creacionSiniestrosBean.getReclamante());
            }
 
-           if (creacionSiniestrosBean.getCausaMuerte() != null){
-           Select causaMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"23854894\"]/td[3]/font/select")));
-           causaMuerte.selectByValue(creacionSiniestrosBean.getCausaMuerte());
-           }
+           Select causaGeneralMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"23854894\"]/td[3]/font/select")));
+           causaGeneralMuerte.selectByValue(creacionSiniestrosBean.getCausaGeneralMuerte());
 
-           if (creacionSiniestrosBean.getCausalesCoberturaMuerte() != null){
-           Select causalesCoberturaMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"29997794\"]/td[3]/font/select")));
-           causalesCoberturaMuerte.selectByValue(creacionSiniestrosBean.getCausalesCoberturaMuerte());
-           }
+           Select causalesEspecifCobertMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"29997794\"]/td[3]/font/select")));
+           causalesEspecifCobertMuerte.selectByValue(creacionSiniestrosBean.getCausalesEspecifCobertMuerte());
 
            Select departamento = new Select(driver.findElement(By.xpath("//*[@id=\"1934614\"]/td[3]/font/select")));
            departamento.selectByValue(creacionSiniestrosBean.getDepartamento());
 
-           if (creacionSiniestrosBean.getCiudad() != null){
            Select ciudad = new Select(driver.findElement(By.xpath("//*[@id=\"9508794\"]/td[3]/font/select")));
            ciudad.selectByValue(creacionSiniestrosBean.getCiudad());
+
+           if (creacionSiniestrosBean.getGeneroAsegurado() != null){
+               Select generoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763594\"]/td[3]/font/select")));
+               generoAsegurado.selectByValue(creacionSiniestrosBean.getGeneroAsegurado());
+           }
+
+           if (creacionSiniestrosBean.getProfesionAsegurado() != null){
+               Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
+               profesionAsegurado.selectByValue(creacionSiniestrosBean.getProfesionAsegurado());
            }
 
            if (creacionSiniestrosBean.getActividadSiniestro() != null){

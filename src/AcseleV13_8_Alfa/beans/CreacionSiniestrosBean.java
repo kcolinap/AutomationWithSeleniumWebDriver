@@ -1,4 +1,4 @@
-package AcseleV13_8.beans;
+package AcseleV13_8_Alfa.beans;
 
 import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
