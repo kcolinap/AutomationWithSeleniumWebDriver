@@ -1,7 +1,7 @@
-package tests;
+package AcseleV13_8_Alfa.tests;
 
-import beans.HistorialReclamosBean;
-import main.controller.HistorialReclamos;
+import AcseleV13_8_Alfa.beans.HistorialReclamosBean;
+import AcseleV13_8_Alfa.main.controller.HistorialReclamos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -46,14 +46,14 @@ public class VistaHistorialReclamosTest {
                 "HIST_RECLAMOS",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/tests/historialReclamos_dataset.xml");
 */
-        DataSetManager.loadDataSet("/tests/historialReclamos_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xmls/historialReclamos_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
 
     @After
     public void tearDown() throws Exception {
 
-        DataSetManager.loadDataSet("/tests/historialReclamos_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xmls/historialReclamos_dataset.xml", DataSetManager.DELETE_OPERATION);
     }
 }
 

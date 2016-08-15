@@ -1,8 +1,6 @@
-
 package AcseleV13_8_Alfa.main.controller;
 
 import AcseleV13_8_Alfa.beans.ObjetarCoberturaBean;
-import javafx.stage.Screen;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -15,13 +13,10 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
-
 /**
- * Created by aazuaje on 03/08/2016.
+ * Created by aazuaje on 15/08/2016.
  */
-
 public class ObjetarCobertura {
-
     private final static Logger log = Logger.getLogger(ObjetarCobertura.class);
 
     public String nombreAutomatizacion = "Objetar Cobertura";
@@ -356,8 +351,8 @@ public class ObjetarCobertura {
             }
 
             if (objetarCoberturaBean.getProfesionAsegurado() != null){
-            Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
-            profesionAsegurado.selectByValue(objetarCoberturaBean.getProfesionAsegurado());
+                Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
+                profesionAsegurado.selectByValue(objetarCoberturaBean.getProfesionAsegurado());
             }
 
             WebElement btnLimpiar = driver.findElement(By.xpath("//*[@id=\"ProfesionAseguradoClearLink\"]"));

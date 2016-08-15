@@ -1,4 +1,4 @@
-package beans;
+package AcseleV13_8_Alfa.beans;
 
 import util.DBUnitConnectionManager;
 
