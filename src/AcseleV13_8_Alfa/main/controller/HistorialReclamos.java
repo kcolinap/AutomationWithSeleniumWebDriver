@@ -1,6 +1,6 @@
-package main.controller;
+package AcseleV13_8_Alfa.main.controller;
 
-import beans.HistorialReclamosBean;
+import AcseleV13_8_Alfa.beans.HistorialReclamosBean;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
