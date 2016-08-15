@@ -31,14 +31,14 @@ public class VistaEditarSiniestrosTest {
 
         for (int i = 0; i < edicion.size(); i++) {
             EditarSiniestrosBean editarSiniestrosBean = (EditarSiniestrosBean) edicion.get(i);
-            EditarSiniestros a = new EditarSiniestros();
+    //        EditarSiniestros a = new EditarSiniestros();
 
             try {
                 //a.testLink(editarSiniestrosBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+      //          log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

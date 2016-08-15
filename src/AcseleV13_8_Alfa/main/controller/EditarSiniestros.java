@@ -34,12 +34,12 @@ public class EditarSiniestros {
         MenuCreacionSiniestro(driver, a);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, cancelarPagosBean);
-        ResultadoBusqueda(driver, a, cancelarPagosBean);
-        AgregarObjetoAfectado(driver, a, cancelarPagosBean);
-        AgregarCobertura(driver, a, cancelarPagosBean);
-        AgregarRequisitos(driver, a, cancelarPagosBean);
-        AgregarPagos(driver, a, cancelarPagosBean);
+//        BuscarPoliza(driver, a, cancelarPagosBean);
+//        ResultadoBusqueda(driver, a, cancelarPagosBean);
+//        AgregarObjetoAfectado(driver, a, cancelarPagosBean);
+//        AgregarCobertura(driver, a, cancelarPagosBean);
+//        AgregarRequisitos(driver, a, cancelarPagosBean);
+//        AgregarPagos(driver, a, cancelarPagosBean);
 
     }
 
