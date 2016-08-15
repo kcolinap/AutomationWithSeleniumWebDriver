@@ -1,5 +1,6 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
  * Created by mchurion on 14/07/2016.
  */
 public class CrearCajaBean implements Serializable{
+
+    private final static Logger log = Logger.getLogger(CrearCajaBean.class);
 
     private String descripcion;
     private String ubicacion;
@@ -37,9 +40,9 @@ public class CrearCajaBean implements Serializable{
     }
     public void setSucursal(String sucursal) {this.sucursal = sucursal; }
 
-    public static ArrayList getCrearCaja(){
+    public static ArrayList getCrearCaja() throws SQLException {
 
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList caja = new ArrayList();
@@ -61,10 +64,12 @@ public class CrearCajaBean implements Serializable{
             }
 
         }catch(SQLException e){
-        //log.error(e);
-        //conn.close();
+            log.error(e);
+        }finally{
+            if (conn != null) {
+                conn.close();
+            }
         }
-
         return caja;
     }
 

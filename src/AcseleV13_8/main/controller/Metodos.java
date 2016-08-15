@@ -42,7 +42,7 @@ public class Metodos {
 //        driver.get("http://qa19:7001/WController"); // lineas para usar el driver de firefox
 
         // Ruta a ingresar
-        String ruta = "http://qa:7001/WController/";
+        String ruta = "http://qa32:7001/WController/";
         driver.get(ruta);
 
         driver.manage().window().maximize();
@@ -99,8 +99,8 @@ public class Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("");       /** Usuario  **/
-        password2.sendKeys("");
+        user2.sendKeys("mchurion");       /** Usuario  **/
+        password2.sendKeys("123456");
 
         instance2.selectByVisibleText("ALFA");
         language2.selectByValue("es");
