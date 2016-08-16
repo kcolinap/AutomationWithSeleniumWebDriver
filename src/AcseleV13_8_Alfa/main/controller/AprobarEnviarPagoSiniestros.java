@@ -24,6 +24,7 @@ public class AprobarEnviarPagoSiniestros {
 
     public void testLink (AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i )  throws IOException, InterruptedException {
 
+        //Metodos a = new Metodos();
         Metodos a = new Metodos();
         MenuOperaciones m = new MenuOperaciones();
 
@@ -108,37 +109,39 @@ public class AprobarEnviarPagoSiniestros {
 
             Thread.sleep(2000);
 
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
             WebElement seleccionar = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr/td[3]/div"));
             seleccionar.click();
-
             Thread.sleep(2000);
+            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            Thread.sleep(1000);
             WebElement consultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             consultar.click();
 
-            Thread.sleep(4000);
+            Thread.sleep(3000);
 
             a.changeLastWindows(driver);
 
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             WebElement coberturaT = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]"));
             coberturaT.click();
             Thread.sleep(1000);
 
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
-            Thread.sleep(2000);
+
             WebElement cobertura = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]/option"));
             cobertura.click();
-            Thread.sleep(5000);
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            Thread.sleep(2000);
 
             WebElement crearPago = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_09\"]"));
             crearPago.click();
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
-            Thread.sleep(2000);
+          //Thread.sleep(3000);
+          //a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            Thread.sleep(3000);
 
 
             WebElement tercero = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
+            Thread.sleep(2000);
             a.ScreenShot(driver, "screen8", nombreAutomatizacion);
             tercero.click();
             Thread.sleep(3000);
@@ -151,25 +154,25 @@ public class AprobarEnviarPagoSiniestros {
                 driver.switchTo().defaultContent();
             }
 */
-
-            Thread.sleep(3000);
             WebElement nombreTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
             nombreTercero.click();
-
-            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
-
-
             Thread.sleep(2000);
+            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            Thread.sleep(1000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_resultClaimThirdParty_01\"]"));
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             btnAceptar.click();
 
-            Thread.sleep(3000);
-            WebElement ruta = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]"));
+            Thread.sleep(2000);
             a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+            Thread.sleep(2000);
+            WebElement ruta = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]"));
             Thread.sleep(1000);
             ruta.click();
+          //  Thread.sleep(2000);
+          //  a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+
 
 
             /***********************/
@@ -181,7 +184,7 @@ public class AprobarEnviarPagoSiniestros {
             }
 */
 
-            Thread.sleep(4000);
+            Thread.sleep(3000);
 
 
 
@@ -199,20 +202,19 @@ public class AprobarEnviarPagoSiniestros {
 
             WebElement montoSiniestro = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
             montoSiniestro.clear();
+            Thread.sleep(1000);
             montoSiniestro.sendKeys(aprobarEnviarPagoSiniestrosBean.getMontoSiniestro());
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             WebElement razon = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[3]/td[11]"));
             razon.click();
 
-            Thread.sleep(4000);
-
+            Thread.sleep(2000);
+            a.ScreenShot(driver,"screen11", nombreAutomatizacion);
             WebElement btnAcept = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
-            Thread.sleep(3000);
-            a.ScreenShot(driver, "screen11", nombreAutomatizacion);
-            btnAcept.click();
-
             Thread.sleep(1000);
+            btnAcept.click();
+            Thread.sleep(2000);
 
 
         }catch (Exception e) {
@@ -228,9 +230,10 @@ public class AprobarEnviarPagoSiniestros {
         try {
 
             WebElement seleccionarPago = driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]"));
+            Thread.sleep(1000);
             seleccionarPago.click();
-
-            Thread.sleep(2000);
+            a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+            Thread.sleep(1000);
 
         }
         catch (Exception e) {
@@ -252,9 +255,10 @@ public class AprobarEnviarPagoSiniestros {
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();
-//                Thread.sleep(2000);
- //               a.ScreenShot(driver, "screen12", nombreAutomatizacion);
- //               Thread.sleep(2000);
+                driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[1]/center/table/tbody/tr[1]/td[2]")).click();
+        //        Thread.sleep(1000);
+        //        a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+        //        Thread.sleep(1000);
                 alert.accept();
                 Thread.sleep(1000);
                 driver.switchTo().defaultContent();
@@ -299,7 +303,7 @@ public class AprobarEnviarPagoSiniestros {
 
             Select sucursal = new Select(driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select")));
             sucursal.selectByValue(aprobarEnviarPagoSiniestrosBean.getSucursal());
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
             a.ScreenShot(driver, "screen13", nombreAutomatizacion);
 
@@ -347,9 +351,11 @@ public class AprobarEnviarPagoSiniestros {
             Thread.sleep(2000);
 
             WebElement bAceptar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_totalizeclaim_04\"]"));
+            Thread.sleep(2000);
             bAceptar.click();
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             a.ScreenShot(driver, "screen16", nombreAutomatizacion);
+            Thread.sleep(3000);
 
             WebElement irReclamo = driver.findElement(By.xpath("//*[@id=\"idb_0402006_totalizeclaim_01\"]"));
             irReclamo.click();
