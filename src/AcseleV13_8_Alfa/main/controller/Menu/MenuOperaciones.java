@@ -91,22 +91,25 @@ public class MenuOperaciones {
 
         public void OpeSini_DeclaracionSiniestro(){}
 
-        public void OpeSini_MantenimientoSiniestro(WebDriver driver, Metodos a, String nombrePrueba){
+
+        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion) {
 
             try {
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//Operaciones Siniestros
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//Mantenimiento Siniestro
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//crear siniestro
+
                 menu1.click();
                 menu2.click();
-                a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+                Thread.sleep(1000);
+                a.ScreenShot(driver,"screen3",nombreAutomatizacion);
                 menu3.click();
-
-            } catch (Exception e){
+            }catch (Exception e) {
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Menu Operaciones (Operaciones Siniestros) - Busqueda Simple - " + e);
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
+
         }
 
         public void OpeSini_CreacionSiniestroFrontEnd(){}

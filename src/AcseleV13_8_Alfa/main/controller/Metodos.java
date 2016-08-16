@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Created by agil on 09/08/2016.
  */
@@ -94,7 +95,7 @@ public class Metodos {
             IniciarSesion(getDriver, nombrePrueba);
         }
         System.out.println("Ahora esta logeado");
-        Thread.sleep(5000);
+        Thread.sleep(4000);
     }
 
     public void IniciarSesion(WebDriver getDriver, String nombrePrueba) throws IOException, InterruptedException {
@@ -105,8 +106,8 @@ public class Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("mchurion");       //** Usuario  **/
-        password2.sendKeys("123456");
+        user2.sendKeys("");       /** Usuario  **/
+        password2.sendKeys("");
 
         instance2.selectByVisibleText("ALFA");
         language2.selectByValue("es");
@@ -129,7 +130,7 @@ public class Metodos {
         String lastId = listWindows.get(listWindows.size() - 1);
         //swtiching control to child Window
         getDriver.switchTo().window(lastId);
-        //Thread.sleep(2000);
+        Thread.sleep(2000);
     }
 
     public void cambiarVentana(WebDriver getDriver) throws InterruptedException, IOException{
