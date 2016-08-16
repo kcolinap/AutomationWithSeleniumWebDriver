@@ -42,14 +42,14 @@ public class VistaRechazarPagoSiniestrosTest {
     @Before
     public void setUp() throws Exception {
 
-/*     DataSetManager.createPartialDataSet("SELECT PRUEBA, NumeroSiniestro, NumeroPoliza, FechaSiniestro, Producto, OrdenarPor, FechaCompromiso, FechaInicial, FechaFinal, Razon, Tipo, MontoSiniestro, SeleccioneAccion, Sucursal FROM APROBAR_PAGO_SINIESTROS ORDER BY PRUEBA ASC",
+     DataSetManager.createPartialDataSet("SELECT PRUEBA, NumeroSiniestro, NumeroPoliza, FechaSiniestro, Producto, OrdenarPor, FechaCompromiso, FechaInicial, FechaFinal, Razon, Tipo, MontoSiniestro, SeleccioneAccion, Sucursal FROM APROBAR_PAGO_SINIESTROS ORDER BY PRUEBA ASC",
                 "APROBAR_PAGO_SINIESTROS",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xmls/aprobarPagoSiniestros_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, NumeroSiniestro, NumeroPoliza, FechaSiniestro, Producto, OrdenarPor, FechaCompromiso, FechaInicial, FechaFinal, Razon, Tipo, MontoSiniestro, SeleccioneAccion, Sucursal FROM APROBAR_PAGO_SINIESTROS ORDER BY PRUEBA ASC",
                 "APROBAR_PAGO_SINIESTROS",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Alfa/tests/xmls/aprobarPagoSiniestros_dataset.xml");
-*/
+
         DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xmls/aprobarPagoSiniestros_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
