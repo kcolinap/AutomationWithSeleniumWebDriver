@@ -3,6 +3,7 @@ package AcseleV13_8_Alfa.main.controller;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
@@ -36,7 +37,10 @@ public class Metodos {
 
     public WebDriver entrarPagina(){
         System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-popup-blocking");
+
+        WebDriver driver = new ChromeDriver(options);
 
 //        WebDriver driver = new FirefoxDriver();
 //        driver.get("http://qa19:7001/WController"); // lineas para usar el driver de firefox
