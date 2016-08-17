@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.awt.*;
+
 /**
  * Created by agil on 25/07/2016.
  */
@@ -80,7 +82,23 @@ public class MenuMantenimiento {
     /** -- UAA (Administracion de Cuentas Universal) -- **/
 
     /** Mantenimiento General **/
-        public void MantGeral_TablasDinamicas(){}
+
+        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion){
+            try {
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[8]")); // Mantenimiento General
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[42]/div[1]")); // Tablas Dinámicas
+                menu1.click();
+                menu2.click();
+                a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
+                Toolkit.getDefaultToolkit().beep();
+                menu3.click();
+            }catch (Exception e){
+                e.printStackTrace();
+//             log.info(e);
+                log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+            }
+        }
         public void MantGeral_TablasEstaticas(){}
         public void MantGeral_CambioMasivoViasCobro(){}
         public void MantGeral_AdministradorCalendario(){}
