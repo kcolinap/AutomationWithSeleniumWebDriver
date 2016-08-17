@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.List;
+
 
 /**
  * Created by agil on 26/05/2016.
@@ -48,6 +50,7 @@ public class Metodos {
 //        driver.get("http://qa19:7001/WController"); // lineas para usar el driver de firefox
 
         // Ruta a ingresar
+
         String ruta = "http://qa:7001/WController//";
         driver.get(ruta);
 
@@ -105,8 +108,8 @@ public class Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("");       /** Usuario  **/
-        password2.sendKeys("");
+        user2.sendKeys("system");       /** Usuario  **/
+        password2.sendKeys("consis");
 
         instance2.selectByVisibleText("ALFA");
         language2.selectByValue("es");

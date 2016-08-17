@@ -1,20 +1,15 @@
 
-package AcseleV13_8_Alfa.main.controller;
+package AcseleV13_8.main.controller;
 
-import AcseleV13_8_Alfa.beans.CancelarPagosBean;
-import AcseleV13_8_Alfa.beans.EditarSiniestrosBean;
-import AcseleV13_8_Alfa.beans.ObjetarCoberturaBean;
+import AcseleV13_8.beans.EditarSiniestrosBean;
+import AcseleV13_8.main.controller.Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * Created by aazuaje on 15/08/2016.
@@ -52,9 +47,9 @@ public class EditarSiniestros {
 
         menu1.click();
         menu2.click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
         Thread.sleep(3000);
+        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+        Thread.sleep(4000);
         menu3.click();
 
     }
@@ -122,14 +117,17 @@ public class EditarSiniestros {
                 fechaOcurrenciaSiniestro.sendKeys(editarSiniestrosBean.getFechaOcurrenciaSiniestro());
             }
 
+            String productos = "VidaDeudoresAvVillas";
 
-            if (editarSiniestrosBean.getProducto() == "VidaDeudoresAvVillas"){
-                Thread.sleep(1000);
-                WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchformpolicy_01\"]"));
-                btnSeleccionar.click();
-                Thread.sleep(1000);
-                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td/span"));
-                producto.click();
+            if (editarSiniestrosBean.getProducto() != null){
+                //if (editarSiniestrosBean.getProducto() == productos){
+                    Thread.sleep(1000);
+                    WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
+                    btnSeleccionar.click();
+                    Thread.sleep(1000);
+                    WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td/span"));
+                    producto.click();
+                //}
             }
 
             Thread.sleep(1000);
@@ -147,11 +145,11 @@ public class EditarSiniestros {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Metodos a, EditarSiniestrosBean editarSiniestrosBean) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr/td[4]/div"));
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
@@ -160,7 +158,10 @@ public class EditarSiniestros {
             WebElement btnConsultar  = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
 
-            Thread.sleep(2000);
+            Thread.sleep(25000);
+            a.changeLastWindows(driver);
+
+
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -172,19 +173,29 @@ public class EditarSiniestros {
     public void AgregarObjetoAfectado (WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean){
         try {
             Thread.sleep(2000);
-            WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
-            btnAgregar.click();
+            Select objetoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"ioID\"]")));
+            objetoAsegurado.selectByIndex(0);
+            WebElement btnSeleccionOA = driver.findElement(By.xpath("//*[@id=\"ioID\"]/option"));
+            btnSeleccionOA.click();
+            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
 
-            Thread.sleep(15000);
+            Thread.sleep(2000);
+            WebElement btnEditar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_03\"]"));
+            btnEditar.click();
+
+            Thread.sleep(20000);
+            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
 
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
 
+            Thread.sleep(5000);
             Select horaOcurrencia = new Select(driver.findElement(By.xpath("//*[@id=\"1837254\"]/td[3]/font/select")));
             horaOcurrencia.selectByValue(editarSiniestrosBean.getHoraOcurrencia());
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             WebElement fechaAvisoCompania = driver.findElement(By.xpath("//*[@id=\"1837174\"]/td[3]/font/input[1]"));
+            fechaAvisoCompania.clear();
             fechaAvisoCompania.sendKeys(editarSiniestrosBean.getFechaAvisoCompania());
 
             if (editarSiniestrosBean.getHoraNotificacion() != null){
@@ -256,8 +267,8 @@ public class EditarSiniestros {
                 WebElement observacionesSiniestro = driver.findElement(By.xpath("//*[@id=\"3746174\"]/td[3]/font/textarea"));
                 observacionesSiniestro.sendKeys(editarSiniestrosBean.getObservacionesSiniestro());
             }
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            Thread.sleep(4000);
+            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -269,8 +280,8 @@ public class EditarSiniestros {
 
             Thread.sleep(15000);
 
-            Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            Thread.sleep(5000);
+            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
