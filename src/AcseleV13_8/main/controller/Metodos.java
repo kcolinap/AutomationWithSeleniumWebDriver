@@ -3,12 +3,16 @@ package AcseleV13_8.main.controller;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.List;
+
 
 /**
  * Created by agil on 26/05/2016.
@@ -36,13 +40,16 @@ public class Metodos {
 
     public WebDriver entrarPagina(){
         System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-popup-blocking");
+
+        WebDriver driver = new ChromeDriver(options);
 
 //        WebDriver driver = new FirefoxDriver();
 //        driver.get("http://qa19:7001/WController"); // lineas para usar el driver de firefox
 
         // Ruta a ingresar
-        String ruta = "http://qa:7001/WController/";
+        String ruta = "http://qa32:7001/WController/";
         driver.get(ruta);
 
         driver.manage().window().maximize();
@@ -99,8 +106,8 @@ public class Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("");       /** Usuario  **/
-        password2.sendKeys("");
+        user2.sendKeys("system");       /** Usuario  **/
+        password2.sendKeys("consis");
 
         instance2.selectByVisibleText("ALFA");
         language2.selectByValue("es");
@@ -112,6 +119,18 @@ public class Metodos {
         FileUtils.copyFile(source, new File(rutaScreen + "screen1.png"));
         System.out.println("Screenshot1");*/
         button_sumit2.click();
+    }
+
+    public void changeLastWindows(WebDriver getDriver) throws InterruptedException, IOException{
+        // Cambiar de ventana
+        //getWindowHandles() method returns the ids of all active Windows and its return type will be a Collection Set.
+        Set<String> sid = getDriver.getWindowHandles();
+        //Using iterator we can fetch the values from Set.
+        List<String> listWindows = new ArrayList<String>(sid);
+        String lastId = listWindows.get(listWindows.size() - 1);
+        //swtiching control to child Window
+        getDriver.switchTo().window(lastId);
+        Thread.sleep(2000);
     }
 
     public void cambiarVentana(WebDriver getDriver) throws InterruptedException, IOException{
