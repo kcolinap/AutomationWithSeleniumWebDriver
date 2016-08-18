@@ -1,6 +1,6 @@
 package AcseleV13_8_Alfa.main.controller;
 
-import AcseleV13_8_Alfa.beans.BuscarSiniestroSimpleBean;
+import AcseleV13_8_Alfa.beans.BusquedaAvanzadaSiniestroBean;
 import AcseleV13_8_Alfa.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -19,7 +19,7 @@ public class BusquedaAvanzadaSiniestro {
 
     public String nombreAutomatizacion = "Buscar Siniestro Simple";
 
-    public void testLink(BuscarSiniestroSimpleBean buscarSiniestroSimpleBean, int i) throws IOException, InterruptedException {
+    public void testLink(BusquedaAvanzadaSiniestroBean busquedaAvanzadaSiniestroBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
         Metodos a = new Metodos();
         MenuOperaciones m = new MenuOperaciones();
@@ -34,33 +34,33 @@ public class BusquedaAvanzadaSiniestro {
         a.cambiarVentana(driver);
         Thread.sleep(2000);
 
-        InsertarDatos(a, driver, buscarSiniestroSimpleBean); //Insertar Datos de Caja
+        InsertarDatos(a, driver, busquedaAvanzadaSiniestroBean); //Insertar Datos de Caja
 
         //Presiono el botón Buscar
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div[3]/div/span/span")).click();
         a.cambiarVentana(driver);
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
         Thread.sleep(1500);
-        SeleccionarSiniestro(a, driver, buscarSiniestroSimpleBean); //Seleccionar Dato Siniestro
+/*        SeleccionarSiniestro(a, driver, buscarSiniestroSimpleBean); //Seleccionar Dato Siniestro
         Thread.sleep(1500);
         a.changeLastWindows(driver);
         //Se hace click en la última pantalla solicitada
         //para pasarle el control y se quede aqui.
         driver.findElement(By.xpath("/html/body/div[10]")).click();
         Thread.sleep(2000);
-        a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+        a.ScreenShot(driver, "screen6", nombreAutomatizacion);*/
     }
 
-    public void InsertarDatos(Metodos a, WebDriver driver, BuscarSiniestroSimpleBean buscarSiniestroSimpleBean) throws InterruptedException, IOException {
+    public void InsertarDatos(Metodos a, WebDriver driver, BusquedaAvanzadaSiniestroBean buscarSiniestroSimpleBean) throws InterruptedException, IOException {
 
         try{
             Thread.sleep(3000);
             String title = driver.getTitle();
             System.out.println("Titulo de la pagina: " + title);
 
-            //Seleccionar Orden
+/*            //Seleccionar Orden
             if (buscarSiniestroSimpleBean.getOrdenar() != null) {
-//                WebElement desplegarCombo = driver.findElement(By.xpath("//*[@id='orderBy']/div"));
+//                WebElement desplegarCombo = driver.findElement(By.xpath("/*//*[@id='orderBy']/div"));
                 WebElement desplegarCombo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[3]/div/div"));
                 desplegarCombo.click();
 
@@ -103,7 +103,7 @@ public class BusquedaAvanzadaSiniestro {
 
             //Screenshot
             a.ScreenShot(driver, "screen4", nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
+            Toolkit.getDefaultToolkit().beep();*/
 
         } catch (Exception e){
             e.printStackTrace();
@@ -113,6 +113,7 @@ public class BusquedaAvanzadaSiniestro {
 
     }
 
+/*
     public void SeleccionarSiniestro(Metodos a, WebDriver driver, BuscarSiniestroSimpleBean buscarSiniestroSimpleBean) throws InterruptedException, IOException {
         try{
             Thread.sleep(2000);
@@ -140,4 +141,5 @@ public class BusquedaAvanzadaSiniestro {
         }
 
     }
+*/
 }
