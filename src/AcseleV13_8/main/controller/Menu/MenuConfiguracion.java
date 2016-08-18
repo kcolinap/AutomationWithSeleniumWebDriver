@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * Created by agil on 25/07/2016.
@@ -41,12 +42,16 @@ public class MenuConfiguracion {
     public void MantenimientoProducto(Metodos a, WebDriver driver, String nombreAutomatizacion) {
 
         try {
+            Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[5]"));//mantenimiento productos
-
-            menu1.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+
+            action.moveToElement(menu1).build().perform();
+
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            Thread.sleep(1000);
             menu2.click();
 
 

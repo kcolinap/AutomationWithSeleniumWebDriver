@@ -31,11 +31,13 @@ public class ExportarImportarProducto {
         System.out.println("prueba");
 
         m.MantenimientoProducto(a, driver, nombreAutomatizacion);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         a.cambiarVentana(driver);
 
         BuscarSiniestro (driver, a, exportarImportarProductoBean);
+
         Thread.sleep(3000);
+
 
     }
 
@@ -43,25 +45,31 @@ public class ExportarImportarProducto {
 
         try {
 
+            Thread.sleep(2000);
+            WebElement product = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div/div/div"));
+            product.click();
             Thread.sleep(1000);
-            WebElement producto = driver.findElement(By.xpath("//*[@id=\"ext-gen612\"]"));
-            a.ScreenShot(driver,"screen1",nombreAutomatizacion);
+            WebElement producto = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/div/ul/li/ul/li/div/a/span"));
+            Thread.sleep(1000);
             producto.click();
+            Thread.sleep(1000);
+            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
 
             Thread.sleep(1000);
 
             WebElement btnMigracion = driver.findElement(By.xpath("//*[@id=\"ext-gen146\"]"));
             btnMigracion.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen2",nombreAutomatizacion);
-            Thread.sleep(1000);
+            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            Thread.sleep(2000);
 
 
-            WebElement exportarConf = driver.findElement(By.xpath("//*[@id=\"ext-gen653\"]"));
+            WebElement exportarConf = driver.findElement(By.xpath("/html/body/div[5]/ul/li[7]/a"));
             exportarConf.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
             Thread.sleep(3000);
+            a.ScreenShot(driver,"screen7", nombreAutomatizacion);
 
 
         }catch (Exception e) {
