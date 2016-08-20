@@ -28,7 +28,7 @@ public class VistaBusquedaAvanzadaSiniestroTest {
             BusquedaAvanzadaSiniestro a = new BusquedaAvanzadaSiniestro();
 
             try {
-                //a.testLink(busquedaAvanzadaSiniestroBean, i);
+                a.testLink(busquedaAvanzadaSiniestroBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
     //                log.info(e);
@@ -40,13 +40,13 @@ public class VistaBusquedaAvanzadaSiniestroTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA,ORDEN,PRODUCTO,EVENTO,SUCURSAL,NUM_POLIZA,EMISION,TIPO_PRODUCCION,CANAL_VENTA,FRECUENCIA_PAGO,TIPO_POLIZA,TIPO_TERCERO,TIPO_DOCUMENTO,NUM_DOCUMENTO,NOMBRE_APELLIDO,FECHA_INCLUSION,TLF_OFICINA,EXTENSION,TLF_OFICINA_COMPLETO,EMAIL_1,EMAIL_2,CODIGO_INTERNO,CODIGO_IDENTIFICADOR,INDICATIVO,ROL,NUM_UNIDAD_RIESGO,TIPO_OBJ_ASEGURADO,NUM_OBJ_ASEGURADO,NOMBRE_ASEGURADO,NOMBRE_BENEFICIARIO FROM BUSQUEDA_AVANZADA_SINIESTRO ORDER BY PRUEBA ASC",
+       /* DataSetManager.createPartialDataSet("SELECT PRUEBA,ORDEN,PRODUCTO,EVENTO,SUCURSAL,NUM_POLIZA,EMISION,TIPO_PRODUCCION,CANAL_VENTA,FRECUENCIA_PAGO,TIPO_POLIZA,TIPO_TERCERO,TIPO_DOCUMENTO,NUM_DOCUMENTO,NOMBRE_APELLIDO,FECHA_INCLUSION,TLF_OFICINA,EXTENSION,TLF_OFICINA_COMPLETO,EMAIL_1,EMAIL_2,CODIGO_INTERNO,CODIGO_IDENTIFICADOR,INDICATIVO,ROL,NUM_UNIDAD_RIESGO,TIPO_OBJ_ASEGURADO,NUM_OBJ_ASEGURADO,NOMBRE_ASEGURADO,NOMBRE_BENEFICIARIO FROM BUSQUEDA_AVANZADA_SINIESTRO ORDER BY PRUEBA ASC",
                 "BUSQUEDA_AVANZADA_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xmls/busquedaAvanzadaSiniestro_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA,ORDEN,PRODUCTO,EVENTO,SUCURSAL,NUM_POLIZA,EMISION,TIPO_PRODUCCION,CANAL_VENTA,FRECUENCIA_PAGO,TIPO_POLIZA,TIPO_TERCERO,TIPO_DOCUMENTO,NUM_DOCUMENTO,NOMBRE_APELLIDO,FECHA_INCLUSION,TLF_OFICINA,EXTENSION,TLF_OFICINA_COMPLETO,EMAIL_1,EMAIL_2,CODIGO_INTERNO,CODIGO_IDENTIFICADOR,INDICATIVO,ROL,NUM_UNIDAD_RIESGO,TIPO_OBJ_ASEGURADO,NUM_OBJ_ASEGURADO,NOMBRE_ASEGURADO,NOMBRE_BENEFICIARIO FROM BUSQUEDA_AVANZADA_SINIESTRO ORDER BY PRUEBA ASC",
                 "BUSQUEDA_AVANZADA_SINIESTRO",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Alfa/tests/xmls/busquedaAvanzadaSiniestro_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Alfa/tests/xmls/busquedaAvanzadaSiniestro_dataset.xml");*/
 
         //DataSetManager.loadDataSet("C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xmls/busquedaAvanzadaSiniestro_dataset.xml", DataSetManager.REFRESH_OPERATION);
         DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xmls/busquedaAvanzadaSiniestro_dataset.xml", DataSetManager.REFRESH_OPERATION);
