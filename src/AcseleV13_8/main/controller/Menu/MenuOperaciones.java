@@ -32,20 +32,20 @@ public class MenuOperaciones {
 
         public void OpePol_CrearWController(){}
 
-        public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion){
+        public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
             try {
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Operaciones Pólizas
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear
                 menu1.click();
                 menu2.click();
-                a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
+                a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
                 Toolkit.getDefaultToolkit().beep();
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
 //             log.info(e);
-                log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
 

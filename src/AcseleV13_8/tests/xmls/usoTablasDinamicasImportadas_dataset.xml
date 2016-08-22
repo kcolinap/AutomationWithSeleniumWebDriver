@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <USO_TABLA_DINAMICA_IMPORTADA PRUEBA="1" NOMBRE_TABLA_DINAMICA="TdDeudorComision"
+                                RUTA_TABLA_DINAMICA="C://AcseleTests//Export//TdDeudorComision-ExportedDynamicTable-20160818092439.xml"
+
+                                VALOR_COMPARACION_TD="11,500.00"
+
+                                PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="22-08-2016"
+
+                                EVENTO_APLICAR="Emitir" FECHA_MOVIMIENTO=""
+
+                                NUM_POLIZA="Prueba01" LINEA_CREDITO="53978517" UNIDAD_NEGOCIO="23913017"
+                                CANAL_VENTA="21.0" TIPO_VALOR_ASEGURADO="23916617"
+
+                                TOMADOR_NOMBRE="Elias"
+
+                                NUM_CREDITO="3" FECHA_PROCESO="22-08-2016"
+
+                                DOC_ID_ASEGURADO="365525" FECHA_NAC_ASEGURADO="19-08-2016"
+                                DIRECCION_ASEGURADO="Casa" DEPARTAMENTO_ASEGURADO="53392117"
+                                CIUDAD_ASEGURADO="15.0"/>
+</dataset>
+
