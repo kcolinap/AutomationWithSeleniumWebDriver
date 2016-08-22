@@ -39,7 +39,7 @@ public class ImportExportTablasDinamicas {
             Thread.sleep(5000);
 
             // Creación de Póliza
-            m.MantGeral_TablasDinamicas(driver, nombreAutomatizacion);
+            m.MantGeral_TablasDinamicas(driver, nombreAutomatizacion, 2);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

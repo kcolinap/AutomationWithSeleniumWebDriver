@@ -41,7 +41,7 @@ public class EmisionPolizaBeneficiarioNatural {
         Thread.sleep(5000);
 
         // Creación de Póliza
-        m.OpePol_Crear(driver, nombreAutomatizacion);
+        m.OpePol_Crear(driver, nombreAutomatizacion, 2);
 
         Thread.sleep(2000);
         a.cambiarVentana(driver);

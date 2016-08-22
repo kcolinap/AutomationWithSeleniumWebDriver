@@ -83,14 +83,14 @@ public class MenuMantenimiento {
 
     /** Mantenimiento General **/
 
-        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion){
+        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShot){
             try {
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[8]")); // Mantenimiento General
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[42]/div[1]")); // Tablas Dinámicas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[43]/div[1]")); // Tablas Dinámicas
                 menu1.click();
                 menu2.click();
-                a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
+                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion); //screenshot2
                 Toolkit.getDefaultToolkit().beep();
                 menu3.click();
             }catch (Exception e){
