@@ -107,7 +107,7 @@ public class BusquedaAvanzadaSiniestro {
             }
             //Se seleciona una sucursal
             if (busquedaAvanzadaSiniestroBean.getSucursal() != null) {
-                WebElement desplegarCombo4 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
+                WebElement desplegarCombo4 = driver.findElement(By.xpath("//*[@id=\"Oficina\"]/div"));
                 desplegarCombo4.click();
 
                 Thread.sleep(1000);
@@ -119,7 +119,7 @@ public class BusquedaAvanzadaSiniestro {
 
             //Se selecionael numero de poliza
             if (busquedaAvanzadaSiniestroBean.getNumPoliza() != null) {
-                WebElement poliza = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement poliza = driver.findElement(By.xpath("//*[@id=\"NumeroPoliza\"]"));
                 poliza.sendKeys(busquedaAvanzadaSiniestroBean.getNumPoliza());
                 Thread.sleep(1000);
             }
@@ -133,7 +133,7 @@ public class BusquedaAvanzadaSiniestro {
 
             //Se seleciona Tipo de Produccion
             if (busquedaAvanzadaSiniestroBean.getTipoProduccion() != null) {
-                WebElement desplegarCombo5 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
+                WebElement desplegarCombo5 = driver.findElement(By.xpath("//*[@id=\"TipoProduccion\"]/div"));
                 desplegarCombo5.click();
 
                 Thread.sleep(1000);
@@ -145,7 +145,7 @@ public class BusquedaAvanzadaSiniestro {
 
             //Se seleciona el canal de venta
             if (busquedaAvanzadaSiniestroBean.getCanalVenta() != null) {
-                WebElement desplegarCombo6 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
+                WebElement desplegarCombo6 = driver.findElement(By.xpath("//*[@id=\"CanalVenta\"]/div"));
                 desplegarCombo6.click();
 
                 Thread.sleep(1000);
@@ -155,10 +155,22 @@ public class BusquedaAvanzadaSiniestro {
 
             }
 
+            //Se seleciona Tipo Poliza
+            if (busquedaAvanzadaSiniestroBean.getTipoPoliza() != null) {
+                WebElement desplegarCombo7 = driver.findElement(By.xpath("//*[@id=\"TipoPoliza\"]/div"));
+                desplegarCombo7.click();
+
+                Thread.sleep(1000);
+                WebElement seleccionartipoPoliza = driver.findElement(By.xpath(" "));
+                seleccionartipoPoliza.click();
+                Thread.sleep(1000);
+
+            }
+
             //Se seleciona Frecuencia de Pago
             if (busquedaAvanzadaSiniestroBean.getFrecuenciaPago() != null) {
-                WebElement desplegarCombo7 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
-                desplegarCombo7.click();
+                WebElement desplegarCombo8 = driver.findElement(By.xpath("//*[@id=\"FrecuenciaPago\"]/div"));
+                desplegarCombo8.click();
 
                 Thread.sleep(1000);
                 WebElement seleccionarFrecuenciaPago = driver.findElement(By.xpath(" "));
@@ -169,8 +181,8 @@ public class BusquedaAvanzadaSiniestro {
 
             //Se seleciona Tipo de Tercero
             if (busquedaAvanzadaSiniestroBean.getTipoTercero() != null) {
-                WebElement desplegarCombo8 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
-                desplegarCombo8.click();
+                WebElement desplegarCombo9 = driver.findElement(By.xpath("//*[@id=\"comboThirdPartyType\"]/div"));
+                desplegarCombo9.click();
 
                 Thread.sleep(1000);
                 WebElement seleccionarTipoTercero = driver.findElement(By.xpath(" "));
@@ -181,8 +193,8 @@ public class BusquedaAvanzadaSiniestro {
 
             //Se seleciona Tipo de Documento de Identidad
             if (busquedaAvanzadaSiniestroBean.getTipoDocumento() != null) {
-                WebElement desplegarCombo9 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
-                desplegarCombo9.click();
+                WebElement desplegarCombo10 = driver.findElement(By.xpath("//*[@id=\"TipoDocumento\"]/div"));
+                desplegarCombo10.click();
 
                 Thread.sleep(1000);
                 WebElement seleccionarTipoDocumento = driver.findElement(By.xpath(" "));
@@ -193,56 +205,56 @@ public class BusquedaAvanzadaSiniestro {
 
             //Ingresa Numero de documento de identidad
             if (busquedaAvanzadaSiniestroBean.getNumDocumento() != null) {
-                WebElement identidad = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement identidad = driver.findElement(By.xpath("//*[@id=\"DocumentoIdentidad\"]"));
                 identidad.sendKeys(busquedaAvanzadaSiniestroBean.getNumDocumento());
                 Thread.sleep(1000);
             }
 
             //Ingresa Nombre y Apellido
             if (busquedaAvanzadaSiniestroBean.getNombreApellido() != null) {
-                WebElement nombreAp = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement nombreAp = driver.findElement(By.xpath("//*[@id=\"NombrePredeterminado\"]"));
                 nombreAp.sendKeys(busquedaAvanzadaSiniestroBean.getNombreApellido());
                 Thread.sleep(1000);
             }
 
             //Ingresa Fecha de inclusion
             if (busquedaAvanzadaSiniestroBean.getFechaInclusion() != null) {
-                WebElement fechaInclusion = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement fechaInclusion = driver.findElement(By.xpath("//*[@id=\"FechaInclusion\"]/input"));
                 fechaInclusion.sendKeys(busquedaAvanzadaSiniestroBean.getFechaInclusion());
                 Thread.sleep(1000);
             }
 
             //Ingresa Telefono de Oficina
             if (busquedaAvanzadaSiniestroBean.getTlfOficina() != null) {
-                WebElement telefono1 = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement telefono1 = driver.findElement(By.xpath("//*[@id=\"TelefonoOficina\"]"));
                 telefono1.sendKeys(busquedaAvanzadaSiniestroBean.getTlfOficina());
                 Thread.sleep(1000);
             }
 
             //Ingresa Extension
             if (busquedaAvanzadaSiniestroBean.getExtension() != null) {
-                WebElement extension = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement extension = driver.findElement(By.xpath("//*[@id=\"Extension\"]"));
                 extension.sendKeys(busquedaAvanzadaSiniestroBean.getExtension());
                 Thread.sleep(1000);
             }
 
             //Ingresa Telefono completo
             if (busquedaAvanzadaSiniestroBean.getTlfOficinaComp() != null) {
-                WebElement tlfCompleto = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement tlfCompleto = driver.findElement(By.xpath("//*[@id=\"TelefonoOficinaComplet\"]"));
                 tlfCompleto.sendKeys(busquedaAvanzadaSiniestroBean.getTlfOficinaComp());
                 Thread.sleep(1000);
             }
 
             //Ingresa email1
             if (busquedaAvanzadaSiniestroBean.getEmail1() != null) {
-                WebElement email1 = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement email1 = driver.findElement(By.xpath("//*[@id=\"Email\"]"));
                 email1.sendKeys(busquedaAvanzadaSiniestroBean.getEmail1());
                 Thread.sleep(1000);
             }
 
             //Ingresa email2
             if (busquedaAvanzadaSiniestroBean.getEmail2() != null) {
-                WebElement email2 = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement email2 = driver.findElement(By.xpath("//*[@id=\"EmailDos\"]"));
                 email2.sendKeys(busquedaAvanzadaSiniestroBean.getEmail2());
                 Thread.sleep(1000);
             }
@@ -250,43 +262,43 @@ public class BusquedaAvanzadaSiniestro {
 
             //Ingresa codigo interno
             if (busquedaAvanzadaSiniestroBean.getCodigoInterno() != null) {
-                WebElement codigoIn = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement codigoIn = driver.findElement(By.xpath("//*[@id=\"LlaveIdentidadCompleta\"]"));
                 codigoIn.sendKeys(busquedaAvanzadaSiniestroBean.getCodigoInterno());
                 Thread.sleep(1000);
             }
 
             //Ingresa codigo identificador
             if (busquedaAvanzadaSiniestroBean.getCodigoIdentificador() != null) {
-                WebElement codigoId = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement codigoId = driver.findElement(By.xpath("//*[@id=\"CodigoIdentificador\"]"));
                 codigoId.sendKeys(busquedaAvanzadaSiniestroBean.getCodigoIdentificador());
                 Thread.sleep(1000);
             }
 
             //Ingresa indicativo
             if (busquedaAvanzadaSiniestroBean.getIndicativo() != null) {
-                WebElement indicativo = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement indicativo = driver.findElement(By.xpath("//*[@id=\"IndicativoOficina\"]"));
                 indicativo.sendKeys(busquedaAvanzadaSiniestroBean.getIndicativo());
                 Thread.sleep(1000);
             }
 
             //Ingresa rol
             if (busquedaAvanzadaSiniestroBean.getRol() != null) {
-                WebElement rol = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement rol = driver.findElement(By.xpath("//*[@id=\"comboRol\"]/div"));
                 rol.sendKeys(busquedaAvanzadaSiniestroBean.getRol());
                 Thread.sleep(1000);
             }
 
             //Ingresa numero unidad riesgo
             if (busquedaAvanzadaSiniestroBean.getNumUnidadRiesgo() != null) {
-                WebElement riesgo = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement riesgo = driver.findElement(By.xpath("//*[@id=\"NumUnidRiesgo\"]"));
                 riesgo.sendKeys(busquedaAvanzadaSiniestroBean.getNumUnidadRiesgo());
                 Thread.sleep(1000);
             }
 
             //Se seleciona el tipo objeto asegurado
             if (busquedaAvanzadaSiniestroBean.getTipoObjAsegurado() != null) {
-                WebElement desplegarCombo10 = driver.findElement(By.xpath("//*[@id=\"comboEventoSiniestro\"]/div"));
-                desplegarCombo10.click();
+                WebElement desplegarCombo11 = driver.findElement(By.xpath("//*[@id=\"comboInsuranceObjectType\"]/div"));
+                desplegarCombo11.click();
 
                 Thread.sleep(1000);
                 WebElement seleccionarTipoObjeto = driver.findElement(By.xpath(" "));
@@ -297,14 +309,14 @@ public class BusquedaAvanzadaSiniestro {
 
             //Ingresa numero objeto asegurado
             if (busquedaAvanzadaSiniestroBean.getNumObjAsegurado() != null) {
-                WebElement numAsegurado = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement numAsegurado = driver.findElement(By.xpath("//*[@id=\"NumeroObjetoAseg\"]"));
                 numAsegurado.sendKeys(busquedaAvanzadaSiniestroBean.getNumObjAsegurado());
                 Thread.sleep(1000);
             }
 
             //Ingresa nombre asegurado
             if (busquedaAvanzadaSiniestroBean.getNombreAsegurado() != null) {
-                WebElement nombreAsegurado = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement nombreAsegurado = driver.findElement(By.xpath("//*[@id=\"NombreCompletoAseg\"]"));
                 nombreAsegurado.sendKeys(busquedaAvanzadaSiniestroBean.getNombreAsegurado());
                 Thread.sleep(1000);
             }
@@ -312,7 +324,7 @@ public class BusquedaAvanzadaSiniestro {
 
             //Ingresa nombre beneficiario
             if (busquedaAvanzadaSiniestroBean.getNombreBeneficiario() != null) {
-                WebElement beneficiario = driver.findElement(By.xpath("//*[@id=\"FechaEmision\"]/input"));
+                WebElement beneficiario = driver.findElement(By.xpath("//*[@id=\"NombreCompletoBenef\"]"));
                 beneficiario.sendKeys(busquedaAvanzadaSiniestroBean.getNombreBeneficiario());
                 Thread.sleep(1000);
             }
