@@ -30,7 +30,7 @@ public class ExportarImportarProducto {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.MantenimientoProducto(a, driver, nombreAutomatizacion);
+        m.MantenimientoProducto(a, driver, nombreAutomatizacion, 2);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
