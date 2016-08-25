@@ -27,7 +27,7 @@ public class BusquedaAvanzadaSiniestro {
         Thread.sleep(5000);
 
         // Busqueda de Siniestro
-        m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         //Thread.sleep(2000);
