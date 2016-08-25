@@ -165,8 +165,43 @@ public class MenuMantenimiento {
     /** -- Administracion Central de Riesgo -- **/
 
     /** Administracion de Listas Restrictivas **/
-        public void AdminLisRest_CrearListasRestrictivas(){}
-        public void AdminLisRest_CoincidenciaListasRestrictivas(){}
+    public void AdminLisRest_CrearListasRestrictivas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+
+        try {
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[1]"));// Crear Listas Restrictivas
+            menu1.click();
+            menu2.click();
+            this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+            menu3.click();
+
+        } catch (Exception e){
+            e.printStackTrace();
+//             log.info(e);
+            log.info("Menu listas Restrictivas " + e);
+        }
+    }
+        public void AdminLisRest_CoincidenciaListasRestrictivas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+
+            try {
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
+                menu1.click();
+                menu2.click();
+                this.a.ScreenShot(driver, "screen15", nombreAutomatizacion); //screenshot2
+                Thread.sleep(1000);
+                menu3.click();
+
+            } catch (Exception e){
+                e.printStackTrace();
+//             log.info(e);
+                log.info("Menu listas Restrictivas " + e);
+            }
+
+
+        }
         public void AdminLisRest_ConfiguracionPropiedades(){}
     /** -- Administracion de Listas Restrictivas -- **/
 
