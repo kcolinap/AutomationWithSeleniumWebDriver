@@ -9,8 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * Created by agil on 22/08/2016.
@@ -73,7 +71,7 @@ public class ValidacionFormulacionesImExProducto {
 
         try {
 
-            Thread.sleep(5000);
+            Thread.sleep(7000);
             WebElement seleccionProducto = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/div/ul/li/ul/li/div/a/span"));
             seleccionProducto.click();
 
@@ -88,7 +86,7 @@ public class ValidacionFormulacionesImExProducto {
             WebElement expandirCarpetaProducto1 = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div/div/div/div/div/ul/li/div/img[1]"));
             expandirCarpetaProducto1.click();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             WebElement expandirCarpetaProducto2 = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div/div/div/div/div/ul/li/ul/li/div/img[1]"));
             expandirCarpetaProducto2.click();
 
@@ -150,7 +148,7 @@ public class ValidacionFormulacionesImExProducto {
             a.ScreenShot(driver, "screen7", nombreAutomatizacion);
             Thread.sleep(1000);
 
-            WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"ext-gen1393\"]"));
+            WebElement btnAceptar = driver.findElement(By.xpath("//div[20]/div/div[2]/div/div/div/div[2]/div/div/div/table/tbody/tr/td"));
             btnAceptar.click();
 
             Thread.sleep(2000);
