@@ -616,14 +616,14 @@ public class ListasRestrictivas {
             a.ScreenShot(driver, "screen23", nombreAutomatizacion); //screenshot2
             Thread.sleep(2000);
 
-            WebElement advertencia = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_containerAlerts_listAlerts_1_containerAlerts']"));
+            WebElement advertencia = driver.findElement(By.xpath("//*[@id=\"id5f7\"]/table/tbody/tr/td/div[2]"));
             Thread.sleep(1000);
             advertencia.click();
             Thread.sleep(1500);
             a.ScreenShot(driver, "screen24", nombreAutomatizacion); //screenshot2
 
             Thread.sleep(1000);
-            WebElement cerrarAdv = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_containerAlerts_listAlerts_1_containerAlerts_messageAlerts']"));
+            WebElement cerrarAdv = driver.findElement(By.xpath("//*[@id=\"id5f9\"]/div"));
             cerrarAdv.click();
             Thread.sleep(1000);
 
@@ -637,7 +637,7 @@ public class ListasRestrictivas {
                 System.out.println("Espera 12");
             }
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             a.ScreenShot(driver, "screen25", nombreAutomatizacion); //screenshot2
             Thread.sleep(1500);
 
