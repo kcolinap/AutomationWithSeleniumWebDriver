@@ -190,7 +190,7 @@ public class MenuMantenimiento {
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
                 menu1.click();
                 menu2.click();
-                this.a.ScreenShot(driver, "screen15", nombreAutomatizacion); //screenshot2
+                this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
                 Thread.sleep(1000);
                 menu3.click();
 
