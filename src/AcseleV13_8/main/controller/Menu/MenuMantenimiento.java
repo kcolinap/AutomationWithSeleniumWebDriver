@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 
@@ -121,8 +122,60 @@ public class MenuMantenimiento {
     /** -- Mantenimiento General -- **/
 
     /** Administracion de Tareas **/
-        public void AdminTar_Actividades(){}
-        public void AdminTar_EjecucionTareas(){}
+        public void AdminTar_Actividades(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[9]"));// Administrador de Tareas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[44]/div[1]"));// Actividades
+                Thread.sleep(1000);
+
+                //menu1.click();
+                //menu2.click();
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion);
+                Thread.sleep(1000);
+                menu3.click();
+
+
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
+        public void AdminTar_EjecucionTareas(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[9]"));// Administrador de Tareas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[44]/div[2]"));// Actividades
+                Thread.sleep(1000);
+
+                //menu1.click();
+                //menu2.click();
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion);
+                Thread.sleep(1000);
+                menu3.click();
+
+
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
         public void AdminTar_AgendaProcesos(){}
         public void AdminTar_HistoricoProcesos(){}
         public void AdminTar_ConfigurarProcesosTipoArchivo(){}

@@ -40,14 +40,14 @@ public class VistaJobsListasRestrictivasCreacionTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("",
-                "",
+/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, FORMULA FROM JOBS_LIST_RESTRICTIVE_CREATION ORDER BY PRUEBA ASC",
+                "JOBS_LIST_RESTRICTIVE_CREATION",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/jobsListasRestrictivasCreacion_dataset.xml");
 
-        DataSetManager.createPartialDataSet("",
-                "",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, FORMULA FROM JOBS_LIST_RESTRICTIVE_CREATION ORDER BY PRUEBA ASC",
+                "JOBS_LIST_RESTRICTIVE_CREATION",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/jobsListasRestrictivasCreacion_dataset.xml");
-
+*/
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/jobsListasRestrictivasCreacion_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 

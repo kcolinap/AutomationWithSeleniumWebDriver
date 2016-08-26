@@ -17,13 +17,13 @@ public class JobsListasRestrictivasCreacionBean implements Serializable{
 
     private final static Logger log = Logger.getLogger(JobsListasRestrictivasCreacionBean.class);
 
-    private String nombreTablaDinamica;
+    private String formula;
 
-    public String getNombreTablaDinamica(){
-        return nombreTablaDinamica;
+    public String getFormula(){
+        return formula;
     }
-    public void setNombreTablaDinamica(String nombreTablaDinamica){
-        this.nombreTablaDinamica = nombreTablaDinamica;
+    public void setFormula(String formula){
+        this.formula = formula;
     }
 
     public static ArrayList getJobsListasRestrictivasCreacion() throws SQLException {
@@ -34,7 +34,7 @@ public class JobsListasRestrictivasCreacionBean implements Serializable{
         ArrayList jobsCreacion = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("");
+        queryLoad.append("SELECT PRUEBA, FORMULA FROM JOBS_LIST_RESTRICTIVE_CREATION ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -44,7 +44,7 @@ public class JobsListasRestrictivasCreacionBean implements Serializable{
             while (rs.next()) {
                 JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean = new JobsListasRestrictivasCreacionBean();
 
-                jobsListasRestrictivasCreacionBean.setNombreTablaDinamica(rs.getString("NOMBRE_TABLA_DINAMICA"));
+                jobsListasRestrictivasCreacionBean.setFormula(rs.getString("FORMULA"));
 
                 jobsCreacion.add(jobsListasRestrictivasCreacionBean);
             }
