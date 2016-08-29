@@ -41,7 +41,7 @@ public class ConsultaListasRestrictivas {
 
         menu1.click();
         a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(4000);
+        Thread.sleep(3000);
         menu2.click();
         Thread.sleep(2000);
 
