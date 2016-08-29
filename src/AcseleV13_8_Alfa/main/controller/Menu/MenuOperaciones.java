@@ -288,7 +288,25 @@ public class MenuOperaciones {
 
         /** -- Facturacion y Cobro -- **/
 
-        public void UAA_ModificacionMovimientosTercero(){}
+        public void UAA_ModificacionMovimientosTercero(WebDriver driver, Metodos a,String nombreAutomatizacion)throws IOException, InterruptedException {
+            try {
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[3]"));//Modificación de los Movimientos del Tercero
+
+                menu1.click();
+                menu2.click();
+                Thread.sleep(1000);
+                a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+                menu3.click();
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
+
+
 
         /** Reportes **/
             public void UAA_Rep_ReporteAntiguedad(){}
@@ -402,6 +420,8 @@ public class MenuOperaciones {
         public void FactAut_GeneracionFacturacionAutomatica(){}
         public void FactAut_ConsultaFacturacion(){}
         public void FactAut_LogProcesamiento(){}
+
+
     /** -- Facturacion Automatica -- **/
 
 }
