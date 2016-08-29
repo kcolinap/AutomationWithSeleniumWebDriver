@@ -41,6 +41,8 @@ public class ListasRestrictivasBean implements Serializable{
     private String departamentoAsegurado;
     private String ciudadAsegurado;
     private String asegurado;
+    private String fechaDesdeTraza;
+    private String fechaHastaTraza;
 
 
 
@@ -119,6 +121,12 @@ public class ListasRestrictivasBean implements Serializable{
     public String getAsegurado() {return asegurado;}
     public void setAsegurado (String asegurado) {this.asegurado = asegurado;}
 
+    public String getFechaDesdeTraza() {return fechaDesdeTraza;}
+    public void setFechaDesdeTraza (String fechaDesdeTraza) {this.fechaDesdeTraza = fechaDesdeTraza;}
+
+    public String getFechaHastaTraza() {return fechaHastaTraza;}
+    public void setFechaHastaTraza (String fechaHastaTraza) {this.fechaHastaTraza = fechaHastaTraza;}
+
 
     public static ArrayList getListasRestrictivas() throws SQLException {
 
@@ -129,7 +137,7 @@ public class ListasRestrictivasBean implements Serializable{
 
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, PRODUCTO, VIGENCIA, FECHADESDE, EVENTOAPLICAR, NUMPOLIZA, LINEACREDITO, UNIDADNEGOCIO, CANALVENTA, TIPOVALORASEGURADO, TOMADORNOMBRE, NUMCREDITO, FECHAPROCESO, MONTOASEGURADO, DOCIDASEGURADO, FECHANACASEGURADO, DIRECCIONASEGURADO, DEPARTAMENTOASEGURADO , CIUDADASEGURADO, ASEGURADO FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, PRODUCTO, VIGENCIA, FECHADESDE, EVENTOAPLICAR, NUMPOLIZA, LINEACREDITO, UNIDADNEGOCIO, CANALVENTA, TIPOVALORASEGURADO, TOMADORNOMBRE, NUMCREDITO, FECHAPROCESO, MONTOASEGURADO, DOCIDASEGURADO, FECHANACASEGURADO, DIRECCIONASEGURADO, DEPARTAMENTOASEGURADO , CIUDADASEGURADO, ASEGURADO, FECHADESDETRAZA, FECHAHASTATRAZA FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -163,6 +171,8 @@ public class ListasRestrictivasBean implements Serializable{
                 listasRestrictivasBean.setDepartamentoAsegurado(rs.getString("DEPARTAMENTOASEGURADO"));
                 listasRestrictivasBean.setCiudadAsegurado(rs.getString("CIUDADASEGURADO"));
                 listasRestrictivasBean.setAsegurado(rs.getString("ASEGURADO"));
+                listasRestrictivasBean.setFechaDesdeTraza(rs.getString("FECHADESDETRAZA"));
+                listasRestrictivasBean.setFechaHastaTraza(rs.getString("FECHAHASTATRAZA"));
 
 
 

@@ -44,11 +44,11 @@ public class VistaListasRestrictivasTest {
     @Before
     public void setUp() throws Exception {
 
-/*      DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, Producto, Vigencia, fechaDesde, eventoAplicar, numPoliza, lineaCredito, unidadNegocio, canalVenta, tipoValorAsegurado, tomadorNombre, numCredito, fechaProceso, montoAsegurado, docIdAsegurado, fechaNacAsegurado, direccionAsegurado, departamentoAsegurado, ciudadAsegurado, asegurado FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC",
+/*      DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, PRODUCTO, VIGENCIA, FECHADESDE, EVENTOAPLICAR, NUMPOLIZA, LINEACREDITO, UNIDADNEGOCIO, CANALVENTA, TIPOVALORASEGURADO, TOMADORNOMBRE, NUMCREDITO, FECHAPROCESO, MONTOASEGURADO, DOCIDASEGURADO, FECHANACASEGURADO, DIRECCIONASEGURADO, DEPARTAMENTOASEGURADO , CIUDADASEGURADO, ASEGURADO, FechaDesdeTraza, FechaHastaTraza FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC",
                 "LISTAS_RESTRICTIVAS",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/listasRestrictivas_dataset.xml");
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, Producto, Vigencia, fechaDesde, eventoAplicar, numPoliza, lineaCredito, unidadNegocio, canalVenta, tipoValorAsegurado, tomadorNombre, numCredito, fechaProceso, montoAsegurado, docIdAsegurado, fechaNacAsegurado, direccionAsegurado, departamentoAsegurado, ciudadAsegurado, asegurado FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, PRODUCTO, VIGENCIA, FECHADESDE, EVENTOAPLICAR, NUMPOLIZA, LINEACREDITO, UNIDADNEGOCIO, CANALVENTA, TIPOVALORASEGURADO, TOMADORNOMBRE, NUMCREDITO, FECHAPROCESO, MONTOASEGURADO, DOCIDASEGURADO, FECHANACASEGURADO, DIRECCIONASEGURADO, DEPARTAMENTOASEGURADO , CIUDADASEGURADO, ASEGURADO, FechaDesdeTraza, FechaHastaTraza FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC",
                 "LISTAS_RESTRICTIVAS",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/listasRestrictivas_dataset.xml");
 */
