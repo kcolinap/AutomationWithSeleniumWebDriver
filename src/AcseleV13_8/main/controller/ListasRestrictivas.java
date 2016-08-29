@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.support.ui.Select;
 import sun.security.krb5.internal.TGSRep;
 
@@ -38,7 +37,7 @@ public class ListasRestrictivas {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-      /*  m.AdminLisRest_CrearListasRestrictivas(a, driver, nombreAutomatizacion);
+        m.AdminLisRest_CrearListasRestrictivas(a, driver, nombreAutomatizacion);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
@@ -76,7 +75,7 @@ public class ListasRestrictivas {
         Thread.sleep(2500);
         a.regresarVentana(driver);
         Thread.sleep(2000);
-    */    m.Aud_TrazasAuditoriaVaadin ( driver,  nombreAutomatizacion,  35);
+        m.Aud_TrazasAuditoriaVaadin ( driver,  nombreAutomatizacion,  35);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
@@ -87,12 +86,12 @@ public class ListasRestrictivas {
 
     }
 
-    /*public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try {
 
             Thread.sleep(1500);
- /*           Thread.sleep(1000);
+         /*   Thread.sleep(1000);
 
             WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span/span"));
             Thread.sleep(1000);
@@ -129,7 +128,6 @@ public class ListasRestrictivas {
 
 
 
-
             WebElement archivo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[2]/form/div/input[2]"));
             Thread.sleep(3000);
             //archivo.sendKeys (listasRestrictivasBean.getArchivo());
@@ -147,9 +145,9 @@ public class ListasRestrictivas {
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/div/div/span/span"));
             btnAceptar.click();
             Thread.sleep(5000);
-
 */
-   /*         WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[3]/td[1]/div"));
+
+            WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[3]/td[1]/div"));
             lista.click();
             Thread.sleep(1000);
             a.ScreenShot(driver,"screen11", nombreAutomatizacion);
@@ -189,9 +187,6 @@ public class ListasRestrictivas {
         }
 
     }
-
-
-
 
 
     public void CrearCoincidencias (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
@@ -301,7 +296,7 @@ public class ListasRestrictivas {
             btnCrear.click();
 
             /***Espera***/
-     /*       WebElement mensajeEspera1 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera1 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera1.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 1");
@@ -321,7 +316,7 @@ public class ListasRestrictivas {
             btnContinuar.click();
 
             /***Espera***/
-       /*     WebElement mensajeEspera2 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera2 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera2.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 2");
@@ -386,7 +381,7 @@ public class ListasRestrictivas {
             btnGuardar.click();
 
             /***Espera***/
-        /*    WebElement mensajeEspera3 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera3 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera3.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 3");
@@ -429,7 +424,7 @@ public class ListasRestrictivas {
             btnAgregar.click();
 
             /***Espera***/
-        /*    WebElement mensajeEspera4 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera4 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera4.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 4");
@@ -445,7 +440,7 @@ public class ListasRestrictivas {
             btnGuardar.click();
 
             /***Espera***/
-        /*    WebElement mensajeEspera5 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera5 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera5.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 5");
@@ -476,7 +471,7 @@ public class ListasRestrictivas {
             btnNuevo.click();
 
             /***Espera***/
-         /*   WebElement mensajeEspera6 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera6 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera6.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 6");
@@ -518,7 +513,7 @@ public class ListasRestrictivas {
             btnGuardar.click();
 
             /***Espera***/
-         /*   WebElement mensajeEspera7 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera7 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera7.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 7");
@@ -600,7 +595,7 @@ public class ListasRestrictivas {
             btnGuardar.click();
 
             /***Espera***/
-           /* WebElement mensajeEspera8 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera8 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera8.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 8");
@@ -656,7 +651,7 @@ public class ListasRestrictivas {
             Toolkit.getDefaultToolkit().beep();
 
             /***Espera***/
-        /*    WebElement mensajeEspera9 = driver.findElement(By.id("waitMessage"));
+           WebElement mensajeEspera9 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera9.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 9");
@@ -683,7 +678,7 @@ public class ListasRestrictivas {
             Thread.sleep(1000);
 
             /***Espera***/
-    /*        WebElement mensajeEspera10 = driver.findElement(By.id("waitMessage"));
+            WebElement mensajeEspera10 = driver.findElement(By.id("waitMessage"));
             while (mensajeEspera10.isDisplayed()){
                 Thread.sleep(5000);
                 System.out.println("Espera 10");
@@ -724,7 +719,7 @@ public class ListasRestrictivas {
                 System.out.println("Espera 12");
             }
 
-            Thread.sleep(4000);
+            Thread.sleep(5000);
             a.ScreenShot(driver, "screen34", nombreAutomatizacion); //screenshot2
             Thread.sleep(1500);
 
@@ -736,7 +731,7 @@ public class ListasRestrictivas {
             log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
         }
     }
-*/
+
     public void TrazasCoincidencias(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try{
