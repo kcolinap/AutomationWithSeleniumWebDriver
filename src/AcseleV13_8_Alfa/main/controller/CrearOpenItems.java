@@ -38,22 +38,28 @@ public class CrearOpenItems {
 
         InsertarDatos(a, driver, crearOpenItemsBean); //Insertar Datos de busqueda
 
-        S
+        //Selecciono el Siniestro a consultar
+        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]")).click();
+        Thread.sleep(1000);
+        a.ScreenShot(driver, "screen6", nombreAutomatizacion);
 
-/*        //Presiono el botón Buscar
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div[3]/div/span/span")).click();
+        //Presiono el botón Aceptar
+        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[2]/td/input")).click();
+
+        BorrarFechas(a, driver); //Insertar Datos de busqueda
+
+        //Presiono el botón Insertar
+        //Thread.sleep(1000);
         a.cambiarVentana(driver);
-        a.ScreenShot(driver, "screen5", nombreAutomatizacion);
-        Thread.sleep(1500);
-        SeleccionarSiniestro(a, driver, crearOpenItemsBean); //Seleccionar Dato del tercero
-        Thread.sleep(1500);
-        a.changeLastWindows(driver);
-        //Se hace click en la última pantalla solicitada
-        //para pasarle el control y se quede aqui.
-        driver.findElement(By.xpath("/html/body/div[10]")).click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver, "screen6", nombreAutomatizacion);*/
+        a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[8]/div/div[3]/div[2]/span[2]/button")).click();
+        a.cambiarVentana(driver);
+        a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+
+        //De aqui en adelante falta realizar el método correspondiente a la última pantalla que está fallando.
     }
+
 
     public void InsertarDatos(AcseleV13_8_Alfa.main.controller.Metodos a, WebDriver driver, CrearOpenItemsBean crearOpenItemsBean) throws InterruptedException, IOException {
 
@@ -113,4 +119,34 @@ public class CrearOpenItems {
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
         Thread.sleep(2000);
     }
+
+
+    private void BorrarFechas(Metodos a, WebDriver driver) {
+
+        try {
+            Thread.sleep(3000);
+            String title = driver.getTitle();
+            System.out.println("Titulo de la pagina: " + title);
+
+            //Borrar fechas y procesar
+            driver.findElement(By.xpath("/html/body/center[1]/table/tbody/tr[3]/td/table[1]/tbody/tr[5]/td[2]/input[1]")).clear();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("/html/body/center[1]/table/tbody/tr[3]/td/table[1]/tbody/tr[6]/td[2]/input[1]")).clear();
+            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            Thread.sleep(1000);
+
+
+            driver.findElement(By.xpath("//*[@id=\"idb_0402037_SearchConf_01\"]")).click();
+            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            Thread.sleep(1000);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+//             log.info(e);
+            log.info("Test Case ?? - Crear Open Items - " + e);
+        }
+    }
+
 }
+
+
