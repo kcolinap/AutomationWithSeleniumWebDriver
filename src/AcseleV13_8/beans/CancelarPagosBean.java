@@ -10,13 +10,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 /**
- * Created by aazuaje on 03/08/2016.
+ * Created by aazuaje on 10/08/2016.
  */
-public class ObjetarCoberturaBean implements Serializable {
+public class CancelarPagosBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(CreacionSiniestrosBean.class);
+    private final static Logger log = Logger.getLogger(CancelarPagosBean.class);
     private String ordenarPor;
     private String producto;
     private String estadosCicloVida;
@@ -65,9 +64,16 @@ public class ObjetarCoberturaBean implements Serializable {
     private String coberturaAfectada;
     private String pagoMaximo;
     private String monedaSiniestro;
-    private String motivosObjecion;
-    private String fechaObjecion;
-    private String comentariosSiniestro;
+    private String fechaCompromiso;
+    private String fechaInicial;
+    private String fechaFinal;
+    private String razon;
+    private String estado;
+    private String tipo;
+    private String montoSiniestro;
+    private String cancelar;
+    private String aprobar;
+
 
     public String getOrdenarPor() {
         return ordenarPor;
@@ -273,6 +279,7 @@ public class ObjetarCoberturaBean implements Serializable {
     public void setFechaOperConstSiniestro(String fechaOperConstSiniestro) {
         this.fechaOperConstSiniestro= fechaOperConstSiniestro;}
 
+
     public String getFechaReclFormalizacion() {
         return fechaReclFormalizacion;
     }
@@ -280,14 +287,11 @@ public class ObjetarCoberturaBean implements Serializable {
         this.fechaReclFormalizacion = fechaReclFormalizacion;}
 
     public String getFechaInterrupcionTerminos() {
-        return fechaInterrupcionTerminos;
-    }
+        return fechaInterrupcionTerminos;}
     public void setFechaInterrupcionTerminos(String fechaInterrupcionTerminos) {
         this.fechaInterrupcionTerminos = fechaInterrupcionTerminos;}
 
-    public String getDocumentoIdentReclamante() {
-        return documentoIdentReclamante;
-    }
+    public String getDocumentoIdentReclamante() {return documentoIdentReclamante;}
     public void setDocumentoIdentReclamante(String documentoIdentReclamante) {
         this.documentoIdentReclamante = documentoIdentReclamante;}
 
@@ -394,36 +398,79 @@ public class ObjetarCoberturaBean implements Serializable {
         this.monedaSiniestro = monedaSiniestro;
     }
 
-    public String getMotivosObjecion() {
-        return motivosObjecion;
+    public String getFechaCompromiso() {
+        return fechaCompromiso;
     }
-    public void setMotivosObjecion(String motivosObjecion) {
-        this.motivosObjecion = motivosObjecion;
-    }
-
-    public String getFechaObjecion() {
-        return fechaObjecion;
-    }
-    public void setFechaObjecion(String fechaObjecion) {
-        this.fechaObjecion = fechaObjecion;
+    public void setFechaCompromiso(String fechaCompromiso) {
+        this.fechaCompromiso = fechaCompromiso;
     }
 
-    public String getComentariosSiniestro() {
-        return comentariosSiniestro;
+    public String getFechaInicial() {
+        return fechaInicial;
     }
-    public void setComentariosSiniestro(String comentariosSiniestro) {
-        this.comentariosSiniestro = comentariosSiniestro;}
+    public void setFechaInicial(String fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public String getFechaFinal() {
+        return fechaFinal;
+    }
+    public void setFechaFinal(String fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
+    public String getRazon() {
+        return razon;
+    }
+    public void setRazon(String razon) {
+        this.razon = razon;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getMontoSiniestro() {
+        return montoSiniestro;
+    }
+    public void setMontoSiniestro(String montoSiniestro) {
+        this.montoSiniestro = montoSiniestro;
+    }
+
+    public String getCancelar() {
+        return cancelar;
+    }
+    public void setCancelar(String cancelar) {
+        this.cancelar = cancelar;
+    }
+
+    public String getAprobar() {
+        return aprobar;
+    }
+    public void setAprobar(String aprobar) {
+        this.aprobar = aprobar;
+    }
 
 
-    public static ArrayList getObjetarCobertura() throws SQLException {
+
+    public static ArrayList getCancelarPagos() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
         ResultSet rs;
-        ArrayList cobertura = new ArrayList();
-
+        ArrayList pagos = new ArrayList();
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_Ciclo_Vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza, Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, Fecha_Ocurrencia_Siniestro, Sucursal_Siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos, Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_Siniestro,Motivos_Objecion, Fecha_Objecion, Comentarios_Siniestro from CREAC_SINI_OBJET_COB ORDER BY PRUEBA ASC");
+        queryLoad.append("select Prueba, Ordenar_Por, Producto, Estados_ciclo_vida, Contratante, Asegurado, ID_Poliza, Fecha_Desde, Fecha_Hasta, Sucursal_Poliza, Numero_Poliza, Fecha_Emision, Moneda_Poliza,Tipo_Moneda_Poliza, Tipo_Produccion, Tipo_Vigencia, Vigencia, Canal_Venta, Frecuencia_Pago, Fecha_Evento_Anterior, Fecha_Proxima_Generacion_Prima, Fecha_Proxima_Facturacion, Tipo_Poliza, Numero_Cotizacion, Numero_Propuesta, fecha_ocurrencia_siniestro, Sucursal_siniestros, Hora_Ocurrencia, Fecha_Aviso_Compania, Hora_Notificacion, Fecha_Oper_Const_Siniestro, Fecha_Recl_Formalizacion, Fecha_Interrupcion_Terminos,Documento_Ident_Reclamante, Reclamante, Causa_General_Muerte, Causales_Especif_Cobert_Muerte, Departamento, Ciudad, Genero_Asegurado, Profesion_Asegurado, Actividad_Siniestro, Fecha_Actividad, Observaciones_Siniestro, Certificado, Objetos_Asegurados, Cobertura_Afectada, Pago_Maximo, Moneda_siniestro, Fecha_Compromiso, Fecha_inicial, Fecha_Final, Razon, Estado, Tipo, Monto_Siniestro, Cancelar, Aprobar from CANCELAR_PAGOS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -431,72 +478,80 @@ public class ObjetarCoberturaBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                ObjetarCoberturaBean objetarCoberturaBean = new ObjetarCoberturaBean();
+                CancelarPagosBean cancelarPagosBean = new CancelarPagosBean();
 
-                objetarCoberturaBean.setOrdenarPor(rs.getString("ORDENAR_POR"));
-                objetarCoberturaBean.setProducto(rs.getString("PRODUCTO"));
-                objetarCoberturaBean.setEstadosCicloVida(rs.getString("ESTADOS_CICLO_VIDA"));
-                objetarCoberturaBean.setContratante(rs.getString("CONTRATANTE"));
-                objetarCoberturaBean.setAsegurado(rs.getString("ASEGURADO"));
-                objetarCoberturaBean.setIdPoliza(rs.getString("ID_POLIZA"));
-                objetarCoberturaBean.setFechaDesde(rs.getString("FECHA_DESDE"));
-                objetarCoberturaBean.setFechaHasta(rs.getString("FECHA_HASTA"));
-                objetarCoberturaBean.setSucursalPoliza(rs.getString("SUCURSAL_POLIZA"));
-                objetarCoberturaBean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
-                objetarCoberturaBean.setFechaEmision(rs.getString("FECHA_EMISION"));
-                objetarCoberturaBean.setMonedaPoliza(rs.getString("MONEDA_POLIZA"));
-                objetarCoberturaBean.setTipoMonedaPoliza(rs.getString("TIPO_MONEDA_POLIZA"));
-                objetarCoberturaBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
-                objetarCoberturaBean.setTipoVigencia(rs.getString("TIPO_VIGENCIA"));
-                objetarCoberturaBean.setVigencia(rs.getString("VIGENCIA"));
-                objetarCoberturaBean.setCanalVenta(rs.getString("CANAL_VENTA"));
-                objetarCoberturaBean.setFrecuenciaPago(rs.getString("FRECUENCIA_PAGO"));
-                objetarCoberturaBean.setFechaEventoAnterior(rs.getString("FECHA_EVENTO_ANTERIOR"));
-                objetarCoberturaBean.setFechaProximaGeneracionPrima(rs.getString("FECHA_PROXIMA_GENERACION_PRIMA"));
-                objetarCoberturaBean.setFechaProximaFacturacion(rs.getString("FECHA_PROXIMA_FACTURACION"));
-                objetarCoberturaBean.setTipoPoliza(rs.getString("TIPO_POLIZA"));
-                objetarCoberturaBean.setNumeroCotizacion(rs.getString("NUMERO_COTIZACION"));
-                objetarCoberturaBean.setNumeroPropuesta(rs.getString("NUMERO_PROPUESTA"));
-                objetarCoberturaBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
-                objetarCoberturaBean.setSucursalSiniestros(rs.getString("SUCURSAL_SINIESTROS"));
-                objetarCoberturaBean.setHoraOcurrencia(rs.getString("HORA_OCURRENCIA"));
-                objetarCoberturaBean.setFechaAvisoCompania(rs.getString("FECHA_AVISO_COMPANIA"));
-                objetarCoberturaBean.setHoraNotificacion(rs.getString("HORA_NOTIFICACION"));
-                objetarCoberturaBean.setFechaOperConstSiniestro(rs.getString("FECHA_OPER_CONST_SINIESTRO"));
-                objetarCoberturaBean.setFechaReclFormalizacion(rs.getString("FECHA_RECL_FORMALIZACION"));
-                objetarCoberturaBean.setFechaInterrupcionTerminos(rs.getString("FECHA_INTERRUPCION_TERMINOS"));
-                objetarCoberturaBean.setDocumentoIdentReclamante(rs.getString("DOCUMENTO_IDENT_RECLAMANTE"));
-                objetarCoberturaBean.setReclamante(rs.getString("RECLAMANTE"));
-                objetarCoberturaBean.setCausaGeneralMuerte(rs.getString("CAUSA_GENERAL_MUERTE"));
-                objetarCoberturaBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIF_COBERT_MUERTE"));
-                objetarCoberturaBean.setDepartamento(rs.getString("DEPARTAMENTO"));
-                objetarCoberturaBean.setCiudad(rs.getString("CIUDAD"));
-                objetarCoberturaBean.setGeneroAsegurado(rs.getString("GENERO_ASEGURADO"));
-                objetarCoberturaBean.setProfesionAsegurado(rs.getString("PROFESION_ASEGURADO"));
-                objetarCoberturaBean.setActividadSiniestro(rs.getString("ACTIVIDAD_SINIESTRO"));
-                objetarCoberturaBean.setFechaActividad(rs.getString("FECHA_ACTIVIDAD"));
-                objetarCoberturaBean.setObservacionesSiniestro(rs.getString("OBSERVACIONES_SINIESTRO"));
-                objetarCoberturaBean.setCertificado(rs.getString("CERTIFICADO"));
-                objetarCoberturaBean.setObjetosAsegurados(rs.getString("OBJETOS_ASEGURADOS"));
-                objetarCoberturaBean.setCoberturaAfectada(rs.getString("COBERTURA_AFECTADA"));
-                objetarCoberturaBean.setPagoMaximo(rs.getString("PAGO_MAXIMO"));
-                objetarCoberturaBean.setMonedaSiniestro(rs.getString("MONEDA_SINIESTRO"));
-                objetarCoberturaBean.setMotivosObjecion(rs.getString("MOTIVOS_OBJECION"));
-                objetarCoberturaBean.setFechaObjecion(rs.getString("FECHA_OBJECION"));
-                objetarCoberturaBean.setComentariosSiniestro(rs.getString("COMENTARIOS_SINIESTRO"));
+                cancelarPagosBean.setOrdenarPor(rs.getString("ORDENAR_POR"));
+                cancelarPagosBean.setProducto(rs.getString("PRODUCTO"));
+                cancelarPagosBean.setEstadosCicloVida(rs.getString("ESTADOS_CICLO_VIDA"));
+                cancelarPagosBean.setContratante(rs.getString("CONTRATANTE"));
+                cancelarPagosBean.setAsegurado(rs.getString("ASEGURADO"));
+                cancelarPagosBean.setIdPoliza(rs.getString("ID_POLIZA"));
+                cancelarPagosBean.setFechaDesde(rs.getString("FECHA_DESDE"));
+                cancelarPagosBean.setFechaHasta(rs.getString("FECHA_HASTA"));
+                cancelarPagosBean.setSucursalPoliza(rs.getString("SUCURSAL_POLIZA"));
+                cancelarPagosBean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
+                cancelarPagosBean.setFechaEmision(rs.getString("FECHA_EMISION"));
+                cancelarPagosBean.setMonedaPoliza(rs.getString("MONEDA_POLIZA"));
+                cancelarPagosBean.setMonedaPoliza(rs.getString("TIPO_MONEDA_POLIZA"));
+                cancelarPagosBean.setTipoProduccion(rs.getString("TIPO_PRODUCCION"));
+                cancelarPagosBean.setTipoVigencia(rs.getString("TIPO_VIGENCIA"));
+                cancelarPagosBean.setVigencia(rs.getString("VIGENCIA"));
+                cancelarPagosBean.setCanalVenta(rs.getString("CANAL_VENTA"));
+                cancelarPagosBean.setFrecuenciaPago(rs.getString("FRECUENCIA_PAGO"));
+                cancelarPagosBean.setFechaEventoAnterior(rs.getString("FECHA_EVENTO_ANTERIOR"));
+                cancelarPagosBean.setFechaProximaGeneracionPrima(rs.getString("FECHA_PROXIMA_GENERACION_PRIMA"));
+                cancelarPagosBean.setFechaProximaFacturacion(rs.getString("FECHA_PROXIMA_FACTURACION"));
+                cancelarPagosBean.setTipoPoliza(rs.getString("TIPO_POLIZA"));
+                cancelarPagosBean.setNumeroCotizacion(rs.getString("NUMERO_COTIZACION"));
+                cancelarPagosBean.setNumeroPropuesta(rs.getString("NUMERO_PROPUESTA"));
+                cancelarPagosBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
+                cancelarPagosBean.setSucursalSiniestros(rs.getString("SUCURSAL_SINIESTROS"));
+                cancelarPagosBean.setHoraOcurrencia(rs.getString("HORA_OCURRENCIA"));
+                cancelarPagosBean.setFechaAvisoCompania(rs.getString("FECHA_AVISO_COMPANIA"));
+                cancelarPagosBean.setHoraNotificacion(rs.getString("HORA_NOTIFICACION"));
+                cancelarPagosBean.setFechaOperConstSiniestro(rs.getString("FECHA_OPER_CONST_SINIESTRO"));
+                cancelarPagosBean.setFechaReclFormalizacion(rs.getString("FECHA_RECL_FORMALIZACION"));
+                cancelarPagosBean.setFechaInterrupcionTerminos(rs.getString("FECHA_INTERRUPCION_TERMINOS"));
+                cancelarPagosBean.setDocumentoIdentReclamante(rs.getString("DOCUMENTO_IDENT_RECLAMANTE"));
+                cancelarPagosBean.setReclamante(rs.getString("RECLAMANTE"));
+                cancelarPagosBean.setCausaGeneralMuerte(rs.getString("CAUSA_GENERAL_MUERTE"));
+                cancelarPagosBean.setCausalesEspecifCobertMuerte(rs.getString("CAUSALES_ESPECIF_COBERT_MUERTE"));
+                cancelarPagosBean.setDepartamento(rs.getString("DEPARTAMENTO"));
+                cancelarPagosBean.setCiudad(rs.getString("CIUDAD"));
+                cancelarPagosBean.setGeneroAsegurado(rs.getString("GENERO_ASEGURADO"));
+                cancelarPagosBean.setProfesionAsegurado(rs.getString("PROFESION_ASEGURADO"));
+                cancelarPagosBean.setActividadSiniestro(rs.getString("ACTIVIDAD_SINIESTRO"));
+                cancelarPagosBean.setFechaActividad(rs.getString("FECHA_ACTIVIDAD"));
+                cancelarPagosBean.setObservacionesSiniestro(rs.getString("OBSERVACIONES_SINIESTRO"));
+                cancelarPagosBean.setCertificado(rs.getString("CERTIFICADO"));
+                cancelarPagosBean.setObjetosAsegurados(rs.getString("OBJETOS_ASEGURADOS"));
+                cancelarPagosBean.setCoberturaAfectada(rs.getString("COBERTURA_AFECTADA"));
+                cancelarPagosBean.setPagoMaximo(rs.getString("PAGO_MAXIMO"));
+                cancelarPagosBean.setMonedaSiniestro(rs.getString("MONEDA_SINIESTRO"));
+                cancelarPagosBean.setFechaCompromiso(rs.getString("FECHA_COMPROMISO"));
+                cancelarPagosBean.setFechaInicial(rs.getString("FECHA_INICIAL"));
+                cancelarPagosBean.setFechaFinal(rs.getString("FECHA_FINAL"));
+                cancelarPagosBean.setRazon(rs.getString("RAZON"));
+                cancelarPagosBean.setEstado(rs.getString("ESTADO"));
+                cancelarPagosBean.setTipo(rs.getString("TIPO"));
+                cancelarPagosBean.setMontoSiniestro(rs.getString("MONTO_SINIESTRO"));
+                cancelarPagosBean.setCancelar(rs.getString("CANCELAR"));
+                cancelarPagosBean.setAprobar(rs.getString("APROBAR"));
 
-                cobertura.add(objetarCoberturaBean);
-
-        }
-
-     }catch(SQLException e){
+                pagos.add(cancelarPagosBean);
+            }
+        }catch(SQLException e){
             log.error(e);
         }finally{
             if (conn != null) {
                 conn.close();
             }
         }
-        return cobertura;
+
+
+        return pagos;
     }
 
+
 }
+
