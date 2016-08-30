@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.PropiedadesTipoListasBean;
+import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,42 +25,19 @@ public class PropiedadesTipoListas {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuConfiguracion m = new MenuConfiguracion();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(8000);
 
 
-        MenuNuevoPlantillasModoNoPrivilegiado(driver,a);
+        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         AgregarPropiedades (driver, a, propiedadesTipoListasBean);
         ConsultaLista (driver, a, propiedadesTipoListasBean);
 
-
-    }
-
-    public void MenuNuevoPlantillasModoNoPrivilegiado(WebDriver driver, Metodos a) {
-
-        try {
-            Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[18]"));//NuevoPlantillasModoNoPrivilegiado
-            Thread.sleep(1000);
-
-            action.moveToElement(menu1).build().perform();
-
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
-            Thread.sleep(1000);
-            menu2.click();
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
 
     }
 

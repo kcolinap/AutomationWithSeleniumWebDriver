@@ -2,6 +2,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EditarSiniestrosBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import AcseleV13_8.main.controller.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -25,12 +26,13 @@ public class EditarSiniestros {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
-        MenuCreacionSiniestro(driver, a);
+        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BuscarPoliza(driver, a, editarSiniestrosBean);
@@ -40,19 +42,6 @@ public class EditarSiniestros {
 
     }
 
-    public void MenuCreacionSiniestro(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//mantenimiento de siniestro
-
-        menu1.click();
-        menu2.click();
-        Thread.sleep(3000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(4000);
-        menu3.click();
-
-    }
 
     public void BuscarPoliza(WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean) throws IOException, InterruptedException{
 

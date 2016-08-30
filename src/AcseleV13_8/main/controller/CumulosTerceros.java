@@ -2,6 +2,7 @@ package AcseleV13_8.main.controller;
 
 
 import AcseleV13_8.beans.CumulosTercerosBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,12 +24,13 @@ public class CumulosTerceros {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(8000);
 
-        MenuCreacionSiniestro(driver, a);
+        m.Cumulos_CumulosPorTerceros(driver, a, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BusquedaTerceros (driver, a, cumulosTercerosBean);
@@ -36,25 +38,12 @@ public class CumulosTerceros {
 
     }
 
-    public void MenuCreacionSiniestro(WebDriver driver,Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[1]"));//cumulos terceros
-
-        menu1.click();
-        menu2.click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(3000);
-        menu3.click();
-
-    }
 
     public void BusquedaTerceros (WebDriver driver, Metodos a, CumulosTercerosBean cumulosTercerosBean) throws IOException, InterruptedException{
 
         try{
 
-            Thread.sleep(6000);
+            Thread.sleep(8000);
             a.ScreenShot(driver,"screen4",nombreAutomatizacion);
             Select tipoTerceros = new Select(driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select")));
             tipoTerceros.selectByValue(cumulosTercerosBean.getTipoTerceros());
