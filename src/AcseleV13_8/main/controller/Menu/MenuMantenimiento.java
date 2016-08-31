@@ -141,8 +141,10 @@ public class MenuMantenimiento {
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[45]/div[4]")); // Trazas de Auditoria (Vaadin)
             menu1.click();
             menu2.click();
+            Thread.sleep(1000);
             a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
             menu3.click();
         }catch (Exception e){
         e.printStackTrace();
@@ -201,7 +203,7 @@ public class MenuMantenimiento {
             log.info("Menu listas Restrictivas " + e);
         }
     }
-        public void AdminLisRest_CoincidenciaListasRestrictivas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
 
             try {
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -209,7 +211,7 @@ public class MenuMantenimiento {
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
                 menu1.click();
                 menu2.click();
-                this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+                this.a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
                 Thread.sleep(1000);
                 menu3.click();
 

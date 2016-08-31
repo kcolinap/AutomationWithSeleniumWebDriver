@@ -39,8 +39,10 @@ public class MenuOperaciones {
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear
                 menu1.click();
                 menu2.click();
+                Thread.sleep(1000);
                 a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
                 Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
