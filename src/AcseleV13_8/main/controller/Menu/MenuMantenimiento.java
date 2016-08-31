@@ -164,7 +164,7 @@ public class MenuMantenimiento {
                 action.moveToElement(menu2).build().perform();
                 action.moveToElement(menu3).build().perform();
 
-                Thread.sleep(1000);
+             //   Thread.sleep(1000);
                 a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion);
                 Thread.sleep(1000);
                 menu3.click();

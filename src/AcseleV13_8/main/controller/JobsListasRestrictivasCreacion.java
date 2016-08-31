@@ -55,16 +55,17 @@ public class JobsListasRestrictivasCreacion {
             String numeroActividad = numActividad.getText();
             Thread.sleep(1000);
 
+            driver.close(); //Cerrar la pestaña
             a.regresarVentana(driver);
             Thread.sleep(1000);
 
-            menuMantenimiento.AdminTar_EjecucionTareas(a, driver, nombreAutomatizacion, 9);
+            menuMantenimiento.AdminTar_EjecucionTareas(a, driver, nombreAutomatizacion, 10);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            InsertarTaress(a, driver, jobsListasRestrictivasCreacionBean, numeroActividad);
+            InsertarTareas(a, driver, jobsListasRestrictivasCreacionBean, numeroActividad);
 
 
 
@@ -179,7 +180,7 @@ public class JobsListasRestrictivasCreacion {
     public void BuscarActividades(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
         try {
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             WebElement numActividad = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td[2]/input"));
             Select diasFeriados = new Select(driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td[2]/select")));
@@ -202,7 +203,7 @@ public class JobsListasRestrictivasCreacion {
             btnBuscar.click();
 
             Thread.sleep(7000);
-            a.ScreenShot(driver, "screen8", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen9", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -214,13 +215,15 @@ public class JobsListasRestrictivasCreacion {
         }
     }
 
-    public void InsertarTaress(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean, String numeroActividad){
+    public void InsertarTareas(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean, String numeroActividad){
 
         try {
 
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             //WebElement btnInsert = driver.findElement(By.xpath(""));
-            WebElement btnInsert = driver.findElement(By.xpath("/html/body/center/div[1]/input"));
+            //WebElement btnInsert = driver.findElement(By.xpath("/html/body/center/div[1]/input"));
+            WebElement btnInsert = driver.findElement(By.xpath("//div/input"));
+//            WebElement btnInsert = driver.findElement(By.xpath("/html/body/center/div[1]/input"));
 
             Thread.sleep(1000);
             a.ScreenShot(driver, "screen10", nombreAutomatizacion); //screenshot2
@@ -258,18 +261,18 @@ public class JobsListasRestrictivasCreacion {
 
             /** if (horaEjecucion != null)*/
             Thread.sleep(1000);
-            horaEjecucion.selectByValue("");
+            horaEjecucion.selectByValue("00");
             Thread.sleep(1000);
-            minutoEjecucion.selectByValue("");
+            minutoEjecucion.selectByValue("00");
 
             Thread.sleep(1000);
-            periodicidad.selectByValue("1 "); //1 = Sin periodicidad
+            periodicidad.selectByValue("1"); //1 = Sin periodicidad
 
             Thread.sleep(1000);
-            servidor.sendKeys("");
+            servidor.sendKeys("");//Enviar vacío
 
             Thread.sleep(1000);
-            actividades.selectByValue(numeroActividad + " - SearchThirdsInRestrictiveListsGeneratorJob");
+            actividades.selectByValue(numeroActividad /*+ " - SearchThirdsInRestrictiveListsGeneratorJob"*/);
 
             Thread.sleep(1000);
             notificarEjecucion.selectByValue("false");
@@ -300,7 +303,7 @@ public class JobsListasRestrictivasCreacion {
             Thread.sleep(1000);
 
             btnEmail.click();
-            Thread.sleep(3000);
+            Thread.sleep(4000);
 
             WebElement emailResponsable = driver.findElement(By.xpath("/html/body/div[2]/div[1]/div[2]/center/form/table/tbody[1]/tr/td[2]/input"));
             WebElement btnInsertarEmail = driver.findElement(By.xpath("/html/body/div[2]/div[1]/div[2]/center/form/input[1]"));
