@@ -24,7 +24,24 @@ public class MenuMantenimiento {
     /** -- Mantenimiento de Tercero (Wcontroller) -- **/
 
     /** Mantenimiento de Tercero **/
-        public void MantTerc_IngresarTercero(){}
+        public void MantTerc_IngresarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion){
+            try{
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//ingresar tercero
+                menu1.click();
+                menu2.click();
+                a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
+                menu3.click();
+                a.cambiarVentana(driver); // Cambiar de ventana
+
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+
+        }
         public void MantTerc_BuscarTercero(){}
     /** -- Mantenimiento de Tercero -- **/
 

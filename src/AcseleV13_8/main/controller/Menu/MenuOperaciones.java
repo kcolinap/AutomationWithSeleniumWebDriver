@@ -55,7 +55,23 @@ public class MenuOperaciones {
 
         public void OpePol_SuscripcionMantenimientoPolizasWController(){}
 
-        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(){}
+        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+            try{
+
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
+            menu1.click();
+            menu2.click();
+            a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
+            menu3.click();
+            a.cambiarVentana(driver); // Cambiar de ventana
+        }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
 
         public void OpePol_BusquedaSolicitud(){}
 

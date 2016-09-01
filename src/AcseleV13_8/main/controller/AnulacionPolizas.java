@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.AnulacionPolizaBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,21 +22,23 @@ public class AnulacionPolizas {
 
 
         Metodos a= new Metodos();   //implementando metodos.
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
         a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+        /*WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
         WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
         WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
         menu1.click();
         menu2.click();
         a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
         menu3.click();
-        a.cambiarVentana(driver); // Cambiar de ventana
+        a.cambiarVentana(driver); // Cambiar de ventana*/
 
+        m.OpePol_CotizacionSuscripcionMantenimientoPolizas(a,driver,nombreAutomatizacion);
         BuscarPoliza(a, driver, anulacionPolizaBean);
 
 
