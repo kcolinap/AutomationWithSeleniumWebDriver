@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.TercerosUpdateRolesBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,15 +22,19 @@ public class TercerosUpdateRoles {
 
     public void testLink(TercerosUpdateRolesBean tercerosUpdateRolesBean, int i) throws IOException, InterruptedException {
 
-        //implementando clase de metodos
+        // Instanciando clases
         Metodos a = new Metodos();
+        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
+        //Entrando en Menu
+        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+
         // Consulta del Tercero Creado
-        IngresarMenuBuscarTercero(driver, a); //Menu
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
@@ -51,24 +56,6 @@ public class TercerosUpdateRoles {
         TrazaAuditoriaVaadin(driver, a, tercerosUpdateRolesBean);
 
 
-    }
-
-    public void IngresarMenuBuscarTercero(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-
-        try {
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//buscar tercero
-            menu1.click();
-            menu2.click();
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
-            menu3.click();
-
-        } catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 24 - Terceros Update Roles - " + e);
-        }
     }
 
     public void BusquedaT(Metodos a, WebDriver driver, TercerosUpdateRolesBean tercerosUpdateRolesBean) throws InterruptedException, IOException{
