@@ -34,17 +34,6 @@ public class ConsultaTerceros {
         Thread.sleep(3000);
 
         m.MantTerc_IngresarTercero(a,driver,nombreAutomatizacion);
-
-        //Entrando en Menu
-        /*WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//ingresar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-        menu3.click();
-        a.cambiarVentana(driver); // Cambiar de ventana*/
-
         BuscarTercero(a, driver, nombreAutomatizacion, consultaTercerosBean);
 
     }
