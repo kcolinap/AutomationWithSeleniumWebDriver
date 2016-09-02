@@ -1,5 +1,7 @@
 package AcseleV13_8.tests;
 
+import AcseleV13_8.beans.CreacionListaTemplateBean;
+import AcseleV13_8.main.controller.CreacionListaTemplate;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -19,15 +21,15 @@ public class VistaCreacionListaTemplateTest {
     @Test
     public void mainTest() throws SQLException {
 
-    /*    ArrayList listasRestrictivas = ListasRestrictivasBean.getListasRestrictivas();
+        ArrayList creacionListaTemplate = CreacionListaTemplateBean.getCreacionListaTemplate();
 
-        for (int i = 0; i < listasRestrictivas.size(); i++) {
-            ListasRestrictivasBean listasRestrictivasBean = (ListasRestrictivasBean) listasRestrictivas.get(i);
-            ListasRestrictivas a = new ListasRestrictivas();
+        for (int i = 0; i < creacionListaTemplate.size(); i++) {
+            CreacionListaTemplateBean creacionListaTemplateBean = (CreacionListaTemplateBean) creacionListaTemplate.get(i);
+            CreacionListaTemplate a = new CreacionListaTemplate();
 
 
             try {
-                a.testLink(listasRestrictivasBean, i);
+                a.testLink(creacionListaTemplateBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
@@ -35,7 +37,7 @@ public class VistaCreacionListaTemplateTest {
             }
 
         }
-*/
+
     }
 
     @Before
