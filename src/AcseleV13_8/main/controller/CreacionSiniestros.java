@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by aazuaje on 27/07/2016.
@@ -259,12 +261,12 @@ public class CreacionSiniestros {
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
 
-            Thread.sleep(8000);
+            Thread.sleep(5000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_07\"]"));
             btnAceptar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(20000);
             a.ScreenShot(driver,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
@@ -280,11 +282,12 @@ public class CreacionSiniestros {
            WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
            btnAgregar.click();
 
-           Thread.sleep(15000);
+           Thread.sleep(20000);
 
            // Cambiar de frame
            driver.switchTo().frame("plantilla");
 
+           Thread.sleep(3000);
            Select horaOcurrencia = new Select(driver.findElement(By.xpath("//*[@id=\"1837254\"]/td[3]/font/select")));
            horaOcurrencia.selectByValue(creacionSiniestrosBean.getHoraOcurrencia());
 
@@ -337,6 +340,8 @@ public class CreacionSiniestros {
                Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
                profesionAsegurado.selectByValue(creacionSiniestrosBean.getProfesionAsegurado());
            }
+           WebElement btnLimpiar = driver.findElement(By.xpath("//*[@id=\"ProfesionAseguradoClearLink\"]"));
+           btnLimpiar.click();
 
            if (creacionSiniestrosBean.getActividadSiniestro() != null){
            Select actividadSiniestro = new Select(driver.findElement(By.xpath("//*[@id=\"30018694\"]/td[3]/font/select")));
@@ -363,7 +368,7 @@ public class CreacionSiniestros {
            WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_04020099_content_01\"]"));
            btnAceptar.click();
 
-           Thread.sleep(15000);
+           Thread.sleep(25000);
 
            Thread.sleep(2000);
            a.ScreenShot(driver,"screen10",nombreAutomatizacion);
@@ -381,7 +386,7 @@ public class CreacionSiniestros {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_04\"]"));
             btnAgregar.click();
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
             if (creacionSiniestrosBean.getObjetosAsegurados() != null){
             Select objetosAsegurados = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[2]/td[2]/select")));
@@ -393,7 +398,7 @@ public class CreacionSiniestros {
             coberturaAfectada.selectByValue(creacionSiniestrosBean.getCoberturaAfectada());
             }
 
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             WebElement pagoMaximo = driver.findElement(By.xpath("//*[@id=\"maxBenefitAmount1\"]"));
             pagoMaximo.clear();
             pagoMaximo.sendKeys(creacionSiniestrosBean.getPagoMaximo());
@@ -407,7 +412,40 @@ public class CreacionSiniestros {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(6000);
+
+            Set<String> sid = driver.getWindowHandles();
+            //Using iterator we can fetch the values from Set.
+            Iterator<String> it = sid.iterator();
+            String parentId = it.next();
+            System.out.println("Prueba " + parentId);
+            Thread.sleep(2000);
+            String childId = it.next();
+            String childId2 = it.next();
+            System.out.println("Prueba " + childId);
+            System.out.println("Prueba " + childId2);
+            //swtiching control to child Window
+            driver.switchTo().window(childId2);
+
+            Thread.sleep(6000);
+
+            WebElement btnAceptarOtro = driver.findElement(By.xpath("//*[@id=\"u70\"]/input"));
+            btnAceptarOtro.click();
+
+            Thread.sleep(3000);
+
+            sid = driver.getWindowHandles();
+            //Using iterator we can fetch the values from Set.
+            it = sid.iterator();
+            parentId = it.next();
+            System.out.println("Prueba " + parentId);
+            Thread.sleep(2000);
+            childId = it.next();
+            System.out.println("Prueba " + childId);
+            //swtiching control to child Window
+            driver.switchTo().window(childId);
+
+            Thread.sleep(3000);
 
 
             if (ExpectedConditions.alertIsPresent() != null) {
@@ -441,10 +479,10 @@ public class CreacionSiniestros {
             btnRequisitos.click();
 
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
             WebElement btnRecibido = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/thead/tr/th[3]/input"));
             btnRecibido.click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             a.ScreenShot(driver,"screen12",nombreAutomatizacion);
 
             Thread.sleep(2000);
