@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.ConsultaTercerosBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,21 +27,13 @@ public class ConsultaTerceros {
         String nombreAutomatizacion ="Consulta Terceros";
 
         Metodos a= new Metodos();   //implementando metodos.
+        MenuMantenimiento m = new MenuMantenimiento();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
         a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
         Thread.sleep(3000);
 
-        //Entrando en Menu
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//ingresar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-        menu3.click();
-        a.cambiarVentana(driver); // Cambiar de ventana
-
+        m.MantTerc_IngresarTercero(a,driver,nombreAutomatizacion);
         BuscarTercero(a, driver, nombreAutomatizacion, consultaTercerosBean);
 
     }
