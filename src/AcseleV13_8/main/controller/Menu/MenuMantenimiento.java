@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 
@@ -24,25 +25,58 @@ public class MenuMantenimiento {
     /** -- Mantenimiento de Tercero (Wcontroller) -- **/
 
     /** Mantenimiento de Tercero **/
-        public void MantTerc_IngresarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion){
-            try{
+
+        public void MantTerc_IngresarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+
+            try {
+                Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//ingresar tercero
-                menu1.click();
-                menu2.click();
-                a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//Mantenimiento de terceros
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[1]"));//ingresar tercero
+                Thread.sleep(1000);
+
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion);
+                Thread.sleep(1000);
                 menu3.click();
-                a.cambiarVentana(driver); // Cambiar de ventana
 
             }catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
-
         }
-        public void MantTerc_BuscarTercero(){}
+
+        public void MantTerc_BuscarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//Mantenimiento de terceros
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[2]"));//Buscar tercero
+                Thread.sleep(1000);
+
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion);
+                Thread.sleep(1000);
+                menu3.click();
+
+
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
+
     /** -- Mantenimiento de Tercero -- **/
 
     /** Declaracion Personal de Salud (DPS) **/

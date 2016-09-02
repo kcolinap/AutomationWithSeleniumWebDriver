@@ -1,6 +1,8 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.CreacionTercerosBean;
+import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,21 +19,18 @@ public class CreacionTerceros {
     public void testLink(CreacionTercerosBean creacionTercerosBean)throws Exception{
 
 
-        //implementando clase de metodos
+        // Instanciando clases
         Metodos a = new Metodos();
+        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion);
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
         //Entrando en Menu
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[1]"));//ingresar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-        menu3.click();
+        menuMantenimiento.MantTerc_IngresarTercero(a, driver, nombreAutomatizacion, 2);
+
         Thread.sleep(2000);
         a.cambiarVentana(driver); // Cambiar de ventana
         Thread.sleep(5000);
