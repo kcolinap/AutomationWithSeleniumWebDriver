@@ -412,7 +412,17 @@ public class CreacionSiniestros {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
-            Thread.sleep(6000);
+            Thread.sleep(3000);
+
+            /*if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }*/
+
+            Thread.sleep(3000);
 
             Set<String> sid = driver.getWindowHandles();
             //Using iterator we can fetch the values from Set.
