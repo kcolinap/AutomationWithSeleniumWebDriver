@@ -2,6 +2,7 @@ package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.AnulacionPolizaBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,88 +15,146 @@ import java.io.IOException;
  */
 public class AnulacionPolizas {
 
-    String nombreAutomatizacion ="Anulacion de Poliza";
+    private final static Logger log = Logger.getLogger(AnulacionPolizas.class);
+
+    public static String nombreAutomatizacion ="Anulacion de Poliza";
     //Poliza a buscar
     //String nPoliza = "EA00280";
 
     public void testLink(AnulacionPolizaBean anulacionPolizaBean)throws Exception{
 
+        try {
 
-        Metodos a= new Metodos();   //implementando metodos.
-        MenuOperaciones m = new MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
-        Thread.sleep(3000);
+            Metodos a = new Metodos();   //implementando metodos.
+            MenuOperaciones m = new MenuOperaciones();
+            WebDriver driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+            Thread.sleep(3000);
 
-        m.OpePol_CotizacionSuscripcionMantenimientoPolizas(a,driver,nombreAutomatizacion);
-        BuscarPoliza(a, driver, anulacionPolizaBean);
+            m.OpePol_CotizacionSuscripcionMantenimientoPolizas(a, driver, nombreAutomatizacion, 2);
+            Thread.sleep(2000);
+            a.cambiarVentana(driver); // Cambiar de ventana
+            BuscarPoliza(a, driver, anulacionPolizaBean);
+        }catch (Exception e) {
+            e.printStackTrace();
+            //             log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
 
 
     }
 
     public void BuscarPoliza(Metodos a, WebDriver driver, AnulacionPolizaBean anulacionPolizaBean) throws InterruptedException, IOException {
 
-        Thread.sleep(4000);
-        //Campo del num de la poliza
-        WebElement fieldNumPoliza = driver.findElement(By.name("policyNumber"));
-        fieldNumPoliza.sendKeys(anulacionPolizaBean.getNumPoliza());
+        try {
 
-        //Screenshot
-        a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            //TipoElemento[@wicketpath='WicketpathElemento']
 
-        //Boton Buscar
-        driver.findElement(By.name("searchButton")).click();
+            Thread.sleep(4000);
+            //Campo del num de la poliza
+            WebElement fieldNumPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
+            fieldNumPoliza.sendKeys(anulacionPolizaBean.getNumPoliza());
 
-        Thread.sleep(10000);
+            Thread.sleep(1000);
+            //Screenshot
+            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
 
-        //Seleccionar Poliza
-        driver.findElement(By.name("ConsultPolicy:ResultSearchSimplePolicy:groupPolicies")).click();
+            //Boton Buscar
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
 
-        //Screenshot
-        a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            Thread.sleep(1000);
 
-        //Boton Cancelar Poliza
-        driver.findElement(By.name("container:CancelPolicyButton")).click();
+            /** Espere **/
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espera 1");
+            }
 
-        Thread.sleep(5000);
+            //Thread.sleep(10000);
 
-        // Seleccionar Opcion = Anular
-        Select menuOpcion = new Select(driver.findElement(By.name("EventSection:content:events:repeaterSelect:1:field")));
-        menuOpcion.selectByValue(anulacionPolizaBean.getOpcion());
+            //Seleccionar Poliza
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
 
-        //Fecha
+            Thread.sleep(1000);
+            //Screenshot
+            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
 
-        // Select MotivoAnulacion
-        Select motivoAnulacion = new Select(driver.findElement(By.name("EventSection:content:Form:templateContainer:repeaterPanel:3:fila:repeaterSelect:1:field")));
-        motivoAnulacion.selectByValue(anulacionPolizaBean.getMotivoAnulacion()); //Voluntad del Tomador / Asegurado
+            //Boton Cancelar Poliza
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_CancelPolicyButton']")).click();
 
-        //Observacion
-        driver.findElement(By.name("EventSection:content:Form:templateContainer:repeaterPanel:4:fila:field")).sendKeys(anulacionPolizaBean.getObservacion());
+            Thread.sleep(1000);
 
-        //Screenshot
-        a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            /** Espere **/
+            mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espera 2");
+            }
 
-        //Boton Continuar
-        driver.findElement(By.name("EventSection:content:Form:continueButton")).click();
+            // Seleccionar Opcion = Anular
+            Select menuOpcion = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']")));
+            menuOpcion.selectByValue(anulacionPolizaBean.getOpcion());
 
-        Thread.sleep(5000);
-        //Screenshot
-        a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            //Fecha   //TipoElemento[@wicketpath='WicketpathElemento']
 
-        // Boton Calcular
-        driver.findElement(By.name("calculate")).click();
-        Thread.sleep(6000);
-        //Screenshot
-        a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            // Select MotivoAnulacion
+            Select motivoAnulacion = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_Form_templateContainer_repeaterPanel_3_fila_repeaterSelect_1_field']")));
+            motivoAnulacion.selectByValue(anulacionPolizaBean.getMotivoAnulacion()); //Voluntad del Tomador / Asegurado
 
-        // Boton Aplicar
-        driver.findElement(By.name("EventSection:content:CloseForm:ApplyPolicy")).click();
-        Thread.sleep(15000);
-        //Screenshot
-        a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            //Observacion
+            driver.findElement(By.xpath("//textarea[@wicketpath='modalWindowForm_EventSection_content_Form_templateContainer_repeaterPanel_4_fila_field']")).sendKeys(anulacionPolizaBean.getObservacion());
 
-        System.out.println("Fin de la prueba");
+            Thread.sleep(1000);
+            //Screenshot
+            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+
+            //Boton Continuar
+            driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
+
+            Thread.sleep(5000);
+            //Screenshot
+            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+
+            // Boton Calcular
+            driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']")).click();
+            Thread.sleep(1000);
+
+
+            /** Espere **/
+            mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espera 3");
+            }
+
+            //Screenshot
+            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+
+            // Boton Aplicar
+            WebElement btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
+            btnAplicar.click();
+
+            Thread.sleep(1000);
+            /** Espere **/
+            mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espera 3");
+            }
+
+            //Thread.sleep(15000);
+            //Screenshot
+            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+
+            System.out.println("Fin de la prueba");
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            //             log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
 
     }
 

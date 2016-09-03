@@ -33,7 +33,7 @@ public class ConsultaTerceros {
         a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
         Thread.sleep(3000);
 
-        m.MantTerc_IngresarTercero(a,driver,nombreAutomatizacion);
+        m.MantTerc_IngresarTercero(a,driver,nombreAutomatizacion, 2);
         BuscarTercero(a, driver, nombreAutomatizacion, consultaTercerosBean);
 
     }
