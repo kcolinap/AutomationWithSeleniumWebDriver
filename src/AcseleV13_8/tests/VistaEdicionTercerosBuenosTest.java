@@ -2,27 +2,48 @@ package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.EdicionTercerosBuenosBean;
 import AcseleV13_8.main.controller.EdicionTerceroBueno;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 31/05/2016.
  */
 public class VistaEdicionTercerosBuenosTest {
 
+    private final static Logger log = Logger.getLogger(VistaEdicionTercerosBuenosTest.class);
+
     @Test
     //@Transactional
-    public void mainTest() {
+    public void mainTest() throws SQLException {
 
-        EdicionTercerosBuenosBean edicionTercerosBuenosBean = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
+        ArrayList edicionTercerosBuenos = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
+
+        for (int i = 0; i < edicionTercerosBuenos.size(); i++) {
+
+            EdicionTercerosBuenosBean edicionTercerosBuenosBean = (EdicionTercerosBuenosBean) edicionTercerosBuenos.get(i);
+            EdicionTerceroBueno a = new EdicionTerceroBueno();
+
+            try {
+                a.testLink(edicionTercerosBuenosBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
+        }
+
+/*        EdicionTercerosBuenosBean edicionTercerosBuenosBean = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
         EdicionTerceroBueno a = new EdicionTerceroBueno();
         try {
             a.testLink(edicionTercerosBuenosBean);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

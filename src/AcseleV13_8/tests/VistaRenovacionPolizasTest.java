@@ -30,7 +30,7 @@ public class VistaRenovacionPolizasTest {
             RenovacionPolizas a = new RenovacionPolizas();
 
             try {
-                a.testLink(renovacionPolizaBean);
+                a.testLink(renovacionPolizaBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);

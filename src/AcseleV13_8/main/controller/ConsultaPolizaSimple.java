@@ -12,17 +12,17 @@ import java.io.IOException;
  */
 public class ConsultaPolizaSimple {
 
-    String nombreAutomatizacion = "Consulta Poliza Simple";
+    public String nombreAutomatizacion = "Consulta Poliza Simple";
     //Pliza a buscar
     //String nPoliza = "EA00222";
 
 
-    public void testLink(PolizaBean polizaBean) throws Exception {
+    public void testLink(PolizaBean polizaBean, int i) throws Exception {
 
         Metodos a = new Metodos();   //implementando metodos.
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu

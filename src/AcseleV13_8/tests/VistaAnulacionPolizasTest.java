@@ -30,7 +30,7 @@ public class VistaAnulacionPolizasTest {
             AnulacionPolizas a = new AnulacionPolizas();
 
             try {
-                a.testLink(anulacionPolizaBean);
+                a.testLink(anulacionPolizaBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);

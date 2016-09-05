@@ -27,8 +27,8 @@ public class PropiedadesTipoListas {
         Metodos a = new Metodos();
         MenuConfiguracion m = new MenuConfiguracion();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
 
 

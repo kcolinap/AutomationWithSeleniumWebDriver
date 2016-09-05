@@ -15,18 +15,19 @@ import java.io.IOException;
 // Cambio de Nombre y Apellido
 public class EdicionTerceroBueno {
 
+    public String nombreAutomatizacion ="Edicion Terceros Buenos";
 
-    public void testLink(EdicionTercerosBuenosBean edicionTercerosBuenosBean)throws Exception {
+    public void testLink(EdicionTercerosBuenosBean edicionTercerosBuenosBean, int i)throws Exception {
 
-        String nombreAutomatizacion ="Edicion Terceros Buenos";
+
 
         // Instanciando clases
         Metodos a= new Metodos();   //implementando metodos.
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu

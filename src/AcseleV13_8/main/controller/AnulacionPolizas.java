@@ -21,21 +21,21 @@ public class AnulacionPolizas {
     //Poliza a buscar
     //String nPoliza = "EA00280";
 
-    public void testLink(AnulacionPolizaBean anulacionPolizaBean)throws Exception{
+    public void testLink(AnulacionPolizaBean anulacionPolizaBean, int i)throws Exception{
 
         try {
 
             Metodos a = new Metodos();   //implementando metodos.
             MenuOperaciones m = new MenuOperaciones();
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-            a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
             Thread.sleep(3000);
 
             m.OpePol_CotizacionSuscripcionMantenimientoPolizas(a, driver, nombreAutomatizacion, 2);
             Thread.sleep(2000);
             a.cambiarVentana(driver); // Cambiar de ventana
-            BuscarPoliza(a, driver, anulacionPolizaBean);
+            BuscarPoliza(a, driver, anulacionPolizaBean, i);
         }catch (Exception e) {
             e.printStackTrace();
             //             log.info(e);
@@ -45,7 +45,7 @@ public class AnulacionPolizas {
 
     }
 
-    public void BuscarPoliza(Metodos a, WebDriver driver, AnulacionPolizaBean anulacionPolizaBean) throws InterruptedException, IOException {
+    public void BuscarPoliza(Metodos a, WebDriver driver, AnulacionPolizaBean anulacionPolizaBean, int i) throws InterruptedException, IOException {
 
         try {
 
@@ -58,7 +58,7 @@ public class AnulacionPolizas {
 
             Thread.sleep(1000);
             //Screenshot
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
 
             //Boton Buscar
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
@@ -79,7 +79,7 @@ public class AnulacionPolizas {
 
             Thread.sleep(1000);
             //Screenshot
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,  "screen4", nombreAutomatizacion);
 
             //Boton Cancelar Poliza
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_CancelPolicyButton']")).click();
@@ -108,14 +108,14 @@ public class AnulacionPolizas {
 
             Thread.sleep(1000);
             //Screenshot
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
 
             //Boton Continuar
             driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
 
             Thread.sleep(5000);
             //Screenshot
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
             // Boton Calcular
             driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']")).click();
@@ -130,7 +130,7 @@ public class AnulacionPolizas {
             }
 
             //Screenshot
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
 
             // Boton Aplicar
             WebElement btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
@@ -146,7 +146,7 @@ public class AnulacionPolizas {
 
             //Thread.sleep(15000);
             //Screenshot
-            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,  "screen8", nombreAutomatizacion);
 
             System.out.println("Fin de la prueba");
 

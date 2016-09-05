@@ -20,15 +20,15 @@ public class RenovacionPolizas {
     //Pliza a buscar
     //String nPoliza = "F004"; //F0003, K514, D21, D22, K512, K510, LR270401, ED250406
 
-    public void testLink(RenovacionPolizaBean renovacionPolizaBean)throws Exception{
+    public void testLink(RenovacionPolizaBean renovacionPolizaBean, int i)throws Exception{
 
         try {
 
             Metodos a = new Metodos();   //implementando metodos.
             MenuOperaciones m = new MenuOperaciones();
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-            a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
             Thread.sleep(5000);
 
             m.OpePol_CotizacionSuscripcionMantenimientoPolizas(a, driver, nombreAutomatizacion, 2);
