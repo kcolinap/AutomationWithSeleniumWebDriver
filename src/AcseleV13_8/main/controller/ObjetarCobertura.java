@@ -2,6 +2,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.ObjetarCoberturaBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -27,32 +28,19 @@ public class ObjetarCobertura {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        MenuCreacionSiniestro(driver, a);
+        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BuscarPoliza(driver, a, objetarCoberturaBean);
         ResultadoBusqueda(driver, a, objetarCoberturaBean);
         AgregarObjetoAfectado(driver, a, objetarCoberturaBean);
         AgregarCobertura(driver, a, objetarCoberturaBean);
-
-    }
-
-    public void MenuCreacionSiniestro(WebDriver driver,Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[6]"));//crear siniestro
-
-        menu1.click();
-        menu2.click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver, "screen3", nombreAutomatizacion);
-        Thread.sleep(2000);
-        menu3.click();
 
     }
 

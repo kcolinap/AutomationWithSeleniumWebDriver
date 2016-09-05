@@ -2,6 +2,7 @@ package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.CumulosAseguradoBean;
 import AcseleV13_8.beans.CumulosProductosBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,30 +24,17 @@ public class CumulosAsegurado {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
 
-        MenuCumulosAsegurado(driver, a);
+        m.Cumulos_CumulosPorAsegurado(driver, a, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BusquedaAsegurado(driver, a, cumulosAseguradoBean);
 
-
-    }
-
-    public void MenuCumulosAsegurado(WebDriver driver,Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[3]"));//cumulos asegurado
-
-        menu1.click();
-        menu2.click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(3000);
-        menu3.click();
 
     }
 
@@ -123,7 +111,7 @@ public class CumulosAsegurado {
             Thread.sleep(2000);
             a.ScreenShot(driver,"screen6",nombreAutomatizacion);
 
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             WebElement btnCumuloAsegurado= driver.findElement(By.xpath("//*[@id=\"panelThirdParty\"]/div[2]/div/div[7]/div/div[2]/div/div[3]/div/div[1]/div/span/span"));
             btnCumuloAsegurado.click();
 

@@ -1,16 +1,21 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 31/05/2016.
  */
-public class EdicionTercerosBuenosBean {
+public class EdicionTercerosBuenosBean implements Serializable{
+
+    private final static Logger log = Logger.getLogger(EdicionTercerosBuenosBean.class);
 
     //TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO
     //TIPO_TERCERO_NUEVO, TIPO_DOC_IDENTIDAD_NUEVO,CEDULA_NUEVO, NOMBRE_NUEVO, APELLIDO_NUEVO
@@ -106,7 +111,49 @@ public class EdicionTercerosBuenosBean {
         this.apellidoNuevo = apellidoNuevo;
     }
 
-    public static EdicionTercerosBuenosBean getEdicionTercerosBuenos(){
+
+    public static ArrayList getEdicionTercerosBuenos() throws SQLException{
+
+        Connection conn = null;
+        Statement stmt;
+        ResultSet rs;
+        ArrayList edicionTercerosBuenos = new ArrayList();
+
+        StringBuilder queryLoad = new StringBuilder();
+        queryLoad.append("select * from EDICION_TERCEROS where prueba = 1");
+
+        try {
+            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(queryLoad.toString());
+
+            while (rs.next()) {
+                EdicionTercerosBuenosBean edicionTercerosBuenosBean = new EdicionTercerosBuenosBean();
+                edicionTercerosBuenosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                edicionTercerosBuenosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
+                edicionTercerosBuenosBean.setCedula(rs.getString("CEDULA"));
+                edicionTercerosBuenosBean.setNombre(rs.getString("NOMBRE"));
+                edicionTercerosBuenosBean.setApellido(rs.getString("APELLIDO"));
+                edicionTercerosBuenosBean.setTipoTerceroNuevo(rs.getString("TIPO_TERCERO_NUEVO"));
+                edicionTercerosBuenosBean.setTipoDocIdentidadNuevo(rs.getString("TIPO_DOC_IDENTIDAD_NUEVO"));
+                edicionTercerosBuenosBean.setCedulaNuevo(rs.getString("CEDULA_NUEVO"));
+                edicionTercerosBuenosBean.setNombreNuevo(rs.getString("NOMBRE_NUEVO"));
+                edicionTercerosBuenosBean.setApellidoNuevo(rs.getString("APELLIDO_NUEVO"));
+
+                edicionTercerosBuenos.add(edicionTercerosBuenosBean);
+            }
+        }catch(SQLException e){
+            log.error(e);
+        }finally{
+            if (conn != null){
+                conn.close();
+            }
+        }
+        return edicionTercerosBuenos;
+    }
+
+
+/*    public static EdicionTercerosBuenosBean getEdicionTercerosBuenos(){
 
         Connection conn;
         Statement stmt;
@@ -128,7 +175,6 @@ public class EdicionTercerosBuenosBean {
                 edicionTercerosBuenosBean.setCedula(rs.getString("CEDULA"));
                 edicionTercerosBuenosBean.setNombre(rs.getString("NOMBRE"));
                 edicionTercerosBuenosBean.setApellido(rs.getString("APELLIDO"));
-                /***/
                 edicionTercerosBuenosBean.setTipoTerceroNuevo(rs.getString("TIPO_TERCERO_NUEVO"));
                 edicionTercerosBuenosBean.setTipoDocIdentidadNuevo(rs.getString("TIPO_DOC_IDENTIDAD_NUEVO"));
                 edicionTercerosBuenosBean.setCedulaNuevo(rs.getString("CEDULA_NUEVO"));
@@ -141,5 +187,5 @@ public class EdicionTercerosBuenosBean {
             //conn.close();
         }
         return edicionTercerosBuenosBean;
-    }
+    }*/
 }

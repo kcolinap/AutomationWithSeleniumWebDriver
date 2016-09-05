@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.ConsultaListasRestrictivasBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,29 +22,17 @@ public class ConsultaListasRestrictivas {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        MenuConsultaListasRestrictivas(driver, a);
+        m.ConsultarListaRestrictiva (driver, a, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BusquedaLista(driver, a, consultaListasRestrictivasBean);
 
-
-    }
-
-    public void MenuConsultaListasRestrictivas(WebDriver driver,Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[13]"));//consulta listas restrictivas
-
-
-        menu1.click();
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(4000);
-        menu2.click();
-        Thread.sleep(2000);
 
     }
 

@@ -25,8 +25,8 @@ public class EmisionPolizaEliminacionTomadores {
         //implementando clase de metodos
         Metodos a = new Metodos();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
         // Creación de Póliza

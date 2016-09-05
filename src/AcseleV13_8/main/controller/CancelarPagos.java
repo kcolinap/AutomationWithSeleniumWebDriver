@@ -1,7 +1,8 @@
 package AcseleV13_8.main.controller;
 
-import AcseleV13_8.beans.CreacionSiniestrosBean;
+import AcseleV13_8.beans.CancelarPagosBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
+import AcseleV13_8.main.controller.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -15,15 +16,15 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Created by aazuaje on 27/07/2016.
+ * Created by aazuaje on 10/08/2016.
  */
-public class CreacionSiniestros {
+public class CancelarPagos {
 
-    private final static Logger log = Logger.getLogger(CreacionSiniestros.class);
+    private final static Logger log = Logger.getLogger(CancelarPagos.class);
 
-    public String nombreAutomatizacion = "Creacion Siniestros";
+    public String nombreAutomatizacion = "Cancelar Pagos";
 
-    public void testLink(CreacionSiniestrosBean creacionSiniestrosBean,int i) throws IOException, InterruptedException {
+    public void testLink(CancelarPagosBean cancelarPagosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
@@ -36,161 +37,161 @@ public class CreacionSiniestros {
         m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, creacionSiniestrosBean);
-        ResultadoBusqueda(driver, a, creacionSiniestrosBean);
-        AgregarObjetoAfectado(driver, a, creacionSiniestrosBean);
-        AgregarCobertura(driver, a, creacionSiniestrosBean);
-        AgregarRequisitos(driver, a, creacionSiniestrosBean);
-        AgregarPagos(driver, a, creacionSiniestrosBean);
+        BuscarPoliza(driver, a, cancelarPagosBean);
+        ResultadoBusqueda(driver, a, cancelarPagosBean);
+        AgregarObjetoAfectado(driver, a, cancelarPagosBean);
+        AgregarCobertura(driver, a, cancelarPagosBean);
+        AgregarRequisitos(driver, a, cancelarPagosBean);
+        AgregarPagos(driver, a, cancelarPagosBean);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean) throws IOException, InterruptedException{
 
         try {
 
-            if (creacionSiniestrosBean.getOrdenarPor() != null){
+            if (cancelarPagosBean.getOrdenarPor() != null){
                 Thread.sleep(2000);
                 Select ordenarPor = new Select(driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td[2]/select")));
-                ordenarPor.selectByValue(creacionSiniestrosBean.getOrdenarPor());
+                ordenarPor.selectByValue(cancelarPagosBean.getOrdenarPor());
             }
-            if (creacionSiniestrosBean.getProducto() != null){
+            if (cancelarPagosBean.getProducto() != null){
                 Thread.sleep(2000);
                 Select producto = new Select(driver.findElement(By.xpath("//*[@id=\"_productId\"]")));
-                producto.selectByValue(creacionSiniestrosBean.getProducto());
+                producto.selectByValue(cancelarPagosBean.getProducto());
                 Thread.sleep(8000);
             }
 
-            if (creacionSiniestrosBean.getEstadosCicloVida() != null){
+            if (cancelarPagosBean.getEstadosCicloVida() != null){
                 Thread.sleep(2000);
                 Select estadosCicloVida = new Select(driver.findElement(By.xpath("//*[@id=\"_stateProductId\"]")));
-                estadosCicloVida.selectByValue(creacionSiniestrosBean.getEstadosCicloVida());
+                estadosCicloVida.selectByValue(cancelarPagosBean.getEstadosCicloVida());
             }
 
-            if (creacionSiniestrosBean.getContratante() != null){
+            if (cancelarPagosBean.getContratante() != null){
                 Thread.sleep(2000);
                 WebElement contratante = driver.findElement(By.xpath("//*[@id=\"_clientName\"]"));
-                contratante.sendKeys(creacionSiniestrosBean.getContratante());
+                contratante.sendKeys(cancelarPagosBean.getContratante());
             }
 
-            if (creacionSiniestrosBean.getAsegurado() != null){
+            if (cancelarPagosBean.getAsegurado() != null){
                 Thread.sleep(2000);
                 WebElement asegurado = driver.findElement(By.xpath("//*[@id=\"_insuredName\"]"));
-                asegurado.sendKeys(creacionSiniestrosBean.getAsegurado());
+                asegurado.sendKeys(cancelarPagosBean.getAsegurado());
             }
 
-            if (creacionSiniestrosBean.getIdPoliza() != null){
+            if (cancelarPagosBean.getIdPoliza() != null){
                 Thread.sleep(2000);
                 WebElement idPoliza = driver.findElement(By.xpath("//*[@id=\"_policyId\"]" ));
-                idPoliza.sendKeys(creacionSiniestrosBean.getIdPoliza());
+                idPoliza.sendKeys(cancelarPagosBean.getIdPoliza());
             }
 
-            if (creacionSiniestrosBean.getFechaDesde() != null){
+            if (cancelarPagosBean.getFechaDesde() != null){
                 Thread.sleep(2000);
                 WebElement fechaDesde = driver.findElement(By.xpath("//*[@id=\"_fromDateShow\"]" ));
-                fechaDesde.sendKeys(creacionSiniestrosBean.getFechaDesde());
+                fechaDesde.sendKeys(cancelarPagosBean.getFechaDesde());
             }
 
-            if (creacionSiniestrosBean.getFechaHasta() != null){
+            if (cancelarPagosBean.getFechaHasta() != null){
                 Thread.sleep(2000);
                 WebElement fechaHasta = driver.findElement(By.xpath("//*[@id=\"_toDateShow\"]" ));
-                fechaHasta.sendKeys(creacionSiniestrosBean.getFechaHasta());
+                fechaHasta.sendKeys(cancelarPagosBean.getFechaHasta());
             }
 
-            if (creacionSiniestrosBean.getSucursalPoliza() != null){
+            if (cancelarPagosBean.getSucursalPoliza() != null){
                 Thread.sleep(2000);
                 Select sucursalPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"1829934\"]/td[3]/font/select")));
-                sucursalPoliza.selectByValue(creacionSiniestrosBean.getSucursalPoliza());
+                sucursalPoliza.selectByValue(cancelarPagosBean.getSucursalPoliza());
             }
 
-            if (creacionSiniestrosBean.getNumeroPoliza() != null){
+            if (cancelarPagosBean.getNumeroPoliza() != null){
                 Thread.sleep(2000);
                 WebElement numeroPoliza = driver.findElement(By.xpath("//*[@id=\"1829814\"]/td[3]/font/input[1]" ));
-                numeroPoliza.sendKeys(creacionSiniestrosBean.getNumeroPoliza());
+                numeroPoliza.sendKeys(cancelarPagosBean.getNumeroPoliza());
             }
 
-            if (creacionSiniestrosBean.getFechaEmision() != null){
+            if (cancelarPagosBean.getFechaEmision() != null){
                 Thread.sleep(2000);
                 WebElement fechaEmision = driver.findElement(By.xpath("//*[@id=\"1829854\"]/td[3]/font/input[1]" ));
-                fechaEmision.sendKeys(creacionSiniestrosBean.getFechaEmision());
+                fechaEmision.sendKeys(cancelarPagosBean.getFechaEmision());
             }
 
-            if (creacionSiniestrosBean.getMonedaPoliza() != null){
+            if (cancelarPagosBean.getMonedaPoliza() != null){
                 Thread.sleep(2000);
                 Select monedaPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"1828494\"]/td[3]/font/select")));
-                monedaPoliza.selectByValue(creacionSiniestrosBean.getMonedaPoliza());
+                monedaPoliza.selectByValue(cancelarPagosBean.getMonedaPoliza());
             }
 
-            if (creacionSiniestrosBean.getTipoMonedaPoliza() != null){
+            if (cancelarPagosBean.getTipoMonedaPoliza() != null){
                 Thread.sleep(2000);
                 Select tipoMonedaPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"30598294\"]/td[3]/font/select")));
-                tipoMonedaPoliza.selectByValue(creacionSiniestrosBean.getTipoMonedaPoliza());
+                tipoMonedaPoliza.selectByValue(cancelarPagosBean.getTipoMonedaPoliza());
             }
 
-            if (creacionSiniestrosBean.getTipoProduccion() != null){
+            if (cancelarPagosBean.getTipoProduccion() != null){
                 Thread.sleep(2000);
                 Select tipoProduccion = new Select(driver.findElement(By.xpath("//*[@id=\"1829894\"]/td[3]/font/select")));
-                tipoProduccion.selectByValue(creacionSiniestrosBean.getTipoProduccion());
+                tipoProduccion.selectByValue(cancelarPagosBean.getTipoProduccion());
             }
 
-            if (creacionSiniestrosBean.getTipoVigencia() != null){
+            if (cancelarPagosBean.getTipoVigencia() != null){
                 Thread.sleep(2000);
                 Select tipoVigencia = new Select(driver.findElement(By.xpath("//*[@id=\"1830014\"]/td[3]/font/select")));
-                tipoVigencia.selectByValue(creacionSiniestrosBean.getTipoVigencia());
+                tipoVigencia.selectByValue(cancelarPagosBean.getTipoVigencia());
             }
 
-            if (creacionSiniestrosBean.getVigencia() != null){
+            if (cancelarPagosBean.getVigencia() != null){
                 Thread.sleep(2000);
                 Select vigencia = new Select(driver.findElement(By.xpath("//*[@id=\"1830054\"]/td[3]/font/select")));
-                vigencia.selectByValue(creacionSiniestrosBean.getVigencia());
+                vigencia.selectByValue(cancelarPagosBean.getVigencia());
             }
 
-            if (creacionSiniestrosBean.getCanalVenta() != null){
+            if (cancelarPagosBean.getCanalVenta() != null){
                 Thread.sleep(2000);
                 Select canalVenta = new Select(driver.findElement(By.xpath("//*[@id=\"1933894\"]/td[3]/font/select")));
-                canalVenta.selectByValue(creacionSiniestrosBean.getCanalVenta());
+                canalVenta.selectByValue(cancelarPagosBean.getCanalVenta());
             }
 
-            if (creacionSiniestrosBean.getFrecuenciaPago() != null){
+            if (cancelarPagosBean.getFrecuenciaPago() != null){
                 Thread.sleep(2000);
                 Select frecuenciaPago = new Select(driver.findElement(By.xpath("//*[@id=\"1830294\"]/td[3]/font/select")));
-                frecuenciaPago.selectByValue(creacionSiniestrosBean.getFrecuenciaPago());
+                frecuenciaPago.selectByValue(cancelarPagosBean.getFrecuenciaPago());
             }
 
-            if (creacionSiniestrosBean.getFechaEventoAnterior() != null){
+            if (cancelarPagosBean.getFechaEventoAnterior() != null){
                 Thread.sleep(2000);
                 WebElement fechaEventoAnterior = driver.findElement(By.xpath("//*[@id=\"1933934\"]/td[3]/font/input[1]" ));
-                fechaEventoAnterior.sendKeys(creacionSiniestrosBean.getFechaEventoAnterior());
+                fechaEventoAnterior.sendKeys(cancelarPagosBean.getFechaEventoAnterior());
             }
 
-            if (creacionSiniestrosBean.getFechaProximaGeneracionPrima() != null){
+            if (cancelarPagosBean.getFechaProximaGeneracionPrima() != null){
                 Thread.sleep(2000);
                 WebElement fechaProximaGeneracionPrima = driver.findElement(By.xpath("//*[@id=\"1830374\"]/td[3]/font/input[1]" ));
-                fechaProximaGeneracionPrima.sendKeys(creacionSiniestrosBean.getFechaProximaGeneracionPrima());
+                fechaProximaGeneracionPrima.sendKeys(cancelarPagosBean.getFechaProximaGeneracionPrima());
             }
 
-            if (creacionSiniestrosBean.getFechaProximaFacturacion() != null){
+            if (cancelarPagosBean.getFechaProximaFacturacion() != null){
                 Thread.sleep(2000);
                 WebElement fechaProximaFacturacion = driver.findElement(By.xpath("//*[@id=\"1830214\"]/td[3]/font/input[1]" ));
-                fechaProximaFacturacion.sendKeys(creacionSiniestrosBean.getFechaProximaFacturacion());
+                fechaProximaFacturacion.sendKeys(cancelarPagosBean.getFechaProximaFacturacion());
             }
 
-            if (creacionSiniestrosBean.getTipoPoliza() != null){
+            if (cancelarPagosBean.getTipoPoliza() != null){
                 Thread.sleep(2000);
                 Select tipoPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"2878614\"]/td[3]/font/select")));
-                tipoPoliza.selectByValue(creacionSiniestrosBean.getTipoPoliza());
+                tipoPoliza.selectByValue(cancelarPagosBean.getTipoPoliza());
             }
 
-            if (creacionSiniestrosBean.getNumeroCotizacion() != null){
+            if (cancelarPagosBean.getNumeroCotizacion() != null){
                 Thread.sleep(2000);
                 WebElement numeroCotizacion = driver.findElement(By.xpath("//*[@id=\"9480594\"]/td[3]/font/input[1]" ));
-                numeroCotizacion.sendKeys(creacionSiniestrosBean.getNumeroCotizacion());
+                numeroCotizacion.sendKeys(cancelarPagosBean.getNumeroCotizacion());
             }
 
-            if (creacionSiniestrosBean.getNumeroPropuesta() != null){
+            if (cancelarPagosBean.getNumeroPropuesta() != null){
                 Thread.sleep(2000);
                 WebElement numeroPropuesta = driver.findElement(By.xpath("//*[@id=\"9452594\"]/td[3]/font/input[1]" ));
-                numeroPropuesta.sendKeys(creacionSiniestrosBean.getNumeroPropuesta());
+                numeroPropuesta.sendKeys(cancelarPagosBean.getNumeroPropuesta());
             }
 
             Thread.sleep(1000);
@@ -208,15 +209,15 @@ public class CreacionSiniestros {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
+    public void ResultadoBusqueda (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
-            fechaOcurrenciaSiniestro.sendKeys(creacionSiniestrosBean.getFechaOcurrenciaSiniestro());
+            fechaOcurrenciaSiniestro.sendKeys(cancelarPagosBean.getFechaOcurrenciaSiniestro());
 
             Thread.sleep(2000);
             Select sucursalSiniestros = new Select(driver.findElement(By.xpath("//*[@id=\"userAgency\"]")));
-            sucursalSiniestros.selectByValue(creacionSiniestrosBean.getSucursalSiniestros());
+            sucursalSiniestros.selectByValue(cancelarPagosBean.getSucursalSiniestros());
 
             // Cambiar de frame
             driver.switchTo().frame("frameData");
@@ -244,13 +245,13 @@ public class CreacionSiniestros {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
 
             WebElement btnSelecEvento = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_03\"]"));
             btnSelecEvento.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(15000);
 
             WebElement selecEvento = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr[4]/td[1]/input"));
             selecEvento.click();
@@ -261,12 +262,12 @@ public class CreacionSiniestros {
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_07\"]"));
             btnAceptar.click();
 
-            Thread.sleep(20000);
+            Thread.sleep(25000);
             a.ScreenShot(driver,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
@@ -276,111 +277,111 @@ public class CreacionSiniestros {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
-       try {
-           Thread.sleep(2000);
-           WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
-           btnAgregar.click();
+    public void AgregarObjetoAfectado (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean){
+        try {
+            Thread.sleep(2000);
+            WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
+            btnAgregar.click();
 
-           Thread.sleep(20000);
+            Thread.sleep(20000);
 
-           // Cambiar de frame
-           driver.switchTo().frame("plantilla");
+            // Cambiar de frame
+            driver.switchTo().frame("plantilla");
 
-           Thread.sleep(3000);
-           Select horaOcurrencia = new Select(driver.findElement(By.xpath("//*[@id=\"1837254\"]/td[3]/font/select")));
-           horaOcurrencia.selectByValue(creacionSiniestrosBean.getHoraOcurrencia());
+            Select horaOcurrencia = new Select(driver.findElement(By.xpath("//*[@id=\"1837254\"]/td[3]/font/select")));
+            horaOcurrencia.selectByValue(cancelarPagosBean.getHoraOcurrencia());
 
-           WebElement fechaAvisoCompania = driver.findElement(By.xpath("//*[@id=\"1837174\"]/td[3]/font/input[1]"));
-           fechaAvisoCompania.sendKeys(creacionSiniestrosBean.getFechaAvisoCompania());
+            WebElement fechaAvisoCompania = driver.findElement(By.xpath("//*[@id=\"1837174\"]/td[3]/font/input[1]"));
+            fechaAvisoCompania.sendKeys(cancelarPagosBean.getFechaAvisoCompania());
 
-           if (creacionSiniestrosBean.getHoraNotificacion() != null){
-           Select horaNotificacion = new Select(driver.findElement(By.xpath("//*[@id=\"9486594\"]/td[3]/font/select")));
-           horaNotificacion.selectByValue(creacionSiniestrosBean.getHoraNotificacion());
-           }
+            if (cancelarPagosBean.getHoraNotificacion() != null){
+                Select horaNotificacion = new Select(driver.findElement(By.xpath("//*[@id=\"9486594\"]/td[3]/font/select")));
+                horaNotificacion.selectByValue(cancelarPagosBean.getHoraNotificacion());
+            }
 
-           if (creacionSiniestrosBean.getFechaReclFormalizacion() != null){
-           WebElement fechaReclFormalizacion = driver.findElement(By.xpath("//*[@id=\"28932594\"]/td[3]/font/input[1]"));
-           fechaReclFormalizacion.sendKeys(creacionSiniestrosBean.getFechaReclFormalizacion());
-           }
+            if (cancelarPagosBean.getFechaReclFormalizacion() != null){
+                WebElement fechaReclFormalizacion = driver.findElement(By.xpath("//*[@id=\"28932594\"]/td[3]/font/input[1]"));
+                fechaReclFormalizacion.sendKeys(cancelarPagosBean.getFechaReclFormalizacion());
+            }
 
-           if (creacionSiniestrosBean.getFechaInterrupcionTerminos() != null){
-               WebElement fechaInterrupcionTerminos = driver.findElement(By.xpath("//*[@id=\"30022594\"]/td[3]/font/input[1]"));
-               fechaInterrupcionTerminos.sendKeys(creacionSiniestrosBean.getFechaInterrupcionTerminos());
-           }
+            if (cancelarPagosBean.getFechaInterrupcionTerminos() != null){
+                WebElement fechaInterrupcionTerminos = driver.findElement(By.xpath("//*[@id=\"30022594\"]/td[3]/font/input[1]"));
+                fechaInterrupcionTerminos.sendKeys(cancelarPagosBean.getFechaInterrupcionTerminos());
+            }
 
-           if (creacionSiniestrosBean.getDocumentoIdentReclamante() != null){
-               WebElement documentoIdentReclamante = driver.findElement(By.xpath("//*[@id=\"31763194\"]/td[3]/font/input[1]"));
-               documentoIdentReclamante.sendKeys(creacionSiniestrosBean.getDocumentoIdentReclamante());
-           }
+            if (cancelarPagosBean.getDocumentoIdentReclamante() != null){
+                WebElement documentoIdentReclamante = driver.findElement(By.xpath("//*[@id=\"31763194\"]/td[3]/font/input[1]"));
+                documentoIdentReclamante.sendKeys(cancelarPagosBean.getDocumentoIdentReclamante());
+            }
 
-           if (creacionSiniestrosBean.getReclamante() != null){
-           WebElement reclamante = driver.findElement(By.xpath("//*[@id=\"23937694\"]/td[3]/font/input[1]"));
-           reclamante.sendKeys(creacionSiniestrosBean.getReclamante());
-           }
+            if (cancelarPagosBean.getReclamante() != null){
+                WebElement reclamante = driver.findElement(By.xpath("//*[@id=\"23937694\"]/td[3]/font/input[1]"));
+                reclamante.sendKeys(cancelarPagosBean.getReclamante());
+            }
 
-           Select causaGeneralMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"23854894\"]/td[3]/font/select")));
-           causaGeneralMuerte.selectByValue(creacionSiniestrosBean.getCausaGeneralMuerte());
+            Select causaGeneralMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"23854894\"]/td[3]/font/select")));
+            causaGeneralMuerte.selectByValue(cancelarPagosBean.getCausaGeneralMuerte());
 
-           Select causalesEspecifCobertMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"29997794\"]/td[3]/font/select")));
-           causalesEspecifCobertMuerte.selectByValue(creacionSiniestrosBean.getCausalesEspecifCobertMuerte());
+            Select causalesEspecifCobertMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"29997794\"]/td[3]/font/select")));
+            causalesEspecifCobertMuerte.selectByValue(cancelarPagosBean.getCausalesEspecifCobertMuerte());
 
-           Select departamento = new Select(driver.findElement(By.xpath("//*[@id=\"1934614\"]/td[3]/font/select")));
-           departamento.selectByValue(creacionSiniestrosBean.getDepartamento());
+            Select departamento = new Select(driver.findElement(By.xpath("//*[@id=\"1934614\"]/td[3]/font/select")));
+            departamento.selectByValue(cancelarPagosBean.getDepartamento());
 
-           Select ciudad = new Select(driver.findElement(By.xpath("//*[@id=\"9508794\"]/td[3]/font/select")));
-           ciudad.selectByValue(creacionSiniestrosBean.getCiudad());
+            Select ciudad = new Select(driver.findElement(By.xpath("//*[@id=\"9508794\"]/td[3]/font/select")));
+            ciudad.selectByValue(cancelarPagosBean.getCiudad());
 
-           if (creacionSiniestrosBean.getGeneroAsegurado() != null){
-               Select generoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763594\"]/td[3]/font/select")));
-               generoAsegurado.selectByValue(creacionSiniestrosBean.getGeneroAsegurado());
-           }
+            if (cancelarPagosBean.getGeneroAsegurado() != null){
+                Select generoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763594\"]/td[3]/font/select")));
+                generoAsegurado.selectByValue(cancelarPagosBean.getGeneroAsegurado());
+            }
 
-           if (creacionSiniestrosBean.getProfesionAsegurado() != null){
-               Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
-               profesionAsegurado.selectByValue(creacionSiniestrosBean.getProfesionAsegurado());
-           }
-           WebElement btnLimpiar = driver.findElement(By.xpath("//*[@id=\"ProfesionAseguradoClearLink\"]"));
-           btnLimpiar.click();
+            if (cancelarPagosBean.getProfesionAsegurado() != null){
+                Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
+                profesionAsegurado.selectByValue(cancelarPagosBean.getProfesionAsegurado());
+            }
 
-           if (creacionSiniestrosBean.getActividadSiniestro() != null){
-           Select actividadSiniestro = new Select(driver.findElement(By.xpath("//*[@id=\"30018694\"]/td[3]/font/select")));
-           actividadSiniestro.selectByValue(creacionSiniestrosBean.getActividadSiniestro());
-           }
+            WebElement btnLimpiar = driver.findElement(By.xpath("//*[@id=\"ProfesionAseguradoClearLink\"]"));
+            btnLimpiar.click();
 
-           if (creacionSiniestrosBean.getFechaActividad() != null){
-           WebElement fechaActividad = driver.findElement(By.xpath("//*[@id=\"30018794\"]/td[3]/font/input[1]"));
-           fechaActividad.sendKeys(creacionSiniestrosBean.getFechaActividad());
-           }
+            if (cancelarPagosBean.getActividadSiniestro() != null){
+                Select actividadSiniestro = new Select(driver.findElement(By.xpath("//*[@id=\"30018694\"]/td[3]/font/select")));
+                actividadSiniestro.selectByValue(cancelarPagosBean.getActividadSiniestro());
+            }
 
-           if (creacionSiniestrosBean.getObservacionesSiniestro() != null){
-           WebElement observacionesSiniestro = driver.findElement(By.xpath("//*[@id=\"3746174\"]/td[3]/font/textarea"));
-           observacionesSiniestro.sendKeys(creacionSiniestrosBean.getObservacionesSiniestro());
-           }
-           Thread.sleep(2000);
-           a.ScreenShot(driver,"screen9",nombreAutomatizacion);
+            if (cancelarPagosBean.getFechaActividad() != null){
+                WebElement fechaActividad = driver.findElement(By.xpath("//*[@id=\"30018794\"]/td[3]/font/input[1]"));
+                fechaActividad.sendKeys(cancelarPagosBean.getFechaActividad());
+            }
 
-           // Salir del frame
-           //driver.switchTo().parentFrame();
-           driver.switchTo().defaultContent();
+            if (cancelarPagosBean.getObservacionesSiniestro() != null){
+                WebElement observacionesSiniestro = driver.findElement(By.xpath("//*[@id=\"3746174\"]/td[3]/font/textarea"));
+                observacionesSiniestro.sendKeys(cancelarPagosBean.getObservacionesSiniestro());
+            }
+            Thread.sleep(2000);
+            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
 
-           Thread.sleep(2000);
-           WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_04020099_content_01\"]"));
-           btnAceptar.click();
+            // Salir del frame
+            //driver.switchTo().parentFrame();
+            driver.switchTo().defaultContent();
 
-           Thread.sleep(25000);
+            Thread.sleep(2000);
+            WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_04020099_content_01\"]"));
+            btnAceptar.click();
 
-           Thread.sleep(2000);
-           a.ScreenShot(driver,"screen10",nombreAutomatizacion);
+            Thread.sleep(15000);
 
-       }catch (Exception e) {
-        e.printStackTrace();
+            Thread.sleep(2000);
+            a.ScreenShot(driver,"screen10",nombreAutomatizacion);
+
+        }catch (Exception e) {
+            e.printStackTrace();
 //                log.info(e);
-        log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-       }
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 
-    public void AgregarCobertura (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
+    public void AgregarCobertura (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean){
         try{
 
             Thread.sleep(2000);
@@ -388,24 +389,24 @@ public class CreacionSiniestros {
             btnAgregar.click();
             Thread.sleep(15000);
 
-            if (creacionSiniestrosBean.getObjetosAsegurados() != null){
-            Select objetosAsegurados = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[2]/td[2]/select")));
-            objetosAsegurados.selectByValue(creacionSiniestrosBean.getObjetosAsegurados());
+            if (cancelarPagosBean.getObjetosAsegurados() != null){
+                Select objetosAsegurados = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[2]/td[2]/select")));
+                objetosAsegurados.selectByValue(cancelarPagosBean.getObjetosAsegurados());
             }
 
-            if (creacionSiniestrosBean.getCoberturaAfectada() != null){
-            Select coberturaAfectada = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[3]/td[2]/select")));
-            coberturaAfectada.selectByValue(creacionSiniestrosBean.getCoberturaAfectada());
+            if (cancelarPagosBean.getCoberturaAfectada() != null){
+                Select coberturaAfectada = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[3]/td[2]/select")));
+                coberturaAfectada.selectByValue(cancelarPagosBean.getCoberturaAfectada());
             }
 
-            Thread.sleep(3000);
+            Thread.sleep(4000);
             WebElement pagoMaximo = driver.findElement(By.xpath("//*[@id=\"maxBenefitAmount1\"]"));
             pagoMaximo.clear();
-            pagoMaximo.sendKeys(creacionSiniestrosBean.getPagoMaximo());
+            pagoMaximo.sendKeys(cancelarPagosBean.getPagoMaximo());
 
             Thread.sleep(2000);
             Select monedaSiniestro = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[4]/td[2]/select")));
-            monedaSiniestro.selectByValue(creacionSiniestrosBean.getMonedaSiniestro());
+            monedaSiniestro.selectByValue(cancelarPagosBean.getMonedaSiniestro());
 
             Thread.sleep(2000);
             a.ScreenShot(driver,"screen11",nombreAutomatizacion);
@@ -437,10 +438,12 @@ public class CreacionSiniestros {
             //swtiching control to child Window
             driver.switchTo().window(childId2);
 
+
             Thread.sleep(6000);
 
             WebElement btnAceptarOtro = driver.findElement(By.xpath("//*[@id=\"u70\"]/input"));
             btnAceptarOtro.click();
+
 
             Thread.sleep(3000);
 
@@ -454,6 +457,7 @@ public class CreacionSiniestros {
             System.out.println("Prueba " + childId);
             //swtiching control to child Window
             driver.switchTo().window(childId);
+
 
             Thread.sleep(3000);
 
@@ -474,7 +478,7 @@ public class CreacionSiniestros {
         }
     }
 
-    public void AgregarRequisitos (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
+    public void AgregarRequisitos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean){
         try {
 
             Thread.sleep(6000);
@@ -492,7 +496,7 @@ public class CreacionSiniestros {
             Thread.sleep(15000);
             WebElement btnRecibido = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/thead/tr/th[3]/input"));
             btnRecibido.click();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             a.ScreenShot(driver,"screen12",nombreAutomatizacion);
 
             Thread.sleep(2000);
@@ -507,7 +511,7 @@ public class CreacionSiniestros {
         }
     }
 
-    public void AgregarPagos (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean){
+    public void AgregarPagos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean){
         try {
             Thread.sleep(5000);
             Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));
@@ -526,7 +530,7 @@ public class CreacionSiniestros {
             WebElement tercerosPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
             tercerosPoliza.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
             WebElement seleccionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
             seleccionTercero.click();
             a.ScreenShot(driver,"screen14",nombreAutomatizacion);
@@ -542,46 +546,54 @@ public class CreacionSiniestros {
             Thread.sleep(10000);
             a.ScreenShot(driver,"screen16",nombreAutomatizacion);
 
-            if (creacionSiniestrosBean.getFechaCompromiso() != null){
+            if (cancelarPagosBean.getFechaCompromiso() != null){
                 Thread.sleep(2000);
                 WebElement fechaCompromiso = driver.findElement(By.xpath("//*[@id=\"calendarcommitmentDateShow\"]"));
-                fechaCompromiso.sendKeys(creacionSiniestrosBean.getFechaCompromiso());
+                fechaCompromiso.sendKeys(cancelarPagosBean.getFechaCompromiso());
             }
 
-            if (creacionSiniestrosBean.getFechaInicial() != null){
+            if (cancelarPagosBean.getFechaInicial() != null){
                 Thread.sleep(2000);
                 WebElement fechaInicial = driver.findElement(By.xpath("//*[@id=\"calendarstartDateShow\"]"));
-                fechaInicial.sendKeys(creacionSiniestrosBean.getFechaInicial());
+                fechaInicial.sendKeys(cancelarPagosBean.getFechaInicial());
             }
 
-            if (creacionSiniestrosBean.getFechaFinal() != null){
+            if (cancelarPagosBean.getFechaFinal() != null){
                 Thread.sleep(2000);
                 WebElement fechaFinal = driver.findElement(By.xpath("//*[@id=\"calendarendDateShow\"]"));
-                fechaFinal.sendKeys(creacionSiniestrosBean.getFechaFinal());
+                fechaFinal.sendKeys(cancelarPagosBean.getFechaFinal());
             }
 
-            if (creacionSiniestrosBean.getRazon() != null){
+            if (cancelarPagosBean.getRazon() != null){
                 Thread.sleep(2000);
                 WebElement razon = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[11]/textarea"));
-                razon.sendKeys(creacionSiniestrosBean.getRazon());
+                razon.sendKeys(cancelarPagosBean.getRazon());
             }
 
-            if (creacionSiniestrosBean.getEstado() != null){
+            if (cancelarPagosBean.getEstado() != null){
                 Thread.sleep(2000);
                 Select estado = new Select(driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[12]/select")));
-                estado.selectByValue(creacionSiniestrosBean.getEstado());
+                estado.selectByValue(cancelarPagosBean.getEstado());
             }
 
-            if (creacionSiniestrosBean.getTipo() != null){
+            if (cancelarPagosBean.getTipo() != null){
                 Thread.sleep(2000);
                 Select tipo = new Select(driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[13]/select")));
-                tipo.selectByValue(creacionSiniestrosBean.getTipo());
+                tipo.selectByValue(cancelarPagosBean.getTipo());
             }
 
             Thread.sleep(4000);
+            /*WebElement montoSiniestro = driver.findElement(By.xpath("/*//*[@id=\"amount1\"]"));
+            montoSiniestro.clear();
+            montoSiniestro.sendKeys(cancelarPagosBean.getMontoSiniestro());*/
+
             WebElement montoSiniestro = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
             montoSiniestro.clear();
-            montoSiniestro.sendKeys(creacionSiniestrosBean.getMontoSiniestro());
+            montoSiniestro.sendKeys(cancelarPagosBean.getMontoSiniestro());
+            Thread.sleep(2000);
+
+
+
             Thread.sleep(1000);
             WebElement razon2 = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[11]/textarea"));
             razon2.click();
@@ -590,20 +602,71 @@ public class CreacionSiniestros {
             Thread.sleep(15000);
             a.ScreenShot(driver,"screen17",nombreAutomatizacion);
 
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             WebElement btnEnviar2 = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
             btnEnviar2.click();
             Thread.sleep(20000);
 
+            WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]"));
+            btnSeleccionar.click();
+
+            Thread.sleep(2000);
+            Select aprobar = new Select(driver.findElement(By.xpath("//*[@id=\"actions\"]")));
+            aprobar.selectByValue(cancelarPagosBean.getAprobar());
+            Thread.sleep(3000);
+
 
             if (ExpectedConditions.alertIsPresent() != null) {
-                driver.switchTo().alert();
-                driver.switchTo().alert().accept();
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
                 driver.switchTo().defaultContent();
             }
 
-            Thread.sleep(4000);
+            Thread.sleep(5000);
+
+            Select sucursalSiniestros = new Select(driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select")));
+            sucursalSiniestros.selectByValue(cancelarPagosBean.getSucursalSiniestros());
+            Thread.sleep(3000);
             a.ScreenShot(driver,"screen18",nombreAutomatizacion);
+
+            WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[5]/td/button"));
+            btnAceptar.click();
+
+            Thread.sleep(3000);
+
+
+/*if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }*/
+            Thread.sleep(3000);
+            a.ScreenShot(driver,"screen19",nombreAutomatizacion);
+
+            WebElement btnSeleccionar2 = driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]"));
+            btnSeleccionar2.click();
+
+            Thread.sleep(2000);
+            Select cancelar = new Select(driver.findElement(By.xpath("//*[@id=\"actions\"]")));
+            cancelar.selectByValue(cancelarPagosBean.getCancelar());
+            Thread.sleep(2000);
+
+
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
+            Thread.sleep(2000);
+            a.ScreenShot(driver,"screen20",nombreAutomatizacion);
+
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -612,74 +675,4 @@ public class CreacionSiniestros {
         }
     }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

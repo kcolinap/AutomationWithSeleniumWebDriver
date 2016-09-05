@@ -1,16 +1,21 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 30/05/2016.
  */
-public class CreacionTercerosBean {
+public class CreacionTercerosBean implements Serializable{
+
+    private final static Logger log = Logger.getLogger(CreacionTercerosBean.class);
 
     // TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO, FECHA_NAC, ESTADO_CIVIL, SEXO
     private String tipoTercero;
@@ -87,7 +92,48 @@ public class CreacionTercerosBean {
         this.sexo = sexo;
     }
 
-    public static CreacionTercerosBean getCreacionTerceros(){
+
+    public static ArrayList getCreacionTerceros() throws SQLException{
+
+        Connection conn = null;
+        Statement stmt;
+        ResultSet rs;
+        ArrayList creacionTerceros = new ArrayList();
+
+        StringBuilder queryLoad = new StringBuilder();
+        queryLoad.append("SELECT * FROM CREACION_TERCEROS WHERE PRUEBA = 1");
+
+        try {
+            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(queryLoad.toString());
+
+            while (rs.next()) {
+                CreacionTercerosBean creacionTercerosBean = new CreacionTercerosBean();
+
+                creacionTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                creacionTercerosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
+                creacionTercerosBean.setCedula(rs.getString("CEDULA"));
+                creacionTercerosBean.setNombre(rs.getString("NOMBRE"));
+                creacionTercerosBean.setApellido(rs.getString("APELLIDO"));
+                creacionTercerosBean.setFechaNac(rs.getString("FECHA_NAC"));
+                creacionTercerosBean.setEdoCivil(rs.getString("ESTADO_CIVIL"));
+                creacionTercerosBean.setSexo(rs.getString("SEXO"));
+
+                creacionTerceros.add(creacionTercerosBean);
+            }
+        }catch(SQLException e){
+            log.error(e);
+        }finally{
+            if (conn != null){
+                conn.close();
+            }
+        }
+        return creacionTerceros;
+    }
+
+
+/*    public static CreacionTercerosBean getCreacionTerceros(){
 
         Connection conn;
         Statement stmt;
@@ -118,5 +164,5 @@ public class CreacionTercerosBean {
             //conn.close();
         }
         return creacionTercerosBean;
-    }
+    }*/
 }

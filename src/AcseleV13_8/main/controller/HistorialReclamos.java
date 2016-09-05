@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.HistorialReclamosBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +22,13 @@ public class HistorialReclamos {
 
 //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        MenuHistorialReclamos(driver, a);
+        m.OpeSini_HistorialReclamo(a, driver, nombreAutomatizacion);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BuscarHistorialReclamos(driver, a, historialReclamosBean);
@@ -34,17 +36,6 @@ public class HistorialReclamos {
 
     }
 
-    public void MenuHistorialReclamos (WebDriver driver, Metodos a) throws InterruptedException, IOException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[13]"));//historial reclamos
-
-        menu1.click();
-        menu2.click();
-        Thread.sleep(3000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        menu3.click();
-    }
 
     public void BuscarHistorialReclamos (WebDriver driver, Metodos a, HistorialReclamosBean historialReclamosBean) throws IOException, InterruptedException {
         Thread.sleep(3000);

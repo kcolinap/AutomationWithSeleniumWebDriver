@@ -13,18 +13,18 @@ import java.io.IOException;
  */
 public class EstadoCuentas {
 
-    String nombreAutomatizacion ="Estado de Cuentas";
+    public String nombreAutomatizacion ="Estado de Cuentas";
     //Pliza a buscar
     //String nPoliza = "EA00222";
     //String fechaEm = "17-12-2015";
 
 
-    public void testLink(EstadoCuentasBean estadoCuentasBean)throws Exception {
+    public void testLink(EstadoCuentasBean estadoCuentasBean, int i)throws Exception {
 
         Metodos a= new Metodos();   //implementando metodos.
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu

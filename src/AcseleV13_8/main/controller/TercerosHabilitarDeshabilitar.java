@@ -1,6 +1,8 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.TercerosHabilitarDeshabilitarBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,15 +23,20 @@ public class TercerosHabilitarDeshabilitar {
 
     public void testLink(TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean, int i) throws Exception{
 
-        //implementando clase de metodos
+        // Instanciando clases
         Metodos a = new Metodos();
+        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+        MenuOperaciones menuOperaciones = new MenuOperaciones();
+
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
+        //Entrando en Menu
+        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+
         // Consulta del Tercero
-        IngresarMenuBuscarTercero(driver, a); //Menu
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
@@ -61,23 +68,12 @@ public class TercerosHabilitarDeshabilitar {
         a.regresarVentana(driver);
 
         // Creación de Póliza
-        IngresarMenuEmisionPoliza(driver, a);
+        menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 9);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
         CrearPoliza(a, driver, tercerosHabilitarDeshabilitarBean);
 
-    }
-
-    public void IngresarMenuBuscarTercero(WebDriver driver, Metodos a) throws IOException, InterruptedException{
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]")); // Mantenimiento de Terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]")); // Busqueda de Terceros
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
-        menu3.click();
     }
 
     public void BusquedaT(Metodos a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException, IOException{
@@ -137,17 +133,6 @@ public class TercerosHabilitarDeshabilitar {
 //             log.info(e);
             log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
         }
-    }
-
-    public void IngresarMenuEmisionPoliza(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Operaciones Pólizas
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen9", nombreAutomatizacion); //screenshot2
-        Toolkit.getDefaultToolkit().beep();
-        menu3.click();
     }
 
     public void CrearPoliza(Metodos a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException {
