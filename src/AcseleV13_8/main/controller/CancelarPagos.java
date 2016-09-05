@@ -245,13 +245,13 @@ public class CancelarPagos {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
 
             WebElement btnSelecEvento = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_03\"]"));
             btnSelecEvento.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
             WebElement selecEvento = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr[4]/td[1]/input"));
             selecEvento.click();
@@ -262,7 +262,7 @@ public class CancelarPagos {
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
 
-            Thread.sleep(8000);
+            Thread.sleep(10000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_07\"]"));
             btnAceptar.click();
