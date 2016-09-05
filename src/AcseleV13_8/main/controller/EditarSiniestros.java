@@ -32,8 +32,8 @@ public class EditarSiniestros {
         a.ValidandoSesion(driver, nombreAutomatizacion);
         Thread.sleep(5000);
 
-        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion);
-        Thread.sleep(8000);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion);
+        Thread.sleep(10000);
         a.cambiarVentana(driver);
         BuscarPoliza(driver, a, editarSiniestrosBean);
         ResultadoBusqueda(driver, a, editarSiniestrosBean);

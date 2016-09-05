@@ -130,7 +130,7 @@ public class MenuOperaciones {
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//crear siniestro
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//mantenimiento siniestro
 
             menu1.click();
             menu2.click();
