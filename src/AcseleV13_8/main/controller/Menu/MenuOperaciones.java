@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.io.IOException;
@@ -33,12 +34,16 @@ public class MenuOperaciones {
         public void OpePol_CrearWController(){}
 
         public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+
             try {
+                Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Operaciones Pólizas
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear
                 menu1.click();
                 menu2.click();
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
                 Thread.sleep(1000);
                 a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
                 Toolkit.getDefaultToolkit().beep();

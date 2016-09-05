@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 
@@ -136,11 +137,14 @@ public class MenuMantenimiento {
 
             try {
 
+            Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[10]")); // Auditoria
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[45]/div[4]")); // Trazas de Auditoria (Vaadin)
             menu1.click();
             menu2.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
             a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
@@ -189,13 +193,18 @@ public class MenuMantenimiento {
     public void AdminLisRest_CrearListasRestrictivas(Metodos a, WebDriver driver, String nombreAutomatizacion){
 
         try {
+            Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[1]"));// Crear Listas Restrictivas
           //  this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
             menu1.click();
             menu2.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
             this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+            Thread.sleep(100);
             menu3.click();
 
         } catch (Exception e){
@@ -207,11 +216,14 @@ public class MenuMantenimiento {
         public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
 
             try {
+                Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
                 menu1.click();
                 menu2.click();
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
                 this.a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
                 Thread.sleep(1000);
                 menu3.click();

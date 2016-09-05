@@ -2,7 +2,7 @@
 <dataset>
   <LISTAS_RESTRICTIVAS PRUEBA="1" TIPOLISTA="TIPOLISTA" NOMBRELISTA="NOMBRELISTA"
                        ARCHIVO="C:\\AcseleTests\\rutas\\PruebaAutomatizacion.xlsx"
-                       LISTANOMBRE="LISTANOMBRE" TIPOCOINCIDENCIA="TIPOCOINCIDENCIA"
+                       LISTANOMBRE="ListaCampanasPoliticas" TIPOCOINCIDENCIA="TIPOCOINCIDENCIA"
                        PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHADESDE="31-08-2016"
                        EVENTOAPLICAR="Emitir" NUMPOLIZA="Prueba18" LINEACREDITO="53978517"
                        UNIDADNEGOCIO="23913017" CANALVENTA="21.0" TIPOVALORASEGURADO="23916617"
