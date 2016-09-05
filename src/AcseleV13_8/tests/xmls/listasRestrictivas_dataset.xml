@@ -1,13 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <LISTAS_RESTRICTIVAS PRUEBA="1" TIPOLISTA="TIPOLISTA" NOMBRELISTA="NOMBRELISTA"
-                       ARCHIVO="C:\\AcseleTests\\rutas\\PruebaAutomatizacion.xlsx"
-                       LISTANOMBRE="ListaCampanasPoliticas" TIPOCOINCIDENCIA="TIPOCOINCIDENCIA"
-                       PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHADESDE="31-08-2016"
-                       EVENTOAPLICAR="Emitir" NUMPOLIZA="Prueba18" LINEACREDITO="53978517"
-                       UNIDADNEGOCIO="23913017" CANALVENTA="21.0" TIPOVALORASEGURADO="23916617"
-                       TOMADORNOMBRE="Marlene" NUMCREDITO="5" FECHAPROCESO="31-08-2016"
-                       MONTOASEGURADO="20000" DOCIDASEGURADO="18555210" FECHANACASEGURADO="10-11-1988"
-                       DIRECCIONASEGURADO="Casa" DEPARTAMENTOASEGURADO="53392117" CIUDADASEGURADO="15.0"
-                       ASEGURADO="Elias" FECHADESDETRAZA="31-08-2016" FECHAHASTATRAZA="31-08-2016"/>
+                       ARCHIVO="C:\\AcseleTests\\rutas\\PruebaAutomatizacion.xlsx" LISTANOMBRE="ListaCampanasPoliticas"
+                       TIPOCOINCIDENCIA="TIPOCOINCIDENCIA" PRODUCTO="VidaDeudoresAvVillas"
+                       VIGENCIA="12" FECHADESDE="05-09-2016" EVENTOAPLICAR="Emitir"
+                       NUMPOLIZA="Prueba18" LINEACREDITO="53978517" UNIDADNEGOCIO="23913017"
+                       CANALVENTA="21.0" TIPOVALORASEGURADO="23916617"
+                       TOMADORNOMBRE="Marlene" NUMCREDITO="5" FECHAPROCESO="05-09-2016"
+                       MONTOASEGURADO="20000" DOCIDASEGURADO="18555210"
+                       FECHANACASEGURADO="10-11-1988" DIRECCIONASEGURADO="Casa"
+                       DEPARTAMENTOASEGURADO="53392117" CIUDADASEGURADO="15.0"
+                       ASEGURADO="Elias" FECHADESDETRAZA="05-09-2016" FECHAHASTATRAZA="05-09-2016"
+                       VALORPRESTAMO="2000" VALORSEGURO="5000" VALORVIDA="1"/>
 </dataset>

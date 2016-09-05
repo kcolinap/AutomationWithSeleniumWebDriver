@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.io.IOException;
 import org.openqa.selenium.support.ui.Select;
-
+import sun.java2d.loops.TransformHelper;
 
 
 /**
@@ -43,7 +43,7 @@ public class ListasRestrictivas {
         a.cambiarVentana(driver);
 
         ListasRestrictivasCrear (driver, a, listasRestrictivasBean);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
 
         LeerArchivos(driver, a, listasRestrictivasBean);
@@ -63,14 +63,14 @@ public class ListasRestrictivas {
         Thread.sleep(1500);
 
 
-        a.regresarVentana(driver);
+    /*    a.regresarVentana(driver);
         menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 21);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
-
+*/
        // Thread.sleep(1500);
-        CrearPoliza(driver, a, listasRestrictivasBean);
-        Thread.sleep(1000);
+      //  CrearPoliza(driver, a, listasRestrictivasBean);
+       /* Thread.sleep(1000);
         InformacionPoliza(driver, a, listasRestrictivasBean);
         Thread.sleep(1000);
         AgregarTerceroTomador(driver, a, listasRestrictivasBean);
@@ -80,9 +80,9 @@ public class ListasRestrictivas {
         AgregarObjetoAsegurado(driver, a, listasRestrictivasBean);
         Thread.sleep(1000);
         Comprobar(driver, a, listasRestrictivasBean);
-       // Thread.sleep(4000);
+       */// Thread.sleep(4000);
        // driver.close();
-        Thread.sleep(2500);
+      //  Thread.sleep(2500);
         a.regresarVentana(driver);
         Thread.sleep(2000);
         m.Aud_TrazasAuditoriaVaadin ( driver,  nombreAutomatizacion,  32);
@@ -95,250 +95,239 @@ public class ListasRestrictivas {
 
 
 
-   public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+  public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
-        try {
+       try {
 
-            Thread.sleep(1000);
-            a.ScreenShot(driver,"screen4", nombreAutomatizacion);
-            Thread.sleep(1000);
+           Thread.sleep(1000);
+           a.ScreenShot(driver,"screen4", nombreAutomatizacion);
+           Thread.sleep(1000);
 
-            WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span/span"));
-            btnAgregar.click();
-            Thread.sleep(2000);
-            a.ScreenShot(driver,"screen5", nombreAutomatizacion);
-            Thread.sleep(1000);
+           WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span/span"));
+           btnAgregar.click();
+           Thread.sleep(2000);
+           a.ScreenShot(driver,"screen5", nombreAutomatizacion);
+           Thread.sleep(1000);
 
-            WebElement tipo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div[2]/div/div"));
-            tipo.click();
-            Thread.sleep(1000);
+           WebElement tipo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div[2]/div/div"));
+           tipo.click();
+           Thread.sleep(1000);
 
-            WebElement opcion = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td"));
-           // Thread.sleep(1000);
-            opcion.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
-            Thread.sleep(1000);
+           WebElement opcion = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td"));
+          // Thread.sleep(1000);
+           opcion.click();
+           Thread.sleep(1000);
+           a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+           Thread.sleep(1000);
 
-            WebElement nombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div"));
-            nombre.click();
-            Thread.sleep(1500);
+           WebElement nombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div"));
+           nombre.click();
+           Thread.sleep(1500);
 
-            for (int i = 1; i <= 50; i++){
+           for (int i = 1; i <= 50; i++){
 
-                //System.out.println("dentro del bucle: " + i);
-                WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
+               //System.out.println("dentro del bucle: " + i);
+               WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
 
-                String texto = opcionNombre.getText();
+               String texto = opcionNombre.getText();
 
-                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
-                //System.out.println("Texto: " + texto);
-                //  nuevaPlantilla.click();
+               //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+               //System.out.println("Texto: " + texto);
+               //  nuevaPlantilla.click();
 
-                if (texto.equals(listasRestrictivasBean.getListaNombre())){
-                    opcionNombre.click();
-                    Thread.sleep(1000);
-                    a.ScreenShot(driver, "screen7", nombreAutomatizacion);
-                    System.out.println("Prueba: '" + texto + "' seleccionado");
-                    break;
-                }
+               if (texto.equals(listasRestrictivasBean.getListaNombre())){
+                   opcionNombre.click();
+                   Thread.sleep(1000);
+                   a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+                   System.out.println("Prueba: '" + texto + "' seleccionado");
+                   break;
+               }
 
-            }
+           }
 
-         /*   WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[7]/td/span"));
-           // Thread.sleep(1000);
-            opcionNombre.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+
+       }catch (Exception e) {
+           e.printStackTrace();
+           //log.info(e);
+           log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+
+       }
+
+   }
+
+
+
+   public void LeerArchivos (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+
+           try {
+               a.changeLastWindows(driver);
+               Thread.sleep(1500);
+               WebElement campoArchivo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[2]/form/div/input[2]"));
+               Thread.sleep(1000);
+               campoArchivo.click();
+
+               Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\ListasRestrictivas.exe");
+               Thread.sleep(1500);
+               a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+               Thread.sleep(1000);
+
+
+               WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/div/div/span/span"));
+               Thread.sleep(1000);
+               btnAceptar.click();
+               Thread.sleep(3000);
+
+
+               for (int i = 1; i <= 50; i++){
+
+                   //System.out.println("dentro del bucle: " + i);
+                   WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
+                   String texto = lista.getText();
+
+                   //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                   //System.out.println("Texto: " + texto);
+                   //  nuevaPlantilla.click();
+
+                   if (texto.equals(listasRestrictivasBean.getListaNombre())){
+                       lista.click();
+                       Thread.sleep(1000);
+                       a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+                       System.out.println("Prueba: '" + texto + "' seleccionado");
+                       break;
+                   }
+
+               }
+
+
+            /*   WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[6]/td[1]/div"));
+               lista.click();
+               Thread.sleep(1000);
+               a.ScreenShot(driver,"screen9", nombreAutomatizacion);
+               Thread.sleep(1500);
 */
+               WebElement btnConsultar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/span/span"));
+               Thread.sleep(1000);
+               btnConsultar.click();
+               Thread.sleep(1500);
+               a.ScreenShot(driver, "screen10", nombreAutomatizacion);
 
-        }catch (Exception e) {
-            e.printStackTrace();
+               WebElement ultimaLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input"));
+               ultimaLista.click();
+               Thread.sleep(1000);
+               a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+               Thread.sleep(1500);
+
+               WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span"));
+               Thread.sleep(1000);
+               btnAcept.click();
+               Thread.sleep(2000);
+               a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+               Thread.sleep(500);
+
+               WebElement btnCerrar = driver.findElement(By.xpath("/html/body/div[3]/div[8]/div/div/div[5]/div/div/div[3]/div/div/div/div/span"));
+               btnCerrar.click();
+               Thread.sleep(1000);
+
+
+       }catch (Exception e) {
+           e.printStackTrace();
+                log.info(e);
+           log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+
+       }
+
+   }
+
+
+   public void CrearCoincidencias (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+
+
+       try {
+           a.changeLastWindows(driver);
+           Thread.sleep(2000);
+           a.ScreenShot(driver, "screen13-1", nombreAutomatizacion);
+           Thread.sleep(1000);
+           WebElement btnAgregarCoinc = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span")); // hace click al boton  agregar en coincidencias
+           btnAgregarCoinc.click();
+           Thread.sleep(1000);
+
+           a.ScreenShot(driver, "screen14", nombreAutomatizacion);
+           Thread.sleep(1000);
+           WebElement opcionLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[1]/div/div/div[3]/div/div")); //despliega las listas disponibles
+           opcionLista.click();
+           Thread.sleep(1000);
+
+           for (int i = 1; i <= 50; i++){
+
+               //System.out.println("dentro del bucle: " + i);
+               WebElement listaNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
+
+               String texto = listaNombre.getText();
+
+               //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+               //System.out.println("Texto: " + texto);
+               //  nuevaPlantilla.click();
+
+               if (texto.equals(listasRestrictivasBean.getListaNombre())){
+                   listaNombre.click();
+                   Thread.sleep(1000);
+                   a.ScreenShot(driver, "screen15", nombreAutomatizacion);
+                   System.out.println("Prueba: '" + texto + "' seleccionado");
+                   break;
+               }
+
+           }
+
+
+
+
+           WebElement opcionCoinc = driver.findElement(By.xpath("//html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[3]/div/div/div[3]/div/div"));
+           opcionCoinc.click();
+           Thread.sleep(1500);
+
+           WebElement tipoCoinc = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td"));
+           Thread.sleep(1000);
+           a.ScreenShot(driver, "screen16", nombreAutomatizacion);
+           Thread.sleep(1000);
+           tipoCoinc.click();
+           Thread.sleep(2000);
+           a.ScreenShot(driver, "screen17", nombreAutomatizacion);
+
+           WebElement primeraopcion = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[4]/div/select/option[1]"));
+           primeraopcion.click();
+           Thread.sleep(1000);
+           a.ScreenShot(driver, "screen18", nombreAutomatizacion);
+           Thread.sleep(1000);
+
+           WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span/span"));
+           btnSeleccionar.click();
+           Thread.sleep(1000);
+           a.ScreenShot(driver, "screen19", nombreAutomatizacion);
+           Thread.sleep(1000);
+
+           WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/span/span"));
+           Thread.sleep(1000);
+           btnSalvar.click();
+           Thread.sleep(2000);
+
+
+           WebElement ultimaCoinc = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div"));
+           ultimaCoinc.click();
+           Thread.sleep(1000);
+           a.ScreenShot(driver, "screen20", nombreAutomatizacion);
+
+
+
+       }catch (Exception e) {
+           e.printStackTrace();
 //                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+           log.info("Test Case - " + nombreAutomatizacion + " - " + e);
 
-        }
+       }
 
-    }
+   }
 
-
-
-    public void LeerArchivos (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
-
-            try {
-                a.changeLastWindows(driver);
-                Thread.sleep(1500);
-                WebElement campoArchivo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[2]/form/div/input[2]"));
-                Thread.sleep(1000);
-                campoArchivo.click();
-
-                Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\ListasRestrictivas.exe");
-                Thread.sleep(1500);
-                a.ScreenShot(driver, "screen8", nombreAutomatizacion);
-                Thread.sleep(1000);
-
-
-                WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/div/div/span/span"));
-                Thread.sleep(1000);
-                btnAceptar.click();
-                Thread.sleep(3000);
-
-
-                for (int i = 1; i <= 50; i++){
-
-                    //System.out.println("dentro del bucle: " + i);
-                    WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
-                    String texto = lista.getText();
-
-                    //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
-                    //System.out.println("Texto: " + texto);
-                    //  nuevaPlantilla.click();
-
-                    if (texto.equals(listasRestrictivasBean.getListaNombre())){
-                        lista.click();
-                        Thread.sleep(1000);
-                        a.ScreenShot(driver, "screen9", nombreAutomatizacion);
-                        System.out.println("Prueba: '" + texto + "' seleccionado");
-                        break;
-                    }
-
-                }
-
-
-            /*    WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[6]/td[1]/div"));
-                lista.click();
-                Thread.sleep(1000);
-                a.ScreenShot(driver,"screen9", nombreAutomatizacion);
-                Thread.sleep(1500);
-*/
-                WebElement btnConsultar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/span/span"));
-                Thread.sleep(1000);
-                btnConsultar.click();
-                Thread.sleep(1500);
-                a.ScreenShot(driver, "screen10", nombreAutomatizacion);
-
-                WebElement ultimaLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input"));
-                ultimaLista.click();
-                Thread.sleep(1000);
-                a.ScreenShot(driver, "screen11", nombreAutomatizacion);
-                Thread.sleep(1500);
-
-                WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span"));
-                Thread.sleep(1000);
-                btnAcept.click();
-                Thread.sleep(2000);
-                a.ScreenShot(driver, "screen12", nombreAutomatizacion);
-                Thread.sleep(500);
-
-                WebElement btnCerrar = driver.findElement(By.xpath("/html/body/div[3]/div[8]/div/div/div[5]/div/div/div[3]/div/div/div/div/span"));
-                btnCerrar.click();
-                Thread.sleep(1000);
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-
-        }
-
-    }
-
-
-    public void CrearCoincidencias (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
-
-
-        try {
-            a.changeLastWindows(driver);
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen13-1", nombreAutomatizacion);
-            Thread.sleep(1000);
-            WebElement btnAgregarCoinc = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span")); // hace click al boton  agregar en coincidencias
-            btnAgregarCoinc.click();
-            Thread.sleep(1000);
-
-            a.ScreenShot(driver, "screen14", nombreAutomatizacion);
-            Thread.sleep(1000);
-            WebElement opcionLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[1]/div/div/div[3]/div/div")); //despliega las listas disponibles
-            opcionLista.click();
-            Thread.sleep(1000);
-
-            for (int i = 1; i <= 50; i++){
-
-                //System.out.println("dentro del bucle: " + i);
-                WebElement listaNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
-
-                String texto = listaNombre.getText();
-
-                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
-                //System.out.println("Texto: " + texto);
-                //  nuevaPlantilla.click();
-
-                if (texto.equals(listasRestrictivasBean.getListaNombre())){
-                    listaNombre.click();
-                    Thread.sleep(1000);
-                    a.ScreenShot(driver, "screen15", nombreAutomatizacion);
-                    System.out.println("Prueba: '" + texto + "' seleccionado");
-                    break;
-                }
-
-            }
-
-
-         /*   WebElement listaNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[7]/td/span"));
-            Thread.sleep(1000);
-            listaNombre.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen15", nombreAutomatizacion);
-            Thread.sleep(1000);
-*/
-            WebElement opcionCoinc = driver.findElement(By.xpath("//html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[3]/div/div/div[3]/div/div"));
-            opcionCoinc.click();
-            Thread.sleep(1500);
-
-            WebElement tipoCoinc = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td"));
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen16", nombreAutomatizacion);
-            Thread.sleep(1000);
-            tipoCoinc.click();
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen17", nombreAutomatizacion);
-
-            WebElement primeraopcion = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[4]/div/select/option[1]"));
-            primeraopcion.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen18", nombreAutomatizacion);
-            Thread.sleep(1000);
-
-            WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span/span"));
-            btnSeleccionar.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen19", nombreAutomatizacion);
-            Thread.sleep(1000);
-
-            WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/span/span"));
-            Thread.sleep(1000);
-            btnSalvar.click();
-            Thread.sleep(2000);
-
-
-            WebElement ultimaCoinc = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div"));
-            ultimaCoinc.click();
-            Thread.sleep(1000);
-            a.ScreenShot(driver, "screen20", nombreAutomatizacion);
-
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-
-        }
-
-    }
-
-    public void CrearPoliza (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+ public void CrearPoliza (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         a.changeLastWindows(driver);
         try { //TipoElemento[@wicketpath='WicketpathElemento']
@@ -578,7 +567,67 @@ public class ListasRestrictivas {
                 WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_format']"));
                 afueraClick.click();
 
+
             }
+            if (listasRestrictivasBean.getValorSeguro() != null) {
+                Thread.sleep(2000);
+                WebElement valorSeguro = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_field']"));
+                Thread.sleep(1000);
+                valorSeguro.click();
+                Thread.sleep(1000);
+                WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_etiqueta']"));
+                afuera.click();
+                Thread.sleep(1000);
+                valorSeguro.clear();
+                Thread.sleep(1000);
+                valorSeguro.sendKeys(listasRestrictivasBean.getValorSeguro());
+                Thread.sleep(1000);
+                WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_etiqueta']"));
+                afueraClick.click();
+
+            }
+
+
+
+            if (listasRestrictivasBean.getValorVida() != null) {
+                Thread.sleep(2000);
+                WebElement factorVida = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_field']"));
+                Thread.sleep(1000);
+                factorVida.click();
+                Thread.sleep(1000);
+                WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_feedbackLabel']"));
+                afuera.click();
+                Thread.sleep(2000);
+                factorVida.click();
+                Thread.sleep(1000);
+                factorVida.clear();
+                Thread.sleep(1000);
+                factorVida.sendKeys(listasRestrictivasBean.getValorVida());
+                Thread.sleep(1000);
+                WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_feedbackLabel']"));
+                afueraClick.click();
+
+            }
+
+
+
+
+            if (listasRestrictivasBean.getValorPrestamo() != null) {
+                Thread.sleep(2000);
+                WebElement valorPrestamo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_field']"));
+                Thread.sleep(1000);
+                WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_feedbackLabel']"));
+                afuera.click();
+                valorPrestamo.clear();
+                Thread.sleep(1000);
+                valorPrestamo.sendKeys(listasRestrictivasBean.getValorPrestamo());
+                Thread.sleep(1000);
+                WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_feedbackLabel']"));
+                afueraClick.click();
+
+            }
+
+
 
             Thread.sleep(1000);
             a.ScreenShot(driver, "screen27", nombreAutomatizacion); //screenshot2
