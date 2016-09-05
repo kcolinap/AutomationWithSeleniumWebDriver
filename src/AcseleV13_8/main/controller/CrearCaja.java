@@ -25,8 +25,8 @@ public class CrearCaja {
         Metodos a = new Metodos();
         MenuMantenimiento m = new MenuMantenimiento();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
         // Consulta Caja

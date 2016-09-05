@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.io.IOException;
@@ -55,21 +56,23 @@ public class MenuOperaciones {
 
         public void OpePol_SuscripcionMantenimientoPolizasWController(){}
 
-        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
             try{
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                menu3.click();
 
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
-            menu1.click();
-            menu2.click();
-            a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-            menu3.click();
-            a.cambiarVentana(driver); // Cambiar de ventana
-        }catch (Exception e) {
-                e.printStackTrace();
-//                log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }catch (Exception e) {
+                    e.printStackTrace();
+    //                log.info(e);
+                    log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
 

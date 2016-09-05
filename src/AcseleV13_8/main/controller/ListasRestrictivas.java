@@ -32,8 +32,8 @@ public class ListasRestrictivas {
         MenuOperaciones menuOperaciones = new MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(1500);
         System.out.println("prueba");
 

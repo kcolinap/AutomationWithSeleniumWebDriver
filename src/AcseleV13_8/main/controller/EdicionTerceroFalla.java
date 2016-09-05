@@ -16,18 +16,19 @@ import java.io.IOException;
 // Cambio de Documento de Identidad por uno existente
 public class EdicionTerceroFalla {
 
+    public String nombreAutomatizacion ="Edicion Terceros Falla";
 
-    public void testLink(EdicionTercerosFallaBean edicionTercerosFallaBean)throws Exception {
+    public void testLink(EdicionTercerosFallaBean edicionTercerosFallaBean, int i)throws Exception {
 
-        String nombreAutomatizacion ="Edicion Terceros Falla";
+
 
         // Instanciando clases
         Metodos a= new Metodos();   //implementando metodos.
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu

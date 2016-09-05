@@ -14,9 +14,9 @@ import java.io.IOException;
  * Created by agil on 30/05/2016.
  */
 public class CreacionTerceros {
-    String nombreAutomatizacion = "Creacion Terceros";
+    public String nombreAutomatizacion = "Creacion Terceros";
 
-    public void testLink(CreacionTercerosBean creacionTercerosBean)throws Exception{
+    public void testLink(CreacionTercerosBean creacionTercerosBean, int i)throws Exception{
 
 
         // Instanciando clases
@@ -24,8 +24,8 @@ public class CreacionTerceros {
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
         //Entrando en Menu

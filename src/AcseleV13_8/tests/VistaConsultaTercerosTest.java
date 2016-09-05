@@ -2,28 +2,50 @@ package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.ConsultaTercerosBean;
 import AcseleV13_8.main.controller.ConsultaTerceros;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 30/05/2016.
  */
 public class VistaConsultaTercerosTest {
 
+    private final static Logger log = Logger.getLogger(VistaConsultaTercerosTest.class);
+
     @Test
     //@Transactional
-    public void mainTest() {
+    public void mainTest() throws SQLException {
 
-        ConsultaTercerosBean consultaTercerosBean = ConsultaTercerosBean.getConsultaTerceros();
+        ArrayList consultaTerceros = ConsultaTercerosBean.getConsultaTerceros();
+
+        for (int i = 0; i < consultaTerceros.size(); i++) {
+
+            ConsultaTercerosBean consultaTercerosBean = (ConsultaTercerosBean) consultaTerceros.get(i);
+            ConsultaTerceros a = new ConsultaTerceros();
+
+            try {
+                a.testLink(consultaTercerosBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
+
+        }
+
+/*        ConsultaTercerosBean consultaTercerosBean = ConsultaTercerosBean.getConsultaTerceros();
         ConsultaTerceros a = new ConsultaTerceros();
         try {
             a.testLink(consultaTercerosBean);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+*/
     }
 
     @Before

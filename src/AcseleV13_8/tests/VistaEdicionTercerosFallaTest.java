@@ -2,28 +2,49 @@ package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.EdicionTercerosFallaBean;
 import AcseleV13_8.main.controller.EdicionTerceroFalla;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 31/05/2016.
  */
 public class VistaEdicionTercerosFallaTest {
 
+    private final static Logger log = Logger.getLogger(VistaEdicionTercerosFallaTest.class);
+
     @Test
     //@Transactional
-    public void mainTest() {
+    public void mainTest() throws SQLException {
 
-        EdicionTercerosFallaBean edicionTercerosFallaBean = EdicionTercerosFallaBean.getEdicionTercerosFalla();
+        ArrayList edicionTercerosFalla = EdicionTercerosFallaBean.getEdicionTercerosFalla();
+
+        for (int i = 0; i < edicionTercerosFalla.size(); i++) {
+
+            EdicionTercerosFallaBean edicionTercerosFallaBean = (EdicionTercerosFallaBean) edicionTercerosFalla.get(i);
+            EdicionTerceroFalla a = new EdicionTerceroFalla();
+
+            try {
+                a.testLink(edicionTercerosFallaBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
+        }
+
+/*        EdicionTercerosFallaBean edicionTercerosFallaBean = EdicionTercerosFallaBean.getEdicionTercerosFalla();
         EdicionTerceroFalla a = new EdicionTerceroFalla();
         try {
             a.testLink(edicionTercerosFallaBean);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+*/
     }
 
     @Before

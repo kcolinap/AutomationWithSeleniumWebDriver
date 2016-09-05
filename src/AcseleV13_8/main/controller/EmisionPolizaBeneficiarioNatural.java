@@ -35,9 +35,9 @@ public class EmisionPolizaBeneficiarioNatural {
         BeneficiarioNatural beneficiarioNatural = new BeneficiarioNatural();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(2000);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
         // Creación de Póliza
