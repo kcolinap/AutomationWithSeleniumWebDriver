@@ -245,13 +245,13 @@ public class CancelarPagos {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
 
             WebElement btnSelecEvento = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_03\"]"));
             btnSelecEvento.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(15000);
 
             WebElement selecEvento = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr[4]/td[1]/input"));
             selecEvento.click();
@@ -262,12 +262,12 @@ public class CancelarPagos {
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
 
-            Thread.sleep(8000);
+            Thread.sleep(10000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_07\"]"));
             btnAceptar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(25000);
             a.ScreenShot(driver,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
@@ -283,7 +283,7 @@ public class CancelarPagos {
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
             btnAgregar.click();
 
-            Thread.sleep(15000);
+            Thread.sleep(20000);
 
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
@@ -387,7 +387,7 @@ public class CancelarPagos {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_04\"]"));
             btnAgregar.click();
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
             if (cancelarPagosBean.getObjetosAsegurados() != null){
                 Select objetosAsegurados = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[2]/td[2]/select")));
@@ -399,7 +399,7 @@ public class CancelarPagos {
                 coberturaAfectada.selectByValue(cancelarPagosBean.getCoberturaAfectada());
             }
 
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             WebElement pagoMaximo = driver.findElement(By.xpath("//*[@id=\"maxBenefitAmount1\"]"));
             pagoMaximo.clear();
             pagoMaximo.sendKeys(cancelarPagosBean.getPagoMaximo());
@@ -413,7 +413,17 @@ public class CancelarPagos {
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
-            Thread.sleep(6000);
+            Thread.sleep(3000);
+
+            /*if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }*/
+
+            Thread.sleep(3000);
 
             Set<String> sid = driver.getWindowHandles();
             //Using iterator we can fetch the values from Set.
@@ -483,7 +493,7 @@ public class CancelarPagos {
             btnRequisitos.click();
 
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
             WebElement btnRecibido = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/thead/tr/th[3]/input"));
             btnRecibido.click();
             Thread.sleep(2000);
@@ -520,7 +530,7 @@ public class CancelarPagos {
             WebElement tercerosPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
             tercerosPoliza.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
             WebElement seleccionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
             seleccionTercero.click();
             a.ScreenShot(driver,"screen14",nombreAutomatizacion);
@@ -589,13 +599,13 @@ public class CancelarPagos {
             razon2.click();
 
 
-            Thread.sleep(10000);
+            Thread.sleep(15000);
             a.ScreenShot(driver,"screen17",nombreAutomatizacion);
 
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             WebElement btnEnviar2 = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
             btnEnviar2.click();
-            Thread.sleep(4000);
+            Thread.sleep(20000);
 
             WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]"));
             btnSeleccionar.click();
@@ -614,6 +624,8 @@ public class CancelarPagos {
                 driver.switchTo().defaultContent();
             }
 
+            Thread.sleep(5000);
+
             Select sucursalSiniestros = new Select(driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select")));
             sucursalSiniestros.selectByValue(cancelarPagosBean.getSucursalSiniestros());
             Thread.sleep(3000);
@@ -624,14 +636,14 @@ public class CancelarPagos {
 
             Thread.sleep(3000);
 
-            if (ExpectedConditions.alertIsPresent() != null) {
+
+/*if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
                 Thread.sleep(1000);
                 driver.switchTo().defaultContent();
-            }
-
+            }*/
             Thread.sleep(3000);
             a.ScreenShot(driver,"screen19",nombreAutomatizacion);
 
@@ -649,7 +661,6 @@ public class CancelarPagos {
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
                 Thread.sleep(1000);
-                alert.accept();
                 driver.switchTo().defaultContent();
             }
 

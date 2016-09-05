@@ -1,7 +1,7 @@
 package AcseleV13_8.tests;
 
-import AcseleV13_8_Alfa.beans.CancelarPagosBean;
-import AcseleV13_8_Alfa.main.controller.CancelarPagos;
+import AcseleV13_8.beans.CancelarPagosBean;
+import AcseleV13_8.main.controller.CancelarPagos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
