@@ -46,11 +46,11 @@ public class ListasRestrictivas {
         Thread.sleep(2000);
 
 
-        LeerArchivos(driver, a, listasRestrictivasBean);
+       /* LeerArchivos(driver, a, listasRestrictivasBean);
         driver.close();
         Thread.sleep(1000);
 
-
+*/
         a.regresarVentana(driver);
         Thread.sleep(1500);
 
@@ -67,10 +67,10 @@ public class ListasRestrictivas {
         menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 21);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
-*/
-       // Thread.sleep(1500);
-      //  CrearPoliza(driver, a, listasRestrictivasBean);
-       /* Thread.sleep(1000);
+
+        Thread.sleep(1500);
+        CrearPoliza(driver, a, listasRestrictivasBean);
+        Thread.sleep(1000);
         InformacionPoliza(driver, a, listasRestrictivasBean);
         Thread.sleep(1000);
         AgregarTerceroTomador(driver, a, listasRestrictivasBean);
@@ -80,10 +80,10 @@ public class ListasRestrictivas {
         AgregarObjetoAsegurado(driver, a, listasRestrictivasBean);
         Thread.sleep(1000);
         Comprobar(driver, a, listasRestrictivasBean);
-       */// Thread.sleep(4000);
-       // driver.close();
-      //  Thread.sleep(2500);
-        a.regresarVentana(driver);
+        Thread.sleep(4000);
+        driver.close();
+        Thread.sleep(2500);
+        */   a.regresarVentana(driver);
         Thread.sleep(2000);
         m.Aud_TrazasAuditoriaVaadin ( driver,  nombreAutomatizacion,  32);
         Thread.sleep(2000);
@@ -144,6 +144,73 @@ public class ListasRestrictivas {
                }
 
            }
+
+           Thread.sleep(1500);
+           WebElement campoArchivos = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[2]/form/div/input[2]"));
+           Thread.sleep(1000);
+           campoArchivos.click();
+
+           Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\ListasRestrictivas.exe");
+           Thread.sleep(1500);
+           a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+           Thread.sleep(1000);
+
+
+           WebElement btnAceptarr = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/div/div/span/span"));
+           Thread.sleep(1000);
+           btnAceptarr.click();
+           Thread.sleep(3000);
+
+
+           for (int i = 1; i <= 50; i++){
+
+               //System.out.println("dentro del bucle: " + i);
+               WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
+               String texto = lista.getText();
+
+               //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+               //System.out.println("Texto: " + texto);
+               //  nuevaPlantilla.click();
+
+               if (texto.equals(listasRestrictivasBean.getListaNombre())){
+                   lista.click();
+                   Thread.sleep(1000);
+                   a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+                   System.out.println("Prueba: '" + texto + "' seleccionado");
+                   break;
+               }
+
+           }
+
+
+            /*   WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[6]/td[1]/div"));
+               lista.click();
+               Thread.sleep(1000);
+               a.ScreenShot(driver,"screen9", nombreAutomatizacion);
+               Thread.sleep(1500);
+*/
+           WebElement btnConsultar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/span/span"));
+           Thread.sleep(1000);
+           btnConsultar.click();
+           Thread.sleep(1500);
+           a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+
+           WebElement ultimaLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input"));
+           ultimaLista.click();
+           Thread.sleep(1000);
+           a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+           Thread.sleep(1500);
+
+           WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span"));
+           Thread.sleep(1000);
+           btnAcept.click();
+           Thread.sleep(2000);
+           a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+           Thread.sleep(500);
+
+           WebElement btnCerrar = driver.findElement(By.xpath("/html/body/div[3]/div[8]/div/div/div[5]/div/div/div[3]/div/div/div/div/span"));
+           btnCerrar.click();
+           Thread.sleep(1000);
 
 
        }catch (Exception e) {
