@@ -1,5 +1,6 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -12,7 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by agil on 07/06/2016.
  */
-public class EdicionTercerosBean implements Serializable {
+public class CreacionEdicionTercerosBean implements Serializable {
+
+    private final static Logger log = Logger.getLogger(CreacionEdicionTercerosBean.class);
 
     //TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO
     //TIPO_TERCERO_NUEVO, TIPO_DOC_IDENTIDAD_NUEVO,CEDULA_NUEVO, NOMBRE_NUEVO, APELLIDO_NUEVO
@@ -30,7 +33,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getTipoTercero() {
         return tipoTercero;
     }
-
     public void setTipoTercero(String tipoTercero) {
         this.tipoTercero = tipoTercero;
     }
@@ -38,7 +40,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getTipoDocIdentidad(){
         return tipoDocIdentidad;
     }
-
     public  void setTipoDocIdentidad(String tipoDocIdentidad){
         this.tipoDocIdentidad = tipoDocIdentidad;
     }
@@ -46,7 +47,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getCedula() {
         return cedula;
     }
-
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
@@ -54,7 +54,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -62,16 +61,13 @@ public class EdicionTercerosBean implements Serializable {
     public String getApellido() {
         return apellido;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    /***/
     public String getTipoTerceroNuevo() {
         return tipoTerceroNuevo;
     }
-
     public void setTipoTerceroNuevo(String tipoTerceroNuevo) {
         this.tipoTerceroNuevo = tipoTerceroNuevo;
     }
@@ -79,7 +75,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getTipoDocIdentidadNuevo(){
         return tipoDocIdentidadNuevo;
     }
-
     public  void setTipoDocIdentidadNuevo(String tipoDocIdentidadNuevo){
         this.tipoDocIdentidadNuevo = tipoDocIdentidadNuevo;
     }
@@ -87,7 +82,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getCedulaNuevo() {
         return cedulaNuevo;
     }
-
     public void setCedulaNuevo(String cedulaNuevo) {
         this.cedulaNuevo = cedulaNuevo;
     }
@@ -95,7 +89,6 @@ public class EdicionTercerosBean implements Serializable {
     public String getNombreNuevo() {
         return nombreNuevo;
     }
-
     public void setNombreNuevo(String nombreNuevo) {
         this.nombreNuevo = nombreNuevo;
     }
@@ -103,17 +96,16 @@ public class EdicionTercerosBean implements Serializable {
     public String getApellidoNuevo() {
         return apellidoNuevo;
     }
-
     public void setApellidoNuevo(String apellidoNuevo) {
         this.apellidoNuevo = apellidoNuevo;
     }
 
-    public static EdicionTercerosBean getEdicionTerceros(){
+    public static ArrayList getTercerosEdicion() throws SQLException {
 
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
-        EdicionTercerosBean edicionTercerosBean = null;
+        ArrayList tercerosCreaEdita = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
         queryLoad.append("SELECT * FROM EDICION_TERCEROS ORDER BY PRUEBA ASC");
@@ -124,61 +116,29 @@ public class EdicionTercerosBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                edicionTercerosBean = new EdicionTercerosBean();
-                edicionTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                edicionTercerosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
-                edicionTercerosBean.setCedula(rs.getString("CEDULA"));
-                edicionTercerosBean.setNombre(rs.getString("NOMBRE"));
-                edicionTercerosBean.setApellido(rs.getString("APELLIDO"));
-                /***/
-                edicionTercerosBean.setTipoTerceroNuevo(rs.getString("TIPO_TERCERO_NUEVO"));
-                edicionTercerosBean.setTipoDocIdentidadNuevo(rs.getString("TIPO_DOC_IDENTIDAD_NUEVO"));
-                edicionTercerosBean.setCedulaNuevo(rs.getString("CEDULA_NUEVO"));
-                edicionTercerosBean.setNombreNuevo(rs.getString("NOMBRE_NUEVO"));
-                edicionTercerosBean.setApellidoNuevo(rs.getString("APELLIDO_NUEVO"));
+                CreacionEdicionTercerosBean creacionEdicionTercerosBean = new CreacionEdicionTercerosBean();
+
+                creacionEdicionTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                creacionEdicionTercerosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
+                creacionEdicionTercerosBean.setCedula(rs.getString("CEDULA"));
+                creacionEdicionTercerosBean.setNombre(rs.getString("NOMBRE"));
+                creacionEdicionTercerosBean.setApellido(rs.getString("APELLIDO"));
+                creacionEdicionTercerosBean.setTipoTerceroNuevo(rs.getString("TIPO_TERCERO_NUEVO"));
+                creacionEdicionTercerosBean.setTipoDocIdentidadNuevo(rs.getString("TIPO_DOC_IDENTIDAD_NUEVO"));
+                creacionEdicionTercerosBean.setCedulaNuevo(rs.getString("CEDULA_NUEVO"));
+                creacionEdicionTercerosBean.setNombreNuevo(rs.getString("NOMBRE_NUEVO"));
+                creacionEdicionTercerosBean.setApellidoNuevo(rs.getString("APELLIDO_NUEVO"));
+
+                tercerosCreaEdita.add(creacionEdicionTercerosBean);
             }
         }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
-        }
-        return edicionTercerosBean;
-    }
-
-    public static ArrayList getTercerosEdicion(){
-
-        Connection conn;
-        Statement stmt;
-        ResultSet rs;
-        ArrayList terceros = new ArrayList();
-
-        StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM EDICION_TERCEROS ORDER BY PRUEBA ASC");
-
-        try {
-            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(queryLoad.toString());
-
-            while (rs.next()) {
-                EdicionTercerosBean edicionTercerosBean = new EdicionTercerosBean();
-                //, , , ,
-                //, ,, ,
-                edicionTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                edicionTercerosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
-                edicionTercerosBean.setCedula(rs.getString("CEDULA"));
-                edicionTercerosBean.setNombre(rs.getString("NOMBRE"));
-                edicionTercerosBean.setApellido(rs.getString("APELLIDO"));
-                edicionTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO_NUEVO"));
-                edicionTercerosBean.setTipoDocIdentidadNuevo(rs.getString("TIPO_DOC_IDENTIDAD_NUEVO"));
-                edicionTercerosBean.setCedulaNuevo(rs.getString("CEDULA_NUEVO"));
-                edicionTercerosBean.setNombreNuevo(rs.getString("NOMBRE_NUEVO"));
-                edicionTercerosBean.setApellidoNuevo(rs.getString("APELLIDO_NUEVO"));
-                terceros.add(edicionTercerosBean);
+            log.error(e);
+        }finally{
+            if (conn != null){
+                conn.close();
             }
-        }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
         }
-        return terceros;
+        return tercerosCreaEdita;
     }
+
 }

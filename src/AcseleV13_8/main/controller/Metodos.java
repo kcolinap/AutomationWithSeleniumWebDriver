@@ -51,7 +51,8 @@ public class Metodos {
 
         // Ruta a ingresar
 
-        String ruta = "http://arq05:7001/WController//";
+        String ruta = "http://srvsonar:7026/WController//";
+        //String ruta = "http://qa19:7001/WController//";
         driver.get(ruta);
 
         driver.manage().window().maximize();
@@ -110,8 +111,8 @@ public class Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("");       /** Usuario  **/
-        password2.sendKeys("");
+        user2.sendKeys("system");       /** Usuario  **/
+        password2.sendKeys("consis");
 
         instance2.selectByVisibleText("ALFA");
         language2.selectByValue("es");

@@ -1,7 +1,7 @@
 package AcseleV13_8.main.controller;
 
 
-import AcseleV13_8.beans.EdicionTercerosBean;
+import AcseleV13_8.beans.CreacionEdicionTercerosBean;
 import AcseleV13_8.beans.TercerosDireccionesBean;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.openqa.selenium.By;
@@ -59,7 +59,7 @@ public class TercerosDirecciones {
 
     }
 
-    public void CreacionT(Metodos a, WebDriver driver, EdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException {
+    public void CreacionT(Metodos a, WebDriver driver, CreacionEdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException {
         //
         Thread.sleep(2000);
         if (edicionTercerosBean.getTipoTercero() != null){
@@ -134,7 +134,7 @@ public class TercerosDirecciones {
         driver.close();
     }
 
-    public void CreacionR(Metodos a, WebDriver driver, EdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException {
+    public void CreacionR(Metodos a, WebDriver driver, CreacionEdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException {
         //
         Thread.sleep(2000);
         if (edicionTercerosBean.getTipoTercero() != null){
@@ -271,7 +271,7 @@ public class TercerosDirecciones {
 //        driver.close();
     }
 
-    public void EdicionT(Metodos a, WebDriver driver, EdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException{
+    public void EdicionT(Metodos a, WebDriver driver, CreacionEdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         String title = driver.getTitle();

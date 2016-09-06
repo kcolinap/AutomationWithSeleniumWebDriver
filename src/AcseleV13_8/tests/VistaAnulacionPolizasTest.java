@@ -36,7 +36,6 @@ public class VistaAnulacionPolizasTest {
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
-
     }
 
     @Before

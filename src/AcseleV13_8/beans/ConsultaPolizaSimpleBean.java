@@ -13,9 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by Administrador on 04/05/2016.
  */
-public class PolizaBean implements Serializable {
+public class ConsultaPolizaSimpleBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(PolizaBean.class);
+    private final static Logger log = Logger.getLogger(ConsultaPolizaSimpleBean.class);
 
     private String numPoliza;
     private String contratante;
@@ -45,7 +45,7 @@ public class PolizaBean implements Serializable {
         this.asegurado = asegurado;
     }
 
-    public static ArrayList getPoliza() throws SQLException{
+    public static ArrayList getConsultaPolizaSimple() throws SQLException{
 
         Connection conn = null;
         Statement stmt;
@@ -61,13 +61,13 @@ public class PolizaBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                PolizaBean polizaBean = new PolizaBean();
+                ConsultaPolizaSimpleBean consultaPolizaSimpleBean = new ConsultaPolizaSimpleBean();
 
-                polizaBean.setNumPoliza(rs.getString("NUM_POLIZA"));
-                polizaBean.setContratante(rs.getString("CONTRATANTE"));
-                polizaBean.setAsegurado(rs.getString("ASEGURADO"));
+                consultaPolizaSimpleBean.setNumPoliza(rs.getString("NUM_POLIZA"));
+                consultaPolizaSimpleBean.setContratante(rs.getString("CONTRATANTE"));
+                consultaPolizaSimpleBean.setAsegurado(rs.getString("ASEGURADO"));
 
-                poliza.add(polizaBean);
+                poliza.add(consultaPolizaSimpleBean);
             }
         }catch(SQLException e){
             log.error(e);

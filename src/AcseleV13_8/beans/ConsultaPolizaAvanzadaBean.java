@@ -1,6 +1,7 @@
 package AcseleV13_8.beans;
 
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -14,12 +15,13 @@ import java.util.ArrayList;
 /**
  * Created by agil on 26/05/2016.
  */
-public class BusquedaPolizaAvanzadaBean implements Serializable{
+public class ConsultaPolizaAvanzadaBean implements Serializable{
+
+    private final static Logger log = Logger.getLogger(ConsultaPolizaAvanzadaBean.class);
 
     private String numPoliza;
     private String fechaEmision;
     private String producto;
-    /***/
     private String tipoTercero;
     private String primerNombre;
     private String primerApellido;
@@ -35,7 +37,6 @@ public class BusquedaPolizaAvanzadaBean implements Serializable{
     public String getNumPoliza() {
         return numPoliza;
     }
-
     public void setNumPoliza(String numPoliza) {
         this.numPoliza = numPoliza;
     }
@@ -43,7 +44,6 @@ public class BusquedaPolizaAvanzadaBean implements Serializable{
     public String getFechaEmision() {
         return fechaEmision;
     }
-
     public void setFechaEmision(String fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
@@ -51,7 +51,6 @@ public class BusquedaPolizaAvanzadaBean implements Serializable{
     public String getProducto() {
         return producto;
     }
-
     public void setProducto(String producto) {
         this.producto = producto;
     }
@@ -87,7 +86,7 @@ public class BusquedaPolizaAvanzadaBean implements Serializable{
     public void setTelCelular(String telCelular){this.telCelular = telCelular;}
 
     /***/
-    public static BusquedaPolizaAvanzadaBean getBusquedaPolizaAvanzada(){
+/*    public static BusquedaPolizaAvanzadaBean getBusquedaPolizaAvanzada(){
 
         Connection conn;
         Statement stmt;
@@ -114,10 +113,10 @@ public class BusquedaPolizaAvanzadaBean implements Serializable{
         }
         return busquedaPolizaAvanzadaBean;
     }
+*/
+    public static ArrayList getConsultaPolizasAvanzadas() throws SQLException {
 
-    public static ArrayList getBusquedaPolizasAvanzadas(){
-
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList polizas = new ArrayList();
@@ -131,26 +130,30 @@ public class BusquedaPolizaAvanzadaBean implements Serializable{
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                BusquedaPolizaAvanzadaBean busquedaPolizaAvanzadaBean = new BusquedaPolizaAvanzadaBean();
-                busquedaPolizaAvanzadaBean.setNumPoliza(rs.getString("NUM_POLIZA"));
-                busquedaPolizaAvanzadaBean.setFechaEmision(rs.getString("FECHA_EMISION"));
-                busquedaPolizaAvanzadaBean.setProducto(rs.getString("PRODUCTO"));
-                busquedaPolizaAvanzadaBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                busquedaPolizaAvanzadaBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
-                busquedaPolizaAvanzadaBean.setPrimerApellido(rs.getString("PRIMER_APELLIDO"));
-                busquedaPolizaAvanzadaBean.setEdoCicloVida(rs.getString("EDO_CICLO_VIDA"));
-                busquedaPolizaAvanzadaBean.setNumDocIdent(rs.getString("NUM_DOCUMENTO_IDENTIFICACION"));
-                busquedaPolizaAvanzadaBean.setPasaporte(rs.getString("PASAPORTE"));
-                busquedaPolizaAvanzadaBean.setTelFijo(rs.getString("TELEFONO_FIJO"));
-                busquedaPolizaAvanzadaBean.setTipoDocIdent(rs.getString("TIPO_DOC_IDENTIFICACION"));
-                busquedaPolizaAvanzadaBean.setEmail1(rs.getString("EMAIL_1"));
-                busquedaPolizaAvanzadaBean.setTelCelular(rs.getString("TELEFONO_CELULAR"));
-                polizas.add(busquedaPolizaAvanzadaBean);
+                ConsultaPolizaAvanzadaBean consultaPolizaAvanzadaBean = new ConsultaPolizaAvanzadaBean();
+                consultaPolizaAvanzadaBean.setNumPoliza(rs.getString("NUM_POLIZA"));
+                consultaPolizaAvanzadaBean.setFechaEmision(rs.getString("FECHA_EMISION"));
+                consultaPolizaAvanzadaBean.setProducto(rs.getString("PRODUCTO"));
+                consultaPolizaAvanzadaBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                consultaPolizaAvanzadaBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
+                consultaPolizaAvanzadaBean.setPrimerApellido(rs.getString("PRIMER_APELLIDO"));
+                consultaPolizaAvanzadaBean.setEdoCicloVida(rs.getString("EDO_CICLO_VIDA"));
+                consultaPolizaAvanzadaBean.setNumDocIdent(rs.getString("NUM_DOCUMENTO_IDENTIFICACION"));
+                consultaPolizaAvanzadaBean.setPasaporte(rs.getString("PASAPORTE"));
+                consultaPolizaAvanzadaBean.setTelFijo(rs.getString("TELEFONO_FIJO"));
+                consultaPolizaAvanzadaBean.setTipoDocIdent(rs.getString("TIPO_DOC_IDENTIFICACION"));
+                consultaPolizaAvanzadaBean.setEmail1(rs.getString("EMAIL_1"));
+                consultaPolizaAvanzadaBean.setTelCelular(rs.getString("TELEFONO_CELULAR"));
+                polizas.add(consultaPolizaAvanzadaBean);
             }
         }catch(SQLException e){
-            //log.error(e);
+            log.error(e);
             //conn.close();
+        }finally{
+        if (conn != null) {
+            conn.close();
         }
+    }
         return polizas;
     }
 }

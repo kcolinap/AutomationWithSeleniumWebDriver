@@ -17,16 +17,16 @@ public class AnulacionPolizas {
 
     private final static Logger log = Logger.getLogger(AnulacionPolizas.class);
 
-    public static String nombreAutomatizacion ="Anulacion de Poliza";
-    //Poliza a buscar
-    //String nPoliza = "EA00280";
+    public String nombreAutomatizacion ="Anulacion de Poliza";
 
     public void testLink(AnulacionPolizaBean anulacionPolizaBean, int i)throws Exception{
 
         try {
 
-            Metodos a = new Metodos();   //implementando metodos.
+            // Instanciando clases
+            Metodos a = new Metodos();
             MenuOperaciones m = new MenuOperaciones();
+
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
