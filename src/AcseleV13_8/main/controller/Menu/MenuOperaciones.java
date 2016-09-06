@@ -137,6 +137,7 @@ public class MenuOperaciones {
     public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion) {
 
         try {
+            Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//crear siniestro
@@ -144,7 +145,10 @@ public class MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
             a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            Thread.sleep(1000);
             menu3.click();
         }catch (Exception e) {
             e.printStackTrace();
