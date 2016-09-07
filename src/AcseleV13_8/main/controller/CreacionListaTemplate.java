@@ -60,7 +60,7 @@ public class CreacionListaTemplate {
 
         try{
             Actions action = new Actions(driver);
-            Thread.sleep(5000);
+            Thread.sleep(8000);
             WebElement scroll = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]")); // se usa para mover el scroll
             scroll.sendKeys(Keys.PAGE_DOWN);
             scroll.sendKeys(Keys.PAGE_DOWN);
@@ -110,7 +110,7 @@ public class CreacionListaTemplate {
             for (int j = 1; j <= 50; j++){
 
                 //System.out.println("dentro del bucle: " + i);
-                WebElement nuevaPlantilla = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + i + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+                WebElement nuevaPlantilla = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
                 String texto = nuevaPlantilla.getText();
 
                 //System.out.println("prueba-->>>>>"+nuevaPlantilla+" => "+ nuevaPlantilla.isEnabled());
@@ -150,9 +150,9 @@ public class CreacionListaTemplate {
             for (int j = 1; j <= 50; j++){
 
                 System.out.println("dentro del bucle: " + i);
-                WebElement listaPropiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + i + "]/td/div")); //arreglo para desplegar la carpeta de la ultima plantilla creada
+                WebElement listaPropiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para desplegar la carpeta de la ultima plantilla creada
 
-                WebElement listaPropiedadCarpeta = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + i + "]/td/div/span")); //arreglo para desplegar la carpeta de la ultima plantilla creada
+                WebElement listaPropiedadCarpeta = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div/span")); //arreglo para desplegar la carpeta de la ultima plantilla creada
 
                 String texto = listaPropiedad.getText();
 
@@ -223,7 +223,7 @@ public class CreacionListaTemplate {
             for (int j = 1; j<= 50; j++){
 
                 //System.out.println("dentro del bucle: " + i);
-                WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
+                WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + j + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
 
                 String texto = opcionNombre.getText();
 
@@ -260,7 +260,7 @@ public class CreacionListaTemplate {
             for (int j = 1; j <= 50; j++){
 
                 //System.out.println("dentro del bucle: " + i);
-                WebElement nuevaLista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
+                WebElement nuevaLista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
                 String texto = nuevaLista.getText();
 
                 //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());

@@ -43,6 +43,7 @@ public class ListasRestrictivas {
         a.cambiarVentana(driver);
 
         ListasRestrictivasCrear (driver, a, listasRestrictivasBean, i);
+        //driver.close();
         Thread.sleep(2000);
 
 
@@ -55,7 +56,7 @@ public class ListasRestrictivas {
         Thread.sleep(1500);
 
         m.AdminLisRest_CoincidenciaListasRestrictivas(driver, nombreAutomatizacion, 13);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         a.cambiarVentana(driver);
 
         CrearCoincidencias (driver, a, listasRestrictivasBean, i);
@@ -150,7 +151,7 @@ public class ListasRestrictivas {
            Thread.sleep(1000);
            campoArchivos.click();
 
-           Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\autoIT\\File.exe");
+           Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\autoIT\\ListasRestrictivas.exe");
            Thread.sleep(2000);
            a.ScreenShotPool(driver, i,  "screen8", nombreAutomatizacion);
            Thread.sleep(1000);
@@ -322,12 +323,12 @@ public class ListasRestrictivas {
            Thread.sleep(1000);
            WebElement opcionLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[1]/div/div/div[3]/div/div")); //despliega las listas disponibles
            opcionLista.click();
-           Thread.sleep(1000);
+           Thread.sleep(2000);
 
            for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
-               WebElement listaNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
+               WebElement listaNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + j + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
 
                String texto = listaNombre.getText();
 
@@ -963,7 +964,7 @@ public class ListasRestrictivas {
 
             for (int j = 1; j <= 1; j++){
 
-                WebElement detalle = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div/div/span/span"));
+                WebElement detalle = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div/div/span/span"));
 
                 System.out.println("prueba-->>>>>"+detalle+" => "+ detalle.isEnabled());
 
