@@ -31,14 +31,14 @@ public class CajaAsociar {
         Thread.sleep(5000);
 
         // Asociar caja a cajero
-        m.UAA_AsociarCajaCajero (driver,a,nombreAutomatizacion);
+        m.UAA_AsociarCajaCajero (driver,i,a,nombreAutomatizacion);
         Thread.sleep(4000);
         a.cambiarVentana(driver);
         Thread.sleep(4000);
-        AsociarCajaCajero(a, driver, cajaAsociarBean); //Busqueda Tercero
+        AsociarCajaCajero(a, driver, cajaAsociarBean, i); //Busqueda Tercero
     }
 
-    public  void AsociarCajaCajero(Metodos a, WebDriver driver, CajaAsociarBean cajaAsociarBean) throws InterruptedException {
+    public  void AsociarCajaCajero(Metodos a, WebDriver driver, CajaAsociarBean cajaAsociarBean, int i ) throws InterruptedException {
 
         Thread.sleep(3000);
         try {
@@ -56,14 +56,14 @@ public class CajaAsociar {
             cajeroSelect.selectByValue(cajaAsociarBean.getCajero());
             Thread.sleep(1000);
 
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(2000);
 
             btnAceptar.click();
             Thread.sleep(3000);
 
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen5", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(2000);
 

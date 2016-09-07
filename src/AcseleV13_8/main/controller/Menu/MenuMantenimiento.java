@@ -116,7 +116,7 @@ public class MenuMantenimiento {
             log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
         }
     }
-        public void UAA_AsociarCajaCajero(WebDriver driver, Metodos a, String nombreAutomatizacion){
+        public void UAA_AsociarCajaCajero(WebDriver driver, int i, Metodos a, String nombreAutomatizacion){
             try{
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//UAA (Administrador de Cuentas Universal)
@@ -124,7 +124,7 @@ public class MenuMantenimiento {
                 menu1.click();
                 menu2.click();
                 Thread.sleep(2000);
-                a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+                a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion); //screenshot2
                 menu3.click();
 
             }catch (Exception e){
