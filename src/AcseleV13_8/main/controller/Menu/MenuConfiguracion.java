@@ -38,7 +38,7 @@ public class MenuConfiguracion {
 
     /** Mantenimiento de Producto **/
 
-    public void MantenimientoProducto(Metodos a, WebDriver driver, String nombreAutomatizacion) {
+    public void MantenimientoProducto(WebDriver driver, String nombreAutomatizacion,int numScreenShoot) {
 
         try {
             Actions action = new Actions(driver);
@@ -49,7 +49,9 @@ public class MenuConfiguracion {
             action.moveToElement(menu1).build().perform();
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            action.moveToElement(menu2).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen"+ numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
             menu2.click();
 
@@ -128,7 +130,7 @@ public class MenuConfiguracion {
 
     /** (Nuevo) Plantillas (Modo No Privilegiado) **/
 
-    public void NuevoPlantillasModoNoPrivilegiado(Metodos a, WebDriver driver, String nombreAutomatizacion) {
+    public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot ) {
 
         try {
             Actions action = new Actions(driver);
@@ -140,7 +142,7 @@ public class MenuConfiguracion {
             Thread.sleep(1000);
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
             menu2.click();
 

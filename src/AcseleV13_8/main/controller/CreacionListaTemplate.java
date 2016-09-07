@@ -34,11 +34,11 @@ public class CreacionListaTemplate {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
-        CrearNuevaLista (driver, a, creacionListaTemplateBean);
+        CrearNuevaLista (driver, a, creacionListaTemplateBean, i);
         driver.close();
         Thread.sleep(1000);
 
@@ -47,16 +47,16 @@ public class CreacionListaTemplate {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/div")).click();
         Thread.sleep(1000);
-        menuMantenimiento.AdminLisRest_CrearListasRestrictivas(a, driver, nombreAutomatizacion);
+        menuMantenimiento.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
-        ListasRestrictivasCreacion (driver, a, creacionListaTemplateBean);
+        ListasRestrictivasCreacion (driver, a, creacionListaTemplateBean, i);
         Thread.sleep(1000);
 
     }
 
-   public void CrearNuevaLista (WebDriver driver, Metodos a, CreacionListaTemplateBean creacionListaTemplateBean) throws IOException, InterruptedException{
+   public void CrearNuevaLista (WebDriver driver, Metodos a, CreacionListaTemplateBean creacionListaTemplateBean, int i) throws IOException, InterruptedException{
 
         try{
             Actions action = new Actions(driver);
@@ -71,13 +71,13 @@ public class CreacionListaTemplate {
             WebElement plantillaPrincipal = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[41]/td/div")); // selecciona la plantilla principal de listas restrictivas
             plantillaPrincipal.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement plantillaListas = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[41]/td/div/span")); //despliega la carpeta con todas las listas restrictivas existentes
             plantillaListas.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnPlantillas = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div/div/div/span[1]/span[2]")); // selecciona el boton plantillas
@@ -88,16 +88,16 @@ public class CreacionListaTemplate {
             Thread.sleep(1000);
             action.moveToElement(opcionAgregar).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
             Thread.sleep(1000);
             opcionAgregar.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
 
             WebElement nombrePlantillaNueva = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[3]/input")); //se agrega el nombre de la nueva plantilla
             nombrePlantillaNueva.sendKeys(creacionListaTemplateBean.getNombrePlantilla());
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button")); //se acacta la creacion de la nueva plantilla
@@ -107,7 +107,7 @@ public class CreacionListaTemplate {
 
 
             //System.out.println("prueba ingreso bucle");
-            for (int i = 1; i <= 50; i++){
+            for (int j = 1; j <= 50; j++){
 
                 //System.out.println("dentro del bucle: " + i);
                 WebElement nuevaPlantilla = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + i + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
@@ -139,7 +139,7 @@ public class CreacionListaTemplate {
             WebElement propiedadLista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[16]/td/div"));// selecciona la propiedad
             propiedadLista.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
             Thread.sleep(1500);
 
             WebElement asociarPropiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div/div/div[1]/button")); //hace click en el incono de asociar propiedad
@@ -147,7 +147,7 @@ public class CreacionListaTemplate {
             Thread.sleep(2000);
 
 
-            for (int i = 1; i <= 50; i++){
+            for (int j = 1; j <= 50; j++){
 
                 System.out.println("dentro del bucle: " + i);
                 WebElement listaPropiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + i + "]/td/div")); //arreglo para desplegar la carpeta de la ultima plantilla creada
@@ -163,7 +163,7 @@ public class CreacionListaTemplate {
                 if (texto.equals(creacionListaTemplateBean.getNombrePlantilla())){
                     listaPropiedadCarpeta.click();
                     Thread.sleep(1000);
-                    a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                  }
@@ -176,7 +176,7 @@ public class CreacionListaTemplate {
             WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div/div/div[9]/button"));
             btnSalvar.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button"));
@@ -192,18 +192,18 @@ public class CreacionListaTemplate {
         }
     }
 
-    public void ListasRestrictivasCreacion (WebDriver driver, Metodos a, CreacionListaTemplateBean creacionListaTemplateBean) throws IOException, InterruptedException{
+    public void ListasRestrictivasCreacion (WebDriver driver, Metodos a, CreacionListaTemplateBean creacionListaTemplateBean, int i) throws IOException, InterruptedException{
 
         try {
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span/span")); //hace click al boton agregar en listas restrictivas
             btnAgregar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen13", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement tipo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div[2]/div/div")); //despliega los tipos de lista disponibles
@@ -213,14 +213,14 @@ public class CreacionListaTemplate {
             WebElement opcion = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td")); // selecciona el tipo de lista
             opcion.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen14", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement nombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div")); //despliega las listas que existen en el tempolate tool
             nombre.click();
             Thread.sleep(1500);
 
-            for (int i = 1; i <= 50; i++){
+            for (int j = 1; j<= 50; j++){
 
                 //System.out.println("dentro del bucle: " + i);
                 WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
@@ -234,7 +234,7 @@ public class CreacionListaTemplate {
                 if (texto.equals(creacionListaTemplateBean.getNombrePlantilla())){
                     opcionNombre.click();
                     Thread.sleep(1000);
-                    a.ScreenShot(driver, "screen15", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
@@ -248,7 +248,7 @@ public class CreacionListaTemplate {
 
             Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\ListasTemplate.exe");  //se importa el archivo cn la data de la nueva lista
             Thread.sleep(1500);
-            a.ScreenShot(driver, "screen16", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
             Thread.sleep(1000);
 
 
@@ -257,7 +257,7 @@ public class CreacionListaTemplate {
             btnAceptar.click();
             Thread.sleep(3000);
 
-            for (int i = 1; i <= 50; i++){
+            for (int j = 1; j <= 50; j++){
 
                 //System.out.println("dentro del bucle: " + i);
                 WebElement nuevaLista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
@@ -270,7 +270,7 @@ public class CreacionListaTemplate {
                 if (texto.equals(creacionListaTemplateBean.getNombrePlantilla())){
                     nuevaLista.click();
                     Thread.sleep(1000);
-                    a.ScreenShot(driver, "screen17", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i,  "screen17", nombreAutomatizacion);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
@@ -285,13 +285,13 @@ public class CreacionListaTemplate {
             WebElement ultimoRegistro = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input")); // selecciona la fecha mas reciente
             ultimoRegistro.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen18", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span")); //gace click al boton aceptar y muestra el detalle del import
             btnAcept.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen19", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen19", nombreAutomatizacion);
 
 
         }catch (Exception e) {

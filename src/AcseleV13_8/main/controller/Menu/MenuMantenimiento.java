@@ -240,7 +240,7 @@ public class MenuMantenimiento {
     /** -- Administracion Central de Riesgo -- **/
 
     /** Administracion de Listas Restrictivas **/
-    public void AdminLisRest_CrearListasRestrictivas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+    public void AdminLisRest_CrearListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
 
         try {
             Actions action = new Actions(driver);
@@ -253,7 +253,7 @@ public class MenuMantenimiento {
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+            this.a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Thread.sleep(100);
             menu3.click();
 

@@ -32,7 +32,7 @@ public class Formulaciones {
         Thread.sleep(8000);
 
 
-        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         AgregarFormulaciones (driver, a, formulacionesBean);

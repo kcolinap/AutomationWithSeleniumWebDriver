@@ -38,11 +38,11 @@ public class ListasRestrictivas {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.AdminLisRest_CrearListasRestrictivas(a, driver, nombreAutomatizacion);
+        m.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
-        ListasRestrictivasCrear (driver, a, listasRestrictivasBean);
+        ListasRestrictivasCrear (driver, a, listasRestrictivasBean, i);
         Thread.sleep(2000);
 
 
@@ -58,7 +58,7 @@ public class ListasRestrictivas {
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
-        CrearCoincidencias (driver, a, listasRestrictivasBean);
+        CrearCoincidencias (driver, a, listasRestrictivasBean, i);
         driver.close();
         Thread.sleep(1500);
 
@@ -89,24 +89,24 @@ public class ListasRestrictivas {
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
-        TrazasCoincidencias (driver, a, listasRestrictivasBean);
+        TrazasCoincidencias (driver, a, listasRestrictivasBean, i);
 
     }
 
 
 
-  public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+  public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
        try {
 
            Thread.sleep(1000);
-           a.ScreenShot(driver,"screen4", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i,"screen4", nombreAutomatizacion);
            Thread.sleep(1000);
 
            WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span/span"));
            btnAgregar.click();
            Thread.sleep(2000);
-           a.ScreenShot(driver,"screen5", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
            Thread.sleep(1000);
 
            WebElement tipo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div[2]/div/div"));
@@ -117,17 +117,17 @@ public class ListasRestrictivas {
           // Thread.sleep(1000);
            opcion.click();
            Thread.sleep(1000);
-           a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
            Thread.sleep(1000);
 
            WebElement nombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div"));
            nombre.click();
            Thread.sleep(1500);
 
-           for (int i = 1; i <= 50; i++){
+           for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
-               WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
+               WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + j + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
 
                String texto = opcionNombre.getText();
 
@@ -138,7 +138,7 @@ public class ListasRestrictivas {
                if (texto.equals(listasRestrictivasBean.getListaNombre())){
                    opcionNombre.click();
                    Thread.sleep(1000);
-                   a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+                   a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
                    System.out.println("Prueba: '" + texto + "' seleccionado");
                    break;
                }
@@ -150,9 +150,9 @@ public class ListasRestrictivas {
            Thread.sleep(1000);
            campoArchivos.click();
 
-           Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\ListasRestrictivas.exe");
-           Thread.sleep(1500);
-           a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+           Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\autoIT\\File.exe");
+           Thread.sleep(2000);
+           a.ScreenShotPool(driver, i,  "screen8", nombreAutomatizacion);
            Thread.sleep(1000);
 
 
@@ -162,10 +162,10 @@ public class ListasRestrictivas {
            Thread.sleep(3000);
 
 
-           for (int i = 1; i <= 50; i++){
+           for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
-               WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
+               WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
                String texto = lista.getText();
 
                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
@@ -175,7 +175,7 @@ public class ListasRestrictivas {
                if (texto.equals(listasRestrictivasBean.getListaNombre())){
                    lista.click();
                    Thread.sleep(1000);
-                   a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+                   a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
                    System.out.println("Prueba: '" + texto + "' seleccionado");
                    break;
                }
@@ -193,19 +193,19 @@ public class ListasRestrictivas {
            Thread.sleep(1000);
            btnConsultar.click();
            Thread.sleep(1500);
-           a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i,  "screen10", nombreAutomatizacion);
 
            WebElement ultimaLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input"));
            ultimaLista.click();
            Thread.sleep(1000);
-           a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
            Thread.sleep(1500);
 
            WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span"));
            Thread.sleep(1000);
            btnAcept.click();
            Thread.sleep(2000);
-           a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
            Thread.sleep(500);
 
            WebElement btnCerrar = driver.findElement(By.xpath("/html/body/div[3]/div[8]/div/div/div[5]/div/div/div[3]/div/div/div/div/span"));
@@ -281,14 +281,14 @@ public class ListasRestrictivas {
                WebElement ultimaLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input"));
                ultimaLista.click();
                Thread.sleep(1000);
-               a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+               a.ScreenShot(driver,  "screen11", nombreAutomatizacion);
                Thread.sleep(1500);
 
                WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span"));
                Thread.sleep(1000);
                btnAcept.click();
                Thread.sleep(2000);
-               a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+               a.ScreenShot(driver,  "screen12", nombreAutomatizacion);
                Thread.sleep(500);
 
                WebElement btnCerrar = driver.findElement(By.xpath("/html/body/div[3]/div[8]/div/div/div[5]/div/div/div[3]/div/div/div/div/span"));
@@ -306,25 +306,25 @@ public class ListasRestrictivas {
    }
 
 
-   public void CrearCoincidencias (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+   public void CrearCoincidencias (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
 
        try {
            a.changeLastWindows(driver);
            Thread.sleep(2000);
-           a.ScreenShot(driver, "screen13-1", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i,  "screen13-1", nombreAutomatizacion);
            Thread.sleep(1000);
            WebElement btnAgregarCoinc = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span")); // hace click al boton  agregar en coincidencias
            btnAgregarCoinc.click();
            Thread.sleep(1000);
 
-           a.ScreenShot(driver, "screen14", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
            Thread.sleep(1000);
            WebElement opcionLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[1]/div/div/div[3]/div/div")); //despliega las listas disponibles
            opcionLista.click();
            Thread.sleep(1000);
 
-           for (int i = 1; i <= 50; i++){
+           for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
                WebElement listaNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + i + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
@@ -338,7 +338,7 @@ public class ListasRestrictivas {
                if (texto.equals(listasRestrictivasBean.getListaNombre())){
                    listaNombre.click();
                    Thread.sleep(1000);
-                   a.ScreenShot(driver, "screen15", nombreAutomatizacion);
+                   a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
                    System.out.println("Prueba: '" + texto + "' seleccionado");
                    break;
                }
@@ -354,22 +354,22 @@ public class ListasRestrictivas {
 
            WebElement tipoCoinc = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td"));
            Thread.sleep(1000);
-           a.ScreenShot(driver, "screen16", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
            Thread.sleep(1000);
            tipoCoinc.click();
            Thread.sleep(2000);
-           a.ScreenShot(driver, "screen17", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
 
            WebElement primeraopcion = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[4]/div/select/option[1]"));
            primeraopcion.click();
            Thread.sleep(1000);
-           a.ScreenShot(driver, "screen18", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
            Thread.sleep(1000);
 
            WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span/span"));
            btnSeleccionar.click();
            Thread.sleep(1000);
-           a.ScreenShot(driver, "screen19", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen19", nombreAutomatizacion);
            Thread.sleep(1000);
 
            WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/span/span"));
@@ -381,7 +381,7 @@ public class ListasRestrictivas {
            WebElement ultimaCoinc = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div"));
            ultimaCoinc.click();
            Thread.sleep(1000);
-           a.ScreenShot(driver, "screen20", nombreAutomatizacion);
+           a.ScreenShotPool(driver, i, "screen20", nombreAutomatizacion);
 
 
 
@@ -924,7 +924,7 @@ public class ListasRestrictivas {
         }
     }
 
-    public void TrazasCoincidencias(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void TrazasCoincidencias(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
         try{
             a.changeLastWindows(driver);
@@ -946,7 +946,7 @@ public class ListasRestrictivas {
             fechaHastaTraza.sendKeys(listasRestrictivasBean.getFechaHastaTraza());
             Thread.sleep(1500);
 
-            a.ScreenShot(driver, "screen33", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen33", nombreAutomatizacion);
 
             Thread.sleep(1000);
 
@@ -961,7 +961,7 @@ public class ListasRestrictivas {
             Thread.sleep(1000);
 */
 
-            for (int i = 1; i <= 1; i++){
+            for (int j = 1; j <= 1; j++){
 
                 WebElement detalle = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + i + "]/td[1]/div/div/span/span"));
 
@@ -975,7 +975,7 @@ public class ListasRestrictivas {
              Thread.sleep(1000);
         //    detalle.click();
             Thread.sleep(1500);
-            a.ScreenShot(driver, "screen34", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen34", nombreAutomatizacion);
 
 
         }catch (Exception e) {
