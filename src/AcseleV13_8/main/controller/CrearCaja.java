@@ -30,7 +30,7 @@ public class CrearCaja {
         Thread.sleep(5000);
 
         // Consulta Caja
-        m.UAA_Caja(driver,a,nombreAutomatizacion);
+        m.UAA_Caja(driver, i, a, nombreAutomatizacion);
         //IngresarMenuConsultarCaja(driver, a); //Menu
         Thread.sleep(3000);
         a.cambiarVentana(driver);
