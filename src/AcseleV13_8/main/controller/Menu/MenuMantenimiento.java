@@ -99,7 +99,7 @@ public class MenuMantenimiento {
         public void UAA_HerenciRoles(){}
         public void UAA_Documentos(){}
         public void UAA_RolesDocumentos(){}
-        public void UAA_Caja(WebDriver driver, Metodos a, String nombrePrueba){
+        public void UAA_Caja(WebDriver driver, int i, Metodos a, String nombrePrueba){
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -107,7 +107,7 @@ public class MenuMantenimiento {
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[4]"));//
             menu1.click();
             menu2.click();
-            a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+            a.ScreenShotPool(driver, i , "screen3", nombrePrueba); //screenshot2
             menu3.click();
 
         } catch (Exception e){
