@@ -128,7 +128,7 @@ public class MenuOperaciones {
 
         public void OpeSini_MantenimientoSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion) {
+    public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion, int i) {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -138,7 +138,7 @@ public class MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             menu3.click();
         }catch (Exception e) {
             e.printStackTrace();
