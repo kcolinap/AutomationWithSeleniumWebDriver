@@ -36,17 +36,17 @@ public class ObjetarCobertura {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion);
+        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, objetarCoberturaBean);
-        ResultadoBusqueda(driver, a, objetarCoberturaBean);
-        AgregarObjetoAfectado(driver, a, objetarCoberturaBean);
-        AgregarCobertura(driver, a, objetarCoberturaBean);
+        BuscarPoliza(driver, a, objetarCoberturaBean, i);
+        ResultadoBusqueda(driver, a, objetarCoberturaBean, i);
+        AgregarObjetoAfectado(driver, a, objetarCoberturaBean, i);
+        AgregarCobertura(driver, a, objetarCoberturaBean,i);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -195,7 +195,7 @@ public class ObjetarCobertura {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen4",nombreAutomatizacion);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchformpolicy_01\"]"));
             btnBuscar.click();
@@ -209,7 +209,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean){
+    public void ResultadoBusqueda (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
@@ -229,7 +229,7 @@ public class ObjetarCobertura {
             driver.switchTo().defaultContent();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
 
             WebElement btnSelecUnidadesRiesgo = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_02\"]"));
             btnSelecUnidadesRiesgo.click();
@@ -240,7 +240,7 @@ public class ObjetarCobertura {
             selecUnidadRiesgo.click();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool( driver, i,"screen6", nombreAutomatizacion);
 
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
@@ -257,7 +257,7 @@ public class ObjetarCobertura {
             selecEvento.click();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7",nombreAutomatizacion);
 
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
@@ -268,7 +268,7 @@ public class ObjetarCobertura {
             btnAceptar.click();
 
             Thread.sleep(25000);
-            a.ScreenShot(driver,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -277,7 +277,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -359,7 +359,7 @@ public class ObjetarCobertura {
                 observacionesSiniestro.sendKeys(objetarCoberturaBean.getObservacionesSiniestro());
             }
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -372,7 +372,7 @@ public class ObjetarCobertura {
             Thread.sleep(15000);
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen10",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen10",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -381,7 +381,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean){
+    public void AgregarCobertura (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
         try{
 
             Thread.sleep(2000);
@@ -409,7 +409,7 @@ public class ObjetarCobertura {
             monedaSiniestro.selectByValue(objetarCoberturaBean.getMonedaSiniestro());
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen11",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen11",nombreAutomatizacion);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
@@ -460,7 +460,7 @@ public class ObjetarCobertura {
             }
 
             Thread.sleep(10000);
-            a.ScreenShot(driver,"screen12",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion);
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_contextPageClaimTool_01\"]"));
             btnAceptar.click();
 
@@ -499,7 +499,7 @@ public class ObjetarCobertura {
             }
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen13",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen13",nombreAutomatizacion);
             // Salir del frame
             //driver.switchTo().parentFrame();
             driver.switchTo().defaultContent();
@@ -507,7 +507,7 @@ public class ObjetarCobertura {
             WebElement btnAceptar2 = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
             btnAceptar2.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen14",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen14",nombreAutomatizacion);
 
 
         }catch (Exception e) {
