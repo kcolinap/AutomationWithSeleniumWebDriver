@@ -43,7 +43,7 @@ public class CajaAperturar {
 
     public void AperturarCaja(Metodos a, WebDriver driver, CajaAperturarBean cajaAperturarBean) throws InterruptedException {
 
-        Thread.sleep(3000);
+        Thread.sleep(8000);
         try {
 
             Select numCajaSelect = new Select(driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[4]/td[2]/select")));
