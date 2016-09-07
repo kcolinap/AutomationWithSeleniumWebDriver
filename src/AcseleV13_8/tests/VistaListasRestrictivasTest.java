@@ -17,6 +17,20 @@ import java.util.ArrayList;
  */
 public class VistaListasRestrictivasTest {
 
+    /**
+     *El import del archivo con extension xlsx se realiza usando el programa AutoIT
+     * se creo un sript que contiene las siguientes especificaciones:
+
+     * ControlFocus("Abrir", "", "Edit1")
+     * ControlSetText("Abrir", "", "Edit1", "C:\Program Files (x86)\Google\Chrome\Application\52.0.2743.116\PruebaAutomatizacion.xlsx")
+     * ControlClick("Abrir", "", "Button1")
+
+     *una vez creado el archivo se guarda en cualquier ruta para que sea llamado por selenium, preferiblemente en la carpeta del proyecto
+     * se debe compilar el mismo para que genere un .exe
+     * mas informacion de este proceso en el link http://www.guru99.com/use-autoit-selenium.html
+
+     */
+
     private final static Logger log = Logger.getLogger(VistaRechazarPagoSiniestrosTest.class);
 
     @Test
