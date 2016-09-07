@@ -51,7 +51,7 @@ public class Metodos {
 
         // Ruta a ingresar
 
-        String ruta = "http://qa:7001/WController//";
+        String ruta = "http://arq05:7001/WController";
         driver.get(ruta);
 
         driver.manage().window().maximize();
@@ -60,7 +60,7 @@ public class Metodos {
 
     public void ScreenShot(WebDriver getDriver, String titulo, String nombrePrueba) throws InterruptedException, IOException {
         String rutaScreen = "C:\\ScrenShots\\";
-        String rutaPrueba = nombrePrueba;
+        //String rutaPrueba = nombrePrueba;
         TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + titulo + ".png"));
@@ -75,7 +75,7 @@ public class Metodos {
         System.out.println("tomando screenshot "+titulo);
     }
 
-    public void ValidandoSesion(WebDriver getDriver, String nombrePrueba) throws InterruptedException, IOException {
+    public void ValidandoSesion(WebDriver getDriver, String nombrePrueba, int i) throws InterruptedException, IOException {
 
         System.out.println("Verificando si ya estaba logeado el usuario");
         if (getDriver.getTitle().equals("Acsel-e Workflow")){
@@ -87,20 +87,22 @@ public class Metodos {
             System.out.println("Cerrando la otra sesion");
             //Screenshot
             ScreenShot(getDriver, "screen1-1", nombrePrueba);
+            ScreenShotPool(getDriver, i, "screen1-1", nombrePrueba);
 
             WebElement acep = getDriver.findElement(By.name("SecuritySubmit"));
             acep.click();
-            WebElement menuUsuario = getDriver.findElement(By.xpath("/html/body/div[3]/div[5]"));
-            WebElement menuSalir = getDriver.findElement(By.xpath("/html/body/div[50]/div[3]"));
+
+            /*WebElement menuUsuario = getDriver.findElement(By.xpath("/html/body/div[3]/div[5]"));
+            WebElement menuSalir = getDriver.findElement(By.xpath("/html/body/div[51]/div[3]"));
             menuUsuario.click();
             menuSalir.click();
-            IniciarSesion(getDriver, nombrePrueba);
+            IniciarSesion(getDriver, nombrePrueba);*/
         }
         System.out.println("Ahora esta logeado");
         Thread.sleep(5000);
     }
 
-    public void IniciarSesion(WebDriver getDriver, String nombrePrueba) throws IOException, InterruptedException {
+    public void IniciarSesion(WebDriver getDriver, String nombrePrueba, int i) throws IOException, InterruptedException {
         WebElement user2 = getDriver.findElement(By.name("SecurityLogin"));
         WebElement password2= getDriver.findElement(By.name("SecurityPassword"));
         Select instance2= new Select(getDriver.findElement(By.name("USER_PREFERENCE_COUNTRY_NAME")));
@@ -115,6 +117,7 @@ public class Metodos {
         language2.selectByValue("es");
         //Screenshot
         ScreenShot(getDriver, "screen1", nombrePrueba);
+        ScreenShotPool(getDriver, i, "screen1", nombrePrueba);
         /*TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         String rutaScreen = "C:\\ScrenShots\\";//"./Screenshot/";

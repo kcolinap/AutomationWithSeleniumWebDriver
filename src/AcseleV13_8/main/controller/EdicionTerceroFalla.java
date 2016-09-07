@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EdicionTercerosFallaBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,25 +16,25 @@ import java.io.IOException;
 // Cambio de Documento de Identidad por uno existente
 public class EdicionTerceroFalla {
 
+    public String nombreAutomatizacion ="Edicion Terceros Falla";
 
-    public void testLink(EdicionTercerosFallaBean edicionTercerosFallaBean)throws Exception {
+    public void testLink(EdicionTercerosFallaBean edicionTercerosFallaBean, int i)throws Exception {
 
-        String nombreAutomatizacion ="Edicion Terceros Falla";
 
+
+        // Instanciando clases
         Metodos a= new Metodos();   //implementando metodos.
+        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//ingresar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-        menu3.click();
+        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+
+        Thread.sleep(1000);
         a.cambiarVentana(driver); // Cambiar de ventana
 
         BuscarTercero(a, driver, nombreAutomatizacion, edicionTercerosFallaBean);

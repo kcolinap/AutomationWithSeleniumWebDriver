@@ -137,7 +137,8 @@ public class MenuConfiguracion {
             Thread.sleep(1000);
 
             action.moveToElement(menu1).build().perform();
-
+            Thread.sleep(1000);
+            action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
             a.ScreenShot(driver, "screen3", nombreAutomatizacion);
             Thread.sleep(1000);
@@ -151,6 +152,8 @@ public class MenuConfiguracion {
         }
 
     }
+
+
     /** -- (Nuevo) Plantillas (Modo No Privilegiado) -- **/
 
     /** (Nuevo) Plantillas (Modo Privilegiado) **/

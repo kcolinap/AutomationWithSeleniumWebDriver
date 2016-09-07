@@ -3,6 +3,7 @@ package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EdicionTercerosBean;
 import AcseleV13_8.beans.TercerosDireccionesBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,15 +22,19 @@ public class TercerosDirecciones {
     public void testLink(TercerosDireccionesBean tercerosDireccionesBean, int i)throws Exception{
 
 
-        //implementando clase de metodos
+        // Instanciando clases
         Metodos a = new Metodos();
+        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
+        //Entrando en Menu
+        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+
         // Consulta del Tercero Creado
-        IngresarMenuBuscarTercero(driver, a); //Menu
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
@@ -45,32 +50,13 @@ public class TercerosDirecciones {
         driver.close();
         a.regresarVentana(driver);
 
-        IngresarMenuBuscarTercero(driver, a);
+        //Entrando en Menu
+        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 15);
         a.cambiarVentana(driver);
 
         BusquedaT(a, driver, tercerosDireccionesBean);
         BotonEditar(a, driver);
 
-    }
-
-    public void IngresarMenuIngresarTercero(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[1]"));//ingresar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-        menu3.click();
-    }
-
-    public void IngresarMenuBuscarTercero(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//buscar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
-        menu3.click();
     }
 
     public void CreacionT(Metodos a, WebDriver driver, EdicionTercerosBean edicionTercerosBean) throws InterruptedException, IOException {

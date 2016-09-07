@@ -1,5 +1,6 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -7,11 +8,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 27/05/2016.
  */
 public class EstadoCuentasBean implements Serializable {
+
+    private final static Logger log = Logger.getLogger(EstadoCuentasBean.class);
 
     //TIPO_TERCERO, NUM_DOCUMENTO_IDENTIFICACION, PRIMER_NOMBRE, PRIMER_APELLIDO, NUM_POLIZA, MONEDA, PRODUCTO
 
@@ -79,9 +83,45 @@ public class EstadoCuentasBean implements Serializable {
         this.producto = producto;
     }
 
+    public static ArrayList getEstadoCuentas() throws SQLException{
 
+        Connection conn = null;
+        Statement stmt;
+        ResultSet rs;
+        ArrayList edoCuentas = new ArrayList();
 
-    public static EstadoCuentasBean getEstadoCuentas(){
+        StringBuilder queryLoad = new StringBuilder();
+        queryLoad.append("SELECT PRUEBA, TIPO_TERCERO, NUM_DOCUMENTO_IDENTIFICACION, PRIMER_NOMBRE, PRIMER_APELLIDO, NUM_POLIZA, MONEDA, PRODUCTO FROM ESTADO_CUENTA");
+
+        try {
+            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(queryLoad.toString());
+
+            while (rs.next()) {
+                EstadoCuentasBean estadoCuentasBean = new EstadoCuentasBean();
+
+                estadoCuentasBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                estadoCuentasBean.setNumDocIdentificacion(rs.getString("NUM_DOCUMENTO_IDENTIFICACION"));
+                estadoCuentasBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
+                estadoCuentasBean.setPrimerApellido(rs.getString("PRIMER_APELLIDO"));
+                estadoCuentasBean.setNumPoliza(rs.getString("NUM_POLIZA"));
+                estadoCuentasBean.setMoneda(rs.getString("MONEDA"));
+                estadoCuentasBean.setProducto(rs.getString("PRODUCTO"));
+
+                edoCuentas.add(estadoCuentasBean);
+            }
+        }catch(SQLException e){
+            log.error(e);
+        }finally{
+            if (conn != null){
+                conn.close();
+            }
+        }
+        return edoCuentas;
+    }
+
+/*    public static EstadoCuentasBean getEstadoCuentas(){
 
         Connection conn;
         Statement stmt;
@@ -111,6 +151,6 @@ public class EstadoCuentasBean implements Serializable {
             //conn.close();
         }
         return estadoCuentasBean;
-    }
+    }*/
 
 }

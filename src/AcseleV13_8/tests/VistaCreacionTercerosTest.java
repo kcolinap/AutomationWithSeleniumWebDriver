@@ -2,27 +2,46 @@ package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.CreacionTercerosBean;
 import AcseleV13_8.main.controller.CreacionTerceros;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 30/05/2016.
  */
 public class VistaCreacionTercerosTest {
 
+    private final static Logger log = Logger.getLogger(VistaCreacionTercerosTest.class);
+
     @Test
     //@Transactional
-    public void mainTest() {
+    public void mainTest() throws SQLException {
 
-        CreacionTercerosBean creacionTercerosBean = CreacionTercerosBean.getCreacionTerceros();
+        ArrayList creacionTerceros = CreacionTercerosBean.getCreacionTerceros();
+
+        for (int i = 0; i < creacionTerceros.size(); i++) {
+            CreacionTercerosBean creacionTercerosBean = (CreacionTercerosBean) creacionTerceros.get(i);
+            CreacionTerceros a = new CreacionTerceros();
+
+            try {
+                a.testLink(creacionTercerosBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
+        }
+/*        CreacionTercerosBean creacionTercerosBean = CreacionTercerosBean.getCreacionTerceros();
         CreacionTerceros a = new CreacionTerceros();
         try {
             a.testLink(creacionTercerosBean);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

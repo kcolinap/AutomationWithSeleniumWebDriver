@@ -3,29 +3,47 @@ package AcseleV13_8.tests;
 import AcseleV13_8.beans.PolizaBean;
 
 import AcseleV13_8.main.controller.ConsultaPolizaSimple;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 19/05/2016.
  */
 public class VistaConsultaPolizaSimpleTest {
 
-    //private static final AcseleLogger log = AcseleLogger.getLogger(Appointment.class);
+    private final static Logger log = Logger.getLogger(VistaConsultaPolizaSimpleTest.class);
 
     @Test
     //@Transactional
-    public void mainTest() {
+    public void mainTest() throws SQLException {
 
-        PolizaBean polizaBean = PolizaBean.getPoliza();
+        ArrayList poliza = PolizaBean.getPoliza();
+
+        for (int i = 0; i < poliza.size(); i++) {
+
+            PolizaBean polizaBean = (PolizaBean) poliza.get(i);
+            ConsultaPolizaSimple a = new ConsultaPolizaSimple();
+
+            try {
+                a.testLink(polizaBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
+        }
+/*        PolizaBean polizaBean = PolizaBean.getPoliza();
         ConsultaPolizaSimple a = new ConsultaPolizaSimple();
         try {
-           a.testLink(polizaBean);
+           a.testLink(polizaBean, i);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

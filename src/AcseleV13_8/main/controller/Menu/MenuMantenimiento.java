@@ -25,8 +25,58 @@ public class MenuMantenimiento {
     /** -- Mantenimiento de Tercero (Wcontroller) -- **/
 
     /** Mantenimiento de Tercero **/
-        public void MantTerc_IngresarTercero(){}
-        public void MantTerc_BuscarTercero(){}
+
+        public void MantTerc_IngresarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//Mantenimiento de terceros
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[1]"));//ingresar tercero
+                Thread.sleep(1000);
+
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion);
+                Thread.sleep(1000);
+                menu3.click();
+
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
+
+        public void MantTerc_BuscarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//Mantenimiento de terceros
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[2]"));//Buscar tercero
+                Thread.sleep(1000);
+
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                action.moveToElement(menu3).build().perform();
+
+                Thread.sleep(1000);
+                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion);
+                Thread.sleep(1000);
+                menu3.click();
+
+
+            }catch (Exception e) {
+                e.printStackTrace();
+//                log.info(e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
+        }
+
     /** -- Mantenimiento de Tercero -- **/
 
     /** Declaracion Personal de Salud (DPS) **/
@@ -49,7 +99,7 @@ public class MenuMantenimiento {
         public void UAA_HerenciRoles(){}
         public void UAA_Documentos(){}
         public void UAA_RolesDocumentos(){}
-        public void UAA_Caja(WebDriver driver, Metodos a, String nombrePrueba){
+        public void UAA_Caja(WebDriver driver, int i, Metodos a, String nombrePrueba){
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -57,7 +107,7 @@ public class MenuMantenimiento {
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[4]"));//
             menu1.click();
             menu2.click();
-            a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+            a.ScreenShotPool(driver, i , "screen3", nombrePrueba); //screenshot2
             menu3.click();
 
         } catch (Exception e){
@@ -66,7 +116,23 @@ public class MenuMantenimiento {
             log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
         }
     }
-        public void UAA_AsociarCajaCajero(){}
+        public void UAA_AsociarCajaCajero(WebDriver driver, int i, Metodos a, String nombreAutomatizacion){
+            try{
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[5]"));//Asociar Caja con Cajero
+                menu1.click();
+                menu2.click();
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion); //screenshot2
+                menu3.click();
+
+            }catch (Exception e){
+                e.printStackTrace();
+//             log.info(e);
+                log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
+            }
+        }
         public void UAA_Moneda(){}
         public void UAA_TasaCambio(){}
         public void UAA_Banco(){}
@@ -185,7 +251,31 @@ public class MenuMantenimiento {
         public void Aud_MantenimientoAuditoria(){}
         public void Aud_MantenimientoSLA(){}
         public void Aud_TrazasAuditoria(){}
-        public void Aud_TrazasAuditoriaVaadin(){}
+        public void Aud_TrazasAuditoriaVaadin( WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+
+            try {
+
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[10]")); // Auditoria
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[45]/div[4]")); // Trazas de Auditoria (Vaadin)
+            menu1.click();
+            menu2.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+            menu3.click();
+        }catch (Exception e){
+        e.printStackTrace();
+//             log.info(e);
+        log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+    }
+}
+
+
     /** -- Auditoria -- **/
 
     /** HCM **/
@@ -218,8 +308,52 @@ public class MenuMantenimiento {
     /** -- Administracion Central de Riesgo -- **/
 
     /** Administracion de Listas Restrictivas **/
-        public void AdminLisRest_CrearListasRestrictivas(){}
-        public void AdminLisRest_CoincidenciaListasRestrictivas(){}
+    public void AdminLisRest_CrearListasRestrictivas(Metodos a, WebDriver driver, String nombreAutomatizacion){
+
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[1]"));// Crear Listas Restrictivas
+          //  this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+            menu1.click();
+            menu2.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+            Thread.sleep(100);
+            menu3.click();
+
+        } catch (Exception e){
+            e.printStackTrace();
+//             log.info(e);
+            log.info("Menu listas Restrictivas " + e);
+        }
+    }
+        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
+                menu1.click();
+                menu2.click();
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
+                this.a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                Thread.sleep(1000);
+                menu3.click();
+
+            } catch (Exception e){
+                e.printStackTrace();
+//             log.info(e);
+                log.info("Menu listas Restrictivas " + e);
+            }
+
+
+        }
         public void AdminLisRest_ConfiguracionPropiedades(){}
     /** -- Administracion de Listas Restrictivas -- **/
 

@@ -24,8 +24,8 @@ public class ConsultaPolizaAvanzada {
 
         Metodos a= new Metodos();   //implementando metodos.
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu

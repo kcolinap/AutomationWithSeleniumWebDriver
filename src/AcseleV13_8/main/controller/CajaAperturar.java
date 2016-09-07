@@ -26,8 +26,8 @@ public class CajaAperturar {
         Metodos a = new Metodos();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
         // Asociar caja a cajero
@@ -36,14 +36,14 @@ public class CajaAperturar {
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
-        AperturarCaja(a, driver, cajaAperturarBean); //Busqueda Tercero
+        AperturarCaja(a, driver, cajaAperturarBean, i); //Busqueda Tercero
         a.cambiarVentana(driver);
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
     }
 
-    public void AperturarCaja(Metodos a, WebDriver driver, CajaAperturarBean cajaAperturarBean) throws InterruptedException {
+    public void AperturarCaja(Metodos a, WebDriver driver, CajaAperturarBean cajaAperturarBean, int i) throws InterruptedException {
 
-        Thread.sleep(3000);
+        Thread.sleep(8000);
         try {
 
             Select numCajaSelect = new Select(driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[4]/td[2]/select")));
@@ -54,7 +54,7 @@ public class CajaAperturar {
             numCajaSelect.selectByValue(cajaAperturarBean.getNumCaja());
             Thread.sleep(1000);
 
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(2000);
             btnAceptar.click();

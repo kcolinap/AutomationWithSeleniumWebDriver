@@ -23,9 +23,9 @@ public class EmisionPolizaBeneficiarioNatural {
 
     public void testLink(EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, int i) throws IOException, InterruptedException {
 
-        //implementando clases
+        // Instanciando clases
         Metodos a = new Metodos();
-        MenuOperaciones m = new MenuOperaciones();
+        MenuOperaciones menuOperaciones = new MenuOperaciones();
         AdminitracionPropuestaPoliza adminitracionPropuestaPoliza = new AdminitracionPropuestaPoliza();
 
         InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
@@ -35,13 +35,13 @@ public class EmisionPolizaBeneficiarioNatural {
         BeneficiarioNatural beneficiarioNatural = new BeneficiarioNatural();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(2000);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
         // Creación de Póliza
-        m.OpePol_Crear(driver, nombreAutomatizacion, 2);
+        menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2);
 
         Thread.sleep(2000);
         a.cambiarVentana(driver);
