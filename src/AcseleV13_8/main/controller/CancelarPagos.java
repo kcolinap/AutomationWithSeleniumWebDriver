@@ -37,16 +37,16 @@ public class CancelarPagos {
         m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, cancelarPagosBean);
-        ResultadoBusqueda(driver, a, cancelarPagosBean);
-        AgregarObjetoAfectado(driver, a, cancelarPagosBean);
-        AgregarCobertura(driver, a, cancelarPagosBean);
-        AgregarRequisitos(driver, a, cancelarPagosBean);
-        AgregarPagos(driver, a, cancelarPagosBean);
+        BuscarPoliza(driver, a, cancelarPagosBean,i);
+        ResultadoBusqueda(driver, a, cancelarPagosBean,i);
+        AgregarObjetoAfectado(driver, a, cancelarPagosBean, i);
+        AgregarCobertura(driver, a, cancelarPagosBean, i);
+        AgregarRequisitos(driver, a, cancelarPagosBean, i);
+        AgregarPagos(driver, a, cancelarPagosBean, i);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean, int i ) throws IOException, InterruptedException{
 
         try {
 
@@ -195,7 +195,7 @@ public class CancelarPagos {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchformpolicy_01\"]"));
             btnBuscar.click();
@@ -209,7 +209,7 @@ public class CancelarPagos {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean){
+    public void ResultadoBusqueda (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
@@ -229,7 +229,7 @@ public class CancelarPagos {
             driver.switchTo().defaultContent();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5",nombreAutomatizacion);
 
             WebElement btnSelecUnidadesRiesgo = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_02\"]"));
             btnSelecUnidadesRiesgo.click();
@@ -240,7 +240,7 @@ public class CancelarPagos {
             selecUnidadRiesgo.click();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
@@ -257,7 +257,7 @@ public class CancelarPagos {
             selecEvento.click();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
 
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
@@ -268,7 +268,7 @@ public class CancelarPagos {
             btnAceptar.click();
 
             Thread.sleep(25000);
-            a.ScreenShot(driver,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -277,7 +277,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean){
+    public void AgregarObjetoAfectado (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean, int i){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -359,7 +359,7 @@ public class CancelarPagos {
                 observacionesSiniestro.sendKeys(cancelarPagosBean.getObservacionesSiniestro());
             }
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen9",nombreAutomatizacion);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -372,7 +372,7 @@ public class CancelarPagos {
             Thread.sleep(15000);
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen10",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen10",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -381,7 +381,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean){
+    public void AgregarCobertura (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean, int i){
         try{
 
             Thread.sleep(2000);
@@ -409,7 +409,7 @@ public class CancelarPagos {
             monedaSiniestro.selectByValue(cancelarPagosBean.getMonedaSiniestro());
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen11",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen11",nombreAutomatizacion);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
@@ -478,7 +478,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarRequisitos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean){
+    public void AgregarRequisitos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean, int i){
         try {
 
             Thread.sleep(6000);
@@ -497,7 +497,7 @@ public class CancelarPagos {
             WebElement btnRecibido = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/thead/tr/th[3]/input"));
             btnRecibido.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen12",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion);
 
             Thread.sleep(2000);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_requisites_02\"]"));
@@ -511,7 +511,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarPagos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean){
+    public void AgregarPagos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean, int i){
         try {
             Thread.sleep(5000);
             Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));
@@ -526,21 +526,21 @@ public class CancelarPagos {
             btnPagos.click();
 
             Thread.sleep(20000);
-            a.ScreenShot(driver,"screen13",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen13",nombreAutomatizacion);
             WebElement tercerosPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
             tercerosPoliza.click();
 
             Thread.sleep(15000);
             WebElement seleccionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
             seleccionTercero.click();
-            a.ScreenShot(driver,"screen14",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen14",nombreAutomatizacion);
 
             Thread.sleep(4000);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_resultClaimThirdParty_01\"]"));
             btnEnviar.click();
 
             Thread.sleep(15000);
-            a.ScreenShot(driver,"screen15",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen15",nombreAutomatizacion);
             WebElement btnEditar = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]"));
             btnEditar.click();
             Thread.sleep(10000);
@@ -600,7 +600,7 @@ public class CancelarPagos {
 
 
             Thread.sleep(15000);
-            a.ScreenShot(driver,"screen17",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen17",nombreAutomatizacion);
 
             Thread.sleep(3000);
             WebElement btnEnviar2 = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
@@ -629,7 +629,7 @@ public class CancelarPagos {
             Select sucursalSiniestros = new Select(driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select")));
             sucursalSiniestros.selectByValue(cancelarPagosBean.getSucursalSiniestros());
             Thread.sleep(3000);
-            a.ScreenShot(driver,"screen18",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen18",nombreAutomatizacion);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[5]/td/button"));
             btnAceptar.click();
@@ -645,7 +645,7 @@ public class CancelarPagos {
                 driver.switchTo().defaultContent();
             }*/
             Thread.sleep(3000);
-            a.ScreenShot(driver,"screen19",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen19",nombreAutomatizacion);
 
             WebElement btnSeleccionar2 = driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]"));
             btnSeleccionar2.click();
@@ -665,7 +665,7 @@ public class CancelarPagos {
             }
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen20",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen20",nombreAutomatizacion);
 
 
         }catch (Exception e) {

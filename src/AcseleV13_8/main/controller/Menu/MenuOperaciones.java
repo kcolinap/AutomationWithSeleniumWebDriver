@@ -173,7 +173,7 @@ public class MenuOperaciones {
                 menu1.click();
                 menu2.click();
                 Thread.sleep(2000);
-                a.ScreenShotPool(driver,i, "screen3",nombreAutomatizacion);
+                a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
                 Thread.sleep(4000);
                 menu3.click();
 
