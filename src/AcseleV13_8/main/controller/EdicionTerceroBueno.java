@@ -42,59 +42,90 @@ public class EdicionTerceroBueno {
 
     public void BuscarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, EdicionTercerosBuenosBean edicionTercerosBuenosBean)
             throws InterruptedException, IOException {
+
+        //TipoElemento[@wicketpath='WicketpathElemento']
         Thread.sleep(4000);
         String title = driver.getTitle();
         System.out.println("Titulo de la pagina: " + title);
+
+        Thread.sleep(1000);
         //Tipo de tercero
-        Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
-        tipoT.selectByValue(edicionTercerosBuenosBean.getTipoTercero());
-        Thread.sleep(2000);
+        if (edicionTercerosBuenosBean.getTipoTercero() != null){
+            Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
+            tipoT.selectByValue(edicionTercerosBuenosBean.getTipoTercero());
+            Thread.sleep(1000);
+        }
 
-        //WebElement cedu = getDriver().findElement(By.name("templateThird:repeaterPanel1:2:fila:field"));
-        WebElement cedu = driver.findElement(By.xpath("//*[@id=\"id16\"]"));
-        cedu.sendKeys(edicionTercerosBuenosBean.getCedula());
+        if (edicionTercerosBuenosBean.getTipoDocIdentidad() != null){
+            Select cedu = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+            cedu.selectByValue(edicionTercerosBuenosBean.getTipoDocIdentidad());
+            Thread.sleep(1000);
+        }
 
-        WebElement nTercero = driver.findElement(By.name("templateThird:repeaterPanel1:3:fila:field"));
-        nTercero.sendKeys(edicionTercerosBuenosBean.getNombre());
-        /*WebElement aTercero = driver.findElement(By.name("templateThird:repeaterPanel1:5:fila:field"));
-        aTercero.sendKeys(edicionTercerosBuenosBean.getApellido());*/
+        if (edicionTercerosBuenosBean.getCedula() != null){
+            WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+            cedu.sendKeys(edicionTercerosBuenosBean.getCedula());
+            Thread.sleep(1000);
+        }
+
+        if (edicionTercerosBuenosBean.getNombre() != null){
+            WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
+            nTercero.sendKeys(edicionTercerosBuenosBean.getNombre());
+            Thread.sleep(1000);
+        }
 
         //Screenshot
+        Thread.sleep(1000);
         a.ScreenShot(driver, "screen3", nombreAutomatizacion);
 
-        WebElement buscar = driver.findElement(By.name("searchButton"));
+        WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
         buscar.click();
         Thread.sleep(3000);
 
 
 
-        WebElement selccionTercero = driver.findElement(By.name("SearchContent:ThirdInformation:showDetailSearchTable:proof:ThirdPartyRadioGroup"));
+        WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
         selccionTercero.click();
 
         //Screenshot
+        Thread.sleep(1000);
         a.ScreenShot(driver, "screen4", nombreAutomatizacion);
 
         // Boton Editar
-        WebElement consultar = driver.findElement(By.name("associateButton"));
+        WebElement consultar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
         consultar.click();
 
-        Thread.sleep(5000);
+        Thread.sleep(1000);
+        /** Espere **/
+        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera.isDisplayed()) {
+            Thread.sleep(5000);
+            System.out.println("Espera 1");
+        }
 
         //Screenshot
+        Thread.sleep(1000);
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
 
-        // Cambiar Nombre
-        driver.findElement(By.name("DataTemplate:repeaterPanel1:3:fila:field")).clear();
-        driver.findElement(By.name("DataTemplate:repeaterPanel1:3:fila:field")).sendKeys(edicionTercerosBuenosBean.getNombreNuevo());
+        if (edicionTercerosBuenosBean.getNombreNuevo() != null){
+            // Cambiar Nombre
+            driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_3_fila_field']")).clear();
+            driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_3_fila_field']")).sendKeys(edicionTercerosBuenosBean.getNombreNuevo());
+            Thread.sleep(1000);
+        }
 
-        // Cambiar Apellido
-        driver.findElement(By.name("DataTemplate:repeaterPanel1:5:fila:field")).sendKeys(edicionTercerosBuenosBean.getApellidoNuevo());
+        if (edicionTercerosBuenosBean.getApellidoNuevo() != null){
+            // Cambiar Apellido
+            driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_5_fila_field']")).sendKeys(edicionTercerosBuenosBean.getApellidoNuevo());
+            Thread.sleep(1000);
+        }
 
         //Screenshot
+        Thread.sleep(1000);
         a.ScreenShot(driver, "screen6", nombreAutomatizacion);
 
         // Boton Guardar
-        driver.findElement(By.name("saveButton")).click();
+        driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']")).click();
 
     }
 }

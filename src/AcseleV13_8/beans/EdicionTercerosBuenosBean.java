@@ -70,7 +70,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
         this.apellido = apellido;
     }
 
-    /***/
     public String getTipoTerceroNuevo() {
         return tipoTerceroNuevo;
     }
@@ -120,7 +119,7 @@ public class EdicionTercerosBuenosBean implements Serializable{
         ArrayList edicionTercerosBuenos = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select * from EDICION_TERCEROS where prueba = 1");
+        queryLoad.append("SELECT * FROM EDICION_TERCEROS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -129,6 +128,7 @@ public class EdicionTercerosBuenosBean implements Serializable{
 
             while (rs.next()) {
                 EdicionTercerosBuenosBean edicionTercerosBuenosBean = new EdicionTercerosBuenosBean();
+
                 edicionTercerosBuenosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
                 edicionTercerosBuenosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
                 edicionTercerosBuenosBean.setCedula(rs.getString("CEDULA"));

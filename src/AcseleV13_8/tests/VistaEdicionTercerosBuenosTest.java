@@ -22,28 +22,26 @@ public class VistaEdicionTercerosBuenosTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList edicionTercerosBuenos = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
+        ArrayList edicionTercerosBuenos = null;
 
-        for (int i = 0; i < edicionTercerosBuenos.size(); i++) {
-
-            EdicionTercerosBuenosBean edicionTercerosBuenosBean = (EdicionTercerosBuenosBean) edicionTercerosBuenos.get(i);
-            EdicionTerceroBueno a = new EdicionTerceroBueno();
-
-            try {
-                a.testLink(edicionTercerosBuenosBean, i);
-            } catch (Exception e) {
-                e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
-            }
-        }
-
-/*        EdicionTercerosBuenosBean edicionTercerosBuenosBean = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
-        EdicionTerceroBueno a = new EdicionTerceroBueno();
         try {
-            a.testLink(edicionTercerosBuenosBean);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
+            edicionTercerosBuenos = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
+
+            for (int i = 0; i < edicionTercerosBuenos.size(); i++) {
+
+                EdicionTercerosBuenosBean edicionTercerosBuenosBean = (EdicionTercerosBuenosBean) edicionTercerosBuenos.get(i);
+                EdicionTerceroBueno a = new EdicionTerceroBueno();
+
+                try {
+                    a.testLink(edicionTercerosBuenosBean, i);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                }
+            }
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
     }
 
