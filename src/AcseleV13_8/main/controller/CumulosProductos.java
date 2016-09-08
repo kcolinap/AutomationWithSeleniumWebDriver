@@ -30,20 +30,20 @@ public class CumulosProductos {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
 
-        m.Cumulos_CumulosPorProducto(driver, a, nombreAutomatizacion);
+        m.Cumulos_CumulosPorProducto(driver, a, nombreAutomatizacion,i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaProductos(driver, a, cumulosProductosBean);
+        BusquedaProductos(driver, a, cumulosProductosBean,i);
 
 
     }
 
 
-    public void BusquedaProductos (WebDriver driver, Metodos a, CumulosProductosBean cumulosProductosBean) throws IOException, InterruptedException{
+    public void BusquedaProductos (WebDriver driver, Metodos a, CumulosProductosBean cumulosProductosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion);
             Select producto = new Select(driver.findElement(By.xpath("//*[@id=\"products\"]")));
             producto.selectByValue(cumulosProductosBean.getProducto());
 
@@ -52,7 +52,7 @@ public class CumulosProductos {
             moneda.selectByValue(cumulosProductosBean.getMoneda());
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();

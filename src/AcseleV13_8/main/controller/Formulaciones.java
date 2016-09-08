@@ -32,21 +32,21 @@ public class Formulaciones {
         Thread.sleep(8000);
 
 
-        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
+        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion, i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
-        AgregarFormulaciones (driver, a, formulacionesBean);
-        ConsultaFormulaciones (driver, a, formulacionesBean);
+        AgregarFormulaciones (driver, a, formulacionesBean, i);
+        ConsultaFormulaciones (driver, a, formulacionesBean, i);
 
 
     }
 
 
-    public void AgregarFormulaciones (WebDriver driver, Metodos a, FormulacionesBean formulacionesBean) throws IOException, InterruptedException{
+    public void AgregarFormulaciones (WebDriver driver, Metodos a, FormulacionesBean formulacionesBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(8000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion);
 
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
             buscar.sendKeys(formulacionesBean.getBuscar());
@@ -54,7 +54,7 @@ public class Formulaciones {
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button/img"));
             btnBuscar.click();
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
             Thread.sleep(2000);
 
             WebElement prueba2 = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[116]/td/div"));
@@ -72,13 +72,13 @@ public class Formulaciones {
             WebElement descripcionFormula = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[6]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[1]/textarea"));
             descripcionFormula.sendKeys(formulacionesBean.getDescripcionFormula());
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
 
             WebElement btnSalvar= driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[6]/div/div/div[5]/div/div/div[2]/div/div[1]/button/span"));
             btnSalvar.click();
             Thread.sleep(2000);
 
-            a.ScreenShot(driver,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
 
            /* WebElement btnAceptar= driver.findElement(By.xpath("/*//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[2]/div/div[1]/button/span"));
             btnAceptar.click();
@@ -92,7 +92,7 @@ public class Formulaciones {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
-    public void ConsultaFormulaciones (WebDriver driver, Metodos a, FormulacionesBean formulacionesBean) throws IOException, InterruptedException{
+    public void ConsultaFormulaciones (WebDriver driver, Metodos a, FormulacionesBean formulacionesBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(2000);
@@ -112,7 +112,7 @@ public class Formulaciones {
             btnAsignarPresentacion.click();
             Thread.sleep(1000);
 
-            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();

@@ -28,7 +28,7 @@ public class HistorialReclamos {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.OpeSini_HistorialReclamo(a, driver, nombreAutomatizacion);
+        m.OpeSini_HistorialReclamo(a, driver, nombreAutomatizacion,i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BuscarHistorialReclamos(driver, a, historialReclamosBean);

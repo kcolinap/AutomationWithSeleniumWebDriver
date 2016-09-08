@@ -200,7 +200,7 @@ public class MenuOperaciones {
 
         public void OpeSini_HistorialActividadesReclamo(){}
 
-        public void OpeSini_HistorialReclamo(Metodos a, WebDriver driver, String nombreAutomatizacion){
+        public void OpeSini_HistorialReclamo(Metodos a, WebDriver driver, String nombreAutomatizacion, int i){
 
              try{
 
@@ -211,7 +211,7 @@ public class MenuOperaciones {
                  menu1.click();
                  menu2.click();
                  Thread.sleep(3000);
-                 a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+                 a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
                  menu3.click();
 
              }catch (Exception e) {
@@ -464,7 +464,7 @@ public class MenuOperaciones {
 
 
     /** Cumulos **/
-    public void Cumulos_CumulosPorTerceros(WebDriver driver,Metodos a, String nombreAutomatizacion ) throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorTerceros(WebDriver driver,Metodos a, String nombreAutomatizacion, int i ) throws IOException, InterruptedException{
 
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -474,7 +474,7 @@ public class MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             Thread.sleep(4000);
             menu3.click();
 
@@ -486,7 +486,7 @@ public class MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorProducto(WebDriver driver,Metodos a, String nombreAutomatizacion)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorProducto(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
@@ -495,7 +495,7 @@ public class MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             Thread.sleep(4000);
             menu3.click();
 
@@ -507,7 +507,7 @@ public class MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorAsegurado(WebDriver driver,Metodos a, String nombreAutomatizacion)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorAsegurado(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -517,7 +517,7 @@ public class MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             Thread.sleep(3000);
             menu3.click();
 
@@ -543,7 +543,7 @@ public class MenuOperaciones {
 
 
     /** Consultar en Lista Restrictiva **/
-    public void ConsultarListaRestrictiva(WebDriver driver,Metodos a, String nombreAutomatizacion)throws IOException, InterruptedException{
+    public void ConsultarListaRestrictiva(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -551,7 +551,7 @@ public class MenuOperaciones {
 
 
             menu1.click();
-            a.ScreenShot(driver,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             Thread.sleep(4000);
             menu2.click();
             Thread.sleep(2000);

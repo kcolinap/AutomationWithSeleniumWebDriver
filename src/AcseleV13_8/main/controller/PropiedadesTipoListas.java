@@ -32,21 +32,21 @@ public class PropiedadesTipoListas {
         Thread.sleep(8000);
 
 
-        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
+        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion, i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
-        AgregarPropiedades (driver, a, propiedadesTipoListasBean);
-        ConsultaLista (driver, a, propiedadesTipoListasBean);
+        AgregarPropiedades (driver, a, propiedadesTipoListasBean, i);
+        ConsultaLista (driver, a, propiedadesTipoListasBean, i);
 
 
     }
 
 
-    public void AgregarPropiedades (WebDriver driver, Metodos a, PropiedadesTipoListasBean propiedadesTipoListasBean) throws IOException, InterruptedException{
+    public void AgregarPropiedades (WebDriver driver, Metodos a, PropiedadesTipoListasBean propiedadesTipoListasBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(8000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion);
 
             WebElement btnPropiedades = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div/div/div/span[2]/span[2]"));
             btnPropiedades.click();
@@ -59,7 +59,7 @@ public class PropiedadesTipoListas {
             WebElement nombrePropiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[3]/input"));
             nombrePropiedad.sendKeys(propiedadesTipoListasBean.getNombrePropiedad());
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button/span"));
             btnAceptar.click();
@@ -71,7 +71,7 @@ public class PropiedadesTipoListas {
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button/img"));
             btnBuscar.click();
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
             Thread.sleep(2000);
 
             WebElement prueba2 = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[116]/td/div"));
@@ -91,7 +91,7 @@ public class PropiedadesTipoListas {
 
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
             Thread.sleep(2000);
             WebElement btnAceptar2 = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[2]/div/div[1]/button/span"));
             btnAceptar2.click();
@@ -106,7 +106,7 @@ public class PropiedadesTipoListas {
 
     }
 
-    public void ConsultaLista (WebDriver driver, Metodos a, PropiedadesTipoListasBean propiedadesTipoListasBean) throws IOException, InterruptedException{
+    public void ConsultaLista (WebDriver driver, Metodos a, PropiedadesTipoListasBean propiedadesTipoListasBean, int i) throws IOException, InterruptedException{
 
         try{
 
@@ -127,7 +127,7 @@ public class PropiedadesTipoListas {
             WebElement btnAsignarPresentacion = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[5]/button/img"));
             btnAsignarPresentacion.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
             Thread.sleep(1000);
 
 

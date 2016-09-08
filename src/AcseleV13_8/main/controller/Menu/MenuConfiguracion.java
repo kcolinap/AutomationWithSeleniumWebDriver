@@ -128,7 +128,7 @@ public class MenuConfiguracion {
 
     /** (Nuevo) Plantillas (Modo No Privilegiado) **/
 
-    public void NuevoPlantillasModoNoPrivilegiado(Metodos a, WebDriver driver, String nombreAutomatizacion) {
+    public void NuevoPlantillasModoNoPrivilegiado(Metodos a, WebDriver driver, String nombreAutomatizacion, int i) {
 
         try {
             Actions action = new Actions(driver);
@@ -140,7 +140,7 @@ public class MenuConfiguracion {
             Thread.sleep(1000);
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i ,"screen3", nombreAutomatizacion);
             Thread.sleep(1000);
             menu2.click();
 

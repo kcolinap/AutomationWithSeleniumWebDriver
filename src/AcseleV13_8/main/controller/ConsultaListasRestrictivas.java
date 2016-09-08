@@ -28,25 +28,25 @@ public class ConsultaListasRestrictivas {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.ConsultarListaRestrictiva (driver, a, nombreAutomatizacion);
+        m.ConsultarListaRestrictiva (driver, a, nombreAutomatizacion, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaLista(driver, a, consultaListasRestrictivasBean);
+        BusquedaLista(driver, a, consultaListasRestrictivasBean, i);
 
 
     }
 
-    public void BusquedaLista (WebDriver driver, Metodos a, ConsultaListasRestrictivasBean consultaListasRestrictivasBean) throws IOException, InterruptedException{
+    public void BusquedaLista (WebDriver driver, Metodos a, ConsultaListasRestrictivasBean consultaListasRestrictivasBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen4",nombreAutomatizacion);
             WebElement btnListas = driver.findElement(By.xpath("//*[@id=\"RestrictiveListCombo\"]/div"));
             btnListas.click();
             Thread.sleep(1000);
             WebElement listaRestrictiva  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[5]/td/span"));
             Thread.sleep(3000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
             listaRestrictiva.click();
 
             if (consultaListasRestrictivasBean.getIdentListaRestrictiva()!= null){
@@ -78,11 +78,11 @@ public class ConsultaListasRestrictivas {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"SearchPersonInRestrictiveListPanel\"]/div[2]/div/div[3]/div/div[1]/div/span"));
             btnBuscar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
 
             WebElement btnSeleccionarLista = driver.findElement(By.xpath("//*[@id=\"SearchPersonInRestrictiveListPanel\"]/div[2]/div/div[4]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
             btnSeleccionarLista.click();
@@ -90,11 +90,11 @@ public class ConsultaListasRestrictivas {
 
             WebElement btnDetalle = driver.findElement(By.xpath("//*[@id=\"SearchPersonInRestrictiveListPanel\"]/div[2]/div/div[4]/div/div[5]/div/div/div/span/span"));
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
             btnDetalle.click();
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen9",nombreAutomatizacion);
 
 
         }catch (Exception e) {
