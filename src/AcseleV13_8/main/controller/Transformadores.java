@@ -30,7 +30,7 @@ public class Transformadores {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3);
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
@@ -51,28 +51,72 @@ public class Transformadores {
 
             Thread.sleep(7000);
             a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
-            Thread.sleep(1000);
+            Thread.sleep(1500);
 
-           WebElement buscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
+            WebElement buscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
             buscar.sendKeys(transformadoresBean.getBuscar());
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
-            Thread.sleep(1000);
+            Thread.sleep(500);
 
             WebElement btnBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button"));
-            Thread.sleep(1000);
+           // Thread.sleep(1000);
             btnBuscar.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
 
 
-  /*        WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
+         /*   WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
             Thread.sleep(1000);
             carpetaTodas.click();
             Thread.sleep(2500);
-
 */
+            for (int j = 1; j <= 3000; j++){
+
+                System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(transformadoresBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                  //  a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+            //Thread.sleep(1000);
+
+            for (int j = 1; j <= 3000; j++){
+
+                System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(transformadoresBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+/*
             Thread.sleep(3000);
             WebElement propiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[59]/td/div"));
             propiedad.click();
@@ -80,7 +124,7 @@ public class Transformadores {
             a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
             Thread.sleep(2000);
 
-            WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
+   */         WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
             Thread.sleep(1000);
             opcionTranformador.click();
             Thread.sleep(2000);

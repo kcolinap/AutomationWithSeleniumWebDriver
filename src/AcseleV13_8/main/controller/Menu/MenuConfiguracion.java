@@ -130,7 +130,7 @@ public class MenuConfiguracion {
 
     /** (Nuevo) Plantillas (Modo No Privilegiado) **/
 
-    public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot ) {
+    public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i ) {
 
         try {
             Actions action = new Actions(driver);
@@ -142,7 +142,7 @@ public class MenuConfiguracion {
             Thread.sleep(1000);
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
             menu2.click();
 

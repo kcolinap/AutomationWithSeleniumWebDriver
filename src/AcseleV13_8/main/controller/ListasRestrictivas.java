@@ -166,7 +166,7 @@ public class ListasRestrictivas {
            for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
-               WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
+               WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div/span")); //arreglo para seleccionar la ultima plantilla creada
                String texto = lista.getText();
 
                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());

@@ -32,7 +32,7 @@ public class PropiedadesTipoListas {
         Thread.sleep(8000);
 
 
-        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3);
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
         AgregarPropiedades (driver, a, propiedadesTipoListasBean);
