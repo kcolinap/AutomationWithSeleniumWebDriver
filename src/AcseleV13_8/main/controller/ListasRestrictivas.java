@@ -99,7 +99,7 @@ public class ListasRestrictivas {
   public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
        try {
-
+           //se ingresa en la ruta para crear listas restrcitivas.
            Thread.sleep(1000);
            a.ScreenShotPool(driver, i,"screen4", nombreAutomatizacion);
            Thread.sleep(1000);
@@ -128,7 +128,7 @@ public class ListasRestrictivas {
            for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
-               WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + j + "]/td/span")); //arreglo para seleccionar la ultima plantilla creada
+               WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[" + j + "]/td/span")); //arreglo para seleccionar la lista deseada.
 
                String texto = opcionNombre.getText();
 

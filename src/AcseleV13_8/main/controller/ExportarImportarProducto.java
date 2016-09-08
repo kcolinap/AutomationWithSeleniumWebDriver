@@ -49,6 +49,8 @@ public class ExportarImportarProducto {
     public void ExportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean, int i) throws IOException, InterruptedException{
 
         try {
+
+            //selcciona el producto del product tool
             Actions action = new Actions(driver);
             Thread.sleep(2000);
             WebElement product = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div/div/div"));
@@ -62,6 +64,8 @@ public class ExportarImportarProducto {
 
             Thread.sleep(1000);
 
+            //hace click en el boton migracion, y selecciona la opcion exportar datos de configuracion
+            //una vez realizado el export cierra la ventana con la informacion de la misma.
             WebElement btnMigracion = driver.findElement(By.xpath("//*[@id=\"ext-gen146\"]"));
             btnMigracion.click();
             Thread.sleep(1000);
@@ -92,6 +96,8 @@ public class ExportarImportarProducto {
     public void ImportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean, int i) throws IOException, InterruptedException{
 
         try {
+
+            //hace click en el boton migracion y selecciona la opcion importar datos de configuracion
             Actions action = new Actions(driver);
             Thread.sleep(2000);
             WebElement btnMigracion = driver.findElement(By.xpath("//*[@id=\"ext-gen146\"]"));
@@ -113,7 +119,8 @@ public class ExportarImportarProducto {
             ruta.click();
             Thread.sleep(1000);
 
-*/
+*/          //se envia la ruta donde se encuentra ubicado el archivo que sera importado. Para más informacion sobre este proceso revisar la Vista
+
             WebElement archivo = driver.findElement(By.xpath("//*[@id=\"isc_7\"]"));
             Thread.sleep(1000);
       //      archivo.sendKeys("\\Qa32\\c$\\AcseleTests\\Export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160818094215PRUEBA.xml");
@@ -129,6 +136,9 @@ public class ExportarImportarProducto {
             Thread.sleep(8000);
             a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
             Thread.sleep(1000);
+
+            //una vez culminado el proceso de import se hace click en el link que contiene la informacion del producto
+            //se cierra el detalle y luego se hace click en el boton cerrar para volver a la pantalla anterior y visualizar el nuevo producto importado.
 
             WebElement nombre = driver.findElement(By.xpath("/html/body/center/table[2]/tbody/tr[7]/td/b/a"));
             nombre.click();
