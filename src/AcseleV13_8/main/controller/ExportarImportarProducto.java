@@ -72,7 +72,7 @@ public class ExportarImportarProducto {
             a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Thread.sleep(1000);
             exportarConf.click();
-            Thread.sleep(4000);
+            Thread.sleep(6000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
             Thread.sleep(2000);
             WebElement cerrarExport = driver.findElement(By.xpath("/html/body/div[9]/div[1]/div/div/div/div"));
@@ -117,7 +117,7 @@ public class ExportarImportarProducto {
             WebElement archivo = driver.findElement(By.xpath("//*[@id=\"isc_7\"]"));
             Thread.sleep(1000);
       //      archivo.sendKeys("\\Qa32\\c$\\AcseleTests\\Export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160818094215PRUEBA.xml");
-            archivo.sendKeys("C:\\AcseleTests\\AutomationTestAcsele\\rutas\\export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160907085102Prueba.xml");
+            archivo.sendKeys("C:\\AcseleTests\\AutomationTestAcsele\\rutas\\export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160908090919Prueba.xml");
             Thread.sleep(2000);
             a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
             Thread.sleep(1000);

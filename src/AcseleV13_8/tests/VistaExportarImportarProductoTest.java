@@ -15,6 +15,16 @@ import java.util.ArrayList;
  */
 public class VistaExportarImportarProductoTest {
 
+    /**Nota Importante: para poder ejecutar la prueba se debe editar el archivo xml
+     * que contiene la información del producto, cambiando el nombre de este.
+     * Ejemplo: <product name="VidaDeudoresAvVillas2"  por <product name="VidaDeudoresAvVillas3"
+     * el archivo utilizado ya se encuentra en el repositorio con el nombre: CO-ExportedProductTool-VidaDeudoresAvVillas-20160908090919Prueba.xml
+     * esta alojado en la carpeta del proyecto C:\AcseleTests\AutomationTestAcsele\rutas\export
+     * esa misma ruta se debe configurar en el system property migrationXMLPath
+     * para que el proceso de import funcione correctamente.
+
+     * */
+
     private final static Logger log = Logger.getLogger(VistaExportarImportarProductoTest.class);
 
     @Test
@@ -36,8 +46,6 @@ public class VistaExportarImportarProductoTest {
             }
 
         }
-
-
 
     }
 

@@ -14,9 +14,7 @@ import java.util.ArrayList;
  */
 public class VistaConsultaListasRestrictivasTest {
 
-    /**
-     *
-    */
+
     private final static Logger log = Logger.getLogger(VistaConsultaListasRestrictivasTest.class);
 
     @Test
