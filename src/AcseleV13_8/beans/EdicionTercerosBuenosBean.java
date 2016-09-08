@@ -33,7 +33,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getTipoTercero() {
         return tipoTercero;
     }
-
     public void setTipoTercero(String tipoTercero) {
         this.tipoTercero = tipoTercero;
     }
@@ -41,7 +40,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getTipoDocIdentidad(){
         return tipoDocIdentidad;
     }
-
     public  void setTipoDocIdentidad(String tipoDocIdentidad){
         this.tipoDocIdentidad = tipoDocIdentidad;
     }
@@ -49,7 +47,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getCedula() {
         return cedula;
     }
-
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
@@ -57,7 +54,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -65,7 +61,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getApellido() {
         return apellido;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
@@ -73,7 +68,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getTipoTerceroNuevo() {
         return tipoTerceroNuevo;
     }
-
     public void setTipoTerceroNuevo(String tipoTerceroNuevo) {
         this.tipoTerceroNuevo = tipoTerceroNuevo;
     }
@@ -81,7 +75,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getTipoDocIdentidadNuevo(){
         return tipoDocIdentidadNuevo;
     }
-
     public  void setTipoDocIdentidadNuevo(String tipoDocIdentidadNuevo){
         this.tipoDocIdentidadNuevo = tipoDocIdentidadNuevo;
     }
@@ -89,7 +82,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getCedulaNuevo() {
         return cedulaNuevo;
     }
-
     public void setCedulaNuevo(String cedulaNuevo) {
         this.cedulaNuevo = cedulaNuevo;
     }
@@ -97,7 +89,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getNombreNuevo() {
         return nombreNuevo;
     }
-
     public void setNombreNuevo(String nombreNuevo) {
         this.nombreNuevo = nombreNuevo;
     }
@@ -105,7 +96,6 @@ public class EdicionTercerosBuenosBean implements Serializable{
     public String getApellidoNuevo() {
         return apellidoNuevo;
     }
-
     public void setApellidoNuevo(String apellidoNuevo) {
         this.apellidoNuevo = apellidoNuevo;
     }

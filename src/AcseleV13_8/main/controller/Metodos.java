@@ -51,8 +51,8 @@ public class Metodos {
 
         // Ruta a ingresar
 
-        String ruta = "http://srvsonar:7026/WController//";
-        //String ruta = "http://qa19:7001/WController//";
+        //String ruta = "http://srvsonar:7026/WController//";
+        String ruta = "http://qa19:7001/WController//";
         driver.get(ruta);
 
         driver.manage().window().maximize();

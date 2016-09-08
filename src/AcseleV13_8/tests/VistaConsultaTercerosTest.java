@@ -22,7 +22,13 @@ public class VistaConsultaTercerosTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList consultaTerceros = ConsultaTercerosBean.getConsultaTerceros();
+        ArrayList consultaTerceros = null;
+
+        try {
+            consultaTerceros = ConsultaTercerosBean.getConsultaTerceros();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < consultaTerceros.size(); i++) {
 
@@ -35,29 +41,19 @@ public class VistaConsultaTercerosTest {
                 e.printStackTrace();
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
-
         }
-
-/*        ConsultaTercerosBean consultaTercerosBean = ConsultaTercerosBean.getConsultaTerceros();
-        ConsultaTerceros a = new ConsultaTerceros();
-        try {
-            a.testLink(consultaTercerosBean);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
     }
 
     @Before
     public void setUp() throws Exception {
 
-        /*DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS",
+        /*DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, CEDULA, NOMBRE, APELLIDO FROM ORDER BY PRUEBA ASC",
                 "CONSULTA_TERCEROS",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8.tests.xmls/consultaTerceros_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/consultaTerceros_dataset.xml");
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, CEDULA, NOMBRE, APELLIDO FROM ORDER BY PRUEBA ASC",
                 "CONSULTA_TERCEROS",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8.tests.xmls/consultaTerceros_dataset.xml");*/
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/consultaTerceros_dataset.xml");*/
 
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/consultaTerceros_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }

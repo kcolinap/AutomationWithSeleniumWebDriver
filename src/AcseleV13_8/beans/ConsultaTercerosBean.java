@@ -68,7 +68,7 @@ public class ConsultaTercerosBean implements Serializable{
         ArrayList consultaTerceros = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS");
+        queryLoad.append("SELECT TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -94,38 +94,5 @@ public class ConsultaTercerosBean implements Serializable{
             }
         }
         return consultaTerceros;
-
     }
-
-
-
-/*    public static ConsultaTercerosBean getConsultaTerceros(){
-
-        Connection conn;
-        Statement stmt;
-        ResultSet rs;
-        ConsultaTercerosBean consultaTercerosBean = null;
-
-        StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS");
-
-        try {
-            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(queryLoad.toString());
-
-            while (rs.next()) {
-                consultaTercerosBean = new ConsultaTercerosBean();
-                consultaTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                consultaTercerosBean.setTipoDocId(rs.getString("TIPO_DOC_IDENTIDAD"));
-                consultaTercerosBean.setCedula(rs.getString("CEDULA"));
-                consultaTercerosBean.setNombre(rs.getString("NOMBRE"));
-                consultaTercerosBean.setApellido(rs.getString("APELLIDO"));
-            }
-        }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
-        }
-        return consultaTercerosBean;
-    }*/
 }

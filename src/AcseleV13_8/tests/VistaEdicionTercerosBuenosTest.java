@@ -26,21 +26,21 @@ public class VistaEdicionTercerosBuenosTest {
 
         try {
             edicionTercerosBuenos = EdicionTercerosBuenosBean.getEdicionTercerosBuenos();
-
-            for (int i = 0; i < edicionTercerosBuenos.size(); i++) {
-
-                EdicionTercerosBuenosBean edicionTercerosBuenosBean = (EdicionTercerosBuenosBean) edicionTercerosBuenos.get(i);
-                EdicionTerceroBueno a = new EdicionTerceroBueno();
-
-                try {
-                    a.testLink(edicionTercerosBuenosBean, i);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
-                }
-            }
         }catch (SQLException e) {
             log.error(e);
+        }
+
+        for (int i = 0; i < edicionTercerosBuenos.size(); i++) {
+
+            EdicionTercerosBuenosBean edicionTercerosBuenosBean = (EdicionTercerosBuenosBean) edicionTercerosBuenos.get(i);
+            EdicionTerceroBueno a = new EdicionTerceroBueno();
+
+            try {
+                a.testLink(edicionTercerosBuenosBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
         }
 
     }
@@ -48,13 +48,13 @@ public class VistaEdicionTercerosBuenosTest {
     @Before
     public void setUp() throws Exception {
 
-        /*DataSetManager.createPartialDataSet("select PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, NOMBRE_NUEVO, APELLIDO_NUEVO from EDICION_TERCEROS where prueba = 1",
+        /*DataSetManager.createPartialDataSet("select PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, NOMBRE_NUEVO, APELLIDO_NUEVO from EDICION_TERCEROS ORDER BY PRUEBA ASC",
                 "EDICION_TERCEROS",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8.tests.xmls/edicionTercerosBuenos_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/edicionTercerosBuenos_dataset.xml");
 
-        DataSetManager.createPartialDataSet("select PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, NOMBRE_NUEVO, APELLIDO_NUEVO from EDICION_TERCEROS where prueba = 1",
+        DataSetManager.createPartialDataSet("select PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, NOMBRE_NUEVO, APELLIDO_NUEVO from EDICION_TERCEROS ORDER BY PRUEBA ASC",
                 "EDICION_TERCEROS",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8.tests.xmls/edicionTercerosBuenos_dataset.xml");*/
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/edicionTercerosBuenos_dataset.xml");*/
 
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/edicionTercerosBuenos_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
