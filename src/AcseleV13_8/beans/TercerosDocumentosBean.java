@@ -1,5 +1,6 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -14,12 +15,13 @@ import java.util.ArrayList;
  */
 public class TercerosDocumentosBean implements Serializable {
 
+    private final static Logger log = Logger.getLogger(TercerosDocumentosBean.class);
+
     private String tipoTercero;
     private String tipoDocId;
     private String cedula;
     private String nombre;
     private String apellido;
-
 
     public String getTipoTercero() {
         return tipoTercero;
@@ -56,9 +58,9 @@ public class TercerosDocumentosBean implements Serializable {
         this.apellido = apellido;
     }
 
-    public static ArrayList getTercerosDocumentos(){
+    public static ArrayList getTercerosDocumentos() throws SQLException {
 
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList terceros = new ArrayList();
@@ -81,8 +83,12 @@ public class TercerosDocumentosBean implements Serializable {
                 terceros.add(tercerosDocumentosBean);
             }
         }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
+            log.error(e);
+        }
+        finally{
+            if (conn != null){
+                conn.close();
+            }
         }
         return terceros;
     }

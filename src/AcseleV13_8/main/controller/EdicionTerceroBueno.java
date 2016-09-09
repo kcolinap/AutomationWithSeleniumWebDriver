@@ -25,7 +25,7 @@ public class EdicionTerceroBueno {
         try {
 
             // Instanciando clases
-            Metodos a= new Metodos();   //implementando metodos.
+            Metodos a = new Metodos();   //implementando metodos.
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();

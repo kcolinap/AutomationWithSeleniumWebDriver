@@ -141,41 +141,4 @@ public class EdicionTercerosBuenosBean implements Serializable{
         }
         return edicionTercerosBuenos;
     }
-
-
-/*    public static EdicionTercerosBuenosBean getEdicionTercerosBuenos(){
-
-        Connection conn;
-        Statement stmt;
-        ResultSet rs;
-        EdicionTercerosBuenosBean edicionTercerosBuenosBean = null;
-
-        StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select * from EDICION_TERCEROS where prueba = 1");
-
-        try {
-            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(queryLoad.toString());
-
-            while (rs.next()) {
-                edicionTercerosBuenosBean = new EdicionTercerosBuenosBean();
-                edicionTercerosBuenosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                edicionTercerosBuenosBean.setTipoDocIdentidad(rs.getString("TIPO_DOC_IDENTIDAD"));
-                edicionTercerosBuenosBean.setCedula(rs.getString("CEDULA"));
-                edicionTercerosBuenosBean.setNombre(rs.getString("NOMBRE"));
-                edicionTercerosBuenosBean.setApellido(rs.getString("APELLIDO"));
-                edicionTercerosBuenosBean.setTipoTerceroNuevo(rs.getString("TIPO_TERCERO_NUEVO"));
-                edicionTercerosBuenosBean.setTipoDocIdentidadNuevo(rs.getString("TIPO_DOC_IDENTIDAD_NUEVO"));
-                edicionTercerosBuenosBean.setCedulaNuevo(rs.getString("CEDULA_NUEVO"));
-                edicionTercerosBuenosBean.setNombreNuevo(rs.getString("NOMBRE_NUEVO"));
-                edicionTercerosBuenosBean.setApellidoNuevo(rs.getString("APELLIDO_NUEVO"));
-
-            }
-        }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
-        }
-        return edicionTercerosBuenosBean;
-    }*/
 }
