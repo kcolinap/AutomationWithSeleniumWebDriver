@@ -141,7 +141,7 @@ public class MenuConfiguracion {
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i ,"screen3", nombreAutomatizacion);
-            Thread.sleep(1000);
+            Thread.sleep(4000);
             menu2.click();
 
 

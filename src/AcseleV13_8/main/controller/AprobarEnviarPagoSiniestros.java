@@ -34,7 +34,7 @@ public class AprobarEnviarPagoSiniestros {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion,i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 

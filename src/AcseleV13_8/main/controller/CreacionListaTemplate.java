@@ -34,7 +34,7 @@ public class CreacionListaTemplate {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
+        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 

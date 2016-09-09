@@ -57,9 +57,48 @@ public class Formulaciones {
             a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
             Thread.sleep(2000);
 
-            WebElement prueba2 = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[116]/td/div"));
-            prueba2.click();
-            Thread.sleep(1000);
+            for (int j = 1; j <= 3000; j++){
+
+                //System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(formulacionesBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                    // a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+            for (int j = 1; j <= 3000; j++){
+
+                //System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(formulacionesBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                    // a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
 
             WebElement btnAsignarPresentacion = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[5]/button/img"));
             btnAsignarPresentacion.click();
@@ -80,9 +119,9 @@ public class Formulaciones {
 
             a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
 
-           /* WebElement btnAceptar= driver.findElement(By.xpath("/*//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[2]/div/div[1]/button/span"));
+           WebElement btnAceptar= driver.findElement(By.xpath("/*//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[2]/div/div[1]/button/span"));
             btnAceptar.click();
-            Thread.sleep(2000);*/
+            Thread.sleep(2000);
 
 
 
@@ -96,17 +135,55 @@ public class Formulaciones {
 
         try{
             Thread.sleep(2000);
-            WebElement buscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
+           /* WebElement buscar = driver.findElement(By.xpath("/*//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
             buscar.sendKeys(formulacionesBean.getBuscar());
-            Thread.sleep(1000);
+            Thread.sleep(1000);*/
 
-            WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button/img"));
+            /*WebElement btnBuscar = driver.findElement(By.xpath("/*//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button/img"));
             btnBuscar.click();
-            Thread.sleep(2000);
+            Thread.sleep(2000);*/
 
-            WebElement prueba2 = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[116]/td/div"));
-            prueba2.click();
-            Thread.sleep(1000);
+            for (int j = 1; j <= 3000; j++){
+
+                //System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(formulacionesBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                    // a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+            for (int j = 1; j <= 3000; j++){
+
+                //System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(formulacionesBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                    // a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
 
             WebElement btnAsignarPresentacion = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[5]/button/img"));
             btnAsignarPresentacion.click();
