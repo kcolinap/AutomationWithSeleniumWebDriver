@@ -43,6 +43,9 @@ public class ListasRestrictivasBean implements Serializable{
     private String asegurado;
     private String fechaDesdeTraza;
     private String fechaHastaTraza;
+    private String valorPrestamo;
+    private String valorSeguro;
+    private String valorVida;
 
 
 
@@ -127,6 +130,17 @@ public class ListasRestrictivasBean implements Serializable{
     public String getFechaHastaTraza() {return fechaHastaTraza;}
     public void setFechaHastaTraza (String fechaHastaTraza) {this.fechaHastaTraza = fechaHastaTraza;}
 
+    public String getValorPrestamo() {return valorPrestamo;}
+    public void setValorPrestamo (String valorPrestamo) {this.valorPrestamo = valorPrestamo;}
+
+    public String getValorSeguro() {return valorSeguro;}
+    public void setValorSeguro (String valorSeguro) {this.valorSeguro = valorSeguro;}
+
+    public String getValorVida() {return valorVida;}
+    public void setValorVida (String valorVida) {this.valorVida = valorVida;}
+
+
+
 
     public static ArrayList getListasRestrictivas() throws SQLException {
 
@@ -137,7 +151,7 @@ public class ListasRestrictivasBean implements Serializable{
 
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, PRODUCTO, VIGENCIA, FECHADESDE, EVENTOAPLICAR, NUMPOLIZA, LINEACREDITO, UNIDADNEGOCIO, CANALVENTA, TIPOVALORASEGURADO, TOMADORNOMBRE, NUMCREDITO, FECHAPROCESO, MONTOASEGURADO, DOCIDASEGURADO, FECHANACASEGURADO, DIRECCIONASEGURADO, DEPARTAMENTOASEGURADO , CIUDADASEGURADO, ASEGURADO, FECHADESDETRAZA, FECHAHASTATRAZA FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, TIPOLISTA, NOMBRELISTA, ARCHIVO, LISTANOMBRE, TIPOCOINCIDENCIA, PRODUCTO, VIGENCIA, FECHADESDE, EVENTOAPLICAR, NUMPOLIZA, LINEACREDITO, UNIDADNEGOCIO, CANALVENTA, TIPOVALORASEGURADO, TOMADORNOMBRE, NUMCREDITO, FECHAPROCESO, MONTOASEGURADO, DOCIDASEGURADO, FECHANACASEGURADO, DIRECCIONASEGURADO, DEPARTAMENTOASEGURADO , CIUDADASEGURADO, ASEGURADO, FechaDesdeTraza, FechaHastaTraza, valorPrestamo, valorSeguro, valorVida FROM LISTAS_RESTRICTIVAS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -173,6 +187,9 @@ public class ListasRestrictivasBean implements Serializable{
                 listasRestrictivasBean.setAsegurado(rs.getString("ASEGURADO"));
                 listasRestrictivasBean.setFechaDesdeTraza(rs.getString("FECHADESDETRAZA"));
                 listasRestrictivasBean.setFechaHastaTraza(rs.getString("FECHAHASTATRAZA"));
+                listasRestrictivasBean.setValorPrestamo(rs.getString("VALORPRESTAMO"));
+                listasRestrictivasBean.setValorSeguro(rs.getString("VALORSEGURO"));
+                listasRestrictivasBean.setValorVida(rs.getString("VALORVIDA"));
 
 
 

@@ -30,61 +30,107 @@ public class Transformadores {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.NuevoPlantillasModoNoPrivilegiado(a, driver, nombreAutomatizacion);
+
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i);
+
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
-        TranformadoresGeneral(driver, a, transformadoresBean);
+        TranformadoresGeneral(driver, a, transformadoresBean, i);
         Thread.sleep(3000);
 
-        AgregarTranformadores( driver, a, transformadoresBean);
+        AgregarTranformadores( driver, a, transformadoresBean, i);
         Thread.sleep(3000);
 
-        EliminarTransformadores (driver, a, transformadoresBean);
+        EliminarTransformadores (driver, a, transformadoresBean, i);
 
 
     }
 
-    public void TranformadoresGeneral (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean) throws IOException, InterruptedException{
+    public void TranformadoresGeneral (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
 
             Thread.sleep(7000);
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
-            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            Thread.sleep(1500);
 
-           WebElement buscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
+            WebElement buscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
             buscar.sendKeys(transformadoresBean.getBuscar());
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
-            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            Thread.sleep(500);
 
             WebElement btnBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button"));
-            Thread.sleep(1000);
+           // Thread.sleep(1000);
             btnBuscar.click();
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
 
 
-  /*        WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
+         /*   WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
             Thread.sleep(1000);
             carpetaTodas.click();
             Thread.sleep(2500);
-
 */
+            for (int j = 1; j <= 3000; j++){
+
+                System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(transformadoresBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                  //  a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+            //Thread.sleep(1000);
+
+            for (int j = 1; j <= 3000; j++){
+
+                System.out.println("dentro del bucle: " + j);
+                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
+
+                String texto = propiedad.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(transformadoresBean.getBuscar())){
+                    propiedad.click();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+/*
             Thread.sleep(3000);
             WebElement propiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[59]/td/div"));
             propiedad.click();
             Thread.sleep(3000);
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
             Thread.sleep(2000);
 
-            WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
+   */         WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
             Thread.sleep(1000);
             opcionTranformador.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
 
 
 
@@ -96,34 +142,34 @@ public class Transformadores {
         }
     }
 
-    public void AgregarTranformadores (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean) throws IOException, InterruptedException{
+    public void AgregarTranformadores (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
 
             WebElement valorDefecto = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[4]/div/div[3]/input"));
             valorDefecto.sendKeys(transformadoresBean.getValorDefecto());
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement valorPropiedad = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[4]/div/div[9]/input"));
             valorPropiedad.sendKeys(transformadoresBean.getValorPropiedad());
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
             Thread.sleep(2000);
 
             WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[2]/div/div[1]/button"));
             Thread.sleep(1000);
             btnAgregar.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
             Thread.sleep(1500);
 
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button"));
         //    Thread.sleep(1000);
             btnAceptar.click();
             Thread.sleep(8000);
-            a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
             Thread.sleep(2000);
 
 
@@ -137,7 +183,7 @@ public class Transformadores {
 
     }
 
-    public void EliminarTransformadores (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean) throws IOException, InterruptedException{
+    public void EliminarTransformadores (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -153,27 +199,27 @@ public class Transformadores {
             Thread.sleep(1000);
             opcionTranformador.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen13", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
 
             WebElement selectTransf = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[3]/div/div[2]/div[2]/div[1]/table/tbody/tr/td[1]/div"));
             Thread.sleep(1000);
             selectTransf.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen14", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
 
 
             WebElement btnEliminar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[2]/div/div[3]/button"));
             Thread.sleep(1000);
             btnEliminar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen15", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
             Thread.sleep(1500);
 
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button"));
             Thread.sleep(1000);
             btnAceptar.click();
             Thread.sleep(7000);
-            a.ScreenShot(driver, "screen16", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
 
 
             Thread.sleep(2000);
@@ -181,7 +227,7 @@ public class Transformadores {
             Thread.sleep(1000);
             opcionTranf.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen17", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
 
 
         }catch (Exception e) {

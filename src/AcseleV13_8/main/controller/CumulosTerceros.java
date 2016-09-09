@@ -30,21 +30,21 @@ public class CumulosTerceros {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
 
-        m.Cumulos_CumulosPorTerceros(driver, a, nombreAutomatizacion);
+        m.Cumulos_CumulosPorTerceros(driver, a, nombreAutomatizacion, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaTerceros (driver, a, cumulosTercerosBean);
+        BusquedaTerceros (driver, a, cumulosTercerosBean, i);
 
 
     }
 
 
-    public void BusquedaTerceros (WebDriver driver, Metodos a, CumulosTercerosBean cumulosTercerosBean) throws IOException, InterruptedException{
+    public void BusquedaTerceros (WebDriver driver, Metodos a, CumulosTercerosBean cumulosTercerosBean, int i) throws IOException, InterruptedException{
 
         try{
 
             Thread.sleep(8000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Select tipoTerceros = new Select(driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select")));
             tipoTerceros.selectByValue(cumulosTercerosBean.getTipoTerceros());
 
@@ -82,7 +82,7 @@ public class CumulosTerceros {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_0402036_ThirdPartySearchForCumulus_01\"]"));
             btnBuscar.click();
@@ -92,13 +92,13 @@ public class CumulosTerceros {
             WebElement btnSeleccionar = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]"));
             btnSeleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
             Thread.sleep(1000);
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"td_button_submit_01\"]/input"));
             btnAceptar.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(10000);
             WebElement btnmoneda = driver.findElement(By.xpath("//*[@id=\"money\"]"));
             btnmoneda.click();
 
@@ -110,7 +110,7 @@ public class CumulosTerceros {
             moneda2.selectByValue(cumulosTercerosBean.getMoneda2());
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
 
 
         }catch (Exception e) {

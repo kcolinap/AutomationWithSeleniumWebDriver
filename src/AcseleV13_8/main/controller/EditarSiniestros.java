@@ -32,18 +32,19 @@ public class EditarSiniestros {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion);
-        Thread.sleep(8000);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion, i);
+        Thread.sleep(10000);
+
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, editarSiniestrosBean);
-        ResultadoBusqueda(driver, a, editarSiniestrosBean);
-        AgregarObjetoAfectado(driver, a, editarSiniestrosBean);
+        BuscarPoliza(driver, a, editarSiniestrosBean, i);
+        ResultadoBusqueda(driver, a, editarSiniestrosBean, i);
+        AgregarObjetoAfectado(driver, a, editarSiniestrosBean, i);
 
 
     }
 
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -120,7 +121,7 @@ public class EditarSiniestros {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span"));
             btnBuscar.click();
@@ -134,7 +135,7 @@ public class EditarSiniestros {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Metodos a, EditarSiniestrosBean editarSiniestrosBean) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Metodos a, EditarSiniestrosBean editarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -142,9 +143,9 @@ public class EditarSiniestros {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
 
-            WebElement btnConsultar  = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
+            WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
 
             Thread.sleep(25000);
@@ -159,21 +160,21 @@ public class EditarSiniestros {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean, int i){
         try {
             Thread.sleep(2000);
             Select objetoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"ioID\"]")));
             objetoAsegurado.selectByIndex(0);
             WebElement btnSeleccionOA = driver.findElement(By.xpath("//*[@id=\"ioID\"]/option"));
             btnSeleccionOA.click();
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
 
             Thread.sleep(2000);
             WebElement btnEditar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_03\"]"));
             btnEditar.click();
 
             Thread.sleep(20000);
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7", nombreAutomatizacion);
 
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
@@ -257,7 +258,7 @@ public class EditarSiniestros {
                 observacionesSiniestro.sendKeys(editarSiniestrosBean.getObservacionesSiniestro());
             }
             Thread.sleep(4000);
-            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen8", nombreAutomatizacion);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -270,7 +271,7 @@ public class EditarSiniestros {
             Thread.sleep(15000);
 
             Thread.sleep(5000);
-            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen9",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
