@@ -34,6 +34,7 @@ public class EditarSiniestros {
 
         m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion, i);
         Thread.sleep(10000);
+
         a.cambiarVentana(driver);
         BuscarPoliza(driver, a, editarSiniestrosBean, i);
         ResultadoBusqueda(driver, a, editarSiniestrosBean, i);

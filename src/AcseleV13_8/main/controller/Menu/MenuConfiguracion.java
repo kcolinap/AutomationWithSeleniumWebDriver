@@ -132,6 +132,7 @@ public class MenuConfiguracion {
 
     public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i ) {
 
+
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
@@ -142,8 +143,12 @@ public class MenuConfiguracion {
             Thread.sleep(1000);
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
+
             a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
+
+
+
             menu2.click();
 
 
