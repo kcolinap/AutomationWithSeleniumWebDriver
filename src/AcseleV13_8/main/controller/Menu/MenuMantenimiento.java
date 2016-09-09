@@ -251,7 +251,7 @@ public class MenuMantenimiento {
         public void Aud_MantenimientoAuditoria(){}
         public void Aud_MantenimientoSLA(){}
         public void Aud_TrazasAuditoria(){}
-        public void Aud_TrazasAuditoriaVaadin( WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        public void Aud_TrazasAuditoriaVaadin( WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
             try {
 
@@ -264,7 +264,7 @@ public class MenuMantenimiento {
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
             menu3.click();
@@ -308,7 +308,7 @@ public class MenuMantenimiento {
     /** -- Administracion Central de Riesgo -- **/
 
     /** Administracion de Listas Restrictivas **/
-    public void AdminLisRest_CrearListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+    public void AdminLisRest_CrearListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
         try {
             Actions action = new Actions(driver);
@@ -321,7 +321,7 @@ public class MenuMantenimiento {
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            this.a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            this.a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Thread.sleep(100);
             menu3.click();
 
@@ -331,7 +331,7 @@ public class MenuMantenimiento {
             log.info("Menu listas Restrictivas " + e);
         }
     }
-        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
             try {
                 Actions action = new Actions(driver);
@@ -342,7 +342,7 @@ public class MenuMantenimiento {
                 menu2.click();
                 Thread.sleep(1000);
                 action.moveToElement(menu3).build().perform();
-                this.a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                this.a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion ); //screenshot2
                 Thread.sleep(1000);
                 menu3.click();
 

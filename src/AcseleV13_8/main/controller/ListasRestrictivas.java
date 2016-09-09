@@ -38,7 +38,7 @@ public class ListasRestrictivas {
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3);
+        m.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3, i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
@@ -55,7 +55,7 @@ public class ListasRestrictivas {
         a.regresarVentana(driver);
         Thread.sleep(1500);
 
-        m.AdminLisRest_CoincidenciaListasRestrictivas(driver, nombreAutomatizacion, 13);
+        m.AdminLisRest_CoincidenciaListasRestrictivas(driver, nombreAutomatizacion, 13, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
@@ -86,7 +86,7 @@ public class ListasRestrictivas {
         Thread.sleep(2500);
         */   a.regresarVentana(driver);
         Thread.sleep(2000);
-        m.Aud_TrazasAuditoriaVaadin ( driver,  nombreAutomatizacion,  32);
+        m.Aud_TrazasAuditoriaVaadin ( driver,  nombreAutomatizacion,  32, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 

@@ -47,7 +47,7 @@ public class CreacionListaTemplate {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/div")).click();
         Thread.sleep(1000);
-        menuMantenimiento.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3);
+        menuMantenimiento.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3, i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
@@ -241,7 +241,7 @@ public class CreacionListaTemplate {
 
             }
 
-            Thread.sleep(1500);
+            Thread.sleep(2000);
             WebElement campoArchivo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[2]/form/div/input[2]")); //se ubica el boton archivo
             Thread.sleep(1000);
             campoArchivo.click();
