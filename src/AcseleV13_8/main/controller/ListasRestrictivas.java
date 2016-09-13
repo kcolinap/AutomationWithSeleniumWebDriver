@@ -99,7 +99,7 @@ public class ListasRestrictivas {
   public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
        try {
-           //se ingresa en la ruta para crear listas restrcitivas.
+           //se ingresa en la ruta para crear listas restrictivas.
            Thread.sleep(1000);
            a.ScreenShotPool(driver, i,"screen4", nombreAutomatizacion);
            Thread.sleep(1000);
@@ -124,6 +124,10 @@ public class ListasRestrictivas {
            WebElement nombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div"));
            nombre.click();
            Thread.sleep(1500);
+
+           WebElement flecha = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/span"));
+           flecha.click();
+           Thread.sleep(1000);
 
            for (int j = 1; j <= 50; j++){
 
@@ -166,7 +170,10 @@ public class ListasRestrictivas {
            for (int j = 1; j <= 50; j++){
 
                //System.out.println("dentro del bucle: " + i);
-               WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div/span")); //arreglo para seleccionar la ultima plantilla creada
+           //    WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div/span")); //arreglo para seleccionar la ultima plantilla creada
+                 WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div")); //arreglo para seleccionar la ultima plantilla creada
+
+
                String texto = lista.getText();
 
                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
@@ -323,7 +330,12 @@ public class ListasRestrictivas {
            Thread.sleep(1000);
            WebElement opcionLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[1]/div/div/div/table/tbody/tr/td[3]/div/div[1]/div/div/div[3]/div/div")); //despliega las listas disponibles
            opcionLista.click();
-           Thread.sleep(2000);
+           Thread.sleep(1000);
+
+           WebElement flecha = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[3]/span"));
+           flecha.click();
+           Thread.sleep(1000);
+
 
            for (int j = 1; j <= 50; j++){
 
