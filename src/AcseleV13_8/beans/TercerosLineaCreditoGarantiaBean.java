@@ -1,5 +1,6 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
  * Created by agil on 04/07/2016.
  */
 public class TercerosLineaCreditoGarantiaBean implements Serializable {
+
+    private final static Logger log = Logger.getLogger(TercerosLineaCreditoGarantiaBean.class);
 
     private String tipoTercero;
     private String tipoDocId;
@@ -95,9 +98,9 @@ public class TercerosLineaCreditoGarantiaBean implements Serializable {
         this.fechaHasta = fechaHasta;
     }
 
-    public static ArrayList getTercerosLinaCreditoGarantia(){
+    public static ArrayList getTercerosLinaCreditoGarantia() throws SQLException {
 
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList terceros = new ArrayList();
@@ -125,8 +128,12 @@ public class TercerosLineaCreditoGarantiaBean implements Serializable {
                 terceros.add(tercerosLineaCreditoGarantiaBean);
             }
         }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
+            log.error(e);
+        }
+        finally{
+            if (conn != null){
+                conn.close();
+            }
         }
         return terceros;
     }

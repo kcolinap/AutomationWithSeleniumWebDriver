@@ -22,36 +22,43 @@ public class TercerosLineaCreditoGarantia {
 
     public void testLink(TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws Exception{
 
-        // Instanciando clases
-        Metodos a = new Metodos();
-        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+        try {
 
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(5000);
+            // Instanciando clases
+            Metodos a = new Metodos();
+            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
-        //Entrando en Menu
-        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+            WebDriver driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            Thread.sleep(5000);
 
-        // Consulta del Tercero
-        Thread.sleep(2000);
-        a.cambiarVentana(driver);
-        Thread.sleep(2000);
-        BusquedaT(a, driver, tercerosLineaCreditoGarantiaBean); //Busqueda Tercero
+            //Entrando en Menu
+            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
 
-        // Boton Editar
-        driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']")).click();
-        Thread.sleep(2000);
+            // Consulta del Tercero
+            Thread.sleep(2000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
+            BusquedaT(a, driver, tercerosLineaCreditoGarantiaBean, i); //Busqueda Tercero
 
-        LineaCreditoGarantia(a, driver, tercerosLineaCreditoGarantiaBean);
+            // Boton Editar
+            driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']")).click();
+            Thread.sleep(2000);
 
-        Thread.sleep(3000);
-        a.ScreenShot(driver, "screen7", nombreAutomatizacion);
-        Toolkit.getDefaultToolkit().beep();
+            LineaCreditoGarantia(a, driver, tercerosLineaCreditoGarantiaBean, i);
+
+            Thread.sleep(3000);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         try{
@@ -88,7 +95,7 @@ public class TercerosLineaCreditoGarantia {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
@@ -100,19 +107,18 @@ public class TercerosLineaCreditoGarantia {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
-        }catch (Exception e){
+        }catch (Exception e) {
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 18 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 
     }
 
-    public void LineaCreditoGarantia(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean) throws InterruptedException {
+    public void LineaCreditoGarantia(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException {
 
         Thread.sleep(4000);
         try{
@@ -143,7 +149,7 @@ public class TercerosLineaCreditoGarantia {
             fechaFin.sendKeys(tercerosLineaCreditoGarantiaBean.getFechaHasta());
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(2000);
@@ -151,12 +157,9 @@ public class TercerosLineaCreditoGarantia {
             btnGuardar.click();
 
 
-
-
-        }catch (Exception e){
+        }catch (Exception e) {
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 18 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
