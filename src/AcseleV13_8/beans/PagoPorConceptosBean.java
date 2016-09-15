@@ -72,7 +72,7 @@ public class PagoPorConceptosBean implements Serializable {
 
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, NumeroSiniestro, NumeroPoliza, FechaOcurrenciaSin,Producto, OrdenarPor, Cobertura, MontoReserva, NumeroDocIdent, MontoSiniestro, SeleccioneAccion FROM PAGO_POR_CONCEPTOS ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, NUMEROSINIESTRO, NumeroPoliza, FechaOcurrenciaSin,Producto, OrdenarPor, Cobertura, MontoReserva, NumeroDocIdent, MontoSiniestro, SeleccioneAccion FROM PAGO_POR_CONCEPTOS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -82,15 +82,16 @@ public class PagoPorConceptosBean implements Serializable {
             while (rs.next()) {
                 PagoPorConceptosBean pagoPorConceptosBean = new PagoPorConceptosBean();
 
-                pagoPorConceptosBean.setNumeroSiniestro("NumeroSiniestro");
-                pagoPorConceptosBean.setNumeroPoliza("NumeroPoliza");
-                pagoPorConceptosBean.setFechaOcurrenciaSin("FechaOcurrenciaSin");
-                pagoPorConceptosBean.setProducto("Producto");
-                pagoPorConceptosBean.setOrdenarPor("OrdenarPor");
-                pagoPorConceptosBean.setCobertura("Cobertura");
-                pagoPorConceptosBean.setMontoReserva("MontoReserva");
-                pagoPorConceptosBean.setNumeroDocIdent("NumeroDocIdent");
-                pagoPorConceptosBean.setMontoSiniestro("MontoSiniestro");
+                pagoPorConceptosBean.setNumeroSiniestro(rs.getString("NUMEROSINIESTRO"));
+                pagoPorConceptosBean.setNumeroPoliza(rs.getString("NumeroPoliza"));
+                pagoPorConceptosBean.setFechaOcurrenciaSin(rs.getString("FechaOcurrenciaSin"));
+                pagoPorConceptosBean.setProducto(rs.getString("Producto"));
+                pagoPorConceptosBean.setOrdenarPor(rs.getString("OrdenarPor"));
+                pagoPorConceptosBean.setCobertura(rs.getString("Cobertura"));
+                pagoPorConceptosBean.setMontoReserva(rs.getString("MontoReserva"));
+                pagoPorConceptosBean.setNumeroDocIdent(rs.getString("NumeroDocIdent"));
+                pagoPorConceptosBean.setMontoSiniestro(rs.getString("MontoSiniestro"));
+                pagoPorConceptosBean.setSeleccioneAccion(rs.getString("SELECCIONEACCION"));
 
 
                 pagoPorConceptos.add(pagoPorConceptosBean);

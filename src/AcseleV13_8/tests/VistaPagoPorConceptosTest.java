@@ -23,22 +23,22 @@ public class VistaPagoPorConceptosTest {
 
         ArrayList pagoPorConceptos = PagoPorConceptosBean.getPagoPorConceptos();
 
-       // for (int i = 0; i < PagoPorConceptos.size(); i++) {
-           // PagoPorConceptosBean pagoPorConceptosBean = (PagoPorConceptosBean) pagoPorConceptos.get(i);
+        for (int i = 0; i < pagoPorConceptos.size(); i++) {
+            PagoPorConceptosBean pagoPorConceptosBean = (PagoPorConceptosBean) pagoPorConceptos.get(i);
             PagoPorConceptos a = new PagoPorConceptos();
 
 
             try {
-            //    a.testLink(pagoPorConceptosBean, i);
+                a.testLink(pagoPorConceptosBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info(e);
+//                log.info(e);
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
 
         }
 
-   // }
+    }
 
     @Before
     public void setUp() throws Exception {

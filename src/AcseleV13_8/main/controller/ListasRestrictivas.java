@@ -968,11 +968,11 @@ public class ListasRestrictivas {
             Thread.sleep(2000);
 
 
-         /*   WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[5]/td[5]/div"));
+            WebElement lista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[5]/td[5]/div"));
             Thread.sleep(1000);
             lista.click();
             Thread.sleep(1000);
-*/
+
 
             for (int j = 1; j <= 1; j++){
 

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <PAGO_POR_CONCEPTOS PRUEBA="1" NUMEROSINIESTRO="NumeroSiniestro" NUMEROPOLIZA="NumeroPoliza"
-                      FECHAOCURRENCIASIN="FechaOcurrenciaSin" PRODUCTO="Producto" ORDENARPOR="OrdenarPor"
-                      COBERTURA="Cobertura" MONTORESERVA="MontoReserva" NUMERODOCIDENT="NumeroDocIdent"
-                      MONTOSINIESTRO="MontoSiniestro" SELECCIONEACCION="SeleccioneAccion"/>
+  <PAGO_POR_CONCEPTOS PRUEBA="1" NUMEROSINIESTRO="500001-2016-001392" NUMEROPOLIZA=""
+                      FECHAOCURRENCIASIN="" PRODUCTO="" ORDENARPOR=""
+                      COBERTURA="1030378" MONTORESERVA="50" NUMERODOCIDENT="571114"
+                      MONTOSINIESTRO="20" SELECCIONEACCION="4"/>
 </dataset>
