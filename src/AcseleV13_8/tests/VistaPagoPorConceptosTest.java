@@ -43,7 +43,7 @@ public class VistaPagoPorConceptosTest {
     @Before
     public void setUp() throws Exception {
 
-   /*   DataSetManager.createPartialDataSet("SELECT PRUEBA, NumeroSiniestro, NumeroPoliza, FechaOcurrenciaSin,Producto, OrdenarPor, Cobertura, MontoReserva, NumeroDocIdent, MontoSiniestro, SeleccioneAccion FROM PAGO_POR_CONCEPTOS ORDER BY PRUEBA ASC",
+    /*  DataSetManager.createPartialDataSet("SELECT PRUEBA, NumeroSiniestro, NumeroPoliza, FechaOcurrenciaSin,Producto, OrdenarPor, Cobertura, MontoReserva, NumeroDocIdent, MontoSiniestro, SeleccioneAccion FROM PAGO_POR_CONCEPTOS ORDER BY PRUEBA ASC",
                 "PAGO_POR_CONCEPTOS",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/pagoPorConceptos_dataset.xml");
 

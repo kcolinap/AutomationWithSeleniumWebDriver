@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.io.IOException;
+import java.lang.invoke.SwitchPoint;
+
 import org.openqa.selenium.support.ui.Select;
 import sun.java2d.loops.TransformHelper;
 
@@ -979,6 +981,9 @@ public class ListasRestrictivas {
                 WebElement detalle = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[1]/div/div/span/span"));
 
                 System.out.println("prueba-->>>>>"+detalle+" => "+ detalle.isEnabled());
+
+
+
 
                // if (detalle.isEnabled() == true){
                     detalle.click();
