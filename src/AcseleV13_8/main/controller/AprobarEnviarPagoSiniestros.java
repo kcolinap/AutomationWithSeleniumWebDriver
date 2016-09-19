@@ -143,10 +143,11 @@ public class AprobarEnviarPagoSiniestros {
 
 
             WebElement tercero = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
-            Thread.sleep(1000);
+            Thread.sleep(1500);
             a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            Thread.sleep(1000);
             tercero.click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
 /*              if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
@@ -157,6 +158,7 @@ public class AprobarEnviarPagoSiniestros {
             }
 */
             WebElement nombreTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
+            Thread.sleep(1000);
             nombreTercero.click();
             Thread.sleep(1000);
             a.ScreenShot(driver, "screen9", nombreAutomatizacion);

@@ -109,7 +109,7 @@ public class CreacionListaTemplate {
 
 
             //System.out.println("prueba ingreso bucle");
-            for (int j = 1; j <= 50; j++){
+            for (int j = 1; j <= 200; j++){
 
                 //System.out.println("dentro del bucle: " + i);
                 WebElement nuevaPlantilla = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada

@@ -64,17 +64,26 @@ public class Transformadores {
             WebElement btnBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button"));
            // Thread.sleep(1000);
             btnBuscar.click();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
 
 
-         /*   WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
+  /*          WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
             Thread.sleep(1000);
             carpetaTodas.click();
             Thread.sleep(2500);
 */
-            for (int j = 1; j <= 3000; j++){
+
+            Thread.sleep(4000);
+            WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"33882194\"]"));
+            Thread.sleep(1500);
+            propiedad.click();
+            Thread.sleep(1000);
+            propiedad.click();
+
+
+         /*   for (int j = 1; j <= 3000; j++){
 
                 System.out.println("dentro del bucle: " + j);
                 WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
@@ -94,10 +103,10 @@ public class Transformadores {
                 }
 
             }
-
+*/
             //Thread.sleep(1000);
 
-            for (int j = 1; j <= 3000; j++){
+         /*   for (int j = 1; j <= 3000; j++){
 
                 System.out.println("dentro del bucle: " + j);
                 WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
@@ -117,7 +126,7 @@ public class Transformadores {
                 }
 
             }
-
+*/
 /*
             Thread.sleep(3000);
             WebElement propiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[59]/td/div"));
