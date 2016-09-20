@@ -4,8 +4,10 @@ import AcseleV13_8.beans.TransformadoresBean;
 import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 
@@ -50,37 +52,52 @@ public class Transformadores {
     public void TranformadoresGeneral (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
-
-            Thread.sleep(7000);
+            Thread.sleep(10000);
             a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
-            Thread.sleep(1500);
+            Thread.sleep(2000);
 
-            WebElement buscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
+  /*          WebElement buscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
             buscar.sendKeys(transformadoresBean.getBuscar());
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
-            Thread.sleep(500);
+            Thread.sleep(1000);
 
             WebElement btnBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button"));
-           // Thread.sleep(1000);
+            Thread.sleep(1000);
             btnBuscar.click();
             Thread.sleep(3000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
-
-
-  /*          WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
-            Thread.sleep(1000);
-            carpetaTodas.click();
-            Thread.sleep(2500);
 */
 
-            Thread.sleep(4000);
-            WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"33882194\"]"));
-            Thread.sleep(1500);
-            propiedad.click();
+            WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
             Thread.sleep(1000);
-            propiedad.click();
+            carpetaTodas.click();
+            Thread.sleep(2000);
+
+
+
+            WebElement scroll = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]")); // se usa para mover el scroll
+
+            while (1 == 1) {
+                scroll.sendKeys(Keys.PAGE_DOWN);
+                System.out.println("Scroll");
+                if (!driver.findElement(By.xpath("//*[@id=\"33882194\"]")).isDisplayed()){
+                    WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"33882194\"]"));
+                    Thread.sleep(1500);
+                    propiedad.click();
+                    Thread.sleep(1000);
+
+                    break;
+                }
+            }
+
+
+//            Thread.sleep(3000);
+
+
+            // Thread.sleep(4000);
+           // propiedad.click();
 
 
          /*   for (int j = 1; j <= 3000; j++){
