@@ -57,7 +57,7 @@ public class CrearOpenItems {
         a.cambiarVentana(driver);
         a.ScreenShot(driver, "screen9", nombreAutomatizacion);
 
-        //De aqui en adelante falta realizar el método correspondiente a la última pantalla que está fallando.
+        FormularioOpenItem(a, driver, crearOpenItemsBean); //Llenar formulario de Inserción del OpenItem
     }
 
 
@@ -145,6 +145,64 @@ public class CrearOpenItems {
 //             log.info(e);
             log.info("Test Case ?? - Crear Open Items - " + e);
         }
+    }
+
+    private void FormularioOpenItem(Metodos a, WebDriver driver, CrearOpenItemsBean crearOpenItemsBean) {
+    try {
+        //LLenar formulario
+
+        if (crearOpenItemsBean.getRolOpenItem() != null) {
+
+            Select rolOpenItem = new Select(driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[3]/td[2]/select")));
+            rolOpenItem.selectByVisibleText(crearOpenItemsBean.getRolOpenItem());
+            Thread.sleep(1500);
+        }
+        if (crearOpenItemsBean.getConceptoCta() != null) {
+
+            Select conceptoCta = new Select(driver.findElement(By.xpath("//*[@id=\"inputDTY_ID\"]")));
+            conceptoCta.selectByVisibleText(crearOpenItemsBean.getConceptoCta());
+            Thread.sleep(1500);
+        }
+
+/*        //Se seleciona la fecha de movimiento
+        if (crearOpenItemsBean.getFechaMov() != null) {
+            WebElement fechaMov = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]"));
+            fechaMov.sendKeys(crearOpenItemsBean.getFechaMov());
+            Thread.sleep(1000);
+        }*/
+        //Se seleciona la fecha de vencimiento
+        if (crearOpenItemsBean.getFechaVen() != null) {
+            driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[6]/td[2]/input")).clear();
+            WebElement fechaMov = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[6]/td[2]/input"));
+            fechaMov.sendKeys(crearOpenItemsBean.getFechaVen());
+            Thread.sleep(1500);
+        }
+        //Se seleciona la Moneda
+        if (crearOpenItemsBean.getMoneda() != null) {
+
+            Select moneda = new Select(driver.findElement(By.xpath("//*[@id=\"inputDTY_ID\"]")));
+            moneda.selectByVisibleText(crearOpenItemsBean.getMoneda());
+            Thread.sleep(1500);
+        }
+        //Se ingresa el monto
+        if (crearOpenItemsBean.getMonto() != null) {
+            WebElement monto = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[8]/td[2]/input"));
+            monto.sendKeys(crearOpenItemsBean.getMonto());
+            Thread.sleep(1000);
+        }
+        //Se selecciona el tipo de referencia
+        if (crearOpenItemsBean.getTipoRef() != null) {
+
+            Select tipoRef = new Select(driver.findElement(By.xpath("//*[@id=\"inputREFERENCETYPE\"]")));
+            tipoRef.selectByVisibleText(crearOpenItemsBean.getTipoRef());
+            Thread.sleep(1500);
+        }
+    }
+    catch (Exception e) {
+        e.printStackTrace();
+             log.info(e);
+        log.info("Test Case ?? - Crear Open Items - " + e);
+    }
     }
 
 }
