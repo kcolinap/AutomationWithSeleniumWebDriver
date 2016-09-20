@@ -1,5 +1,6 @@
 package AcseleV13_8.main.controller.PolizaEmision;
 
+import AcseleV13_8.beans.ImpresionDocumentosNivelPolizaBean;
 import AcseleV13_8.beans.PolizaBean;
 import AcseleV13_8.main.controller.Metodos;
 import org.apache.log4j.Logger;
@@ -22,6 +23,10 @@ public class PrePoliza {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
             productoSelect.selectByValue(polizaBean.getProducto()); //VidaDeudoresAvVillas
             Thread.sleep(2000);
+
+            /*if(polizaBean instanceof ImpresionDocumentosNivelPolizaBean){
+                System.out.println("Impresora : -->>" + ((ImpresionDocumentosNivelPolizaBean) polizaBean).getImpresora());
+            }*/
 
             Select vigenciaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_validitiesComboBox']")));
             vigenciaSelect.selectByValue(polizaBean.getVigencia()); //12= Anual
