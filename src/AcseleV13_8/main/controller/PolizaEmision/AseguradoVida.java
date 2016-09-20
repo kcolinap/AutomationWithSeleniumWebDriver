@@ -44,6 +44,7 @@ public class AseguradoVida {
 
             Thread.sleep(2000);
             WebElement selAsegurado = driver.findElement(By.xpath("/html/body/div[7]/div/ul/li"));
+            //"//*[@id=\"432163512439293-autocomplete\"]/ul/li"
             selAsegurado.click();
 
             Thread.sleep(2000);

@@ -156,7 +156,20 @@ public class UnidadesRiesgo {
             if (polizaBean.getFechaPago() != null) {
                 Thread.sleep(2000);
                 WebElement fechaPago = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_5_fila_fieldDate']"));
+                fechaPago.click();
+
+                Thread.sleep(1000);
+                WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                afuera.click();
+                Thread.sleep(2000);
+                fechaPago = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_5_fila_fieldDate']"));
+                //fechaPago.clear();
+
                 fechaPago.sendKeys(polizaBean.getFechaPago());
+
+                Thread.sleep(1000);
+                WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                afueraClick.click();
             }
 
             if (polizaBean.getCuotaPagada() != null) {

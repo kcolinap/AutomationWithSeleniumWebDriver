@@ -40,7 +40,7 @@ public class ObjetoAsegurado {
             }
 
             if (polizaBean.getDireccionAsegurado() != null) {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
                 WebElement direccionAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_field']"));
                 direccionAsegurado.sendKeys(polizaBean.getDireccionAsegurado());
             }
