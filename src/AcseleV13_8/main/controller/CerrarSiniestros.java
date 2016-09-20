@@ -6,8 +6,11 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by aazuaje on 13/09/2016.
@@ -34,6 +37,7 @@ public class CerrarSiniestros {
         a.cambiarVentana(driver);
         BuscarPoliza(driver, a, cerrarSiniestrosBean, i);
         ResultadoBusqueda(driver, a, cerrarSiniestrosBean, i);
+        CerrarSiniestro(driver, a, cerrarSiniestrosBean, i);
 
 
 
@@ -135,7 +139,7 @@ public class CerrarSiniestros {
 
         try{
             Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[5]/td[3]/div"));
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
@@ -144,8 +148,42 @@ public class CerrarSiniestros {
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
 
-            Thread.sleep(25000);
+            Thread.sleep(30000);
             a.changeLastWindows(driver);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void CerrarSiniestro (WebDriver driver,Metodos a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
+
+        try{
+            Thread.sleep(2000);
+            WebElement btnCerrar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_32\"]"));
+            btnCerrar.click();
+
+            Thread.sleep(40000);
+
+            // Cambiar de frame
+            driver.switchTo().frame("plantilla");
+
+            Select motivoCierre = new Select(driver.findElement(By.xpath("//*[@id=\"2074374\"]/td[3]/font/select")));
+            motivoCierre.selectByValue(cerrarSiniestrosBean.getMotivoCierre());
+            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
+            Thread.sleep(2000);
+
+            // Salir del frame
+            //driver.switchTo().parentFrame();
+            driver.switchTo().defaultContent();
+
+            Thread.sleep(3000);
+            WebElement btnAceptar2 = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
+            btnAceptar2.click();
+            Thread.sleep(3000);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
 
 
 
@@ -155,4 +193,5 @@ public class CerrarSiniestros {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
 }

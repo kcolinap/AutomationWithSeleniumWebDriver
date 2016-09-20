@@ -21,6 +21,7 @@ public class CerrarSiniestrosBean implements Serializable {
     private String numPoliza;
     private String fechaOcurrenciaSiniestro;
     private String producto;
+    private String motivoCierre;
 
     public String getOrdenarPor() {return ordenarPor;}
     public void setOrdenarPor(String ordenarPor) {this.ordenarPor = ordenarPor;}
@@ -37,6 +38,9 @@ public class CerrarSiniestrosBean implements Serializable {
     public String getProducto() {return producto;}
     public void setProducto(String producto) {this.producto = producto;}
 
+    public String getMotivoCierre() {return motivoCierre;}
+    public void setMotivoCierre(String motivoCierre) {this.motivoCierre = motivoCierre;}
+
     public static ArrayList getCerrarSiestros() throws SQLException{
 
         Connection conn = null;
@@ -45,7 +49,7 @@ public class CerrarSiniestrosBean implements Serializable {
         ArrayList cerrarSiniestros = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select Prueba,Ordenar_Por,Num_Siniestro,Num_Poliza,Fecha_Ocurrencia_Siniestro,Producto from CERRAR_SINIESTRO ORDER BY PRUEBA ASC");
+        queryLoad.append("select Prueba,Ordenar_Por,Num_Siniestro,Num_Poliza,Fecha_Ocurrencia_Siniestro,Producto, Motivo_Cierre from CERRAR_SINIESTRO ORDER BY PRUEBA ASC");
 
         try{
 
@@ -61,6 +65,7 @@ public class CerrarSiniestrosBean implements Serializable {
                 cerrarSiniestrosBean.setNumPoliza(rs.getString("NUM_POLIZA"));
                 cerrarSiniestrosBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
                 cerrarSiniestrosBean.setProducto(rs.getString("PRODUCTO"));
+                cerrarSiniestrosBean.setMotivoCierre(rs.getString("MOTIVO_CIERRE"));
 
                 cerrarSiniestros.add(cerrarSiniestrosBean);
 

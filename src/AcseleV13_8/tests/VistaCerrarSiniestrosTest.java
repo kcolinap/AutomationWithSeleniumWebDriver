@@ -28,7 +28,7 @@ public class VistaCerrarSiniestrosTest {
             CerrarSiniestros a = new CerrarSiniestros();
 
             try {
-                //a.testLink(cerrarSiniestrosBean, j);
+                a.testLink(cerrarSiniestrosBean, j);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
@@ -41,14 +41,14 @@ public class VistaCerrarSiniestrosTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("select Prueba,Ordenar_Por,Num_Siniestro,Num_Poliza,Fecha_Ocurrencia_Siniestro,Producto from CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
+        /*DataSetManager.createPartialDataSet("select Prueba,Ordenar_Por,Num_Siniestro,Num_Poliza,Fecha_Ocurrencia_Siniestro,Producto, Motivo_Cierre from CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
                 "CERRAR_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/cerrarSiniestros_dataset_dataset.xml");
 
-        DataSetManager.createPartialDataSet("select Prueba,Ordenar_Por,Num_Siniestro,Num_Poliza,Fecha_Ocurrencia_Siniestro,Producto from CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("select Prueba,Ordenar_Por,Num_Siniestro,Num_Poliza,Fecha_Ocurrencia_Siniestro,Producto, Motivo_Cierre from CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
                 "CERRAR_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/cerrarSiniestros_dataset_dataset.xml");
-
+*/
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/cerrarSiniestros_dataset_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
