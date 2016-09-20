@@ -141,13 +141,13 @@ public class RechazarPagoSiniestros {
             Thread.sleep(2000);
 
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             WebElement tercero = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
             Thread.sleep(1000);
             a.ScreenShot(driver, "screen7", nombreAutomatizacion);
             Thread.sleep(1000);
             tercero.click();
-            Thread.sleep(2500);
+            Thread.sleep(3000);
 
 
     /*      if (ExpectedConditions.alertIsPresent() != null) {
