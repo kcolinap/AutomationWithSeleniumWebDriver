@@ -32,7 +32,7 @@ public class CajaAperturar {
 
         // Asociar caja a cajero
         //MenuAperturarCaja(driver, a); //Menu Asociar caja con cajero
-        m.UAA_Caja_AperturaCaja(driver,a,nombreAutomatizacion);
+        m.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 3, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
