@@ -76,9 +76,9 @@ public class ExportarImportarProducto {
             a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Thread.sleep(1000);
             exportarConf.click();
-            Thread.sleep(6000);
+            Thread.sleep(8000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             WebElement cerrarExport = driver.findElement(By.xpath("/html/body/div[9]/div[1]/div/div/div/div"));
             cerrarExport.click();
 

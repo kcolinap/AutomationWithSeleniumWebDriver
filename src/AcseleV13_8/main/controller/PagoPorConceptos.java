@@ -246,7 +246,6 @@ public class PagoPorConceptos {
             acciones.selectByValue(pagoPorConceptosBean.getSeleccioneAccion());
             Thread.sleep(2000);
 
-            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
 
 
          //   Thread.sleep(1000);
@@ -261,7 +260,7 @@ public class PagoPorConceptos {
                 driver.switchTo().defaultContent();
             }
 
-            //a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
             Thread.sleep(1000);
 
 
