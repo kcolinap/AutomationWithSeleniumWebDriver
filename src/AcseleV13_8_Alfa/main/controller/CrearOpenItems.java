@@ -3,9 +3,11 @@ package AcseleV13_8_Alfa.main.controller;
 import AcseleV13_8_Alfa.main.controller.Menu.MenuOperaciones;
 import AcseleV13_8_Alfa.beans.CrearOpenItemsBean;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
@@ -55,9 +57,25 @@ public class CrearOpenItems {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[8]/div/div[3]/div[2]/span[2]/button")).click();
         a.cambiarVentana(driver);
-        a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+        //a.ScreenShot(driver, "screen9", nombreAutomatizacion);
 
         FormularioOpenItem(a, driver, crearOpenItemsBean); //Llenar formulario de Inserción del OpenItem
+
+        //Presiono el botón Insertar OpenItem
+        driver.findElement(By.xpath("//*[@id=\"idb_040203715_thirdPartyMovsInsert_01\"]")).click();
+        Thread.sleep(1500);
+        //a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+        if (ExpectedConditions.alertIsPresent() != null) {
+            Thread.sleep(1000);
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+            Thread.sleep(1000);
+            driver.switchTo().defaultContent();
+        }
+        a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+        Thread.sleep(1000);
+
+
     }
 
 
@@ -180,7 +198,7 @@ public class CrearOpenItems {
         //Se seleciona la Moneda
         if (crearOpenItemsBean.getMoneda() != null) {
 
-            Select moneda = new Select(driver.findElement(By.xpath("//*[@id=\"inputDTY_ID\"]")));
+            Select moneda = new Select(driver.findElement(By.xpath("//*[@id=\"inputCURRENCYID\"]")));
             moneda.selectByVisibleText(crearOpenItemsBean.getMoneda());
             Thread.sleep(1500);
         }
@@ -196,6 +214,8 @@ public class CrearOpenItems {
             Select tipoRef = new Select(driver.findElement(By.xpath("//*[@id=\"inputREFERENCETYPE\"]")));
             tipoRef.selectByVisibleText(crearOpenItemsBean.getTipoRef());
             Thread.sleep(1500);
+            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            Thread.sleep(1000);
         }
     }
     catch (Exception e) {
@@ -203,6 +223,7 @@ public class CrearOpenItems {
              log.info(e);
         log.info("Test Case ?? - Crear Open Items - " + e);
     }
+
     }
 
 }
