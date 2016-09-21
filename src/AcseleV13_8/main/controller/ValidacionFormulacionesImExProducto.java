@@ -29,13 +29,13 @@ public class ValidacionFormulacionesImExProducto {
             MenuOperaciones menuOperaciones = new MenuOperaciones();
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion);
+            a.IniciarSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(2000);
-            a.ValidandoSesion(driver, nombreAutomatizacion);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(5000);
 
             // Ingreso al menu
-            menuConfiguracion.MantenimientoProducto(a, driver, nombreAutomatizacion, 2);
+            menuConfiguracion.MantenimientoProducto(driver, nombreAutomatizacion, 2);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -148,8 +148,12 @@ public class ValidacionFormulacionesImExProducto {
             a.ScreenShot(driver, "screen7", nombreAutomatizacion);
             Thread.sleep(1000);
 
-            WebElement btnAceptar = driver.findElement(By.xpath("//div[20]/div/div[2]/div/div/div/div[2]/div/div/div/table/tbody/tr/td"));
+            //WebElement btnAceptar = driver.findElement(By.xpath("//div[20]/div/div[2]/div/div/div/div[2]/div/div/div/table/tbody/tr/td"));
+            WebElement btnAceptar = driver.findElement(Sc.locator("scLocator=//IButton[ID=\"isc_OID_77\"]/"));
             btnAceptar.click();
+
+            WebElement btnCancelar = driver.findElement(Sc.locator("scLocator=//IButton[ID=\"isc_OID_78\"]/"));
+            btnCancelar.click();
 
             Thread.sleep(2000);
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.io.IOException;
-import java.lang.invoke.SwitchPoint;
+
 
 import org.openqa.selenium.support.ui.Select;
 import sun.java2d.loops.TransformHelper;

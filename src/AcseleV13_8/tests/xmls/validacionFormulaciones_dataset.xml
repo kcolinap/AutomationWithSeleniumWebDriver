@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <VALIDACION_FORMULACIONES PRUEBA="1" FORMULA="MontoAsegurado*(AseguradoVida_Participacion_Porcentaje/100)*22"/>
+  <VALIDACION_FORMULACIONES PRUEBA="1" FORMULA="MontoAsegurado*(AseguradoVida_Participacion_Porcentaje/100)"/>
 </dataset>
