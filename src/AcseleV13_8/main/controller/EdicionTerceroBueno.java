@@ -1,6 +1,8 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EdicionTercerosBuenosBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,86 +16,131 @@ import java.io.IOException;
 // Cambio de Nombre y Apellido
 public class EdicionTerceroBueno {
 
+    private final static Logger log = Logger.getLogger(EdicionTerceroBueno.class);
 
-    public void testLink(EdicionTercerosBuenosBean edicionTercerosBuenosBean)throws Exception {
+    public String nombreAutomatizacion ="Edicion Terceros Buenos";
 
-        String nombreAutomatizacion ="Edicion Terceros Buenos";
+    public void testLink(EdicionTercerosBuenosBean edicionTercerosBuenosBean, int i)throws Exception {
 
-        Metodos a= new Metodos();   //implementando metodos.
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
-        Thread.sleep(3000);
+        try {
 
-        //Entrando en Menu
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//ingresar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
-        menu3.click();
-        a.cambiarVentana(driver); // Cambiar de ventana
+            // Instanciando clases
+            Metodos a = new Metodos();   //implementando metodos.
+            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
-        BuscarTercero(a, driver, nombreAutomatizacion, edicionTercerosBuenosBean);
+            WebDriver driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+            Thread.sleep(3000);
 
+            //Entrando en Menu
+            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+
+            Thread.sleep(1000);
+            a.cambiarVentana(driver); // Cambiar de ventana
+
+            BuscarTercero(a, driver, edicionTercerosBuenosBean, i);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            //             log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 
-    public void BuscarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, EdicionTercerosBuenosBean edicionTercerosBuenosBean)
-            throws InterruptedException, IOException {
-        Thread.sleep(4000);
-        String title = driver.getTitle();
-        System.out.println("Titulo de la pagina: " + title);
-        //Tipo de tercero
-        Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
-        tipoT.selectByValue(edicionTercerosBuenosBean.getTipoTercero());
-        Thread.sleep(2000);
+    public void BuscarTercero(Metodos a, WebDriver driver, EdicionTercerosBuenosBean edicionTercerosBuenosBean, int i) throws InterruptedException, IOException {
 
-        //WebElement cedu = getDriver().findElement(By.name("templateThird:repeaterPanel1:2:fila:field"));
-        WebElement cedu = driver.findElement(By.xpath("//*[@id=\"id16\"]"));
-        cedu.sendKeys(edicionTercerosBuenosBean.getCedula());
+        try { //TipoElemento[@wicketpath='WicketpathElemento']
 
-        WebElement nTercero = driver.findElement(By.name("templateThird:repeaterPanel1:3:fila:field"));
-        nTercero.sendKeys(edicionTercerosBuenosBean.getNombre());
-        /*WebElement aTercero = driver.findElement(By.name("templateThird:repeaterPanel1:5:fila:field"));
-        aTercero.sendKeys(edicionTercerosBuenosBean.getApellido());*/
+            Thread.sleep(4000);
+            String title = driver.getTitle();
+            System.out.println("Titulo de la pagina: " + title);
 
-        //Screenshot
-        a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            Thread.sleep(1000);
+            //Tipo de tercero
+            if (edicionTercerosBuenosBean.getTipoTercero() != null){
+                Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
+                tipoT.selectByValue(edicionTercerosBuenosBean.getTipoTercero());
+                Thread.sleep(1000);
+            }
 
-        WebElement buscar = driver.findElement(By.name("searchButton"));
-        buscar.click();
-        Thread.sleep(3000);
+            if (edicionTercerosBuenosBean.getTipoDocIdentidad() != null){
+                Select tipoDocId = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+                tipoDocId.selectByValue(edicionTercerosBuenosBean.getTipoDocIdentidad());
+                Thread.sleep(1000);
+            }
 
+            if (edicionTercerosBuenosBean.getCedula() != null){
+                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+                cedu.sendKeys(edicionTercerosBuenosBean.getCedula());
+                Thread.sleep(1000);
+            }
 
+            if (edicionTercerosBuenosBean.getNombre() != null){
+                WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
+                nTercero.sendKeys(edicionTercerosBuenosBean.getNombre());
+                Thread.sleep(3000);
+            }
 
-        WebElement selccionTercero = driver.findElement(By.name("SearchContent:ThirdInformation:showDetailSearchTable:proof:ThirdPartyRadioGroup"));
-        selccionTercero.click();
+            //Screenshot
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
 
-        //Screenshot
-        a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+            buscar.click();
+            Thread.sleep(3000);
 
-        // Boton Editar
-        WebElement consultar = driver.findElement(By.name("associateButton"));
-        consultar.click();
+            WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+            selccionTercero.click();
 
-        Thread.sleep(5000);
+            //Screenshot
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
 
-        //Screenshot
-        a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            // Boton Editar
+            WebElement consultar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
+            consultar.click();
 
-        // Cambiar Nombre
-        driver.findElement(By.name("DataTemplate:repeaterPanel1:3:fila:field")).clear();
-        driver.findElement(By.name("DataTemplate:repeaterPanel1:3:fila:field")).sendKeys(edicionTercerosBuenosBean.getNombreNuevo());
+            Thread.sleep(1000);
+            /** Espere **/
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espera 1");
+            }
 
-        // Cambiar Apellido
-        driver.findElement(By.name("DataTemplate:repeaterPanel1:5:fila:field")).sendKeys(edicionTercerosBuenosBean.getApellidoNuevo());
+            //Screenshot
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
 
-        //Screenshot
-        a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            if (edicionTercerosBuenosBean.getNombreNuevo() != null){
+                // Cambiar Nombre
+                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_3_fila_field']")).clear();
+                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_3_fila_field']")).sendKeys(edicionTercerosBuenosBean.getNombreNuevo());
+                Thread.sleep(1000);
+            }
 
-        // Boton Guardar
-        driver.findElement(By.name("saveButton")).click();
+            if (edicionTercerosBuenosBean.getApellidoNuevo() != null){
+                // Cambiar Apellido
+                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_5_fila_field']")).sendKeys(edicionTercerosBuenosBean.getApellidoNuevo());
+                Thread.sleep(1000);
+            }
 
+            //Screenshot
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+
+            // Boton Guardar
+            driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']")).click();
+
+            Thread.sleep(3000);
+            //Screenshot
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            //             log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 }

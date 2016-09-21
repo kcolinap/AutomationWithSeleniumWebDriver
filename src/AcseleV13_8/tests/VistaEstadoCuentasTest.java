@@ -2,28 +2,49 @@ package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.EstadoCuentasBean;
 import AcseleV13_8.main.controller.EstadoCuentas;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 27/05/2016.
  */
 public class VistaEstadoCuentasTest {
 
+    private final static Logger log = Logger.getLogger(VistaEstadoCuentasTest.class);
+
     @Test
     //@Transactional
-    public void mainTest() {
+    public void mainTest() throws SQLException {
 
-        EstadoCuentasBean estadoCuentasBean = EstadoCuentasBean.getEstadoCuentas();
+        ArrayList estadoCuentas = EstadoCuentasBean.getEstadoCuentas();
+
+        for (int i = 0; i < estadoCuentas.size(); i++) {
+
+            EstadoCuentasBean estadoCuentasBean = (EstadoCuentasBean) estadoCuentas.get(i);
+            EstadoCuentas a = new EstadoCuentas();
+
+            try {
+                a.testLink(estadoCuentasBean, i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
+        }
+
+/*        EstadoCuentasBean estadoCuentasBean = EstadoCuentasBean.getEstadoCuentas();
         EstadoCuentas a = new EstadoCuentas();
         try {
-            a.testLink(estadoCuentasBean);
+            a.testLink(estadoCuentasBean, i);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+*/
     }
 
     @Before

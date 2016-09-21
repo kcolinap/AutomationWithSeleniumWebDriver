@@ -42,18 +42,18 @@ public class VistaBuscarSiniestroSimpleTest {
 
 /*        DataSetManager.createPartialDataSet("SELECT PRUEBA,ORDEN,NUM_SINIESTRO,NUM_POLIZA,FECHA,PRODUCTO FROM BUSCAR_SINIESTRO_SIMPLE ORDER BY PRUEBA ASC",
                 "BUSCAR_SINIESTRO_SIMPLE",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xlms/buscarSiniestroSimple_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xmls/buscarSiniestroSimple_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA,ORDEN,NUM_SINIESTRO,NUM_POLIZA,FECHA,PRODUCTO FROM BUSCAR_SINIESTRO_SIMPLE ORDER BY PRUEBA ASC",
                 "BUSCAR_SINIESTRO_SIMPLE",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Alfa/tests/xlms/buscarSiniestroSimple_dataset.xml");*/
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Alfa/tests/xmls/buscarSiniestroSimple_dataset.xml");*/
 
-        //DataSetManager.loadDataSet("C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xlms/buscarSiniestroSimple_dataset.xml", DataSetManager.REFRESH_OPERATION);
-        DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xlms/buscarSiniestroSimple_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        //DataSetManager.loadDataSet("C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Alfa/tests/xmls/buscarSiniestroSimple_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xmls/buscarSiniestroSimple_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
     public void tearDown() throws Exception{
-        DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xlms/buscarSiniestroSimple_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8_Alfa/tests/xmls/buscarSiniestroSimple_dataset.xml", DataSetManager.DELETE_OPERATION);
     }
 }

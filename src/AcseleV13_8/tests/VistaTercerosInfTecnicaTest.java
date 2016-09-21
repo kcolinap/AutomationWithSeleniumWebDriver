@@ -2,11 +2,13 @@ package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.TercerosInfTecnicaBean;
 import AcseleV13_8.main.controller.TercerosInformacionTecnica;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,36 +16,31 @@ import java.util.ArrayList;
  */
 public class VistaTercerosInfTecnicaTest {
 
+    private final static Logger log = Logger.getLogger(VistaTercerosInfTecnicaTest.class);
 
     @Test
-    //@Transactional
     public void mainTest() {
 
-//        BusquedaPolizaAvanzadaBean busquedaPolizaAvanzadaBean = BusquedaPolizaAvanzadaBean.getBusquedaPolizaAvanzada();
-//        ConsultaPolizaAvanzada a = new ConsultaPolizaAvanzada();
-//        try {
-//            a.testLink(busquedaPolizaAvanzadaBean);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        ArrayList terceros = null;
 
-        /***/
-        ArrayList terceros = TercerosInfTecnicaBean.getConsultaTercerosInfTecnica();
-        //login
+        try {
+            terceros = TercerosInfTecnicaBean.getConsultaTercerosInfTecnica();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
-        for(int i = 0; i < terceros.size(); i++) {
+        for (int i = 0; i < terceros.size(); i++) {
 
             TercerosInfTecnicaBean tercerosInfTecnicaBean = (TercerosInfTecnicaBean) terceros.get(i);
             TercerosInformacionTecnica a = new TercerosInformacionTecnica();
 
             try {
                 a.testLink(tercerosInfTecnicaBean, i);
-            } catch (Exception e) {
+            }catch (Exception e) {
                 e.printStackTrace();
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
-
-        //Logout
 
     }
 
@@ -52,11 +49,11 @@ public class VistaTercerosInfTecnicaTest {
 
 /*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS ORDER BY PRUEBA ASC",
                 "CONSULTA_TERCEROS",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8.tests.xmls/tercerosInformacionTecnica_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/tercerosInformacionTecnica_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS ORDER BY PRUEBA ASC",
                 "CONSULTA_TERCEROS",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8.tests.xmls/tercerosInformacionTecnica_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/tercerosInformacionTecnica_dataset.xml");
 */
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/tercerosInformacionTecnica_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }

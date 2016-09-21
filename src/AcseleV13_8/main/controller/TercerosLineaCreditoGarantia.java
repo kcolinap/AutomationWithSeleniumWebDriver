@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.TercerosLineaCreditoGarantiaBean;
+import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,42 +22,43 @@ public class TercerosLineaCreditoGarantia {
 
     public void testLink(TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws Exception{
 
-        //implementando clase de metodos
-        Metodos a = new Metodos();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
-        Thread.sleep(5000);
+        try {
 
-        // Consulta del Tercero
-        IngresarMenuBuscarTercero(driver, a); //Menu
-        Thread.sleep(2000);
-        a.cambiarVentana(driver);
-        Thread.sleep(2000);
-        BusquedaT(a, driver, tercerosLineaCreditoGarantiaBean); //Busqueda Tercero
+            // Instanciando clases
+            Metodos a = new Metodos();
+            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
-        // Boton Editar
-        driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']")).click();
-        Thread.sleep(2000);
+            WebDriver driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            Thread.sleep(5000);
 
-        LineaCreditoGarantia(a, driver, tercerosLineaCreditoGarantiaBean);
+            //Entrando en Menu
+            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
 
-        Thread.sleep(3000);
-        a.ScreenShot(driver, "screen7", nombreAutomatizacion);
-        Toolkit.getDefaultToolkit().beep();
+            // Consulta del Tercero
+            Thread.sleep(2000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
+            BusquedaT(a, driver, tercerosLineaCreditoGarantiaBean, i); //Busqueda Tercero
+
+            // Boton Editar
+            driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']")).click();
+            Thread.sleep(2000);
+
+            LineaCreditoGarantia(a, driver, tercerosLineaCreditoGarantiaBean, i);
+
+            Thread.sleep(3000);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 
-    public void IngresarMenuBuscarTercero(WebDriver driver, Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]"));//Mantenimiento de terceros
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]"));//buscar tercero
-        menu1.click();
-        menu2.click();
-        a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
-        menu3.click();
-    }
-
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         try{
@@ -93,7 +95,7 @@ public class TercerosLineaCreditoGarantia {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
@@ -105,19 +107,18 @@ public class TercerosLineaCreditoGarantia {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
-        }catch (Exception e){
+        }catch (Exception e) {
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 18 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 
     }
 
-    public void LineaCreditoGarantia(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean) throws InterruptedException {
+    public void LineaCreditoGarantia(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException {
 
         Thread.sleep(4000);
         try{
@@ -148,7 +149,7 @@ public class TercerosLineaCreditoGarantia {
             fechaFin.sendKeys(tercerosLineaCreditoGarantiaBean.getFechaHasta());
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(2000);
@@ -156,12 +157,9 @@ public class TercerosLineaCreditoGarantia {
             btnGuardar.click();
 
 
-
-
-        }catch (Exception e){
+        }catch (Exception e) {
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 18 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 

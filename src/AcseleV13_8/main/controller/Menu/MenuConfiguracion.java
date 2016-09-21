@@ -37,9 +37,8 @@ public class MenuConfiguracion {
     /** -- Mantenimiento de Producto (Applet) -- **/
 
     /** Mantenimiento de Producto **/
-    public void MantenimientoProducto(){}
 
-    public void MantenimientoProducto(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot) {
+    public void MantenimientoProducto(WebDriver driver, String nombreAutomatizacion,int numScreenShoot) {
 
         try {
             Actions action = new Actions(driver);
@@ -50,7 +49,9 @@ public class MenuConfiguracion {
             action.moveToElement(menu1).build().perform();
 
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion);
+            action.moveToElement(menu2).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen"+ numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
             menu2.click();
 
@@ -128,7 +129,38 @@ public class MenuConfiguracion {
     /** -- (Nuevo) Movimientos de Contabilidad -- **/
 
     /** (Nuevo) Plantillas (Modo No Privilegiado) **/
-    public void NuevoPlantillasModoNoPrivilegiado(){}
+
+    public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i ) {
+
+
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[18]"));//NuevoPlantillasModoNoPrivilegiado
+            Thread.sleep(1000);
+
+            action.moveToElement(menu1).build().perform();
+            Thread.sleep(1000);
+            action.moveToElement(menu2).build().perform();
+            Thread.sleep(1000);
+
+            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion);
+            Thread.sleep(1000);
+
+
+
+            menu2.click();
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
+
+
     /** -- (Nuevo) Plantillas (Modo No Privilegiado) -- **/
 
     /** (Nuevo) Plantillas (Modo Privilegiado) **/

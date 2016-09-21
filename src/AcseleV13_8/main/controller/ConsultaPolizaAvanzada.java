@@ -1,6 +1,8 @@
 package AcseleV13_8.main.controller;
 
-import AcseleV13_8.beans.BusquedaPolizaAvanzadaBean;
+import AcseleV13_8.beans.ConsultaPolizaAvanzadaBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,35 +16,37 @@ import java.io.IOException;
  */
 public class ConsultaPolizaAvanzada {
 
-    String nombreAutomatizacion ="Consulta Poliza Avanzada";
+    private final static Logger log = Logger.getLogger(ConsultaPolizaAvanzada.class);
+
+    public String nombreAutomatizacion ="Consulta Poliza Avanzada";
     //Pliza a buscar
     //String nPoliza = "EA00222";
     //String fechaEm = "17-12-2015";
 
 
-    public void testLink(BusquedaPolizaAvanzadaBean busquedaPolizaAvanzadaBean, int i)throws Exception {
+    public void testLink(ConsultaPolizaAvanzadaBean consultaPolizaAvanzadaBean, int i)throws Exception {
 
-        Metodos a= new Metodos();   //implementando metodos.
+        // Instanciando Clases
+        Metodos a= new Metodos();
+        MenuOperaciones menuOperaciones = new MenuOperaciones();
+
+
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion); //validando sesion.
-        Thread.sleep(3000);
+        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+        Thread.sleep(5000);
 
         //Entrando en Menu
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
-        menu1.click();
-        menu2.click();
-        a.ScreenShotPool(driver, i, "screen2", nombreAutomatizacion); //screenshot2
-        Toolkit.getDefaultToolkit().beep();
-        menu3.click();
+        menuOperaciones.OpePol_CotizacionSuscripcionMantenimientoPolizas(a, driver, nombreAutomatizacion, 2);
+        Thread.sleep(2000);
         a.cambiarVentana(driver); // Cambiar de ventana
 
-        BuscarPolizaSimple(a, driver, busquedaPolizaAvanzadaBean, i);
+        BuscarPolizaSimple(a, driver, consultaPolizaAvanzadaBean, i);
     }
 
-    public void BuscarPolizaSimple(Metodos a, WebDriver driver, BusquedaPolizaAvanzadaBean busquedaPolizaAvanzadaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(Metodos a, WebDriver driver, ConsultaPolizaAvanzadaBean consultaPolizaAvanzadaBean, int i) throws InterruptedException, IOException {
+
+        //TipoElemento[@wicketpath='WicketpathElemento']
 
         Thread.sleep(2000);
 
@@ -51,35 +55,35 @@ public class ConsultaPolizaAvanzada {
         Toolkit.getDefaultToolkit().beep();
 
         // Boton Busqueda Avanzada
-        driver.findElement(By.xpath("//*[@id=\"idb\"]/span")).click();
+        driver.findElement(By.xpath("//a[@wicketpath='ConsultPolicy_searchForm_detailSearchLink']")).click();
         Thread.sleep(3000);
 
         /** Inicio Formulario **/
         // Select del Producto
-        if (busquedaPolizaAvanzadaBean.getProducto() != null){
-            Select tipoProducto = new Select(driver.findElement(By.xpath("//*[@id=\"id21\"]")));
+        if (consultaPolizaAvanzadaBean.getProducto() != null){
+            Select tipoProducto = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_productsList']")));
             //tipoProducto.selectByValue("VidaDeudoresAvVillas");
-            tipoProducto.selectByValue(busquedaPolizaAvanzadaBean.getProducto());
+            tipoProducto.selectByValue(consultaPolizaAvanzadaBean.getProducto());
             Thread.sleep(2000);
         }
 
         // Estado del ciclo de vida
-        if (busquedaPolizaAvanzadaBean.getEdoCicloVida() != null){
-            Select edoCicloVida = new Select(driver.findElement(By.xpath("//*[@id=\"id22\"]")));
-            edoCicloVida.selectByValue(busquedaPolizaAvanzadaBean.getEdoCicloVida());
+        if (consultaPolizaAvanzadaBean.getEdoCicloVida() != null){
+            Select edoCicloVida = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_stateProductsList']")));
+            edoCicloVida.selectByValue(consultaPolizaAvanzadaBean.getEdoCicloVida());
             Thread.sleep(1000);
         }
         // Fecha de Emision
-        if (busquedaPolizaAvanzadaBean.getFechaEmision() != null){
-            WebElement fechaEmision = driver.findElement(By.name("templatePolicy:repeaterPanel1:2:fila:fieldDate"));
-            fechaEmision.sendKeys(busquedaPolizaAvanzadaBean.getFechaEmision());
+        if (consultaPolizaAvanzadaBean.getFechaEmision() != null){
+            WebElement fechaEmision = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_2_fila_fieldDate']"));
+            fechaEmision.sendKeys(consultaPolizaAvanzadaBean.getFechaEmision());
             Thread.sleep(1000);
         }
 
         // Num Poliza
-        if (busquedaPolizaAvanzadaBean.getNumPoliza() != null){
-            WebElement numeroPolza = driver.findElement(By.name("templatePolicy:repeaterPanel2:1:fila:field"));
-            numeroPolza.sendKeys(busquedaPolizaAvanzadaBean.getNumPoliza());
+        if (consultaPolizaAvanzadaBean.getNumPoliza() != null){
+            WebElement numeroPolza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_1_fila_field']"));
+            numeroPolza.sendKeys(consultaPolizaAvanzadaBean.getNumPoliza());
             Thread.sleep(1000);
         }
 
@@ -88,61 +92,61 @@ public class ConsultaPolizaAvanzada {
         Toolkit.getDefaultToolkit().beep();
 
         // Tipo Tercero
-        if (busquedaPolizaAvanzadaBean.getTipoTercero() != null){
-            Select tipoTer = new Select(driver.findElement(By.xpath("//*[@id=\"id40\"]")));
-            tipoTer.selectByValue(busquedaPolizaAvanzadaBean.getTipoTercero());
+        if (consultaPolizaAvanzadaBean.getTipoTercero() != null){
+            Select tipoTer = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_thirdPartyList']")));
+            tipoTer.selectByValue(consultaPolizaAvanzadaBean.getTipoTercero());
             Thread.sleep(4000);
         }
 
         // Tipo de Documento Identificación
-        if (busquedaPolizaAvanzadaBean.getTipoDocIdent() != null){
-            Select tipoDocId = new Select(driver.findElement(By.name("templateThird:repeaterPanel1:1:fila:repeaterSelect:1:field")));
-            tipoDocId.selectByValue(busquedaPolizaAvanzadaBean.getTipoDocIdent());
+        if (consultaPolizaAvanzadaBean.getTipoDocIdent() != null){
+            Select tipoDocId = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+            tipoDocId.selectByValue(consultaPolizaAvanzadaBean.getTipoDocIdent());
             Thread.sleep(1000);
         }
 
         // Número de Documento identificación
-        if (busquedaPolizaAvanzadaBean.getNumDocIdent() != null){
+        if (consultaPolizaAvanzadaBean.getNumDocIdent() != null){
             //driver.findElement(By.xpath("//*[@id=\"id1fd\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel1:2:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getNumDocIdent());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel1_2_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getNumDocIdent());
             Thread.sleep(1000);
         }
 
         // Pasaporte
-        if (busquedaPolizaAvanzadaBean.getPasaporte() != null){
+        if (consultaPolizaAvanzadaBean.getPasaporte() != null){
             //driver.findElement(By.xpath("//*[@id=\"id226\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel2:1:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getPasaporte());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel2_1_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getPasaporte());
             Thread.sleep(1000);
         }
 
         // Primer Nombre
-        if (busquedaPolizaAvanzadaBean.getPrimerNombre() != null){
+        if (consultaPolizaAvanzadaBean.getPrimerNombre() != null){
             //driver.findElement(By.xpath("//*[@id=\"id200\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel1:3:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getPrimerNombre());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel1_3_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getPrimerNombre());
         }
 
         // Primer Apellido
-        if (busquedaPolizaAvanzadaBean.getPrimerApellido() != null){
+        if (consultaPolizaAvanzadaBean.getPrimerApellido() != null){
             //driver.findElement(By.xpath("//*[@id=\"id206\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel1:5:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getPrimerApellido());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel1_5_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getPrimerApellido());
         }
 
         // Email1
-        if (busquedaPolizaAvanzadaBean.getEmail1() != null){
+        if (consultaPolizaAvanzadaBean.getEmail1() != null){
             //driver.findElement(By.xpath("//*[@id=\"id211\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel1:9:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getEmail1());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel1_9_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getEmail1());
         }
 
         // Telefono Fijo
-        if (busquedaPolizaAvanzadaBean.getTelFijo() != null){
+        if (consultaPolizaAvanzadaBean.getTelFijo() != null){
             //driver.findElement(By.xpath("//*[@id=\"id22c\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel2:3:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getTelFijo());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel2_3_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getTelFijo());
         }
 
         //Telefono Celular
-        if (busquedaPolizaAvanzadaBean.getTelCelular() != null){
+        if (consultaPolizaAvanzadaBean.getTelCelular() != null){
             //driver.findElement(By.xpath("//*[@id=\"ide8\"]"));
-            driver.findElement(By.name("templateThird:repeaterPanel2:9:fila:field")).sendKeys(busquedaPolizaAvanzadaBean.getTelCelular());
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templateThird_repeaterPanel2_9_fila_field']")).sendKeys(consultaPolizaAvanzadaBean.getTelCelular());
         }
 
         //Screenshot
@@ -151,11 +155,11 @@ public class ConsultaPolizaAvanzada {
         Toolkit.getDefaultToolkit().beep();
 
         // Boton Buscar
-        driver.findElement(By.name("searchButton")).click();
+        driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
         Thread.sleep(6000);
 
         //Seleccion poliza
-        driver.findElement(By.name("ConsultPolicy:ResultSearchSimplePolicy:groupPolicies")).click();
+        driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
 
         //Screenshot
         Thread.sleep(2000);
@@ -163,14 +167,33 @@ public class ConsultaPolizaAvanzada {
         Toolkit.getDefaultToolkit().beep();
 
         // Boton Consultar
-        driver.findElement(By.name("container:ConsultPolicyButton")).click();
+        driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_ConsultPolicyButton']")).click();
         Thread.sleep(3000);
 
-
-        if (driver.findElements(By.name("EventSection:content:Form:continueButton")).size() != 0){
-            driver.findElement(By.name("EventSection:content:Form:continueButton")).click();
-            Thread.sleep(3000);
+        /** Espere **/
+        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera.isDisplayed()) {
+            Thread.sleep(5000);
+            System.out.println("Espera 1");
         }
+
+        Thread.sleep(1000);
+        // Si aparece un mensaje "El asegurado Presenta Cumulo"
+        if (driver.findElement(By.xpath("//label[@wicketpath='modalWindowForm_EventSection_content_eventMessage']")).isDisplayed()){
+            //Screenshot
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen6-2", nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+            // Boton Continuar
+            driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
+        }
+
+
+        /*if (driver.findElements(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")).size() != 0){
+            driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")).click();
+            Thread.sleep(3000);
+        }*/
 /*
         boolean present;
         try {
@@ -193,7 +216,14 @@ public class ConsultaPolizaAvanzada {
 //            Thread.sleep(3000);
 //        }
 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
+        /** Espere **/
+        mensajeEspera = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera.isDisplayed()) {
+            Thread.sleep(5000);
+            System.out.println("Espera 2");
+        }
+
         //Screenshot
         a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
         Toolkit.getDefaultToolkit().beep();

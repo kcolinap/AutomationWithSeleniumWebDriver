@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,20 +21,27 @@ public class VistaTercerosLineaCreditoGarantiaTest {
     @Test
     public void mainTest(){
 
-        ArrayList terceros = TercerosLineaCreditoGarantiaBean.getTercerosLinaCreditoGarantia();
+        ArrayList terceros = null;
+
+        try {
+            terceros = TercerosLineaCreditoGarantiaBean.getTercerosLinaCreditoGarantia();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < terceros.size(); i++){
+
             TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean = (TercerosLineaCreditoGarantiaBean) terceros.get(i);
             TercerosLineaCreditoGarantia a = new TercerosLineaCreditoGarantia();
 
             try {
                 a.testLink(tercerosLineaCreditoGarantiaBean, i);
-            } catch (Exception e){
+            }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
+
     }
 
     @Before
@@ -41,11 +49,11 @@ public class VistaTercerosLineaCreditoGarantiaTest {
 
 /*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_DOC_IDENTIDAD, TIPO_TERCERO, CEDULA, NOMBRE, APELLIDO, TIPOS, MONTOS, DESCRIPCION, FECHA_DESDE, FECHA_HASTA FROM TERCERO_LINEA_CREDITO_GARANTIA ORDER BY PRUEBA ASC",
                 "TERCERO_LINEA_CREDITO_GARANTIA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8.tests.xmls/tercerosLineaCreditoGarantia_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/tercerosLineaCreditoGarantia_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO_DOC_IDENTIDAD, TIPO_TERCERO, CEDULA, NOMBRE, APELLIDO, TIPOS, MONTOS, DESCRIPCION, FECHA_DESDE, FECHA_HASTA FROM TERCERO_LINEA_CREDITO_GARANTIA ORDER BY PRUEBA ASC",
                 "TERCERO_LINEA_CREDITO_GARANTIA",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8.tests.xmls/tercerosLineaCreditoGarantia_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/tercerosLineaCreditoGarantia_dataset.xml");
 */
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/tercerosLineaCreditoGarantia_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }

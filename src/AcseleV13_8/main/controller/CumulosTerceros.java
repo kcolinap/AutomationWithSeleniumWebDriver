@@ -2,6 +2,7 @@ package AcseleV13_8.main.controller;
 
 
 import AcseleV13_8.beans.CumulosTercerosBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,39 +24,27 @@ public class CumulosTerceros {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
 
-        MenuCreacionSiniestro(driver, a);
+        m.Cumulos_CumulosPorTerceros(driver, a, nombreAutomatizacion, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaTerceros (driver, a, cumulosTercerosBean);
+        BusquedaTerceros (driver, a, cumulosTercerosBean, i);
 
 
     }
 
-    public void MenuCreacionSiniestro(WebDriver driver,Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[1]"));//cumulos terceros
 
-        menu1.click();
-        menu2.click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(3000);
-        menu3.click();
-
-    }
-
-    public void BusquedaTerceros (WebDriver driver, Metodos a, CumulosTercerosBean cumulosTercerosBean) throws IOException, InterruptedException{
+    public void BusquedaTerceros (WebDriver driver, Metodos a, CumulosTercerosBean cumulosTercerosBean, int i) throws IOException, InterruptedException{
 
         try{
 
-            Thread.sleep(6000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            Thread.sleep(8000);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Select tipoTerceros = new Select(driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select")));
             tipoTerceros.selectByValue(cumulosTercerosBean.getTipoTerceros());
 
@@ -93,7 +82,7 @@ public class CumulosTerceros {
             }
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_0402036_ThirdPartySearchForCumulus_01\"]"));
             btnBuscar.click();
@@ -103,13 +92,13 @@ public class CumulosTerceros {
             WebElement btnSeleccionar = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]"));
             btnSeleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
             Thread.sleep(1000);
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"td_button_submit_01\"]/input"));
             btnAceptar.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(10000);
             WebElement btnmoneda = driver.findElement(By.xpath("//*[@id=\"money\"]"));
             btnmoneda.click();
 
@@ -121,7 +110,7 @@ public class CumulosTerceros {
             moneda2.selectByValue(cumulosTercerosBean.getMoneda2());
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
 
 
         }catch (Exception e) {

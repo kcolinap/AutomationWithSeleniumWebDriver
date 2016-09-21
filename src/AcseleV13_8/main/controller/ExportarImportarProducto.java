@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 
@@ -25,30 +26,32 @@ public class ExportarImportarProducto {
         MenuConfiguracion m = new MenuConfiguracion();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(1500);
         System.out.println("prueba");
 
-        m.MantenimientoProducto(a, driver, nombreAutomatizacion, 2);
+        m.MantenimientoProducto(driver, nombreAutomatizacion, 3);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
-        ExportarProducto(driver, a, exportarImportarProductoBean);
+        ExportarProducto(driver, a, exportarImportarProductoBean, i);
 
         Thread.sleep(3000);
 
-        ImportarProducto (driver, a,exportarImportarProductoBean);
+        ImportarProducto (driver, a,exportarImportarProductoBean, i);
 
 
 
 
     }
 
-    public void ExportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean) throws IOException, InterruptedException{
+    public void ExportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean, int i) throws IOException, InterruptedException{
 
         try {
 
+            //selcciona el producto del product tool
+            Actions action = new Actions(driver);
             Thread.sleep(2000);
             WebElement product = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div/div/div"));
             product.click();
@@ -57,24 +60,25 @@ public class ExportarImportarProducto {
             Thread.sleep(1000);
             producto.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
 
             Thread.sleep(1000);
 
+            //hace click en el boton migracion, y selecciona la opcion exportar datos de configuracion
+            //una vez realizado el export cierra la ventana con la informacion de la misma.
             WebElement btnMigracion = driver.findElement(By.xpath("//*[@id=\"ext-gen146\"]"));
             btnMigracion.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
-            Thread.sleep(2000);
-
-
             WebElement exportarConf = driver.findElement(By.xpath("/html/body/div[5]/ul/li[7]/a"));
-            exportarConf.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen6",nombreAutomatizacion);
-            Thread.sleep(4000);
-            a.ScreenShot(driver,"screen7", nombreAutomatizacion);
-            Thread.sleep(2000);
+            action.moveToElement(exportarConf).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            Thread.sleep(1000);
+            exportarConf.click();
+            Thread.sleep(8000);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            Thread.sleep(3000);
             WebElement cerrarExport = driver.findElement(By.xpath("/html/body/div[9]/div[1]/div/div/div/div"));
             cerrarExport.click();
 
@@ -89,22 +93,25 @@ public class ExportarImportarProducto {
 
     }
 
-    public void ImportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean) throws IOException, InterruptedException{
+    public void ImportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean, int i) throws IOException, InterruptedException{
 
         try {
 
+            //hace click en el boton migracion y selecciona la opcion importar datos de configuracion
+            Actions action = new Actions(driver);
             Thread.sleep(2000);
             WebElement btnMigracion = driver.findElement(By.xpath("//*[@id=\"ext-gen146\"]"));
             btnMigracion.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen8",nombreAutomatizacion);
-            Thread.sleep(2000);
-
-
             WebElement importarConf = driver.findElement(By.xpath("/html/body/div[5]/ul/li[9]/a"));
+            Thread.sleep(1000);
+            action.moveToElement(importarConf).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            Thread.sleep(1000);
             importarConf.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen9",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
             Thread.sleep(2000);
 
         /*    WebElement ruta = driver.findElement(By.xpath("/html/body/div[10]/div[2]/div[1]/div/div/div/div/div/div/div[1]/div/form/table/tbody[2]/tr[2]/td[1]/label"));
@@ -112,13 +119,14 @@ public class ExportarImportarProducto {
             ruta.click();
             Thread.sleep(1000);
 
-*/
+*/          //se envia la ruta donde se encuentra ubicado el archivo que sera importado. Para más informacion sobre este proceso revisar la Vista
+
             WebElement archivo = driver.findElement(By.xpath("//*[@id=\"isc_7\"]"));
             Thread.sleep(1000);
       //      archivo.sendKeys("\\Qa32\\c$\\AcseleTests\\Export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160818094215PRUEBA.xml");
-            archivo.sendKeys("//Qa32//c$//AcseleTests//Export//CO-ExportedProductTool-VidaDeudoresAvVillas-20160818094215PRUEBA.xml");
+            archivo.sendKeys("C:\\AcseleTests\\AutomationTestAcsele\\rutas\\export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160908090919Prueba.xml");
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
             Thread.sleep(1000);
 
 
@@ -126,13 +134,16 @@ public class ExportarImportarProducto {
             WebElement btncargar = driver.findElement(By.xpath("/html/body/div[10]/div[2]/div[1]/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td"));
             btncargar.click();
             Thread.sleep(8000);
-            a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
             Thread.sleep(1000);
+
+            //una vez culminado el proceso de import se hace click en el link que contiene la informacion del producto
+            //se cierra el detalle y luego se hace click en el boton cerrar para volver a la pantalla anterior y visualizar el nuevo producto importado.
 
             WebElement nombre = driver.findElement(By.xpath("/html/body/center/table[2]/tbody/tr[7]/td/b/a"));
             nombre.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
             Thread.sleep(2000);
 
             WebElement btnX = driver.findElement(By.xpath("//*[@id=\"resizablepanel\"]/a"));
@@ -143,12 +154,7 @@ public class ExportarImportarProducto {
             Thread.sleep(1000);
             btnCerrar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen13", nombreAutomatizacion);
-
-
-
-
-
+            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
 
 
 

@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.CumulosProductosBean;
+import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,38 +24,26 @@ public class CumulosProductos {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
+        MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion);
-        a.ValidandoSesion(driver, nombreAutomatizacion);
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
 
-        MenuCumulosProductos(driver, a);
+        m.Cumulos_CumulosPorProducto(driver, a, nombreAutomatizacion,i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaProductos(driver, a, cumulosProductosBean);
+        BusquedaProductos(driver, a, cumulosProductosBean,i);
 
 
     }
 
-    public void MenuCumulosProductos(WebDriver driver,Metodos a) throws IOException, InterruptedException {
-        WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-        WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-        WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[2]"));//cumulos productos
 
-        menu1.click();
-        menu2.click();
-        Thread.sleep(2000);
-        a.ScreenShot(driver,"screen3",nombreAutomatizacion);
-        Thread.sleep(3000);
-        menu3.click();
-
-    }
-
-    public void BusquedaProductos (WebDriver driver, Metodos a, CumulosProductosBean cumulosProductosBean) throws IOException, InterruptedException{
+    public void BusquedaProductos (WebDriver driver, Metodos a, CumulosProductosBean cumulosProductosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion);
             Select producto = new Select(driver.findElement(By.xpath("//*[@id=\"products\"]")));
             producto.selectByValue(cumulosProductosBean.getProducto());
 
@@ -63,7 +52,7 @@ public class CumulosProductos {
             moneda.selectByValue(cumulosProductosBean.getMoneda());
 
             Thread.sleep(1000);
-            a.ScreenShot(driver,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();

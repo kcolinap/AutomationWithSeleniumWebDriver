@@ -1,16 +1,21 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by agil on 30/05/2016.
  */
-public class ConsultaTercerosBean {
+public class ConsultaTercerosBean implements Serializable{
+
+    private final static Logger log = Logger.getLogger(ConsultaTercerosBean.class);
 
     private String tipoTercero;
     private String tipoDocId;
@@ -54,15 +59,16 @@ public class ConsultaTercerosBean {
         this.apellido = apellido;
     }
 
-    public static ConsultaTercerosBean getConsultaTerceros(){
 
-        Connection conn;
+    public static ArrayList getConsultaTerceros() throws SQLException{
+
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
-        ConsultaTercerosBean consultaTercerosBean = null;
+        ArrayList consultaTerceros = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS");
+        queryLoad.append("SELECT TIPO_TERCERO, TIPO_DOC_IDENTIDAD, CEDULA, NOMBRE, APELLIDO FROM CONSULTA_TERCEROS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -70,17 +76,23 @@ public class ConsultaTercerosBean {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                consultaTercerosBean = new ConsultaTercerosBean();
+                ConsultaTercerosBean consultaTercerosBean = new ConsultaTercerosBean();
+
                 consultaTercerosBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
                 consultaTercerosBean.setTipoDocId(rs.getString("TIPO_DOC_IDENTIDAD"));
                 consultaTercerosBean.setCedula(rs.getString("CEDULA"));
                 consultaTercerosBean.setNombre(rs.getString("NOMBRE"));
                 consultaTercerosBean.setApellido(rs.getString("APELLIDO"));
+
+                consultaTerceros.add(consultaTercerosBean);
             }
         }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
+            log.error(e);
+        }finally{
+            if (conn != null){
+                conn.close();
+            }
         }
-        return consultaTercerosBean;
+        return consultaTerceros;
     }
 }
