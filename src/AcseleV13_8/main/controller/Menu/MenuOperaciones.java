@@ -132,7 +132,7 @@ public class MenuOperaciones {
 
         public void OpeSini_DeclaracionSiniestro(){}
 
-        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion, int i) {
+        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion,int numScreenShoot, int i) {
 
             try {
                 Actions action = new Actions(driver);
@@ -146,7 +146,7 @@ public class MenuOperaciones {
 
                 action.moveToElement(menu3).build().perform();
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
 
                 menu3.click();
             }catch (Exception e) {

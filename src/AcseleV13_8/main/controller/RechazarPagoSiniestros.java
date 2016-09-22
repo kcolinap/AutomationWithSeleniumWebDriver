@@ -32,7 +32,7 @@ public class RechazarPagoSiniestros {
         System.out.println("prueba");
 
 
-        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion, i);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion,3, i);
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
