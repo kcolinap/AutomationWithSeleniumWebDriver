@@ -62,7 +62,7 @@ public class ImpresionDocumentosNivelPoliza {
             Thread.sleep(2000);
             objetoAsegurado.ObjetoAsegurado(a, driver, impresionDocumentosNivelPolizaBean, nombreAutomatizacion, i, 10);
             Thread.sleep(2000);
-            aseguradoVida.ObjetoAsegurado(a, driver, impresionDocumentosNivelPolizaBean, nombreAutomatizacion, i, 11);
+            aseguradoVida.AseguradoVida(a, driver, impresionDocumentosNivelPolizaBean, nombreAutomatizacion, i, 11);
             Thread.sleep(2000);
             Calcular(a, driver, i, 12, 13, 14, 15);
 
