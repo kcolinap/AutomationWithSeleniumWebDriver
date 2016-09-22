@@ -95,6 +95,35 @@ public class ObjetoAsegurado {
                     }
 
                 }
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                Toolkit.getDefaultToolkit().beep();
+
+                Thread.sleep(2000);
+                WebElement btnguardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+                btnguardar.click();
+
+                /***Espera***/
+                Thread.sleep(1000);
+                mensajeEspera = driver.findElement(By.id("waitMessage"));
+                while (mensajeEspera.isDisplayed()){
+                    Thread.sleep(5000);
+                    System.out.println("Espera Guardar Objeto Asegurado");
+                }
+            }
+
+            Thread.sleep(2000);
+            WebElement mensajeFechaNacAseg = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_feedbackLabel']"));
+            if (mensajeFechaNacAseg.isDisplayed()){
+
+                if (polizaBean.getFechaNacimientoAsegurado() != null) {
+                    Thread.sleep(1000);
+                    WebElement fechaNacAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_fieldDate']"));
+                    fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado());
+                }
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                Toolkit.getDefaultToolkit().beep();
 
                 Thread.sleep(2000);
                 WebElement btnguardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));

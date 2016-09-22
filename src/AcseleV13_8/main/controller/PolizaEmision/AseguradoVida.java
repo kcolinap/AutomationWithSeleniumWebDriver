@@ -16,7 +16,7 @@ public class AseguradoVida {
 
     private final static Logger log = Logger.getLogger(AseguradoVida.class);
 
-    public void ObjetoAsegurado(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void AseguradoVida(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
