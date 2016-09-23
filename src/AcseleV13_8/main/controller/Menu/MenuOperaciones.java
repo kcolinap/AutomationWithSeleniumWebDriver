@@ -132,7 +132,7 @@ public class MenuOperaciones {
 
         public void OpeSini_DeclaracionSiniestro(){}
 
-        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion, int i) {
+        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion,int numScreenShoot, int i) {
 
             try {
                 Actions action = new Actions(driver);
@@ -146,7 +146,7 @@ public class MenuOperaciones {
 
                 action.moveToElement(menu3).build().perform();
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
 
                 menu3.click();
             }catch (Exception e) {
@@ -288,9 +288,11 @@ public class MenuOperaciones {
     /** UAA (Administrador de Cuentas Universal) **/
 
         /** Caja **/
-            public void UAA_Caja_AperturaCaja(WebDriver driver, Metodos a,String nombrePrueba){
+            public void UAA_Caja_AperturaCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
                 try {
+
+                    Actions action = new Actions(driver);
                     WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
                     WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
                     WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
@@ -298,14 +300,16 @@ public class MenuOperaciones {
                     menu1.click();
                     menu2.click();
                     menu3.click();
-                    a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+                    action.moveToElement(menu4).build().perform();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
                     Thread.sleep(1000);
                     menu4.click();
 
                 } catch (Exception e){
                     e.printStackTrace();
 //             log.info(e);
-                    log.info("Test Case 28 - " + nombrePrueba + " -  " + e);
+                    log.info("Test Case 28 - " + nombreAutomatizacion + " -  " + e);
                 }
             }
 
@@ -569,6 +573,8 @@ public class MenuOperaciones {
         public void FactAut_GeneracionFacturacionAutomatica(){}
         public void FactAut_ConsultaFacturacion(){}
         public void FactAut_LogProcesamiento(){}
+
+
     /** -- Facturacion Automatica -- **/
 
 }

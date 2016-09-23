@@ -35,23 +35,23 @@ public class AprobarEnviarPagoSiniestros {
         System.out.println("prueba");
 
 
-        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion, i);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion,3, i);
 
         Thread.sleep(3000);
         a.cambiarVentana(driver);
 
 
-        BuscarSiniestro(driver, a, aprobarEnviarPagoSiniestrosBean);
+        BuscarSiniestro(driver, a, aprobarEnviarPagoSiniestrosBean, i);
         Thread.sleep(3000);
 
 
 
         Thread.sleep(3000);
-        EditarPago(driver, a, aprobarEnviarPagoSiniestrosBean);
+        EditarPago(driver, a, aprobarEnviarPagoSiniestrosBean, i);
 
         Thread.sleep(3000);
 
-        CambiarEstado(driver, a, aprobarEnviarPagoSiniestrosBean);
+        CambiarEstado(driver, a, aprobarEnviarPagoSiniestrosBean, i);
 
         Thread.sleep(3000);
 
@@ -59,17 +59,17 @@ public class AprobarEnviarPagoSiniestros {
 
         Thread.sleep(3000);
 
-        Sucursal (driver, a, aprobarEnviarPagoSiniestrosBean);
+        Sucursal (driver, a, aprobarEnviarPagoSiniestrosBean, i);
 
         Thread.sleep(3000);
 
-        EnviarPago(driver, a, aprobarEnviarPagoSiniestrosBean);
+        EnviarPago(driver, a, aprobarEnviarPagoSiniestrosBean, i);
 
 
     }
 
 
-    public void BuscarSiniestro(WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException{
+    public void BuscarSiniestro(WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -105,7 +105,7 @@ public class AprobarEnviarPagoSiniestros {
 
 
             Thread.sleep(2000);
-            a.ScreenShot(driver,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion);
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));//buscar siniestro
             buscar.click();
 
@@ -114,7 +114,7 @@ public class AprobarEnviarPagoSiniestros {
             WebElement seleccionar = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr/td[3]/div"));
             seleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Thread.sleep(1000);
             WebElement consultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             consultar.click();
@@ -132,19 +132,19 @@ public class AprobarEnviarPagoSiniestros {
             WebElement cobertura = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]/option"));
             cobertura.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
             Thread.sleep(2000);
 
             WebElement crearPago = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_09\"]"));
             crearPago.click();
           //Thread.sleep(3000);
-          //a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+          //a.ScreenShotPool(driver, "screen7", nombreAutomatizacion);
             Thread.sleep(5000);
 
 
             WebElement tercero = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
             Thread.sleep(1500);
-            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
             Thread.sleep(1000);
             tercero.click();
             Thread.sleep(3000);
@@ -161,7 +161,7 @@ public class AprobarEnviarPagoSiniestros {
             Thread.sleep(1000);
             nombreTercero.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_resultClaimThirdParty_01\"]"));
@@ -169,13 +169,13 @@ public class AprobarEnviarPagoSiniestros {
             btnAceptar.click();
 
             Thread.sleep(3500);
-            a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
             Thread.sleep(2000);
             WebElement ruta = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]"));
             Thread.sleep(1000);
             ruta.click();
           //  Thread.sleep(2000);
-          //  a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+          //  a.ScreenShotPool(driver, "screen10", nombreAutomatizacion);
 
 
 
@@ -201,7 +201,7 @@ public class AprobarEnviarPagoSiniestros {
 
     }
 
-    public void EditarPago (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException{
+    public void EditarPago (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
         try {
 
             WebElement montoSiniestro = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
@@ -214,7 +214,7 @@ public class AprobarEnviarPagoSiniestros {
             razon.click();
 
             Thread.sleep(3000);
-            a.ScreenShot(driver, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
             Thread.sleep(1000);
             WebElement btnAcept = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
             Thread.sleep(1000);
@@ -230,7 +230,7 @@ public class AprobarEnviarPagoSiniestros {
     }
 
 
-    public void CambiarEstado (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException{
+    public void CambiarEstado (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -238,7 +238,7 @@ public class AprobarEnviarPagoSiniestros {
             Thread.sleep(1000);
             seleccionarPago.click();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
             Thread.sleep(1000);
 
         }
@@ -262,7 +262,7 @@ public class AprobarEnviarPagoSiniestros {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();
         //        Thread.sleep(1000);
-        //        a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+        //        a.ScreenShotPool(driver, "screen12", nombreAutomatizacion);
         //        Thread.sleep(1000);
                 alert.accept();
                 Thread.sleep(1000);
@@ -270,7 +270,7 @@ public class AprobarEnviarPagoSiniestros {
             }
 
             //         Thread.sleep(4000);
-            //         a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+            //         a.ScreenShotPool(driver, "screen12", nombreAutomatizacion);
 
             //         Thread.sleep(2000);
 
@@ -287,7 +287,7 @@ public class AprobarEnviarPagoSiniestros {
             }
 
             Thread.sleep(3000);
-            a.ScreenShot(driver, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, "screen12", nombreAutomatizacion);
 */
         }
 
@@ -302,7 +302,7 @@ public class AprobarEnviarPagoSiniestros {
 
     }
 
-    public void  Sucursal (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException {
+    public void  Sucursal (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
 
         try {
 
@@ -310,7 +310,7 @@ public class AprobarEnviarPagoSiniestros {
             sucursal.selectByValue(aprobarEnviarPagoSiniestrosBean.getSucursal());
             Thread.sleep(2000);
 
-            a.ScreenShot(driver, "screen13", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
 
             WebElement btnAcepSucursal = driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[5]/td/button"));
             btnAcepSucursal.click();
@@ -327,7 +327,7 @@ public class AprobarEnviarPagoSiniestros {
             }
 
             Thread.sleep(3000);
-            a.ScreenShot(driver, "screen14", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
 
 
         }
@@ -339,7 +339,7 @@ public class AprobarEnviarPagoSiniestros {
         }
     }
 
-    public void  EnviarPago (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException {
+    public void  EnviarPago (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
 
         try {
 
@@ -351,7 +351,7 @@ public class AprobarEnviarPagoSiniestros {
             WebElement seleccionPago = driver.findElement(By.xpath("/html/body/div[14]/div[2]/center/form/table/tbody/tr[4]/td[1]/input"));
             seleccionPago.click();
             Thread.sleep(3000);
-            a.ScreenShot(driver, "screen15", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
 
             Thread.sleep(2000);
 
@@ -359,13 +359,13 @@ public class AprobarEnviarPagoSiniestros {
             Thread.sleep(2000);
             bAceptar.click();
             Thread.sleep(6000);
-            a.ScreenShot(driver, "screen16", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
             Thread.sleep(3000);
 
             WebElement irReclamo = driver.findElement(By.xpath("//*[@id=\"idb_0402006_totalizeclaim_01\"]"));
             irReclamo.click();
             Thread.sleep(3000);
-            a.ScreenShot(driver, "screen17", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
             Thread.sleep(2000);
 
 
@@ -384,7 +384,7 @@ public class AprobarEnviarPagoSiniestros {
             WebElement pagos = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_09\"]"));
             pagos.click();
             Thread.sleep(4000);
-            a.ScreenShot(driver, "screen18", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
 
         }
 
