@@ -31,7 +31,7 @@ public class RechazarSiniestros {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion, i);
+        m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion,3, i);
         Thread.sleep(10000);
 
         a.cambiarVentana(driver);
