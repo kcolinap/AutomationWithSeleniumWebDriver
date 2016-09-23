@@ -53,17 +53,17 @@ public class UnidadesRiesgo {
             }
 
             if (polizaBean.getMontoAsegurado() != null) {
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 WebElement montoAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_field']"));
                 montoAsegurado.click();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afuera.click();
                 montoAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_field']"));
                 montoAsegurado.clear();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 montoAsegurado.sendKeys(polizaBean.getMontoAsegurado());
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afueraClick.click();
 
