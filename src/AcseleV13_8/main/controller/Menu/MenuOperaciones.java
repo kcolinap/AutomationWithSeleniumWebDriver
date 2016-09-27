@@ -132,7 +132,7 @@ public class MenuOperaciones {
 
         public void OpeSini_DeclaracionSiniestro(){}
 
-        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion,int numScreenShoot, int i) {
+        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
 
             try {
                 Actions action = new Actions(driver);

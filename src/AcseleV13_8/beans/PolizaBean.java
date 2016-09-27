@@ -87,6 +87,7 @@ public class PolizaBean implements Serializable{
     private String aseguradoVidaApellido1;
     private String aseguradoVidaApellido2;
     private String porcentajeParticipacionAseguradoVida;
+    private String nuevoPorcentajeParticipacionAseguradoVida;
 
     // Beneficiario Natural
     private String beneficiarioNaturalNombre1;
@@ -619,6 +620,13 @@ public class PolizaBean implements Serializable{
         this.porcentajeParticipacionAseguradoVida = porcentajeParticipacionAseguradoVida;
     }
 
+    public String getNuevoPorcentajeParticipacionAseguradoVida() {
+        return nuevoPorcentajeParticipacionAseguradoVida;
+    }
+    public void setNuevoPorcentajeParticipacionAseguradoVida(String nuevoPorcentajeParticipacionAseguradoVida) {
+        this.nuevoPorcentajeParticipacionAseguradoVida = nuevoPorcentajeParticipacionAseguradoVida;
+    }
+
     public String getBeneficiarioNaturalNombre1() {
         return beneficiarioNaturalNombre1;
     }
@@ -690,7 +698,6 @@ public class PolizaBean implements Serializable{
     public void setParentesco(String parentesco) {
         this.parentesco = parentesco;
     }
-
 
 
 
