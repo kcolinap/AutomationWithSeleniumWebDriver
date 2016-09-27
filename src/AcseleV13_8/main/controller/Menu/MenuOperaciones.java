@@ -163,18 +163,20 @@ public class MenuOperaciones {
 
         public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-        public void OpeSini_CreacionSiniestro(WebDriver driver,Metodos a,String nombreAutomatizacion, int i){
+        public void OpeSini_CreacionSiniestro(WebDriver driver,Metodos a,String nombreAutomatizacion, int numScreenShoot, int i){
             try{
+                Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[6]"));//crear siniestro
 
                 menu1.click();
                 menu2.click();
-                Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
-
-                Thread.sleep(4000);
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                Thread.sleep(1000);
                 menu3.click();
 
             }catch (Exception e) {
