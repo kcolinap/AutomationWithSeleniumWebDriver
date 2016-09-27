@@ -380,7 +380,7 @@ public class SiniestroProductoImportado {
     public void AgregarCobertura (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try{
 
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_04\"]"));
             btnAgregar.click();
             Thread.sleep(15000);
@@ -420,7 +420,7 @@ public class SiniestroProductoImportado {
             }*/
 
             Thread.sleep(3000);
-
+/*
             Set<String> sid = driver.getWindowHandles();
             //Using iterator we can fetch the values from Set.
             Iterator<String> it = sid.iterator();
@@ -454,7 +454,7 @@ public class SiniestroProductoImportado {
 
             Thread.sleep(3000);
 
-
+*/
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();

@@ -20,6 +20,19 @@ public class ExportarImportarProductoBean implements Serializable{
     private final static Logger log = Logger.getLogger(ExportarImportarProductoBean.class);
 
     private String ruta;
+    private String nombreProducto;
+
+
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+
 
     public String getRuta() {return ruta;}
     public void setRuta(String ruta){this.ruta = ruta;}
@@ -34,7 +47,7 @@ public class ExportarImportarProductoBean implements Serializable{
 
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, RUTA FROM EXPORTAR_IMPORTAR_PRODUCTO ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, RUTA, NOMBRE_PRODUCTO FROM EXPORTAR_IMPORTAR_PRODUCTO ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -46,6 +59,7 @@ public class ExportarImportarProductoBean implements Serializable{
                 ExportarImportarProductoBean exportarImportarProductoBean = new ExportarImportarProductoBean();
 
                 exportarImportarProductoBean.setRuta(rs.getString("RUTA"));
+                exportarImportarProductoBean.setNombreProducto(rs.getString("NOMBRE_PRODUCTO"));
 
 
                 exportarImportarProducto.add(exportarImportarProductoBean); }
