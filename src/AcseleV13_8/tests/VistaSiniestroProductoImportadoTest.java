@@ -16,6 +16,15 @@ import java.util.ArrayList;
  */
 public class VistaSiniestroProductoImportadoTest {
 
+    /**
+     * Antes de ejecutar esta prueba se debe cumplir con los siguientes pasos:
+     * 1. Ejecutar la prueba ExportarImportarProducto
+     * 2. acceder al modulo de seguridad de ACSELE http://qa:7001/security/ (de forma manual) para asociar
+     * el nuevo producto al usuario.
+     * 3. Ejecutar la prueba: Emisiones con el producto importado, de la compañera Adriana Azuaje
+     * 4. Obtener el numero de poliza de la prueba anterior y colocarlo en el xml, especificamente en el campo NUMERO_POLIZA
+     */
+
     private final static Logger log = Logger.getLogger(VistaSiniestroProductoImportadoTest.class);
 
     @Test
