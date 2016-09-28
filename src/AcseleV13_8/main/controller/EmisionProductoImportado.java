@@ -30,6 +30,7 @@ public class EmisionProductoImportado {
             UnidadesRiesgo unidadesRiesgo = new UnidadesRiesgo();
             ObjetoAsegurado objetoAsegurado = new ObjetoAsegurado();
             AseguradoVida aseguradoVida = new AseguradoVida();
+            Calcular calcular = new Calcular();
 
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -61,7 +62,8 @@ public class EmisionProductoImportado {
             Thread.sleep(2000);
             aseguradoVida.AseguradoVida(a, driver, emisionProductoImportadoBean, nombreAutomatizacion, i, 11);
             Thread.sleep(2000);
-           // Calcular(a, driver, i, 12, 13, 14, 15);
+            calcular.Calcular(a, driver, emisionProductoImportadoBean, nombreAutomatizacion, i, 12);
+
 
 
         }catch (Exception e) {
