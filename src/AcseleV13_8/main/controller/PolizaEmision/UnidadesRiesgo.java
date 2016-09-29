@@ -246,7 +246,7 @@ public class UnidadesRiesgo {
                 Thread.sleep(1000);
                 fechaProceso.sendKeys(emisionPolizaBeneficiarioNaturalBean.getFechaProceso());
             }
-            if (emisionPolizaBeneficiarioNaturalBean.getNumUnidadRiesgo() != null){
+            /*if (emisionPolizaBeneficiarioNaturalBean.getNumUnidadRiesgo() != null){
                 WebElement numUnidadRiesgo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_field']"));
                 Thread.sleep(1000);
                 numUnidadRiesgo.sendKeys(emisionPolizaBeneficiarioNaturalBean.getNumUnidadRiesgo());
@@ -255,7 +255,7 @@ public class UnidadesRiesgo {
                 WebElement numCredito = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field']"));
                 Thread.sleep(1000);
                 numCredito.sendKeys(emisionPolizaBeneficiarioNaturalBean.getNumCredito());
-            }
+            }*/
             if (emisionPolizaBeneficiarioNaturalBean.getMontoAsegurado() != null){
                 WebElement montoAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_field']"));
                 Thread.sleep(1000);
@@ -292,11 +292,11 @@ public class UnidadesRiesgo {
                 Thread.sleep(1000);
                 saldoCapital.sendKeys(emisionPolizaBeneficiarioNaturalBean.getSaldoCapital());
             }
-            if (emisionPolizaBeneficiarioNaturalBean.getEdoCredito() != null){
+            /*if (emisionPolizaBeneficiarioNaturalBean.getEdoCredito() != null){
                 Select estadoCredito = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_repeaterSelect_1_field']")));
                 Thread.sleep(1000);
                 estadoCredito.selectByValue(emisionPolizaBeneficiarioNaturalBean.getEdoCredito());
-            }
+            }*/
             if (emisionPolizaBeneficiarioNaturalBean.getCuotasMora() != null){
                 WebElement cuotasMora = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_field']"));
                 Thread.sleep(1000);
@@ -318,11 +318,11 @@ public class UnidadesRiesgo {
                 Thread.sleep(1000);
                 fechaMora.sendKeys(emisionPolizaBeneficiarioNaturalBean.getFechaMora());
             }
-            if (emisionPolizaBeneficiarioNaturalBean.getPorcFacultativo() != null){
+            /*if (emisionPolizaBeneficiarioNaturalBean.getPorcFacultativo() != null){
                 WebElement porcentajeFacultativo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_8_fila_field']"));
                 Thread.sleep(1000);
                 porcentajeFacultativo.sendKeys(emisionPolizaBeneficiarioNaturalBean.getPorcFacultativo());
-            }
+            }*/
             if (emisionPolizaBeneficiarioNaturalBean.getFechaProceso() != null){
                 WebElement fechaProceso = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_fieldDate']"));
                 Thread.sleep(1000);

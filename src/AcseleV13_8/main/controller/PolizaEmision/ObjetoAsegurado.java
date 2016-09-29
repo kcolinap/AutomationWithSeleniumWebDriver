@@ -163,7 +163,7 @@ public class ObjetoAsegurado {
                 WebElement aseguradoPrimarioNo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field_repeaterChoice_1_radio']"));
                 aseguradoPrimarioNo.click();
             }
-            if (emisionPolizaBeneficiarioNaturalBean.getPorcExtraPrima() != null){
+            /*if (emisionPolizaBeneficiarioNaturalBean.getPorcExtraPrima() != null){
                 Thread.sleep(1000);
                 WebElement porcExtraPrima = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_field']"));
                 porcExtraPrima.sendKeys(emisionPolizaBeneficiarioNaturalBean.getPorcExtraPrima());
@@ -183,6 +183,7 @@ public class ObjetoAsegurado {
                 WebElement fechaNacAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_fieldDate']"));
                 fechaNacAsegurado.sendKeys(emisionPolizaBeneficiarioNaturalBean.getFechaNacAsegurado());
             }
+            */
             if (emisionPolizaBeneficiarioNaturalBean.getDireccionAsegurado() != null){
                 Thread.sleep(1000);
                 WebElement direccionAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_field']"));

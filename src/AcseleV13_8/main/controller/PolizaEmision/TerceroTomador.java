@@ -32,7 +32,7 @@ public class TerceroTomador {
                 inputTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
 
                 if (polizaBean.getTomadorNombre1() != null && polizaBean.getTomadorNombre2() != null && polizaBean.getTomadorApellido1() != null && polizaBean.getTomadorApellido2() != null){
-                    inputTomador.sendKeys(polizaBean.getTomadorNombre1() + " " + polizaBean.getTomadorNombre2() + " " + polizaBean.getTomadorApellido1() + " " +polizaBean.getTomadorApellido2());
+                    inputTomador.sendKeys(polizaBean.getTomadorNombre1() + " " + polizaBean.getTomadorNombre2() + " " + polizaBean.getTomadorApellido1() + " " + polizaBean.getTomadorApellido2());
                 }
                 else if (polizaBean.getTomadorNombre1() != null && polizaBean.getTomadorNombre2() != null && polizaBean.getTomadorApellido1() != null && polizaBean.getTomadorApellido2() == null){
                     inputTomador.sendKeys(polizaBean.getTomadorNombre1() + " " + polizaBean.getTomadorNombre2() + " " + polizaBean.getTomadorApellido1());
@@ -124,7 +124,7 @@ public class TerceroTomador {
             WebElement nombreInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
             WebElement apellidoInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
             WebElement btnBuscarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_searchButton']"));
-
+            /*
             if (emisionPolizaBeneficiarioNaturalBean.getTipoTerceroT() != null){
                 tipoTeceroSelect.selectByValue(emisionPolizaBeneficiarioNaturalBean.getTipoTerceroT());
             }
@@ -140,7 +140,7 @@ public class TerceroTomador {
             if (emisionPolizaBeneficiarioNaturalBean.getApellidoT() != null){
                 apellidoInput.sendKeys(emisionPolizaBeneficiarioNaturalBean.getApellidoT());
             }
-
+            */
             Thread.sleep(2000);
             a.ScreenShot(driver, "screen6", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
@@ -159,13 +159,13 @@ public class TerceroTomador {
             WebElement btnAsociar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_showDetailSearchTable_proof_TableForm_associateButton']"));
             btnAsociar.click();
             Thread.sleep(4000);
-
+            /*
             if (emisionPolizaBeneficiarioNaturalBean.getPorcentajeT() != null) {
                 WebElement porcentajeTomadorInput = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
                 porcentajeTomadorInput.clear();
                 porcentajeTomadorInput.sendKeys(emisionPolizaBeneficiarioNaturalBean.getPorcentajeT());
             }
-
+            */
             WebElement btnModoPago = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_radio']"));
             btnModoPago.click();
 
@@ -182,7 +182,6 @@ public class TerceroTomador {
 
         }catch (Exception e){
             e.printStackTrace();
-//             log.info(e);
             log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
         }
     }

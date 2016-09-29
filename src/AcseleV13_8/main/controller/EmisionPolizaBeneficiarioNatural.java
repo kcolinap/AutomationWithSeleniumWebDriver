@@ -1,10 +1,11 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EmisionPolizaBeneficiarioNaturalBean;
-import AcseleV13_8.main.controller.EmisionPoliza.*;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
+import AcseleV13_8.main.controller.PolizaEmision.*;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -23,86 +24,62 @@ public class EmisionPolizaBeneficiarioNatural {
 
     public void testLink(EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, int i) throws IOException, InterruptedException {
 
-        // Instanciando clases
-        Metodos a = new Metodos();
-        MenuOperaciones menuOperaciones = new MenuOperaciones();
-        AdminitracionPropuestaPoliza adminitracionPropuestaPoliza = new AdminitracionPropuestaPoliza();
+        try {
 
-        InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
-        TerceroTomador terceroTomador = new TerceroTomador();
-        UnidadRiesgo unidadRiesgo = new UnidadRiesgo();
-        ObjetoAsegurado objetoAsegurado = new ObjetoAsegurado();
-        BeneficiarioNatural beneficiarioNatural = new BeneficiarioNatural();
+            // Instanciando clases
+            Metodos a = new Metodos();
+            MenuOperaciones menuOperaciones = new MenuOperaciones();
+            //PrePoliza
+            PrePoliza prePoliza = new PrePoliza();
+            InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
+            TerceroTomador terceroTomador = new TerceroTomador();
+            UnidadesRiesgo unidadesRiesgo = new UnidadesRiesgo();
+            ObjetoAsegurado objetoAsegurado = new ObjetoAsegurado();
+            BeneficiarioNatural beneficiarioNatural = new BeneficiarioNatural();
 
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(2000);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(5000);
-
-        // Creación de Póliza
-        menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2);
-
-        Thread.sleep(2000);
-        a.cambiarVentana(driver);
-        Thread.sleep(2000);
-        CrearPoliza(a, driver, emisionPolizaBeneficiarioNaturalBean, adminitracionPropuestaPoliza,
-                informacionGeneralPoliza, terceroTomador, unidadRiesgo, objetoAsegurado, beneficiarioNatural);
-    }
-
-    public void CrearPoliza(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean,
-                            AdminitracionPropuestaPoliza adminitracionPropuestaPoliza,
-                            InformacionGeneralPoliza informacionGeneralPoliza, TerceroTomador terceroTomador,
-                            UnidadRiesgo unidadRiesgo, ObjetoAsegurado objetoAsegurado,
-                            BeneficiarioNatural beneficiarioNatural) throws InterruptedException {
-
-        // //TipoElemento[@wicketpath='WicketpathElemento']
-        Thread.sleep(2000);
-        adminitracionPropuestaPoliza.AdminPropuestaPoliza(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        /***Espera***/
-        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-        while (mensajeEspera.isDisplayed()){
+            WebDriver driver = a.entrarPagina();
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+            a.IniciarSesion(driver, nombreAutomatizacion, i);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(5000);
-            System.out.println("Espera 1");
+
+            //Entrando en Menu
+            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2);
+
+            Thread.sleep(2000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
+
+            /** Creando la póliza */
+
+            // PrePoliza
+            Thread.sleep(2000);
+            prePoliza.AdminPropuestaPoliza(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 3);
+            Thread.sleep(2000);
+            prePoliza.EvAplicar(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 4);
+            Thread.sleep(2000);
+            informacionGeneralPoliza.InformacionGeneral(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 5);
+            Thread.sleep(2000);
+            terceroTomador.TomadorTercero(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 6, 7);
+            Thread.sleep(2000);
+            unidadesRiesgo.UnidadesRiesgo(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 8, 9);
+            Thread.sleep(2000);
+            objetoAsegurado.ObjetoAsegurado(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 10);
+            Thread.sleep(2000);
+            jse.executeScript("window.scrollBy(0,500)", "");
+            Thread.sleep(2000);
+            beneficiarioNatural.AgregarBneficiarioNaturalBusquedaSimple(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 11, 12, 13);
+            Thread.sleep(2000);
+            beneficiarioNatural.EditarBeneficiarioNatural(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion, i, 14, 15);
+            Thread.sleep(2000);
+            beneficiarioNatural.EliminarBeneficiarioNatural(a, driver, nombreAutomatizacion, i, 16, 17, 18, 19);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
-        Thread.sleep(3000);
-        adminitracionPropuestaPoliza.EvAplicar(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(4000);
-        informacionGeneralPoliza.InformacionGeneral(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(4000);
-
-        /***Espera***/
-        WebElement mensajeEspera2 = driver.findElement(By.id("waitMessage"));
-        while (mensajeEspera2.isDisplayed()){
-            Thread.sleep(5000);
-            System.out.println("Espera 2");
-        }
-        terceroTomador.TomadorTercero(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(2000);
-        unidadRiesgo.UnidadRiesgo(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(2000);
-        objetoAsegurado.ObjetoAsegurado(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(2000);
-        beneficiarioNatural.AgregarBeneficiarioNatural(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(2000);
-        beneficiarioNatural.EditarBeneficiarioNatural(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
-
-        Thread.sleep(2000);
-        beneficiarioNatural.EliminarBeneficiarioNatural(a, driver, emisionPolizaBeneficiarioNaturalBean, nombreAutomatizacion);
     }
-
-
-    /**Poliza**/
-
-
-
 
 }
