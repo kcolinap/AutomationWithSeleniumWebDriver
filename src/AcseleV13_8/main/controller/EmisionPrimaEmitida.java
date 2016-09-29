@@ -1,15 +1,17 @@
-package AcseleV13_8.tests;
+package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EmisionPrimaEmitidaBean;
+import AcseleV13_8.main.controller.Menu.MenuConsultas;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
-import AcseleV13_8.main.controller.Metodos;
 import AcseleV13_8.main.controller.PolizaEmision.*;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Created by kzambrano on 29/09/2016.
@@ -27,6 +29,7 @@ public class EmisionPrimaEmitida {
             // Instanciando clases
             Metodos a = new Metodos();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
+            MenuConsultas menuConsultas = new MenuConsultas();
             //PrePoliza
             PrePoliza prePoliza = new PrePoliza();
             InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
@@ -65,7 +68,17 @@ public class EmisionPrimaEmitida {
             Thread.sleep(2000);
             aseguradoVida.AseguradoVida(a, driver, emisionPrimaEmitidaBean, nombreAutomatizacion, i, 11);
             Thread.sleep(2000);
-            Calcular(a, driver, i, 12, 13, 14, 15);
+            Calcular(a, driver, i, 12, 13, 14);
+            Thread.sleep(100);
+
+            a.regresarVentana(driver);
+            Thread.sleep(1000);
+            menuConsultas.EstadoCuentas(a, driver, nombreAutomatizacion,15);
+            Thread.sleep(2000);
+            a.cambiarVentana(driver);
+            Thread.sleep(3000);
+
+            ConsultaEstadoCuenta(driver, a, emisionPrimaEmitidaBean, i);
 
 
         }catch (Exception e) {
@@ -75,7 +88,7 @@ public class EmisionPrimaEmitida {
 
     }
 
-    public void Calcular (Metodos a, WebDriver driver, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void Calcular (Metodos a, WebDriver driver, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -115,30 +128,120 @@ public class EmisionPrimaEmitida {
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(2000);
 
+            driver.close();
 
-         //   WebElement linkVerDocumentos = driver.findElement(By.xpath("//a[@wicketpath='modalWindowForm_EventSection_content_applyForm_CalculateDoc']"));
-         //   linkVerDocumentos.click();
 
-            /***Espera***/
-           /* Thread.sleep(1000);
-            mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()){
-                Thread.sleep(5000);
-                System.out.println("Espera Lista de Documentos");
-            }
 
-            Thread.sleep(1500);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-
-            WebElement linkdocumentoImprimir = driver.findElement(By.xpath("//a[@wicketpath='modalWindowForm_EventSection_content_DivDocumentsPdf_container_DocumentsPdf_1_LinkPdf']"));
-            linkdocumentoImprimir.click();
-          */
         }catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
+    public void ConsultaEstadoCuenta (WebDriver driver, Metodos a, EmisionPrimaEmitidaBean emisionPrimaEmitidaBean, int i) throws IOException, InterruptedException{
+
+        try {
+            a.changeLastWindows(driver);
+
+            Thread.sleep(2000);
+
+
+           if (emisionPrimaEmitidaBean.getTipoTerceroTomador() != null){
+                Select tipoTercero = new Select(driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select")));
+                Thread.sleep(1500);
+
+                tipoTercero.selectByValue(emisionPrimaEmitidaBean.getTipoTerceroTomador());
+            }
+
+
+            Thread.sleep(5000);
+
+            WebElement primerNombre = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[5]/tbody/tr/td[3]/font/input[1]"));
+            primerNombre.sendKeys(emisionPrimaEmitidaBean.getTomadorNombre1());
+            Thread.sleep(1000);
+
+            WebElement segundoNombre = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[7]/tbody/tr/td[3]/font/input[1]"));
+            segundoNombre.sendKeys(emisionPrimaEmitidaBean.getTomadorNombre2());
+            Thread.sleep(1000);
+
+            WebElement primerApellido = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[9]/tbody/tr/td[3]/font/input[1]"));
+            primerApellido.sendKeys(emisionPrimaEmitidaBean.getTomadorApellido1());
+            Thread.sleep(1000);
+
+            WebElement segundoApellido = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[11]/tbody/tr/td[3]/font/input[1]"));
+            segundoApellido.sendKeys(emisionPrimaEmitidaBean.getTomadorApellido2());
+            Thread.sleep(2000);
+
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
+
+            Thread.sleep(1500);
+
+
+            WebElement btnBuscar = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[4]/td/button[1]"));
+            btnBuscar.click();
+
+            Thread.sleep(3000);
+
+            WebElement selectTercero = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]"));
+            Thread.sleep(1000);
+            selectTercero.click();
+            Thread.sleep(1000);
+
+            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
+            Thread.sleep(1000);
+
+            WebElement btnAceptar = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[2]/td/input"));
+            btnAceptar.click();
+            Thread.sleep(2000);
+
+            WebElement nroPoliza = driver.findElement(By.xpath("/html/body/center[1]/table/tbody/tr[3]/td/table[1]/tbody/tr[9]/td[2]/input"));
+            Thread.sleep(1000);
+            nroPoliza.sendKeys(emisionPrimaEmitidaBean.getNumeroPoliza());
+            Thread.sleep(2000);
+
+            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
+
+            Thread.sleep(1000);
+
+            WebElement btnEnviar = driver.findElement(By.xpath("/html/body/center[1]/table/tbody/tr[3]/td/table[2]/tbody/tr/td/input"));
+            btnEnviar.click();
+
+            Thread.sleep(3000);
+
+            a.ScreenShotPool(driver, i, "screen19", nombreAutomatizacion);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+
 
 
 }

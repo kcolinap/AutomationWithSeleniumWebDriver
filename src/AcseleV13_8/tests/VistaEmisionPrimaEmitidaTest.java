@@ -1,6 +1,7 @@
 package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.EmisionPrimaEmitidaBean;
+import AcseleV13_8.main.controller.EmisionPrimaEmitida;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
