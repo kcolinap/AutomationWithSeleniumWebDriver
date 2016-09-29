@@ -30,7 +30,7 @@ public class CerrarSiniestros {
         a.IniciarSesion(driver, nombreAutomatizacion, i);
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
-
+        
         m.OpeSini_MantenimientoSiniestro(a, driver, nombreAutomatizacion, 3, i);
         Thread.sleep(10000);
 

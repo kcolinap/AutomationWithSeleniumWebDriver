@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class TrazaDetalleAuditoriaCaja {
 
-    private final static Logger log = Logger.getLogger(AprobarEnviarPagoSiniestros.class);
+    private final static Logger log = Logger.getLogger(TrazaDetalleAuditoriaCaja.class);
 
     public String nombreAutomatizacion = "Traza de Auditoria Aperturar Caja Generacion y detalle";
 

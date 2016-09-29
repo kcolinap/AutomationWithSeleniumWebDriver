@@ -35,7 +35,7 @@ public class ExportarImportarProducto {
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
-        ExportarProducto(driver, a, exportarImportarProductoBean, i);
+     //   ExportarProducto(driver, a, exportarImportarProductoBean, i);
 
         Thread.sleep(3000);
 
@@ -96,7 +96,7 @@ public class ExportarImportarProducto {
     public void ImportarProducto (WebDriver driver, Metodos a, ExportarImportarProductoBean exportarImportarProductoBean, int i) throws IOException, InterruptedException{
 
         try {
-
+/*
             //hace click en el boton migracion y selecciona la opcion importar datos de configuracion
             Actions action = new Actions(driver);
             Thread.sleep(2000);
@@ -114,16 +114,10 @@ public class ExportarImportarProducto {
             a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
             Thread.sleep(2000);
 
-        /*    WebElement ruta = driver.findElement(By.xpath("/html/body/div[10]/div[2]/div[1]/div/div/div/div/div/div/div[1]/div/form/table/tbody[2]/tr[2]/td[1]/label"));
-
-            ruta.click();
-            Thread.sleep(1000);
-
-*/          //se envia la ruta donde se encuentra ubicado el archivo que sera importado. Para más informacion sobre este proceso revisar la Vista
+             //se envia la ruta donde se encuentra ubicado el archivo que sera importado. Para más informacion sobre este proceso revisar la Vista
 
             WebElement archivo = driver.findElement(By.xpath("//*[@id=\"isc_7\"]"));
             Thread.sleep(1000);
-      //      archivo.sendKeys("\\Qa32\\c$\\AcseleTests\\Export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160818094215PRUEBA.xml");
             archivo.sendKeys("C:\\AcseleTests\\AutomationTestAcsele\\rutas\\export\\CO-ExportedProductTool-VidaDeudoresAvVillas-20160908090919Prueba.xml");
             Thread.sleep(2000);
             a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
@@ -155,9 +149,45 @@ public class ExportarImportarProducto {
             btnCerrar.click();
             Thread.sleep(2000);
             a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
+*/
+            Thread.sleep(3000);
 
+            for (int j = 1; j <= 50; j++){
 
+                //System.out.println("dentro del bucle: " + i);
+                Thread.sleep(1000);
+                WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/div/ul/li/ul/li["+ j +"]/div/a/span")); //arreglo para seleccionar la lista deseada.
 
+                String texto = opcionNombre.getText();
+
+                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
+                //System.out.println("Texto: " + texto);
+                //  nuevaPlantilla.click();
+
+                if (texto.equals(exportarImportarProductoBean.getNombreProducto())){
+                    opcionNombre.click();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
+                    System.out.println("Prueba: '" + texto + "' seleccionado");
+                    break;
+                }
+
+            }
+
+            Thread.sleep(2000);
+            WebElement activarProducto = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/table[2]/tbody/tr[1]/td/div/div/div/img[3]"));
+            activarProducto.click();
+            Thread.sleep(2000);
+
+            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
+
+            Thread.sleep(3000);
+            WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[10]/div[2]/div[1]/div/div/div/div/div/div/table/tbody/tr/td/div/div/div/div/div/div[2]/div/div/table/tbody/tr/td[1]/table/tbody/tr/td[2]/em/button"));
+            btnSalvar.click();
+
+            Thread.sleep(1000);
+
+            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
 
 
         }catch (Exception e) {

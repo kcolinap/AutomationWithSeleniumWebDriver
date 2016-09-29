@@ -33,7 +33,7 @@ public class CreacionSiniestros {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
         
-        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion, i);
+        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion,3, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BuscarPoliza(driver, a, creacionSiniestrosBean,i);

@@ -1,7 +1,5 @@
-
 package AcseleV13_8.main.controller;
-
-import AcseleV13_8.beans.ObjetarCoberturaBean;
+import AcseleV13_8.beans.SiniestroProductoImportadoBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -15,18 +13,16 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
-
 /**
- * Created by aazuaje on 03/08/2016.
+ * Created by kzambrano on 27/09/2016.
  */
+public class SiniestroProductoImportado {
 
-public class ObjetarCobertura {
+    private final static Logger log = Logger.getLogger(SiniestroProductoImportado.class);
 
-    private final static Logger log = Logger.getLogger(ObjetarCobertura.class);
+    public String nombreAutomatizacion = "Siniestro con Producto Importado";
 
-    public String nombreAutomatizacion = "Objetar Cobertura";
-
-    public void testLink(ObjetarCoberturaBean objetarCoberturaBean,int i) throws IOException, InterruptedException{
+    public void testLink(SiniestroProductoImportadoBean siniestroProductoImportadoBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Metodos a = new Metodos();
@@ -36,162 +32,162 @@ public class ObjetarCobertura {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion, 3, i);
+        m.OpeSini_CreacionSiniestro(driver, a, nombreAutomatizacion,3, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, objetarCoberturaBean, i);
-        ResultadoBusqueda(driver, a, objetarCoberturaBean, i);
-        AgregarObjetoAfectado(driver, a, objetarCoberturaBean, i);
-        AgregarCobertura(driver, a, objetarCoberturaBean,i);
+        BuscarPoliza(driver, a, siniestroProductoImportadoBean,i);
+        ResultadoBusqueda(driver, a, siniestroProductoImportadoBean, i);
+        AgregarObjetoAfectado(driver, a, siniestroProductoImportadoBean, i);
+        AgregarCobertura(driver, a, siniestroProductoImportadoBean, i);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i) throws IOException, InterruptedException{
 
         try {
 
-            if (objetarCoberturaBean.getOrdenarPor() != null){
+            if (siniestroProductoImportadoBean.getOrdenarPor() != null){
                 Thread.sleep(2000);
                 Select ordenarPor = new Select(driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td[2]/select")));
-                ordenarPor.selectByValue(objetarCoberturaBean.getOrdenarPor());
+                ordenarPor.selectByValue(siniestroProductoImportadoBean.getOrdenarPor());
             }
-            if (objetarCoberturaBean.getProducto() != null){
+            if (siniestroProductoImportadoBean.getProducto() != null){
                 Thread.sleep(2000);
                 Select producto = new Select(driver.findElement(By.xpath("//*[@id=\"_productId\"]")));
-                producto.selectByValue(objetarCoberturaBean.getProducto());
+                producto.selectByValue(siniestroProductoImportadoBean.getProducto());
                 Thread.sleep(8000);
             }
 
-            if (objetarCoberturaBean.getEstadosCicloVida() != null){
+            if (siniestroProductoImportadoBean.getEstadosCicloVida() != null){
                 Thread.sleep(2000);
                 Select estadosCicloVida = new Select(driver.findElement(By.xpath("//*[@id=\"_stateProductId\"]")));
-                estadosCicloVida.selectByValue(objetarCoberturaBean.getEstadosCicloVida());
+                estadosCicloVida.selectByValue(siniestroProductoImportadoBean.getEstadosCicloVida());
             }
 
-            if (objetarCoberturaBean.getContratante() != null){
+            if (siniestroProductoImportadoBean.getContratante() != null){
                 Thread.sleep(2000);
                 WebElement contratante = driver.findElement(By.xpath("//*[@id=\"_clientName\"]"));
-                contratante.sendKeys(objetarCoberturaBean.getContratante());
+                contratante.sendKeys(siniestroProductoImportadoBean.getContratante());
             }
 
-            if (objetarCoberturaBean.getAsegurado() != null){
+            if (siniestroProductoImportadoBean.getAsegurado() != null){
                 Thread.sleep(2000);
                 WebElement asegurado = driver.findElement(By.xpath("//*[@id=\"_insuredName\"]"));
-                asegurado.sendKeys(objetarCoberturaBean.getAsegurado());
+                asegurado.sendKeys(siniestroProductoImportadoBean.getAsegurado());
             }
 
-            if (objetarCoberturaBean.getIdPoliza() != null){
+            if (siniestroProductoImportadoBean.getIdPoliza() != null){
                 Thread.sleep(2000);
                 WebElement idPoliza = driver.findElement(By.xpath("//*[@id=\"_policyId\"]" ));
-                idPoliza.sendKeys(objetarCoberturaBean.getIdPoliza());
+                idPoliza.sendKeys(siniestroProductoImportadoBean.getIdPoliza());
             }
 
-            if (objetarCoberturaBean.getFechaDesde() != null){
+            if (siniestroProductoImportadoBean.getFechaDesde() != null){
                 Thread.sleep(2000);
                 WebElement fechaDesde = driver.findElement(By.xpath("//*[@id=\"_fromDateShow\"]" ));
-                fechaDesde.sendKeys(objetarCoberturaBean.getFechaDesde());
+                fechaDesde.sendKeys(siniestroProductoImportadoBean.getFechaDesde());
             }
 
-            if (objetarCoberturaBean.getFechaHasta() != null){
+            if (siniestroProductoImportadoBean.getFechaHasta() != null){
                 Thread.sleep(2000);
                 WebElement fechaHasta = driver.findElement(By.xpath("//*[@id=\"_toDateShow\"]" ));
-                fechaHasta.sendKeys(objetarCoberturaBean.getFechaHasta());
+                fechaHasta.sendKeys(siniestroProductoImportadoBean.getFechaHasta());
             }
 
-            if (objetarCoberturaBean.getSucursalPoliza() != null){
+            if (siniestroProductoImportadoBean.getSucursalPoliza() != null){
                 Thread.sleep(2000);
                 Select sucursalPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"1829934\"]/td[3]/font/select")));
-                sucursalPoliza.selectByValue(objetarCoberturaBean.getSucursalPoliza());
+                sucursalPoliza.selectByValue(siniestroProductoImportadoBean.getSucursalPoliza());
             }
 
-            if (objetarCoberturaBean.getNumeroPoliza() != null){
+            if (siniestroProductoImportadoBean.getNumeroPoliza() != null){
                 Thread.sleep(2000);
                 WebElement numeroPoliza = driver.findElement(By.xpath("//*[@id=\"1829814\"]/td[3]/font/input[1]" ));
-                numeroPoliza.sendKeys(objetarCoberturaBean.getNumeroPoliza());
+                numeroPoliza.sendKeys(siniestroProductoImportadoBean.getNumeroPoliza());
             }
 
-            if (objetarCoberturaBean.getFechaEmision() != null){
+            if (siniestroProductoImportadoBean.getFechaEmision() != null){
                 Thread.sleep(2000);
                 WebElement fechaEmision = driver.findElement(By.xpath("//*[@id=\"1829854\"]/td[3]/font/input[1]" ));
-                fechaEmision.sendKeys(objetarCoberturaBean.getFechaEmision());
+                fechaEmision.sendKeys(siniestroProductoImportadoBean.getFechaEmision());
             }
 
-            if (objetarCoberturaBean.getMonedaPoliza() != null){
+            if (siniestroProductoImportadoBean.getMonedaPoliza() != null){
                 Thread.sleep(2000);
                 Select monedaPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"1828494\"]/td[3]/font/select")));
-                monedaPoliza.selectByValue(objetarCoberturaBean.getMonedaPoliza());
+                monedaPoliza.selectByValue(siniestroProductoImportadoBean.getMonedaPoliza());
             }
 
-            if (objetarCoberturaBean.getTipoMonedaPoliza() != null){
+            if (siniestroProductoImportadoBean.getTipoMonedaPoliza() != null){
                 Thread.sleep(2000);
                 Select tipoMonedaPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"30598294\"]/td[3]/font/select")));
-                tipoMonedaPoliza.selectByValue(objetarCoberturaBean.getTipoMonedaPoliza());
+                tipoMonedaPoliza.selectByValue(siniestroProductoImportadoBean.getTipoMonedaPoliza());
             }
 
-            if (objetarCoberturaBean.getTipoProduccion() != null){
+            if (siniestroProductoImportadoBean.getTipoProduccion() != null){
                 Thread.sleep(2000);
                 Select tipoProduccion = new Select(driver.findElement(By.xpath("//*[@id=\"1829894\"]/td[3]/font/select")));
-                tipoProduccion.selectByValue(objetarCoberturaBean.getTipoProduccion());
+                tipoProduccion.selectByValue(siniestroProductoImportadoBean.getTipoProduccion());
             }
 
-            if (objetarCoberturaBean.getTipoVigencia() != null){
+            if (siniestroProductoImportadoBean.getTipoVigencia() != null){
                 Thread.sleep(2000);
                 Select tipoVigencia = new Select(driver.findElement(By.xpath("//*[@id=\"1830014\"]/td[3]/font/select")));
-                tipoVigencia.selectByValue(objetarCoberturaBean.getTipoVigencia());
+                tipoVigencia.selectByValue(siniestroProductoImportadoBean.getTipoVigencia());
             }
 
-            if (objetarCoberturaBean.getVigencia() != null){
+            if (siniestroProductoImportadoBean.getVigencia() != null){
                 Thread.sleep(2000);
                 Select vigencia = new Select(driver.findElement(By.xpath("//*[@id=\"1830054\"]/td[3]/font/select")));
-                vigencia.selectByValue(objetarCoberturaBean.getVigencia());
+                vigencia.selectByValue(siniestroProductoImportadoBean.getVigencia());
             }
 
-            if (objetarCoberturaBean.getCanalVenta() != null){
+            if (siniestroProductoImportadoBean.getCanalVenta() != null){
                 Thread.sleep(2000);
                 Select canalVenta = new Select(driver.findElement(By.xpath("//*[@id=\"1933894\"]/td[3]/font/select")));
-                canalVenta.selectByValue(objetarCoberturaBean.getCanalVenta());
+                canalVenta.selectByValue(siniestroProductoImportadoBean.getCanalVenta());
             }
 
-            if (objetarCoberturaBean.getFrecuenciaPago() != null){
+            if (siniestroProductoImportadoBean.getFrecuenciaPago() != null){
                 Thread.sleep(2000);
                 Select frecuenciaPago = new Select(driver.findElement(By.xpath("//*[@id=\"1830294\"]/td[3]/font/select")));
-                frecuenciaPago.selectByValue(objetarCoberturaBean.getFrecuenciaPago());
+                frecuenciaPago.selectByValue(siniestroProductoImportadoBean.getFrecuenciaPago());
             }
 
-            if (objetarCoberturaBean.getFechaEventoAnterior() != null){
+            if (siniestroProductoImportadoBean.getFechaEventoAnterior() != null){
                 Thread.sleep(2000);
                 WebElement fechaEventoAnterior = driver.findElement(By.xpath("//*[@id=\"1933934\"]/td[3]/font/input[1]" ));
-                fechaEventoAnterior.sendKeys(objetarCoberturaBean.getFechaEventoAnterior());
+                fechaEventoAnterior.sendKeys(siniestroProductoImportadoBean.getFechaEventoAnterior());
             }
 
-            if (objetarCoberturaBean.getFechaProximaGeneracionPrima() != null){
+            if (siniestroProductoImportadoBean.getFechaProximaGeneracionPrima() != null){
                 Thread.sleep(2000);
                 WebElement fechaProximaGeneracionPrima = driver.findElement(By.xpath("//*[@id=\"1830374\"]/td[3]/font/input[1]" ));
-                fechaProximaGeneracionPrima.sendKeys(objetarCoberturaBean.getFechaProximaGeneracionPrima());
+                fechaProximaGeneracionPrima.sendKeys(siniestroProductoImportadoBean.getFechaProximaGeneracionPrima());
             }
 
-            if (objetarCoberturaBean.getFechaProximaFacturacion() != null){
+            if (siniestroProductoImportadoBean.getFechaProximaFacturacion() != null){
                 Thread.sleep(2000);
                 WebElement fechaProximaFacturacion = driver.findElement(By.xpath("//*[@id=\"1830214\"]/td[3]/font/input[1]" ));
-                fechaProximaFacturacion.sendKeys(objetarCoberturaBean.getFechaProximaFacturacion());
+                fechaProximaFacturacion.sendKeys(siniestroProductoImportadoBean.getFechaProximaFacturacion());
             }
 
-            if (objetarCoberturaBean.getTipoPoliza() != null){
+            if (siniestroProductoImportadoBean.getTipoPoliza() != null){
                 Thread.sleep(2000);
                 Select tipoPoliza = new Select(driver.findElement(By.xpath("//*[@id=\"2878614\"]/td[3]/font/select")));
-                tipoPoliza.selectByValue(objetarCoberturaBean.getTipoPoliza());
+                tipoPoliza.selectByValue(siniestroProductoImportadoBean.getTipoPoliza());
             }
 
-            if (objetarCoberturaBean.getNumeroCotizacion() != null){
+            if (siniestroProductoImportadoBean.getNumeroCotizacion() != null){
                 Thread.sleep(2000);
                 WebElement numeroCotizacion = driver.findElement(By.xpath("//*[@id=\"9480594\"]/td[3]/font/input[1]" ));
-                numeroCotizacion.sendKeys(objetarCoberturaBean.getNumeroCotizacion());
+                numeroCotizacion.sendKeys(siniestroProductoImportadoBean.getNumeroCotizacion());
             }
 
-            if (objetarCoberturaBean.getNumeroPropuesta() != null){
+            if (siniestroProductoImportadoBean.getNumeroPropuesta() != null){
                 Thread.sleep(2000);
                 WebElement numeroPropuesta = driver.findElement(By.xpath("//*[@id=\"9452594\"]/td[3]/font/input[1]" ));
-                numeroPropuesta.sendKeys(objetarCoberturaBean.getNumeroPropuesta());
+                numeroPropuesta.sendKeys(siniestroProductoImportadoBean.getNumeroPropuesta());
             }
 
             Thread.sleep(1000);
@@ -200,7 +196,7 @@ public class ObjetarCobertura {
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchformpolicy_01\"]"));
             btnBuscar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(6000);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -209,15 +205,15 @@ public class ObjetarCobertura {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
+    public void ResultadoBusqueda (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
-            fechaOcurrenciaSiniestro.sendKeys(objetarCoberturaBean.getFechaOcurrenciaSiniestro());
+            fechaOcurrenciaSiniestro.sendKeys(siniestroProductoImportadoBean.getFechaOcurrenciaSiniestro());
 
             Thread.sleep(2000);
             Select sucursalSiniestros = new Select(driver.findElement(By.xpath("//*[@id=\"userAgency\"]")));
-            sucursalSiniestros.selectByValue(objetarCoberturaBean.getSucursalSiniestros());
+            sucursalSiniestros.selectByValue(siniestroProductoImportadoBean.getSucursalSiniestros());
 
             // Cambiar de frame
             driver.switchTo().frame("frameData");
@@ -240,12 +236,12 @@ public class ObjetarCobertura {
             selecUnidadRiesgo.click();
 
             Thread.sleep(2000);
-            a.ScreenShotPool( driver, i,"screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen6", nombreAutomatizacion);
 
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
 
-            Thread.sleep(13000);
+            Thread.sleep(10000);
 
 
             WebElement btnSelecEvento = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_03\"]"));
@@ -257,18 +253,18 @@ public class ObjetarCobertura {
             selecEvento.click();
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
 
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
 
-            Thread.sleep(10000);
+            Thread.sleep(5000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_07\"]"));
             btnAceptar.click();
 
-            Thread.sleep(25000);
-            a.ScreenShotPool(driver, i,"screen8",nombreAutomatizacion);
+            Thread.sleep(10000);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -277,7 +273,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -288,78 +284,78 @@ public class ObjetarCobertura {
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
 
+            Thread.sleep(3000);
             Select horaOcurrencia = new Select(driver.findElement(By.xpath("//*[@id=\"1837254\"]/td[3]/font/select")));
-            horaOcurrencia.selectByValue(objetarCoberturaBean.getHoraOcurrencia());
+            horaOcurrencia.selectByValue(siniestroProductoImportadoBean.getHoraOcurrencia());
 
             WebElement fechaAvisoCompania = driver.findElement(By.xpath("//*[@id=\"1837174\"]/td[3]/font/input[1]"));
-            fechaAvisoCompania.sendKeys(objetarCoberturaBean.getFechaAvisoCompania());
+            fechaAvisoCompania.sendKeys(siniestroProductoImportadoBean.getFechaAvisoCompania());
 
-            if (objetarCoberturaBean.getHoraNotificacion() != null){
+            if (siniestroProductoImportadoBean.getHoraNotificacion() != null){
                 Select horaNotificacion = new Select(driver.findElement(By.xpath("//*[@id=\"9486594\"]/td[3]/font/select")));
-                horaNotificacion.selectByValue(objetarCoberturaBean.getHoraNotificacion());
+                horaNotificacion.selectByValue(siniestroProductoImportadoBean.getHoraNotificacion());
             }
 
-            if (objetarCoberturaBean.getFechaReclFormalizacion() != null){
+            if (siniestroProductoImportadoBean.getFechaReclFormalizacion() != null){
                 WebElement fechaReclFormalizacion = driver.findElement(By.xpath("//*[@id=\"28932594\"]/td[3]/font/input[1]"));
-                fechaReclFormalizacion.sendKeys(objetarCoberturaBean.getFechaReclFormalizacion());
+                fechaReclFormalizacion.sendKeys(siniestroProductoImportadoBean.getFechaReclFormalizacion());
             }
 
-            if (objetarCoberturaBean.getFechaInterrupcionTerminos() != null){
+            if (siniestroProductoImportadoBean.getFechaInterrupcionTerminos() != null){
                 WebElement fechaInterrupcionTerminos = driver.findElement(By.xpath("//*[@id=\"30022594\"]/td[3]/font/input[1]"));
-                fechaInterrupcionTerminos.sendKeys(objetarCoberturaBean.getFechaInterrupcionTerminos());
+                fechaInterrupcionTerminos.sendKeys(siniestroProductoImportadoBean.getFechaInterrupcionTerminos());
             }
 
-            if (objetarCoberturaBean.getDocumentoIdentReclamante() != null){
+            if (siniestroProductoImportadoBean.getDocumentoIdentReclamante() != null){
                 WebElement documentoIdentReclamante = driver.findElement(By.xpath("//*[@id=\"31763194\"]/td[3]/font/input[1]"));
-                documentoIdentReclamante.sendKeys(objetarCoberturaBean.getDocumentoIdentReclamante());
+                documentoIdentReclamante.sendKeys(siniestroProductoImportadoBean.getDocumentoIdentReclamante());
             }
 
-            if (objetarCoberturaBean.getReclamante() != null){
+            if (siniestroProductoImportadoBean.getReclamante() != null){
                 WebElement reclamante = driver.findElement(By.xpath("//*[@id=\"23937694\"]/td[3]/font/input[1]"));
-                reclamante.sendKeys(objetarCoberturaBean.getReclamante());
+                reclamante.sendKeys(siniestroProductoImportadoBean.getReclamante());
             }
 
             Select causaGeneralMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"23854894\"]/td[3]/font/select")));
-            causaGeneralMuerte.selectByValue(objetarCoberturaBean.getCausaGeneralMuerte());
+            causaGeneralMuerte.selectByValue(siniestroProductoImportadoBean.getCausaGeneralMuerte());
 
             Select causalesEspecifCobertMuerte = new Select(driver.findElement(By.xpath("//*[@id=\"29997794\"]/td[3]/font/select")));
-            causalesEspecifCobertMuerte.selectByValue(objetarCoberturaBean.getCausalesEspecifCobertMuerte());
+            causalesEspecifCobertMuerte.selectByValue(siniestroProductoImportadoBean.getCausalesEspecifCobertMuerte());
 
             Select departamento = new Select(driver.findElement(By.xpath("//*[@id=\"1934614\"]/td[3]/font/select")));
-            departamento.selectByValue(objetarCoberturaBean.getDepartamento());
+            departamento.selectByValue(siniestroProductoImportadoBean.getDepartamento());
 
             Select ciudad = new Select(driver.findElement(By.xpath("//*[@id=\"9508794\"]/td[3]/font/select")));
-            ciudad.selectByValue(objetarCoberturaBean.getCiudad());
+            ciudad.selectByValue(siniestroProductoImportadoBean.getCiudad());
 
-            if (objetarCoberturaBean.getGeneroAsegurado() != null){
+            if (siniestroProductoImportadoBean.getGeneroAsegurado() != null){
                 Select generoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763594\"]/td[3]/font/select")));
-                generoAsegurado.selectByValue(objetarCoberturaBean.getGeneroAsegurado());
+                generoAsegurado.selectByValue(siniestroProductoImportadoBean.getGeneroAsegurado());
             }
 
-            if (objetarCoberturaBean.getProfesionAsegurado() != null){
+            if (siniestroProductoImportadoBean.getProfesionAsegurado() != null){
                 Select profesionAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"31763694\"]/td[3]/font/input[2]")));
-                profesionAsegurado.selectByValue(objetarCoberturaBean.getProfesionAsegurado());
+                profesionAsegurado.selectByValue(siniestroProductoImportadoBean.getProfesionAsegurado());
             }
-
             WebElement btnLimpiar = driver.findElement(By.xpath("//*[@id=\"ProfesionAseguradoClearLink\"]"));
             btnLimpiar.click();
 
-            if (objetarCoberturaBean.getActividadSiniestro() != null){
+            if (siniestroProductoImportadoBean.getActividadSiniestro() != null){
                 Select actividadSiniestro = new Select(driver.findElement(By.xpath("//*[@id=\"30018694\"]/td[3]/font/select")));
-                actividadSiniestro.selectByValue(objetarCoberturaBean.getActividadSiniestro());
+                actividadSiniestro.selectByValue(siniestroProductoImportadoBean.getActividadSiniestro());
             }
 
-            if (objetarCoberturaBean.getFechaActividad() != null){
+            if (siniestroProductoImportadoBean.getFechaActividad() != null){
                 WebElement fechaActividad = driver.findElement(By.xpath("//*[@id=\"30018794\"]/td[3]/font/input[1]"));
-                fechaActividad.sendKeys(objetarCoberturaBean.getFechaActividad());
+                fechaActividad.sendKeys(siniestroProductoImportadoBean.getFechaActividad());
             }
 
-            if (objetarCoberturaBean.getObservacionesSiniestro() != null){
+            if (siniestroProductoImportadoBean.getObservacionesSiniestro() != null){
                 WebElement observacionesSiniestro = driver.findElement(By.xpath("//*[@id=\"3746174\"]/td[3]/font/textarea"));
-                observacionesSiniestro.sendKeys(objetarCoberturaBean.getObservacionesSiniestro());
+                observacionesSiniestro.sendKeys(siniestroProductoImportadoBean.getObservacionesSiniestro());
             }
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen9",nombreAutomatizacion);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -369,10 +365,10 @@ public class ObjetarCobertura {
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_04020099_content_01\"]"));
             btnAceptar.click();
 
-            Thread.sleep(15000);
+            Thread.sleep(25000);
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen10",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen10",nombreAutomatizacion);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -381,40 +377,50 @@ public class ObjetarCobertura {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
+    public void AgregarCobertura (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try{
 
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_04\"]"));
             btnAgregar.click();
-            Thread.sleep(10000);
+            Thread.sleep(15000);
 
-            if (objetarCoberturaBean.getObjetosAsegurados() != null){
+            if (siniestroProductoImportadoBean.getObjetosAsegurados() != null){
                 Select objetosAsegurados = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[2]/td[2]/select")));
-                objetosAsegurados.selectByValue(objetarCoberturaBean.getObjetosAsegurados());
+                objetosAsegurados.selectByValue(siniestroProductoImportadoBean.getObjetosAsegurados());
             }
 
-            if (objetarCoberturaBean.getCoberturaAfectada() != null){
+            if (siniestroProductoImportadoBean.getCoberturaAfectada() != null){
                 Select coberturaAfectada = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[1]/tr[3]/td[2]/select")));
-                coberturaAfectada.selectByValue(objetarCoberturaBean.getCoberturaAfectada());
+                coberturaAfectada.selectByValue(siniestroProductoImportadoBean.getCoberturaAfectada());
             }
 
-            Thread.sleep(10000);
+            Thread.sleep(3000);
             WebElement pagoMaximo = driver.findElement(By.xpath("//*[@id=\"maxBenefitAmount1\"]"));
             pagoMaximo.clear();
-            pagoMaximo.sendKeys(objetarCoberturaBean.getPagoMaximo());
-
+            pagoMaximo.sendKeys(siniestroProductoImportadoBean.getPagoMaximo());
+/*
             Thread.sleep(2000);
             Select monedaSiniestro = new Select(driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[4]/td[2]/select")));
-            monedaSiniestro.selectByValue(objetarCoberturaBean.getMonedaSiniestro());
-
+            monedaSiniestro.selectByValue(siniestroProductoImportadoBean.getMonedaSiniestro());
+*/
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i,"screen11",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen11",nombreAutomatizacion);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
-            Thread.sleep(6000);
+            Thread.sleep(3000);
 
+            /*if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }*/
+
+            Thread.sleep(3000);
+/*
             Set<String> sid = driver.getWindowHandles();
             //Using iterator we can fetch the values from Set.
             Iterator<String> it = sid.iterator();
@@ -428,12 +434,10 @@ public class ObjetarCobertura {
             //swtiching control to child Window
             driver.switchTo().window(childId2);
 
-
             Thread.sleep(6000);
 
             WebElement btnAceptarOtro = driver.findElement(By.xpath("//*[@id=\"u70\"]/input"));
             btnAceptarOtro.click();
-
 
             Thread.sleep(3000);
 
@@ -448,34 +452,9 @@ public class ObjetarCobertura {
             //swtiching control to child Window
             driver.switchTo().window(childId);
 
-
             Thread.sleep(3000);
 
-            if (ExpectedConditions.alertIsPresent() != null) {
-                Thread.sleep(1000);
-                Alert alert = driver.switchTo().alert();
-                alert.dismiss();
-                Thread.sleep(1000);
-                driver.switchTo().defaultContent();
-            }
-
-            Thread.sleep(10000);
-            a.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion);
-            WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_contextPageClaimTool_01\"]"));
-            btnAceptar.click();
-
-
-            Thread.sleep(10000);
-            Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));
-            cobertura.selectByIndex(0);
-            Thread.sleep(4000);
-            WebElement cobertura2 = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]/option"));
-            cobertura2.click();
-
-            WebElement rechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_07\"]"));
-            rechazar.click();
-            Thread.sleep(3000);
-
+*/
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();
@@ -483,31 +462,9 @@ public class ObjetarCobertura {
                 Thread.sleep(1000);
                 driver.switchTo().defaultContent();
             }
-
-
-            Thread.sleep(15000);
-            // Cambiar de frame
-            driver.switchTo().frame("plantilla");
-            Thread.sleep(2000);
-            WebElement fechaObjecion = driver.findElement(By.xpath("//*[@id=\"28482594\"]/td[3]/font/input[1]"));
-            fechaObjecion.click();
-            fechaObjecion.sendKeys(objetarCoberturaBean.getFechaObjecion());
-
-            if (objetarCoberturaBean.getComentariosSiniestro() != null){
-                Select comentariosSiniestro = new Select(driver.findElement(By.xpath("//*[@id=\"1929454\"]/td[3]/font/textarea")));
-                comentariosSiniestro.selectByValue(objetarCoberturaBean.getComentariosSiniestro());
-            }
-
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen13",nombreAutomatizacion);
-            // Salir del frame
-            //driver.switchTo().parentFrame();
-            driver.switchTo().defaultContent();
-
-            WebElement btnAceptar2 = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
-            btnAceptar2.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen14",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion);
+
 
 
         }catch (Exception e) {
@@ -516,4 +473,5 @@ public class ObjetarCobertura {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
 }

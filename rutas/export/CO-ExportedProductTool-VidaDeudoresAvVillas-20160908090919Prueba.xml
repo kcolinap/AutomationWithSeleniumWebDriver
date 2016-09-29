@@ -2,7 +2,7 @@
 <!DOCTYPE exportedConfiguration SYSTEM "C:\AcseleTests\AutomationTestAcsele\rutas\export\exportedConfiguration.dtd">
 <exportedConfiguration>
   <productTool>
-    <product name="VidaDeudoresAvVillasPRUEBA1" cotdesc="PrVDeudoresVillas" parent="">
+    <product name="VidaDeudoresAvVillasProductoImportadoAutomatizacion2" cotdesc="PrVDeudoresVillas" parent="">
       <GroupingCriteria />
       <dco>
         <dcoProperty symbol="Compania" input="Seguros de Vida Alfa S.A." value="50.0" />
