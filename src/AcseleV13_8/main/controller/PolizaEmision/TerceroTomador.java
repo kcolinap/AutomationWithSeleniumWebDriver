@@ -110,8 +110,213 @@ public class TerceroTomador {
         }
     }
 
-    public void TomadorTerceroBusquedaAvanzada(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean,
-                               String nombreAutomatizacion){
+    public void TomadorTercero2(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            Thread.sleep(2000);
+
+            //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
+            //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
+
+            if (polizaBean.getTomador2Nombre1() != null || polizaBean.getTomador2Nombre2() != null || polizaBean.getTomador2Apellido1() != null || polizaBean.getTomador2Apellido2() != null) {
+                //WebElement inputTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+
+                WebElement inputTomador = driver.findElement(By.xpath("//span[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_readOnlyPanel']"));
+                //Thread.sleep(2000);
+                inputTomador = driver.findElement(By.xpath("//span[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_readOnlyPanel_selectedValue']"));
+
+                inputTomador.click();
+                Thread.sleep(1000);
+                //inputTomador.click();
+                //inputTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+
+                //inputTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_searh']"));
+                //inputTomador = driver.findElement(By.xpath("//span[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_readOnlyPanel']"));
+                if (polizaBean.getTomador2Nombre1() != null && polizaBean.getTomador2Nombre2() != null && polizaBean.getTomador2Apellido1() != null && polizaBean.getTomador2Apellido2() != null){
+                    inputTomador.sendKeys(polizaBean.getTomador2Nombre1() + " " + polizaBean.getTomador2Nombre2() + " " + polizaBean.getTomador2Apellido1() + " " + polizaBean.getTomador2Apellido2());
+                }
+                else if (polizaBean.getTomador2Nombre1() != null && polizaBean.getTomador2Nombre2() != null && polizaBean.getTomador2Apellido1() != null && polizaBean.getTomador2Apellido2() == null){
+                    inputTomador.sendKeys(polizaBean.getTomador2Nombre1() + " " + polizaBean.getTomador2Nombre2() + " " + polizaBean.getTomador2Apellido1());
+                }
+                else if (polizaBean.getTomador2Nombre1() != null && polizaBean.getTomador2Nombre2() == null && polizaBean.getTomador2Apellido1() != null && polizaBean.getTomador2Apellido2() != null){
+                    inputTomador.sendKeys(polizaBean.getTomador2Nombre1() + " " + polizaBean.getTomador2Apellido1() + " " +polizaBean.getTomador2Apellido2());
+                }
+                else if (polizaBean.getTomador2Nombre1() != null && polizaBean.getTomador2Nombre2() == null && polizaBean.getTomador2Apellido1() != null && polizaBean.getTomador2Apellido2() == null){
+                    inputTomador.sendKeys(polizaBean.getTomador2Nombre1() + " " + polizaBean.getTomador2Apellido1());
+                }
+
+            }
+
+            Thread.sleep(2000);
+            WebElement selTomador = driver.findElement(By.xpath("/html/body/div[6]/div/ul/li"));
+            selTomador.click();
+
+            Thread.sleep(2000);
+            WebElement btnAsociar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton']"));
+            btnAsociar.click();
+
+            /** Espere **/
+            Thread.sleep(1000);
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espere Asociar Tomador");
+            }
+
+            if (polizaBean.getPorcentajeParticipacionTomador2() != null){
+                WebElement porcentajeTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+                porcentajeTomador.clear();
+                porcentajeTomador.sendKeys(polizaBean.getPorcentajeParticipacionTomador2());
+                Thread.sleep(1000);
+            }
+
+            Thread.sleep(2000);
+            WebElement btnAgregar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_addPaymentModeButton']"));
+            btnAgregar.click();
+
+            /** Espere **/
+            Thread.sleep(1000);
+            mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espere Agregar Tomador");
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(2000);
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            //"policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation"
+            btnGuardar.click();
+
+            /** Espere **/
+            Thread.sleep(1000);
+            mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espere Guardar Tomador");
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            //             log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void EditarTomadorTercero1(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            //TipoElemento[@wicketpath='WicketpathElemento']
+            Thread.sleep(2000);
+            WebElement cerrarBuscador = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_closeDetailSearch_container']"));
+            cerrarBuscador.click();
+            Thread.sleep(2000);
+
+            WebElement selTomador1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_Container_sorting_3_Checked']"));
+            selTomador1.click();
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnParticipacion = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_EditButton']"));
+            btnParticipacion.click();
+
+            Thread.sleep(2000);
+
+            WebElement nuevoPorcentaje = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+            nuevoPorcentaje.clear();
+            nuevoPorcentaje.sendKeys(polizaBean.getNuevoPorcentajeParticipacionTomador());
+
+            WebElement btnAgregar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_addPaymentModeButton']"));
+            btnAgregar.click();
+
+            /** Espere **/
+            Thread.sleep(1000);
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espere Asociar Tomador");
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            btnGuardar.click();
+
+            Thread.sleep(4000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
+
+    public void EditarTomadorTercero2(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            Thread.sleep(2000);
+
+            WebElement selTomador2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_Container_sorting_9_Checked']"));
+            selTomador2.click();
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnParticipacion = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_EditButton']"));
+            btnParticipacion.click();
+
+            Thread.sleep(2000);
+
+            WebElement nuevoPorcentaje = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+            nuevoPorcentaje.clear();
+            nuevoPorcentaje.sendKeys(polizaBean.getNuevoPorcentajeParticipacionTomador2());
+
+            WebElement btnAgregar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_paymentCollectorBranches_tablePaymentCollectorBranch_0_addPaymentModeButton']"));
+            btnAgregar.click();
+
+            /** Espere **/
+            Thread.sleep(1000);
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espere Asociar Tomador");
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            btnGuardar.click();
+
+            Thread.sleep(4000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void TomadorTerceroBusquedaAvanzada(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, String nombreAutomatizacion){
         try {
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
             btnBusquedaAvanzada.click();

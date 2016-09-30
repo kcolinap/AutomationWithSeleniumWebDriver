@@ -46,6 +46,15 @@ public class PolizaBean implements Serializable{
     private String tomadorApellido1;
     private String tomadorApellido2;
     private String porcentajeParticipacionTomador;
+    private String nuevoPorcentajeParticipacionTomador;
+
+    private String tomador2Nombre1;
+    private String tomador2Nombre2;
+    private String tomador2Apellido1;
+    private String tomador2Apellido2;
+    private String porcentajeParticipacionTomador2;
+    private String nuevoPorcentajeParticipacionTomador2;
+
 
     // Unidades de Riesgo
     private String numeroUnidadRiesgo;
@@ -313,6 +322,55 @@ public class PolizaBean implements Serializable{
     }
     public void setPorcentajeParticipacionTomador(String porcentajeParticipacionTomador) {
         this.porcentajeParticipacionTomador = porcentajeParticipacionTomador;
+    }
+
+    public String getNuevoPorcentajeParticipacionTomador() {
+        return nuevoPorcentajeParticipacionTomador;
+    }
+    public void setNuevoPorcentajeParticipacionTomador(String nuevoPorcentajeParticipacionTomador) {
+        this.nuevoPorcentajeParticipacionTomador = nuevoPorcentajeParticipacionTomador;
+    }
+
+    public String getTomador2Nombre1() {
+        return tomador2Nombre1;
+    }
+    public void setTomador2Nombre1(String tomador2Nombre1) {
+        this.tomador2Nombre1 = tomador2Nombre1;
+    }
+
+    public String getTomador2Nombre2() {
+        return tomador2Nombre2;
+    }
+    public void setTomador2Nombre2(String tomador2Nombre2) {
+        this.tomador2Nombre2 = tomador2Nombre2;
+    }
+
+    public String getTomador2Apellido1() {
+        return tomador2Apellido1;
+    }
+    public void setTomador2Apellido1(String tomador2Apellido1) {
+        this.tomador2Apellido1 = tomador2Apellido1;
+    }
+
+    public String getTomador2Apellido2() {
+        return tomador2Apellido2;
+    }
+    public void setTomador2Apellido2(String tomador2Apellido2) {
+        this.tomador2Apellido2 = tomador2Apellido2;
+    }
+
+    public String getPorcentajeParticipacionTomador2() {
+        return porcentajeParticipacionTomador2;
+    }
+    public void setPorcentajeParticipacionTomador2(String porcentajeParticipacionTomador2) {
+        this.porcentajeParticipacionTomador2 = porcentajeParticipacionTomador2;
+    }
+
+    public String getNuevoPorcentajeParticipacionTomador2() {
+        return nuevoPorcentajeParticipacionTomador2;
+    }
+    public void setNuevoPorcentajeParticipacionTomador2(String nuevoPorcentajeParticipacionTomador2) {
+        this.nuevoPorcentajeParticipacionTomador2 = nuevoPorcentajeParticipacionTomador2;
     }
 
     public String getNumeroUnidadRiesgo() {
