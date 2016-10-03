@@ -64,7 +64,7 @@ public class EmisionPolizaEliminacionTomadores {
             terceroTomador.TomadorTercero2BusquedaAvanzada(a, driver, emisionPolizaEliminacionTomadoresBean, nombreAutomatizacion, i, 8, 9, 10, 11);
             Thread.sleep(2000);
             terceroTomador.EliminarTomador2(a, driver, nombreAutomatizacion, i, 12, 13, 14);
-            
+
 
         } catch (Exception e) {
             e.printStackTrace();

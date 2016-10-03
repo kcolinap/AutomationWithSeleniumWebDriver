@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +21,13 @@ public class VistaEmisionPolizaInclusionTomadoresTest {
     @Test
     public void mainTest(){
 
-        ArrayList emision = EmisionPolizaInclusionTomadoresBean.getEmisionPolizaInclusionTomadores();
+        ArrayList emision = null;
+
+        try {
+            emision = EmisionPolizaInclusionTomadoresBean.getEmisionPolizaInclusionTomadores();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < emision.size(); i++){
             EmisionPolizaInclusionTomadoresBean emisionPolizaInclusionTomadoresBean = (EmisionPolizaInclusionTomadoresBean) emision.get(i);
@@ -30,8 +37,7 @@ public class VistaEmisionPolizaInclusionTomadoresTest {
                 a.testLink(emisionPolizaInclusionTomadoresBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
-                log.info("Test Case 25 - " + a.nombreAutomatizacion + " - " + e);
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }
@@ -39,13 +45,13 @@ public class VistaEmisionPolizaInclusionTomadoresTest {
     @Before
     public void setUp() throws Exception {
 
-/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TASA, TIPO_TASA, TIPO_TERCERO1, TIPO_DOC_IDENTIDAD1, CEDULA1, NOMBRE1, APELLIDO1, PORCENTAJE_TOMADOR1, TIPO_TERCERO2, TIPO_DOC_IDENTIDAD2, CEDULA2, NOMBRE2, APELLIDO2, PORCENTAJE_TOMADOR2 FROM POLIZA_INCLUSION_TOMADORES ORDER BY PRUEBA ASC",
+/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, FECHA_MOVIMIENTO, FECHA_EFECTIVA_APLICA_EVENTO, PLAN_FINANCIAMIENTO, MONEDA, SUCURSAL, NUMERO_POLIZA, FECHA_EMISION, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, HORA_INICIACION_VENCIMIENTO, UNIDAD_NEGOCIO, CANAL_VENTA, FRECUENCIA_PAGO, TIPO_POLIZA, TIPO_VALOR_ASEGURADO, NIVEL_AGRUPAMIENTO_REASEGURO, PERMITE_MANEJO_CTA_PROVI, MES_PROVISIONAL, ANIO_PROVISIONAL, TOMADOR1_NOMBRE1, TOMADOR1_NOMBRE2, TOMADOR1_APELLIDO1, TOMADOR1_APELLIDO2, PORCENTAJE_PARTICIPA_TOMADOR, TOMADOR2_NOMBRE1, TOMADOR2_NOMBRE2, TOMADOR2_APELLIDO1, TOMADOR2_APELLIDO2, PORCENTAJE_PARTICIPA_TOMADOR2 FROM POLIZA_INCLUSION_TOMADORES ORDER BY PRUEBA ASC",
                 "POLIZA_INCLUSION_TOMADORES",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8.tests.xmls/emisionPolizaInclusionTomadores_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/emisionPolizaInclusionTomadores_dataset.xml");
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TASA, TIPO_TASA, TIPO_TERCERO1, TIPO_DOC_IDENTIDAD1, CEDULA1, NOMBRE1, APELLIDO1, PORCENTAJE_TOMADOR1, TIPO_TERCERO2, TIPO_DOC_IDENTIDAD2, CEDULA2, NOMBRE2, APELLIDO2, PORCENTAJE_TOMADOR2 FROM POLIZA_INCLUSION_TOMADORES ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA, EVENTO_APLICAR, FECHA_MOVIMIENTO, FECHA_EFECTIVA_APLICA_EVENTO, PLAN_FINANCIAMIENTO, MONEDA, SUCURSAL, NUMERO_POLIZA, FECHA_EMISION, TIPO_PRODUCCION, PERIODO_GRACIA, LINEA_CREDITO, HORA_INICIACION_VENCIMIENTO, UNIDAD_NEGOCIO, CANAL_VENTA, FRECUENCIA_PAGO, TIPO_POLIZA, TIPO_VALOR_ASEGURADO, NIVEL_AGRUPAMIENTO_REASEGURO, PERMITE_MANEJO_CTA_PROVI, MES_PROVISIONAL, ANIO_PROVISIONAL, TOMADOR1_NOMBRE1, TOMADOR1_NOMBRE2, TOMADOR1_APELLIDO1, TOMADOR1_APELLIDO2, PORCENTAJE_PARTICIPA_TOMADOR, TOMADOR2_NOMBRE1, TOMADOR2_NOMBRE2, TOMADOR2_APELLIDO1, TOMADOR2_APELLIDO2, PORCENTAJE_PARTICIPA_TOMADOR2 FROM POLIZA_INCLUSION_TOMADORES ORDER BY PRUEBA ASC",
                 "POLIZA_INCLUSION_TOMADORES",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8.tests.xmls/emisionPolizaInclusionTomadores_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/emisionPolizaInclusionTomadores_dataset.xml");
 */
         DataSetManager.loadDataSet("/AcseleV13_8/tests/xmls/emisionPolizaInclusionTomadores_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
