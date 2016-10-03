@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <POLIZA_EDICION_TOMADORES PRUEBA="1"
-                            PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="19-09-2016" FECHA_HASTA=""
+                            PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="03-10-2016" FECHA_HASTA=""
                             EVENTO_APLICAR="Emitir" FECHA_MOVIMIENTO="" FECHA_EFECTIVA_APLICA_EVENTO=""
                             PLAN_FINANCIAMIENTO="" MONEDA="" SUCURSAL="" NUMERO_POLIZA=""
                             FECHA_EMISION="" TIPO_PRODUCCION="" PERIODO_GRACIA=""

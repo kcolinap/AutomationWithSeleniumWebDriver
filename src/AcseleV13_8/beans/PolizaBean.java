@@ -41,6 +41,9 @@ public class PolizaBean implements Serializable{
     private String anioProvisional;
 
     // Tomador
+    private String tipoTomador1;
+    private String tipoDocumentoIdentidad1;
+    private String numeroDocumentoIdentidad1;
     private String tomadorNombre1;
     private String tomadorNombre2;
     private String tomadorApellido1;
@@ -48,6 +51,9 @@ public class PolizaBean implements Serializable{
     private String porcentajeParticipacionTomador;
     private String nuevoPorcentajeParticipacionTomador;
 
+    private String tipoTomador2;
+    private String tipoDocumentoIdentidad2;
+    private String numeroDocumentoIdentidad2;
     private String tomador2Nombre1;
     private String tomador2Nombre2;
     private String tomador2Apellido1;
@@ -289,6 +295,27 @@ public class PolizaBean implements Serializable{
         this.anioProvisional = anioProvisional;
     }
 
+    public String getTipoTomador1() {
+        return tipoTomador1;
+    }
+    public void setTipoTomador1(String tipoTomador1) {
+        this.tipoTomador1 = tipoTomador1;
+    }
+
+    public String getTipoDocumentoIdentidad1() {
+        return tipoDocumentoIdentidad1;
+    }
+    public void setTipoDocumentoIdentidad1(String tipoDocumentoIdentidad1) {
+        this.tipoDocumentoIdentidad1 = tipoDocumentoIdentidad1;
+    }
+
+    public String getNumeroDocumentoIdentidad1() {
+        return numeroDocumentoIdentidad1;
+    }
+    public void setNumeroDocumentoIdentidad1(String numeroDocumentoIdentidad1) {
+        this.numeroDocumentoIdentidad1 = numeroDocumentoIdentidad1;
+    }
+
     public String getTomadorNombre1() {
         return tomadorNombre1;
     }
@@ -329,6 +356,27 @@ public class PolizaBean implements Serializable{
     }
     public void setNuevoPorcentajeParticipacionTomador(String nuevoPorcentajeParticipacionTomador) {
         this.nuevoPorcentajeParticipacionTomador = nuevoPorcentajeParticipacionTomador;
+    }
+
+    public String getTipoTomador2() {
+        return tipoTomador2;
+    }
+    public void setTipoTomador2(String tipoTomador2) {
+        this.tipoTomador2 = tipoTomador2;
+    }
+
+    public String getTipoDocumentoIdentidad2() {
+        return tipoDocumentoIdentidad2;
+    }
+    public void setTipoDocumentoIdentidad2(String tipoDocumentoIdentidad2) {
+        this.tipoDocumentoIdentidad2 = tipoDocumentoIdentidad2;
+    }
+
+    public String getNumeroDocumentoIdentidad2() {
+        return numeroDocumentoIdentidad2;
+    }
+    public void setNumeroDocumentoIdentidad2(String numeroDocumentoIdentidad2) {
+        this.numeroDocumentoIdentidad2 = numeroDocumentoIdentidad2;
     }
 
     public String getTomador2Nombre1() {

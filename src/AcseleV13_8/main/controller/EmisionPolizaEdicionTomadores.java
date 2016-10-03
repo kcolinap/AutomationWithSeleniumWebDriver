@@ -61,11 +61,12 @@ public class EmisionPolizaEdicionTomadores {
             Thread.sleep(2000);
             terceroTomador.TomadorTercero(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 6, 7);
             Thread.sleep(2000);
-            terceroTomador.TomadorTercero2(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 8, 9);
+            //terceroTomador.TomadorTercero2(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 8, 9);
+            terceroTomador.TomadorTercero2BusquedaAvanzada(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 8, 9, 10, 11);
             Thread.sleep(2000);
-            terceroTomador.EditarTomadorTercero1(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 10, 11, 12);
+            terceroTomador.EditarTomadorTercero1(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 12, 13, 14);
             Thread.sleep(2000);
-            terceroTomador.EditarTomadorTercero2(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 13, 14, 15);
+            terceroTomador.EditarTomadorTercero2(a, driver, emisionPolizaInclusionTomadoresBean, nombreAutomatizacion, i, 15, 16, 17);
 
         } catch (Exception e) {
             e.printStackTrace();
