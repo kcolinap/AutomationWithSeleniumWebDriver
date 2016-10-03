@@ -23,7 +23,7 @@ public class MenuConsultas {
 
     }
 
-    public void EstadoCuentas(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+    public void EstadoCuentas(Metodos a, WebDriver driver, String nombreAutomatizacion,int numScreenShoot, int i){
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[1]"));// Mantenimiento
@@ -33,7 +33,7 @@ public class MenuConsultas {
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
             menu2.click();
 

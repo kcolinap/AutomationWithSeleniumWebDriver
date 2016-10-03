@@ -68,7 +68,7 @@ public class TercerosHabilitarDeshabilitar {
         a.regresarVentana(driver);
 
         // Creación de Póliza
-        menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 9);
+        menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 9, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);

@@ -44,7 +44,7 @@ public class EmisionPrimaEmitida {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2);
+            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -68,12 +68,12 @@ public class EmisionPrimaEmitida {
             Thread.sleep(2000);
             aseguradoVida.AseguradoVida(a, driver, emisionPrimaEmitidaBean, nombreAutomatizacion, i, 11);
             Thread.sleep(2000);
-            Calcular(a, driver, i, 12, 13, 14);
+            Calcular(a, driver, i, 12, 13);
             Thread.sleep(100);
 
             a.regresarVentana(driver);
             Thread.sleep(1000);
-            menuConsultas.EstadoCuentas(a, driver, nombreAutomatizacion,15);
+            menuConsultas.EstadoCuentas(a, driver, nombreAutomatizacion,14, i);
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(3000);
@@ -88,15 +88,12 @@ public class EmisionPrimaEmitida {
 
     }
 
-    public void Calcular (Metodos a, WebDriver driver, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void Calcular (Metodos a, WebDriver driver, int i, int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
             WebElement btnCalcular = driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']"));
-
             Thread.sleep(1500);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
 
             btnCalcular.click();
 
@@ -172,7 +169,7 @@ public class EmisionPrimaEmitida {
             segundoApellido.sendKeys(emisionPrimaEmitidaBean.getTomadorApellido2());
             Thread.sleep(2000);
 
-            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
 
             Thread.sleep(1500);
 
@@ -187,7 +184,7 @@ public class EmisionPrimaEmitida {
             selectTercero.click();
             Thread.sleep(1000);
 
-            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[2]/td/input"));
@@ -199,7 +196,7 @@ public class EmisionPrimaEmitida {
             nroPoliza.sendKeys(emisionPrimaEmitidaBean.getNumeroPoliza());
             Thread.sleep(2000);
 
-            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
 
             Thread.sleep(1000);
 
@@ -208,7 +205,7 @@ public class EmisionPrimaEmitida {
 
             Thread.sleep(3000);
 
-            a.ScreenShotPool(driver, i, "screen19", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
 
 
 

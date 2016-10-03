@@ -40,7 +40,7 @@ public class ImpresionDocumentosNivelPoliza {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2);
+            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

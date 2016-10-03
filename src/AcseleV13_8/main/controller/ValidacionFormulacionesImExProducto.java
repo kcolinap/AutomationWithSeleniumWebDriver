@@ -60,7 +60,7 @@ public class ValidacionFormulacionesImExProducto {
 
             a.regresarVentana(driver);
 
-            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 7);
+            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 7, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

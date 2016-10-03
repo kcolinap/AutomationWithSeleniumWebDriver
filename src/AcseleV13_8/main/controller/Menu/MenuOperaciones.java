@@ -33,7 +33,7 @@ public class MenuOperaciones {
 
         public void OpePol_CrearWController(){}
 
-        public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
             try {
                 Actions action = new Actions(driver);
@@ -45,7 +45,7 @@ public class MenuOperaciones {
                 Thread.sleep(1000);
                 action.moveToElement(menu3).build().perform();
                 Thread.sleep(1000);
-                a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
                 Toolkit.getDefaultToolkit().beep();
                 Thread.sleep(1000);
                 menu3.click();
