@@ -394,6 +394,53 @@ public class TerceroTomador {
         }
     }
 
+    public void EliminarTomador2(Metodos a, WebDriver driver, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) {
+
+        try {
+            Thread.sleep(5000);
+            WebElement closeSearcher = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_closeDetailSearch_container']"));
+            closeSearcher.click();
+
+            Thread.sleep(1000);
+            WebElement selTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_Container_sorting_5_Checked']"));
+            selTomador.click();
+            Thread.sleep(2000);
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            WebElement eliminarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_DeleteButton']"));
+            eliminarTomador.click();
+
+            Thread.sleep(3000);
+            WebElement btnSi = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_modalDialogSecurity_content_questionForm_yesOption']"));
+            btnSi.click();
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            /** Espere **/
+            Thread.sleep(1000);
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espere Eliminar Tomador");
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
+
     public void TomadorTerceroBusquedaAvanzada(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, String nombreAutomatizacion){
         try {
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
