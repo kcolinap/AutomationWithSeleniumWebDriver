@@ -41,6 +41,7 @@ public class PolizaBean implements Serializable{
     private String anioProvisional;
 
     // Tomador
+    private String tipoTerceroTomador;
     private String tomadorNombre1;
     private String tomadorNombre2;
     private String tomadorApellido1;
@@ -297,6 +298,14 @@ public class PolizaBean implements Serializable{
 
     public void setAnioProvisional(String anioProvisional) {
         this.anioProvisional = anioProvisional;
+    }
+
+    public String getTipoTerceroTomador() {
+        return tipoTerceroTomador;
+    }
+
+    public void setTipoTerceroTomador(String tipoTerceroTomador) {
+        this.tipoTerceroTomador = tipoTerceroTomador;
     }
 
     public String getTomadorNombre1() {

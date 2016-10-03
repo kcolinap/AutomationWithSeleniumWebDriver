@@ -52,11 +52,11 @@ public class VistaExportarImportarProductoTest {
     @Before
     public void setUp() throws Exception {
 
-/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, RUTA FROM EXPORTAR_IMPORTAR_PRODUCTO ORDER BY PRUEBA ASC",
+     /*   DataSetManager.createPartialDataSet("SELECT PRUEBA, RUTA, NOMBRE_PRODUCTO FROM EXPORTAR_IMPORTAR_PRODUCTO ORDER BY PRUEBA ASC",
                 "EXPORTAR_IMPORTAR_PRODUCTO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/exportarImportarProducto_dataset.xml");
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, RUTA FROM EXPORTAR_IMPORTAR_PRODUCTO ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, RUTA, NOMBRE_PRODUCTO FROM EXPORTAR_IMPORTAR_PRODUCTO ORDER BY PRUEBA ASC",
                 "EXPORTAR_IMPORTAR_PRODUCTO",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/exportarImportarProducto_dataset.xml");
 */
