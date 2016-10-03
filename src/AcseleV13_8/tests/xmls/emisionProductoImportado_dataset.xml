@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <EMISION_PRODUCTO_IMPORTADO PRUEBA="1" PRODUCTO="VidaDeudoresAvVillasPRUEBA25" VIGENCIA="12" FECHA_DESDE="28-09-2016"
-                              FECHA_HASTA="28-09-2016" EVENTO_APLICAR="Emitir" FECHA_MOVIMIENTO=""
+                              FECHA_HASTA="29-09-2016" EVENTO_APLICAR="Emitir" FECHA_MOVIMIENTO=""
                               SUCURSAL="24651917" NUMERO_POLIZA="1378920001" TIPO_PRODUCCION="24652617"
                               PERIODO_GRACIA="30" LINEA_CREDITO="53978517"
                               HORA_INICIACION_VENCIMIENTO="54019817" UNIDAD_NEGOCIO="23913017"
@@ -9,8 +9,8 @@
                               TOMADOR_NOMBRE1="Elias" TOMADOR_NOMBRE2="Tomas"
                               TOMADOR_APELLIDO1="Daal" TOMADOR_APELLIDO2="Torres"
                               NUMERO_CREDITO="1" MONTO_ASEGURADO="100000" FACTOR_VIDA="1"
-                              VALOR_SEGURO_PRIMA="50000" FECHA_DESEMBOLSO="28-09-2016"
-                              VALOR_PRESTAMO="40000" FECHA_PROCESO="28-09-2016"
+                              VALOR_SEGURO_PRIMA="50000" FECHA_DESEMBOLSO="29-09-2016"
+                              VALOR_PRESTAMO="40000" FECHA_PROCESO="29-09-2016"
                               DOCUMENTO_IDENTIDAD_ASEGURADO="15789153"
                               FECHA_NACIMIENTO_ASEGURADO="18-09-1984"
                               DIRECCION_ASEGURADO="principal" TELEFONO_FIJO=""
