@@ -23,6 +23,8 @@ public class InformacionGeneralPoliza {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
+            WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+
             if (polizaBean.getPlanFinanciamiento() != null){
                 Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']")));
                 planFinanciamiento.selectByValue(polizaBean.getPlanFinanciamiento());
@@ -44,14 +46,18 @@ public class InformacionGeneralPoliza {
             if (polizaBean.getNumeroPoliza() != null){
                 WebElement numPoliza = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field']"));
                 numPoliza.sendKeys(polizaBean.getNumeroPoliza());
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+                otroElemento.click();
+                Thread.sleep(3000);
             }
 
             if (polizaBean.getFechaEmision() != null){
                 WebElement fechaEmision = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_fieldDate']"));
                 if (fechaEmision.isEnabled()){
                     fechaEmision.sendKeys(polizaBean.getFechaEmision());
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
+                    otroElemento.click();
+                    Thread.sleep(4000);
                 }
 
             }
@@ -59,13 +65,16 @@ public class InformacionGeneralPoliza {
             if (polizaBean.getTipoProduccion() != null){
                 Select tipoProduccion = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_repeaterSelect_1_field']")));
                 tipoProduccion.selectByValue(polizaBean.getTipoProduccion());
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             }
 
             if (polizaBean.getPeriodoGracia() != null){
                 WebElement periodoGraciaDias = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_field']"));
                 periodoGraciaDias.sendKeys(polizaBean.getPeriodoGracia());
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+                otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                otroElemento.click();
+                Thread.sleep(4000);
             }
 
             if (polizaBean.getLineaCredito() != null){
@@ -75,6 +84,7 @@ public class InformacionGeneralPoliza {
             }
 
             if (polizaBean.getHoraIniciacionVencimiento() != null){
+                Thread.sleep(1000);
                 Select horaIniVencimiento= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_1_field']")));
                 horaIniVencimiento.selectByValue(polizaBean.getHoraIniciacionVencimiento());
                 Thread.sleep(2000);

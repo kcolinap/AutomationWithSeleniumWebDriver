@@ -44,6 +44,7 @@ public class PolizaBean implements Serializable{
     private String tipoTomador1;
     private String tipoDocumentoIdentidad1;
     private String numeroDocumentoIdentidad1;
+    private String tipoTerceroTomador;
     private String tomadorNombre1;
     private String tomadorNombre2;
     private String tomadorApellido1;
@@ -314,6 +315,13 @@ public class PolizaBean implements Serializable{
     }
     public void setNumeroDocumentoIdentidad1(String numeroDocumentoIdentidad1) {
         this.numeroDocumentoIdentidad1 = numeroDocumentoIdentidad1;
+    }
+
+    public String getTipoTerceroTomador() {
+        return tipoTerceroTomador;
+    }
+    public void setTipoTerceroTomador(String tipoTerceroTomador) {
+        this.tipoTerceroTomador = tipoTerceroTomador;
     }
 
     public String getTomadorNombre1() {
