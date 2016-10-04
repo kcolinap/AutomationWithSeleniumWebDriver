@@ -81,6 +81,23 @@ public class PolizaBean implements Serializable{
     private String fechaMora;
     private String porcentajeFacultativo;
 
+    private String numeroUnidadRiesgo2;
+    private String numeroCredito2;
+    private String montoAsegurado2;
+    private String factorVida2;
+    private String valorSeguroPrima2;
+    private String fechaDesembolso2;
+    private String valorPrestamo2;
+    private String cuotasPactadas2;
+    private String saldoCapital2;
+    private String estadoCredito2;
+    private String cuotasMora2;
+    private String fechaProceso2;
+    private String fechaPago2;
+    private String cuotaPagada2;
+    private String fechaMora2;
+    private String porcentajeFacultativo2;
+
     // Objetos Asegurados
     private String numeroObjetoAseg;
     private String aseguradoPrimario;
@@ -539,6 +556,134 @@ public class PolizaBean implements Serializable{
     }
     public void setPorcentajeFacultativo(String porcentajeFacultativo) {
         this.porcentajeFacultativo = porcentajeFacultativo;
+    }
+
+    public String getNumeroUnidadRiesgo2() {
+        return numeroUnidadRiesgo2;
+    }
+
+    public void setNumeroUnidadRiesgo2(String numeroUnidadRiesgo2) {
+        this.numeroUnidadRiesgo2 = numeroUnidadRiesgo2;
+    }
+
+    public String getNumeroCredito2() {
+        return numeroCredito2;
+    }
+
+    public void setNumeroCredito2(String numeroCredito2) {
+        this.numeroCredito2 = numeroCredito2;
+    }
+
+    public String getMontoAsegurado2() {
+        return montoAsegurado2;
+    }
+
+    public void setMontoAsegurado2(String montoAsegurado2) {
+        this.montoAsegurado2 = montoAsegurado2;
+    }
+
+    public String getFactorVida2() {
+        return factorVida2;
+    }
+
+    public void setFactorVida2(String factorVida2) {
+        this.factorVida2 = factorVida2;
+    }
+
+    public String getValorSeguroPrima2() {
+        return valorSeguroPrima2;
+    }
+
+    public void setValorSeguroPrima2(String valorSeguroPrima2) {
+        this.valorSeguroPrima2 = valorSeguroPrima2;
+    }
+
+    public String getFechaDesembolso2() {
+        return fechaDesembolso2;
+    }
+
+    public void setFechaDesembolso2(String fechaDesembolso2) {
+        this.fechaDesembolso2 = fechaDesembolso2;
+    }
+
+    public String getValorPrestamo2() {
+        return valorPrestamo2;
+    }
+
+    public void setValorPrestamo2(String valorPrestamo2) {
+        this.valorPrestamo2 = valorPrestamo2;
+    }
+
+    public String getCuotasPactadas2() {
+        return cuotasPactadas2;
+    }
+
+    public void setCuotasPactadas2(String cuotasPactadas2) {
+        this.cuotasPactadas2 = cuotasPactadas2;
+    }
+
+    public String getSaldoCapital2() {
+        return saldoCapital2;
+    }
+
+    public void setSaldoCapital2(String saldoCapital2) {
+        this.saldoCapital2 = saldoCapital2;
+    }
+
+    public String getEstadoCredito2() {
+        return estadoCredito2;
+    }
+
+    public void setEstadoCredito2(String estadoCredito2) {
+        this.estadoCredito2 = estadoCredito2;
+    }
+
+    public String getCuotasMora2() {
+        return cuotasMora2;
+    }
+
+    public void setCuotasMora2(String cuotasMora2) {
+        this.cuotasMora2 = cuotasMora2;
+    }
+
+    public String getFechaProceso2() {
+        return fechaProceso2;
+    }
+
+    public void setFechaProceso2(String fechaProceso2) {
+        this.fechaProceso2 = fechaProceso2;
+    }
+
+    public String getFechaPago2() {
+        return fechaPago2;
+    }
+
+    public void setFechaPago2(String fechaPago2) {
+        this.fechaPago2 = fechaPago2;
+    }
+
+    public String getCuotaPagada2() {
+        return cuotaPagada2;
+    }
+
+    public void setCuotaPagada2(String cuotaPagada2) {
+        this.cuotaPagada2 = cuotaPagada2;
+    }
+
+    public String getFechaMora2() {
+        return fechaMora2;
+    }
+
+    public void setFechaMora2(String fechaMora2) {
+        this.fechaMora2 = fechaMora2;
+    }
+
+    public String getPorcentajeFacultativo2() {
+        return porcentajeFacultativo2;
+    }
+
+    public void setPorcentajeFacultativo2(String porcentajeFacultativo2) {
+        this.porcentajeFacultativo2 = porcentajeFacultativo2;
     }
 
     public String getNumeroObjetoAseg() {
