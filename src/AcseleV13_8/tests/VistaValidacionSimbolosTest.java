@@ -25,14 +25,14 @@ public class VistaValidacionSimbolosTest {
 
         for (int j = 0; j< validarSimbolos.size(); j++) {
             ValidacionSimbolosBean validacionSimbolosBean = (ValidacionSimbolosBean) validarSimbolos.get(j);
-            ValidacionSimbolos a = new ValidacionSimbolos();
+            //ValidacionSimbolos a = new ValidacionSimbolos();
 
             try {
                 //a.testLink(validacionSimbolosBean, j);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            //    log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

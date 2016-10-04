@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <JOB_LIST_RESTRICTIVE_EJECUTION PRUEBA="1" BUSQ_TAREA_NUM_CITA="264120"
+                                   BUSQ_TAREA_ESTATUS="1" BUSQ_TAREA_PERIODICIDAD="1"
+                                   BUSQ_TAREA_DESDE="07-09-2016" BUSQ_TAREA_HASTA="07-09-2016"
+                                   BUSQ_TAREA_DESCRIPCION="Proceso de Listas Restrictivas"/>
+</dataset>
