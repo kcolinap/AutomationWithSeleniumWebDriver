@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <POLIZA_EDICION_TOMADORES PRUEBA="1"
+                              PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="03-10-2016" FECHA_HASTA=""
+                              EVENTO_APLICAR="Emitir" FECHA_MOVIMIENTO="" FECHA_EFECTIVA_APLICA_EVENTO=""
+                              PLAN_FINANCIAMIENTO="" MONEDA="" SUCURSAL="" NUMERO_POLIZA=""
+                              FECHA_EMISION="" TIPO_PRODUCCION="" PERIODO_GRACIA=""
+                              LINEA_CREDITO="53978517" HORA_INICIACION_VENCIMIENTO=""
+                              UNIDAD_NEGOCIO="23913017" CANAL_VENTA="21.0" FRECUENCIA_PAGO="" TIPO_POLIZA=""
+                              TIPO_VALOR_ASEGURADO="23916617" NIVEL_AGRUPAMIENTO_REASEGURO="" PERMITE_MANEJO_CTA_PROVI=""
+                              MES_PROVISIONAL="" ANIO_PROVISIONAL=""
+
+                              TOMADOR1_NOMBRE1="Elias" TOMADOR1_NOMBRE2="Tomas" TOMADOR1_APELLIDO1="Daal" TOMADOR1_APELLIDO2="Torres"
+                              PORCENTAJE_PARTICIPA_TOMADOR="30"
+                              TOMADOR2_NOMBRE1="Ender" TOMADOR2_NOMBRE2="Jesús" TOMADOR2_APELLIDO1="Martínez" TOMADOR2_APELLIDO2="Torres"
+                              PORCENTAJE_PARTICIPA_TOMADOR2="70"
+                              NUEVO_PORCENTAJE_TOMADOR1="40" NUEVO_PORCENTAJE_TOMADOR2="60"/>
+</dataset>

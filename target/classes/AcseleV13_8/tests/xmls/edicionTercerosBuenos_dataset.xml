@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <EDICION_TERCEROS PRUEBA="1" TIPO_TERCERO="PersonaNatural" TIPO_DOC_IDENTIDAD="38942817"
+                    CEDULA="105010" NOMBRE="Pedro" NOMBRE_NUEVO="Pedra" APELLIDO_NUEVO="Rivero"/>
+</dataset>

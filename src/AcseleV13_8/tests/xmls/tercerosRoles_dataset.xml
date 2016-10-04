@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <TERCEROS_ROLES PRUEBA="1" TIPO_DOC_IDENTIDAD="38942817" TIPO_TERCERO="PersonaNatural" CEDULA="3602012" NOMBRE="Jaime"  APELLIDO="Diaz"
+                  ROL="Tomador" ENTIDAD_BANCARIA="45812017" TIPO_CUENTA_BANCARIA="20335117" NUM_CUENTA_BANCARIA="4321"/>
+</dataset>

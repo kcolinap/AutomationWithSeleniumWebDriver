@@ -1,0 +1,327 @@
+<?xml encoding="ISO-8859-1"?>
+<!ELEMENT exportedConfiguration (templateTool?,productTool?,entryTool?,dynamictables?)>
+<!ELEMENT templateTool (properties?,defaultTemplates?,extendedTemplates?,lifeCycles?)>
+
+<!-- **** Property definition **** -->
+<!ELEMENT properties (property)+>
+
+<!ELEMENT property (transformers?,propertyAssociations?,labels?,entries?) >
+<!ATTLIST property
+  amendable (true|false) "false"
+  colInputTransformer CDATA #IMPLIED
+  colValueTransformer CDATA #IMPLIED
+  concept CDATA #IMPLIED
+  defaultValue CDATA #IMPLIED
+  editable (true|false) "true"
+  propertyEditable CDATA #IMPLIED
+  erasable (true|false) "false"
+  filterTransformer CDATA #IMPLIED
+  formula CDATA #IMPLIED
+  label CDATA #IMPLIED
+  mask CDATA #IMPLIED
+  maxValue CDATA #IMPLIED
+  minValue CDATA #IMPLIED
+  multiColumn CDATA #IMPLIED
+  multiFormula CDATA #IMPLIED
+  multiTemplate CDATA #IMPLIED
+  numDecimal CDATA #IMPLIED
+  parent CDATA #IMPLIED
+  precisionType CDATA #IMPLIED
+  presenterFunction CDATA "DefaultRenderer"
+  propertyInfo CDATA #IMPLIED
+  regularExpresion CDATA #IMPLIED
+  resetable (true|false) "true"
+  rule CDATA #IMPLIED
+  secondPass (true|false) "false"
+  state CDATA #IMPLIED
+  symbol CDATA #REQUIRED
+  tableTransformer CDATA #IMPLIED
+  temporary (true|false) "false"
+  tipo CDATA #IMPLIED
+  transformerFunction CDATA "DefaultTransformer"
+  transformerType CDATA #IMPLIED
+  type (1|2|3|4) "1"
+  unique CDATA #IMPLIED
+  validatorFunction CDATA "DefaultValidator"
+  visible (true|false) "true"
+  propertyVisible CDATA #IMPLIED
+  order CDATA #IMPLIED>
+
+<!-- **** Entries definition **** -->
+<!ELEMENT entries (entry)+>
+
+<!-- **** Entry definition **** -->
+<!ELEMENT entry (property)+>
+
+<!ELEMENT transformers (transformer+) >
+
+<!ELEMENT transformer (parentValue*,labels?)>
+<!ATTLIST transformer
+  input CDATA #REQUIRED
+  value CDATA #REQUIRED
+  parent CDATA #IMPLIED>
+
+<!ELEMENT parentValue EMPTY>
+<!ATTLIST parentValue
+  value CDATA #REQUIRED>
+
+<!-- **** Label definition **** -->
+<!ELEMENT labels (label+)>
+
+<!ELEMENT label EMPTY>
+<!ATTLIST label
+  language CDATA #REQUIRED
+  value CDATA #REQUIRED>
+
+<!ELEMENT propertyAssociations (propertyAssociation)+>
+
+<!ELEMENT propertyAssociation EMPTY>
+<!ATTLIST propertyAssociation
+  symbol CDATA #REQUIRED
+  type CDATA #REQUIRED
+  order CDATA #REQUIRED>
+
+<!-- **** Template definition **** -->
+<!ELEMENT extendedTemplates (extendedTemplate)+>
+
+<!ELEMENT extendedTemplate (associatedProperties?, validations?)>
+<!ATTLIST extendedTemplate
+  category CDATA #REQUIRED
+  state CDATA #REQUIRED
+  name CDATA #REQUIRED>
+
+<!ELEMENT defaultTemplates (defaultTemplate)+>
+
+<!ELEMENT defaultTemplate (associatedProperties, validations?)>
+<!ATTLIST defaultTemplate
+  category CDATA #REQUIRED
+  state CDATA #REQUIRED
+  name CDATA #REQUIRED>
+
+<!ELEMENT associatedProperties (associatedProperty)+>
+
+<!ELEMENT associatedProperty EMPTY>
+<!ATTLIST associatedProperty
+  symbol CDATA #REQUIRED
+  order CDATA #REQUIRED>
+
+<!ELEMENT validations (validation)+>
+
+<!ELEMENT validation EMPTY>
+<!ATTLIST validation
+  condition CDATA #REQUIRED
+  message CDATA #REQUIRED>
+
+<!-- **** Life Cycle definition **** -->
+<!ELEMENT lifeCycles (lifeCycle)+>
+
+<!ELEMENT lifeCycle (states+,events+)>
+<!ATTLIST lifeCycle
+  name CDATA #REQUIRED>
+
+<!-- **** State definition **** -->
+<!ELEMENT states (state)+>
+
+<!ELEMENT state EMPTY>
+<!ATTLIST state
+  name		CDATA #REQUIRED
+  node		CDATA #REQUIRED
+  width		CDATA #REQUIRED
+  height	CDATA #REQUIRED
+  x			CDATA #REQUIRED
+  y			CDATA #REQUIRED>
+
+<!-- **** Event definition **** -->
+<!ELEMENT events (event)+>
+<!ELEMENT event (points?,operation?)>
+<!ATTLIST event
+  name CDATA #REQUIRED
+  reinsurance CDATA #REQUIRED
+  coinsurance CDATA #REQUIRED
+  automaticDate CDATA #IMPLIED
+  beginState CDATA #REQUIRED
+  endState CDATA #REQUIRED
+  templateName CDATA #IMPLIED
+  category CDATA #IMPLIED
+  evaluationType CDATA #IMPLIED
+  state CDATA #IMPLIED >
+<!ELEMENT points (point+) >
+<!ELEMENT point EMPTY>
+<!ATTLIST point
+  x CDATA #REQUIRED
+  y CDATA #REQUIRED>
+
+<!-- **** DCO definition **** -->
+
+<!ELEMENT dco (dcoProperty)+>
+<!ATTLIST dco
+          templateName CDATA #IMPLIED
+          categoryName CDATA #IMPLIED
+          status (1|2) "2" >
+
+<!ELEMENT dcoProperty EMPTY>
+<!ATTLIST dcoProperty
+          symbol CDATA #REQUIRED
+          input CDATA #REQUIRED
+          value CDATA #REQUIRED
+          isManual (true|false) "false" >
+
+<!-- **** ProductTool definition **** -->
+<!ELEMENT productTool (product+)>
+
+<!-- **** Product definition **** -->
+<!ELEMENT product (dco,policy,riskUnit,plans,roles,claimEvents,financialPlans, productBehaviour)>
+<!ATTLIST product
+          name CDATA #REQUIRED >
+
+<!-- **** Policy definition **** -->
+<!ELEMENT policy (lifeCycle,productValidations?)>
+<!ATTLIST policy
+          name CDATA #REQUIRED >
+
+<!-- **** Risk Unit definition **** -->
+<!ELEMENT riskUnit (productValidations?)>
+<!ATTLIST riskUnit
+          name CDATA #REQUIRED >
+
+<!-- **** Plan definition **** -->
+<!ELEMENT plans (plan+)>
+<!ELEMENT plan (dco,insuranceObjects,requirements?)>
+<!ATTLIST plan
+          name CDATA #REQUIRED >
+
+<!-- **** Insurance Object definition **** -->
+<!ELEMENT insuranceObjects (insuranceObject+)>
+
+<!ELEMENT insuranceObject (coverages,coveragePackages?,productValidations?,declarations?)>
+<!ATTLIST insuranceObject
+          name CDATA #REQUIRED >
+
+<!-- **** Declaration definition **** -->
+<!ELEMENT declarations (declaration+)>
+<!ELEMENT declaration EMPTY>
+
+<!-- **** Coverage definition **** -->
+<!ELEMENT coverages (coverage+)>
+
+<!ELEMENT coverage (operation+,productValidations?,entries?)>
+<!ATTLIST coverage
+          name CDATA #REQUIRED 
+	  order CDATA #REQUIRED
+	  mandatory (true|false) "false">
+
+<!-- **** Coverage Packages definition **** -->
+<!ELEMENT coveragePackages (coveragePackage+)>
+<!ELEMENT coveragePackage EMPTY>
+
+<!-- **** Role definition **** -->
+<!ELEMENT roles (role+)>
+
+<!ELEMENT role (distribution?,retention?)>
+<!ATTLIST role
+          name CDATA #REQUIRED >
+
+<!ELEMENT distribution (property+)>
+<!ELEMENT retention (property+)>
+
+<!-- **** Event Claim definition **** -->
+<!ELEMENT claimEvents (claimEvent+)>
+
+<!ELEMENT claimEvent (claims)>
+<!ATTLIST claimEvent
+          name CDATA #REQUIRED >
+
+<!ELEMENT claims (claim+)>
+<!ELEMENT claim (claimCoverages?,requirements?)>
+<!ATTLIST claim
+          name CDATA #REQUIRED >
+
+<!ELEMENT claimCoverages (claimCoverage+)>
+
+<!ELEMENT claimCoverage EMPTY>
+<!ATTLIST claimCoverage
+          name CDATA #REQUIRED
+	  formula CDATA #IMPLIED>
+
+<!-- **** Requirements definition **** -->
+<!ELEMENT requirements (requirement+)>
+
+<!ELEMENT requirement EMPTY>
+<!ATTLIST requirement
+          name CDATA #REQUIRED>
+
+<!-- **** Financial Plans definition **** -->
+<!ELEMENT financialPlans (financialPlan+)>
+
+<!ELEMENT financialPlan (collection,commision)>
+<!ATTLIST financialPlan
+          name CDATA #REQUIRED 
+          periodicity CDATA #REQUIRED
+          periodicityType CDATA #REQUIRED 
+	  payOnCollect (true|false) "false" >
+
+<!ELEMENT collection (property+)>
+<!ELEMENT commision (property+)>
+<!ELEMENT operation (property+)>
+
+<!ELEMENT productBehaviour (productValidityList, productType)>
+
+<!ELEMENT productValidityList (productValidity*)>
+<!ELEMENT productValidity EMPTY>
+<!ATTLIST productValidity
+  pp_ValidityValue CDATA #REQUIRED>
+<!ELEMENT productType (life?, warranty?)>
+<!ELEMENT life EMPTY>
+<!ELEMENT warranty EMPTY>
+
+<!ELEMENT productValidations (productValidation+) >
+
+<!ELEMENT productValidation EMPTY>
+<!ATTLIST productValidation
+  symbol CDATA #REQUIRED
+  class CDATA #REQUIRED
+  type CDATA #REQUIRED
+  condition CDATA #REQUIRED
+  message CDATA #REQUIRED>
+
+
+<!ELEMENT entryTool (module+)>
+
+<!ELEMENT module (entryOperation*)>
+<!ATTLIST module
+      name CDATA #REQUIRED>
+
+<!ELEMENT entryOperation (entryProduct+)>
+<!ATTLIST entryOperation
+      id CDATA #REQUIRED
+      level CDATA #REQUIRED>
+
+<!ELEMENT entryProduct (entries*,entryPlans*)>
+<!ATTLIST entryProduct
+      name CDATA #REQUIRED>
+
+
+<!ELEMENT entryPlans (entryPlan*)>
+<!ELEMENT entryPlan (entryCoverages)>
+<!ATTLIST entryPlan
+      name CDATA #REQUIRED>
+
+<!ELEMENT entryCoverages (entryCoverage+)>
+
+<!ELEMENT entryCoverage (entries?)>
+<!ATTLIST entryCoverage
+      name CDATA #REQUIRED>
+
+
+ <!ELEMENT dynamictables (dynamictable)+>
+        <!ELEMENT dynamictable (row)+>
+        <!ATTLIST dynamictable
+                name CDATA #REQUIRED>
+        <!ELEMENT row (column)+>
+        <!ATTLIST row
+                pk CDATA #IMPLIED>
+        <!ELEMENT column (input,value)>
+        <!ATTLIST column
+                name CDATA #REQUIRED>
+        <!ELEMENT input (#PCDATA)>
+        <!ELEMENT value (#PCDATA)>

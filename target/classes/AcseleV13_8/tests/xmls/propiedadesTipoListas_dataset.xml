@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <PROPIEDADES_TIPO_LISTAS PRUEBA="1" NOMBRE_PROPIEDAD="Prueba2" TIPO_VISUALIZACION="lista"
+                           ETIQUETA="" DESCRIPCION="" REGLA="" VALIDADOR=""
+                           FUNCION_TRANSFORMADORA="" FUNCION_PRESENTADORA=""
+                           ETIQUETA1="" MASCARA="" FUNCION_VALIDADORA=""
+                           PROPIEDAD_PADRE="" VALOR_DEFECTO="" MINIMO_VALOR=""
+                           MAXIMO_VALOR="" NUM_DECIMAL="" TIPO_PRECISION=""
+                           UNICO="" BUSCAR="Prueba2"/>
+</dataset>
