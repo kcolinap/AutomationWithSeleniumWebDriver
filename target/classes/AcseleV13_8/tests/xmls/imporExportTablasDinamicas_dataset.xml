@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <IMPORT_EXPORT_TABLA_DINAMICA PRUEBA="1" NOMBRE_TABLA_DINAMICA="Prueba"
+                                FORMATO="XML" RUTA_TABLA_DINAMICA=""/>
+</dataset>

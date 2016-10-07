@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <APROBAR_ENVIAR_PAGO_SINIESTROS PRUEBA="1" NUMEROSINIESTRO="500001-2016-001357" NUMEROPOLIZA=""
+                                  FECHASINIESTRO="" PRODUCTO=""
+                                  ORDENARPOR="" FECHACOMPROMISO=""
+                                  FECHAINICIAL="" FECHAFINAL="" RAZON=""
+                                  TIPO="" MONTOSINIESTRO="50" SELECCIONEACCION="4"
+                                  SUCURSAL="421" MONEDA=""/>
+<!--
+    <APROBAR_ENVIAR_PAGO_SINIESTROS PRUEBA="1" NUMEROSINIESTRO="500001-2016-001353" NUMEROPOLIZA=""
+                                    FECHASINIESTRO="" PRODUCTO=""
+                                    ORDENARPOR="" FECHACOMPROMISO=""
+                                    FECHAINICIAL="" FECHAFINAL="" RAZON=""
+                                    TIPO="" MONTOSINIESTRO="50" SELECCIONEACCION="4"
+                                    SUCURSAL="421" MONEDA=""/>
+
+    <APROBAR_ENVIAR_PAGO_SINIESTROS PRUEBA="1" NUMEROSINIESTRO="500001-2016-001354" NUMEROPOLIZA=""
+                                    FECHASINIESTRO="" PRODUCTO=""
+                                    ORDENARPOR="" FECHACOMPROMISO=""
+                                    FECHAINICIAL="" FECHAFINAL="" RAZON=""
+                                    TIPO="" MONTOSINIESTRO="50" SELECCIONEACCION="4"
+                                    SUCURSAL="421" MONEDA=""/>
+
+    <APROBAR_ENVIAR_PAGO_SINIESTROS PRUEBA="1" NUMEROSINIESTRO="500001-2016-001355" NUMEROPOLIZA=""
+                                    FECHASINIESTRO="" PRODUCTO=""
+                                    ORDENARPOR="" FECHACOMPROMISO=""
+                                    FECHAINICIAL="" FECHAFINAL="" RAZON=""
+                                    TIPO="" MONTOSINIESTRO="50" SELECCIONEACCION="4"
+                                    SUCURSAL="421" MONEDA=""/>
+
+-->
+</dataset>
