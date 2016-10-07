@@ -1,7 +1,7 @@
 package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.ValidacionSimbolosBean;
-import AcseleV13_8.main.controller.ReabrirSiniestro;
+import AcseleV13_8.main.controller.ValidacionSimbolos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -41,11 +41,11 @@ public class VistaValidacionSimbolosTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("select PRUEBA,PRODUCTO from VALIDACION_SIMBOLOS ORDER BY PRUEBA ASC;",
+       DataSetManager.createPartialDataSet("select PRUEBA,PRODUCTO,SIMBOLO from VALIDACION_SIMBOLOS ORDER BY PRUEBA ASC",
                 "VALIDACION_SIMBOLOS",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8/tests/xmls/validacionSimbolos_dataset.xml");
 
-        DataSetManager.createPartialDataSet("select PRUEBA,PRODUCTO from VALIDACION_SIMBOLOS ORDER BY PRUEBA ASC;",
+        DataSetManager.createPartialDataSet("select PRUEBA,PRODUCTO,SIMBOLO from VALIDACION_SIMBOLOS ORDER BY PRUEBA ASC",
                 "VALIDACION_SIMBOLOS",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8/tests/xmls/validacionSimbolos_dataset.xml");
 
@@ -61,3 +61,6 @@ public class VistaValidacionSimbolosTest {
 
 
 }
+
+
+
