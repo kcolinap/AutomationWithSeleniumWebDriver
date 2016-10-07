@@ -1,56 +1,54 @@
 package AcseleV13_8.main.controller;
-import AcseleV13_8.beans.ReabrirSiniestroBean;
 import AcseleV13_8.beans.ValidacionSimbolosBean;
 import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
-import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
+import java.io.*;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 /**
- * Created by aazuaje on 04/10/2016. public void BuscarPoliza(WebDriver driver, Metodos a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
-
+ * Created by aazuaje on 05/10/2016.
  */
 public class ValidacionSimbolos {
 
-    private final static Logger log = Logger.getLogger(ReabrirSiniestro.class);
+    private final static Logger log = Logger.getLogger(ValidacionSimbolos.class);
 
-    public String nombreAutomatizacion = "Validacion Simbolos";
+    public static String nombreAutomatizacion = "Validacion Simbolos";
 
-    public void testLink(ReabrirSiniestroBean reabrirSiniestroBean,int i) throws IOException, InterruptedException {
+    public void testLink(ValidacionSimbolosBean validacionSimbolosBean, int i) throws IOException, InterruptedException {
 
-        //implementando clase de metodos
-        Metodos a = new Metodos();
-        MenuConfiguracion menuConfiguracion = new MenuConfiguracion();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(5000);
+        try {
+            //implementando clases
+            Metodos a = new Metodos();
+            MenuConfiguracion menuConfiguracion = new MenuConfiguracion();
+            WebDriver driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i);
+            Thread.sleep(2000);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            Thread.sleep(5000);
 
-        menuConfiguracion.MantenimientoProducto(driver, nombreAutomatizacion, 2);
-        Thread.sleep(2000);
-        a.cambiarVentana(driver);
-        Thread.sleep(2000);
+            // Ingreso al menu
+            menuConfiguracion.MantenimientoProducto(driver, nombreAutomatizacion, 2);
+            Thread.sleep(2000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
 
-
-        //IngresarProductTool(driver,a ,validacionSimbolosBean, i, 3);
-        Thread.sleep(1000);
-        //ImportTablaDinamica(a, driver, usoTablasDinamicasImportadasBean);
-        Thread.sleep(1000);
-        driver.close();
-
+            IngresarProductTool(a, driver, validacionSimbolosBean, i, 3, 4, 5, 6, 7);
+            Thread.sleep(1000);
 
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            //             log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 
-    public void IngresarProductTool(WebDriver driver, Metodos a, ValidacionSimbolosBean validacionSimbolosBean, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5) throws IOException, InterruptedException{
-
+    public void IngresarProductTool(Metodos a, WebDriver driver, ValidacionSimbolosBean validacionSimbolosBean, int i,
+                                    int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         try {
 
@@ -110,46 +108,31 @@ public class ValidacionSimbolos {
             Thread.sleep(3000);
 
             Thread.sleep(1000);
-            WebElement seleccionFormula = driver.findElement(By.xpath("//div[18]/table/tbody/tr/td[4]/div"));
-            seleccionFormula.click();
+            WebElement seleccionSimbolo = driver.findElement(By.xpath("/html/body/div[9]/div[2]/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div[2]/div/div[1]/table/tbody/tr/td[1]/div"));
+            seleccionSimbolo.click();
 
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
-            WebElement btnEditarFormula = driver.findElement(By.xpath("//td[2]/table/tbody/tr/td[2]/em/button"));
-            btnEditarFormula.click();
+            WebElement btnEditarSimbolo = driver.findElement(By.xpath("/html/body/div[9]/div[2]/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/div/div/div[1]/div/table/tbody/tr/td[2]/table/tbody/tr/td[2]/em/button"));
+            btnEditarSimbolo.click();
 
             Thread.sleep(4000);
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-            //WebElement campoFormula = driver.findElement(By.xpath("//div[24]/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/form/table/tbody[2]/tr[2]/td/textarea"));
-            WebElement campoFormula = driver.findElement(By.xpath("//*[@id=\"isc_3R\"]"));
-            campoFormula.clear();
-            //campoFormula.sendKeys(validacionSimbolosBean.getFormula());
+            Thread.sleep(5000);
+
+            WebElement simbolo = driver.findElement(By.xpath("/html/body/div[19]/div/div[2]/div/div/div/div[1]/div/div[1]/div/div[1]/div/div/div/div/div/div[4]/div/div/table/tbody[2]/tr[107]/td/div"));
+            simbolo.click();
+
 
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
-
-            //WebElement btnAceptar = driver.findElement(By.xpath("//div[20]/div/div[2]/div/div/div/div[2]/div/div/div/table/tbody/tr/td"));
-            WebElement btnAceptar = driver.findElement(Sc.locator("scLocator=//IButton[ID=\"isc_OID_77\"]/"));
-            btnAceptar.click();
-
-            WebElement btnCancelar = driver.findElement(Sc.locator("scLocator=//IButton[ID=\"isc_OID_78\"]/"));
-            btnCancelar.click();
-
-            Thread.sleep(2000);
-
-            WebElement btnSalvar = driver.findElement(By.xpath("//div[3]/div/table/tbody/tr/td/table/tbody/tr/td[2]/em/button"));
-            btnSalvar.click();
-
-
-
 
 
         }catch (Exception e) {
@@ -158,8 +141,8 @@ public class ValidacionSimbolos {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
-
 }
+
 
 
 

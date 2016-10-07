@@ -18,10 +18,14 @@ public class ValidacionSimbolosBean implements Serializable{
     private final static Logger log = Logger.getLogger(ValidacionSimbolosBean.class);
 
     private String producto;
+    private String simbolo;
 
 
     public String getProducto() {return producto;}
     public void setProducto(String producto) {this.producto = producto;}
+
+    public String getSimbolo() {return simbolo;}
+    public void setSimbolo(String simbolo) {this.simbolo = simbolo;}
 
 
     public static ArrayList getValidarSimbolos() throws SQLException{
@@ -32,7 +36,7 @@ public class ValidacionSimbolosBean implements Serializable{
         ArrayList validarSimbolos = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select PRUEBA,PRODUCTO from VALIDACION_SIMBOLOS ORDER BY PRUEBA ASC");
+        queryLoad.append("select PRUEBA,PRODUCTO,SIMBOLO from VALIDACION_SIMBOLOS ORDER BY PRUEBA ASC");
 
         try{
 
@@ -44,6 +48,7 @@ public class ValidacionSimbolosBean implements Serializable{
                 ValidacionSimbolosBean validacionSimbolosBean = new ValidacionSimbolosBean();
 
                 validacionSimbolosBean.setProducto(rs.getString("PRODUCTO"));
+                validacionSimbolosBean.setSimbolo(rs.getString("SIMBOLO"));
 
                 validarSimbolos.add(validacionSimbolosBean);
 
