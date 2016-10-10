@@ -1,8 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <POLIZA_OBJETOS_ASEGURADOS PRUEBA="1" PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="28-07-2016"
-                             EVENTO_APLICAR="Emitir" SUCURSAL="24651917" TIPO_PRODUCCION="24652617" PERIODO_GRACIA="31"
-                             LINEA_CREDITO="41249817" UNIDAD_NEGOCIO="23913017" CANAL_VENTA="21.0"
-                             TIPO_VALOR_ASEGURADO="23916617" TASA="10" TIPO_TASA="24650617" NOMBRE="ELIAS" NUM_CREDITO="12"
-                             MONTO_ASEGURADO="180000" PORCETAJE_EXTRA_PRIMA_1="15" PORCETAJE_EXTRA_PRIMA_2="10"/>
+  <POLIZA_OBJETOS_ASEGURADOS PRUEBA="1" PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="11-08-2016" FECHA_HASTA=""
+
+                            EVENTO_APLICAR="Emitir"
+                            FECHA_MOVIMIENTO="" FECHA_EFECTIVA_APLICA_EVENTO=""
+
+                            PLAN_FINANCIAMIENTO="" MONEDA=""
+                            SUCURSAL="24651917"
+                            NUMERO_POLIZA="" FECHA_EMISION="" TIPO_PRODUCCION="24652617"
+                            PERIODO_GRACIA="" LINEA_CREDITO="53978517"
+                            HORA_INICIACION_VENCIMIENTO="54019217" UNIDAD_NEGOCIO="23913017"
+                            CANAL_VENTA="21.0" FRECUENCIA_PAGO=""
+                            TIPO_POLIZA="724097" TIPO_VALOR_ASEGURADO="23916617"
+                            NIVEL_AGRUPAMIENTO_REASEGURO=""
+                            PERMITE_MANEJO_CTA_PROVI="" MES_PROVISIONAL="" ANIO_PROVISIONAL=""
+
+                            TOMADOR_NOMBRE1="Elias" TOMADOR_NOMBRE2="Tomas" TOMADOR_APELLIDO1="Daal" TOMADOR_APELLIDO2="Torres"
+                            PORCENTAJE_PARTICIPA_TOMADOR=""
+
+                            NUMERO_UNIDAD_RIESGO="" NUMERO_CREDITO="23"
+                            MONTO_ASEGURADO="150000" FACTOR_VIDA="1" VALOR_SEGURO_PRIMA="1"
+                            FECHA_DESEMBOLSO="" VALOR_PRESTAMO="1" CUOTAS_PACTADAS=""
+                            SALDO_CAPITAL="" ESTADO_CREDITO="" CUOTAS_MORA=""
+                            FECHA_PROCESO="19-09-2016" FECHA_PAGO="" CUOTA_PAGADA=""
+                            FECHA_MORA="" PORCENTAJE_FACULTATIVO=""
+
+                            NUMERO_OBJETO_ASEG="" ASEGURADO_PRIMARIO="" PORCENTAJE_EXTRA_PRIMA=""
+                            PORCENTAJE_DESCUENTO="" EDAD_ASEGURADO="" NOMBRE_COMPLETO_ASEGURADO=""
+                            NOMBRE_COMPLETO_BENEFICIARIO="" NUM_OBJ_ASEG_CONTENIDOS_UR=""
+                            DOCUMENTO_IDENTIDAD_ASEGURADO="32655487" FECHA_NACIMIENTO_ASEGURADO="02-09-2016"
+                            DIRECCION_ASEGURADO="CASA" TELEFONO_FIJO=""
+                            DEPARTAMENTO="53390917" CIUDAD="1.0"
+
+                            NUMERO_OBJETO_ASEG2="" ASEGURADO_PRIMARIO2="" PORCENTAJE_EXTRA_PRIMA2=""
+                            PORCENTAJE_DESCUENTO2="" EDAD_ASEGURADO2="" NOMBRE_COMPLETO_ASEGURADO2=""
+                            NOMBRE_COMPLETO_BENEFICIARIO2="" NUM_OBJ_ASEG_CONTENIDOS_UR2=""
+                            DOCUMENTO_IDENTIDAD_ASEGURADO2="2522142" FECHA_NACIMIENTO_ASEGURADO2="02-09-2011"
+                            DIRECCION_ASEGURADO2="CASA" TELEFONO_FIJO2=""
+                            DEPARTAMENTO2="53390917" CIUDAD2="1.0"
+
+            />
 </dataset>

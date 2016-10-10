@@ -97,6 +97,7 @@ public class InformacionGeneralPoliza {
             }
 
             if (polizaBean.getCanalVenta() != null){
+                Thread.sleep(2000);
                 Select canalVenta = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_repeaterSelect_2_field']")));
                 canalVenta.selectByValue(polizaBean.getCanalVenta());
                 Thread.sleep(2000);

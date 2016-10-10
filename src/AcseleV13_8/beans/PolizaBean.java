@@ -114,6 +114,21 @@ public class PolizaBean implements Serializable{
     private String departamento;
     private String ciudad;
 
+    private String NumeroObjetoAseg2;
+    private String AseguradoPrimario2;
+    private String PorcentajeExtraPrima2;
+    private String PorcentajeDescuento2;
+    private String EdadAsegurado2;
+    private String NombreCompletoAsegurado2;
+    private String NombreCompletoBeneficiario2;
+    private String NumeroObjetosAseguradosContenidosUnidadRiesgo2;
+    private String DocumentoIdentidadAsegurado2;
+    private String FechaNacimientoAsegurado2;
+    private String DireccionAsegurado2;
+    private String TelefonoFijo2;
+    private String Departamento2;
+    private String Ciudad2;
+
     // Asegurado Vida
     private String aseguradoVidaNombre1;
     private String aseguradoVidaNombre2;
@@ -782,6 +797,119 @@ public class PolizaBean implements Serializable{
     }
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+
+    public String getNumeroObjetoAseg2() {
+        return NumeroObjetoAseg2;
+    }
+
+    public void setNumeroObjetoAseg2(String numeroObjetoAseg2) {
+        NumeroObjetoAseg2 = numeroObjetoAseg2;
+    }
+
+    public String getAseguradoPrimario2() {
+        return AseguradoPrimario2;
+    }
+
+    public void setAseguradoPrimario2(String aseguradoPrimario2) {
+        AseguradoPrimario2 = aseguradoPrimario2;
+    }
+
+    public String getPorcentajeExtraPrima2() {
+        return PorcentajeExtraPrima2;
+    }
+
+    public void setPorcentajeExtraPrima2(String porcentajeExtraPrima2) {
+        PorcentajeExtraPrima2 = porcentajeExtraPrima2;
+    }
+
+    public String getPorcentajeDescuento2() {
+        return PorcentajeDescuento2;
+    }
+
+    public void setPorcentajeDescuento2(String porcentajeDescuento2) {
+        PorcentajeDescuento2 = porcentajeDescuento2;
+    }
+
+    public String getEdadAsegurado2() {
+        return EdadAsegurado2;
+    }
+
+    public void setEdadAsegurado2(String edadAsegurado2) {
+        EdadAsegurado2 = edadAsegurado2;
+    }
+
+    public String getNombreCompletoAsegurado2() {
+        return NombreCompletoAsegurado2;
+    }
+
+    public void setNombreCompletoAsegurado2(String nombreCompletoAsegurado2) {
+        NombreCompletoAsegurado2 = nombreCompletoAsegurado2;
+    }
+
+    public String getNombreCompletoBeneficiario2() {
+        return NombreCompletoBeneficiario2;
+    }
+
+    public void setNombreCompletoBeneficiario2(String nombreCompletoBeneficiario2) {
+        NombreCompletoBeneficiario2 = nombreCompletoBeneficiario2;
+    }
+
+    public String getNumeroObjetosAseguradosContenidosUnidadRiesgo2() {
+        return NumeroObjetosAseguradosContenidosUnidadRiesgo2;
+    }
+
+    public void setNumeroObjetosAseguradosContenidosUnidadRiesgo2(String numeroObjetosAseguradosContenidosUnidadRiesgo2) {
+        NumeroObjetosAseguradosContenidosUnidadRiesgo2 = numeroObjetosAseguradosContenidosUnidadRiesgo2;
+    }
+
+    public String getDocumentoIdentidadAsegurado2() {
+        return DocumentoIdentidadAsegurado2;
+    }
+
+    public void setDocumentoIdentidadAsegurado2(String documentoIdentidadAsegurado2) {
+        DocumentoIdentidadAsegurado2 = documentoIdentidadAsegurado2;
+    }
+
+    public String getFechaNacimientoAsegurado2() {
+        return FechaNacimientoAsegurado2;
+    }
+
+    public void setFechaNacimientoAsegurado2(String fechaNacimientoAsegurado2) {
+        FechaNacimientoAsegurado2 = fechaNacimientoAsegurado2;
+    }
+
+    public String getDireccionAsegurado2() {
+        return DireccionAsegurado2;
+    }
+
+    public void setDireccionAsegurado2(String direccionAsegurado2) {
+        DireccionAsegurado2 = direccionAsegurado2;
+    }
+
+    public String getTelefonoFijo2() {
+        return TelefonoFijo2;
+    }
+
+    public void setTelefonoFijo2(String telefonoFijo2) {
+        TelefonoFijo2 = telefonoFijo2;
+    }
+
+    public String getDepartamento2() {
+        return Departamento2;
+    }
+
+    public void setDepartamento2(String departamento2) {
+        Departamento2 = departamento2;
+    }
+
+    public String getCiudad2() {
+        return Ciudad2;
+    }
+
+    public void setCiudad2(String ciudad2) {
+        Ciudad2 = ciudad2;
     }
 
     public String getAseguradoVidaNombre1() {
