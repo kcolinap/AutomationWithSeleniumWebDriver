@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller.Menu.Menu;
 
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class MenuOperaciones {
 
     private final static Logger log = Logger.getLogger(MenuOperaciones.class);
 
-    Metodos a = new Metodos();
+    MetodosLBC a = new MetodosLBC();
 
     /** Operaciones (Workflow) **/
 
@@ -62,7 +62,7 @@ public class MenuOperaciones {
 
         public void OpePol_SuscripcionMantenimientoPolizasWController(){}
 
-        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
             try{
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
@@ -132,7 +132,7 @@ public class MenuOperaciones {
 
         public void OpeSini_DeclaracionSiniestro(){}
 
-        public void OpeSini_MantenimientoSiniestro(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
+        public void OpeSini_MantenimientoSiniestro(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
 
             try {
                 Actions action = new Actions(driver);
@@ -163,7 +163,7 @@ public class MenuOperaciones {
 
         public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-        public void OpeSini_CreacionSiniestro(WebDriver driver,Metodos a,String nombreAutomatizacion, int numScreenShoot, int i){
+        public void OpeSini_CreacionSiniestro(WebDriver driver,MetodosLBC a,String nombreAutomatizacion, int numScreenShoot, int i){
             try{
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -200,7 +200,7 @@ public class MenuOperaciones {
 
         public void OpeSini_HistorialActividadesReclamo(){}
 
-        public void OpeSini_HistorialReclamo(Metodos a, WebDriver driver, String nombreAutomatizacion, int i){
+        public void OpeSini_HistorialReclamo(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int i){
 
              try{
 
@@ -335,7 +335,7 @@ public class MenuOperaciones {
 
             public void UAA_Caja_CierreVariosCajeros(){}
 
-            public void UAA_Caja_CierreCaja(WebDriver driver, Metodos a,String nombrePrueba) throws IOException, InterruptedException {
+            public void UAA_Caja_CierreCaja(WebDriver driver, MetodosLBC a,String nombrePrueba) throws IOException, InterruptedException {
                 try {
                     WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones
                     WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
@@ -468,7 +468,7 @@ public class MenuOperaciones {
 
 
     /** Cumulos **/
-    public void Cumulos_CumulosPorTerceros(WebDriver driver,Metodos a, String nombreAutomatizacion, int i ) throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorTerceros(WebDriver driver,MetodosLBC a, String nombreAutomatizacion, int i ) throws IOException, InterruptedException{
 
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -490,7 +490,7 @@ public class MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorProducto(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorProducto(WebDriver driver,MetodosLBC a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
@@ -511,7 +511,7 @@ public class MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorAsegurado(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorAsegurado(WebDriver driver,MetodosLBC a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -547,7 +547,7 @@ public class MenuOperaciones {
 
 
     /** Consultar en Lista Restrictiva **/
-    public void ConsultarListaRestrictiva(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void ConsultarListaRestrictiva(WebDriver driver,MetodosLBC a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
