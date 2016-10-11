@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <CONSULTAS_ORDENES_PAGO PRUEBA="1" FECHA_OCURRENCIA_SINIESTRO="29-08-2016" NUM_POLIZA="5000000235" NUM_SINIESTRO="500001-2016-001309"
+                          ORDENAR_POR="Producto" PRODUCTO="VidaDeudoresAvVillas"/>
+</dataset>

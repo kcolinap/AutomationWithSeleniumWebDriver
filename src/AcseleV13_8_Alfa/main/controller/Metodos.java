@@ -58,7 +58,7 @@ public class Metodos {
 
     public void ScreenShot(WebDriver getDriver, String titulo, String nombrePrueba) throws InterruptedException, IOException {
         String rutaScreen = "C:\\ScrenShots\\";
-        String rutaPrueba = nombrePrueba;
+        //String rutaPrueba = nombrePrueba;
         TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + titulo + ".png"));
@@ -88,11 +88,11 @@ public class Metodos {
 
             WebElement acep = getDriver.findElement(By.name("SecuritySubmit"));
             acep.click();
-            WebElement menuUsuario = getDriver.findElement(By.xpath("/html/body/div[3]/div[5]"));
+            /*WebElement menuUsuario = getDriver.findElement(By.xpath("/html/body/div[3]/div[5]"));
             WebElement menuSalir = getDriver.findElement(By.xpath("/html/body/div[51]/div[3]"));
             menuUsuario.click();
             menuSalir.click();
-            IniciarSesion(getDriver, nombrePrueba);
+            IniciarSesion(getDriver, nombrePrueba);*/
         }
         System.out.println("Ahora esta logeado");
         Thread.sleep(4000);
