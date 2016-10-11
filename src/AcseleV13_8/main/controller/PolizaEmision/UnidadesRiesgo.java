@@ -63,7 +63,7 @@ public class UnidadesRiesgo {
                 montoAsegurado.clear();
                 Thread.sleep(3000);
                 montoAsegurado.sendKeys(polizaBean.getMontoAsegurado());
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afueraClick.click();
 
@@ -86,64 +86,64 @@ public class UnidadesRiesgo {
             }
 
             if (polizaBean.getValorSeguroPrima() != null){
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 WebElement valorSeguro = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_field']"));
                 valorSeguro.click();
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afuera.click();
                 valorSeguro = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_field']"));
                 valorSeguro.clear();
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 valorSeguro.sendKeys(polizaBean.getValorSeguroPrima());
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afueraClick.click();
             }
 
             if (polizaBean.getFechaDesembolso() != null){
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement fechaProceso = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_6_fila_fieldDate']"));
                 fechaProceso.sendKeys(polizaBean.getFechaDesembolso());
             }
 
             if (polizaBean.getValorPrestamo() != null){
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 WebElement valorPrestamo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_field']"));
                 valorPrestamo.click();
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 WebElement afuera = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afuera.click();
                 valorPrestamo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_field']"));
                 valorPrestamo.clear();
-                Thread.sleep(3000);
+                Thread.sleep(4000);
                 valorPrestamo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_field']"));
                 valorPrestamo.sendKeys(polizaBean.getValorPrestamo());
-                Thread.sleep(1000);
+                Thread.sleep(4000);
                 WebElement afueraClick = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 afueraClick.click();
             }
 
             if (polizaBean.getCuotasPactadas() != null){
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement cuotasPactadas = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_8_fila_field']"));
                 cuotasPactadas.sendKeys(polizaBean.getCuotasPactadas());
             }
 
             if (polizaBean.getSaldoCapital() != null){
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement saldoCapital = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
                 saldoCapital.sendKeys(polizaBean.getSaldoCapital());
             }
 
             if (polizaBean.getEstadoCredito() != null){
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 Select estadoCredito = new Select(driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_repeaterSelect_1_field']")));
                 estadoCredito.selectByValue(polizaBean.getEstadoCredito());
             }
 
             if (polizaBean.getCuotasMora() != null){
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement cuotasMora = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_field']"));
                 cuotasMora.sendKeys(polizaBean.getCuotasMora());
             }

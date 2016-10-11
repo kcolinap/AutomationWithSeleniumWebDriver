@@ -1,239 +1,46 @@
-INFO main AcseleV13_8.tests.VistaTercerosUpdateRolesTest - Test Case - Terceros Informacion Financiera - java.util.NoSuchElementException
-INFO main AcseleV13_8.tests.VistaRechazarPagoSiniestrosTest - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 16 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir6676_20076}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: cac073d1f117127f0493ab59c04ace5e
-*** Element info: {Using=xpath, value=/html/body/div[48]/div[3]}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 58 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7104_14863}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 023d71c838d2b19d17d2717f38dd7e5c
-*** Element info: {Using=xpath, value=//*[@id="coverageSelect"]}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 46 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7104_14863}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 023d71c838d2b19d17d2717f38dd7e5c
-*** Element info: {Using=xpath, value=//*[@id="amount1"]}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 49 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7104_14863}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 023d71c838d2b19d17d2717f38dd7e5c
-*** Element info: {Using=xpath, value=//*[@id="paymentCheck"]}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 47 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7104_14863}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 023d71c838d2b19d17d2717f38dd7e5c
-*** Element info: {Using=xpath, value=//*[@id="actions"]}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 46 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7104_14863}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 023d71c838d2b19d17d2717f38dd7e5c
-*** Element info: {Using=xpath, value=//*[@id="divBranchOffice"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 58 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7104_14863}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 023d71c838d2b19d17d2717f38dd7e5c
-*** Element info: {Using=xpath, value=/html/body/div[14]/div[2]/center/form/table/tbody/tr[4]/td[1]/input}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.UnhandledAlertException: unexpected alert open
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 7 milliseconds: null
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7188_3692}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: ff81bf77b2df347805c5ea796ac317e7
-*** Element info: {Using=xpath, value=/html/body/div[14]/div[2]/div[1]/center/table/tbody/tr[1]/td[2]}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.UnhandledAlertException: unexpected alert open
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 7 milliseconds: null
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7188_3692}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: ff81bf77b2df347805c5ea796ac317e7
-*** Element info: {Using=xpath, value=//*[@id="divBranchOffice"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select}
-INFO main AcseleV13_8.main.controller.AprobarEnviarPagoSiniestros - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.UnhandledAlertException: unexpected alert open
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 7 milliseconds: null
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir7188_3692}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: ff81bf77b2df347805c5ea796ac317e7
-*** Element info: {Using=xpath, value=//*[@id="idb_0402006_structure_23"]}
-INFO main AcseleV13_8.tests.VistaRechazarPagoSiniestrosTest - Test Case - Aprobar Enviar Pago Siniestros - org.openqa.selenium.ElementNotVisibleException: element not visible
-  (Session info: chrome=52.0.2743.116)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 15 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA30', ip: '192.168.0.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, chrome={userDataDir=C:\Users\KZAMBR~1\AppData\Local\Temp\scoped_dir4708_26395}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=52.0.2743.116, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: f3e7d43d3f5f6d5da13119a2cf33f370
-INFO main AcseleV13_8.main.controller.EmisionPolizaVariasUR - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 48 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=name, value=SecurityLogin}
-Session ID: 86c0eb16f380a9f9bbb4d9ec9872a2c0
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir8536_32630}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 14 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: cd41c28a37d121cf1750eb268d85e974
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9976_19524}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 14 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: cd41c28a37d121cf1750eb268d85e974
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9976_19524}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - java.lang.NullPointerException
-INFO main AcseleV13_8.main.controller.PolizaEmision.TerceroTomador - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.12 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']}
-Session ID: 1faac5c46104ead82d8e078b690abfa2
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9052_21703}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.16 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: 1faac5c46104ead82d8e078b690abfa2
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9052_21703}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.08 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: 1faac5c46104ead82d8e078b690abfa2
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9052_21703}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 425). Other element would receive the click: <div id="bigLayer" style="opacity: 0.0843566; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 76 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 966e70670b39fe8c7e7ad8d6e46228fa
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9676_6792}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 532). Other element would receive the click: <div id="bigLayer" style="opacity: 0.2; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 68 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 966e70670b39fe8c7e7ad8d6e46228fa
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9676_6792}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 12 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 67e48f3609045bced9bf065dda385033
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir4756_6930}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 632). Other element would receive the click: <div id="bigLayer" style="opacity: 0.2; display: block;"></div>
+INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 54 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 67e48f3609045bced9bf065dda385033
+*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
+Session ID: eeaf4085bc33ca2123eb3cf4077009ba
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir4756_6930}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 425). Other element would receive the click: <div id="bigLayer" style="opacity: 0.1; display: block;"></div>
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18316_11579}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 73 milliseconds
+Command duration or timeout: 20 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 97ec083e7bebfb3f9b4bf67ee44af3de
+*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
+Session ID: eeaf4085bc33ca2123eb3cf4077009ba
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10060_4289}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.Menu.MenuOperaciones - Test Case - Emision de Póliza Asegurado Vida - org.openqa.selenium.ElementNotVisibleException: element not visible
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18316_11579}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 35 milliseconds
+Command duration or timeout: 42 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 3ff1e028c1ee9db075f4c6a1f99c16d7
+*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_registerFormInsurance_containerButton_NewButtonInsurance']}
+Session ID: eeaf4085bc33ca2123eb3cf4077009ba
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9420_5183}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.EmisionPolizaAseguradoVida - Test Case - Emision de Póliza Asegurado Vida - java.util.NoSuchElementException
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza Asegurado Vida - org.openqa.selenium.NoSuchElementException: no such element
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18316_11579}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (337, 218). Other element would receive the click: <div id="bigLayer" style="opacity: 0.2; display: block;"></div>
+  (Session info: chrome=53.0.2785.143)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 103 milliseconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
+Session ID: c290a060952cef6c1cbb34510a33a7fa
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18188_4210}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 23 milliseconds
@@ -241,485 +48,139 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
 *** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: 08d6a9adbc9d08e5b2d776ed382344af
+Session ID: c290a060952cef6c1cbb34510a33a7fa
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir8196_18794}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.AseguradoVida - Test Case - Emision de Póliza Asegurado Vida - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 29 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']}
-Session ID: 08d6a9adbc9d08e5b2d776ed382344af
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir8196_18794}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 31 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: da7cee96bd9f794692b608cfb8cd4a64
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir8464_28793}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 60 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: a38ac9fb2994cc2438ebc46f0d3a0d4c
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9628_22678}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 117 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: a38ac9fb2994cc2438ebc46f0d3a0d4c
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9628_22678}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: Cannot locate option with value: 21.0
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Driver info: driver.version: unknown
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18188_4210}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 33 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: ab20559c2b0a4328549db751b5dc544a
+*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_registerFormInsurance_containerButton_NewButtonInsurance']}
+Session ID: c290a060952cef6c1cbb34510a33a7fa
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10856_9455}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.PrePoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: Cannot locate option with value: 12
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18188_4210}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 481). Other element would receive the click: <div id="bigLayer" style="opacity: 0.2; display: block;"></div>
+  (Session info: chrome=53.0.2785.143)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 68 milliseconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
+Session ID: 53f7d4ac05058d29c0548d064bcdee93
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir17596_4797}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
+  (Session info: chrome=53.0.2785.143)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 26 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
+*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
+Session ID: 53f7d4ac05058d29c0548d064bcdee93
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir17596_4797}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
+  (Session info: chrome=53.0.2785.143)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 32 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
+*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_registerFormInsurance_containerButton_NewButtonInsurance']}
+Session ID: 53f7d4ac05058d29c0548d064bcdee93
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir17596_4797}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.TercerosHabilitarDeshabilitar - Test Case 21 - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: Cannot locate option with value: 41249717
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
 Driver info: driver.version: unknown
-INFO main AcseleV13_8.main.controller.PolizaEmision.PrePoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 33 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']}
-Session ID: bdf6091df7b6983e096d9416623784e1
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11240_158}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 35 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']}
-Session ID: bdf6091df7b6983e096d9416623784e1
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11240_158}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 233 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: bdf6091df7b6983e096d9416623784e1
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11240_158}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.08 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: ef7328442038ad2659cbec677542360a
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir6756_21608}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.03 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: ef7328442038ad2659cbec677542360a
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir6756_21608}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.PrePoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+INFO main AcseleV13_8.main.controller.TercerosHabilitarDeshabilitar - Test Case 21 - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 22 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=.//option[@value = "12"]}
-Session ID: eb2380ad739d06e9cfa7112c8e00cd5a
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10748_12449}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.PrePoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 31 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']}
-Session ID: eb2380ad739d06e9cfa7112c8e00cd5a
+*** Element info: {Using=xpath, value=//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']}
+Session ID: 67732ac74e7cfc6741425e051cc194dd
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10748_12449}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 23 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']}
-Session ID: eb2380ad739d06e9cfa7112c8e00cd5a
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10748_12449}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 28 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: eb2380ad739d06e9cfa7112c8e00cd5a
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10748_12449}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 425). Other element would receive the click: <div id="bigLayer" style="opacity: 0.0350552; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 95 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 4b8a13757d0b09333a9db5ce9455b3ac
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir8688_13294}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 52 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 56e396c12106c167d8dd6ef2a51a5410
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9428_20793}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 93 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 29d0d81915463a47ef221b1ffd4e5360
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10652_27854}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (454, 481). Other element would receive the click: <div id="bigLayer" style="opacity: 0.2; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 71 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 03e96476ec1671ed7219e4db8be825b4
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9780_8410}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 50 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 64caf0f3fd76125192f9a779c8ad3276
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir1660_27403}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 10 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 7ac4bd987449fce330b8cbdaa630bcf3
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11232_16382}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 23 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: 7ac4bd987449fce330b8cbdaa630bcf3
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11232_16382}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.EmisionPolizaVariasUR - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 33 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=class name, value=CeldaEncabezado}
-Session ID: 77ec94765d2989a070b7e3b931739c93
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10196_18327}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.PrePoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 83 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']}
-Session ID: 4a32baa10dcfd9068d1b5bc22eabe4d4
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12076_13468}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.PrePoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 111 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']}
-Session ID: 4a32baa10dcfd9068d1b5bc22eabe4d4
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12076_13468}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 93 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_styleAcordeon_label']}
-Session ID: 4a32baa10dcfd9068d1b5bc22eabe4d4
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12076_13468}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 27 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: 4a32baa10dcfd9068d1b5bc22eabe4d4
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12076_13468}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 25 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: bcc8f7010813135e4aa07f9dbcb29bb0
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir10056_10194}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varias UR - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 16 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: f79baa2bf986d1ff1bcf6820f459942f
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9560_20307}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-ERROR main AcseleV13_8.beans.EmisionPolizaVariosOABean - java.sql.SQLSyntaxErrorException: ORA-00904: "PORCETAJE_DESCUENTO_2": identificador no válido
-
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (683, 560). Other element would receive the click: <div id="bigLayer" style="opacity: 0.2; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 73 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 104df0077b2a5f5472747b3fe7c94f00
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11552_23342}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (683, 560). Other element would receive the click: <div id="bigLayer" style="opacity: 0.188377; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 62 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 104df0077b2a5f5472747b3fe7c94f00
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11552_23342}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: unknown error: Element is not clickable at point (337, 218). Other element would receive the click: <div id="bigLayer" style="opacity: 0.0843566; display: block;"></div>
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 149 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: bbd82c9afdf4db002e7d0641d86499fd
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12740_29381}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18060_30606}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.TercerosHabilitarDeshabilitar - Test Case - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 44 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: bbd82c9afdf4db002e7d0641d86499fd
+*** Element info: {Using=xpath, value=//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']}
+Session ID: b4dba897695722f06a4f0a80b56864a5
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12740_29381}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 16 milliseconds
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir17800_64}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: Cannot locate option with value: 41249717
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: bbd82c9afdf4db002e7d0641d86499fd
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12740_29381}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varios OA - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+Driver info: driver.version: unknown
+INFO main AcseleV13_8.main.controller.PolizaEmision.TerceroTomador - Test Case - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 30 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: 9fcc376bbf787b269bec669ab1e0b9a3
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11832_396}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 46 milliseconds
+Command duration or timeout: 32 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: 9fcc376bbf787b269bec669ab1e0b9a3
+*** Element info: {Using=xpath, value=/html/body/div[6]/div/ul/li}
+Session ID: b4dba897695722f06a4f0a80b56864a5
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11832_396}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 30 milliseconds
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir17800_64}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: Cannot locate option with value: 41249717
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: 9fcc376bbf787b269bec669ab1e0b9a3
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11832_396}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
+Driver info: driver.version: unknown
+INFO main AcseleV13_8.main.controller.PolizaEmision.TerceroTomador - Test Case - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 13 milliseconds
+Command duration or timeout: 27 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: 9fcc376bbf787b269bec669ab1e0b9a3
+*** Element info: {Using=xpath, value=/html/body/div[6]/div/ul/li}
+Session ID: 112852b04987b3e15d882a544a2ade6d
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir11832_396}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.07 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: fcc2ffec629352be0dcd985d0e6061ab
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir2752_21095}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.15 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: fcc2ffec629352be0dcd985d0e6061ab
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir2752_21095}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.15 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: fcc2ffec629352be0dcd985d0e6061ab
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir2752_21095}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 2.15 seconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: fcc2ffec629352be0dcd985d0e6061ab
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir2752_21095}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza - Test Case 25 - Emision de Póliza con Varios OA - org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 508 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-Session ID: ba88f61b9f0b9c0e1b6d28c0125799db
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir3460_1920}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.UnidadesRiesgo - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 25 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']}
-Session ID: ba88f61b9f0b9c0e1b6d28c0125799db
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir3460_1920}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
-  (Session info: chrome=53.0.2785.143)
-  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 23 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']}
-Session ID: ba88f61b9f0b9c0e1b6d28c0125799db
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir3460_1920}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
-INFO main AcseleV13_8.main.controller.PolizaEmision.ObjetoAsegurado - Test Case - Emision de Póliza con Varios OA - org.openqa.selenium.NoSuchElementException: no such element
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18972_18805}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.PolizaEmision.TerceroTomador - Test Case - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: no such element
   (Session info: chrome=53.0.2785.143)
   (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 28 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
 System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
-*** Element info: {Using=xpath, value=//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_registerFormInsurance_containerButton_NewButtonInsurance']}
-Session ID: ba88f61b9f0b9c0e1b6d28c0125799db
+*** Element info: {Using=xpath, value=/html/body/div[6]/div/ul/li}
+Session ID: 1e23584c51f0145ec9b41412ed097dec
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir3460_1920}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18272_11484}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.main.controller.Menu.MenuOperaciones - Test Case - Terceros Habilitar Deshabilitar - org.openqa.selenium.ElementNotVisibleException: element not visible
+  (Session info: chrome=53.0.2785.143)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 36 milliseconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
+Session ID: 656d4c80b2fcf5e8b8a9513fbeba1d12
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18764_20522}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
+INFO main AcseleV13_8.tests.VistaTercerosHabilitarDeshabilitarTest - Test Case - Terceros Habilitar Deshabilitar - java.util.NoSuchElementException
+INFO main AcseleV13_8.tests.VistaTercerosHabilitarDeshabilitarTest - Test Case - Terceros Habilitar Deshabilitar - org.openqa.selenium.NoSuchElementException: no such element
+  (Session info: chrome=53.0.2785.143)
+  (Driver info: chromedriver=2.9.248315,platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 22 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.6.0_20'
+*** Element info: {Using=xpath, value=//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_2_thirdPartyRadio']}
+Session ID: 92dba4983560142b0711baeb55ab8155
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir18056_6962}, rotatable=false, locationContextEnabled=true, version=53.0.2785.143, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, applicationCacheEnabled=false, takesScreenshot=true}]
