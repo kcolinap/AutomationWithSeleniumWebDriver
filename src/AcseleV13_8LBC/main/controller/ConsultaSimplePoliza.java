@@ -1,7 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 import AcseleV13_8LBC.beans.ConsultaSimplePolizaBean;
-import AcseleV13_8.main.controller.Metodos;
-//import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
+import AcseleV13_8LBC.main.controller.Menu.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,8 +24,8 @@ public class ConsultaSimplePoliza {
     public void testLink(ConsultaSimplePolizaBean consultaSimplePolizaBean, int i) throws Exception {
 
         // Instanciando Clases
-        Metodos a = new Metodos();
-        //MenuOperaciones menuOperaciones = new MenuOperaciones();
+        MetodosLBC a = new MetodosLBC();
+        MenuOperaciones menuOperaciones= new MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
@@ -34,14 +33,14 @@ public class ConsultaSimplePoliza {
         Thread.sleep(5000);
 
         //Entrando en Menu
-        //menuOperaciones.OpePol_CotizacionSuscripcionMantenimientoPolizas(a, driver, nombreAutomatizacion, 2);
+        menuOperaciones.OpePol_CotizacionSuscripcionMantenimientoPolizas(a, driver, nombreAutomatizacion, 2);
         Thread.sleep(2000);
         a.cambiarVentana(driver); // Cambiar de ventana
 
         BuscarPolizaSimple(a, driver, consultaSimplePolizaBean, i);
     }
 
-    public void BuscarPolizaSimple(Metodos a, WebDriver driver, ConsultaSimplePolizaBean consultaSimplePolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(MetodosLBC a, WebDriver driver, ConsultaSimplePolizaBean consultaSimplePolizaBean, int i) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
 
