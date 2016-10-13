@@ -47,6 +47,7 @@
         <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaEdicionTomadores.java" />
         <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaEliminacionTomadores.java" />
         <option value="$PROJECT_DIR$/src/AcseleV13_8/tests/VistaValidacionSimbolosTest.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/AcseleV13_8/beans/EmisionPolizaVariasURBean.java" />
         <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaAseguradoVida.java" />
         <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/Metodos.java" />
@@ -65,6 +66,20 @@
         <option value="$PROJECT_DIR$/src/AcseleV13_8/beans/TercerosHabilitarDeshabilitarBean.java" />
         <option value="$PROJECT_DIR$/src/AcseleV13_8/tests/xmls/tercerosHabilitarDeshabilitar_dataset.xml" />
         <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/TercerosHabilitarDeshabilitar.java" />
+=======
+        <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/ConsultaListasRestrictivas.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/Menu/Menu/MenuMantenimiento.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/PolizaEmision/PolizaEmision/PrePoliza.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8LBC/tests/VistaPruebaTest.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8/main/controller/ConsultasOrdenesPago.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/AjustesReservasSiniestros.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/Metodos.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/Menu/MenuConsultas.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/beans/ConsultaMovimientosPolizaBean.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/ConsultaMovimientosPoliza.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/GeneracionDocumentosSiniestros.java" />
+        <option value="$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/ConsultaCobertura.java" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -106,6 +121,10 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> master
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,9 +157,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+<<<<<<< HEAD
         </subPane>
       </pane>
       <pane id="Scope" />
+=======
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatationTestAcsele" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomationTestAcsele" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcseleV13_8_Alfa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatationTestAcsele" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomationTestAcsele" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcseleV13_8_Alfa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beans" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,8 +221,20 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/AcseleV13_8LBC/tests/xml" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\AcseleTests\AutomationTestAcsele\src\AcseleV13_8_Alfa\beans" />
+      <recent name="C:\AcseleTests\AutomationTestAcsele\src\AcseleV13_8_Alfa\main\controller" />
+      <recent name="C:\AcseleTests\AutomationTestAcsele\src\AcseleV13_8_Alfa\tests" />
+      <recent name="C:\AcseleTests\AutomationTestAcsele\src\AcseleV13_8_Alfa\tests\xmls" />
+      <recent name="C:\AcseleTests\AutomationTestAcsele\src\AcseleV13_8\beans" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="AcseleV13_8LBC.tests" />
+      <recent name="AcseleV13_8LBC" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="AcseleV13_8_Alfa.tests" />
       <recent name="AcseleV13_8_Alfa.main.controller" />
@@ -622,15 +698,26 @@
       <workItem from="1475009740727" duration="13778000" />
       <workItem from="1475586265965" duration="423000" />
       <workItem from="1475586813834" duration="251000" />
+<<<<<<< HEAD
       <workItem from="1475587193930" duration="3044000" />
       <workItem from="1476106262315" duration="10913000" />
       <workItem from="1476124681191" duration="11687000" />
       <workItem from="1476211905091" duration="9035000" />
+=======
+      <workItem from="1475592179538" duration="95000" />
+      <workItem from="1475877911333" duration="763000" />
+      <workItem from="1476190564214" duration="2687000" />
+      <workItem from="1476195912002" duration="49000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="50608000" />
+=======
+    <option name="totallyTimeSpent" value="19523000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -650,7 +737,11 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3713799" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2591508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24377745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> master
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -662,7 +753,12 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> master
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -683,6 +779,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+<<<<<<< HEAD
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaVariosOA.java</url>
@@ -698,6 +795,9 @@
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="3" />
+=======
+      <option name="time" value="2" />
+>>>>>>> master
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -706,6 +806,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/beans/TercerosDireccionesBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2958">
@@ -960,10 +1061,262 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.635514" vertical-offset="1326" max-vertical-offset="2091">
           <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/PrePoliza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="959" max-vertical-offset="1785">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/TerceroTomador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="3162">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/ObjetoAsegurado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031481482" vertical-offset="102" max-vertical-offset="2516">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/UnidadesRiesgo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="4029">
+          <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/ExportarImportarProducto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2873">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/xmls/emisionProductoImportado_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="2" column="79" selection-start-line="2" selection-start-column="79" selection-end-line="2" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/ImpresionDocumentosNivelUR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2329">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/ImpresionDocumentosNivelPoliza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43333334" vertical-offset="752" max-vertical-offset="1292">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionProductoImportado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5910653" vertical-offset="795" max-vertical-offset="1377">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/Calcular.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.97363794" vertical-offset="568" max-vertical-offset="1632">
+          <caret line="66" column="14" selection-start-line="66" selection-start-column="12" selection-end-line="75" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaAseguradoVida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71704745" vertical-offset="187" max-vertical-offset="1326">
+          <caret line="46" column="75" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/beans/PolizaBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3532513" vertical-offset="2613" max-vertical-offset="8109">
+          <caret line="297" column="0" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaBeneficiarioNatural.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+          <caret line="47" column="75" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/InformacionGeneralPoliza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59753954" vertical-offset="799" max-vertical-offset="2992">
+          <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaInclusionTomadores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="437" max-vertical-offset="1139">
+          <caret line="46" column="75" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaEdicionTomadores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1207">
+          <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaEliminacionTomadores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37700534" vertical-offset="420" max-vertical-offset="1139">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/VistaValidacionSimbolosTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33848798" vertical-offset="228" max-vertical-offset="1020">
+          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/ConsultaListasRestrictivas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29876977" vertical-offset="357" max-vertical-offset="2057">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/PolizaEmision/PolizaEmision/PrePoliza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20913884" vertical-offset="0" max-vertical-offset="1785">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/Menu/Menu/MenuMantenimiento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20913884" vertical-offset="0" max-vertical-offset="6103">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/beans/PruebaBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14604811" vertical-offset="0" max-vertical-offset="582">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/tests/VistaPruebaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14604811" vertical-offset="0" max-vertical-offset="582">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/tests/xml/prueba_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/VistaAnulacionPolizasTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4920914" vertical-offset="400" max-vertical-offset="969">
+          <caret line="49" column="91" selection-start-line="49" selection-start-column="91" selection-end-line="49" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/Prueba.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14604811" vertical-offset="0" max-vertical-offset="582">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/Menu/Menu/MenuOperaciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32864675" vertical-offset="357" max-vertical-offset="9860">
+          <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8LBC/main/controller/Menu/Menu/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1975945" vertical-offset="816" max-vertical-offset="2720">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/xmls/consultasOrdenesPago_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/beans/ConsultasOrdenesPagoBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/Menu/MenuOperaciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.428571" vertical-offset="1962" max-vertical-offset="9860">
+          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/ConsultasOrdenesPago.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5377856" vertical-offset="153" max-vertical-offset="3468">
+          <caret line="34" column="94" selection-start-line="34" selection-start-column="94" selection-end-line="34" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/VistaConsultasOrdenesPagoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/VistaAjustesReservasSiniestrosTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/xmls/ajustesReservasSiniestros_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/beans/AjustesReservasSiniestrosBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1683">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/Metodos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36426118" vertical-offset="485" max-vertical-offset="2958">
@@ -992,10 +1345,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="485" max-vertical-offset="833">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/AjustesReservasSiniestros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.5869946" vertical-offset="0" max-vertical-offset="4471">
+          <caret line="197" column="117" selection-start-line="197" selection-start-column="117" selection-end-line="197" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/Metodos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6494845" vertical-offset="421" max-vertical-offset="2839">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/Menu/MenuConsultas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82474226" vertical-offset="81" max-vertical-offset="1105">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/VistaConsultaMovimientosPolizaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/ObjetoAsegurado.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.892857" vertical-offset="0" max-vertical-offset="391">
@@ -1004,58 +1385,124 @@
             <element signature="method#ObjetoAsegurado#0;class#ObjetoAsegurado#0" expanded="false" />
             <element signature="method#ObjetoAsegurado2#0;class#ObjetoAsegurado#0" expanded="false" />
             <element signature="method#ObjetoAseguradoOld#0;class#ObjetoAsegurado#0" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/ConsultaMovimientosPoliza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7908612" vertical-offset="400" max-vertical-offset="969">
+          <caret line="585" column="0" selection-start-line="585" selection-start-column="0" selection-end-line="585" selection-end-column="0" />
+          <folding>
+            <element signature="method#ConsultaPol#0;class#ConsultaMovimientosPoliza#0" expanded="false" />
+            <element signature="method#SeleccionarPol#0;class#ConsultaMovimientosPoliza#0" expanded="false" />
+            <element signature="method#SeleccionarMov#0;class#ConsultaMovimientosPoliza#0" expanded="false" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/EmisionPolizaVariosOA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1224">
           <caret line="60" column="113" selection-start-line="50" selection-start-column="12" selection-end-line="60" selection-end-column="113" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/xmls/consultaMovimientosPoliza_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/beans/TercerosHabilitarDeshabilitarBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2108">
           <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/beans/ConsultaMovimientosPolizaBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26288658" vertical-offset="0" max-vertical-offset="3451">
+          <caret line="17" column="84" selection-start-line="17" selection-start-column="84" selection-end-line="17" selection-end-column="84" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/InformacionGeneralPoliza.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1130" max-vertical-offset="3009">
           <caret line="81" column="59" selection-start-line="81" selection-start-column="59" selection-end-line="81" selection-end-column="59" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/GeneracionDocumentosSiniestros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59753954" vertical-offset="0" max-vertical-offset="569">
+          <caret line="172" column="133" selection-start-line="172" selection-start-column="133" selection-end-line="172" selection-end-column="133" />
+          <folding>
+            <element signature="method#testLink#0;class#GeneracionDocumentosSiniestros#0" expanded="false" />
+            <element signature="method#BusquedaSiniestro#0;class#GeneracionDocumentosSiniestros#0" expanded="false" />
+            <element signature="method#ResultadoBusqueda#0;class#GeneracionDocumentosSiniestros#0" expanded="false" />
+            <element signature="method#GeneracionDocumento#0;class#GeneracionDocumentosSiniestros#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/beans/GeneracionDocumentosSiniestrosBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/VistaTercerosHabilitarDeshabilitarTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/VistaGeneracionDocumentosSiniestrosTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/xmls/emisionPolizaVariasUR_dataset.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26681614" vertical-offset="0" max-vertical-offset="782">
           <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="17" selection-end-column="131" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/xmls/generacionDocumentosSiniestros_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/xmls/tercerosHabilitarDeshabilitar_dataset.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
           <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/xmls/consulta_Cobertura_dataset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/main/controller/PolizaEmision/TerceroTomador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="7004">
@@ -1072,14 +1519,37 @@
           <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
           <folding>
             <element signature="method#BusquedaT#0;class#TercerosHabilitarDeshabilitar#0" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/tests/VistaConsultaCoberturaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/main/controller/ConsultaCobertura.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.96391755" vertical-offset="0" max-vertical-offset="731">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="method#MovimientoPolizas#0;class#ConsultaCobertura#0" expanded="false" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/AcseleV13_8/tests/VistaEmisionPolizaVariosOATest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1929824" vertical-offset="0" max-vertical-offset="1020">
           <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/AcseleV13_8_Alfa/beans/ConsultaCoberturaBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
