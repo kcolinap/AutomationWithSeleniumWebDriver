@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <CONSULTA_POLIZA_AVANZADA PRUEBA="1" ORDENAR_POR="" BUSCAR_POR=""
-                            PRODUCTO="PRODUCTO" EDO_CICLO_VIDA="EDO_CICLO_VIDA" NUM_POLIZA=""
+                            PRODUCTO="AutomotoresBrevet" EDO_CICLO_VIDA="35384" NUM_POLIZA=""
                             NUM_PROPUESTA="" FECHA_EMISION=""/>
 </dataset>

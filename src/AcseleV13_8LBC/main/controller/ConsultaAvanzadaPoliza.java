@@ -17,7 +17,7 @@ public class ConsultaAvanzadaPoliza {
     private final static Logger log = Logger.getLogger(ConsultaAvanzadaPoliza.class);
 
     public String nombreAutomatizacion ="Consulta Poliza Avanzada";
-    //Pliza a buscar
+    //Poliza a buscar
     //String nPoliza = "EA00222";
     //String fechaEm = "17-12-2015";
 
@@ -39,10 +39,10 @@ public class ConsultaAvanzadaPoliza {
         Thread.sleep(2000);
         a.cambiarVentana(driver); // Cambiar de ventana
 
-        BuscarPolizaSimple(a, driver, consultaAvanzadaPolizaBean, i);
+        BuscarPolizaAvanzada(a, driver, consultaAvanzadaPolizaBean, i);
     }
 
-    public void BuscarPolizaSimple(MetodosLBC a, WebDriver driver, ConsultaAvanzadaPolizaBean consultaAvanzadaPolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaAvanzada(MetodosLBC a, WebDriver driver, ConsultaAvanzadaPolizaBean consultaAvanzadaPolizaBean, int i) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -60,18 +60,11 @@ public class ConsultaAvanzadaPoliza {
 
         if (consultaAvanzadaPolizaBean.getProducto() != null){
             Select tipoProducto = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_productsList']")));
-            //tipoProducto.selectByValue("VidaDeudoresAvVillas");
+
             tipoProducto.selectByValue(consultaAvanzadaPolizaBean.getProducto());
             Thread.sleep(2000);
         }
 
-        // Select del Producto
-        if (consultaAvanzadaPolizaBean.getProducto() != null){
-            Select tipoProducto = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_productsList']")));
-            //tipoProducto.selectByValue("VidaDeudoresAvVillas");
-            tipoProducto.selectByValue(consultaAvanzadaPolizaBean.getProducto());
-            Thread.sleep(2000);
-        }
 
         // Estado del ciclo de vida
         if (consultaAvanzadaPolizaBean.getEdoCicloVida() != null){
