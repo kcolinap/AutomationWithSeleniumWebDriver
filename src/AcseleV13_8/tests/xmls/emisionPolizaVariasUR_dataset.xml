@@ -1,8 +1,40 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <POLIZA_UNIDADES_RIESGO PRUEBA="1" PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="19-07-2016"
-                          EVENTO_APLICAR="Emitir" SUCURSAL="24651917" TIPO_PRODUCCION="24652617" PERIODO_GRACIA="15"
-                          LINEA_CREDITO="41249517" UNIDAD_NEGOCIO="23913017" CANAL_VENTA="21.0" TIPO_VALOR_ASEGURADO="23916617"
-                          TASA="10" TIPO_TASA="24650617" NOMBRE="ELIAS" NUM_CREDITO1="11" MONTO_ASEGURADO1="100000"
-                          NUM_CREDITO2="18" MONTO_ASEGURADO2="450000" PORCETAJE_EXTRA_PRIMA="10" PORCETAJE_DESCUENTO="3"/>
+  <POLIZA_UNIDADES_RIESGO PRUEBA="1" PRODUCTO="VidaDeudoresAvVillas" VIGENCIA="12" FECHA_DESDE="11-08-2016" FECHA_HASTA=""
+
+                                EVENTO_APLICAR="Emitir"
+                                FECHA_MOVIMIENTO="" FECHA_EFECTIVA_APLICA_EVENTO=""
+
+                                PLAN_FINANCIAMIENTO="" MONEDA=""
+                                SUCURSAL="24651917"
+                                NUMERO_POLIZA="" FECHA_EMISION="" TIPO_PRODUCCION="24652617"
+                                PERIODO_GRACIA="" LINEA_CREDITO="53978517"
+                                HORA_INICIACION_VENCIMIENTO="54019217" UNIDAD_NEGOCIO="23913017"
+                                CANAL_VENTA="21.0" FRECUENCIA_PAGO=""
+                                TIPO_POLIZA="724097" TIPO_VALOR_ASEGURADO="23916617"
+                                NIVEL_AGRUPAMIENTO_REASEGURO=""
+                                PERMITE_MANEJO_CTA_PROVI="" MES_PROVISIONAL="" ANIO_PROVISIONAL=""
+
+                                TOMADOR_NOMBRE1="Elias" TOMADOR_NOMBRE2="Tomas" TOMADOR_APELLIDO1="Daal" TOMADOR_APELLIDO2="Torres"
+                                PORCENTAJE_PARTICIPA_TOMADOR=""
+
+
+
+                                NUMERO_UNIDAD_RIESGO="" NUMERO_CREDITO="23"
+                                MONTO_ASEGURADO="150000" FACTOR_VIDA="1" VALOR_SEGURO_PRIMA="1"
+                                FECHA_DESEMBOLSO="" VALOR_PRESTAMO="1" CUOTAS_PACTADAS=""
+                                SALDO_CAPITAL="" ESTADO_CREDITO="" CUOTAS_MORA=""
+                                FECHA_PROCESO="19-09-2016" FECHA_PAGO="" CUOTA_PAGADA=""
+                                FECHA_MORA="" PORCENTAJE_FACULTATIVO=""
+
+                                NUMERO_UNIDAD_RIESGO2=""
+                                NUMERO_CREDITO2="5" MONTO_ASEGURADO2="200000"
+                                FACTOR_VIDA2="1" VALOR_SEGURO_PRIMA2="1"
+                                FECHA_DESEMBOLSO2="" VALOR_PRESTAMO2="1"
+                                CUOTAS_PACTADAS2="" SALDO_CAPITAL2=""
+                                ESTADO_CREDITO2="" CUOTAS_MORA2=""
+                                FECHA_PROCESO2="10-10-2016" FECHA_PAGO2=""
+                                CUOTA_PAGADA2="" FECHA_MORA2=""
+                                PORCENTAJE_FACULTATIVO2=""
+                                />
 </dataset>

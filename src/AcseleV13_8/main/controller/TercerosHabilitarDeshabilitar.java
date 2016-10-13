@@ -3,6 +3,9 @@ package AcseleV13_8.main.controller;
 import AcseleV13_8.beans.TercerosHabilitarDeshabilitarBean;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
+import AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza;
+import AcseleV13_8.main.controller.PolizaEmision.PrePoliza;
+import AcseleV13_8.main.controller.PolizaEmision.TerceroTomador;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +30,9 @@ public class TercerosHabilitarDeshabilitar {
         Metodos a = new Metodos();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
         MenuOperaciones menuOperaciones = new MenuOperaciones();
+        PrePoliza prePoliza = new PrePoliza();
+        InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
+        TerceroTomador terceroTomador = new TerceroTomador();
 
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -71,6 +77,18 @@ public class TercerosHabilitarDeshabilitar {
         menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 9, i);
         Thread.sleep(2000);
         a.cambiarVentana(driver);
+        Thread.sleep(2000);
+        //CrearPoliza(a, driver, tercerosHabilitarDeshabilitarBean);
+
+        /** Creando la póliza */
+
+        // PrePoliza
+        Thread.sleep(2000);
+        prePoliza.AdminPropuestaPoliza(a, driver, tercerosHabilitarDeshabilitarBean, nombreAutomatizacion, i, 3);
+        Thread.sleep(2000);
+        prePoliza.EvAplicar(a, driver, tercerosHabilitarDeshabilitarBean, nombreAutomatizacion, i, 4);
+        Thread.sleep(2000);
+        informacionGeneralPoliza.InformacionGeneral(a, driver, tercerosHabilitarDeshabilitarBean, nombreAutomatizacion, i, 5);
         Thread.sleep(2000);
         CrearPoliza(a, driver, tercerosHabilitarDeshabilitarBean);
 
@@ -131,114 +149,13 @@ public class TercerosHabilitarDeshabilitar {
         }catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
     public void CrearPoliza(Metodos a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException {
 
         // //TipoElemento[@wicketpath='WicketpathElemento']
-        Thread.sleep(2000);
-        // Formulario de Administración de Propuestas y Pólizas
-        try {
-            Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
-            productoSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getProducto());
-            Thread.sleep(2000);
-
-            Select vigenciaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_validitiesComboBox']")));
-            vigenciaSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getVigencia());
-            Thread.sleep(2000);
-
-            WebElement fechaDes = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_initialDate']"));
-            fechaDes.sendKeys(tercerosHabilitarDeshabilitarBean.getFechaDesde());
-            Thread.sleep(2000);
-
-            WebElement fechaHas = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_finalDate']"));
-            if (tercerosHabilitarDeshabilitarBean.getFechaHasta() != null) {
-                fechaHas.sendKeys(tercerosHabilitarDeshabilitarBean.getFechaHasta());
-            }
-
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen10", nombreAutomatizacion); //screenshot2
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            WebElement btnCrear = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_CreateQuoteButton']"));
-            btnCrear.click();
-
-        } catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
-        }
-
-        Thread.sleep(3000);
-
-        // Formulario de Evento a Aplicar
-        try {
-            Select eventoAplicarSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']")));
-
-            eventoAplicarSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getEventoAplicar());
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen11", nombreAutomatizacion); //screenshot2
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']"));
-            btnContinuar.click();
-
-        }catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
-        }
-
-        Thread.sleep(4000);
-
-        // Formulario de la Póliza
-        try {
-            Select sucursalSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
-            sucursalSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getSucursal());
-
-            Thread.sleep(2000);
-            Select tipoProduccionSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_repeaterSelect_1_field']")));
-            tipoProduccionSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getTipoProduccion());
-
-            Thread.sleep(2000);
-            Select lineaCreditoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_6_fila_repeaterSelect_1_field']")));
-            lineaCreditoSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getLineaCredito());
-
-            Thread.sleep(2000);
-            Select unidadNegocioSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_1_field']")));
-            unidadNegocioSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getUnidadNegocio());
-
-            Thread.sleep(2000);
-            Select canalVentaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_2_field']")));
-            canalVentaSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getCanalVenta());
-
-            Thread.sleep(2000);
-            Select tipoValorAseguradoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_repeaterSelect_1_field']")));
-            tipoValorAseguradoSelect.selectByValue(tercerosHabilitarDeshabilitarBean.getTipoValorAsegurado());
-
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen12", nombreAutomatizacion); //screenshot2
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            WebElement btnGuardarInfGeneral = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_calculateButton']"));
-            btnGuardarInfGeneral.click();
-
-        }catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
-        }
-
-        /** Experimento de Espera que se deshabilite el mensaje de Espera**/
-//        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-//        while (mensajeEspera.isDisplayed()){
-//            Thread.sleep(5000);
-//        }
 
         Thread.sleep(4000);
         // Tomador (Tercero) // //TipoElemento[@wicketpath='WicketpathElemento']
@@ -279,27 +196,14 @@ public class TercerosHabilitarDeshabilitar {
             btnBuscarTomador.click();
 
             Thread.sleep(2000);
-            a.ScreenShot(driver, "screen13", nombreAutomatizacion); //screenshot2
+            a.ScreenShot(driver, "screen14", nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
         }catch (Exception e){
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
-        /**
-        try {
-            WebElement selecTercero = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"))
-        }catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 21 - " + nombreAutomatizacion + " - " + e);
-        }
-         */
-
-
     }
 
 }

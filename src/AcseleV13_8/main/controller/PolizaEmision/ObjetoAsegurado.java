@@ -27,30 +27,30 @@ public class ObjetoAsegurado {
             //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
             //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
 
-            if (polizaBean.getDocumentoIdentidadAsegurado() != null) {
+            if (polizaBean.getDocumentoIdentidadAsegurado2() != null) {
                 Thread.sleep(1000);
                 WebElement docIdAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']"));
-                docIdAsegurado.sendKeys(polizaBean.getDocumentoIdentidadAsegurado());
+                docIdAsegurado.sendKeys(polizaBean.getDocumentoIdentidadAsegurado2());
             }
 
-            if (polizaBean.getFechaNacimientoAsegurado() != null) {
+            if (polizaBean.getFechaNacimientoAsegurado2() != null) {
                 Thread.sleep(1000);
                 WebElement fechaNacAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_fieldDate']"));
-                fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado());
+                fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado2());
             }
 
-            if (polizaBean.getDireccionAsegurado() != null) {
+            if (polizaBean.getDireccionAsegurado2() != null) {
                 Thread.sleep(3000);
                 WebElement direccionAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_field']"));
-                direccionAsegurado.sendKeys(polizaBean.getDireccionAsegurado());
+                direccionAsegurado.sendKeys(polizaBean.getDireccionAsegurado2());
             }
 
 
             Thread.sleep(2000);
-            if (polizaBean.getDepartamento() != null) {
+            if (polizaBean.getDepartamento2() != null) {
                 Thread.sleep(1000);
                 Select departamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
-                departamento.selectByValue(polizaBean.getDepartamento());
+                departamento.selectByValue(polizaBean.getDepartamento2());
 
 //                Thread.sleep(2000);
 //                String city = "CALAMAR";
@@ -66,7 +66,7 @@ public class ObjetoAsegurado {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Toolkit.getDefaultToolkit().beep();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
             btnGuardar.click();
 
@@ -82,16 +82,16 @@ public class ObjetoAsegurado {
             WebElement mensajeDep = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_feedbackLabel']"));
             if (mensajeDep.isDisplayed()){
                 Thread.sleep(2000);
-                if (polizaBean.getDepartamento() != null) {
+                if (polizaBean.getDepartamento2() != null) {
                     Thread.sleep(1000);
                     Select departamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
-                    departamento.selectByValue(polizaBean.getDepartamento());
+                    departamento.selectByValue(polizaBean.getDepartamento2());
 
                     Thread.sleep(2000);
-                    if (polizaBean.getCiudad() != null) {
+                    if (polizaBean.getCiudad2() != null) {
                         Thread.sleep(1000);
                         Select ciudad = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_2_field']")));
-                        ciudad.selectByValue(polizaBean.getCiudad());
+                        ciudad.selectByValue(polizaBean.getCiudad2());
                     }
 
                 }
@@ -146,8 +146,147 @@ public class ObjetoAsegurado {
 
     }
 
-    public void ObjetoAseguradoOld(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean,
-                                String nombreAutomatizacion){
+    public void ObjetoAsegurado2(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            Thread.sleep(2000);
+
+            //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
+            //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
+
+            WebElement btnAgregar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_registerFormInsurance_containerButton_NewButtonInsurance']"));
+            btnAgregar.click();
+            /***Espera***/
+            Thread.sleep(1000);
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()){
+                Thread.sleep(5000);
+                System.out.println("Espera Boton Agregar Objeto Asegurado");
+            }
+            Thread.sleep(1000);
+            Thread.sleep(1000);
+
+            if (polizaBean.getDocumentoIdentidadAsegurado2() != null) {
+                Thread.sleep(1000);
+                WebElement docIdAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']"));
+                docIdAsegurado.sendKeys(polizaBean.getDocumentoIdentidadAsegurado2());
+            }
+
+            if (polizaBean.getFechaNacimientoAsegurado2() != null) {
+                Thread.sleep(1000);
+                WebElement fechaNacAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_fieldDate']"));
+                fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado2());
+            }
+
+            if (polizaBean.getDireccionAsegurado2() != null) {
+                Thread.sleep(3000);
+                WebElement direccionAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_field']"));
+                direccionAsegurado.sendKeys(polizaBean.getDireccionAsegurado2());
+            }
+
+
+            Thread.sleep(2000);
+            if (polizaBean.getDepartamento2() != null) {
+                Thread.sleep(1000);
+                Select departamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
+                departamento.selectByValue(polizaBean.getDepartamento2());
+
+//                Thread.sleep(2000);
+//                String city = "CALAMAR";
+//                if (city != null) {
+//                    Thread.sleep(1000);
+//                    Select ciudad = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_2_field']")));
+//                    ciudad.selectByValue(city);
+//                }
+
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(1000);
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+            btnGuardar.click();
+
+            /***Espera***/
+            Thread.sleep(1000);
+            mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()){
+                Thread.sleep(5000);
+                System.out.println("Espera Guardar Objeto Asegurado");
+            }
+
+            Thread.sleep(2000);
+            WebElement mensajeDep = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_feedbackLabel']"));
+            if (mensajeDep.isDisplayed()){
+                Thread.sleep(2000);
+                if (polizaBean.getDepartamento2() != null) {
+                    Thread.sleep(1000);
+                    Select departamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
+                    departamento.selectByValue(polizaBean.getDepartamento2());
+
+                    Thread.sleep(2000);
+                    if (polizaBean.getCiudad2() != null) {
+                        Thread.sleep(1000);
+                        Select ciudad = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_2_field']")));
+                        ciudad.selectByValue(polizaBean.getCiudad2());
+                    }
+
+                }
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                Toolkit.getDefaultToolkit().beep();
+
+                Thread.sleep(2000);
+                WebElement btnguardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+                btnguardar.click();
+
+                /***Espera***/
+                Thread.sleep(1000);
+                mensajeEspera = driver.findElement(By.id("waitMessage"));
+                while (mensajeEspera.isDisplayed()){
+                    Thread.sleep(5000);
+                    System.out.println("Espera Guardar Objeto Asegurado");
+                }
+            }
+
+            Thread.sleep(2000);
+            WebElement mensajeFechaNacAseg = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_feedbackLabel']"));
+            if (mensajeFechaNacAseg.isDisplayed()){
+
+                if (polizaBean.getFechaNacimientoAsegurado2() != null) {
+                    Thread.sleep(1000);
+                    WebElement fechaNacAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_fieldDate']"));
+                    fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado2());
+                }
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                Toolkit.getDefaultToolkit().beep();
+
+                Thread.sleep(2000);
+                WebElement btnguardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+                btnguardar.click();
+
+                /***Espera***/
+                Thread.sleep(1000);
+                mensajeEspera = driver.findElement(By.id("waitMessage"));
+                while (mensajeEspera.isDisplayed()){
+                    Thread.sleep(5000);
+                    System.out.println("Espera Guardar Objeto Asegurado");
+                }
+            }
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
+
+    public void ObjetoAseguradoOld(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, String nombreAutomatizacion){
         try{//TipoElemento[@wicketpath='WicketpathElemento']
 
             Thread.sleep(3000);

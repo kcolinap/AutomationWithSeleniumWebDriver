@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by agil on 12/07/2016.
  */
-public class TercerosHabilitarDeshabilitarBean implements Serializable {
+public class TercerosHabilitarDeshabilitarBean extends PolizaBean implements Serializable {
 
     // PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA,
     // EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO

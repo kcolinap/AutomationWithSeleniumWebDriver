@@ -74,8 +74,7 @@ public class EmisionPolizaAseguradoVida {
 
         } catch (Exception e) {
         e.printStackTrace();
-        //             log.info(e);
-        log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
