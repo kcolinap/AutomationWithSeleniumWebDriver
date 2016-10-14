@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller.Menu.Menu;
 
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class MenuMantenimiento {
 
     private final static Logger log = Logger.getLogger(MenuMantenimiento.class);
 
-    Metodos a = new Metodos();
+    MetodosLBC a = new MetodosLBC();
 
     /** Mantenimiento de Tercero (Wcontroller) **/
     public void MantenimientoTerceroWcontroller(){}
@@ -26,7 +26,7 @@ public class MenuMantenimiento {
 
     /** Mantenimiento de Tercero **/
 
-        public void MantTerc_IngresarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+        public void MantTerc_IngresarTercero(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
 
             try {
                 Actions action = new Actions(driver);
@@ -51,7 +51,7 @@ public class MenuMantenimiento {
             }
         }
 
-        public void MantTerc_BuscarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+        public void MantTerc_BuscarTercero(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
 
             try {
                 Actions action = new Actions(driver);
@@ -99,7 +99,7 @@ public class MenuMantenimiento {
         public void UAA_HerenciRoles(){}
         public void UAA_Documentos(){}
         public void UAA_RolesDocumentos(){}
-        public void UAA_Caja(WebDriver driver, int i, Metodos a, String nombrePrueba){
+        public void UAA_Caja(WebDriver driver, int i, MetodosLBC a, String nombrePrueba){
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -116,7 +116,7 @@ public class MenuMantenimiento {
             log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
         }
     }
-        public void UAA_AsociarCajaCajero(WebDriver driver, int i, Metodos a, String nombreAutomatizacion){
+        public void UAA_AsociarCajaCajero(WebDriver driver, int i, MetodosLBC a, String nombreAutomatizacion){
             try{
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//UAA (Administrador de Cuentas Universal)
@@ -188,7 +188,7 @@ public class MenuMantenimiento {
     /** -- Mantenimiento General -- **/
 
     /** Administracion de Tareas **/
-        public void AdminTar_Actividades(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        public void AdminTar_Actividades(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
 
             try {
                 Actions action = new Actions(driver);
@@ -215,7 +215,7 @@ public class MenuMantenimiento {
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
-        public void AdminTar_EjecucionTareas(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        public void AdminTar_EjecucionTareas(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
 
             try {
                 Actions action = new Actions(driver);
