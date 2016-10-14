@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <CONSULTA_TERCEROS_LBC PRUEBA="1" TIPO_TERCERO="TIPO_TERCERO" APELLIDO="APELLIDO"
+                         NOMBRE="NOMBRE" TIPO_DOC_ID="TIPO_DOC_ID"
+                         NUM_DOC_ID="NUM_DOC_ID"/>
+</dataset>
