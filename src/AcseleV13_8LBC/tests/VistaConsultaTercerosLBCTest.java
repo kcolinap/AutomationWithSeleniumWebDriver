@@ -21,11 +21,11 @@ public class VistaConsultaTercerosLBCTest {
         ArrayList consutaTerceroLBC = ConsultaTercerosLBCBean.getConsutaTercerosLBCBean();
 
         for (int j = 0; j< consutaTerceroLBC.size(); j++) {
-            ConsultaTercerosLBCBean consultaAvanzadaPolizaBean = (ConsultaTercerosLBCBean) consutaTerceroLBC.get(j);
+            ConsultaTercerosLBCBean consultaTercerosLBCBean = (ConsultaTercerosLBCBean) consutaTerceroLBC.get(j);
             ConsultaTercerosLBC a = new ConsultaTercerosLBC();
 
             try {
-                //a.testLink(consutaTerceroLBCBean, j);
+                a.testLink(consultaTercerosLBCBean, j);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);

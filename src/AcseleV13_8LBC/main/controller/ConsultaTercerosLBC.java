@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller;
-import AcseleV13_8.beans.ConsultaTercerosBean;
-import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
-import AcseleV13_8.main.controller.Metodos;
+
+import AcseleV13_8LBC.beans.ConsultaTercerosLBCBean;
+import AcseleV13_8LBC.main.controller.Menu.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,12 +18,12 @@ public class ConsultaTercerosLBC {
 
     public String nombreAutomatizacion ="Consulta Terceros";
 
-    public void testLink(ConsultaTercerosBean consultaTercerosBean, int i)throws Exception {
+    public void testLink(ConsultaTercerosLBCBean consultaTercerosLBCBean, int i)throws Exception {
 
         try {
 
             // Instanciando clases
-            Metodos a= new Metodos();   //implementando metodos.
+            MetodosLBC a= new MetodosLBC();   //implementando metodos.
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -37,7 +37,7 @@ public class ConsultaTercerosLBC {
             Thread.sleep(1000);
             a.cambiarVentana(driver); // Cambiar de ventana
 
-            BuscarTercero(a, driver, consultaTercerosBean, i);
+            BuscarTercero(a, driver, consultaTercerosLBCBean, i);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class ConsultaTercerosLBC {
         }
     }
 
-    public void BuscarTercero(Metodos a, WebDriver driver, ConsultaTercerosBean consultaTercerosBean, int i) throws InterruptedException, IOException {
+    public void BuscarTercero(MetodosLBC a, WebDriver driver, ConsultaTercerosLBCBean consultaTercerosLBCBean, int i) throws InterruptedException, IOException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -56,35 +56,36 @@ public class ConsultaTercerosLBC {
 
             Thread.sleep(1000);
             //Tipo de tercero
-            if (consultaTercerosBean.getTipoTercero() != null) {
+            if (consultaTercerosLBCBean.getTipoTercero() != null) {
                 Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
-                tipoT.selectByValue(consultaTercerosBean.getTipoTercero());
+                tipoT.selectByValue(consultaTercerosLBCBean.getTipoTercero());
                 Thread.sleep(1000);
             }
 
-            if (consultaTercerosBean.getTipoDocId() != null){
-                Select tipoDocId = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
-                tipoDocId.selectByValue(consultaTercerosBean.getTipoDocId());
+            if (consultaTercerosLBCBean.getApellido() != null ){
+                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                aTercero.sendKeys(consultaTercerosLBCBean.getApellido());
                 Thread.sleep(1000);
             }
 
-            if (consultaTercerosBean.getCedula() != null){
-                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
-                cedu.sendKeys(consultaTercerosBean.getCedula());
-                Thread.sleep(1000);
-            }
-
-            if (consultaTercerosBean.getNombre() != null){
+            if (consultaTercerosLBCBean.getNombre() != null){
                 WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
-                nTercero.sendKeys(consultaTercerosBean.getNombre());
+                nTercero.sendKeys(consultaTercerosLBCBean.getNombre());
                 Thread.sleep(3000);
             }
 
-            if (consultaTercerosBean.getApellido() != null ){
-                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
-                aTercero.sendKeys(consultaTercerosBean.getApellido());
+            if (consultaTercerosLBCBean.getTipoDocId() != null){
+                Select tipoDocId = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+                tipoDocId.selectByValue(consultaTercerosLBCBean.getTipoDocId());
                 Thread.sleep(1000);
             }
+
+            if (consultaTercerosLBCBean.getNumDocId() != null){
+                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+                cedu.sendKeys(consultaTercerosLBCBean.getNumDocId());
+                Thread.sleep(1000);
+            }
+
 
             //Screenshot
             Thread.sleep(1000);
@@ -94,8 +95,8 @@ public class ConsultaTercerosLBC {
             buscar.click();
             Thread.sleep(3000);
 
-            WebElement selccionTercero = driver.findElement(By.name("SearchContent:ThirdInformation:showDetailSearchTable:proof:ThirdPartyRadioGroup"));
-            selccionTercero.click();
+            WebElement seleccionTercero = driver.findElement(By.name("SearchContent:ThirdInformation:showDetailSearchTable:proof:ThirdPartyRadioGroup"));
+            seleccionTercero.click();
 
             //Screenshot
             Thread.sleep(1000);
