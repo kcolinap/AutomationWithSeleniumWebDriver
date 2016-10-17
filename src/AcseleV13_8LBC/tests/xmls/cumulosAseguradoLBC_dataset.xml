@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <CUMULOS_ASEGURADO_LBC PRUEBA="1" TIPO_TERCEROS="Tipo_Terceros" APELLIDO="Apellido"
+                         NOMBRE="Nombre" TIPO_DOC_IDENTIFICACION="Tipo_Doc_Identificacion"
+                         NUM_DOC_IDENTIFICACION="Num_Doc_Identificacion"/>
+</dataset>
