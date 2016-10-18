@@ -40,14 +40,14 @@ public class VistaCumulosProductoLBCTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("select Prueba,Producto, Moneda FROM CUMULOS_PRODUCTOS_LBC ORDER BY PRUEBA ASC",
+       /* DataSetManager.createPartialDataSet("select Prueba,Producto, Moneda FROM CUMULOS_PRODUCTOS_LBC ORDER BY PRUEBA ASC",
                 "CUMULOS_PRODUCTOS_LBC",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8LBC/tests/xmls/cumulosProductoLBC_dataset.xml");
 
         DataSetManager.createPartialDataSet("select Prueba,Producto, Moneda FROM CUMULOS_PRODUCTOS_LBC ORDER BY PRUEBA ASC",
                 "CUMULOS_PRODUCTOS_LBC",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8LBC/tests/xmls/cumulosProductoLBC_dataset.xml");
-
+*/
         DataSetManager.loadDataSet("/AcseleV13_8LBC/tests/xmls/cumulosProductoLBC_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 

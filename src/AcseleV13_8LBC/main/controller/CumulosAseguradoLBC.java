@@ -29,7 +29,7 @@ public class CumulosAseguradoLBC implements Serializable{
         Thread.sleep(8000);
 
         m.Cumulos_CumulosPorAsegurado(driver, a, nombreAutomatizacion,i);
-        Thread.sleep(8000);
+        Thread.sleep(4000);
         a.cambiarVentana(driver);
         BusquedaAsegurado(driver, a, cumulosAseguradoLBCBean, i);
 
@@ -47,23 +47,23 @@ public class CumulosAseguradoLBC implements Serializable{
             WebElement tipoTerceros  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[1]/td"));
             tipoTerceros.click();
 
-
-            Thread.sleep(4000);
-            WebElement btnSeleccionar2 = driver.findElement(By.xpath("//*[@id=\"TipoDocumento\"]/div"));
-            btnSeleccionar2.click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             if (cumulosAseguradoLBCBean.getApellido() != null){
-                WebElement apellido = driver.findElement(By.xpath("//*[@id=\"Apellido\"]"));
+                WebElement apellido = driver.findElement(By.xpath("//*[@id=\"LastName\"]"));
                 apellido.sendKeys(cumulosAseguradoLBCBean.getApellido());
             }
 
             Thread.sleep(1000);
             if (cumulosAseguradoLBCBean.getNombre() != null){
-                WebElement nombre = driver.findElement(By.xpath("//*[@id=\"Nombre\"]"));
+                WebElement nombre = driver.findElement(By.xpath("//*[@id=\"FirstName\"]"));
                 nombre.sendKeys(cumulosAseguradoLBCBean.getNombre());
             }
 
+            Thread.sleep(1000);
+            WebElement btnSeleccionar2 = driver.findElement(By.xpath("*//*[@id=\"TipoDocIdentificacion\"]/div"));
+            btnSeleccionar2.click();
+            Thread.sleep(1000);
             WebElement tipoDocIdentificacion  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td/span"));
             tipoDocIdentificacion.click();
 
@@ -71,7 +71,7 @@ public class CumulosAseguradoLBC implements Serializable{
 
 
             Thread.sleep(1000);
-            WebElement numDocIdentificacion = driver.findElement(By.xpath("//*[@id=\"DocumentoIdentidad\"]"));
+            WebElement numDocIdentificacion = driver.findElement(By.xpath("//*[@id=\"IdentifierI\"]"));
             numDocIdentificacion.sendKeys(cumulosAseguradoLBCBean.getNumDocIdentificacion());
 
 
@@ -83,13 +83,13 @@ public class CumulosAseguradoLBC implements Serializable{
             btnBuscar.click();
 
             Thread.sleep(2000);
-            WebElement btnResultadoBusqueda= driver.findElement(By.xpath("//*[@id=\"gwt-uid-78\"]/div[2]/div[1]/table/tbody/tr/td[1]/div"));
+            WebElement btnResultadoBusqueda= driver.findElement(By.xpath("//*[@id=\"gwt-uid-92\"]/div[2]/div[1]/table/tbody/tr/td[1]/div"));
             btnResultadoBusqueda.click();
             Thread.sleep(2000);
             a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
 
             Thread.sleep(5000);
-            WebElement btnCumuloAsegurado= driver.findElement(By.xpath("//*[@id=\"panelThirdParty\"]/div[2]/div/div[7]/div/div[2]/div/div[3]/div/div[1]/div/span/span"));
+            WebElement btnCumuloAsegurado= driver.findElement(By.xpath("//*[@id=\"panelThirdParty\"]/div[2]/div/div[7]/div/div[2]/div/div[3]/div/div/div/span/span"));
             btnCumuloAsegurado.click();
 
             Thread.sleep(2000);

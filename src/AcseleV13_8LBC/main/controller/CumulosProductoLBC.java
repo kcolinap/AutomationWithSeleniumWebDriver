@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller;
-import AcseleV13_8.main.controller.Menu.MenuOperaciones;
-import AcseleV13_8.main.controller.Metodos;
+
 import AcseleV13_8LBC.beans.CumulosProductoLBCBean;
+import AcseleV13_8LBC.main.controller.Menu.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class CumulosProductoLBC {
     public void testLink(CumulosProductoLBCBean cumulosProductoLBCBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        MetodosLBC a = new MetodosLBC();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -27,7 +27,7 @@ public class CumulosProductoLBC {
         Thread.sleep(8000);
 
         m.Cumulos_CumulosPorProducto(driver, a, nombreAutomatizacion,i);
-        Thread.sleep(8000);
+        Thread.sleep(4000);
         a.cambiarVentana(driver);
         BusquedaProductos(driver, a, cumulosProductoLBCBean,i);
 
@@ -35,7 +35,7 @@ public class CumulosProductoLBC {
     }
 
 
-    public void BusquedaProductos (WebDriver driver, Metodos a, CumulosProductoLBCBean cumulosProductoLBCBean, int i) throws IOException, InterruptedException{
+    public void BusquedaProductos (WebDriver driver, MetodosLBC a, CumulosProductoLBCBean cumulosProductoLBCBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);
