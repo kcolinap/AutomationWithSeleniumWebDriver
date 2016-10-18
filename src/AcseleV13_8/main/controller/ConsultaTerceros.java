@@ -18,7 +18,7 @@ public class ConsultaTerceros {
 
     private final static Logger log = Logger.getLogger(ConsultaTerceros.class);
 
-    public String nombreAutomatizacion ="Consulta Terceros";
+    public String nombreAutomatizacion ="Consulta LBC_Terceros";
 
     public void testLink(ConsultaTercerosBean consultaTercerosBean, int i)throws Exception {
 

@@ -18,7 +18,7 @@ public class CumulosTerceros {
 
     private final static Logger log = Logger.getLogger(CumulosTerceros.class);
 
-    public String nombreAutomatizacion = "Cumulos Terceros";
+    public String nombreAutomatizacion = "Cumulos LBC_Terceros";
 
     public void testLink(CumulosTercerosBean cumulosTercerosBean,int i) throws IOException, InterruptedException {
 

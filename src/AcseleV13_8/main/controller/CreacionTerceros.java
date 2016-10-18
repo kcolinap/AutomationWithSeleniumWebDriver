@@ -14,7 +14,7 @@ import java.io.IOException;
  * Created by agil on 30/05/2016.
  */
 public class CreacionTerceros {
-    public String nombreAutomatizacion = "Creacion Terceros";
+    public String nombreAutomatizacion = "Creacion LBC_Terceros";
 
     public void testLink(CreacionTercerosBean creacionTercerosBean, int i)throws Exception{
 

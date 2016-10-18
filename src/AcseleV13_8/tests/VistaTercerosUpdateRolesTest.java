@@ -31,7 +31,7 @@ public class VistaTercerosUpdateRolesTest {
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - Terceros Informacion Financiera - " + e);
+                log.info("Test Case - LBC_Terceros Informacion Financiera - " + e);
             }
         }
     }

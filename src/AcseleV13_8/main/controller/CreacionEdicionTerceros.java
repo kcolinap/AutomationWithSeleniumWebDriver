@@ -18,7 +18,7 @@ public class CreacionEdicionTerceros {
 
     private final static Logger log = Logger.getLogger(CreacionEdicionTerceros.class);
 
-    public String nombreAutomatizacion = "Creacion y edicion Terceros";
+    public String nombreAutomatizacion = "Creacion y edicion LBC_Terceros";
 
     public void testLink(CreacionEdicionTercerosBean creacionEdicionTercerosBean, int i)throws Exception{
 
@@ -38,7 +38,7 @@ public class CreacionEdicionTerceros {
             Thread.sleep(2000);
             a.cambiarVentana(driver); // Cambiar de ventana
             Thread.sleep(2000);
-            CreacionT(a,driver, creacionEdicionTercerosBean); //Creacion Terceros
+            CreacionT(a,driver, creacionEdicionTercerosBean); //Creacion LBC_Terceros
             a.regresarVentana(driver);
 
             // Consulta del Tercero Creado

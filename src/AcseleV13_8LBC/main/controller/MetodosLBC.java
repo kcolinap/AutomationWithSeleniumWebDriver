@@ -67,7 +67,7 @@ public class MetodosLBC {
     }
 
     public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba) throws InterruptedException, IOException {
-        String rutaScreen = "C:\\ScrenShots\\";
+        String rutaScreen = "C:\\ScrenShots\\LBC\\";
         TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + i + "\\" + titulo + ".png"));
@@ -109,8 +109,8 @@ public class MetodosLBC {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("aazuaje");       /** Usuario  **/
-        password2.sendKeys("Adriana1989");
+        user2.sendKeys("arivera");       /** Usuario  **/
+        password2.sendKeys("arivera");
 
         instance2.selectByVisibleText("La Boliviana Ciacruz (LBC)");
         language2.selectByValue("es_BO");

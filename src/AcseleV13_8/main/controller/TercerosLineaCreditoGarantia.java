@@ -18,7 +18,7 @@ public class TercerosLineaCreditoGarantia {
 
     private final static Logger log = Logger.getLogger(TercerosRoles.class);
 
-    public String nombreAutomatizacion = "Terceros Linea de Credito Garantia";
+    public String nombreAutomatizacion = "LBC_Terceros Linea de Credito Garantia";
 
     public void testLink(TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws Exception{
 

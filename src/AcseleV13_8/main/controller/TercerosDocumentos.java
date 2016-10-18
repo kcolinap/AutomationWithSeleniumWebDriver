@@ -18,7 +18,7 @@ public class TercerosDocumentos {
 
     private final static Logger log = Logger.getLogger(TercerosDirecciones.class);
 
-    public String nombreAutomatizacion = "Terceros Documentos";
+    public String nombreAutomatizacion = "LBC_Terceros Documentos";
 
     public void testLink(TercerosDocumentosBean tercerosDocumentosBean, int i)throws Exception{
 

@@ -18,7 +18,7 @@ public class TercerosUpdateRoles {
 
     private final static Logger log = Logger.getLogger(TercerosUpdateRoles.class);
 
-    String nombreAutomatizacion = "Terceros Update Roles";
+    String nombreAutomatizacion = "LBC_Terceros Update Roles";
 
     public void testLink(TercerosUpdateRolesBean tercerosUpdateRolesBean, int i) throws IOException, InterruptedException {
 
@@ -119,7 +119,7 @@ public class TercerosUpdateRoles {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 24 - Terceros Update Roles - " + e);
+            log.info("Test Case 24 - LBC_Terceros Update Roles - " + e);
         }
 
     }
@@ -144,7 +144,7 @@ public class TercerosUpdateRoles {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 24 - Terceros Update Roles - " + e);
+            log.info("Test Case 24 - LBC_Terceros Update Roles - " + e);
         }
 
         try{
@@ -181,7 +181,7 @@ public class TercerosUpdateRoles {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 24 - Terceros Update Roles - " + e);
+            log.info("Test Case 24 - LBC_Terceros Update Roles - " + e);
         }
     }
 
@@ -200,7 +200,7 @@ public class TercerosUpdateRoles {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 24 - Terceros Update Roles - " + e);
+            log.info("Test Case 24 - LBC_Terceros Update Roles - " + e);
         }
     }
 

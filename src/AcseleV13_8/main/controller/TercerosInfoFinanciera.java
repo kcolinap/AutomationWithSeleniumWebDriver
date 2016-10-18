@@ -19,7 +19,7 @@ public class TercerosInfoFinanciera {
 
     private final static Logger log = Logger.getLogger(TercerosInfoFinanciera.class);
 
-    public String nombreAutomatizacion = "Terceros Informacion Financiera";
+    public String nombreAutomatizacion = "LBC_Terceros Informacion Financiera";
 
     public void testLink(TercerosInfoFinancieraBean tercerosInfoFinancieraBean, int i)throws Exception{
 
@@ -437,7 +437,7 @@ public class TercerosInfoFinanciera {
 //        } catch (Exception e){
 //            e.printStackTrace();
 ////             log.info(e);
-//            log.info("Test Case 23 - Terceros Informacion financiera - " + e);
+//            log.info("Test Case 23 - LBC_Terceros Informacion financiera - " + e);
 //        }
     }
 
@@ -455,7 +455,7 @@ public class TercerosInfoFinanciera {
             } catch (Exception e) {
                 e.printStackTrace();
 //             log.info(e);
-                log.info("Test Case 23 - Terceros Informacion financiera - " + e);
+                log.info("Test Case 23 - LBC_Terceros Informacion financiera - " + e);
             }
 
             Formulario(a, driver, tercerosInfoFinancieraBean);

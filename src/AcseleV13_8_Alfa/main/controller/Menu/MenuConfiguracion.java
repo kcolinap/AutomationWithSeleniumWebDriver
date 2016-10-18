@@ -109,9 +109,9 @@ public class MenuConfiguracion {
     public void SubirConfiguracionXLSXParaASL(){}
     /** -- Subir Configuracion XLSX para ASL -- **/
 
-    /** Bidireccionalidad de las Relaciones entre Terceros **/
+    /** Bidireccionalidad de las Relaciones entre LBC_Terceros **/
     public void BidireccionalidadRelacionesEntreTerceros(){}
-    /** -- Bidireccionalidad de las Relaciones entre Terceros -- **/
+    /** -- Bidireccionalidad de las Relaciones entre LBC_Terceros -- **/
 
     /** Configuracion de Procesos Masivos **/
     public void ConfiguracionProcesosMasivos(){}

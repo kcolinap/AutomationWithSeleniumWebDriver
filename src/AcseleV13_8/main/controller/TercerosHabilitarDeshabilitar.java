@@ -22,7 +22,7 @@ public class TercerosHabilitarDeshabilitar {
 
     private final static Logger log = Logger.getLogger(TercerosHabilitarDeshabilitar.class);
 
-    public String nombreAutomatizacion = "Terceros Habilitar Deshabilitar";
+    public String nombreAutomatizacion = "LBC_Terceros Habilitar Deshabilitar";
 
     public void testLink(TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean, int i) throws Exception{
 

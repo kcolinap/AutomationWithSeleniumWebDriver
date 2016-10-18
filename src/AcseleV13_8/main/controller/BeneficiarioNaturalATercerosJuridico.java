@@ -17,7 +17,7 @@ public class BeneficiarioNaturalATercerosJuridico {
 
     private final static Logger log = Logger.getLogger(BeneficiarioNaturalATercerosJuridico.class);
 
-    public String nombreAutomatizacion = "Beneficiario Natural A Terceros Juridico";
+    public String nombreAutomatizacion = "Beneficiario Natural A LBC_Terceros Juridico";
 
     public void testLink(BeneficiarioNaturalATerceroJuridicoBean beneficiarioNaturalATercerosJuridicoBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
@@ -61,7 +61,7 @@ public class BeneficiarioNaturalATercerosJuridico {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case ?? - Beneficiario Natural A Terceros Juridico - " + e);
+            log.info("Test Case ?? - Beneficiario Natural A LBC_Terceros Juridico - " + e);
         }
     }
 
@@ -119,7 +119,7 @@ public class BeneficiarioNaturalATercerosJuridico {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case ?? - Beneficiario Natural A Terceros Juridico - " + e);
+            log.info("Test Case ?? - Beneficiario Natural A LBC_Terceros Juridico - " + e);
         }
 
     }
@@ -154,7 +154,7 @@ public class BeneficiarioNaturalATercerosJuridico {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case ?? - Beneficiario Natural A Terceros Juridico - " + e);
+            log.info("Test Case ?? - Beneficiario Natural A LBC_Terceros Juridico - " + e);
         }
     }
 

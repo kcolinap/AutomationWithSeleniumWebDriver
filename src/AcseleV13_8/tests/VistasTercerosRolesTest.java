@@ -43,7 +43,7 @@ public class VistasTercerosRolesTest {
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case 22 - Terceros Asociacion de Roles - " + e);
+                log.info("Test Case 22 - LBC_Terceros Asociacion de Roles - " + e);
 
             }
         }

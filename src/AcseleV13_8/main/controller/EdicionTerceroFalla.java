@@ -18,7 +18,7 @@ public class EdicionTerceroFalla {
 
     private final static Logger log = Logger.getLogger(EdicionTerceroFalla.class);
 
-    public String nombreAutomatizacion ="Edicion Terceros Falla";
+    public String nombreAutomatizacion ="Edicion LBC_Terceros Falla";
 
     public void testLink(EdicionTercerosFallaBean edicionTercerosFallaBean, int i)throws Exception {
 

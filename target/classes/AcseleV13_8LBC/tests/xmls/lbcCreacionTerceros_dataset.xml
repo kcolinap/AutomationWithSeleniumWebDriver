@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <CREACION_TERCEROS_LBC PRUEBA="1"
+                         TIPO_TERCEROS="NaturalPerson"
+                         APELLIDO_PATERNO="Perez" APELLIDO_MATERNO="Bolivar"
+                         PRIMER_NOMBRE="Pedro" SEGUNDO_NOMBRE="Pablo"
+                         TIPO_DOC_IDENTIFICACION="778590" NUM_DOC_IDENTIFICACION="321520"
+                         SEXO="733924" ESTADO_CIVIL="733929" FACTURA_CI_NIT="ci"
+                         NACIONALIDAD="" FECHA_NACIMIENTO="12-10-1976"
+                         CATEG_ACTIV_ECO_OCU_PPAL="773038" ACTIV_ECO_OCU_PPAL="2.0" TIPO_TRABAJADOR="733934"
+                         TELEFONO_FIJO_1="520520"/>
+</dataset>

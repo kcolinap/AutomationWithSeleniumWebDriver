@@ -18,7 +18,7 @@ public class TercerosInformacionTecnica {
 
     private final static Logger log = Logger.getLogger(TercerosInformacionTecnica.class);
 
-    public String nombreAutomatizacion = "Informacion Tecnica de Terceros";
+    public String nombreAutomatizacion = "Informacion Tecnica de LBC_Terceros";
 
     public void testLink(TercerosInfTecnicaBean tercerosInfTecnicaBean, int i)throws Exception{
 

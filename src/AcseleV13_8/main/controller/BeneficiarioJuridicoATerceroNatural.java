@@ -61,7 +61,7 @@ public class BeneficiarioJuridicoATerceroNatural {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case ?? - Beneficiario Juridico A Terceros Natural- " + e);
+            log.info("Test Case ?? - Beneficiario Juridico A LBC_Terceros Natural- " + e);
         }
     }
 
@@ -113,7 +113,7 @@ public class BeneficiarioJuridicoATerceroNatural {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case ?? - Beneficiario Juridico A Terceros Natural - " + e);
+            log.info("Test Case ?? - Beneficiario Juridico A LBC_Terceros Natural - " + e);
         }
 
     }

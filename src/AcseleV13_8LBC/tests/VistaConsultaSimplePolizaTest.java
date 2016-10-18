@@ -20,7 +20,13 @@ public class VistaConsultaSimplePolizaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList consultaPoliza = ConsultaSimplePolizaBean.getConsultaSimplePolizaBean();
+        ArrayList consultaPoliza = null;
+
+        try {
+            consultaPoliza = ConsultaSimplePolizaBean.getConsultaSimplePolizaBean();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< consultaPoliza.size(); j++) {
             ConsultaSimplePolizaBean consultaSimplePolizaBean = (ConsultaSimplePolizaBean) consultaPoliza.get(j);
