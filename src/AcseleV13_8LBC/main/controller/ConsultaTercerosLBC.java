@@ -59,31 +59,31 @@ public class ConsultaTercerosLBC {
             if (consultaTercerosLBCBean.getTipoTercero() != null) {
                 Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
                 tipoT.selectByValue(consultaTercerosLBCBean.getTipoTercero());
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             }
 
             if (consultaTercerosLBCBean.getApellido() != null ){
-                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_field']"));
                 aTercero.sendKeys(consultaTercerosLBCBean.getApellido());
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             }
 
             if (consultaTercerosLBCBean.getNombre() != null){
-                WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
+                WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
                 nTercero.sendKeys(consultaTercerosLBCBean.getNombre());
                 Thread.sleep(3000);
             }
 
             if (consultaTercerosLBCBean.getTipoDocId() != null){
-                Select tipoDocId = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+                Select tipoDocId = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
                 tipoDocId.selectByValue(consultaTercerosLBCBean.getTipoDocId());
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             }
 
             if (consultaTercerosLBCBean.getNumDocId() != null){
-                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_4_fila_field']"));
                 cedu.sendKeys(consultaTercerosLBCBean.getNumDocId());
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             }
 
 
