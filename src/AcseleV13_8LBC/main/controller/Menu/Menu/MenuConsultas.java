@@ -1,6 +1,7 @@
 package AcseleV13_8LBC.main.controller.Menu.Menu;
 
 import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,14 +17,14 @@ public class MenuConsultas {
 
     private final static Logger log = Logger.getLogger(MenuMantenimiento.class);
 
-    Metodos a = new Metodos();
+    MetodosLBC a = new MetodosLBC();
 
     /** Consultas **/
     public void MovimientoPolizas(){
 
     }
 
-    public void EstadoCuentas(Metodos a, WebDriver driver, String nombreAutomatizacion,int numScreenShoot, int i){
+    public void EstadoCuentas(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[1]"));// Mantenimiento

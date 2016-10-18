@@ -473,13 +473,13 @@ public class MenuOperaciones {
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[1]"));//cumulos terceros
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[1]"));//cumulos terceros
 
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
             a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             menu3.click();
 
         }catch (Exception e) {
@@ -494,13 +494,13 @@ public class MenuOperaciones {
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[2]"));//cumulos productos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[2]"));//cumulos productos
 
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
             a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             menu3.click();
 
         }catch (Exception e) {
@@ -516,7 +516,7 @@ public class MenuOperaciones {
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[23]/div[3]"));//cumulos asegurado
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[3]"));//cumulos asegurado
 
             menu1.click();
             menu2.click();
