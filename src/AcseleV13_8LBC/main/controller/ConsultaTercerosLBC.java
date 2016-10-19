@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.ConsultaTercerosLBCBean;
-import AcseleV13_8LBC.main.controller.Menu.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

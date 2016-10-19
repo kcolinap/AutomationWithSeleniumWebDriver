@@ -1,4 +1,4 @@
-package AcseleV13_8LBC.main.controller.Menu.Menu;
+package AcseleV13_8LBC.main.controller.Menu;
 
 import org.openqa.selenium.WebDriver;
 

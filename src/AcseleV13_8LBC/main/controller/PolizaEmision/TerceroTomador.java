@@ -1,4 +1,4 @@
-package AcseleV13_8LBC.main.controller.PolizaEmision.PolizaEmision;
+package AcseleV13_8LBC.main.controller.PolizaEmision;
 
 import AcseleV13_8.beans.EmisionPolizaBeneficiarioNaturalBean;
 import AcseleV13_8.beans.PolizaBean;

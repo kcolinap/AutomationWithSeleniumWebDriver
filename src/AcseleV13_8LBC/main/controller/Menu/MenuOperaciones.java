@@ -1,4 +1,4 @@
-package AcseleV13_8LBC.main.controller.Menu.Menu;
+package AcseleV13_8LBC.main.controller.Menu;
 
 import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
