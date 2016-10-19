@@ -12,6 +12,10 @@ public class LBC_Caja {
     private String descripcion;
     private String ubicacion;
     private String sucursal;
+    private String cajero;
+    private String numeroCaja;
+    private String nombreCajero;
+    private String apellidoCajero;
 
     public String getDescripcion() {
         return descripcion;
@@ -35,5 +39,37 @@ public class LBC_Caja {
 
     public void setSucursal(String sucursal) {
         this.sucursal = sucursal;
+    }
+
+    public String getCajero() {
+        return cajero;
+    }
+
+    public void setCajero(String cajero) {
+        this.cajero = cajero;
+    }
+
+    public String getNumeroCaja() {
+        return numeroCaja;
+    }
+
+    public void setNumeroCaja(String numeroCaja) {
+        this.numeroCaja = numeroCaja;
+    }
+
+    public String getNombreCajero() {
+        return nombreCajero;
+    }
+
+    public void setNombreCajero(String nombreCajero) {
+        this.nombreCajero = nombreCajero;
+    }
+
+    public String getApellidoCajero() {
+        return apellidoCajero;
+    }
+
+    public void setApellidoCajero(String apellidoCajero) {
+        this.apellidoCajero = apellidoCajero;
     }
 }

@@ -120,25 +120,30 @@ public class MenuMantenimiento {
 //             log.info(e);
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
-    }
+        }
 
-        public void UAA_AsociarCajaCajero(WebDriver driver, int i, MetodosLBC a, String nombreAutomatizacion){
-            try{
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]"));//UAA (Administrador de Cuentas Universal)
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[5]"));//Asociar Caja con Cajero
+        public void UAA_AsociarCajaCajero(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[5]")); // Asociar Caja con Cajero
                 menu1.click();
                 menu2.click();
-                Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion); //screenshot2
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+                Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
                 menu3.click();
-
             }catch (Exception e){
                 e.printStackTrace();
 //             log.info(e);
-                log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
+
         public void UAA_Moneda(){}
         public void UAA_TasaCambio(){}
         public void UAA_Banco(){}
