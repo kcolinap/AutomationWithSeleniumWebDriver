@@ -5,9 +5,9 @@ import org.apache.log4j.Logger;
 /**
  * Created by agil on 19/10/2016.
  */
-public class LBC_Caja {
+public class LBC_CajaBean {
 
-    private final static Logger log = Logger.getLogger(LBC_Caja.class);
+    private final static Logger log = Logger.getLogger(LBC_CajaBean.class);
 
     private String descripcion;
     private String ubicacion;

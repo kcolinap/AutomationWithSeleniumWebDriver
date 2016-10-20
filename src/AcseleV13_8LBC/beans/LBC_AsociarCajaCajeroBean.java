@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by agil on 19/10/2016.
  */
-public class LBC_AsociarCajaCajeroBean extends LBC_Caja implements Serializable {
+public class LBC_AsociarCajaCajeroBean extends LBC_CajaBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(LBC_AsociarCajaCajeroBean.class);
 

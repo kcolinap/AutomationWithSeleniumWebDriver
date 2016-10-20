@@ -293,26 +293,26 @@ public class MenuOperaciones {
             public void UAA_Caja_AperturaCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
                 try {
-
                     Actions action = new Actions(driver);
-                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
-                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
-                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
-                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]"));//Aperturar Caja
+                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]")); // Apertura de Caja
                     menu1.click();
                     menu2.click();
                     menu3.click();
+                    Thread.sleep(1000);
                     action.moveToElement(menu4).build().perform();
                     Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+                    Toolkit.getDefaultToolkit().beep();
                     Thread.sleep(1000);
                     menu4.click();
-
-                } catch (Exception e){
+                }catch (Exception e){
                     e.printStackTrace();
-//             log.info(e);
-                    log.info("Test Case 28 - " + nombreAutomatizacion + " -  " + e);
+                    log.info("Test Case - " + nombreAutomatizacion + " - " + e);
                 }
+
             }
 
             public void UAA_Caja_InicioSesion(){}
@@ -335,23 +335,27 @@ public class MenuOperaciones {
 
             public void UAA_Caja_CierreVariosCajeros(){}
 
-            public void UAA_Caja_CierreCaja(WebDriver driver, MetodosLBC a,String nombrePrueba) throws IOException, InterruptedException {
+            public void UAA_Caja_CierreCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
+
                 try {
-                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones
-                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//UAA (Administrador de Cuentas Universal)
-                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]"));//Caja
-                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]"));//Cierre de Caja
+                    Actions action = new Actions(driver);
+                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]")); // Cierre de Caja
                     menu1.click();
                     menu2.click();
                     menu3.click();
-                    Thread.sleep(1500);
-                    a.ScreenShot(driver, "screen3", nombrePrueba); //screenshot2
+                    Thread.sleep(1000);
+                    action.moveToElement(menu4).build().perform();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+                    Toolkit.getDefaultToolkit().beep();
+                    Thread.sleep(1000);
                     menu4.click();
-
-                } catch (Exception e) {
+                }catch (Exception e){
                     e.printStackTrace();
-    //             log.info(e);
-                    log.info("Menu UAA (Administracion de Cuentas Universal) - Caja - " + e);
+                    log.info("Test Case - " + nombreAutomatizacion + " - " + e);
                 }
 
             }

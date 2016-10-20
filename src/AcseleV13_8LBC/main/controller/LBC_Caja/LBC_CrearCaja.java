@@ -1,10 +1,9 @@
 package AcseleV13_8LBC.main.controller.LBC_Caja;
 
-import AcseleV13_8LBC.beans.LBC_Caja;
+import AcseleV13_8LBC.beans.LBC_CajaBean;
 import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -18,7 +17,7 @@ public class LBC_CrearCaja {
 
     private final static Logger log = Logger.getLogger(LBC_CrearCaja.class);
 
-    public void CrearCaja(MetodosLBC a, WebDriver driver, LBC_Caja lbcCaja, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void CrearCaja(MetodosLBC a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
@@ -33,21 +32,21 @@ public class LBC_CrearCaja {
             Thread.sleep(4000);
 
             // Pantalla del formulario
-            if (lbcCaja.getDescripcion() != null){
+            if (lbcCajaBean.getDescripcion() != null){
                 WebElement descripcion = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/input"));
-                descripcion.sendKeys(lbcCaja.getDescripcion());
+                descripcion.sendKeys(lbcCajaBean.getDescripcion());
                 Thread.sleep(2000);
             }
 
-            if (lbcCaja.getUbicacion() != null){
+            if (lbcCajaBean.getUbicacion() != null){
                 WebElement ubicacion = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td/div/table/tbody/tr[2]/td[2]/input"));
-                ubicacion.sendKeys(lbcCaja.getUbicacion());
+                ubicacion.sendKeys(lbcCajaBean.getUbicacion());
                 Thread.sleep(2000);
             }
 
-            if (lbcCaja.getSucursal() != null){
+            if (lbcCajaBean.getSucursal() != null){
                 Select descripcion = new Select(driver.findElement(By.xpath("/html/body/form/table/tbody/tr[1]/td/div/table/tbody/tr[3]/td[2]/select")));
-                descripcion.selectByValue(lbcCaja.getSucursal());
+                descripcion.selectByValue(lbcCajaBean.getSucursal());
                 Thread.sleep(2000);
             }
 

@@ -11,13 +11,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by agil on 19/10/2016.
+ * Created by agil on 20/10/2016.
  */
-public class LBC_CreacionCajaBean extends LBC_CajaBean implements Serializable {
+public class LBC_CajaAperturaBean extends LBC_CajaBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(LBC_CreacionCajaBean.class);
+    private final static Logger log = Logger.getLogger(LBC_CajaAperturaBean.class);
 
-    public static ArrayList getLBC_CrearCajaBean() throws SQLException {
+    public static ArrayList getLBC_CajaAperturaBean() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
@@ -25,7 +25,7 @@ public class LBC_CreacionCajaBean extends LBC_CajaBean implements Serializable {
         ArrayList poliza = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, descripcion, ubicacion, sucursal FROM CREACION_CAJAS_LBC ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, NUM_CAJA FROM APERTURAR_CAJA_LBC ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -33,13 +33,11 @@ public class LBC_CreacionCajaBean extends LBC_CajaBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                LBC_CreacionCajaBean lbcCrearCajaBean = new LBC_CreacionCajaBean();
+                LBC_CajaAperturaBean lbcCajaAperturaBean = new LBC_CajaAperturaBean();
 
-                lbcCrearCajaBean.setDescripcion(rs.getString("descripcion"));
-                lbcCrearCajaBean.setUbicacion(rs.getString("ubicacion"));
-                lbcCrearCajaBean.setSucursal(rs.getString("sucursal"));
+                lbcCajaAperturaBean.setNumeroCaja(rs.getString("NUM_CAJA"));
 
-                poliza.add(lbcCrearCajaBean);
+                poliza.add(lbcCajaAperturaBean);
             }
         }catch(SQLException e) {
             log.error(e);

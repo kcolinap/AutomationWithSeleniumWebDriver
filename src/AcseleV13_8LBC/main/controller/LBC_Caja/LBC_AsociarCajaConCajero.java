@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller.LBC_Caja;
 
-import AcseleV13_8LBC.beans.LBC_Caja;
+import AcseleV13_8LBC.beans.LBC_CajaBean;
 import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -17,7 +17,7 @@ public class LBC_AsociarCajaConCajero {
 
     private final static Logger log = Logger.getLogger(LBC_AsociarCajaConCajero.class);
 
-    public void AsociarCajaConCajero(MetodosLBC a, WebDriver driver, LBC_Caja lbcCaja, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void AsociarCajaConCajero(MetodosLBC a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {
             Thread.sleep(2000);
@@ -30,18 +30,18 @@ public class LBC_AsociarCajaConCajero {
 
             // Llenado del formulario
             String textoCajero = null;
-            if (lbcCaja.getCajero() != null){
+            if (lbcCajaBean.getCajero() != null){
                 Select cajero = new Select(driver.findElement(By.xpath("/html/body/center/form/table[1]/tbody/tr[1]/td[2]/select")));
-                cajero.selectByValue(lbcCaja.getCajero());
+                cajero.selectByValue(lbcCajaBean.getCajero());
                 textoCajero = cajero.getFirstSelectedOption().getText();
                 Thread.sleep(2000);
             }
             System.out.println("Texto del select cajero: " + textoCajero);
 
             String textoNumCaja = null;
-            if (lbcCaja.getNumeroCaja() != null){
+            if (lbcCajaBean.getNumeroCaja() != null){
                 Select numeroCaja = new Select(driver.findElement(By.xpath("/html/body/center/form/table[1]/tbody/tr[2]/td[2]/select")));
-                numeroCaja.selectByValue(lbcCaja.getNumeroCaja());
+                numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
                 textoNumCaja = numeroCaja.getFirstSelectedOption().getText();
                 Thread.sleep(2000);
             }
@@ -89,7 +89,7 @@ public class LBC_AsociarCajaConCajero {
                         WebElement listaNumeroCajero = driver.findElement(By.xpath("/html/body/center/form/div/table/tbody/tr[" + k + "]/td[3]")); //arreglo para seleccionar la ultima plantilla creada
 
                         String textoNumeroCaja = listaNumeroCajero.getText();
-                        String numeroCajaXML = lbcCaja.getNumeroCaja();
+                        String numeroCajaXML = lbcCajaBean.getNumeroCaja();
                         System.out.println("Numero Caja del XML: " + numeroCajaXML);
 
                         if (textoNumeroCaja.equals(textoNumCaja)){
