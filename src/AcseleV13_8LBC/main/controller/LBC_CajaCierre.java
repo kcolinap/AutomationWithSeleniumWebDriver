@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 
-import AcseleV13_8LBC.beans.LBC_CajaAperturaBean;
+import AcseleV13_8LBC.beans.LBC_CajaCierreBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_Caja;
 import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
@@ -11,13 +11,13 @@ import java.io.IOException;
 /**
  * Created by agil on 20/10/2016.
  */
-public class LBC_CajaApertura {
+public class LBC_CajaCierre {
 
-    private final static Logger log = Logger.getLogger(LBC_CajaApertura.class);
+    private final static Logger log = Logger.getLogger(LBC_CajaCierre.class);
 
-    public String nombreAutomatizacion = "LBC Caja Apertura";
+    public String nombreAutomatizacion = "LBC Caja Cierre";
 
-    public void testLink(LBC_CajaAperturaBean lbcCajaAperturaBean, int i) throws IOException, InterruptedException {
+    public void testLink(LBC_CajaCierreBean lbcCajaCierreBean, int i) throws IOException, InterruptedException {
 
         try {
 
@@ -35,7 +35,7 @@ public class LBC_CajaApertura {
 
 
             //Entrando en Menu
-            menuOperaciones.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 2, i);
+            menuOperaciones.UAA_Caja_CierreCaja(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -44,7 +44,7 @@ public class LBC_CajaApertura {
             /** Asociar la Caja a Cajero */
 
             Thread.sleep(3000);
-            lbcCaja.AperturaCaja(a, driver, lbcCajaAperturaBean, nombreAutomatizacion, i, 3, 4, 5);
+            lbcCaja.CierreCaja(a, driver, lbcCajaCierreBean, nombreAutomatizacion, i, 3, 4, 5);
 
 
         } catch (Exception e) {

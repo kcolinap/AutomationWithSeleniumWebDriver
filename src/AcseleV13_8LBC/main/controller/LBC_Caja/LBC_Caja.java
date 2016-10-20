@@ -15,7 +15,7 @@ import java.awt.*;
  */
 public class LBC_Caja {
 
-    private final static Logger log = Logger.getLogger(LBC_AsociarCajaConCajero.class);
+    private final static Logger log = Logger.getLogger(LBC_Caja.class);
 
     public void AperturaCaja(MetodosLBC a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
@@ -53,4 +53,42 @@ public class LBC_Caja {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
+    public void CierreCaja(MetodosLBC a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+        try {
+            Thread.sleep(2000);
+
+            // Pantalla inicial
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(1000);
+
+            // Llenado del formulario
+
+            if (lbcCajaBean.getNumeroCaja() != null){
+                Select numeroCaja = new Select(driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[3]/td[2]/select")));
+                numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                Thread.sleep(2000);
+            }
+
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(1000);
+            WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterClosing_02\"]"));
+            btnAceptar.click();
+
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
 }
