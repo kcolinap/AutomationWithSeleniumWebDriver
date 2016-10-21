@@ -38,8 +38,8 @@ public class MenuOperaciones {
             try {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Operaciones Pólizas
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Cotización - Suscripción - Edición
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear (FrontEnd)
                 menu1.click();
                 menu2.click();
                 Thread.sleep(1000);

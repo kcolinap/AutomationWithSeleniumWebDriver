@@ -50,28 +50,24 @@ public class MenuMantenimiento {
             }
         }
 
-    public void MantTerc_BuscarTercero(MetodosLBC a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+    public void MantTerc_BuscarTercero(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[2]"));//Mantenimiento de terceros
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[38]/div[2]"));//Buscar tercero
-            Thread.sleep(2000);
-
-            action.moveToElement(menu1).build().perform();
-            action.moveToElement(menu2).build().perform();
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[2]")); // Buscar (FrontEnd)
+            menu1.click();
+            menu2.click();
+            Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
-
-            Thread.sleep(2000);
-            a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion);
-            Thread.sleep(3000);
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
             menu3.click();
-
-
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
-//                log.info(e);
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }

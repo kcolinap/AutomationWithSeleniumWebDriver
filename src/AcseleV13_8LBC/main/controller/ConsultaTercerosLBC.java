@@ -32,7 +32,7 @@ public class ConsultaTercerosLBC {
             Thread.sleep(3000);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(a,driver,nombreAutomatizacion, 2);
+            menuMantenimiento.MantTerc_BuscarTercero(driver,nombreAutomatizacion, i, 2);
 
             Thread.sleep(1000);
             a.cambiarVentana(driver); // Cambiar de ventana
