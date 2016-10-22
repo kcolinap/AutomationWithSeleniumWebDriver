@@ -28,7 +28,7 @@ public class VistaTercerosInfTecnicaLBCTest {
             TercerosInfTecnicaLBC a = new TercerosInfTecnicaLBC();
 
             try {
-                //a.testLink(tercerosInfTecnicaLBCBean, j);
+                a.testLink(tercerosInfTecnicaLBCBean, j);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);

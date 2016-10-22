@@ -22,7 +22,6 @@ public class TercerosInfTecnicaLBCBean implements Serializable {
     private String nombre;
     private String tipoDocIdentificacion;
     private String numDocIdentificacion;
-    private String moneda;
 
     public String getTipoTerceros() {return tipoTerceros;}
     public void setTipoTerceros(String tipoTerceros) {this.tipoTerceros = tipoTerceros;}
@@ -40,11 +39,6 @@ public class TercerosInfTecnicaLBCBean implements Serializable {
 
     public String getNumDocIdentificacion() {return numDocIdentificacion;}
     public void setNumDocIdentificacion(String numDocIdentificacion) {this.numDocIdentificacion = numDocIdentificacion;}
-
-    public String getMoneda() {return moneda;}
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
-    }
 
     public static ArrayList getTercerosInfTecnicaLBC() throws SQLException {
 
@@ -70,7 +64,7 @@ public class TercerosInfTecnicaLBCBean implements Serializable {
                 tercerosInfTecnicaLBCBean.setNombre(rs.getString("NOMBRE"));
                 tercerosInfTecnicaLBCBean.setTipoDocIdentificacion(rs.getString("TIPO_DOC_IDENTIFICACION"));
                 tercerosInfTecnicaLBCBean.setNumDocIdentificacion(rs.getString("NUM_DOC_IDENTIFICACION"));
-                tercerosInfTecnicaLBCBean.setMoneda(rs.getString("MONEDA"));
+
 
                 TercerosInfTecnicaLBC.add(tercerosInfTecnicaLBCBean);
 
