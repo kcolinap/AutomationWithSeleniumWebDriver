@@ -1,4 +1,4 @@
-package AcseleV13_8LBC.main.controller.PolizaEmision;
+package AcseleV13_8LBC.main.controller.LBC_PolizaEmision;
 
 import AcseleV13_8.beans.PolizaBean;
 import AcseleV13_8.main.controller.Metodos;

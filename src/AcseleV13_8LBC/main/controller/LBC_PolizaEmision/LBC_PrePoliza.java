@@ -1,7 +1,7 @@
-package AcseleV13_8LBC.main.controller.PolizaEmision;
+package AcseleV13_8LBC.main.controller.LBC_PolizaEmision;
 
-import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8LBC.beans.LBC_PolizasBean;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,14 +13,14 @@ import java.awt.*;
 /**
  * Created by agil on 16/09/2016.
  */
-public class PrePoliza {
+public class LBC_PrePoliza {
 
-    private final static Logger log = Logger.getLogger(PrePoliza.class);
+    private final static Logger log = Logger.getLogger(LBC_PrePoliza.class);
 
-    public void AdminPropuestaPoliza(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
+    public void AdminPropuestaPoliza(MetodosLBC a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
-            productoSelect.selectByValue(polizaBean.getProducto()); //VidaDeudoresAvVillas
+            productoSelect.selectByValue(lbcPolizaBean.getProducto()); //VidaDeudoresAvVillas
             Thread.sleep(2000);
 
             /*if(polizaBean instanceof ImpresionDocumentosNivelPolizaBean){
@@ -28,16 +28,16 @@ public class PrePoliza {
             }*/
 
             Select vigenciaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_validitiesComboBox']")));
-            vigenciaSelect.selectByValue(polizaBean.getVigencia()); //12= Anual
+            vigenciaSelect.selectByValue(lbcPolizaBean.getVigencia()); //12= Anual
             Thread.sleep(2000);
 
             WebElement fechaDes = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_initialDate']"));
-            fechaDes.sendKeys(polizaBean.getFechaDesde()); // 19-07-2016
+            fechaDes.sendKeys(lbcPolizaBean.getFechaDesde()); // 19-07-2016
             Thread.sleep(2000);
 
             WebElement fechaHas = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_finalDate']"));
-            if (polizaBean.getFechaHasta() != null) {
-                fechaHas.sendKeys(polizaBean.getFechaHasta());
+            if (lbcPolizaBean.getFechaHasta() != null) {
+                fechaHas.sendKeys(lbcPolizaBean.getFechaHasta());
             }
 
             Thread.sleep(2000);
@@ -58,27 +58,28 @@ public class PrePoliza {
 
         } catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void EvAplicar(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void EvAplicar(MetodosLBC a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
         try {
             Thread.sleep(3000);
-            Select eventoAplicarSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']")));
 
-            eventoAplicarSelect.selectByValue(polizaBean.getEventoAplicar()); // Emitir
-            Thread.sleep(2000);
+            if (lbcPolizaBean.getEventoAplicar() != null) {
+                Select eventoAplicarSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']")));
+                eventoAplicarSelect.selectByValue(lbcPolizaBean.getEventoAplicar()); // Emitir
+                Thread.sleep(2000);
+            }
 
-            if (polizaBean.getFechaMovimiento() != null){
+            if (lbcPolizaBean.getFechaMovimiento() != null){
                 WebElement fechaMovimiento = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_templateContainer_repeaterPanel_1_fila_fieldDate']"));
-                fechaMovimiento.sendKeys(polizaBean.getFechaMovimiento());
+                fechaMovimiento.sendKeys(lbcPolizaBean.getFechaMovimiento());
                 Thread.sleep(1000);
             }
-            if (polizaBean.getFechaEfectivaAplicacionEvento() != null){
-                WebElement fechaEfecAplicEvent = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_templateContainer_repeaterPanel_2_fila_fieldDate']"));
-                fechaEfecAplicEvent.sendKeys(polizaBean.getFechaEfectivaAplicacionEvento());
+            if (lbcPolizaBean.getDiasApmpliacion() != null){
+                WebElement diasApmpliacion = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_templateContainer_repeaterPanel_2_fila_fieldDate']"));
+                diasApmpliacion.sendKeys(lbcPolizaBean.getDiasApmpliacion());
                 Thread.sleep(1000);
             }
 
@@ -100,8 +101,7 @@ public class PrePoliza {
 
         }catch (Exception e){
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 }
