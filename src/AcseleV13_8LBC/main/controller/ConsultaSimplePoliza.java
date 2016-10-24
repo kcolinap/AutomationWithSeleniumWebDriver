@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 import AcseleV13_8LBC.beans.ConsultaSimplePolizaBean;
-import AcseleV13_8LBC.main.controller.Menu.Menu.MenuOperaciones;
+import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

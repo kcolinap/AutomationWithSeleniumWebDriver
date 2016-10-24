@@ -10,7 +10,6 @@ public class LBC_TercerosBean {
     private final static Logger log = Logger.getLogger(LBC_TercerosBean.class);
 
     private String producto;
-
     private String tipoTerceros;
     private String apellidoPaterno;
     private String apellidoMaterno;
