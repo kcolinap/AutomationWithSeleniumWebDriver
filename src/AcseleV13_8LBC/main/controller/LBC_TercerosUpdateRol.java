@@ -1,7 +1,8 @@
-package AcseleV13_8.main.controller;
+package AcseleV13_8LBC.main.controller;
 
-import AcseleV13_8.beans.TercerosUpdateRolesBean;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
+import AcseleV13_8LBC.beans.LBC_TercerosUpdateRolBean;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,18 +13,18 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Created by agil on 23/06/2016.
+ * Created by aazuaje on 24/10/2016.
  */
-public class TercerosUpdateRoles {
+public class LBC_TercerosUpdateRol {
 
-    private final static Logger log = Logger.getLogger(TercerosUpdateRoles.class);
+    private final static Logger log = Logger.getLogger(LBC_TercerosUpdateRolBean.class);
 
-    String nombreAutomatizacion = "LBC_Terceros Update Roles";
+    public String nombreAutomatizacion = "Terceros Update Rol LBC";
 
-    public void testLink(TercerosUpdateRolesBean tercerosUpdateRolesBean, int i) throws IOException, InterruptedException {
+    public void testLink(LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol, int i) throws IOException, InterruptedException {
 
         // Instanciando clases
-        Metodos a = new Metodos();
+        MetodosLBC a = new MetodosLBC();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
@@ -38,14 +39,14 @@ public class TercerosUpdateRoles {
         Thread.sleep(2000);
         a.cambiarVentana(driver);
         Thread.sleep(2000);
-        BusquedaT(a, driver, tercerosUpdateRolesBean); //Busqueda Tercero
+        BusquedaT(a, driver, lbc_tercerosUpdateRol); //Busqueda Tercero
 
         // Boton Editar
         // driver.findElement(By.xpath("//form/input")).click();
         driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']")).click();
         Thread.sleep(3000);
 
-        UpdateRol(a, driver, tercerosUpdateRolesBean);
+        UpdateRol(a, driver, lbc_tercerosUpdateRol);
 
         a.regresarVentana(driver);
 
@@ -53,12 +54,12 @@ public class TercerosUpdateRoles {
         Thread.sleep(2000);
         a.cambiarVentana(driver);
 
-        TrazaAuditoriaVaadin(driver, a, tercerosUpdateRolesBean);
+        TrazaAuditoriaVaadin(driver, a, lbc_tercerosUpdateRol);
 
 
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosUpdateRolesBean tercerosUpdateRolesBean) throws InterruptedException, IOException{
+    public void BusquedaT(MetodosLBC a, WebDriver driver, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException, IOException{
 
         try{
             Thread.sleep(4000);
@@ -66,37 +67,36 @@ public class TercerosUpdateRoles {
             System.out.println("Titulo de la pagina: " + title);
 
             //Tipo de tercero
-            if (tercerosUpdateRolesBean.getTipoTercero() != null) {
+            if (lbc_tercerosUpdateRol.getTipoTerceros() != null) {
                 Thread.sleep(3000);
-                // Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
-                tipoT.selectByValue(tercerosUpdateRolesBean.getTipoTercero());
+                tipoT.selectByValue(lbc_tercerosUpdateRol.getTipoTerceros());
             }
             Thread.sleep(2000); // //TipoElemento[@wicketpath='WicketpathElemento']
 
-            if (tercerosUpdateRolesBean.getTipoDocId() != null){
-                // Select tipoDoc = new Select(driver.findElement(By.name("templateThird:repeaterPanel1:1:fila:repeaterSelect:1:field")));
-                Select tipoDoc = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
-                tipoDoc.selectByValue(tercerosUpdateRolesBean.getTipoDocId());
+            if (lbc_tercerosUpdateRol.getApellido() != null) {
+                // WebElement aTercero = driver.findElement(By.name("templateThird:repeaterPanel1:5:fila:field"));
+                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                aTercero.sendKeys(lbc_tercerosUpdateRol.getApellido());
             }
 
-            if (tercerosUpdateRolesBean.getCedula() != null) {
-                // WebElement cedu = driver.findElement(By.name("templateThird:repeaterPanel1:2:fila:field"));
-                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
-                cedu.sendKeys(tercerosUpdateRolesBean.getCedula());
-            }
-
-            if (tercerosUpdateRolesBean.getNombre() != null) {
+            if (lbc_tercerosUpdateRol.getNombre() != null) {
                 // WebElement nTercero = driver.findElement(By.name("templateThird:repeaterPanel1:3:fila:field"));
                 WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
-                nTercero.sendKeys(tercerosUpdateRolesBean.getNombre());
+                nTercero.sendKeys(lbc_tercerosUpdateRol.getNombre());
             }
 
-//        if (tercerosUpdateRolesBean.getApellido() != null) {
-//            // WebElement aTercero = driver.findElement(By.name("templateThird:repeaterPanel1:5:fila:field"));
-//            WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
-//            aTercero.sendKeys(tercerosUpdateRolesBean.getApellido());
-//        }
+            if (lbc_tercerosUpdateRol.getTipoDocIdentificacion() != null){
+                // Select tipoDoc = new Select(driver.findElement(By.name("templateThird:repeaterPanel1:1:fila:repeaterSelect:1:field")));
+                Select tipoDoc = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+                tipoDoc.selectByValue(lbc_tercerosUpdateRol.getTipoDocIdentificacion());
+            }
+
+            if (lbc_tercerosUpdateRol.getNumDocIdentificacion() != null) {
+                // WebElement cedu = driver.findElement(By.name("templateThird:repeaterPanel1:2:fila:field"));
+                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+                cedu.sendKeys(lbc_tercerosUpdateRol.getNumDocIdentificacion());
+            }
 
             //Screenshot
             a.ScreenShot(driver, "screen4", nombreAutomatizacion);
@@ -124,7 +124,7 @@ public class TercerosUpdateRoles {
 
     }
 
-    public void UpdateRol(Metodos a, WebDriver driver, TercerosUpdateRolesBean tercerosUpdateRolesBean) throws InterruptedException {
+    public void UpdateRol(MetodosLBC a, WebDriver driver, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException {
 
         Thread.sleep(3000);
         try {
@@ -161,12 +161,12 @@ public class TercerosUpdateRoles {
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
-            gene.selectByValue(tercerosUpdateRolesBean.getGenero());
+            gene.selectByValue(lbc_tercerosUpdateRol.getGenero());
             Thread.sleep(2000);
             // fecNac = driver.findElement(By.xpath("//div[2]/div/div/div[4]/input")); // Fecha nacimiento
             fecNac = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_fieldDate']")); // Fecha nacimiento
             fecNac.clear();
-            fecNac.sendKeys(tercerosUpdateRolesBean.getFechaNac());
+            fecNac.sendKeys(lbc_tercerosUpdateRol.getFechaNac());
             Thread.sleep(1000);
 
             a.ScreenShot(driver, "screen8", nombreAutomatizacion);
@@ -185,7 +185,7 @@ public class TercerosUpdateRoles {
         }
     }
 
-    public void IngresarMenuTrazaAuditoriaVaadin(WebDriver driver, Metodos a) throws IOException, InterruptedException {
+    public void IngresarMenuTrazaAuditoriaVaadin(WebDriver driver, MetodosLBC a) throws IOException, InterruptedException {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -204,7 +204,7 @@ public class TercerosUpdateRoles {
         }
     }
 
-    public void TrazaAuditoriaVaadin(WebDriver driver, Metodos a, TercerosUpdateRolesBean tercerosUpdateRolesBean) throws InterruptedException, IOException {
+    public void TrazaAuditoriaVaadin(WebDriver driver, MetodosLBC a, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException, IOException {
 
         Thread.sleep(3000);
         // Fecha desde
@@ -214,9 +214,9 @@ public class TercerosUpdateRoles {
         // Boton Buscar
         WebElement btnBusca = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[2]/div/table/tbody/tr[7]/td[3]/div/div/div/div/span/span"));
 
-        feDesde.sendKeys(tercerosUpdateRolesBean.getAudFechaDesde());
+        feDesde.sendKeys(lbc_tercerosUpdateRol.getAudFechaDesde());
         Thread.sleep(1000);
-        feHasta.sendKeys(tercerosUpdateRolesBean.getAudFechaHasta());
+        feHasta.sendKeys(lbc_tercerosUpdateRol.getAudFechaHasta());
         Thread.sleep(1000);
 
         a.ScreenShot(driver, "screen10", nombreAutomatizacion);
