@@ -23,41 +23,27 @@ public class InformacionFinancieraLBCBean implements Serializable{
     private String cedula;
     private String nombre;
     private String apellido;
-    private String fechaExpedicionDocId;
-    private String lugarExpedicionDocId;
-    private String actividadEconomica;
-    private String nacionalidad;
-    private String empresaTrabaja;
-    private String areaTrabajo;
-    private String cargoTrabajo;
-    private String direccionLaboral;
-    private String ciudadLaboral;
-    private String telefonoLaboral;
-    private String numeroFax;
-    private String telefonoFijo;
-    private String telefonoCelular;
-    private String fechaDiligencia;
-    private String ingresosMensuales;
-    private String otrosIngresos;
-    private String conceptoOtrosIngresos;
-    private String egresosMensuales;
+    private String codIdentificador;
     private String activos;
-    private String pasivos;
-    private String verifInformacion;
-    private String observaciones;
-    private String manejaRecursosPub;
-    private String ejercePoderPub;
-    private String reconoPubGeneral;
-    private String reportaProdExterior;
-    private String opExtranjerasNo;
-    private String opExtranjerasImporta;
-    private String opExtranjerasExporta;
-    private String opExtranjerasInversion;
-    private String opExtranjerasOtra;
+    private String activosFijos;
+    private String inversiones;
+    private String otrosActivos;
+    private String totalActivos;
+    private String pasivoCirculante;
+    private String pasivosLargoPlazo;
+    private String capitalPagado;
+    private String capitalReserva;
+    private String excedente;
+    private String totPasCap;
+    private String capitalTrabajo;
+    private String solvencia;
+    private String liquidez;
+
 
     public String getTipoTercero() {
         return tipoTercero;
     }
+
     public void setTipoTercero(String tipoTercero) {
         this.tipoTercero = tipoTercero;
     }
@@ -65,6 +51,7 @@ public class InformacionFinancieraLBCBean implements Serializable{
     public String getTipoDocId() {
         return tipoDocId;
     }
+
     public void setTipoDocId(String tipoDocId) {
         this.tipoDocId = tipoDocId;
     }
@@ -72,6 +59,7 @@ public class InformacionFinancieraLBCBean implements Serializable{
     public String getCedula() {
         return cedula;
     }
+
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
@@ -79,6 +67,7 @@ public class InformacionFinancieraLBCBean implements Serializable{
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -86,226 +75,132 @@ public class InformacionFinancieraLBCBean implements Serializable{
     public String getApellido() {
         return apellido;
     }
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    public String getFechaExpedicionDocId() {
-        return fechaExpedicionDocId;
-    }
-    public void setFechaExpedicionDocId(String fechaExpedicionDocId) {
-        this.fechaExpedicionDocId = fechaExpedicionDocId;
+    public String getCodIdentificador() {
+        return codIdentificador;
     }
 
-    public String getLugarExpedicionDocId() {
-        return lugarExpedicionDocId;
-    }
-    public void setLugarExpedicionDocId(String lugarExpedicionDocId) {
-        this.lugarExpedicionDocId = lugarExpedicionDocId;
-    }
-
-    public String getActividadEconomica() {
-        return actividadEconomica;
-    }
-    public void setActividadEconomica(String actividadEconomica) {
-        this.actividadEconomica = actividadEconomica;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public String getEmpresaTrabaja() {
-        return empresaTrabaja;
-    }
-    public void setEmpresaTrabaja(String empresaTrabaja) {
-        this.empresaTrabaja = empresaTrabaja;
-    }
-
-    public String getAreaTrabajo() {
-        return areaTrabajo;
-    }
-    public void setAreaTrabajo(String areaTrabajo) {
-        this.areaTrabajo = areaTrabajo;
-    }
-
-    public String getCargoTrabajo() {
-        return cargoTrabajo;
-    }
-    public void setCargoTrabajo(String cargoTrabajo) {
-        this.cargoTrabajo = cargoTrabajo;
-    }
-
-    public String getDireccionLaboral() {
-        return direccionLaboral;
-    }
-    public void setDireccionLaboral(String direccionLaboral) {
-        this.direccionLaboral = direccionLaboral;
-    }
-
-    public String getCiudadLaboral() {
-        return ciudadLaboral;
-    }
-    public void setCiudadLaboral(String ciudadLaboral) {
-        this.ciudadLaboral = ciudadLaboral;
-    }
-
-    public String getTelefonoLaboral() {
-        return telefonoLaboral;
-    }
-    public void setTelefonoLaboral(String telefonoLaboral) {
-        this.telefonoLaboral = telefonoLaboral;
-    }
-
-    public String getNumeroFax() {
-        return numeroFax;
-    }
-    public void setNumeroFax(String numeroFax) {
-        this.numeroFax = numeroFax;
-    }
-
-    public String getTelefonoFijo() {
-        return telefonoFijo;
-    }
-    public void setTelefonoFijo(String telefonoFijo) {
-        this.telefonoFijo = telefonoFijo;
-    }
-
-    public String getTelefonoCelular() {
-        return telefonoCelular;
-    }
-    public void setTelefonoCelular(String telefonoCelular) {
-        this.telefonoCelular = telefonoCelular;
-    }
-
-    public String getFechaDiligencia() {
-        return fechaDiligencia;
-    }
-    public void setFechaDiligencia(String fechaDiligencia) {
-        this.fechaDiligencia = fechaDiligencia;
-    }
-
-    public String getIngresosMensuales() {
-        return ingresosMensuales;
-    }
-    public void setIngresosMensuales(String ingresosMensuales) {
-        this.ingresosMensuales = ingresosMensuales;
-    }
-
-    public String getOtrosIngresos() {
-        return otrosIngresos;
-    }
-    public void setOtrosIngresos(String otrosIngresos) {
-        this.otrosIngresos = otrosIngresos;
-    }
-
-    public String getConceptoOtrosIngresos() {
-        return conceptoOtrosIngresos;
-    }
-    public void setConceptoOtrosIngresos(String conceptoOtrosIngresos) {
-        this.conceptoOtrosIngresos = conceptoOtrosIngresos;
-    }
-
-    public String getEgresosMensuales() {
-        return egresosMensuales;
-    }
-    public void setEgresosMensuales(String egresosMensuales) {
-        this.egresosMensuales = egresosMensuales;
+    public void setCodIdentificador(String codIdentificador) {
+        this.codIdentificador = codIdentificador;
     }
 
     public String getActivos() {
         return activos;
     }
+
     public void setActivos(String activos) {
         this.activos = activos;
     }
 
-    public String getPasivos() {
-        return pasivos;
-    }
-    public void setPasivos(String pasivos) {
-        this.pasivos = pasivos;
+    public String getActivosFijos() {
+        return activosFijos;
     }
 
-    public String getVerifInformacion() {
-        return verifInformacion;
-    }
-    public void setVerifInformacion(String verifInformacion) {
-        this.verifInformacion = verifInformacion;
+    public void setActivosFijos(String activosFijos) {
+        this.activosFijos = activosFijos;
     }
 
-    public String getObservaciones() {
-        return observaciones;
-    }
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public String getInversiones() {
+        return inversiones;
     }
 
-    public String getManejaRecursosPub() {
-        return manejaRecursosPub;
-    }
-    public void setManejaRecursosPub(String manejaRecursosPub) {
-        this.manejaRecursosPub = manejaRecursosPub;
+    public void setInversiones(String inversiones) {
+        this.inversiones = inversiones;
     }
 
-    public String getEjercePoderPub() {
-        return ejercePoderPub;
-    }
-    public void setEjercePoderPub(String ejercePoderPub) {
-        this.ejercePoderPub = ejercePoderPub;
+    public String getOtrosActivos() {
+        return otrosActivos;
     }
 
-    public String getReconoPubGeneral() {
-        return reconoPubGeneral;
-    }
-    public void setReconoPubGeneral(String reconoPubGeneral) {
-        this.reconoPubGeneral = reconoPubGeneral;
+    public void setOtrosActivos(String otrosActivos) {
+        this.otrosActivos = otrosActivos;
     }
 
-    public String getReportaProdExterior() {
-        return reportaProdExterior;
-    }
-    public void setReportaProdExterior(String reportaProdExterior) {
-        this.reportaProdExterior = reportaProdExterior;
+    public String getTotalActivos() {
+        return totalActivos;
     }
 
-    public String getOpExtranjerasNo() {
-        return opExtranjerasNo;
-    }
-    public void setOpExtranjerasNo(String opExtranjerasNo) {
-        this.opExtranjerasNo = opExtranjerasNo;
+    public void setTotalActivos(String totalActivos) {
+        this.totalActivos = totalActivos;
     }
 
-    public String getOpExtranjerasImporta() {
-        return opExtranjerasImporta;
-    }
-    public void setOpExtranjerasImporta(String opExtranjerasImporta) {
-        this.opExtranjerasImporta = opExtranjerasImporta;
+    public String getPasivoCirculante() {
+        return pasivoCirculante;
     }
 
-    public String getOpExtranjerasExporta() {
-        return opExtranjerasExporta;
-    }
-    public void setOpExtranjerasExporta(String opExtranjerasExporta) {
-        this.opExtranjerasExporta = opExtranjerasExporta;
+    public void setPasivoCirculante(String pasivoCirculante) {
+        this.pasivoCirculante = pasivoCirculante;
     }
 
-    public String getOpExtranjerasInversion() {
-        return opExtranjerasInversion;
-    }
-    public void setOpExtranjerasInversion(String opExtranjerasInversion) {
-        this.opExtranjerasInversion = opExtranjerasInversion;
+    public String getPasivosLargoPlazo() {
+        return pasivosLargoPlazo;
     }
 
-    public String getOpExtranjerasOtra() {
-        return opExtranjerasOtra;
+    public void setPasivosLargoPlazo(String pasivosLargoPlazo) {
+        this.pasivosLargoPlazo = pasivosLargoPlazo;
     }
-    public void setOpExtranjerasOtra(String opExtranjerasOtra) {
-        this.opExtranjerasOtra = opExtranjerasOtra;
+
+    public String getCapitalPagado() {
+        return capitalPagado;
     }
+
+    public void setCapitalPagado(String capitalPagado) {
+        this.capitalPagado = capitalPagado;
+    }
+
+    public String getCapitalReserva() {
+        return capitalReserva;
+    }
+
+    public void setCapitalReserva(String capitalReserva) {
+        this.capitalReserva = capitalReserva;
+    }
+
+    public String getExcedente() {
+        return excedente;
+    }
+
+    public void setExcedente(String excedente) {
+        this.excedente = excedente;
+    }
+
+    public String getTotPasCap() {
+        return totPasCap;
+    }
+
+    public void setTotPasCap(String totPasCap) {
+        this.totPasCap = totPasCap;
+    }
+
+    public String getCapitalTrabajo() {
+        return capitalTrabajo;
+    }
+
+    public void setCapitalTrabajo(String capitalTrabajo) {
+        this.capitalTrabajo = capitalTrabajo;
+    }
+
+    public String getSolvencia() {
+        return solvencia;
+    }
+
+    public void setSolvencia(String solvencia) {
+        this.solvencia = solvencia;
+    }
+
+    public String getLiquidez() {
+        return liquidez;
+    }
+
+    public void setLiquidez(String liquidez) {
+        this.liquidez = liquidez;
+    }
+
+
 
     public static ArrayList getInformacionFinanciera() throws SQLException {
 
@@ -315,7 +210,7 @@ public class InformacionFinancieraLBCBean implements Serializable{
         ArrayList terceros = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM TERCEROS_INF_FINANCIERA ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM INFORMACION_FINANCIERA_LBC ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -329,37 +224,22 @@ public class InformacionFinancieraLBCBean implements Serializable{
                 informacionFinancieraLBCBean.setCedula(rs.getString("CEDULA"));
                 informacionFinancieraLBCBean.setNombre(rs.getString("NOMBRE"));
                 informacionFinancieraLBCBean.setApellido(rs.getString("APELLIDO"));
-                informacionFinancieraLBCBean.setFechaExpedicionDocId(rs.getString("FEC_EXPE_DOC_ID"));
-                informacionFinancieraLBCBean.setLugarExpedicionDocId(rs.getString("LUG_EXPE_DOC_ID"));
-                informacionFinancieraLBCBean.setActividadEconomica(rs.getString("ACTIVIDAD_ECONOMICA_CIIU"));
-                informacionFinancieraLBCBean.setNacionalidad(rs.getString("NACIONALIDAD"));
-                informacionFinancieraLBCBean.setEmpresaTrabaja(rs.getString("EMPRESA_TRABAJA"));
-                informacionFinancieraLBCBean.setAreaTrabajo(rs.getString("AREA"));
-                informacionFinancieraLBCBean.setCargoTrabajo(rs.getString("CARGO"));
-                informacionFinancieraLBCBean.setDireccionLaboral(rs.getString("DIRECCION_LABORAL"));
-                informacionFinancieraLBCBean.setCiudadLaboral(rs.getString("CIUDAD_LABORAL"));
-                informacionFinancieraLBCBean.setTelefonoLaboral(rs.getString("TELF_LABORAL"));
-                informacionFinancieraLBCBean.setNumeroFax(rs.getString("NUM_FAX"));
-                informacionFinancieraLBCBean.setTelefonoFijo(rs.getString("TELF_FIJO"));
-                informacionFinancieraLBCBean.setTelefonoCelular(rs.getString("TELF_CELULAR"));
-                informacionFinancieraLBCBean.setFechaDiligencia(rs.getString("FEC_DILIG_SARLAFT"));
-                informacionFinancieraLBCBean.setIngresosMensuales(rs.getString("INGRESOS_MENSUALES"));
-                informacionFinancieraLBCBean.setOtrosIngresos(rs.getString("OTROS_INGRESOS"));
-                informacionFinancieraLBCBean.setConceptoOtrosIngresos(rs.getString("CONCEPTO_OTROS_INGRESOS"));
-                informacionFinancieraLBCBean.setEgresosMensuales(rs.getString("EGRESOS_MENSUALES"));
+                informacionFinancieraLBCBean.setCodIdentificador(rs.getString("COD_IDENTIFICADOR"));
                 informacionFinancieraLBCBean.setActivos(rs.getString("ACTIVOS"));
-                informacionFinancieraLBCBean.setPasivos(rs.getString("PASIVOS"));
-                informacionFinancieraLBCBean.setVerifInformacion(rs.getString("VERIF_INFORMACION"));
-                informacionFinancieraLBCBean.setObservaciones(rs.getString("OBSERVACIONES"));
-                informacionFinancieraLBCBean.setManejaRecursosPub(rs.getString("MANEJA_RECURSO_PUBLICOS"));
-                informacionFinancieraLBCBean.setEjercePoderPub(rs.getString("EJERCE_PODER_PUBLICO"));
-                informacionFinancieraLBCBean.setReconoPubGeneral(rs.getString("RECONOCIMIENTO_PUBLICO_GENERAL"));
-                informacionFinancieraLBCBean.setReportaProdExterior(rs.getString("REP_PRODUCTOS_EXTERIOR"));
-                informacionFinancieraLBCBean.setOpExtranjerasNo(rs.getString("OPERA_EXTRANJERAS_NO"));
-                informacionFinancieraLBCBean.setOpExtranjerasImporta(rs.getString("OPERA_EXTRANJERAS_IMPORTA"));
-                informacionFinancieraLBCBean.setOpExtranjerasExporta(rs.getString("OPERA_EXTRANJERAS_EXPORTA"));
-                informacionFinancieraLBCBean.setOpExtranjerasInversion(rs.getString("OPERA_EXTRANJERAS_INVERSION"));
-                informacionFinancieraLBCBean.setOpExtranjerasOtra(rs.getString("OPERA_EXTRANJERAS_OTRA"));
+                informacionFinancieraLBCBean.setActivosFijos(rs.getString("ACTIVOS_FIJOS"));
+                informacionFinancieraLBCBean.setInversiones(rs.getString("INVERSIONES"));
+                informacionFinancieraLBCBean.setOtrosActivos(rs.getString("OTROS_ACTIVOS"));
+                informacionFinancieraLBCBean.setTotalActivos(rs.getString("TOTAL_ACTIVOS"));
+                informacionFinancieraLBCBean.setPasivoCirculante(rs.getString("PASIVO_CIRCULANTE"));
+                informacionFinancieraLBCBean.setPasivosLargoPlazo(rs.getString("PASIVO_LARGO_PLAZO"));
+                informacionFinancieraLBCBean.setCapitalPagado(rs.getString("CAPITAL_PAGADO"));
+                informacionFinancieraLBCBean.setCapitalReserva(rs.getString("CAPITAL_RESERVA"));
+                informacionFinancieraLBCBean.setExcedente(rs.getString("EXCEDENTE"));
+                informacionFinancieraLBCBean.setTotPasCap(rs.getString("TOTAL_PASIVO_CAPITAL"));
+                informacionFinancieraLBCBean.setCapitalTrabajo(rs.getString("CAPITAL_TRABAJO"));
+                informacionFinancieraLBCBean.setSolvencia(rs.getString("SOLVENCIA"));
+                informacionFinancieraLBCBean.setLiquidez(rs.getString("LIQUIDEZ"));
+
                 terceros.add(informacionFinancieraLBCBean);
             }
         }catch(SQLException e){
