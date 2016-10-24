@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_CajaAperturaBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_Caja;
-import AcseleV13_8LBC.main.controller.Menu.LBC_MenuOperaciones;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 

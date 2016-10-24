@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 import AcseleV13_8LBC.beans.LBC_EstadoCuentasBean;
-import AcseleV13_8LBC.main.controller.Menu.LBC_MenuConsultas;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuConsultas;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

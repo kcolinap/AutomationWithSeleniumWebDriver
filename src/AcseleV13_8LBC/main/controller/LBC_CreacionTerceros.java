@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_CreacionTercerosBean;
 import AcseleV13_8LBC.main.controller.LBC_Terceros.LBC_Crear;
-import AcseleV13_8LBC.main.controller.Menu.LBC_MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 

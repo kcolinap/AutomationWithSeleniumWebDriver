@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_AsociarCajaCajeroBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_AsociarCajaConCajero;
-import AcseleV13_8LBC.main.controller.Menu.LBC_MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
