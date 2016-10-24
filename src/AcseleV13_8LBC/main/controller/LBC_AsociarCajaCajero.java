@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_AsociarCajaCajeroBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_AsociarCajaConCajero;
-import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -22,8 +22,8 @@ public class LBC_AsociarCajaCajero {
         try {
 
             // Instanciando clases
-            MetodosLBC a = new MetodosLBC();
-            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+            LBC_Metodos a = new LBC_Metodos();
+            LBC_MenuMantenimiento LBCMenuMantenimiento = new LBC_MenuMantenimiento();
             //Crear Caja
             LBC_AsociarCajaConCajero lbcAsociarCajaConCajero = new LBC_AsociarCajaConCajero();
 
@@ -34,7 +34,7 @@ public class LBC_AsociarCajaCajero {
 
 
             //Entrando en Menu
-            menuMantenimiento.UAA_AsociarCajaCajero(driver, nombreAutomatizacion, 2, i);
+            LBCMenuMantenimiento.UAA_AsociarCajaCajero(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
