@@ -61,6 +61,7 @@ public class CrearOpenItemsBean {
     private String idiomaOmision;
     private String idioma;
     private String identificadorIV;
+    private String chequeoUnicidad;
     private String rol2;
     private String conceptoCuenta;
     private String fechaMov;
@@ -124,8 +125,8 @@ public class CrearOpenItemsBean {
     public void setComplementoDocIdent(String complementoDocIdent) {
         this.complementoDocIdent = complementoDocIdent;
     }
-    public String getsexo() {return sexo; }
-    public void setsexo(String sexo) {
+    public String getSexo() {return sexo; }
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
     public String getEstadoCivil() {return estadoCivil; }
@@ -152,84 +153,131 @@ public class CrearOpenItemsBean {
     public void setFacturarCiNit(String facturarCiNit) {
         this.facturarCiNit = facturarCiNit;
     }
-    public String getdireccCorrespondencia() {return direccCorrespondencia; }
-    public void setdireccCorrespondencia(String direccCorrespondencia) {this.direccCorrespondencia = direccCorrespondencia;}
+    public String getDireccCorrespondencia() {return direccCorrespondencia; }
+    public void setDireccCorrespondencia(String direccCorrespondencia) {this.direccCorrespondencia = direccCorrespondencia;}
     public String getNacionalidad() {return nacionalidad; }
     public void setNacionalidad(String nacionalidad) {this.nacionalidad = nacionalidad;}
-    public String getGradoInstruccion() {return gradoInstruccion; }
-    public void setGradoInstruccion(String gradoInstruccion) {
-        this.gradoInstruccion = gradoInstruccion;
+    public String getFechaNacimiento() {return fechaNacimiento; }
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
-    public String getOcupacion() {return ocupacion; }
-    public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
+    public String getProfesion() {return profesion; }
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
     }
-    public String getRecibirInfXCorreo() {return recibirInfXCorreo; }
-    public void setRecibirInfXCorreo(String recibirInfXCorreo) {
-        this.recibirInfXCorreo = recibirInfXCorreo;
+    public String getoOcupacionPrincipal() {return ocupacionPrincipal; }
+    public void setOcupacionPrincipal(String ocupacionPrincipal) {
+        this.ocupacionPrincipal = ocupacionPrincipal;
     }
-    public String getRecibirInfXTlf() {return recibirInfXTlf; }
-    public void setRecibirInfXTlf(String recibirInfXTlf) {
-        this.recibirInfXTlf = recibirInfXTlf;
+    public String getTipoTrabajador() {return tipoTrabajador; }
+    public void setTipoTrabajador(String tipoTrabajador) {
+        this.tipoTrabajador = tipoTrabajador;
     }
-    public String getFechaInclusion() {return fechaInclusion; }
-    public void setFechaInclusion(String fechaInclusion) { this.fechaInclusion = fechaInclusion;    }
-    public String getCodigoInterno() {return codigoInterno; }
-    public void setCodigoInterno(String codigoInterno) {
-        this.codigoInterno = codigoInterno;
+    public String getLugarTrabajoActual() {return lugarTrabajoActual; }
+    public void setLugarTrabajoActual(String lugarTrabajoActual) { this.lugarTrabajoActual = lugarTrabajoActual;    }
+    public String getFechaIngresoTrabajo() {return fechaIngresoTrabajo; }
+    public void setFechaIngresoTrabajo(String fechaIngresoTrabajo) {
+        this.fechaIngresoTrabajo = fechaIngresoTrabajo;
     }
-    public String getCodigoIdentificador() {return codigoIdentificador; }
-    public void setCodigoIdentificador(String codigoIdentificador) {
-        this.codigoIdentificador = codigoIdentificador;
+    public String getCargo() {return cargo; }
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
-    public String getTarjetaIdentidad() {return tarjetaIdentidad; }
-    public void setTarjetaIdentidad(String tarjetaIdentidad) {
-        this.tarjetaIdentidad = tarjetaIdentidad;
+    public String getIngresosMensuales() {return ingresosMensuales; }
+    public void setIngresosMensuales(String ingresosMensuales) {
+        this.ingresosMensuales = ingresosMensuales;
     }
-    public String getRegistroCivil() {return registroCivil; }
-    public void setRegistroCivil(String registroCivil) {
-        this.registroCivil = registroCivil;
+    public String getReferencias() {return referencias; }
+    public void setReferencias(String referencias) {
+        this.referencias = referencias;
     }
-    public String getTarjetaExtranjería() {return tarjetaExtranjería; }
-    public void setTarjetaExtranjería(String tarjetaExtranjería) {
-        this.tarjetaExtranjería = tarjetaExtranjería;
+    public String getTelefonoFijo() {return telefonoFijo; }
+    public void setTelefonoFijo(String telefonoFijo) {
+        this.telefonoFijo = telefonoFijo;
     }
-    public String getCédulaExtranjería() {return cédulaExtranjería; }
-    public void setCédulaExtranjería(String cédulaExtranjería) {
-        this.cédulaExtranjería = cédulaExtranjería;
+    public String getTelefonoCelular() {return telefonoCelular; }
+    public void setTelefonoCelular(String telefonoCelular) {
+        this.telefonoCelular = telefonoCelular;
     }
-    public String getDocumentoExtranjero() {return documentoExtranjero; }
-    public void setDocumentoExtranjero(String documentoExtranjero) {
-        this.documentoExtranjero = documentoExtranjero;
+    public String getTelefonoContacto() {return telefonoContacto; }
+    public void setTelefonoContacto(String telefonoContacto) {
+        this.telefonoContacto = telefonoContacto;
     }
-
-    public String getRolOpenItem() {return rolOpenItem; }
-    public void setRolOpenItem(String rolOpenItem) {
-        this.rolOpenItem = rolOpenItem;
+    public String getTelefonoEmpleador() {return telefonoEmpleador; }
+    public void setTelefonoEmpleador(String telefonoEmpleador) {
+        this.telefonoEmpleador = telefonoEmpleador;
     }
-    public String getConceptoCta() {return conceptoCta; }
-    public void setConceptoCta(String conceptoCta) {
-        this.conceptoCta = conceptoCta;
+    public String getTelefonoCobranza1() {return telefonoCobranza1; }
+    public void setTelefonoCobranza1(String telefonoCobranza1) {
+        this.telefonoCobranza1 = telefonoCobranza1;
     }
-    public String getFechaMov() {return fechaMov; }
-    public void setFechaMov(String fechaMov) {
-        this.fechaMov = fechaMov;
+    public String getTelefonoCobranza2() {return telefonoCobranza2; }
+    public void setTelefonoCobranza2(String telefonoCobranza2) {
+        this.telefonoCobranza2 = telefonoCobranza2;
     }
-    public String getFechaVen() {return fechaVen; }
-    public void setFechaVen(String fechaVen) {
-        this.fechaVen = fechaVen;
+    public String getPaginaWeb() {return paginaWeb; }
+    public void setPaginaWeb(String paginaWeb) {
+        this.paginaWeb = paginaWeb;
     }
-    public String getMoneda() {return moneda; }
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
+    public String getEmail() {return email; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getLogin() {return login; }
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    public String getPredeterminedname() {return predeterminedname; }
+    public void setPredeterminedname(String predeterminedname) {
+        this.predeterminedname = predeterminedname;
     }
     public String getMonto() {return monto; }
     public void setMonto(String monto) {
         this.monto = monto;
     }
-    public String getNumPolizaItem() {return numPolizaItem; }
-    public void setNumPolizaItem(String numPolizaItem) {
-        this.numPolizaItem = numPolizaItem;
+    public String getCodIdentificador() {return codIdentificador; }
+    public void setCodIdentificador(String codIdentificador) {
+        this.codIdentificador = codIdentificador;
+    }
+    public String getIdiomaOmision() {return idiomaOmision; }
+    public void setIdiomaOmision(String idiomaOmision) {
+        this.idiomaOmision = idiomaOmision;
+    }
+    public String getIdioma() {return idioma; }
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+    public String getIdentificadorIV() {return identificadorIV; }
+    public void setIdentificadorIV(String identificadorIV) {
+        this.identificadorIV = identificadorIV;
+    }
+    public String getChequeoUnicidad() {return chequeoUnicidad; }
+    public void setChequeoUnicidad(String chequeoUnicidad) {
+        this.chequeoUnicidad = chequeoUnicidad;
+    }
+    public String getRol2() {return rol2; }
+    public void setRol2(String rol2) {
+        this.rol2 = rol2;
+    }
+    public String getConceptoCuenta() {return conceptoCuenta; }
+    public void setConceptoCuenta(String conceptoCuenta) {
+        this.conceptoCuenta = conceptoCuenta;
+    }
+    public String getFechaMov() {return fechaMov; }
+    public void setFechaMov(String fechaMov) {
+        this.fechaMov = fechaMov;
+    }
+    public String getFechaVencimiento() {return fechaVencimiento; }
+    public void setFechaVencimiento(String fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+    public String getMoneda() {return moneda; }
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
+    }
+    public String getNumPoliza() {return numPoliza; }
+    public void setNumPoliza(String numPoliza) {
+        this.numPoliza = numPoliza;
     }
     public String getTipoRef() {return tipoRef; }
     public void setTipoRef(String tipoRef) {
@@ -252,47 +300,59 @@ public class CrearOpenItemsBean {
 
             while (rs.next()) {
                 CrearOpenItemsBean crearOpenItemsBean = new CrearOpenItemsBean();
-                crearOpenItemsBean.setRol1(rs.getString("ROL1"));
+                crearOpenItemsBean.setTercero(rs.getString("TERCERO"));
                 crearOpenItemsBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                crearOpenItemsBean.setRol2(rs.getString("ROL2"));
-                crearOpenItemsBean.setTipoDocumento(rs.getString("TIPO_DOCUMENTO"));
-                crearOpenItemsBean.setPasaporte(rs.getString("PASAPORTE"));
-                crearOpenItemsBean.setNumDocumento(rs.getString("NUM_DOCUMENTO"));
-                crearOpenItemsBean.setIndicativo1(rs.getString("INDICATIVO1"));
+                crearOpenItemsBean.setRol1(rs.getString("ROL1"));
+                crearOpenItemsBean.setApellidoPaterno(rs.getString("APELLIDO_PATERNO"));
+                crearOpenItemsBean.setApellidoMaterno(rs.getString("APELLIDO_MATERNO"));
                 crearOpenItemsBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
-                crearOpenItemsBean.setTlfOficina(rs.getString("TELEFONO_FIJO"));
                 crearOpenItemsBean.setSegundoNombre(rs.getString("SEGUNDO_NOMBRE"));
-                crearOpenItemsBean.setTlfFijoCompleto(rs.getString("TLF_FIJO_COMPLETO"));
-                crearOpenItemsBean.setPrimerApellido(rs.getString("PRIMER_APELLIDO"));
-                crearOpenItemsBean.setIndicativo2(rs.getString("INDICATIVO2"));
-                crearOpenItemsBean.setSegundoApellido(rs.getString("SEGUNDO_APELLIDO"));
-                crearOpenItemsBean.setTlfOficina(rs.getString("TLF_OFICINA"));
-                crearOpenItemsBean.setNombreApellido(rs.getString("NOMBRE_APELLIDO"));
-                crearOpenItemsBean.setExtension(rs.getString("EXTENSION"));
+                crearOpenItemsBean.setTercerNombre(rs.getString("TERCER_NOMBRE"));
+                crearOpenItemsBean.setApellidoCasada(rs.getString("APELLIDO_CASADA"));
+                crearOpenItemsBean.setTipoDocIdent(rs.getString("TIPO_DOC_IDENT"));
+                crearOpenItemsBean.setNumDocIdent(rs.getString("NUM_DOC_IDENT"));
+                crearOpenItemsBean.setExtensionDocIdent(rs.getString("EXTENSION_DOC_IDENT"));
+                crearOpenItemsBean.setComplementoDocIdent(rs.getString("COMPLEMENTO_DOC_IDENT"));
+                crearOpenItemsBean.setSexo(rs.getString("SEXO"));
                 crearOpenItemsBean.setEstadoCivil(rs.getString("ESTADO_CIVIL"));
-                crearOpenItemsBean.setTlfOficinaComp(rs.getString("TLF_OFICINA_COMPLETO"));
-                crearOpenItemsBean.setEmail1(rs.getString("EMAIL_1"));
-                crearOpenItemsBean.setTlfCelular(rs.getString("TLF_CELULAR"));
-                crearOpenItemsBean.setEmail2(rs.getString("EMAIL_2"));
-                crearOpenItemsBean.setAutorizaUsoDatosPersonales(rs.getString("AUTORIZA_USO_DATOS_PERSONALES"));
-                crearOpenItemsBean.setGradoInstruccion(rs.getString("GRADO_INSTRUCCION"));
-                crearOpenItemsBean.setOcupacion(rs.getString("OCUPACION"));
-                crearOpenItemsBean.setRecibirInfXTlf(rs.getString("RECIBIR_INF_X_TLF"));
-                crearOpenItemsBean.setRecibirInfXCorreo(rs.getString("RECIBIR_INF_X_CORREO"));
-                crearOpenItemsBean.setFechaInclusion(rs.getString("FECHA_INCLUSION"));
-                crearOpenItemsBean.setCodigoInterno(rs.getString("CODIGO_INTERNO"));
-                crearOpenItemsBean.setCodigoIdentificador(rs.getString("CODIGO_IDENTIFICADOR"));
-                crearOpenItemsBean.setTarjetaIdentidad(rs.getString("TARJETA_IDENTIDAD"));
-                crearOpenItemsBean.setRegistroCivil(rs.getString("REGISTRO_CIVIL"));
-                crearOpenItemsBean.setTarjetaExtranjería(rs.getString("TARJETA_EXTRANJERÍA"));
-                crearOpenItemsBean.setDocumentoExtranjero(rs.getString("DOCUMENTO_EXTRANJERO"));
-                crearOpenItemsBean.setRolOpenItem(rs.getString("ROL_OPEN_ITEM"));
-                crearOpenItemsBean.setConceptoCta(rs.getString("CONCEPTO_CTA"));
+                crearOpenItemsBean.setNombreConyuge(rs.getString("NOMBRE_CONYUGE"));
+                crearOpenItemsBean.setNumDocConyuge(rs.getString("NUM_DOC_CONYUGE"));
+                crearOpenItemsBean.setNivelEducacional(rs.getString("NIVEL_EDUCACIONAL"));
+                crearOpenItemsBean.setNit(rs.getString("NIT"));
+                crearOpenItemsBean.setFacturarCiNit(rs.getString("FACTURAR_CI_NIT"));
+                crearOpenItemsBean.setDireccCorrespondencia(rs.getString("DIRECC_CORRESPONDENCIA"));
+                crearOpenItemsBean.setNacionalidad(rs.getString("NACIONALIDAD"));
+                crearOpenItemsBean.setFechaNacimiento(rs.getString("FECHA_NACIMIENTO"));
+                crearOpenItemsBean.setProfesion(rs.getString("PROFESION"));
+                crearOpenItemsBean.setOcupacionPrincipal(rs.getString("OCUPACION_PRINCIPAL"));
+                crearOpenItemsBean.setTipoTrabajador(rs.getString("TIPO_TRABAJADOR"));
+                crearOpenItemsBean.setLugarTrabajoActual(rs.getString("LUGAR_TRABAJO_ACTUAL"));
+                crearOpenItemsBean.setFechaIngresoTrabajo(rs.getString("FECHA_INGRESO_TRABAJO"));
+                crearOpenItemsBean.setCargo(rs.getString("CARGO"));
+                crearOpenItemsBean.setIngresosMensuales(rs.getString("INGRESOS_MENSUALES"));
+                crearOpenItemsBean.setReferencias(rs.getString("REFERENCIAS"));
+                crearOpenItemsBean.setTelefonoFijo(rs.getString("TELEFONO_FIJO"));
+                crearOpenItemsBean.setTelefonoCelular(rs.getString("TELEFONO_CELULAR"));
+                crearOpenItemsBean.setTelefonoContacto(rs.getString("TELEFONO_CONTACTO"));
+                crearOpenItemsBean.setTelefonoEmpleador(rs.getString("TELEFONO_EMPLEADOR"));
+                crearOpenItemsBean.setTelefonoCobranza1(rs.getString("TELEFONO_COBRANZA_1"));
+                crearOpenItemsBean.setTelefonoCobranza2(rs.getString("TELEFONO_COBRANZA_2"));
+                crearOpenItemsBean.setPaginaWeb(rs.getString("PAGINA_WEB"));
+                crearOpenItemsBean.setEmail(rs.getString("EMAIL"));
+                crearOpenItemsBean.setLogin(rs.getString("LOGIN"));
+                crearOpenItemsBean.setPredeterminedname(rs.getString("PREDETERMINEDNAME"));
+                crearOpenItemsBean.setCodIdentificador(rs.getString("COD_IDENTIFICADOR"));
+                crearOpenItemsBean.setChequeoUnicidad(rs.getString("CHEQUEO_UNICIDAD"));
+                crearOpenItemsBean.setIdiomaOmision(rs.getString("IDIOMA_X_OMISION"));
+                crearOpenItemsBean.setIdioma(rs.getString("IDIOMA"));
+                crearOpenItemsBean.setIdentificadorIV(rs.getString("IDENTIFICADOR_IV"));
+                crearOpenItemsBean.setRol2(rs.getString("ROL2"));
+                crearOpenItemsBean.setConceptoCuenta(rs.getString("CONCEPTO_CUENTA"));
                 crearOpenItemsBean.setFechaMov(rs.getString("FECHA_MOV"));
-                crearOpenItemsBean.setFechaVen(rs.getString("FECHA_VEN"));
+                crearOpenItemsBean.setFechaVencimiento(rs.getString("FECHA_VENCIMIENTO"));
                 crearOpenItemsBean.setMoneda(rs.getString("MONEDA"));
                 crearOpenItemsBean.setMonto(rs.getString("MONTO"));
-                crearOpenItemsBean.setNumPolizaItem(rs.getString("NUM_POLIZA_ITEM"));
+                crearOpenItemsBean.setNumPoliza(rs.getString("NUM_POLIZA"));
                 crearOpenItemsBean.setTipoRef(rs.getString("TIPO_REF"));
                 item.add(crearOpenItemsBean);
             }
