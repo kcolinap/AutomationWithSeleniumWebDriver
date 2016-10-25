@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.InformacionFinancieraLBCBean;
-import AcseleV13_8LBC.main.controller.Menu.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +34,7 @@ public class InformacionFinancieraLBC {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, i);
+            menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
 
             // Consulta del Tercero Creado
             Thread.sleep(2000);
