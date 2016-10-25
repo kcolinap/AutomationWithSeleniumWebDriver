@@ -109,8 +109,8 @@ public class MetodosLBC {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("arivera");       /** Usuario  **/
-        password2.sendKeys("arivera");
+        user2.sendKeys("");       /** Usuario  **/
+        password2.sendKeys("");
 
         instance2.selectByVisibleText("La Boliviana Ciacruz (LBC)");
         language2.selectByValue("es_BO");

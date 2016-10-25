@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.HistoricoSiniestrosLBCBean;
-import AcseleV13_8LBC.main.controller.Menu.Menu.MenuOperaciones;
+import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +28,7 @@ public class HistoricoSiniestrosLBC {
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
         Thread.sleep(5000);
 
-        m.OpeSini_HistorialReclamo(a, driver, nombreAutomatizacion,i);
+        m.OpeSini_HistorialReclamo(a, driver, nombreAutomatizacion, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
         BuscarHistorialReclamos(driver, a, historicoSiniestrosLBCBean);

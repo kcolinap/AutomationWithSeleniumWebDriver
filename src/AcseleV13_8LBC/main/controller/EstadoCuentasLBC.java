@@ -1,5 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 import AcseleV13_8LBC.beans.EstadoCuentasLBCBean;
+import AcseleV13_8LBC.main.controller.Menu.MenuConsultas;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,7 @@ public class EstadoCuentasLBC {
 
             // Instanciando clases
             MetodosLBC a = new MetodosLBC();
-            AcseleV13_8LBC.main.controller.Menu.Menu.MenuConsultas menuConsultas = new AcseleV13_8LBC.main.controller.Menu.Menu.MenuConsultas();
+            MenuConsultas menuConsultas = new MenuConsultas();
 
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
