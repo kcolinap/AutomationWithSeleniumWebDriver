@@ -1,8 +1,7 @@
 package AcseleV13_8LBC.main.controller;
 
-
-import AcseleV13_8LBC.beans.TercerosDireccionesBean;
-import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.beans.LBC_TercerosDireccionesBean;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,13 +20,13 @@ public class LBC_TercerosDirecciones {
 
     public String nombreAutomatizacion = "Direcciones Terceros";
 
-    public void testLink(TercerosDireccionesBean tercerosDireccionesBean, int i)throws Exception{
+    public void testLink(LBC_TercerosDireccionesBean lbcTercerosDireccionesBean, int i)throws Exception{
 
         try {
 
             // Instanciando clases
-            MetodosLBC a = new MetodosLBC();
-            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+            LBC_Metodos a = new LBC_Metodos();
+            LBC_MenuMantenimiento lbcMenuMantenimiento = new LBC_MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -35,29 +34,29 @@ public class LBC_TercerosDirecciones {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
+            lbcMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
 
             // Consulta del Tercero Creado
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, driver, tercerosDireccionesBean); //Busqueda Tercero
+            BusquedaT(a, driver, lbcTercerosDireccionesBean); //Busqueda Tercero
             BotonEditar(a, driver);
             //Agregar Direccion
-            AgregarDireccion(a, driver, tercerosDireccionesBean);
+            AgregarDireccion(a, driver, lbcTercerosDireccionesBean);
 
-            EditarDireccion(a, driver, tercerosDireccionesBean);
+            EditarDireccion(a, driver, lbcTercerosDireccionesBean);
 
-            SeleccionarDirPrincipal(a, driver, tercerosDireccionesBean);
+            SeleccionarDirPrincipal(a, driver, lbcTercerosDireccionesBean);
 
             driver.close();
             a.regresarVentana(driver);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 15, i);
+            lbcMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 15, i);
             a.cambiarVentana(driver);
 
-            BusquedaT(a, driver, tercerosDireccionesBean);
+            BusquedaT(a, driver, lbcTercerosDireccionesBean);
             BotonEditar(a, driver);
 
         }catch (Exception e) {
@@ -66,7 +65,8 @@ public class LBC_TercerosDirecciones {
         }
     }
 
-    public void BusquedaT(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException, IOException{
+    public void BusquedaT(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException, IOException{
+
 
         try {
 
@@ -75,30 +75,30 @@ public class LBC_TercerosDirecciones {
             System.out.println("Titulo de la pagina: " + title); // //TipoElemento[@wicketpath='WicketpathElemento']
 
             //Tipo de tercero
-            if (tercerosDireccionesBean.getTipoTercero() != null) {
+            if (lbcTercerosDireccionesBean.getTipoTercero() != null) {
                 Thread.sleep(3000);
                 //Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
-                tipoT.selectByValue(tercerosDireccionesBean.getTipoTercero());
+                tipoT.selectByValue(lbcTercerosDireccionesBean.getTipoTercero());
             }
             Thread.sleep(2000);
 
-            if (tercerosDireccionesBean.getTipoDocId() != null) {
+            if (lbcTercerosDireccionesBean.getTipoDocId() != null) {
                 //Select tipoDoc = new Select(driver.findElement(By.name("templateThird:repeaterPanel1:1:fila:repeaterSelect:1:field")));
                 Select tipoDoc = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
-                tipoDoc.selectByValue(tercerosDireccionesBean.getTipoDocId());
+                tipoDoc.selectByValue(lbcTercerosDireccionesBean.getTipoDocId());
             }
 
-            if (tercerosDireccionesBean.getNumCedula() != null) {
+            if (lbcTercerosDireccionesBean.getNumCedula() != null) {
                 //WebElement cedu = driver.findElement(By.name("templateThird:repeaterPanel1:2:fila:field"));
                 WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
-                cedu.sendKeys(tercerosDireccionesBean.getNumCedula());
+                cedu.sendKeys(lbcTercerosDireccionesBean.getNumCedula());
             }
 
-            if (tercerosDireccionesBean.getNombre() != null) {
+            if (lbcTercerosDireccionesBean.getNombre() != null) {
                 //WebElement nTercero = driver.findElement(By.name("templateThird:repeaterPanel1:3:fila:field"));
                 WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
-                nTercero.sendKeys(tercerosDireccionesBean.getNombre());
+                nTercero.sendKeys(lbcTercerosDireccionesBean.getNombre());
             }
 
 //        if (edicionTercerosBean.getApellido() != null) {
@@ -131,7 +131,8 @@ public class LBC_TercerosDirecciones {
         }
     }
 
-    public void BotonEditar(MetodosLBC a, WebDriver driver) throws InterruptedException, IOException {
+    public void BotonEditar(LBC_Metodos a, WebDriver driver) throws InterruptedException, IOException {
+
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -158,7 +159,8 @@ public class LBC_TercerosDirecciones {
         }
     }
 
-    public void AgregarDireccion(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void AgregarDireccion(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException {
+
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
             Thread.sleep(5000);
@@ -174,66 +176,66 @@ public class LBC_TercerosDirecciones {
             }
 
             // Tipo Direccion
-            if (tercerosDireccionesBean.getTipoDireccion() != null) {
+            if (lbcTercerosDireccionesBean.getTipoDireccion() != null) {
                 Select tipDirecc = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
-                tipDirecc.selectByValue(tercerosDireccionesBean.getTipoDireccion()); //8548517=Residencia; 8548717=Correspondencia; 8548617=Comercial
+                tipDirecc.selectByValue(lbcTercerosDireccionesBean.getTipoDireccion()); //8548517=Residencia; 8548717=Correspondencia; 8548617=Comercial
                 Thread.sleep(3000);
             }
 
             // Tipo Via
-            if (tercerosDireccionesBean.getTipoVia() != null) {
+            if (lbcTercerosDireccionesBean.getTipoVia() != null) {
                 Select tipVia = new Select(driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_3_fila_field']")));
-                tipVia.selectByValue(tercerosDireccionesBean.getTipoVia()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
+                tipVia.selectByValue(lbcTercerosDireccionesBean.getTipoVia()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
                 Thread.sleep(2000);
             }
 
             // Numero o Nombre Via Ppal
-            if (tercerosDireccionesBean.getNumNomViaPpal() != null) {
-                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_4_fila_field']")).sendKeys(tercerosDireccionesBean.getNumNomViaPpal());
+            if (lbcTercerosDireccionesBean.getNumNomViaPpal() != null) {
+                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_4_fila_field']")).sendKeys(lbcTercerosDireccionesBean.getNumNomViaPpal());
                 Thread.sleep(2000);
             }
 
             // Prefijo (BIS) Via Ppal
-            if (tercerosDireccionesBean.getPrefBisViaPpal() != null) {
+            if (lbcTercerosDireccionesBean.getPrefBisViaPpal() != null) {
                 Select preBis = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_6_fila_repeaterSelect_1_field']")));
 //            Select preBis = new Select(driver.findElement(By.id("id2b9")));
-                preBis.selectByValue(tercerosDireccionesBean.getPrefBisViaPpal()); // 19636217=BIS
-                preBis.selectByValue(tercerosDireccionesBean.getPrefBisViaPpal());
+                preBis.selectByValue(lbcTercerosDireccionesBean.getPrefBisViaPpal()); // 19636217=BIS
+                preBis.selectByValue(lbcTercerosDireccionesBean.getPrefBisViaPpal());
                 Thread.sleep(2000);
             }
 
             // Letra o Número Prefijo Vía Ppal
-            if (tercerosDireccionesBean.getLetraNumPrefViaPpal() != null) {
-                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_7_fila_field']")).sendKeys(tercerosDireccionesBean.getLetraNumPrefViaPpal());
+            if (lbcTercerosDireccionesBean.getLetraNumPrefViaPpal() != null) {
+                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_7_fila_field']")).sendKeys(lbcTercerosDireccionesBean.getLetraNumPrefViaPpal());
                 Thread.sleep(2000);
             }
 
             // Cuadrante Via Ppal
-            if (tercerosDireccionesBean.getCuadranteViaPpal() != null) {
+            if (lbcTercerosDireccionesBean.getCuadranteViaPpal() != null) {
                 Select cuadViaPpal = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
-                cuadViaPpal.selectByValue(tercerosDireccionesBean.getCuadranteViaPpal());
+                cuadViaPpal.selectByValue(lbcTercerosDireccionesBean.getCuadranteViaPpal());
 //            Thread.sleep(2000);
             }
 
             // Número Vía Generadora
-            if (tercerosDireccionesBean.getNumViaGeneradora() != null) {
-                driver.findElement(By.xpath("//selct[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_8_fila_repeaterSelect_1_field']")).sendKeys(tercerosDireccionesBean.getNumViaGeneradora());
+            if (lbcTercerosDireccionesBean.getNumViaGeneradora() != null) {
+                driver.findElement(By.xpath("//selct[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_8_fila_repeaterSelect_1_field']")).sendKeys(lbcTercerosDireccionesBean.getNumViaGeneradora());
                 Thread.sleep(2000);
             }
 
             // Pais
-            if (tercerosDireccionesBean.getPais() != null) {
+            if (lbcTercerosDireccionesBean.getPais() != null) {
                 Select sPais = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_15_fila_repeaterSelect_1_field']")));
 //            sPais.selectByValue("45788717"); //45788717=Alemania
 //            Thread.sleep(3000);
-                sPais.selectByValue(tercerosDireccionesBean.getPais());
+                sPais.selectByValue(lbcTercerosDireccionesBean.getPais());
                 Thread.sleep(3000);
             }
 
             // Departamento
-            if (tercerosDireccionesBean.getDepartamento() != null) {
+            if (lbcTercerosDireccionesBean.getDepartamento() != null) {
                 Select sDep = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_15_fila_repeaterSelect_2_field']")));
-                sDep.selectByValue(tercerosDireccionesBean.getDepartamento());
+                sDep.selectByValue(lbcTercerosDireccionesBean.getDepartamento());
                 //sDep.selectByVisibleText("BOGOTA");
 //            Thread.sleep(2000);
             }
@@ -256,7 +258,7 @@ public class LBC_TercerosDirecciones {
         }
     }
 
-    public void EditarDireccion(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void EditarDireccion(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -278,62 +280,62 @@ public class LBC_TercerosDirecciones {
                 }
 
                 // Tipo Direccion
-                if (tercerosDireccionesBean.getNuevoTipoDireccion() != null) {
+                if (lbcTercerosDireccionesBean.getNuevoTipoDireccion() != null) {
                     Select tipDirecc = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
-                    tipDirecc.selectByValue(tercerosDireccionesBean.getNuevoTipoDireccion()); //8548517=Residencia; 8548717=Correspondencia; 8548617=Comercial
+                    tipDirecc.selectByValue(lbcTercerosDireccionesBean.getNuevoTipoDireccion()); //8548517=Residencia; 8548717=Correspondencia; 8548617=Comercial
                     Thread.sleep(3000);
                 }
 
                 // Tipo Via
-                if (tercerosDireccionesBean.getNuevoTipoVia() != null) {
+                if (lbcTercerosDireccionesBean.getNuevoTipoVia() != null) {
                     Select tipVia = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_2_fila_repeaterSelect_1_field']")));
-                    tipVia.selectByValue(tercerosDireccionesBean.getNuevoTipoVia()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
+                    tipVia.selectByValue(lbcTercerosDireccionesBean.getNuevoTipoVia()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
                     Thread.sleep(2000);
                 }
 
                 // Numero o Nombre Via Ppal
-                if (tercerosDireccionesBean.getNuevoNumNomViaPpal() != null) {
-                    driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_4_fila_field']")).sendKeys(tercerosDireccionesBean.getNuevoNumNomViaPpal());
+                if (lbcTercerosDireccionesBean.getNuevoNumNomViaPpal() != null) {
+                    driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_4_fila_field']")).sendKeys(lbcTercerosDireccionesBean.getNuevoNumNomViaPpal());
                     Thread.sleep(2000);
                 }
 
                 // Prefijo (BIS) Via Ppal
-                if (tercerosDireccionesBean.getNuevoPrefBisViaPpal() != null) {
+                if (lbcTercerosDireccionesBean.getNuevoPrefBisViaPpal() != null) {
                     Select preBis = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_6_fila_repeaterSelect_1_field']")));
-                    preBis.selectByValue(tercerosDireccionesBean.getNuevoPrefBisViaPpal());
+                    preBis.selectByValue(lbcTercerosDireccionesBean.getNuevoPrefBisViaPpal());
                     Thread.sleep(2000);
                 }
 
                 // Letra o Número Prefijo Vía Ppal
-                if (tercerosDireccionesBean.getNuevoLetraNumPrefViaPpal() != null) {
-                    driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_7_fila_field']")).sendKeys(tercerosDireccionesBean.getNuevoLetraNumPrefViaPpal());
+                if (lbcTercerosDireccionesBean.getNuevoLetraNumPrefViaPpal() != null) {
+                    driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_7_fila_field']")).sendKeys(lbcTercerosDireccionesBean.getNuevoLetraNumPrefViaPpal());
                     Thread.sleep(2000);
                 }
 
                 // Cuadrante Via Ppal
-                if (tercerosDireccionesBean.getNuevoCuadranteViaPpal() != null) {
+                if (lbcTercerosDireccionesBean.getNuevoCuadranteViaPpal() != null) {
                     Select cuadViaPpal = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_8_fila_repeaterSelect_1_field']")));
-                    cuadViaPpal.selectByValue(tercerosDireccionesBean.getNuevoCuadranteViaPpal());
+                    cuadViaPpal.selectByValue(lbcTercerosDireccionesBean.getNuevoCuadranteViaPpal());
 //            Thread.sleep(2000);
                 }
 
                 // Número Vía Generadora
-                if (tercerosDireccionesBean.getNuevoNumViaGeneradora() != null) {
-                    driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_9_fila_field']")).sendKeys(tercerosDireccionesBean.getNuevoNumViaGeneradora());
+                if (lbcTercerosDireccionesBean.getNuevoNumViaGeneradora() != null) {
+                    driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_9_fila_field']")).sendKeys(lbcTercerosDireccionesBean.getNuevoNumViaGeneradora());
                     Thread.sleep(2000);
                 }
 
                 // Pais
-                if (tercerosDireccionesBean.getNuevoPais() != null) {
+                if (lbcTercerosDireccionesBean.getNuevoPais() != null) {
                     Select sPais = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_15_fila_repeaterSelect_1_field']")));
-                    sPais.selectByValue(tercerosDireccionesBean.getNuevoPais());
+                    sPais.selectByValue(lbcTercerosDireccionesBean.getNuevoPais());
                     Thread.sleep(3000);
                 }
 
                 // Departamento
-                if (tercerosDireccionesBean.getNuevoDepartamento() != null) {
+                if (lbcTercerosDireccionesBean.getNuevoDepartamento() != null) {
                     Select sDep = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_15_fila_repeaterSelect_2_field']")));
-                    sDep.selectByValue(tercerosDireccionesBean.getNuevoDepartamento());
+                    sDep.selectByValue(lbcTercerosDireccionesBean.getNuevoDepartamento());
                     //sDep.selectByVisibleText("BOGOTA");
 //            Thread.sleep(2000);
                 }
@@ -366,7 +368,8 @@ public class LBC_TercerosDirecciones {
 
     }
 
-    public void SeleccionarDirPrincipal(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void SeleccionarDirPrincipal(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException {
+
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
