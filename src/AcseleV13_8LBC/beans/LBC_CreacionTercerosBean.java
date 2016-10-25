@@ -33,27 +33,27 @@ public class LBC_CreacionTercerosBean extends LBC_TercerosBean implements Serial
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                LBC_CreacionTercerosBean lbcCreacionTercerosBean = new LBC_CreacionTercerosBean();
+                LBC_CreacionTercerosBean LBCCreacionTercerosBean = new LBC_CreacionTercerosBean();
 
-                lbcCreacionTercerosBean.setTipoTerceros(rs.getString("Tipo_Terceros"));
-                lbcCreacionTercerosBean.setApellidoPaterno(rs.getString("Apellido_Paterno"));
-                lbcCreacionTercerosBean.setApellidoMaterno(rs.getString("Apellido_Materno"));
-                lbcCreacionTercerosBean.setPrimerNombre(rs.getString("Primer_Nombre"));
-                lbcCreacionTercerosBean.setSegundoNombre(rs.getString("Segundo_Nombre"));
-                lbcCreacionTercerosBean.setTipoDocumentoIdentificacion(rs.getString("Tipo_Doc_Identificacion"));
-                lbcCreacionTercerosBean.setNumeroDocumentoIdentificacion(rs.getString("Num_Doc_Identificacion"));
-                lbcCreacionTercerosBean.setSexo(rs.getString("Sexo"));
-                lbcCreacionTercerosBean.setEstadoCivil(rs.getString("Estado_Civil"));
-                lbcCreacionTercerosBean.setPrefiereFacturaCI_NIT(rs.getString("Factura_CI_NIT"));
-                lbcCreacionTercerosBean.setNacionalidad(rs.getString("Nacionalidad"));
-                lbcCreacionTercerosBean.setFechaNacimiento(rs.getString("Fecha_Nacimiento"));
-                lbcCreacionTercerosBean.setCategoriaActividadEconomicaOcupacionPrincipal(rs.getString("Categ_Activ_Eco_Ocu_Ppal"));
-                lbcCreacionTercerosBean.setActividadEconomicaOcupacionPrincipal(rs.getString("Activ_Eco_Ocu_Ppal"));
-                lbcCreacionTercerosBean.setTipoTrabajador(rs.getString("Tipo_Trabajador"));
-                lbcCreacionTercerosBean.setTelefonoFijo1(rs.getString("Telefono_Fijo_1"));
+                LBCCreacionTercerosBean.setTipoTerceros(rs.getString("Tipo_Terceros"));
+                LBCCreacionTercerosBean.setApellidoPaterno(rs.getString("Apellido_Paterno"));
+                LBCCreacionTercerosBean.setApellidoMaterno(rs.getString("Apellido_Materno"));
+                LBCCreacionTercerosBean.setPrimerNombre(rs.getString("Primer_Nombre"));
+                LBCCreacionTercerosBean.setSegundoNombre(rs.getString("Segundo_Nombre"));
+                LBCCreacionTercerosBean.setTipoDocumentoIdentificacion(rs.getString("Tipo_Doc_Identificacion"));
+                LBCCreacionTercerosBean.setNumeroDocumentoIdentificacion(rs.getString("Num_Doc_Identificacion"));
+                LBCCreacionTercerosBean.setSexo(rs.getString("Sexo"));
+                LBCCreacionTercerosBean.setEstadoCivil(rs.getString("Estado_Civil"));
+                LBCCreacionTercerosBean.setPrefiereFacturaCI_NIT(rs.getString("Factura_CI_NIT"));
+                LBCCreacionTercerosBean.setNacionalidad(rs.getString("Nacionalidad"));
+                LBCCreacionTercerosBean.setFechaNacimiento(rs.getString("Fecha_Nacimiento"));
+                LBCCreacionTercerosBean.setCategoriaActividadEconomicaOcupacionPrincipal(rs.getString("Categ_Activ_Eco_Ocu_Ppal"));
+                LBCCreacionTercerosBean.setActividadEconomicaOcupacionPrincipal(rs.getString("Activ_Eco_Ocu_Ppal"));
+                LBCCreacionTercerosBean.setTipoTrabajador(rs.getString("Tipo_Trabajador"));
+                LBCCreacionTercerosBean.setTelefonoFijo1(rs.getString("Telefono_Fijo_1"));
 
 
-                emision.add(lbcCreacionTercerosBean);
+                emision.add(LBCCreacionTercerosBean);
             }
         }catch(SQLException e) {
             log.error(e);

@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller.LBC_PolizaEmision;
 
 import AcseleV13_8LBC.beans.LBC_PolizasBean;
-import AcseleV13_8LBC.main.controller.LBC_Metodos;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class LBC_InformacionGeneralPoliza {
 
     private final static Logger log = Logger.getLogger(LBC_InformacionGeneralPoliza.class);
 
-    public void InformacionGeneral(LBC_Metodos a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void InformacionGeneral(MetodosLBC a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

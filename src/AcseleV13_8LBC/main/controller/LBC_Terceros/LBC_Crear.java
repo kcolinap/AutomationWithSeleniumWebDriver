@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller.LBC_Terceros;
 
 import AcseleV13_8LBC.beans.LBC_TercerosBean;
-import AcseleV13_8LBC.main.controller.LBC_Metodos;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,7 +18,7 @@ public class LBC_Crear {
 
     private final static Logger log = Logger.getLogger(LBC_Crear.class);
 
-    public void CrearTercero(LBC_Metodos a, WebDriver driver, LBC_TercerosBean lbcTercerosBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void CrearTercero(MetodosLBC a, WebDriver driver, LBC_TercerosBean lbcTercerosBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 

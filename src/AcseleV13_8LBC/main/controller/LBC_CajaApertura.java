@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_CajaAperturaBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_Caja;
-import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuOperaciones;
+import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -22,8 +22,8 @@ public class LBC_CajaApertura {
         try {
 
             // Instanciando clases
-            LBC_Metodos a = new LBC_Metodos();
-            LBC_MenuOperaciones LBCMenuOperaciones = new LBC_MenuOperaciones();
+            MetodosLBC a = new MetodosLBC();
+            MenuOperaciones menuOperaciones = new MenuOperaciones();
             //Aperturar Caja
             LBC_Caja lbcCaja = new LBC_Caja();
 
@@ -35,7 +35,7 @@ public class LBC_CajaApertura {
 
 
             //Entrando en Menu
-            LBCMenuOperaciones.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 2, i);
+            menuOperaciones.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

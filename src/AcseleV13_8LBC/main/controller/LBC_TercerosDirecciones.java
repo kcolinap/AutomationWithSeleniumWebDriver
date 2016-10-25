@@ -12,7 +12,7 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Created by agil on 09/06/2016.
+ * Created by mchurion on 09/06/2016.
  */
 public class LBC_TercerosDirecciones {
 
@@ -66,6 +66,7 @@ public class LBC_TercerosDirecciones {
     }
 
     public void BusquedaT(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException, IOException{
+
 
         try {
 
@@ -132,6 +133,7 @@ public class LBC_TercerosDirecciones {
 
     public void BotonEditar(LBC_Metodos a, WebDriver driver) throws InterruptedException, IOException {
 
+
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
             WebElement editar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
@@ -158,6 +160,7 @@ public class LBC_TercerosDirecciones {
     }
 
     public void AgregarDireccion(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException {
+
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
             Thread.sleep(5000);
@@ -366,6 +369,7 @@ public class LBC_TercerosDirecciones {
     }
 
     public void SeleccionarDirPrincipal(LBC_Metodos a, WebDriver driver, LBC_TercerosDireccionesBean lbcTercerosDireccionesBean) throws InterruptedException {
+
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

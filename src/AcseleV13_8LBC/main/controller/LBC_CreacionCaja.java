@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_CreacionCajaBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_CrearCaja;
-import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -22,8 +22,8 @@ public class LBC_CreacionCaja {
         try {
 
             // Instanciando clases
-            LBC_Metodos a = new LBC_Metodos();
-            LBC_MenuMantenimiento LBCMenuMantenimiento = new LBC_MenuMantenimiento();
+            MetodosLBC a = new MetodosLBC();
+            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
             //Crear Caja
             LBC_CrearCaja lbcCrearCaja = new LBC_CrearCaja();
 
@@ -34,7 +34,7 @@ public class LBC_CreacionCaja {
 
 
             //Entrando en Menu
-            LBCMenuMantenimiento.UAA_Caja(driver, nombreAutomatizacion, 2, i);
+            menuMantenimiento.UAA_Caja(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

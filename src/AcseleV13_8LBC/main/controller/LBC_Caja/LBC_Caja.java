@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller.LBC_Caja;
 
 import AcseleV13_8LBC.beans.LBC_CajaBean;
-import AcseleV13_8LBC.main.controller.LBC_Metodos;
+import AcseleV13_8LBC.main.controller.MetodosLBC;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class LBC_Caja {
 
     private final static Logger log = Logger.getLogger(LBC_Caja.class);
 
-    public void AperturaCaja(LBC_Metodos a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void AperturaCaja(MetodosLBC a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
@@ -54,7 +54,7 @@ public class LBC_Caja {
         }
     }
 
-    public void CierreCaja(LBC_Metodos a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void CierreCaja(MetodosLBC a, WebDriver driver, LBC_CajaBean lbcCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
