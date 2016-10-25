@@ -1,8 +1,8 @@
 package AcseleV13_8LBC.main.controller;
 
-import AcseleV13_8.beans.TercerosDireccionesBean;
-import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
-import AcseleV13_8.main.controller.Metodos;
+
+import AcseleV13_8LBC.beans.TercerosDireccionesBean;
+import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,11 +13,11 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Created by agil on 09/06/2016.
+ * Created by mchurion on 09/06/2016.
  */
-public class TercerosDirecciones {
+public class LBC_TercerosDirecciones {
 
-    private final static Logger log = Logger.getLogger(TercerosDirecciones.class);
+    private final static Logger log = Logger.getLogger(LBC_TercerosDirecciones.class);
 
     public String nombreAutomatizacion = "Direcciones Terceros";
 
@@ -26,7 +26,7 @@ public class TercerosDirecciones {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            MetodosLBC a = new MetodosLBC();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -35,7 +35,7 @@ public class TercerosDirecciones {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+            menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
 
             // Consulta del Tercero Creado
             Thread.sleep(2000);
@@ -54,7 +54,7 @@ public class TercerosDirecciones {
             a.regresarVentana(driver);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 15);
+            menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 15, i);
             a.cambiarVentana(driver);
 
             BusquedaT(a, driver, tercerosDireccionesBean);
@@ -66,7 +66,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException, IOException{
+    public void BusquedaT(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException, IOException{
 
         try {
 
@@ -131,7 +131,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void BotonEditar(Metodos a, WebDriver driver) throws InterruptedException, IOException {
+    public void BotonEditar(MetodosLBC a, WebDriver driver) throws InterruptedException, IOException {
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -158,7 +158,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void AgregarDireccion(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void AgregarDireccion(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
             Thread.sleep(5000);
@@ -256,7 +256,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void EditarDireccion(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void EditarDireccion(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -366,7 +366,7 @@ public class TercerosDirecciones {
 
     }
 
-    public void SeleccionarDirPrincipal(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void SeleccionarDirPrincipal(MetodosLBC a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

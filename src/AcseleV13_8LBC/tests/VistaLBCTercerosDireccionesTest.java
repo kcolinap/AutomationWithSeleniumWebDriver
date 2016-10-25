@@ -1,4 +1,4 @@
-package AcseleV13_8.tests;
+package AcseleV13_8LBC.tests;
 
 import AcseleV13_8.beans.TercerosDireccionesBean;
 import AcseleV13_8.main.controller.TercerosDirecciones;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /**
  * Created by agil on 10/06/2016.
  */
-public class VistaTercerosDireccionesTest {
+public class VistaLBCTercerosDireccionesTest {
 
-    private final static Logger log = Logger.getLogger(VistaTercerosDireccionesTest.class);
+    private final static Logger log = Logger.getLogger(VistaLBCTercerosDireccionesTest.class);
 
     @Test
     public void mainTest() {
