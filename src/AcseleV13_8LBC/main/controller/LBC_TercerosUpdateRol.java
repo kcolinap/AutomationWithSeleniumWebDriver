@@ -1,7 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
-import AcseleV13_8LBC.main.controller.MetodosLBC;
 import AcseleV13_8LBC.beans.LBC_TercerosUpdateRolBean;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -24,7 +23,7 @@ public class LBC_TercerosUpdateRol {
     public void testLink(LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol, int i) throws IOException, InterruptedException {
 
         // Instanciando clases
-        MetodosLBC a = new MetodosLBC();
+        LBC_Metodos a = new LBC_Metodos();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
@@ -59,7 +58,7 @@ public class LBC_TercerosUpdateRol {
 
     }
 
-    public void BusquedaT(MetodosLBC a, WebDriver driver, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException, IOException{
+    public void BusquedaT(LBC_Metodos a, WebDriver driver, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException, IOException{
 
         try{
             Thread.sleep(4000);
@@ -124,7 +123,7 @@ public class LBC_TercerosUpdateRol {
 
     }
 
-    public void UpdateRol(MetodosLBC a, WebDriver driver, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException {
+    public void UpdateRol(LBC_Metodos a, WebDriver driver, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException {
 
         Thread.sleep(3000);
         try {
@@ -185,7 +184,7 @@ public class LBC_TercerosUpdateRol {
         }
     }
 
-    public void IngresarMenuTrazaAuditoriaVaadin(WebDriver driver, MetodosLBC a) throws IOException, InterruptedException {
+    public void IngresarMenuTrazaAuditoriaVaadin(WebDriver driver, LBC_Metodos a) throws IOException, InterruptedException {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -204,7 +203,7 @@ public class LBC_TercerosUpdateRol {
         }
     }
 
-    public void TrazaAuditoriaVaadin(WebDriver driver, MetodosLBC a, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException, IOException {
+    public void TrazaAuditoriaVaadin(WebDriver driver, LBC_Metodos a, LBC_TercerosUpdateRolBean lbc_tercerosUpdateRol) throws InterruptedException, IOException {
 
         Thread.sleep(3000);
         // Fecha desde
