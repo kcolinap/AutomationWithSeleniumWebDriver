@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /**
  * Created by aazuaje on 21/10/2016.
  */
-public class Vista_TercerosInfTecnicaTest {
+public class VistaLBC_TercerosInfTecnicaTest {
 
-    private final static Logger log = Logger.getLogger(Vista_TercerosInfTecnicaTest.class);
+    private final static Logger log = Logger.getLogger(VistaLBC_TercerosInfTecnicaTest.class);
 
     @Test
     public void mainTest() throws SQLException {

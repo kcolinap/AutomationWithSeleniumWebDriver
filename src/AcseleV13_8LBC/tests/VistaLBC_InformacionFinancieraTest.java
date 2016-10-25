@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.tests;
 
-import AcseleV13_8LBC.beans.InformacionFinancieraLBCBean;
-import AcseleV13_8LBC.main.controller.InformacionFinancieraLBC;
+import AcseleV13_8LBC.beans.LBC_InformacionFinancieraBean;
+import AcseleV13_8LBC.main.controller.LBC_InformacionFinanciera;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /**
  * Created by rmontilla on 20/10/2016.
  */
-public class VistaInformacionFinancieraLBCTest {
+public class VistaLBC_InformacionFinancieraTest {
 
-    private final static Logger log = Logger.getLogger(VistaInformacionFinancieraLBCTest.class);
+    private final static Logger log = Logger.getLogger(VistaLBC_InformacionFinancieraTest.class);
 
     @Test
     public void mainTest(){
@@ -24,18 +24,18 @@ public class VistaInformacionFinancieraLBCTest {
         ArrayList terceros = null;
 
         try {
-            terceros = InformacionFinancieraLBCBean.getInformacionFinanciera();
+            terceros = LBC_InformacionFinancieraBean.getInformacionFinanciera();
         }catch (SQLException e) {
             log.error(e);
         }
 
         for (int i = 0; i < terceros.size(); i++){
 
-            InformacionFinancieraLBCBean informacionFinancieraLBCBean = (InformacionFinancieraLBCBean) terceros.get(i);
-            InformacionFinancieraLBC a = new InformacionFinancieraLBC();
+            LBC_InformacionFinancieraBean lbcInformacionFinancieraBean = (LBC_InformacionFinancieraBean) terceros.get(i);
+            LBC_InformacionFinanciera a = new LBC_InformacionFinanciera();
 
             try {
-                a.testLink(informacionFinancieraLBCBean, i);
+                a.testLink(lbcInformacionFinancieraBean, i);
             }catch (Exception e) {
                 e.printStackTrace();
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);

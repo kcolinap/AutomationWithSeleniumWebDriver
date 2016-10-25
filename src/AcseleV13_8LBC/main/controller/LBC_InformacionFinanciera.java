@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller;
 
-import AcseleV13_8LBC.beans.InformacionFinancieraLBCBean;
-import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.beans.LBC_InformacionFinancieraBean;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,19 +14,19 @@ import java.io.IOException;
 /**
  * Created by rmontilla on 20/10/2016.
  */
-public class InformacionFinancieraLBC {
+public class LBC_InformacionFinanciera {
 
-    private final static Logger log = Logger.getLogger(InformacionFinancieraLBC.class);
+    private final static Logger log = Logger.getLogger(LBC_InformacionFinanciera.class);
 
     public String nombreAutomatizacion = "LBC Terceros Informacion Financiera";
 
-    public void testLink(InformacionFinancieraLBCBean informacionFinancieraLBCBean, int i) throws Exception {
+    public void testLink(LBC_InformacionFinancieraBean lbcInformacionFinancieraBean, int i) throws Exception {
 
         try {
 
             // Instanciando clases
-            MetodosLBC a = new MetodosLBC();
-            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+            LBC_Metodos a = new LBC_Metodos();
+            LBC_MenuMantenimiento menuMantenimiento = new LBC_MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -40,8 +40,8 @@ public class InformacionFinancieraLBC {
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, driver, informacionFinancieraLBCBean); //Busqueda Tercero
-            Formulario(a, driver, informacionFinancieraLBCBean);
+            BusquedaT(a, driver, lbcInformacionFinancieraBean); //Busqueda Tercero
+            Formulario(a, driver, lbcInformacionFinancieraBean);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class InformacionFinancieraLBC {
 
     }
 
-    public void BusquedaT(MetodosLBC a, WebDriver driver, InformacionFinancieraLBCBean informacionFinancieraLBCBean) throws InterruptedException, IOException {
+    public void BusquedaT(LBC_Metodos a, WebDriver driver, LBC_InformacionFinancieraBean lbcInformacionFinancieraBean) throws InterruptedException, IOException {
 
         try {
 
@@ -59,68 +59,68 @@ public class InformacionFinancieraLBC {
             System.out.println("Titulo de la pagina: " + title);
 
             //Tipo de tercero
-            if (informacionFinancieraLBCBean.getTipoTercero() != null) {
+            if (lbcInformacionFinancieraBean.getTipoTercero() != null) {
                 Thread.sleep(3000);
                 //Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
                 Select tipoT = new Select(driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[1]/div/div[2]/select")));
-                if (informacionFinancieraLBCBean.getTipoTercero().equals("Persona Natural")) {
+                if (lbcInformacionFinancieraBean.getTipoTercero().equals("Persona Natural")) {
                     tipoT.selectByValue("NaturalPerson");
                 }
 
-                if (informacionFinancieraLBCBean.getTipoTercero().equals("Persona Juridica")) {
+                if (lbcInformacionFinancieraBean.getTipoTercero().equals("Persona Juridica")) {
                     tipoT.selectByValue("LegalPerson");
                 }
             }
 
             //    Thread.sleep(2000); // //TipoElemento[@wicketpath='WicketpathElemento']
 
-            if (informacionFinancieraLBCBean.getTipoDocId() != null) {
+            if (lbcInformacionFinancieraBean.getTipoDocId() != null) {
                 Select tipoDocId = new Select(driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[2]/form/div[3]/div[1]/table/tbody/tr/td[1]/div[4]/div/div/div/select")));
 
-                if (informacionFinancieraLBCBean.getTipoDocId().equals("CÉDULA DE EXTRANJERO")) {
+                if (lbcInformacionFinancieraBean.getTipoDocId().equals("CÉDULA DE EXTRANJERO")) {
 
                     tipoDocId.selectByValue("778589");
                     Thread.sleep(1000);
                 }
 
-                if (informacionFinancieraLBCBean.getTipoDocId().equals("CÉDULA DE IDENTIDAD")) {
+                if (lbcInformacionFinancieraBean.getTipoDocId().equals("CÉDULA DE IDENTIDAD")) {
 
                     tipoDocId.selectByValue("778590");
                     Thread.sleep(1000);
                 }
 
-                if (informacionFinancieraLBCBean.getTipoDocId().equals("PASAPORTE")) {
+                if (lbcInformacionFinancieraBean.getTipoDocId().equals("PASAPORTE")) {
 
                     tipoDocId.selectByValue("778591");
                     Thread.sleep(1000);
                 }
 
-                if (informacionFinancieraLBCBean.getTipoDocId().equals("REGISTRO UNICO NACIONAL")) {
+                if (lbcInformacionFinancieraBean.getTipoDocId().equals("REGISTRO UNICO NACIONAL")) {
 
                     tipoDocId.selectByValue("778592");
                     Thread.sleep(1000);
                 }
 
-                if (informacionFinancieraLBCBean.getTipoDocId().equals("SIN VALOR EN MIGRACION")) {
+                if (lbcInformacionFinancieraBean.getTipoDocId().equals("SIN VALOR EN MIGRACION")) {
 
                     tipoDocId.selectByValue("778593");
                     Thread.sleep(1000);
                 }
             }
 
-            if (informacionFinancieraLBCBean.getCedula() != null) {
+            if (lbcInformacionFinancieraBean.getCedula() != null) {
                 WebElement cedu = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[2]/form/div[3]/div[1]/table/tbody/tr/td[2]/div[4]/div/div/input[2]"));
-                cedu.sendKeys(informacionFinancieraLBCBean.getCedula());
+                cedu.sendKeys(lbcInformacionFinancieraBean.getCedula());
             }
 
-            if (informacionFinancieraLBCBean.getNombre() != null) {
+            if (lbcInformacionFinancieraBean.getNombre() != null) {
                 WebElement nTercero = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[2]/form/div[3]/div[1]/table/tbody/tr/td[1]/div[2]/div/div/input[2]"));
-                nTercero.sendKeys(informacionFinancieraLBCBean.getNombre());
+                nTercero.sendKeys(lbcInformacionFinancieraBean.getNombre());
             }
 
-            if (informacionFinancieraLBCBean.getApellido() != null) {
+            if (lbcInformacionFinancieraBean.getApellido() != null) {
                 WebElement aTercero = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[2]/form/div[3]/div[1]/table/tbody/tr/td[1]/div[1]/div/div/input[2]"));
-                aTercero.sendKeys(informacionFinancieraLBCBean.getApellido());
+                aTercero.sendKeys(lbcInformacionFinancieraBean.getApellido());
             }
 
             Thread.sleep(3000);
@@ -128,9 +128,9 @@ public class InformacionFinancieraLBC {
             a.ScreenShot(driver, "screen3", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
-            if (informacionFinancieraLBCBean.getCodIdentificador() != null) {
+            if (lbcInformacionFinancieraBean.getCodIdentificador() != null) {
                 WebElement codTercero = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[2]/form/div[3]/div[1]/div[2]/div/div[2]/table/tbody/tr/td[2]/div[4]/div/div/input[2]"));
-                codTercero.sendKeys(informacionFinancieraLBCBean.getCodIdentificador());
+                codTercero.sendKeys(lbcInformacionFinancieraBean.getCodIdentificador());
             }
 
 
@@ -158,7 +158,7 @@ public class InformacionFinancieraLBC {
         }
     }
 
-    public void Formulario(MetodosLBC a, WebDriver driver, InformacionFinancieraLBCBean informacionFinancieraLBCBean) throws InterruptedException {
+    public void Formulario(LBC_Metodos a, WebDriver driver, LBC_InformacionFinancieraBean lbcInformacionFinancieraBean) throws InterruptedException {
         Thread.sleep(5000);
         try {
             a.ScreenShot(driver, "screen5", nombreAutomatizacion);
@@ -168,113 +168,113 @@ public class InformacionFinancieraLBC {
 
             WebElement puntero = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[1]/div[1]/div[1]"));
 
-            if (informacionFinancieraLBCBean.getActivos() != null) {
+            if (lbcInformacionFinancieraBean.getActivos() != null) {
                 WebElement activos = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[1]/div/div/input[2]"));
-                activos.sendKeys(informacionFinancieraLBCBean.getActivos());
+                activos.sendKeys(lbcInformacionFinancieraBean.getActivos());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getActivosFijos() != null) {
+            if (lbcInformacionFinancieraBean.getActivosFijos() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement activosf = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[1]/div/div/input[2]"));
-                activosf.sendKeys(informacionFinancieraLBCBean.getActivosFijos());
+                activosf.sendKeys(lbcInformacionFinancieraBean.getActivosFijos());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getInversiones() != null) {
+            if (lbcInformacionFinancieraBean.getInversiones() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement inver = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[2]/div/div/input[2]"));
-                inver.sendKeys(informacionFinancieraLBCBean.getInversiones());
+                inver.sendKeys(lbcInformacionFinancieraBean.getInversiones());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getOtrosActivos() != null) {
+            if (lbcInformacionFinancieraBean.getOtrosActivos() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement otrosact = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[2]/div/div/input[2]"));
-                otrosact.sendKeys(informacionFinancieraLBCBean.getOtrosActivos());
+                otrosact.sendKeys(lbcInformacionFinancieraBean.getOtrosActivos());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getTotalActivos() != null) {
+            if (lbcInformacionFinancieraBean.getTotalActivos() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement totalact = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[3]/div/div/input[2]"));
-                totalact.sendKeys(informacionFinancieraLBCBean.getTotalActivos());
+                totalact.sendKeys(lbcInformacionFinancieraBean.getTotalActivos());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getPasivoCirculante() != null) {
+            if (lbcInformacionFinancieraBean.getPasivoCirculante() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement pascir = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[3]/div/div/input[2]"));
-                pascir.sendKeys(informacionFinancieraLBCBean.getPasivoCirculante());
+                pascir.sendKeys(lbcInformacionFinancieraBean.getPasivoCirculante());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getPasivosLargoPlazo() != null) {
+            if (lbcInformacionFinancieraBean.getPasivosLargoPlazo() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement paslar = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[4]/div/div/input[2]"));
-                paslar.sendKeys(informacionFinancieraLBCBean.getPasivosLargoPlazo());
+                paslar.sendKeys(lbcInformacionFinancieraBean.getPasivosLargoPlazo());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getCapitalPagado() != null) {
+            if (lbcInformacionFinancieraBean.getCapitalPagado() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement cappag = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[4]/div/div/input[2]"));
-                cappag.sendKeys(informacionFinancieraLBCBean.getCapitalPagado());
+                cappag.sendKeys(lbcInformacionFinancieraBean.getCapitalPagado());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getCapitalReserva() != null) {
+            if (lbcInformacionFinancieraBean.getCapitalReserva() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement capres = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[5]/div/div/input[2]"));
-                capres.sendKeys(informacionFinancieraLBCBean.getCapitalReserva());
+                capres.sendKeys(lbcInformacionFinancieraBean.getCapitalReserva());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getExcedente() != null) {
+            if (lbcInformacionFinancieraBean.getExcedente() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement exc = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[5]/div/div/input[2]"));
-                exc.sendKeys(informacionFinancieraLBCBean.getExcedente());
+                exc.sendKeys(lbcInformacionFinancieraBean.getExcedente());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getTotPasCap() != null) {
+            if (lbcInformacionFinancieraBean.getTotPasCap() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement totpascap = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[6]/div/div/input[2]"));
-                totpascap.sendKeys(informacionFinancieraLBCBean.getTotPasCap());
+                totpascap.sendKeys(lbcInformacionFinancieraBean.getTotPasCap());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getCapitalTrabajo() != null) {
+            if (lbcInformacionFinancieraBean.getCapitalTrabajo() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement captra = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[6]/div/div/input[2]"));
-                captra.sendKeys(informacionFinancieraLBCBean.getCapitalTrabajo());
+                captra.sendKeys(lbcInformacionFinancieraBean.getCapitalTrabajo());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getSolvencia() != null) {
+            if (lbcInformacionFinancieraBean.getSolvencia() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement sol = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[1]/div[7]/div/div/input[2]"));
-                sol.sendKeys(informacionFinancieraLBCBean.getSolvencia());
+                sol.sendKeys(lbcInformacionFinancieraBean.getSolvencia());
                 Thread.sleep(2000);
             }
 
-            if (informacionFinancieraLBCBean.getLiquidez() != null) {
+            if (lbcInformacionFinancieraBean.getLiquidez() != null) {
                 puntero.click();
                 Thread.sleep(2000);
                 WebElement liq = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/form/div[2]/div[1]/div[1]/table/tbody/tr/td[2]/div[7]/div/div/input[2]"));
-                liq.sendKeys(informacionFinancieraLBCBean.getLiquidez());
+                liq.sendKeys(lbcInformacionFinancieraBean.getLiquidez());
                 Thread.sleep(4000);
             }
 

@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.beans;
 
-import AcseleV13_8LBC.main.controller.InformacionFinancieraLBC;
+import AcseleV13_8LBC.main.controller.LBC_InformacionFinanciera;
 import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /**
  * Created by rmontilla on 20/10/2016.
  */
-public class InformacionFinancieraLBCBean implements Serializable{
+public class LBC_InformacionFinancieraBean implements Serializable{
 
-    private final static Logger log = Logger.getLogger(InformacionFinancieraLBC.class);
+    private final static Logger log = Logger.getLogger(LBC_InformacionFinanciera.class);
 
     private String tipoTercero;
     private String tipoDocId;
@@ -218,29 +218,29 @@ public class InformacionFinancieraLBCBean implements Serializable{
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                InformacionFinancieraLBCBean informacionFinancieraLBCBean = new InformacionFinancieraLBCBean();
-                informacionFinancieraLBCBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                informacionFinancieraLBCBean.setTipoDocId(rs.getString("TIPO_DOC_IDENTIDAD"));
-                informacionFinancieraLBCBean.setCedula(rs.getString("CEDULA"));
-                informacionFinancieraLBCBean.setNombre(rs.getString("NOMBRE"));
-                informacionFinancieraLBCBean.setApellido(rs.getString("APELLIDO"));
-                informacionFinancieraLBCBean.setCodIdentificador(rs.getString("COD_IDENTIFICADOR"));
-                informacionFinancieraLBCBean.setActivos(rs.getString("ACTIVOS"));
-                informacionFinancieraLBCBean.setActivosFijos(rs.getString("ACTIVOS_FIJOS"));
-                informacionFinancieraLBCBean.setInversiones(rs.getString("INVERSIONES"));
-                informacionFinancieraLBCBean.setOtrosActivos(rs.getString("OTROS_ACTIVOS"));
-                informacionFinancieraLBCBean.setTotalActivos(rs.getString("TOTAL_ACTIVOS"));
-                informacionFinancieraLBCBean.setPasivoCirculante(rs.getString("PASIVO_CIRCULANTE"));
-                informacionFinancieraLBCBean.setPasivosLargoPlazo(rs.getString("PASIVO_LARGO_PLAZO"));
-                informacionFinancieraLBCBean.setCapitalPagado(rs.getString("CAPITAL_PAGADO"));
-                informacionFinancieraLBCBean.setCapitalReserva(rs.getString("CAPITAL_RESERVA"));
-                informacionFinancieraLBCBean.setExcedente(rs.getString("EXCEDENTE"));
-                informacionFinancieraLBCBean.setTotPasCap(rs.getString("TOTAL_PASIVO_CAPITAL"));
-                informacionFinancieraLBCBean.setCapitalTrabajo(rs.getString("CAPITAL_TRABAJO"));
-                informacionFinancieraLBCBean.setSolvencia(rs.getString("SOLVENCIA"));
-                informacionFinancieraLBCBean.setLiquidez(rs.getString("LIQUIDEZ"));
+                LBC_InformacionFinancieraBean lbcInformacionFinancieraBean = new LBC_InformacionFinancieraBean();
+                lbcInformacionFinancieraBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                lbcInformacionFinancieraBean.setTipoDocId(rs.getString("TIPO_DOC_IDENTIDAD"));
+                lbcInformacionFinancieraBean.setCedula(rs.getString("CEDULA"));
+                lbcInformacionFinancieraBean.setNombre(rs.getString("NOMBRE"));
+                lbcInformacionFinancieraBean.setApellido(rs.getString("APELLIDO"));
+                lbcInformacionFinancieraBean.setCodIdentificador(rs.getString("COD_IDENTIFICADOR"));
+                lbcInformacionFinancieraBean.setActivos(rs.getString("ACTIVOS"));
+                lbcInformacionFinancieraBean.setActivosFijos(rs.getString("ACTIVOS_FIJOS"));
+                lbcInformacionFinancieraBean.setInversiones(rs.getString("INVERSIONES"));
+                lbcInformacionFinancieraBean.setOtrosActivos(rs.getString("OTROS_ACTIVOS"));
+                lbcInformacionFinancieraBean.setTotalActivos(rs.getString("TOTAL_ACTIVOS"));
+                lbcInformacionFinancieraBean.setPasivoCirculante(rs.getString("PASIVO_CIRCULANTE"));
+                lbcInformacionFinancieraBean.setPasivosLargoPlazo(rs.getString("PASIVO_LARGO_PLAZO"));
+                lbcInformacionFinancieraBean.setCapitalPagado(rs.getString("CAPITAL_PAGADO"));
+                lbcInformacionFinancieraBean.setCapitalReserva(rs.getString("CAPITAL_RESERVA"));
+                lbcInformacionFinancieraBean.setExcedente(rs.getString("EXCEDENTE"));
+                lbcInformacionFinancieraBean.setTotPasCap(rs.getString("TOTAL_PASIVO_CAPITAL"));
+                lbcInformacionFinancieraBean.setCapitalTrabajo(rs.getString("CAPITAL_TRABAJO"));
+                lbcInformacionFinancieraBean.setSolvencia(rs.getString("SOLVENCIA"));
+                lbcInformacionFinancieraBean.setLiquidez(rs.getString("LIQUIDEZ"));
 
-                terceros.add(informacionFinancieraLBCBean);
+                terceros.add(lbcInformacionFinancieraBean);
             }
         }catch(SQLException e){
             log.error(e);
