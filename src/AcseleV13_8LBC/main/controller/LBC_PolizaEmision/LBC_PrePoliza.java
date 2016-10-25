@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller.LBC_PolizaEmision;
 
 import AcseleV13_8LBC.beans.LBC_PolizasBean;
-import AcseleV13_8LBC.main.controller.MetodosLBC;
+import AcseleV13_8LBC.main.controller.LBC_Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class LBC_PrePoliza {
 
     private final static Logger log = Logger.getLogger(LBC_PrePoliza.class);
 
-    public void AdminPropuestaPoliza(MetodosLBC a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
+    public void AdminPropuestaPoliza(LBC_Metodos a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
             productoSelect.selectByValue(lbcPolizaBean.getProducto()); //VidaDeudoresAvVillas
@@ -62,7 +62,7 @@ public class LBC_PrePoliza {
         }
     }
 
-    public void EvAplicar(MetodosLBC a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void EvAplicar(LBC_Metodos a, WebDriver driver, LBC_PolizasBean lbcPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
         try {
             Thread.sleep(3000);
 

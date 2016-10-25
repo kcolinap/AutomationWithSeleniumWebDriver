@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_CajaCierreBean;
 import AcseleV13_8LBC.main.controller.LBC_Caja.LBC_Caja;
-import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -22,8 +22,8 @@ public class LBC_CajaCierre {
         try {
 
             // Instanciando clases
-            MetodosLBC a = new MetodosLBC();
-            MenuOperaciones menuOperaciones = new MenuOperaciones();
+            LBC_Metodos a = new LBC_Metodos();
+            LBC_MenuOperaciones lbcMenuOperaciones = new LBC_MenuOperaciones();
             //Aperturar Caja
             LBC_Caja lbcCaja = new LBC_Caja();
 
@@ -35,7 +35,7 @@ public class LBC_CajaCierre {
 
 
             //Entrando en Menu
-            menuOperaciones.UAA_Caja_CierreCaja(driver, nombreAutomatizacion, 2, i);
+            lbcMenuOperaciones.UAA_Caja_CierreCaja(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

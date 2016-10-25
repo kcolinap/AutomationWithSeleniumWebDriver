@@ -3,8 +3,8 @@ package AcseleV13_8LBC.main.controller;
 import AcseleV13_8LBC.beans.LBC_TercerosHabilitarDeshabilitarBean;
 import AcseleV13_8LBC.main.controller.LBC_PolizaEmision.LBC_InformacionGeneralPoliza;
 import AcseleV13_8LBC.main.controller.LBC_PolizaEmision.LBC_PrePoliza;
-import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
-import AcseleV13_8LBC.main.controller.Menu.MenuOperaciones;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -29,9 +29,9 @@ public class LBC_TercerosHabilitarDeshabilitar {
         try {
 
             // Instanciando clases
-            MetodosLBC a = new MetodosLBC();
-            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
-            MenuOperaciones menuOperaciones = new MenuOperaciones();
+            LBC_Metodos a = new LBC_Metodos();
+            LBC_MenuMantenimiento lbcMenuMantenimiento = new LBC_MenuMantenimiento();
+            LBC_MenuOperaciones lbcMenuOperaciones = new LBC_MenuOperaciones();
             LBC_PrePoliza lbcPrePoliza = new LBC_PrePoliza();
             LBC_InformacionGeneralPoliza lbcInformacionGeneralPoliza = new LBC_InformacionGeneralPoliza();
 
@@ -41,7 +41,7 @@ public class LBC_TercerosHabilitarDeshabilitar {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
+            lbcMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -58,7 +58,7 @@ public class LBC_TercerosHabilitarDeshabilitar {
 
             Thread.sleep(1000);
             //Entrando en Menu
-            menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 7, i);
+            lbcMenuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 7, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -81,7 +81,7 @@ public class LBC_TercerosHabilitarDeshabilitar {
         }
     }
 
-    public void BuscarTercero (WebDriver driver, MetodosLBC a, LBC_TercerosHabilitarDeshabilitarBean lbcTercerosHabilitarDeshabilitarBean, int i, int numScreenShoot, int numScreenShoot2){
+    public void BuscarTercero (WebDriver driver, LBC_Metodos a, LBC_TercerosHabilitarDeshabilitarBean lbcTercerosHabilitarDeshabilitarBean, int i, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -175,7 +175,7 @@ public class LBC_TercerosHabilitarDeshabilitar {
         }
     }
 
-    public void HabilitarDeshabilitarTercero(WebDriver driver, MetodosLBC a, LBC_TercerosHabilitarDeshabilitarBean lbcTercerosHabilitarDeshabilitarBean, int i, int numScreenShoot, int numScreenShoot2){
+    public void HabilitarDeshabilitarTercero(WebDriver driver, LBC_Metodos a, LBC_TercerosHabilitarDeshabilitarBean lbcTercerosHabilitarDeshabilitarBean, int i, int numScreenShoot, int numScreenShoot2){
 
         try {
             JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -219,7 +219,7 @@ public class LBC_TercerosHabilitarDeshabilitar {
         }
     }
 
-    public void BuscarTerceroPoliza(WebDriver driver, MetodosLBC a, LBC_TercerosHabilitarDeshabilitarBean lbcTercerosHabilitarDeshabilitarBean, int i, int numScreenShoot, int numScreenShoot2){
+    public void BuscarTerceroPoliza(WebDriver driver, LBC_Metodos a, LBC_TercerosHabilitarDeshabilitarBean lbcTercerosHabilitarDeshabilitarBean, int i, int numScreenShoot, int numScreenShoot2){
 
         try {
             JavascriptExecutor jse = (JavascriptExecutor)driver;

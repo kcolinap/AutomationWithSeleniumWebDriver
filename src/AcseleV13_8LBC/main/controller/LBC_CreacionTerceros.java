@@ -2,7 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_CreacionTercerosBean;
 import AcseleV13_8LBC.main.controller.LBC_Terceros.LBC_Crear;
-import AcseleV13_8LBC.main.controller.Menu.MenuMantenimiento;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -22,8 +22,8 @@ public class LBC_CreacionTerceros {
         try {
 
             // Instanciando clases
-            MetodosLBC a = new MetodosLBC();
-            MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+            LBC_Metodos a = new LBC_Metodos();
+            LBC_MenuMantenimiento lbcMenuMantenimiento = new LBC_MenuMantenimiento();
             //Crear Tercero
             LBC_Crear lbcCrear = new LBC_Crear();
 
@@ -34,7 +34,7 @@ public class LBC_CreacionTerceros {
 
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_IngresarTerceroFrontEnd(driver, nombreAutomatizacion, 2, i);
+            lbcMenuMantenimiento.MantTerc_IngresarTerceroFrontEnd(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);

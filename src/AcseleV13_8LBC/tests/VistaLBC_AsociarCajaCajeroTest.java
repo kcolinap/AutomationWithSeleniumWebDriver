@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class VistaLBC_AsociarCajaCajeroTest {
 
-    private final static Logger log = Logger.getLogger(VistaConsultaSimplePolizaTest.class);
+    private final static Logger log = Logger.getLogger(VistaLBC_ConsultaSimplePolizaTest.class);
 
     @Test
     public void mainTest() throws SQLException {
