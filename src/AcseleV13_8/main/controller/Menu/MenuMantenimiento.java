@@ -2,7 +2,7 @@ package AcseleV13_8.main.controller.Menu;
 
 import AcseleV13_8.main.controller.Metodos;
 import AcseleV13_8LBC.main.controller.LBC_Metodos;
-import AcseleV13_8LBC.main.controller.MetodosLBC;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,7 +53,7 @@ public class MenuMantenimiento {
             }
         }
 
-        public void MantTerc_BuscarTercero(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+        public void MantTerc_BuscarTercero(Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShot){
 
             try {
                 Actions action = new Actions(driver);

@@ -2,6 +2,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import AcseleV13_8LBC.beans.LBC_TercerosUpdateRolBean;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,7 @@ public class LBC_TercerosUpdateRol {
 
         // Instanciando clases
         LBC_Metodos a = new LBC_Metodos();
-        MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
+        LBC_MenuMantenimiento lbcMenuMantenimiento = new LBC_MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -32,7 +33,7 @@ public class LBC_TercerosUpdateRol {
         Thread.sleep(5000);
 
         //Entrando en Menu
-        menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+        lbcMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
 
         // Consulta del Tercero Creado
         Thread.sleep(2000);
@@ -74,41 +75,39 @@ public class LBC_TercerosUpdateRol {
             Thread.sleep(2000); // //TipoElemento[@wicketpath='WicketpathElemento']
 
             if (lbc_tercerosUpdateRol.getApellido() != null) {
-                // WebElement aTercero = driver.findElement(By.name("templateThird:repeaterPanel1:5:fila:field"));
-                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                WebElement aTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_field']"));
                 aTercero.sendKeys(lbc_tercerosUpdateRol.getApellido());
             }
+            Thread.sleep(1000);
 
             if (lbc_tercerosUpdateRol.getNombre() != null) {
-                // WebElement nTercero = driver.findElement(By.name("templateThird:repeaterPanel1:3:fila:field"));
-                WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
+                WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
                 nTercero.sendKeys(lbc_tercerosUpdateRol.getNombre());
             }
+            Thread.sleep(1000);
 
             if (lbc_tercerosUpdateRol.getTipoDocIdentificacion() != null){
-                // Select tipoDoc = new Select(driver.findElement(By.name("templateThird:repeaterPanel1:1:fila:repeaterSelect:1:field")));
-                Select tipoDoc = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+                Select tipoDoc = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
                 tipoDoc.selectByValue(lbc_tercerosUpdateRol.getTipoDocIdentificacion());
             }
+            Thread.sleep(1000);
 
             if (lbc_tercerosUpdateRol.getNumDocIdentificacion() != null) {
-                // WebElement cedu = driver.findElement(By.name("templateThird:repeaterPanel1:2:fila:field"));
-                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_4_fila_field']"));
                 cedu.sendKeys(lbc_tercerosUpdateRol.getNumDocIdentificacion());
             }
+            Thread.sleep(1000);
 
             //Screenshot
             a.ScreenShot(driver, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
-            // WebElement buscar = driver.findElement(By.name("searchButton"));
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
             Thread.sleep(5000);
 
-            // WebElement selccionTercero = driver.findElement(By.name("SearchContent:ThirdInformation:showDetailSearchTable:proof:ThirdPartyRadioGroup"));
-            WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
-            selccionTercero.click();
+            WebElement seleccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+            seleccionTercero.click();
 
             Thread.sleep(1000);
             //Screenshot
@@ -127,9 +126,9 @@ public class LBC_TercerosUpdateRol {
 
         Thread.sleep(3000);
         try {
-            // WebElement selRol = driver.findElement(By.xpath("//tr[3]/td/div/input")); // Seleccionar el Rol
+
             WebElement selRol = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_container_ThirdRol_3_insurance']")); // Seleccionar el Rol
-            // WebElement btnEditar = driver.findElement(By.xpath("//form/div[3]/input")); // Boton Editar
+
             WebElement btnEditar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_rolForm_EditButton']")); // Boton Editar
 
             selRol.click();
@@ -140,19 +139,24 @@ public class LBC_TercerosUpdateRol {
 
             btnEditar.click();
             Thread.sleep(6000);
+
+            /** Espere **/
+            /*WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()) {
+                Thread.sleep(5000);
+                System.out.println("Espera 1");
+            }*/
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 24 - LBC_Terceros Update Roles - " + e);
+            log.info("Test Case - LBC_Terceros Update Roles - " + e);
         }
 
         try{
-            // //TipoElemento[@wicketpath='WicketpathElemento']
-            // Select gene = new Select(driver.findElement(By.xpath("//div[2]/table/tbody/tr/td/div/div/div/div/select"))); // Genero
-            Select gene = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']"))); // Genero
-            // WebElement fecNac = driver.findElement(By.xpath("//div[2]/div/div/div[4]/input")); // Fecha nacimiento
-            WebElement fecNac = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_fieldDate']")); // Fecha nacimiento
-            // WebElement btnGuardar = driver.findElement(By.xpath("//div[2]/div/div[2]/input")); // Boton Guardar
+
+            WebElement fechaNac = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_fieldDate']")); // Fecha nacimiento
+            fechaNac.clear();
+            fechaNac.sendKeys(lbc_tercerosUpdateRol.getFechaNac());
             WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_saveButton']")); // Boton Guardar
 
             /****/
@@ -160,13 +164,13 @@ public class LBC_TercerosUpdateRol {
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
-            gene.selectByValue(lbc_tercerosUpdateRol.getGenero());
+            /*gene.selectByValue(lbc_tercerosUpdateRol.getGenero());
             Thread.sleep(2000);
             // fecNac = driver.findElement(By.xpath("//div[2]/div/div/div[4]/input")); // Fecha nacimiento
             fecNac = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_fieldDate']")); // Fecha nacimiento
             fecNac.clear();
             fecNac.sendKeys(lbc_tercerosUpdateRol.getFechaNac());
-            Thread.sleep(1000);
+            Thread.sleep(1000);*/
 
             a.ScreenShot(driver, "screen8", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
@@ -180,7 +184,7 @@ public class LBC_TercerosUpdateRol {
         } catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case 24 - LBC_Terceros Update Roles - " + e);
+            log.info("Test Case - LBC_Terceros Update Roles - " + e);
         }
     }
 
@@ -188,8 +192,8 @@ public class LBC_TercerosUpdateRol {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[10]"));//Auditoria
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[42]/div[4]"));//Trazas de Auditoría (Vaadin)
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[10]"));//Auditoria
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[46]/div[4]"));//Trazas de Auditoría (Vaadin)
             menu1.click();
             menu2.click();
             a.ScreenShot(driver, "screen9", nombreAutomatizacion); //screenshot2

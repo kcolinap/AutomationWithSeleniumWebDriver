@@ -34,7 +34,7 @@ public class TercerosDocumentos {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
+            //menuMantenimiento.MantTerc_BuscarTercero(a, driver, nombreAutomatizacion, 2);
 
             // Consulta del Tercero Creado
             Thread.sleep(2000);

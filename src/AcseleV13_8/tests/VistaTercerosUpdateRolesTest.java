@@ -1,7 +1,6 @@
 package AcseleV13_8.tests;
 
 import AcseleV13_8.beans.TercerosUpdateRolesBean;
-import AcseleV13_8.main.controller.TercerosUpdateRoles;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -24,10 +23,10 @@ public class VistaTercerosUpdateRolesTest {
 
         for (int i = 0; i < terceros.size(); i++) {
             TercerosUpdateRolesBean tercerosUpdateRolesBean = (TercerosUpdateRolesBean) terceros.get(i);
-            TercerosUpdateRoles a = new TercerosUpdateRoles();
+            //TercerosUpdateRoles a = new TercerosUpdateRoles();
 
             try {
-                a.testLink(tercerosUpdateRolesBean, i);
+               // a.testLink(tercerosUpdateRolesBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
