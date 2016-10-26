@@ -46,14 +46,14 @@ public class VistaLBC_CrearListaRestrictivaTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM CREAR_LISTA_RESTRICTIVA_LBC ORDER BY PRUEBA ASC",
+/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM CREAR_LISTA_RESTRICTIVA_LBC ORDER BY PRUEBA ASC",
                 "CREAR_LISTA_RESTRICTIVA_LBC",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM CREAR_LISTA_RESTRICTIVA_LBC ORDER BY PRUEBA ASC",
                 "CREAR_LISTA_RESTRICTIVA_LBC",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml");
-
+*/
         DataSetManager.loadDataSet("/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
