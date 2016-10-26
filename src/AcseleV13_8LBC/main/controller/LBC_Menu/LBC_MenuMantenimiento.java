@@ -319,10 +319,10 @@ public class LBC_MenuMantenimiento {
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[1]"));// Crear Listas Restrictivas
-          //  this.a.ScreenShot(driver, "screen3", nombreAutomatizacion); //screenshot2
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));  // Mantenimiento
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));// Administracion de Listas Restrictivas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[1]")); // Crear Listas Restrictivas
+
             menu1.click();
             menu2.click();
             Thread.sleep(1000);
@@ -334,7 +334,6 @@ public class LBC_MenuMantenimiento {
 
         } catch (Exception e){
             e.printStackTrace();
-//             log.info(e);
             log.info("Menu listas Restrictivas " + e);
         }
     }
