@@ -164,14 +164,6 @@ public class LBC_TercerosUpdateRol {
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
-            /*gene.selectByValue(lbc_tercerosUpdateRol.getGenero());
-            Thread.sleep(2000);
-            // fecNac = driver.findElement(By.xpath("//div[2]/div/div/div[4]/input")); // Fecha nacimiento
-            fecNac = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_templateContainer_rolTempForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_fieldDate']")); // Fecha nacimiento
-            fecNac.clear();
-            fecNac.sendKeys(lbc_tercerosUpdateRol.getFechaNac());
-            Thread.sleep(1000);*/
-
             a.ScreenShot(driver, "screen8", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
@@ -192,8 +184,8 @@ public class LBC_TercerosUpdateRol {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[10]"));//Auditoria
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[46]/div[4]"));//Trazas de Auditoría (Vaadin)
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[10]"));//Auditoria
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[45]/div[4]"));//Trazas de Auditoría (Vaadin)
             menu1.click();
             menu2.click();
             a.ScreenShot(driver, "screen9", nombreAutomatizacion); //screenshot2
@@ -211,11 +203,11 @@ public class LBC_TercerosUpdateRol {
 
         Thread.sleep(3000);
         // Fecha desde
-        WebElement feDesde = driver.findElement(By.xpath("//div[3]/div/div/div[3]/div/input"));
+        WebElement feDesde = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div/table/tbody/tr[4]/td[3]/div/div/div[3]/div/div/div[3]/div/input"));
         // Fecha Hasta
-        WebElement feHasta = driver.findElement(By.xpath("//tr[5]/td[3]/div/div/div[3]/div/div/div[3]/div/input"));
+        WebElement feHasta = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div/table/tbody/tr[5]/td[3]/div/div/div[3]/div/div/div[3]/div/input"));
         // Boton Buscar
-        WebElement btnBusca = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[2]/div/table/tbody/tr[7]/td[3]/div/div/div/div/span/span"));
+        WebElement btnBusca = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div/table/tbody/tr[8]/td[3]/div/div/div/div/span/span"));
 
         feDesde.sendKeys(lbc_tercerosUpdateRol.getAudFechaDesde());
         Thread.sleep(1000);
