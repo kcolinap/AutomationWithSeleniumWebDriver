@@ -1,6 +1,7 @@
 package AcseleV13_8.main.controller.Menu;
 
 import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8LBC.main.controller.LBC_Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -547,7 +548,7 @@ public class MenuOperaciones {
 
 
     /** Consultar en Lista Restrictiva **/
-    public void ConsultarListaRestrictiva(WebDriver driver,Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void ConsultarListaRestrictiva(WebDriver driver,LBC_Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
