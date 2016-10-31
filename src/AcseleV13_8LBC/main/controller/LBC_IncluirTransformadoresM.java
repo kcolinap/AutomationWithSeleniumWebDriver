@@ -2,7 +2,6 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8LBC.beans.LBC_IncluirTransformadoresMBean;
 import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuConfiguracion;
-import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuConsultas;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +42,7 @@ public class LBC_IncluirTransformadoresM {
         AgregarTranformadores( driver, a, lbc_incluirTransformadoresMBean, i);
         Thread.sleep(3000);
 
-        EliminarTransformadores (driver, a, lbc_incluirTransformadoresMBean, i);
+     //   EliminarTransformadores (driver, a, lbc_incluirTransformadoresMBean, i);
 
 
     }
@@ -51,107 +50,50 @@ public class LBC_IncluirTransformadoresM {
     public void TranformadoresGeneral (WebDriver driver, LBC_Metodos a, LBC_IncluirTransformadoresMBean lbc_incluirTransformadoresMBean, int i) throws IOException, InterruptedException{
 
         try {
-            Thread.sleep(10000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
-            Thread.sleep(4000);
-
-  /*          WebElement buscar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
-            buscar.sendKeys(transformadoresBean.getBuscar());
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
-            Thread.sleep(1000);
-
-            WebElement btnBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button"));
-            Thread.sleep(1000);
-            btnBuscar.click();
-            Thread.sleep(3000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
-
-*/
-
+            Thread.sleep(15000);
             WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
             Thread.sleep(1000);
             carpetaTodas.click();
-            Thread.sleep(3000);
+            Thread.sleep(3000);/*
+            driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div")).click();
+            Thread.sleep(1000);*/
 
-       /*     WebElement scroll = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]")); // se usa para mover el scroll
+
+            WebElement propiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
+            propiedad.sendKeys(lbc_incluirTransformadoresMBean.getBuscar());
             Thread.sleep(1000);
-            scroll.click();
-           ((JavascriptExecutor) driver).executeScript("scroll(0,300);");
-           //scroll.sendKeys(Keys.PAGE_DOWN);
-*/
+            driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[3]/button")).click();
 
+            Thread.sleep(10000);
+            for (int j = 1; j <= 5000; j++){
 
-            WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"33882194\"]"));
-            Thread.sleep(1500);
-            propiedad.click();
-            Thread.sleep(1000);
+                //System.out.println("dentro del bucle: " + i);
+               WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr["+j+"]/td/div")); //arreglo para seleccionar la lista deseada.
 
-
-//            Thread.sleep(3000);
-
-
-            // Thread.sleep(4000);
-            // propiedad.click();
-
-
-         /*   for (int j = 1; j <= 3000; j++){
-
-                System.out.println("dentro del bucle: " + j);
-                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
-
-                String texto = propiedad.getText();
+                String texto = opcionNombre.getText();
 
                 //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
-                //System.out.println("Texto: " + texto);
+               // System.out.println("Texto: " + texto);
+               // System.out.println("Num" + j);
                 //  nuevaPlantilla.click();
 
-                if (texto.equals(transformadoresBean.getBuscar())){
-                    propiedad.click();
+                if (texto.equals(lbc_incluirTransformadoresMBean.getBuscar())){
+                    opcionNombre.click();
+                    Thread.sleep(2000);
+                    opcionNombre.click();
                     Thread.sleep(1000);
-                  //  a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
 
             }
-*/
-            //Thread.sleep(1000);
 
-         /*   for (int j = 1; j <= 3000; j++){
-
-                System.out.println("dentro del bucle: " + j);
-                WebElement propiedad = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la ultima plantilla creada
-
-                String texto = propiedad.getText();
-
-                //System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
-                //System.out.println("Texto: " + texto);
-                //  nuevaPlantilla.click();
-
-                if (texto.equals(transformadoresBean.getBuscar())){
-                    propiedad.click();
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
-                    System.out.println("Prueba: '" + texto + "' seleccionado");
-                    break;
-                }
-
-            }
-*/
-/*
-            Thread.sleep(3000);
-            WebElement propiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[59]/td/div"));
-            propiedad.click();
-            Thread.sleep(3000);
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
-            Thread.sleep(2000);
-
-   */         WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
+        WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
             Thread.sleep(1000);
             opcionTranformador.click();
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
+            Thread.sleep(3000);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
 
 
 
@@ -170,27 +112,27 @@ public class LBC_IncluirTransformadoresM {
             WebElement valorDefecto = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[4]/div/div[3]/input"));
             valorDefecto.sendKeys(lbc_incluirTransformadoresMBean.getValorDefecto());
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
             Thread.sleep(1000);
 
             WebElement valorPropiedad = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[4]/div/div[9]/input"));
             valorPropiedad.sendKeys(lbc_incluirTransformadoresMBean.getValorPropiedad());
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
             Thread.sleep(2000);
 
             WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[2]/div/div[1]/button"));
             Thread.sleep(1000);
             btnAgregar.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
             Thread.sleep(1500);
 
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button"));
             //    Thread.sleep(1000);
             btnAceptar.click();
             Thread.sleep(8000);
-            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
             Thread.sleep(2000);
 
 
@@ -200,63 +142,6 @@ public class LBC_IncluirTransformadoresM {
 //                log.info(e);
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
-
-    }
-
-    public void EliminarTransformadores (WebDriver driver, LBC_Metodos a, LBC_IncluirTransformadoresMBean lbc_incluirTransformadoresMBean, int i) throws IOException, InterruptedException{
-
-        try {
-
-         /*   WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
-            Thread.sleep(1000);
-            carpetaTodas.click();
-            Thread.sleep(2500);
-         */
-
-
-            Thread.sleep(3000);
-            WebElement opcionTranformador = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
-            Thread.sleep(1000);
-            opcionTranformador.click();
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
-
-            WebElement selectTransf = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[3]/div/div[2]/div[2]/div[1]/table/tbody/tr/td[1]/div"));
-            Thread.sleep(1000);
-            selectTransf.click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
-
-
-            WebElement btnEliminar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[2]/div/div[3]/button"));
-            Thread.sleep(1000);
-            btnEliminar.click();
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
-            Thread.sleep(1500);
-
-            WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button"));
-            Thread.sleep(1000);
-            btnAceptar.click();
-            Thread.sleep(7000);
-            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
-
-
-            Thread.sleep(2000);
-            WebElement opcionTranf = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/button"));
-            Thread.sleep(1000);
-            opcionTranf.click();
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-
 
     }
 
