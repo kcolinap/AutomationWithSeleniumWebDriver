@@ -31,98 +31,98 @@ public class LBC_MenuOperaciones {
 
     /** Operaciones Polizas **/
 
-        public void OpePol_CrearWController(){}
+    public void OpePol_CrearWController(){}
 
-        public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
-            try {
-                Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Cotización - Suscripción - Edición
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear (FrontEnd)
-                menu1.click();
-                menu2.click();
-                Thread.sleep(1000);
-                action.moveToElement(menu3).build().perform();
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-                Toolkit.getDefaultToolkit().beep();
-                Thread.sleep(1000);
-                menu3.click();
-            }catch (Exception e){
-                e.printStackTrace();
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Cotización - Suscripción - Edición
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear (FrontEnd)
+            menu1.click();
+            menu2.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+            menu3.click();
+        }catch (Exception e){
+            e.printStackTrace();
 //             log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            }
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }
 
-        public void OpePol_CrearCotizacion(){}
+    public void OpePol_CrearCotizacion(){}
 
-        public void OpePol_BusquedaCotizaciones(){}
+    public void OpePol_BusquedaCotizaciones(){}
 
-        public void OpePol_SuscripcionMantenimientoPolizasWController(){}
+    public void OpePol_SuscripcionMantenimientoPolizasWController(){}
 
-        public void OpePol_CotizacionSuscripcionMantenimientoPolizas(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
-            try{
-                Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
-                action.moveToElement(menu1).build().perform();
-                action.moveToElement(menu2).build().perform();
-                action.moveToElement(menu3).build().perform();
-                Thread.sleep(1000);
-                a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
-                menu3.click();
+    public void OpePol_CotizacionSuscripcionMantenimientoPolizas(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+        try{
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            menu3.click();
 
-            }catch (Exception e) {
-                    e.printStackTrace();
-    //                log.info(e);
-                    log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            //                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }
 
-        public void OpePol_BusquedaSolicitud(){}
+    public void OpePol_BusquedaSolicitud(){}
 
-        public void OpePol_AdministracionCuotasComodin(){}
+    public void OpePol_AdministracionCuotasComodin(){}
 
-        public void OpePol_EmisionMasivaPropuestas(){}
+    public void OpePol_EmisionMasivaPropuestas(){}
 
-        public void OpePol_RecuperacionOperacionesPendientesWController(){}
+    public void OpePol_RecuperacionOperacionesPendientesWController(){}
 
-        public void OpePol_RecuperacionOperacionesPendientes(){}
+    public void OpePol_RecuperacionOperacionesPendientes(){}
 
-        /** OpePol_EndososMasivos **/
-            public void OpePol_EndososMasivos_IncluirExcluirCoberturas(){}
+    /** OpePol_EndososMasivos **/
+    public void OpePol_EndososMasivos_IncluirExcluirCoberturas(){}
 
-            public void OpePol_EndososMasivos_CambioPlan(){}
-        /** -- OpePol_EndososMasivos -- **/
+    public void OpePol_EndososMasivos_CambioPlan(){}
+    /** -- OpePol_EndososMasivos -- **/
 
-        public void OpePol_CargaASL(){}
+    public void OpePol_CargaASL(){}
 
-        public void OpePol_ultimaOperacionReserva(){}
+    public void OpePol_ultimaOperacionReserva(){}
 
-        public void OpePol_ProcesoCancelacionPorFaltaPago(){}
+    public void OpePol_ProcesoCancelacionPorFaltaPago(){}
 
-        /** OpePol_PolizasArchivosProcesados **/
-            public void OpePol_ArchivosProcesados_ListaArchivosProcesados(){}
+    /** OpePol_PolizasArchivosProcesados **/
+    public void OpePol_ArchivosProcesados_ListaArchivosProcesados(){}
 
-            public void OpePol_ArchivosProcesados_ReordenarArchivos(){}
+    public void OpePol_ArchivosProcesados_ReordenarArchivos(){}
 
-            public void OpePol_ArchivosProcesados_AplicarAccionMasiva(){}
-        /** -- OpePol_PolizasArchivosProcesados -- **/
+    public void OpePol_ArchivosProcesados_AplicarAccionMasiva(){}
+    /** -- OpePol_PolizasArchivosProcesados -- **/
 
-        public void OpePol_BusquedaDocumentos(){}
+    public void OpePol_BusquedaDocumentos(){}
 
-        /** OpePol_PolizasMasivo **/
-            public void OpePol_PolizasMasivo_Importar(){}
+    /** OpePol_PolizasMasivo **/
+    public void OpePol_PolizasMasivo_Importar(){}
 
-            public void OpePol_PolizasMasivo_Exportar(){}
+    public void OpePol_PolizasMasivo_Exportar(){}
 
-            public void OpePol_PolizasMasivo_HistoricoPolizasRechazadas(){}
-        /** -- OpePol_PolizasMasivo -- **/
+    public void OpePol_PolizasMasivo_HistoricoPolizasRechazadas(){}
+    /** -- OpePol_PolizasMasivo -- **/
 
-        public void OpePol_CotizacionesPendientes(){}
+    public void OpePol_CotizacionesPendientes(){}
     /**  -- Operaciones Polizas --  **/
 
 
@@ -130,114 +130,114 @@ public class LBC_MenuOperaciones {
 
     /** Operaciones Siniestros**/
 
-        public void OpeSini_DeclaracionSiniestro(){}
+    public void OpeSini_DeclaracionSiniestro(){}
 
-        public void OpeSini_MantenimientoSiniestro(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
+    public void OpeSini_MantenimientoSiniestro(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
 
-            try {
-                Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//mantenimiento siniestro
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//mantenimiento siniestro
 
-                menu1.click();
-                menu2.click();
-                Thread.sleep(1000);
+            menu1.click();
+            menu2.click();
+            Thread.sleep(1000);
 
-                action.moveToElement(menu3).build().perform();
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
 
-                menu3.click();
-            }catch (Exception e) {
-                e.printStackTrace();
-    //                log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            }
-
+            menu3.click();
+        }catch (Exception e) {
+            e.printStackTrace();
+            //                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
-        public void OpeSini_CreacionSiniestroFrontEnd(){}
+    }
 
-        public void OpeSini_NotificacionSiniestro(){}
+    public void OpeSini_CreacionSiniestroFrontEnd(){}
 
-        public void OpeSini_MantenimientoSiniestroVaadin(){}
+    public void OpeSini_NotificacionSiniestro(){}
 
-        public void OpeSini_CreacionSiniestro(WebDriver driver,LBC_Metodos a,String nombreAutomatizacion, int numScreenShoot, int i){
-            try{
-                Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[6]"));//crear siniestro
+    public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-                menu1.click();
-                menu2.click();
-                Thread.sleep(1000);
-                action.moveToElement(menu3).build().perform();
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
-                Thread.sleep(1000);
-                menu3.click();
+    public void OpeSini_CreacionSiniestro(WebDriver driver,LBC_Metodos a,String nombreAutomatizacion, int numScreenShoot, int i){
+        try{
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[6]"));//crear siniestro
 
-            }catch (Exception e) {
-                e.printStackTrace();
+            menu1.click();
+            menu2.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Thread.sleep(1000);
+            menu3.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            }
-
-
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
-        public void OpeSini_Recuperaciones(){}
 
-        public void OpeSini_MantenimientoRecuperacion(){}
+    }
 
-        public void OpeSini_CargaSiniestrosAPartirDeUnaMediaExternaASL(){}
+    public void OpeSini_Recuperaciones(){}
 
-        public void OpeSini_BuscadorSiniestrosPendientes(){}
+    public void OpeSini_MantenimientoRecuperacion(){}
 
-        public void OpeSini_ActividadesPendientesReclamo(){}
+    public void OpeSini_CargaSiniestrosAPartirDeUnaMediaExternaASL(){}
 
-        public void OpeSini_HistorialActividadesReclamo(){}
+    public void OpeSini_BuscadorSiniestrosPendientes(){}
 
-        public void OpeSini_HistorialReclamo(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int i){
+    public void OpeSini_ActividadesPendientesReclamo(){}
 
-             try{
+    public void OpeSini_HistorialActividadesReclamo(){}
 
-                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[13]"));//historial reclamos
+    public void OpeSini_HistorialReclamo(LBC_Metodos a, WebDriver driver, String nombreAutomatizacion, int i){
 
-                 menu1.click();
-                 menu2.click();
-                 Thread.sleep(3000);
-                 a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
-                 menu3.click();
+        try{
 
-             }catch (Exception e) {
-                 e.printStackTrace();
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[13]"));//historial reclamos
+
+            menu1.click();
+            menu2.click();
+            Thread.sleep(3000);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            menu3.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
 //                log.info(e);
-                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-             }
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }
 
-        public void OpeSini_ArchivosProcesadosPorASLClaim(){}
+    public void OpeSini_ArchivosProcesadosPorASLClaim(){}
 
-        public void OpeSini_SiniestrosPorProcesar(){}
+    public void OpeSini_SiniestrosPorProcesar(){}
 
-        public void OpeSini_BusquedaDocumentos(){}
+    public void OpeSini_BusquedaDocumentos(){}
 
-        public void OpeSini_LiquidacionSiniestro(){}
+    public void OpeSini_LiquidacionSiniestro(){}
 
-        public void OpeSini_DeclaracionCartaGarantia(){}
+    public void OpeSini_DeclaracionCartaGarantia(){}
 
-        public void OpeSini_AuditarCartaGarantia(){}
+    public void OpeSini_AuditarCartaGarantia(){}
 
-        public void OpeSini_SiniestrosLiquidadosPorUsuarios(){}
+    public void OpeSini_SiniestrosLiquidadosPorUsuarios(){}
 
-        public void OpeSini_ConsultaOrdenesPago(){}
+    public void OpeSini_ConsultaOrdenesPago(){}
 
-        public void OpeSini_GeneracionPlanillasLiquidacionPagos(){}
+    public void OpeSini_GeneracionPlanillasLiquidacionPagos(){}
 
     /** -- Operaciones Siniestros -- **/
 
@@ -245,43 +245,43 @@ public class LBC_MenuOperaciones {
 
     /** Coaseguro Reaseguro **/
 
-        public void CoaRea_OperacionConsultaReaseguros(){}
+    public void CoaRea_OperacionConsultaReaseguros(){}
 
-        public void CoaRea_MantenimientoDistribucionReaseguro(){}
+    public void CoaRea_MantenimientoDistribucionReaseguro(){}
 
-        public void CoaRea_ContratoFacultativo(){}
+    public void CoaRea_ContratoFacultativo(){}
 
-        /** CoaRea_CuentasTecnicas **/
-            public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(){}
-            public void CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(){}
-            public void CoaRea_CuentasTecnicas_PrevisualizacionCuentasTecnicas(){}
-        /** -- CoaRea_CuentasTecnicas -- **/
+    /** CoaRea_CuentasTecnicas **/
+    public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(){}
+    public void CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(){}
+    public void CoaRea_CuentasTecnicas_PrevisualizacionCuentasTecnicas(){}
+    /** -- CoaRea_CuentasTecnicas -- **/
 
-        public void CoaRea_LiquidacionCoasegurador(){}
+    public void CoaRea_LiquidacionCoasegurador(){}
 
-        public void CoaRea_LiquidacionReaseguro(){}
+    public void CoaRea_LiquidacionReaseguro(){}
 
-        public void CoaRea_UtilidadesReaseguro(){}
+    public void CoaRea_UtilidadesReaseguro(){}
 
-        public void CoaRea_BusquedaLiquidacionReaseguro(){}
+    public void CoaRea_BusquedaLiquidacionReaseguro(){}
 
-        public void CoaRea_ConsultaCoaseguros(){}
+    public void CoaRea_ConsultaCoaseguros(){}
 
-        public void CoaRea_SiniestrosCoaseguroContado(){}
+    public void CoaRea_SiniestrosCoaseguroContado(){}
 
-        public void CoaRea_HisturicoReaseguro(){}
+    public void CoaRea_HisturicoReaseguro(){}
 
-        public void CoaRea_ConsultaReaseguroPolizaMaestra(){}
+    public void CoaRea_ConsultaReaseguroPolizaMaestra(){}
 
-        public void CoaRea_PrimasDepositoReaseguro(){}
+    public void CoaRea_PrimasDepositoReaseguro(){}
 
-        public void CoaRea_ConsultaSiniestrosContratosNoProporcionales(){}
+    public void CoaRea_ConsultaSiniestrosContratosNoProporcionales(){}
 
-        public void CoaRea_ReinstalacionLimiteAgregadoAnual(){}
+    public void CoaRea_ReinstalacionLimiteAgregadoAnual(){}
 
-        public void CoaRea_AjustePrimasReaseguro(){}
+    public void CoaRea_AjustePrimasReaseguro(){}
 
-        public void CoaRea_FraccionamientoReaseguradoresFacultativos(){}
+    public void CoaRea_FraccionamientoReaseguradoresFacultativos(){}
 
     /** -- Coaseguro Reaseguro -- **/
 
@@ -289,132 +289,150 @@ public class LBC_MenuOperaciones {
 
     /** UAA (Administrador de Cuentas Universal) **/
 
-        /** Caja **/
-            public void UAA_Caja_AperturaCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    /** Caja **/
+    public void UAA_Caja_AperturaCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
-                try {
-                    Actions action = new Actions(driver);
-                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
-                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
-                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]")); // Apertura de Caja
-                    menu1.click();
-                    menu2.click();
-                    menu3.click();
-                    Thread.sleep(1000);
-                    action.moveToElement(menu4).build().perform();
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-                    Toolkit.getDefaultToolkit().beep();
-                    Thread.sleep(1000);
-                    menu4.click();
-                }catch (Exception e){
-                    e.printStackTrace();
-                    log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-                }
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]")); // Apertura de Caja
+            menu1.click();
+            menu2.click();
+            menu3.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu4).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+            menu4.click();
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
 
-            }
+    }
 
-            public void UAA_Caja_InicioSesion(){}
+    public void UAA_Caja_InicioSesion(){}
 
-            public void UAA_Caja_AplicacionCobro(){}
+    public void UAA_Caja_AplicacionCobro(){}
 
-            public void UAA_Caja_ConsultaOperacionesCobranza(){}
+    public void UAA_Caja_ConsultaOperacionesCobranza(){}
 
-            public void UAA_Caja_ReversoRecaudacion(){}
+    public void UAA_Caja_ReversoRecaudacion(){}
 
-            public void UAA_Caja_AplicacionPagoSobreIngresosNoImputados(){}
+    public void UAA_Caja_AplicacionPagoSobreIngresosNoImputados(){}
 
-            public void UAA_Caja_Reportes(){}
+    public void UAA_Caja_Reportes(){}
 
-            public void UAA_Caja_SaldoDiarioPorCajero(){}
+    public void UAA_Caja_SaldoDiarioPorCajero(){}
 
-            public void UAA_Caja_ReAperturaCaja(){}
+    public void UAA_Caja_ReAperturaCaja(){}
 
-            public void UAA_Caja_CierreSesion(){}
+    public void UAA_Caja_CierreSesion(){}
 
-            public void UAA_Caja_CierreVariosCajeros(){}
+    public void UAA_Caja_CierreVariosCajeros(){}
 
-            public void UAA_Caja_CierreCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
+    public void UAA_Caja_CierreCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
 
-                try {
-                    Actions action = new Actions(driver);
-                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
-                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
-                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]")); // Cierre de Caja
-                    menu1.click();
-                    menu2.click();
-                    menu3.click();
-                    Thread.sleep(1000);
-                    action.moveToElement(menu4).build().perform();
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-                    Toolkit.getDefaultToolkit().beep();
-                    Thread.sleep(1000);
-                    menu4.click();
-                }catch (Exception e){
-                    e.printStackTrace();
-                    log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-                }
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]")); // Cierre de Caja
+            menu1.click();
+            menu2.click();
+            menu3.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu4).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+            menu4.click();
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
 
-            }
+    }
 
-            public void UAA_Caja_PrimasPagadasACancelar(){}
+    public void UAA_Caja_PrimasPagadasACancelar(){}
 
-            public void UAA_Caja_PrimasPendientesACancelar(){}
+    public void UAA_Caja_PrimasPendientesACancelar(){}
 
-            public void UAA_Caja_PrimasVencidasNoPagadasYFondosInversion(){}
+    public void UAA_Caja_PrimasVencidasNoPagadasYFondosInversion(){}
 
-            public void UAA_Caja_ConsultaFacturasGeneradas(){}
+    public void UAA_Caja_ConsultaFacturasGeneradas(){}
 
-        /** -- Caja -- **/
+    /** -- Caja -- **/
 
-        /** Facturacion y Cobro **/
+    /** Facturacion y Cobro **/
 
-            public void UAA_FactCobro_GeneracionAvisoCobro(){}
-            public void UAA_FactCobro_ImportarArchivoValidacionPagos(){}
-            public void UAA_FactCobro_RealizarRecaudacionMasiva(){}
-            public void UAA_FactCobro_ReversoRecaudacionMasiva(){}
-            public void UAA_FactCobro_CerrandoOperacionesManuales(){}
-            public void UAA_FactCobro_ConsultaRecibosEnviadosAlCobro(){}
-            public void UAA_FactCobro_GeneracionAvisoCobroMasivo(){}
-            public void UAA_FactCobro_ProcesoPagosPorProducto(){}
+    public void UAA_FactCobro_GeneracionAvisoCobro(){}
+    public void UAA_FactCobro_ImportarArchivoValidacionPagos(){}
+    public void UAA_FactCobro_RealizarRecaudacionMasiva(){}
+    public void UAA_FactCobro_ReversoRecaudacionMasiva(){}
+    public void UAA_FactCobro_CerrandoOperacionesManuales(){}
+    public void UAA_FactCobro_ConsultaRecibosEnviadosAlCobro(){}
+    public void UAA_FactCobro_GeneracionAvisoCobroMasivo(){}
+    public void UAA_FactCobro_ProcesoPagosPorProducto(){}
 
-        /** -- Facturacion y Cobro -- **/
+    /** -- Facturacion y Cobro -- **/
 
-        public void UAA_ModificacionMovimientosTercero(){}
+    public void UAA_ModificacionMovimientosTercero(WebDriver driver,LBC_Metodos a, String nombreAutomatizacion, int i )throws IOException, InterruptedException{
+        try{
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[3]"));//cumulos terceros
 
-        /** Reportes **/
-            public void UAA_Rep_ReporteAntiguedad(){}
-            public void UAA_Rep_ContratantesMorosos(){}
-            public void UAA_Rep_AvisosDeCobros(){}
-        /** -- Reportes -- **/
+            menu1.click();
+            menu2.click();
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            Thread.sleep(2000);
+            menu3.click();
 
-        public void UAA_EstadosCuenta(){}
+        }catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
 
-        /** Agentes **/
-            public void UAA_Agentes_LiquidacionAgente(){}
-            public void UAA_Agentes_ReversoLiquidacionAgente(){}
-            public void UAA_Agentes_TraspasoDeCartera(){}
-        /** -- Agentes -- **/
+    /** Reportes **/
+    public void UAA_Rep_ReporteAntiguedad(){}
+    public void UAA_Rep_ContratantesMorosos(){}
+    public void UAA_Rep_AvisosDeCobros(){}
+    /** -- Reportes -- **/
 
-        public void UAA_LiquidacionTercero(){}
+    public void UAA_EstadosCuenta(){}
 
-        public void UAA_ExportarMovimientosSAP(){}
+    /** Agentes **/
+    public void UAA_Agentes_LiquidacionAgente(){}
+    public void UAA_Agentes_ReversoLiquidacionAgente(){}
+    public void UAA_Agentes_TraspasoDeCartera(){}
+    /** -- Agentes -- **/
 
-        public void UAA_DevoluciunPrimaDepusito(){}
+    public void UAA_LiquidacionTercero(){}
 
-        public void UAA_NotificacionVencimiento(){}
+    public void UAA_ExportarMovimientosSAP(){}
 
-        public void UAA_ReconciliacionPagoPrima(){}
+    public void UAA_DevoluciunPrimaDepusito(){}
 
-        /** ConsultaMultimoneda **/
-            public void UAA_ConsMulti_TasaCambio(){}
-            public void UAA_ConsMulti_Moneda(){}
-        /** -- ConsultaMultimoneda -- **/
+    public void UAA_NotificacionVencimiento(){}
 
-        public void UAA_AgrupacionAsientosContables(){}
+    public void UAA_ReconciliacionPagoPrima(){}
+
+    /** ConsultaMultimoneda **/
+    public void UAA_ConsMulti_TasaCambio(){}
+    public void UAA_ConsMulti_Moneda(){}
+    /** -- ConsultaMultimoneda -- **/
+
+    public void UAA_AgrupacionAsientosContables(){}
 
     /** UAA (Administrador de Cuentas Universal) **/
 
@@ -422,10 +440,10 @@ public class LBC_MenuOperaciones {
 
 
     /** Reportes **/
-        public void Repor_ReportesGenerales(){}
-        public void Repor_ImprimirReportesPorLotes(){}
-        public void Repor_ReportesGenerados(){}
-        public void Repor_MantenimientoReportes(){}
+    public void Repor_ReportesGenerales(){}
+    public void Repor_ImprimirReportesPorLotes(){}
+    public void Repor_ReportesGenerados(){}
+    public void Repor_MantenimientoReportes(){}
     /** -- Reportes -- **/
 
 
@@ -433,9 +451,9 @@ public class LBC_MenuOperaciones {
 
 
     /** Fondos de Inversion **/
-        public void Inv_Adquisicion(){}
-        public void Inv_EstadoCuentaFondos(){}
-        public void Inv_OperacionesCambios(){}
+    public void Inv_Adquisicion(){}
+    public void Inv_EstadoCuentaFondos(){}
+    public void Inv_OperacionesCambios(){}
     /** -- Fondos de Inversion -- **/
 
 
@@ -449,23 +467,23 @@ public class LBC_MenuOperaciones {
 
 
     /** Operaciones de Vida **/
-        public void OpeVida_SaldarOProrrogar(){}
-        public void OpeVida_MostrarReservas(){}
-        public void OpeVida_MostrarPrestamosWController(){}
-        public void OpeVida_MostrarPrestamos(){}
-        public void OpeVida_RescateWController(){}
-        public void OpeVida_Rescate(){}
-        public void OpeVida_MostrarLogsReserva(){}
-        public void OpeVida_ConsultarTablasFlujo(){}
+    public void OpeVida_SaldarOProrrogar(){}
+    public void OpeVida_MostrarReservas(){}
+    public void OpeVida_MostrarPrestamosWController(){}
+    public void OpeVida_MostrarPrestamos(){}
+    public void OpeVida_RescateWController(){}
+    public void OpeVida_Rescate(){}
+    public void OpeVida_MostrarLogsReserva(){}
+    public void OpeVida_ConsultarTablasFlujo(){}
     /** -- Operaciones de Vida -- **/
 
 
 
 
     /** Administracion de Cotizaciones **/
-        public void AdminCoti_NuevaCotizacion(){}
-        public void AdminCoti_BuscarCotizacion(){}
-        public void AdminCoti_BuscarPoliza(){}
+    public void AdminCoti_NuevaCotizacion(){}
+    public void AdminCoti_BuscarCotizacion(){}
+    public void AdminCoti_BuscarPoliza(){}
     /** -- Administracion de Cotizaciones -- **/
 
 
@@ -544,7 +562,7 @@ public class LBC_MenuOperaciones {
 
 
     /** Operaciones de Renta **/
-        public void OperaRenta_OperacionesRentaVitalicia(){}
+    public void OperaRenta_OperacionesRentaVitalicia(){}
     /** -- Operaciones de Renta -- **/
 
 
@@ -576,9 +594,9 @@ public class LBC_MenuOperaciones {
 
 
     /** Facturacion Automatica **/
-        public void FactAut_GeneracionFacturacionAutomatica(){}
-        public void FactAut_ConsultaFacturacion(){}
-        public void FactAut_LogProcesamiento(){}
+    public void FactAut_GeneracionFacturacionAutomatica(){}
+    public void FactAut_ConsultaFacturacion(){}
+    public void FactAut_LogProcesamiento(){}
 
 
     /** -- Facturacion Automatica -- **/
