@@ -1,6 +1,7 @@
 package AcseleV13_8LBC.main.controller.LBC_Menu;
 
 import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8LBC.main.controller.LBC_Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ public class LBC_MenuConfiguracion {
 
     private final static Logger log = Logger.getLogger(LBC_MenuConfiguracion.class);
 
-    Metodos a = new Metodos();
+    LBC_Metodos a = new LBC_Metodos();
     //27
 
     /** Plantillas (Modo Privilegiados) **/
@@ -135,25 +136,19 @@ public class LBC_MenuConfiguracion {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[18]"));//NuevoPlantillasModoNoPrivilegiado
-            Thread.sleep(1000);
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[19]"));//NuevoPlantillasModoNoPrivilegiado
 
-            action.moveToElement(menu1).build().perform();
+            menu1.click();
             Thread.sleep(1000);
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
-
-            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion);
-            Thread.sleep(1000);
-
-
-
+            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Thread.sleep(100);
             menu2.click();
 
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 

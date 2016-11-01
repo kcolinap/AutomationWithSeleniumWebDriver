@@ -42,6 +42,9 @@ public class LBC_Metodos {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-popup-blocking");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--no-sandbox");
+        //options.addArguments("user-data-dir=" + profilePath);
 
         WebDriver driver = new ChromeDriver(options);
 
