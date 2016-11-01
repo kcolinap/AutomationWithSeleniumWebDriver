@@ -155,7 +155,7 @@ public class LBC_CrearOpenItems {
 
     private void BorrarFechas(LBC_Metodos a, WebDriver driver) {
 
-/*        try {
+        try {
             Thread.sleep(3000);
             String title = driver.getTitle();
             System.out.println("Titulo de la pagina: " + title);
@@ -168,7 +168,7 @@ public class LBC_CrearOpenItems {
             Thread.sleep(1000);
 
 
-            driver.findElement(By.xpath("/*//*[@id=\"idb_0402037_SearchConf_01\"]")).click();
+            driver.findElement(By.xpath("//*[@id=\"idb_0402037_SearchConf_01\"]")).click();
             a.ScreenShot(driver, "screen7", nombreAutomatizacion);
             Thread.sleep(1000);
         }
@@ -176,43 +176,43 @@ public class LBC_CrearOpenItems {
             e.printStackTrace();
 //             log.info(e);
             log.info("Test Case ?? - Crear Open Items - " + e);
-        }*/
+        }
     }
 
     private void FormularioOpenItem(LBC_Metodos a, WebDriver driver, LBC_CrearOpenItemsBean lbcCrearOpenItemsBean) {
-/*        try {
+        try {
             //LLenar formulario
 
-            if (lbcCrearOpenItemsBean.getRolOpenItem() != null) {
+            if (lbcCrearOpenItemsBean.getRol2() != null) {
 
                 Select rolOpenItem = new Select(driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[3]/td[2]/select")));
-                rolOpenItem.selectByVisibleText(lbcCrearOpenItemsBean.getRolOpenItem());
+                rolOpenItem.selectByVisibleText(lbcCrearOpenItemsBean.getRol2());
                 Thread.sleep(1500);
             }
-            if (lbcCrearOpenItemsBean.getConceptoCta() != null) {
+            if (lbcCrearOpenItemsBean.getConceptoCuenta() != null) {
 
-                Select conceptoCta = new Select(driver.findElement(By.xpath("/*//*[@id=\"inputDTY_ID\"]")));
-                conceptoCta.selectByVisibleText(crearOpenItemsBean.getConceptoCta());
+                Select conceptoCta = new Select(driver.findElement(By.xpath("/[@id=\"inputDTY_ID\"]")));
+                conceptoCta.selectByVisibleText(lbcCrearOpenItemsBean.getConceptoCuenta());
                 Thread.sleep(1500);
             }
 
-*//*        //Se seleciona la fecha de movimiento
-        if (crearOpenItemsBean.getFechaMov() != null) {
+        //Se seleciona la fecha de movimiento
+        if (lbcCrearOpenItemsBean.getFechaMov() != null) {
             WebElement fechaMov = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]"));
-            fechaMov.sendKeys(crearOpenItemsBean.getFechaMov());
+            fechaMov.sendKeys(lbcCrearOpenItemsBean.getFechaMov());
             Thread.sleep(1000);
-        }*//*
+        }
             //Se seleciona la fecha de vencimiento
-            if (lbcCrearOpenItemsBean.getFechaVen() != null) {
+            if (lbcCrearOpenItemsBean.getFechaVencimiento() != null) {
                 driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[6]/td[2]/input")).clear();
                 WebElement fechaMov = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[6]/td[2]/input"));
-                fechaMov.sendKeys(lbcCrearOpenItemsBean.getFechaVen());
+                fechaMov.sendKeys(lbcCrearOpenItemsBean.getFechaVencimiento());
                 Thread.sleep(1500);
             }
             //Se seleciona la Moneda
             if (lbcCrearOpenItemsBean.getMoneda() != null) {
 
-                Select moneda = new Select(driver.findElement(By.xpath("/*//*[@id=\"inputCURRENCYID\"]")));
+                Select moneda = new Select(driver.findElement(By.xpath("/[@id=\"inputCURRENCYID\"]")));
                 moneda.selectByVisibleText(lbcCrearOpenItemsBean.getMoneda());
                 Thread.sleep(1500);
             }
@@ -225,7 +225,7 @@ public class LBC_CrearOpenItems {
             //Se selecciona el tipo de referencia
             if (lbcCrearOpenItemsBean.getTipoRef() != null) {
 
-                Select tipoRef = new Select(driver.findElement(By.xpath("/*//*[@id=\"inputREFERENCETYPE\"]")));
+                Select tipoRef = new Select(driver.findElement(By.xpath("/[@id=\"inputREFERENCETYPE\"]")));
                 tipoRef.selectByVisibleText(lbcCrearOpenItemsBean.getTipoRef());
                 Thread.sleep(1500);
                 a.ScreenShot(driver, "screen9", nombreAutomatizacion);
@@ -236,7 +236,7 @@ public class LBC_CrearOpenItems {
             e.printStackTrace();
             log.info(e);
             log.info("Test Case ?? - Crear Open Items - " + e);
-        }*/
+        }
 
     }
 
