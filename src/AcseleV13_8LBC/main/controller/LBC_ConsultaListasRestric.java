@@ -3,6 +3,7 @@ package AcseleV13_8LBC.main.controller;
 
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import AcseleV13_8LBC.beans.LBC_ConsultaListasRestricBean;
+import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,7 @@ public class LBC_ConsultaListasRestric {
 
         //implementando clase de metodos
         LBC_Metodos a = new LBC_Metodos();
-        MenuOperaciones m = new MenuOperaciones();
+        LBC_MenuOperaciones m = new LBC_MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
         a.ValidandoSesion(driver, nombreAutomatizacion, i);

@@ -548,7 +548,7 @@ public class MenuOperaciones {
 
 
     /** Consultar en Lista Restrictiva **/
-    public void ConsultarListaRestrictiva(WebDriver driver,LBC_Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void ConsultarListaRestrictiva(WebDriver driver, Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
