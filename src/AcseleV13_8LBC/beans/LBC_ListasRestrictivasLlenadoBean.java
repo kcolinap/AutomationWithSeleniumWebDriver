@@ -13,9 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by agil on 25/10/2016.
  */
-public class LBC_CrearListaRestrictivaBean implements Serializable {
+public class LBC_ListasRestrictivasLlenadoBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(LBC_CrearListaRestrictivaBean.class);
+    private final static Logger log = Logger.getLogger(LBC_ListasRestrictivasLlenadoBean.class);
 
     private String tipo;
     private String nombre;
@@ -52,7 +52,7 @@ public class LBC_CrearListaRestrictivaBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                LBC_CrearListaRestrictivaBean lbcCrearListaRestrictivaBean = new LBC_CrearListaRestrictivaBean();
+                LBC_ListasRestrictivasLlenadoBean lbcCrearListaRestrictivaBean = new LBC_ListasRestrictivasLlenadoBean();
 
                 lbcCrearListaRestrictivaBean.setTipo(rs.getString("TIPO"));
                 lbcCrearListaRestrictivaBean.setNombre(rs.getString("NOMBRE"));

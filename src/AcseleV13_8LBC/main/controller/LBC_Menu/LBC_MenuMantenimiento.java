@@ -328,7 +328,7 @@ public class LBC_MenuMantenimiento {
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            this.a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             Thread.sleep(100);
             menu3.click();
 

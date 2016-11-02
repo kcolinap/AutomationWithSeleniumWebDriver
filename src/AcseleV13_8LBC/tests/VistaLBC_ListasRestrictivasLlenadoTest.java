@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.tests;
 
-import AcseleV13_8LBC.beans.LBC_CrearListaRestrictivaBean;
-import AcseleV13_8LBC.main.controller.LBC_CrearListaRestrictiva;
+import AcseleV13_8LBC.beans.LBC_ListasRestrictivasLlenadoBean;
+import AcseleV13_8LBC.main.controller.LBC_ListasRestrictivasLlenado;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /**
  * Created by agil on 25/10/2016.
  */
-public class VistaLBC_CrearListaRestrictivaTest {
+public class VistaLBC_ListasRestrictivasLlenadoTest {
 
-    private final static Logger log = Logger.getLogger(VistaLBC_CrearListaRestrictivaTest.class);
+    private final static Logger log = Logger.getLogger(VistaLBC_ListasRestrictivasLlenadoTest.class);
 
     @Test
     public void mainTest() throws SQLException {
@@ -24,14 +24,14 @@ public class VistaLBC_CrearListaRestrictivaTest {
         ArrayList listaRestrictiva = null;
 
         try {
-            listaRestrictiva = LBC_CrearListaRestrictivaBean.getLBC_CrearListaRestrictivaBean();
+            listaRestrictiva = LBC_ListasRestrictivasLlenadoBean.getLBC_CrearListaRestrictivaBean();
         }catch (SQLException e) {
             log.error(e);
         }
 
         for (int j = 0; j < listaRestrictiva.size(); j++) {
-            LBC_CrearListaRestrictivaBean lbcCrearCajaBean = (LBC_CrearListaRestrictivaBean) listaRestrictiva.get(j);
-            LBC_CrearListaRestrictiva a = new LBC_CrearListaRestrictiva();
+            LBC_ListasRestrictivasLlenadoBean lbcCrearCajaBean = (LBC_ListasRestrictivasLlenadoBean) listaRestrictiva.get(j);
+            LBC_ListasRestrictivasLlenado a = new LBC_ListasRestrictivasLlenado();
 
             try {
                 a.testLink(lbcCrearCajaBean, j);
@@ -48,18 +48,18 @@ public class VistaLBC_CrearListaRestrictivaTest {
 
 /*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM CREAR_LISTA_RESTRICTIVA_LBC ORDER BY PRUEBA ASC",
                 "CREAR_LISTA_RESTRICTIVA_LBC",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8LBC/tests/xmls/lbcListasRestrictivasLlenado_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM CREAR_LISTA_RESTRICTIVA_LBC ORDER BY PRUEBA ASC",
                 "CREAR_LISTA_RESTRICTIVA_LBC",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8LBC/tests/xmls/lbcListasRestrictivasLlenado_dataset.xml");
 */
-        DataSetManager.loadDataSet("/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8LBC/tests/xmls/lbcListasRestrictivasLlenado_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
     public void tearDown() throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8LBC/tests/xmls/lbcCrearListaRestrictiva_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8LBC/tests/xmls/lbcListasRestrictivasLlenado_dataset.xml", DataSetManager.DELETE_OPERATION);
     }
 }
