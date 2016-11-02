@@ -19,9 +19,6 @@ public class LBC_ListasRestrictivasCrear {
     private final static Logger log = Logger.getLogger(LBC_ListasRestrictivasCrear.class);
 
     public String nombreAutomatizacion = "LBC Listas Resctrictiva Crear";
-    public String nLista = "ListaPruebaD";
-    public String primeraPropiedad = "NombreyApellido";
-    public String segundaPropiedad = "DocumentoIdentidad";
 
     public void testLink(LBC_ListasRestrictivasCrearBean lbcListasRestrictivasCrearBean, int i) throws IOException, InterruptedException {
 
@@ -37,7 +34,6 @@ public class LBC_ListasRestrictivasCrear {
             a.ValidandoSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(6000);
 
-
             //Entrando en Menu
             lbcMenuConfiguracion.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 2, i);
 
@@ -45,27 +41,11 @@ public class LBC_ListasRestrictivasCrear {
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-
             Thread.sleep(15000);
-            CrearLista(a, driver, lbcListasRestrictivasCrearBean, i, 3, 4, 5, 6, 7, 8);
+            CrearLista(a, driver, lbcListasRestrictivasCrearBean, i, 3, 4, 5, 6, 7);
             Thread.sleep(2000);
-            BuscarPrimeraPropiedad(a, driver, lbcListasRestrictivasCrearBean, i, 9, 10, 11);
-            BuscarSegundaPropiedad(a, driver, lbcListasRestrictivasCrearBean, i, 12, 13, 14, 15);
-
-            //Entrando en Menu
-/*
-            LBCMenuMantenimiento.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 2, i);
-
-            Thread.sleep(2000);
-            a.cambiarVentana(driver);
-            Thread.sleep(2000);
-*/
-
-            /** Creando la lista Restrictiva */
-/*
-            Thread.sleep(3000);
-            CrearListaRestrictiva(a, driver, lbcListasRestrictivasCrearBean, i, 3, 4, 5, 6, 7);
-*/
+            BuscarPrimeraPropiedad(a, driver, lbcListasRestrictivasCrearBean, i, 8, 9, 10);
+            BuscarSegundaPropiedad(a, driver, lbcListasRestrictivasCrearBean, i, 11, 12, 13, 14);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,104 +54,8 @@ public class LBC_ListasRestrictivasCrear {
 
     }
 
-    public void CrearListaRestrictiva(LBC_Metodos a, WebDriver driver, LBC_ListasRestrictivasCrearBean lbcListasRestrictivasCrearBean, int i,
-                                      int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
-
-        try {
-
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-
-            WebElement btnAgregar = driver.findElement(By.xpath("//div[2]/div/div/div/div/div/span"));
-            btnAgregar.click();
-
-            Thread.sleep(4000);
-
-            if (lbcListasRestrictivasCrearBean.getTipo() != null) {
-                WebElement mostrarTipo = driver.findElement(By.xpath("//div/div/div/div/div/div/div[2]/div/div"));
-                mostrarTipo.click();
-                Thread.sleep(500);
-                if (lbcListasRestrictivasCrearBean.getTipo().toLowerCase().equals("negra")) {
-                    WebElement listaNegra = driver.findElement(By.xpath("//tr[2]/td/span"));
-                    listaNegra.click();
-                    Thread.sleep(1000);
-                }
-                else if (lbcListasRestrictivasCrearBean.getTipo().toLowerCase().equals("blanca")) {
-                    WebElement listaBlanca = driver.findElement(By.xpath("//tr[3]/td"));
-                    listaBlanca.click();
-                    Thread.sleep(1000);
-                }
-            }
-
-            if (lbcListasRestrictivasCrearBean.getNombre() != null) {
-                WebElement mostrarNombre = driver.findElement(By.xpath("//div/div/div/div[2]/div/div/div[2]/div/div"));
-                mostrarNombre.click();
-                Thread.sleep(500);
-                if (lbcListasRestrictivasCrearBean.getNombre().toLowerCase().equals("pruebalistas")) {
-                    WebElement pruebaListas = driver.findElement(By.xpath("//tr[2]/td/span"));
-                    pruebaListas.click();
-                    Thread.sleep(1000);
-                }
-                if (lbcListasRestrictivasCrearBean.getNombre().toLowerCase().equals("prueba")) {
-                    WebElement prueba = driver.findElement(By.xpath("//tr[3]/td/span"));
-                    prueba.click();
-                    Thread.sleep(1000);
-                }
-            }
-
-            WebElement btnImportarArchivo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[2]/form/div/input[2]"));
-            btnImportarArchivo.click();
-            Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\LBC_CrearListasRestrictivas.exe");
-
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(2000);
-
-            WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/div/div/span/span"));
-            btnAceptar.click();
-
-            Thread.sleep(4000);
-
-            WebElement seleccionarLista = driver.findElement(By.xpath("//div[3]/div/table/tbody/tr/td/div"));
-            seleccionarLista.click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(2000);
-
-            WebElement btnConsultar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/span/span"));
-            btnConsultar.click();
-
-            Thread.sleep(2000);
-
-            WebElement seleccionarFechaLista = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input"));
-            seleccionarFechaLista.click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            WebElement btnAceptarConsulta = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span/span"));
-            btnAceptarConsulta.click();
-
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            log.info("Test Case - " + nombreAutomatizacion + " - " + "Prueba Exitosa");
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-    }
-
     public void CrearLista(LBC_Metodos a, WebDriver driver, LBC_ListasRestrictivasCrearBean lbcListasRestrictivasCrearBean, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3,
-                                        int numScreenShoot4, int numScreenShoot5, int numScreenShoot6){
+                                        int numScreenShoot4, int numScreenShoot5){
 
         try {
             Thread.sleep(2000);
@@ -193,7 +77,7 @@ public class LBC_ListasRestrictivasCrear {
             Thread.sleep(1000);
 
             WebElement nombreLista = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div[3]/input"));
-            nombreLista.sendKeys(nLista); // ListaPruebaD
+            nombreLista.sendKeys(lbcListasRestrictivasCrearBean.getNombreLista()); // ListaPruebaD
 
 
             Thread.sleep(1000);
@@ -205,13 +89,7 @@ public class LBC_ListasRestrictivasCrear {
 
             Thread.sleep(15000);
 
-/*            driver.navigate().refresh();
-            Thread.sleep(20000);
-            BuscarCategoria(a, driver, lbcListasRestrictivasCrearBean, i, numScreenShoot5);
-            BuscarLista(a, driver, lbcListasRestrictivasCrearBean, i, numScreenShoot6);
-*/
-            BuscarCategoria2(a, driver, lbcListasRestrictivasCrearBean, i, numScreenShoot5);
-
+            BuscarLista(a, driver, lbcListasRestrictivasCrearBean, i, numScreenShoot5);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -255,42 +133,6 @@ public class LBC_ListasRestrictivasCrear {
         }
     }
 
-    public void BuscarCategoria2(LBC_Metodos a, WebDriver driver, LBC_ListasRestrictivasCrearBean lbcListasRestrictivasCrearBean, int i, int numScreenShoot){
-
-        try {
-            // Encontrar la catergoria
-            for (int j = 1; j <= 500; j++){
-
-                //System.out.println("dentro del bucle: " + i);
-                WebElement opcionNombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div")); //arreglo para seleccionar la lista deseada.
-                String texto = opcionNombre.getText();
-
-                // System.out.println("prueba-->>>>>"+opcionNombre+" => "+ opcionNombre.isEnabled());
-                // System.out.println("Texto: " + texto);
-                // System.out.println("num: " + j);
-                //  nuevaPlantilla.click();
-
-                //if (texto.equals(listasRestrictivasBean.getListaNombre())){
-                if (texto.equals("Lista Restrictiva"/*listasRestrictivasBean.getListaNombre()*/)){
-                    opcionNombre.click();
-                    Thread.sleep(1000);
-
-                    /*WebElement abrir = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[" + j + "]/td/div/span"));
-                    abrir.click();*/
-
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-                    Toolkit.getDefaultToolkit().beep();
-                    //System.out.println("Prueba: '" + texto + "' seleccionado");
-                    break;
-                }
-
-            } // Fin del For
-        }catch (Exception e) {
-            e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-    }
-
     public void BuscarLista(LBC_Metodos a, WebDriver driver, LBC_ListasRestrictivasCrearBean lbcListasRestrictivasCrearBean, int i, int numScreenShoot){
 
         try {
@@ -306,8 +148,7 @@ public class LBC_ListasRestrictivasCrear {
                 //System.out.println("num: " + j);
                 //  nuevaPlantilla.click();
 
-                //if (texto.equals(listasRestrictivasBean.getListaNombre())){
-                if (texto.equals(nLista/*listasRestrictivasBean.getListaNombre()*/)){ // ListaPruebaD
+                if (texto.equals(lbcListasRestrictivasCrearBean.getNombreLista())){ // ListaPruebaD
                     opcionNombre.click();
                     Thread.sleep(1000);
                     opcionNombre.click();
@@ -321,7 +162,6 @@ public class LBC_ListasRestrictivasCrear {
                     //System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
-
             } // Fin del For
         }catch (Exception e) {
             e.printStackTrace();
@@ -339,7 +179,7 @@ public class LBC_ListasRestrictivasCrear {
             carpetaTodas.click();
 
             WebElement inputBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
-            inputBuscar.sendKeys(primeraPropiedad);
+            inputBuscar.sendKeys(lbcListasRestrictivasCrearBean.getPrimeraPropiedad());
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
@@ -360,7 +200,7 @@ public class LBC_ListasRestrictivasCrear {
                 // System.out.println("Num" + j);
                 //  nuevaPlantilla.click();
 
-                if (texto.equals(primeraPropiedad)){
+                if (texto.equals(lbcListasRestrictivasCrearBean.getPrimeraPropiedad())){
                     opcionNombre.click();
                     Thread.sleep(2000);
                     opcionNombre.click();
@@ -390,14 +230,10 @@ public class LBC_ListasRestrictivasCrear {
         try {
             Thread.sleep(2000);
 
-/*            WebElement carpetaTodas = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td/div/span"));
-            Thread.sleep(1000);
-            carpetaTodas.click();*/
-
             WebElement inputBuscar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[1]/div/div/div[2]/input"));
             inputBuscar.clear();
             inputBuscar.clear();
-            inputBuscar.sendKeys(segundaPropiedad);
+            inputBuscar.sendKeys(lbcListasRestrictivasCrearBean.getSegundaPropiedad());
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
             Thread.sleep(1000);
@@ -431,7 +267,7 @@ public class LBC_ListasRestrictivasCrear {
                 // System.out.println("Num" + j);
                 //  nuevaPlantilla.click();
 
-                if (texto.equals(segundaPropiedad)){
+                if (texto.equals(lbcListasRestrictivasCrearBean.getSegundaPropiedad())){
                     opcionNombre.click();
                     Thread.sleep(2000);
                     opcionNombre.click();
@@ -444,7 +280,7 @@ public class LBC_ListasRestrictivasCrear {
 
             Thread.sleep(2000);
 
-            BuscarCategoria2(a, driver, lbcListasRestrictivasCrearBean, i, numScreenShoot3);
+            BuscarLista(a, driver, lbcListasRestrictivasCrearBean, i, numScreenShoot3);
 
             WebElement btnAsociarPropiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div/div/div[1]/button"));
             btnAsociarPropiedad.click();

@@ -17,23 +17,29 @@ public class LBC_ListasRestrictivasCrearBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(LBC_ListasRestrictivasCrearBean.class);
 
-    private String tipo;
-    private String nombre;
+    private String nombreLista;
+    private String primeraPropiedad;
+    private String segundaPropiedad;
 
-    public String getTipo() {
-        return tipo;
+    public String getNombreLista() {
+        return nombreLista;
+    }
+    public void setNombreLista(String nombreLista) {
+        this.nombreLista = nombreLista;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public String getPrimeraPropiedad() {
+        return primeraPropiedad;
+    }
+    public void setPrimeraPropiedad(String primeraPropiedad) {
+        this.primeraPropiedad = primeraPropiedad;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getSegundaPropiedad() {
+        return segundaPropiedad;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setSegundaPropiedad(String segundaPropiedad) {
+        this.segundaPropiedad = segundaPropiedad;
     }
 
     public static ArrayList getLBC_ListasRestrictivasCrearBean() throws SQLException {
@@ -44,7 +50,7 @@ public class LBC_ListasRestrictivasCrearBean implements Serializable {
         ArrayList listaRestrictiva = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, TIPO, NOMBRE FROM LISTA_RESTRICTIVA_CREAR_LBC ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, NOMBRE_LISTA, PRIMERA_PROPIEDAD, SEGUNDA_PROPIEDAD FROM LISTA_RESTRICTIVA_CREAR_LBC ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -54,7 +60,9 @@ public class LBC_ListasRestrictivasCrearBean implements Serializable {
             while (rs.next()) {
                 LBC_ListasRestrictivasCrearBean lbcListasRestrictivasCrearBean = new LBC_ListasRestrictivasCrearBean();
 
-                lbcListasRestrictivasCrearBean.setTipo(rs.getString("TIPO"));
+                lbcListasRestrictivasCrearBean.setNombreLista(rs.getString("NOMBRE_LISTA"));
+                lbcListasRestrictivasCrearBean.setPrimeraPropiedad(rs.getString("PRIMERA_PROPIEDAD"));
+                lbcListasRestrictivasCrearBean.setSegundaPropiedad(rs.getString("SEGUNDA_PROPIEDAD"));
 
                 listaRestrictiva.add(lbcListasRestrictivasCrearBean);
             }

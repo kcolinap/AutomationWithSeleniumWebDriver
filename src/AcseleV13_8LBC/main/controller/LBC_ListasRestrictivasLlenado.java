@@ -1,6 +1,6 @@
 package AcseleV13_8LBC.main.controller;
 
-import AcseleV13_8LBC.beans.LBC_CrearListaRestrictivaBean;
+import AcseleV13_8LBC.beans.LBC_ListasRestrictivasLlenadoBean;
 import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -13,13 +13,13 @@ import java.io.IOException;
 /**
  * Created by agil on 25/10/2016.
  */
-public class LBC_CrearListaRestrictiva {
+public class LBC_ListasRestrictivasLlenado {
 
-    private final static Logger log = Logger.getLogger(LBC_CrearListaRestrictiva.class);
+    private final static Logger log = Logger.getLogger(LBC_ListasRestrictivasLlenado.class);
 
     public String nombreAutomatizacion = "LBC Crear Listas Resctrictiva";
 
-    public void testLink(LBC_CrearListaRestrictivaBean lbcCrearListaRestrictivaBean, int i) throws IOException, InterruptedException {
+    public void testLink(LBC_ListasRestrictivasLlenadoBean lbcCrearListaRestrictivaBean, int i) throws IOException, InterruptedException {
 
         try {
 
@@ -53,7 +53,7 @@ public class LBC_CrearListaRestrictiva {
 
     }
 
-    public void CrearListaRestrictiva(LBC_Metodos a, WebDriver driver, LBC_CrearListaRestrictivaBean lbcCrearListaRestrictivaBean, String nombreAutomatizacion, int i,
+    public void CrearListaRestrictiva(LBC_Metodos a, WebDriver driver, LBC_ListasRestrictivasLlenadoBean lbcCrearListaRestrictivaBean, String nombreAutomatizacion, int i,
                                       int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         try {

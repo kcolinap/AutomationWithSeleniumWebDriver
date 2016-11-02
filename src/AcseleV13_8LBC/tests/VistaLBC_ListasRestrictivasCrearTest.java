@@ -1,7 +1,6 @@
 package AcseleV13_8LBC.tests;
 
 import AcseleV13_8LBC.beans.LBC_ListasRestrictivasCrearBean;
-import AcseleV13_8LBC.main.controller.LBC_CrearListaRestrictiva;
 import AcseleV13_8LBC.main.controller.LBC_ListasRestrictivasCrear;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -47,11 +46,11 @@ public class VistaLBC_ListasRestrictivasCrearTest {
     @Before
     public void setUp() throws Exception {
 
-/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM LISTA_RESTRICTIVA_CREAR_LBC ORDER BY PRUEBA ASC",
+/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, NOMBRE_LISTA, PRIMERA_PROPIEDAD, SEGUNDA_PROPIEDAD FROM LISTA_RESTRICTIVA_CREAR_LBC ORDER BY PRUEBA ASC",
                 "LISTA_RESTRICTIVA_CREAR_LBC",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8LBC/tests/xmls/lbcListasRestrictivasCrear_dataset.xml");
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, TIPO, NOMBRE FROM LISTA_RESTRICTIVA_CREAR_LBC ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("SELECT PRUEBA, NOMBRE_LISTA, PRIMERA_PROPIEDAD, SEGUNDA_PROPIEDAD FROM LISTA_RESTRICTIVA_CREAR_LBC ORDER BY PRUEBA ASC",
                 "LISTA_RESTRICTIVA_CREAR_LBC",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8LBC/tests/xmls/lbcListasRestrictivasCrear_dataset.xml");
 */
