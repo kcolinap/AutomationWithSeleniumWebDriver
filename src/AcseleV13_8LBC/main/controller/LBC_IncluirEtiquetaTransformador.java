@@ -31,7 +31,7 @@ public class LBC_IncluirEtiquetaTransformador {
         System.out.println("prueba");
 
 
-        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i);
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 2, i);
 
         a.cambiarVentana(driver);
 

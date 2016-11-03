@@ -31,7 +31,7 @@ public class LBC_IncluirTransformadoresM {
         System.out.println("prueba");
 
 
-        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i);
+        m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 2, i);
 
         Thread.sleep(2000);
         a.cambiarVentana(driver);
