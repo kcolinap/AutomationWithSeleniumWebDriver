@@ -68,7 +68,7 @@ public class Metodos {
     }
 
     public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba) throws InterruptedException, IOException {
-        String rutaScreen = "C:\\ScrenShots\\";
+        String rutaScreen = "C:\\ScrenShots\\13.8\\";
         TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + i + "\\" + titulo + ".png"));
