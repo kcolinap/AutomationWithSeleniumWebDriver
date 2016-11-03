@@ -32,7 +32,6 @@ public class TercerosHabilitarDeshabilitar {
         MenuOperaciones menuOperaciones = new MenuOperaciones();
         PrePoliza prePoliza = new PrePoliza();
         InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
-        TerceroTomador terceroTomador = new TerceroTomador();
 
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);

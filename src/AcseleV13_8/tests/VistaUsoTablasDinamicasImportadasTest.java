@@ -24,6 +24,12 @@ public class VistaUsoTablasDinamicasImportadasTest {
 
         ArrayList tablasDinamicas = UsoTablasDinamicasImportadasBean.getUsoTablasDinamicasImportadas();
 
+        try {
+            tablasDinamicas = UsoTablasDinamicasImportadasBean.getUsoTablasDinamicasImportadas();
+        }catch (SQLException e) {
+            log.error(e);
+        }
+
         for (int i = 0; i < tablasDinamicas.size(); i++){
             UsoTablasDinamicasImportadasBean importExportTablasDinamicasBean = (UsoTablasDinamicasImportadasBean) tablasDinamicas.get(i);
             UsoTablasDinamicasImportadas a = new UsoTablasDinamicasImportadas();
@@ -32,7 +38,6 @@ public class VistaUsoTablasDinamicasImportadasTest {
                 a.testLink(importExportTablasDinamicasBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case 25 - " + a.nombreAutomatizacion + " - " + e);
             }
         }
