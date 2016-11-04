@@ -4,7 +4,9 @@ import AcseleV13_8LBC.beans.LBC_CreacionTercerosBean;
 import AcseleV13_8LBC.main.controller.LBC_Terceros.LBC_Crear;
 import AcseleV13_8LBC.main.controller.LBC_Menu.LBC_MenuMantenimiento;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
@@ -44,6 +46,15 @@ public class LBC_CreacionTerceros {
 
             Thread.sleep(3000);
             lbcCrear.CrearTercero(a, driver, lbcCreacionTercerosBean, nombreAutomatizacion, i, 3, 4, 5, 6);
+
+            /***Espera***/
+            Thread.sleep(1000);
+            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+            while (mensajeEspera.isDisplayed()){
+                Thread.sleep(5000);
+                System.out.println("Espera Creacion del Tercero");
+            }
+
 
 
         } catch (Exception e) {

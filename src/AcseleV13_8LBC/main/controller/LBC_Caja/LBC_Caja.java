@@ -32,7 +32,8 @@ public class LBC_Caja {
 
             if (lbcCajaBean.getNumeroCaja() != null){
                 Select numeroCaja = new Select(driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[4]/td[2]/select")));
-                numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                //numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                numeroCaja.selectByVisibleText(lbcCajaBean.getNumeroCaja());
                 Thread.sleep(2000);
             }
 
@@ -69,7 +70,8 @@ public class LBC_Caja {
 
             if (lbcCajaBean.getNumeroCaja() != null){
                 Select numeroCaja = new Select(driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[3]/td[2]/select")));
-                numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                //numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                numeroCaja.selectByVisibleText(lbcCajaBean.getNumeroCaja());
                 Thread.sleep(2000);
             }
 
