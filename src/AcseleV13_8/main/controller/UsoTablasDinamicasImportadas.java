@@ -192,7 +192,7 @@ public class UsoTablasDinamicasImportadas {
         }
 
     }
-    
+
     public static void Comprobar(Metodos a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']

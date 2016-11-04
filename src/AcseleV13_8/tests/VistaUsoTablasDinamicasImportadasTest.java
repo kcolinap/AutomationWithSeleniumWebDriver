@@ -38,7 +38,7 @@ public class VistaUsoTablasDinamicasImportadasTest {
                 a.testLink(importExportTablasDinamicasBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case 25 - " + a.nombreAutomatizacion + " - " + e);
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }
