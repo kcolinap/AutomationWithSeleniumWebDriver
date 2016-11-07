@@ -50,7 +50,8 @@ public class UsoTablasDinamicasImportadasBean extends PolizaBean implements Seri
         ArrayList usoTablas = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT PRUEBA, NOMBRE_TABLA_DINAMICA, RUTA_TABLA_DINAMICA, VALOR_COMPARACION_TD, PRODUCTO, VIGENCIA, FECHA_DESDE, EVENTO_APLICAR, FECHA_MOVIMIENTO, NUM_POLIZA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TOMADOR_NOMBRE, NUM_CREDITO, FECHA_PROCESO, DOC_ID_ASEGURADO, FECHA_NAC_ASEGURADO, DIRECCION_ASEGURADO, DEPARTAMENTO_ASEGURADO, CIUDAD_ASEGURADO FROM USO_TABLA_DINAMICA_IMPORTADA ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT PRUEBA, NOMBRE_TABLA_DINAMICA, RUTA_TABLA_DINAMICA, VALOR_COMPARACION_TD, PRODUCTO, VIGENCIA, FECHA_DESDE, EVENTO_APLICAR, FECHA_MOVIMIENTO, NUM_POLIZA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TOMADOR_NOMBRE, NUM_CREDITO, MONTO_ASEGURADO, FACTOR_VIDA, VALOR_SEGURO_PRIMA, VALOR_PRESTAMO, FECHA_PROCESO, DOC_ID_ASEGURADO, FECHA_NAC_ASEGURADO, DIRECCION_ASEGURADO, DEPARTAMENTO_ASEGURADO, CIUDAD_ASEGURADO FROM USO_TABLA_DINAMICA_IMPORTADA ORDER BY PRUEBA ASC");
+        //queryLoad.append("SELECT PRUEBA, NOMBRE_TABLA_DINAMICA, RUTA_TABLA_DINAMICA, VALOR_COMPARACION_TD, PRODUCTO, VIGENCIA, FECHA_DESDE, EVENTO_APLICAR, FECHA_MOVIMIENTO, NUM_POLIZA, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO, TOMADOR_NOMBRE, NUM_CREDITO, FECHA_PROCESO, DOC_ID_ASEGURADO, FECHA_NAC_ASEGURADO, DIRECCION_ASEGURADO, DEPARTAMENTO_ASEGURADO, CIUDAD_ASEGURADO FROM USO_TABLA_DINAMICA_IMPORTADA ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -74,7 +75,11 @@ public class UsoTablasDinamicasImportadasBean extends PolizaBean implements Seri
                 usoTablasDinamicasImportadasBean.setCanalVenta(rs.getString("CANAL_VENTA"));
                 usoTablasDinamicasImportadasBean.setTipoValorAsegurado(rs.getString("TIPO_VALOR_ASEGURADO"));
                 usoTablasDinamicasImportadasBean.setTomadorNombre1(rs.getString("TOMADOR_NOMBRE"));
-                usoTablasDinamicasImportadasBean.setNumeroCredito(rs.getString("NUM_CREDITO"));
+                usoTablasDinamicasImportadasBean.setNumeroCredito(rs.getString("NUM_CREDITO"));/**/
+                usoTablasDinamicasImportadasBean.setMontoAsegurado(rs.getString("MONTO_ASEGURADO"));
+                usoTablasDinamicasImportadasBean.setFactorVida(rs.getString("FACTOR_VIDA"));
+                usoTablasDinamicasImportadasBean.setValorSeguroPrima(rs.getString("VALOR_SEGURO_PRIMA"));
+                usoTablasDinamicasImportadasBean.setValorPrestamo(rs.getString("VALOR_PRESTAMO"));/**/
                 usoTablasDinamicasImportadasBean.setFechaProceso(rs.getString("FECHA_PROCESO"));
                 usoTablasDinamicasImportadasBean.setDocumentoIdentidadAsegurado(rs.getString("DOC_ID_ASEGURADO"));
                 usoTablasDinamicasImportadasBean.setFechaNacimientoAsegurado(rs.getString("FECHA_NAC_ASEGURADO"));

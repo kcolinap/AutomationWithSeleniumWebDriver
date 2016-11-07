@@ -42,7 +42,7 @@ public class UsoTablasDinamicasImportadas {
             Thread.sleep(2000);
             a.ValidandoSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(5000);
-
+/*
             // Ingreso al menu
             menuMantenimiento.MantGeral_TablasDinamicas(driver, nombreAutomatizacion, 2, i);
 
@@ -57,7 +57,7 @@ public class UsoTablasDinamicasImportadas {
             driver.close();
 
             a.regresarVentana(driver);
-
+*/
             menuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 8, i);
 
             Thread.sleep(2000);
