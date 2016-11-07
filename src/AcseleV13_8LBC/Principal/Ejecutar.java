@@ -1,10 +1,7 @@
-package AcseleV13_8LBC.Principal;
-
+package AcseleV13_8LBC.principal;
 
 import AcseleV13_8LBC.tests.VistaLBC_CreacionCajaTest;
 import org.apache.log4j.Logger;
-
-import java.sql.SQLException;
 
 /**
  * Created by agil on 04/11/2016.
@@ -19,9 +16,9 @@ public class Ejecutar {
         log.debug("Arrancando el main");
 
         VistaLBC_CreacionCajaTest vistaLBCCreacionCajaTest = new VistaLBC_CreacionCajaTest();
-        vistaLBCCreacionCajaTest.setUp();
-        vistaLBCCreacionCajaTest.mainTest();
-        vistaLBCCreacionCajaTest.tearDown();
+        //vistaLBCCreacionCajaTest.setUp();
+        //vistaLBCCreacionCajaTest.mainTest();
+        //vistaLBCCreacionCajaTest.tearDown();
 
     }
 }
