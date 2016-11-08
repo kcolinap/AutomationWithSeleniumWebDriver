@@ -43,6 +43,9 @@ public class TerceroTomador {
                 else if (polizaBean.getTomadorNombre1() != null && polizaBean.getTomadorNombre2() == null && polizaBean.getTomadorApellido1() != null && polizaBean.getTomadorApellido2() == null){
                     inputTomador.sendKeys(polizaBean.getTomadorNombre1() + " " + polizaBean.getTomadorApellido1());
                 }
+                else if (polizaBean.getTomadorNombre1() != null && polizaBean.getTomadorNombre2() == null && polizaBean.getTomadorApellido1() == null && polizaBean.getTomadorApellido2() == null){
+                    inputTomador.sendKeys(polizaBean.getTomadorNombre1());
+                }
 
             }
 

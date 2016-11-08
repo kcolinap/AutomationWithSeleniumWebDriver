@@ -48,7 +48,6 @@ public class MenuMantenimiento {
 
             }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
@@ -74,7 +73,6 @@ public class MenuMantenimiento {
 
             }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
@@ -152,20 +150,25 @@ public class MenuMantenimiento {
 
     /** Mantenimiento General **/
 
-        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+
             try {
+                Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[8]")); // Mantenimiento General
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[43]/div[1]")); // Tablas Dinámicas
                 menu1.click();
                 menu2.click();
-                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion); //screenshot2
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
                 Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
         public void MantGeral_TablasEstaticas(){}
@@ -213,7 +216,6 @@ public class MenuMantenimiento {
 
             }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
@@ -240,7 +242,6 @@ public class MenuMantenimiento {
 
             }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
                 log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
@@ -272,7 +273,6 @@ public class MenuMantenimiento {
             menu3.click();
         }catch (Exception e){
         e.printStackTrace();
-//             log.info(e);
         log.info("Test Case - " + nombreAutomatizacion + " - " + e);
     }
 }

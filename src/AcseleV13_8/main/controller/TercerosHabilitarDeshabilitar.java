@@ -22,7 +22,7 @@ public class TercerosHabilitarDeshabilitar {
 
     private final static Logger log = Logger.getLogger(TercerosHabilitarDeshabilitar.class);
 
-    public String nombreAutomatizacion = "LBC_Terceros Habilitar Deshabilitar";
+    public String nombreAutomatizacion = "Terceros Habilitar Deshabilitar";
 
     public void testLink(TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean, int i) throws Exception{
 
@@ -32,7 +32,6 @@ public class TercerosHabilitarDeshabilitar {
         MenuOperaciones menuOperaciones = new MenuOperaciones();
         PrePoliza prePoliza = new PrePoliza();
         InformacionGeneralPoliza informacionGeneralPoliza = new InformacionGeneralPoliza();
-        TerceroTomador terceroTomador = new TerceroTomador();
 
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);

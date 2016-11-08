@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +21,13 @@ public class VistaTercerosHabilitarDeshabilitarTest {
     @Test
     public void mainTest(){
 
-        ArrayList tercerosHabDes = TercerosHabilitarDeshabilitarBean.getTerceroHabilitarDeshabilitar();
+        ArrayList tercerosHabDes = null;
+
+        try {
+            tercerosHabDes = TercerosHabilitarDeshabilitarBean.getTerceroHabilitarDeshabilitar();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < tercerosHabDes.size(); i++){
             TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean = (TercerosHabilitarDeshabilitarBean) tercerosHabDes.get(i);

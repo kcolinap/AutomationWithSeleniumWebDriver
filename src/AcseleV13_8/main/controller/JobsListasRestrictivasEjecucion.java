@@ -32,7 +32,7 @@ public class JobsListasRestrictivasEjecucion {
             Thread.sleep(5000);
 
             // Ingreso al menu
-            menuMantenimiento.MantGeral_TablasDinamicas(driver, nombreAutomatizacion, 2);
+            menuMantenimiento.MantGeral_TablasDinamicas(driver, nombreAutomatizacion, 2, i);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
