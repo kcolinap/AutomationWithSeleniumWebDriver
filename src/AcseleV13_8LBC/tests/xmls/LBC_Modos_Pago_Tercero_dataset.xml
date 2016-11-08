@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <LBC_MODOS_PAGO_TERCERO PRUEBA="1" NOMBRE="JOSEANDRES" MODO_PAGO="Debito Automático" TIPO_CUENTA="Corriente"
+                          DESCRIPCION="Prueba" NUM_CTA_BCO="10253684585" COLLECTOR="Banco Bisa"/>
+</dataset>
