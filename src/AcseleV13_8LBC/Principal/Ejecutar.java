@@ -16,9 +16,9 @@ public class Ejecutar {
         log.debug("Arrancando el main");
 
         VistaLBC_CreacionCajaTest vistaLBCCreacionCajaTest = new VistaLBC_CreacionCajaTest();
-        //vistaLBCCreacionCajaTest.setUp();
-        //vistaLBCCreacionCajaTest.mainTest();
-        //vistaLBCCreacionCajaTest.tearDown();
+        vistaLBCCreacionCajaTest.setUp();
+        vistaLBCCreacionCajaTest.mainTest();
+        vistaLBCCreacionCajaTest.tearDown();
 
     }
 }

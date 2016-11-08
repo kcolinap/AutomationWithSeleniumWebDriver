@@ -66,6 +66,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:2.5.6" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:ojdbc14:10.2.0.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.dbmaintain:dbmaintain-maven-plugin:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.dbmaintain:dbmaintain:2.4" level="project" />
