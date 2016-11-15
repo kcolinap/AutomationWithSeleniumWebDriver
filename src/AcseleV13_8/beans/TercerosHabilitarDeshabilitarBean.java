@@ -1,5 +1,6 @@
 package AcseleV13_8.beans;
 
+import org.apache.log4j.Logger;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -14,24 +15,13 @@ import java.util.ArrayList;
  */
 public class TercerosHabilitarDeshabilitarBean extends PolizaBean implements Serializable {
 
-    // PRODUCTO, VIGENCIA, FECHA_DESDE, FECHA_HASTA,
-    // EVENTO_APLICAR, SUCURSAL, TIPO_PRODUCCION, LINEA_CREDITO, UNIDAD_NEGOCIO, CANAL_VENTA, TIPO_VALOR_ASEGURADO
+    private final static Logger log = Logger.getLogger(TercerosHabilitarDeshabilitarBean.class);
+
     private String tipTercer;
     private String tipDcID;
     private String cedulaID;
     private String nombreT;
     private String apellidoT;
-    private String producto;
-    private String vigencia;
-    private String fechaDesde;
-    private String fechaHasta;
-    private String eventoAplicar;
-    private String sucursal;
-    private String tipoProduccion;
-    private String lineaCredito;
-    private String unidadNegocio;
-    private String canalVenta;
-    private String tipoValorAsegurado;
 
     public String getTipTercer(){
         return tipTercer;
@@ -68,86 +58,9 @@ public class TercerosHabilitarDeshabilitarBean extends PolizaBean implements Ser
         this.apellidoT = apellidoT;
     }
 
-    public String getProducto(){
-        return producto;
-    }
-    public void setProducto(String producto){
-        this.producto = producto;
-    }
+    public static ArrayList getTerceroHabilitarDeshabilitar() throws SQLException {
 
-    public String getVigencia(){
-        return vigencia;
-    }
-    public void setVigencia(String vigencia){
-        this.vigencia = vigencia;
-    }
-
-    public String getFechaDesde(){
-        return fechaDesde;
-    }
-    public void setFechaDesde(String fechaDesde){
-        this.fechaDesde = fechaDesde;
-    }
-
-    public String getFechaHasta(){
-        return fechaHasta;
-    }
-    public void setFechaHasta(String fechaHasta){
-        this.fechaHasta = fechaHasta;
-    }
-
-    public String getEventoAplicar(){
-        return eventoAplicar;
-    }
-    public void setEventoAplicar(String eventoAplicar){
-        this.eventoAplicar = eventoAplicar;
-    }
-
-    public String getSucursal(){
-        return sucursal;
-    }
-    public void setSucursal(String sucursal){
-        this.sucursal = sucursal;
-    }
-
-    public String getTipoProduccion(){
-        return tipoProduccion;
-    }
-    public void setTipoProduccion(String tipoProduccion){
-        this.tipoProduccion = tipoProduccion;
-    }
-
-    public String getLineaCredito(){
-        return lineaCredito;
-    }
-    public void setLineaCredito(String lineaCredito){
-        this.lineaCredito = lineaCredito;
-    }
-
-    public String getUnidadNegocio(){
-        return unidadNegocio;
-    }
-    public void setUnidadNegocio(String unidadNegocio){
-        this.unidadNegocio = unidadNegocio;
-    }
-
-    public String getCanalVenta(){
-        return canalVenta;
-    }
-    public void setCanalVenta(String canalVenta){
-        this.canalVenta = canalVenta;
-    }
-
-    public String getTipoValorAsegurado(){
-        return tipoValorAsegurado;
-    }
-    public void setTipoValorAsegurado(String tipoValorAsegurado){
-        this.tipoValorAsegurado = tipoValorAsegurado;
-    }
-
-    public static ArrayList getTerceroHabilitarDeshabilitar(){
-
-        Connection conn;
+        Connection conn = null;
         Statement stmt;
         ResultSet rs;
         ArrayList tercerosHD = new ArrayList();
@@ -162,6 +75,7 @@ public class TercerosHabilitarDeshabilitarBean extends PolizaBean implements Ser
 
             while (rs.next()) {
                 TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean = new TercerosHabilitarDeshabilitarBean();
+
                 tercerosHabilitarDeshabilitarBean.setTipTercer(rs.getString("TIPO_TERCERO"));
                 tercerosHabilitarDeshabilitarBean.setTipDcID(rs.getString("TIPO_DOC_IDENTIDAD"));
                 tercerosHabilitarDeshabilitarBean.setCedulaID(rs.getString("CEDULA"));
@@ -178,11 +92,15 @@ public class TercerosHabilitarDeshabilitarBean extends PolizaBean implements Ser
                 tercerosHabilitarDeshabilitarBean.setUnidadNegocio(rs.getString("UNIDAD_NEGOCIO"));
                 tercerosHabilitarDeshabilitarBean.setCanalVenta(rs.getString("CANAL_VENTA"));
                 tercerosHabilitarDeshabilitarBean.setTipoValorAsegurado(rs.getString("TIPO_VALOR_ASEGURADO"));
+
                 tercerosHD.add(tercerosHabilitarDeshabilitarBean);
             }
-        }catch(SQLException e){
-            //log.error(e);
-            //conn.close();
+        }catch(SQLException e) {
+            log.error(e);
+        }finally{
+            if (conn != null){
+                conn.close();
+            }
         }
         return tercerosHD;
     }

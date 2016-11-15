@@ -14,7 +14,9 @@
 
                                 TOMADOR_NOMBRE="Elias"
 
-                                NUM_CREDITO="3" FECHA_PROCESO="22-08-2016"
+                                NUM_CREDITO="3" MONTO_ASEGURADO="150000"
+                                FACTOR_VIDA="2" VALOR_SEGURO_PRIMA="2" VALOR_PRESTAMO="2"
+                                FECHA_PROCESO="22-08-2016"
 
                                 DOC_ID_ASEGURADO="365525" FECHA_NAC_ASEGURADO="19-08-2016"
                                 DIRECCION_ASEGURADO="Casa" DEPARTAMENTO_ASEGURADO="53392117"

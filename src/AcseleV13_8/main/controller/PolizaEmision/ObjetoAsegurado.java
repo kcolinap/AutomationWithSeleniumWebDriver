@@ -27,30 +27,30 @@ public class ObjetoAsegurado {
             //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
             //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
 
-            if (polizaBean.getDocumentoIdentidadAsegurado2() != null) {
+            if (polizaBean.getDocumentoIdentidadAsegurado() != null) {
                 Thread.sleep(1000);
                 WebElement docIdAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_2_fila_field']"));
-                docIdAsegurado.sendKeys(polizaBean.getDocumentoIdentidadAsegurado2());
+                docIdAsegurado.sendKeys(polizaBean.getDocumentoIdentidadAsegurado());
             }
 
-            if (polizaBean.getFechaNacimientoAsegurado2() != null) {
+            if (polizaBean.getFechaNacimientoAsegurado() != null) {
                 Thread.sleep(1000);
                 WebElement fechaNacAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_fieldDate']"));
-                fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado2());
+                fechaNacAsegurado.sendKeys(polizaBean.getFechaNacimientoAsegurado());
             }
 
-            if (polizaBean.getDireccionAsegurado2() != null) {
+            if (polizaBean.getDireccionAsegurado() != null) {
                 Thread.sleep(3000);
                 WebElement direccionAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_field']"));
-                direccionAsegurado.sendKeys(polizaBean.getDireccionAsegurado2());
+                direccionAsegurado.sendKeys(polizaBean.getDireccionAsegurado());
             }
 
 
             Thread.sleep(2000);
-            if (polizaBean.getDepartamento2() != null) {
+            if (polizaBean.getDepartamento() != null) {
                 Thread.sleep(1000);
                 Select departamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
-                departamento.selectByValue(polizaBean.getDepartamento2());
+                departamento.selectByValue(polizaBean.getDepartamento());
 
 //                Thread.sleep(2000);
 //                String city = "CALAMAR";
@@ -82,16 +82,16 @@ public class ObjetoAsegurado {
             WebElement mensajeDep = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_feedbackLabel']"));
             if (mensajeDep.isDisplayed()){
                 Thread.sleep(2000);
-                if (polizaBean.getDepartamento2() != null) {
+                if (polizaBean.getDepartamento() != null) {
                     Thread.sleep(1000);
                     Select departamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
-                    departamento.selectByValue(polizaBean.getDepartamento2());
+                    departamento.selectByValue(polizaBean.getDepartamento());
 
                     Thread.sleep(2000);
-                    if (polizaBean.getCiudad2() != null) {
+                    if (polizaBean.getCiudad() != null) {
                         Thread.sleep(1000);
                         Select ciudad = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_2_field']")));
-                        ciudad.selectByValue(polizaBean.getCiudad2());
+                        ciudad.selectByValue(polizaBean.getCiudad());
                     }
 
                 }
