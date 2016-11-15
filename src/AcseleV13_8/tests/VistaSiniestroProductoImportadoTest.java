@@ -18,10 +18,10 @@ public class VistaSiniestroProductoImportadoTest {
 
     /**
      * Antes de ejecutar esta prueba se debe cumplir con los siguientes pasos:
-     * 1. AcseleV13_8LBC.Principal.Ejecutar la prueba ExportarImportarProducto
+     * 1. AcseleV13_8LBC.principal.Ejecutar la prueba ExportarImportarProducto
      * 2. acceder al modulo de seguridad de ACSELE http://qa:7001/security/ (de forma manual) para asociar
      * el nuevo producto al usuario.
-     * 3. AcseleV13_8LBC.Principal.Ejecutar la prueba: Emisiones con el producto importado, de la compañera Adriana Azuaje
+     * 3. AcseleV13_8LBC.principal.Ejecutar la prueba: Emisiones con el producto importado, de la compañera Adriana Azuaje
      * 4. Obtener el numero de poliza de la prueba anterior y colocarlo en el xml, especificamente en el campo NUMERO_POLIZA
      */
 

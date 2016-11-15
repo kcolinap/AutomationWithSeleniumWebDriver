@@ -39,8 +39,21 @@ public class LBC_Metodos {
 //    } //Configura el driver con un perfil de firefox
 
     public WebDriver entrarPagina(){
-        System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
+
+        String oS = System.getProperty("os.name");
+        //System.out.println(oS);
+        if (oS.equals("Windows 7")){
+            System.out.println("Windows 7");
+            System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
+        }
+        else if (oS.equals("Linux")){
+            System.out.println("Linux");
+            System.setProperty("webdriver.chrome.driver", "//home//Consisint//Automatizacion//chromedriver//chromedriver");
+        }
+
+        //System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
         //System.setProperty("webdriver.chrome.driver", "src//chromedriver//chromedriver.exe");
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--ignore-certificate-errors");

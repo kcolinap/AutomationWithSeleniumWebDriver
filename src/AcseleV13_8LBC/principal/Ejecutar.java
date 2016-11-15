@@ -2,6 +2,7 @@ package AcseleV13_8LBC.principal;
 
 import AcseleV13_8LBC.tests.VistaLBC_CreacionCajaTest;
 import org.apache.log4j.Logger;
+import org.apache.log4j.net.SyslogAppender;
 
 /**
  * Created by agil on 04/11/2016.

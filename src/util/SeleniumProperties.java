@@ -11,8 +11,8 @@ import java.util.Properties;
  */
 public class SeleniumProperties {
 
-    private static final String CONFIGURATION_FILE = "C:/external/AcseleSeleniumTestConfigurationFile.properties";
-    //private static final String CONFIGURATION_FILE = "src/external/AcseleSeleniumTestConfigurationFile.properties";
+    //private static final String CONFIGURATION_FILE = "C:/external/AcseleSeleniumTestConfigurationFile.properties";
+    private static final String CONFIGURATION_FILE = "/home/Consisint/Automatizacion/external/AcseleSeleniumTestConfigurationFile.properties";
     public static final String COUNTRY = "country";
     public static final String LANGUAGE = "language";
     public static final String DATABASE_DRIVER_SELENIUM = "driverDBSelenium";
