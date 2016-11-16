@@ -39,7 +39,19 @@ public class Interseguros_Metodos {
 //    } //Configura el driver con un perfil de firefox
 
     public WebDriver entrarPagina(){
-        System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
+
+        String oS = System.getProperty("os.name");
+        //System.out.println(oS);
+        if (oS.equals("Windows 7")){
+            System.out.println("Windows 7");
+            System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
+        }
+        else if (oS.equals("Linux")){
+            System.out.println("Linux");
+            System.setProperty("webdriver.chrome.driver", "//home//Consisint//Automatizacion//chromedriver//chromedriver");
+        }
+
+        //System.setProperty("webdriver.chrome.driver", "C://chromedriver//chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--ignore-certificate-errors");
@@ -69,8 +81,35 @@ public class Interseguros_Metodos {
         System.out.println("tomando screenshot "+titulo);
     }
 
+    public void SistemaOperativo(){
+        String rutaScreen = "";
+        String oS = System.getProperty("os.name");
+        //System.out.println(oS);
+        if (oS.equals("Windows 7")){
+            System.out.println("Windows 7");
+            rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+        }
+        else if (oS.equals("Linux")){
+            System.out.println("Linux");
+            rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
+        }
+    }
+
     public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba) throws InterruptedException, IOException {
-        String rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+
+        String rutaScreen = "";
+        String oS = System.getProperty("os.name");
+        //System.out.println(oS);
+        if (oS.equals("Windows 7")){
+            System.out.println("Windows 7");
+            rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+        }
+        else if (oS.equals("Linux")){
+            System.out.println("Linux");
+            rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";//\\ScrenShots\\Interseguros\\";
+        }
+
+        //String rutaScreen = "C:\\ScrenShots\\Interseguros\\";
         TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + i + "\\" + titulo + ".png"));
@@ -88,7 +127,7 @@ public class Interseguros_Metodos {
             System.out.println("Ya estaba logeado");
             System.out.println("Cerrando la otra sesion");
             //Screenshot
-            ScreenShot(getDriver, "screen1-1", nombrePrueba);
+            //ScreenShot(getDriver, "screen1-1", nombrePrueba);
             ScreenShotPool(getDriver, i, "screen1-1", nombrePrueba);
 
             WebElement acep = getDriver.findElement(By.name("SecuritySubmit"));
@@ -112,13 +151,13 @@ public class Interseguros_Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("");       /** Usuario  **/
-        password2.sendKeys("");
+        user2.sendKeys("agil");       /** Usuario  **/
+        password2.sendKeys("a123456");
 
         instance2.selectByVisibleText("INTERSEGURO");
         language2.selectByValue("es");
         //Screenshot
-        ScreenShot(getDriver, "screen1", nombrePrueba);
+        //ScreenShot(getDriver, "screen1", nombrePrueba);
         ScreenShotPool(getDriver, i, "screen1", nombrePrueba);
         /*TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);

@@ -11,8 +11,8 @@ import java.util.Properties;
  */
 public class SeleniumProperties {
 
-    //private static final String CONFIGURATION_FILE = "C:/external/AcseleSeleniumTestConfigurationFile.properties";
-    private static final String CONFIGURATION_FILE = "/home/Consisint/Automatizacion/external/AcseleSeleniumTestConfigurationFile.properties";
+    private static final String CONFIGURATION_FILE_W = "C:/external/AcseleSeleniumTestConfigurationFile.properties";
+    private static final String CONFIGURATION_FILE_L = "/home/Consisint/Automatizacion/external/AcseleSeleniumTestConfigurationFile.properties";
     public static final String COUNTRY = "country";
     public static final String LANGUAGE = "language";
     public static final String DATABASE_DRIVER_SELENIUM = "driverDBSelenium";
@@ -34,13 +34,25 @@ public class SeleniumProperties {
 
         try {
 
-            input = new FileInputStream(CONFIGURATION_FILE);
+            String oS = System.getProperty("os.name");
+            if (oS.equals("Windows 7")) {
+                input = new FileInputStream(CONFIGURATION_FILE_W);
 
-            if (input == null) {
-                System.out.println("Sorry, unable to find " + CONFIGURATION_FILE);
+                if (input == null) {
+                    System.out.println("Sorry, unable to find " + CONFIGURATION_FILE_W);
+                }
+
+                properties.load(input);
             }
+            else if (oS.equals("Linux")){
+                input = new FileInputStream(CONFIGURATION_FILE_L);
 
-            properties.load(input);
+                if (input == null) {
+                    System.out.println("Sorry, unable to find " + CONFIGURATION_FILE_L);
+                }
+
+                properties.load(input);
+            }
 
         } catch (IOException ex) {
             ex.printStackTrace();
