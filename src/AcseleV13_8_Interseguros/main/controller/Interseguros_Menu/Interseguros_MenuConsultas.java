@@ -26,22 +26,16 @@ public class Interseguros_MenuConsultas {
     public void EstadoCuentas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[1]"));// Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[4]/div[2]"));//Mantenimiento de terceros
-            Thread.sleep(1000);
-
-            action.moveToElement(menu1).build().perform();
-            action.moveToElement(menu2).build().perform();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
-            Thread.sleep(1000);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[1]"));// Consulta
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[2]/div[2]"));//Estado de Cuentas
+            menu1.click();
+            a.ScreenShot(driver, "screen2", nombreAutomatizacion); //screenshot2
             menu2.click();
-
 
         }catch (Exception e) {
             e.printStackTrace();
 //                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
