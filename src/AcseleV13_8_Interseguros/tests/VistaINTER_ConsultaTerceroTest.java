@@ -38,8 +38,7 @@ public class VistaINTER_ConsultaTerceroTest {
                 a.testLink(inter_consultaTerceroBean, j);
             } catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

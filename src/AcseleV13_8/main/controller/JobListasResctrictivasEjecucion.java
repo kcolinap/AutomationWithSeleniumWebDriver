@@ -108,7 +108,7 @@ public class JobListasResctrictivasEjecucion {
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
-            // Ejecutar Job
+            // AcseleV13_8LBC.principal.Ejecutar Job
             WebElement btnEjecutarJob = driver.findElement(By.xpath("/html/body/center/div[2]/table/tbody/tr/td[4]/img"));
             btnEjecutarJob.click();
 

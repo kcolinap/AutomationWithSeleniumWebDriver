@@ -36,8 +36,7 @@ public class VistaLBC_CreacionCajaTest {
             try {
                 a.testLink(lbcCrearCajaBean, j);
             } catch (Exception e) {
-                e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

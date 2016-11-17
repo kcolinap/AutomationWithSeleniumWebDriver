@@ -41,7 +41,8 @@ public class LBC_AsociarCajaConCajero {
             String textoNumCaja = null;
             if (lbcCajaBean.getNumeroCaja() != null){
                 Select numeroCaja = new Select(driver.findElement(By.xpath("/html/body/center/form/table[1]/tbody/tr[2]/td[2]/select")));
-                numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                //numeroCaja.selectByValue(lbcCajaBean.getNumeroCaja());
+                numeroCaja.selectByVisibleText(lbcCajaBean.getNumeroCaja());
                 textoNumCaja = numeroCaja.getFirstSelectedOption().getText();
                 Thread.sleep(2000);
             }

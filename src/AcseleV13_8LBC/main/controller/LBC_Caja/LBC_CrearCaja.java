@@ -63,11 +63,8 @@ public class LBC_CrearCaja {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
-
-
         }catch (Exception e) {
-            e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 }
