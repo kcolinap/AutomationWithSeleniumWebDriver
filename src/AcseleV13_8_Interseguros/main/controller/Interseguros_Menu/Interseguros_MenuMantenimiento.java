@@ -45,8 +45,7 @@ public class Interseguros_MenuMantenimiento {
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
 
@@ -54,7 +53,7 @@ public class Interseguros_MenuMantenimiento {
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]")); // Mantenimiento
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[44]")); // Mantenimiento
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[34]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[35]/div[2]")); // Buscar (FrontEnd)
             menu1.click();
@@ -68,7 +67,7 @@ public class Interseguros_MenuMantenimiento {
             menu3.click();
         }catch (Exception e){
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
@@ -113,8 +112,7 @@ public class Interseguros_MenuMantenimiento {
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
 
@@ -135,8 +133,7 @@ public class Interseguros_MenuMantenimiento {
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
 
@@ -169,8 +166,7 @@ public class Interseguros_MenuMantenimiento {
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case 25 - " + nombreAutomatizacion + " - " + e);
             }
         }
         public void MantGeral_TablasEstaticas(){}
@@ -218,8 +214,7 @@ public class Interseguros_MenuMantenimiento {
 
             }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
         public void AdminTar_EjecucionTareas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
@@ -245,8 +240,7 @@ public class Interseguros_MenuMantenimiento {
 
             }catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
         public void AdminTar_AgendaProcesos(){}
@@ -277,8 +271,7 @@ public class Interseguros_MenuMantenimiento {
             menu3.click();
         }catch (Exception e){
         e.printStackTrace();
-//             log.info(e);
-        log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        log.error("Test Case - " + nombreAutomatizacion + " - " + e);
     }
 }
 
@@ -334,7 +327,7 @@ public class Interseguros_MenuMantenimiento {
 
         } catch (Exception e){
             e.printStackTrace();
-            log.info("Menu listas Restrictivas " + e);
+            log.error("Menu listas Restrictivas " + e);
         }
     }
         public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
@@ -354,8 +347,7 @@ public class Interseguros_MenuMantenimiento {
 
             } catch (Exception e){
                 e.printStackTrace();
-//             log.info(e);
-                log.info("Menu listas Restrictivas " + e);
+                log.error("Menu listas Restrictivas " + e);
             }
 
 

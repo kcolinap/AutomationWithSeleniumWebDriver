@@ -42,8 +42,8 @@ public class INTER_ConsultaTercero {
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            //log.all("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
@@ -132,8 +132,7 @@ public class INTER_ConsultaTercero {
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }

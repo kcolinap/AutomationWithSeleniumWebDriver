@@ -81,18 +81,15 @@ public class Interseguros_Metodos {
         System.out.println("tomando screenshot "+titulo);
     }
 
-    public void SistemaOperativo(){
-        String rutaScreen = "";
-        String oS = System.getProperty("os.name");
-        //System.out.println(oS);
-        if (oS.equals("Windows 7")){
-            System.out.println("Windows 7");
-            rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+    public void waitSearchWicket(WebDriver driver, String tipoBusqueda) throws InterruptedException {
+        Thread.sleep(1000);
+        /** Espere **/
+        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+        while (mensajeEspera.isDisplayed()) {
+            Thread.sleep(5000);
+            System.out.println("Espera " + tipoBusqueda);
         }
-        else if (oS.equals("Linux")){
-            System.out.println("Linux");
-            rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
-        }
+        Thread.sleep(1000);
     }
 
     public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba) throws InterruptedException, IOException {

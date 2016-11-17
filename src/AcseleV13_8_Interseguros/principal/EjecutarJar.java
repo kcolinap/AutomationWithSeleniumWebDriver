@@ -16,10 +16,16 @@ public class EjecutarJar {
         log.error("Arrancando el main");
         log.debug("Arrancando el main");
 
-        VistaINTER_ConsultaTerceroTest vistaINTER_consultaTerceroTest = new VistaINTER_ConsultaTerceroTest();
-        vistaINTER_consultaTerceroTest.setUp();
-        vistaINTER_consultaTerceroTest.mainTest();
-        vistaINTER_consultaTerceroTest.tearDown();
 
+
+        try {
+            VistaINTER_ConsultaTerceroTest vistaINTER_consultaTerceroTest = new VistaINTER_ConsultaTerceroTest();
+            vistaINTER_consultaTerceroTest.setUp();
+            vistaINTER_consultaTerceroTest.mainTest();
+            vistaINTER_consultaTerceroTest.tearDown();
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + "vistaINTER_consultaTerceroTest" + " - " + e);
+        }
     }
 }
