@@ -472,7 +472,7 @@ public class Inter_CrearTercero {
             Thread.sleep(2000);
             WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_saveButton']"));
             Thread.sleep(1000);
-            //btnGuardar.click();
+            btnGuardar.click();
 
             Thread.sleep(2000);
             //a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion);
@@ -484,4 +484,43 @@ public class Inter_CrearTercero {
         }
     }
 
+    public void ValidarCreacionTercero(WebDriver driver, String nombreAutomatizacion){
+
+        // Validacion de la prueba
+        Boolean exitosa = driver.findElements(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdRolPanel_rolLabel']")).size() > 0;
+        //Boolean apellidoObligatorio = driver.findElements(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_feedbackLabel']")).size() > 0;
+        //Boolean nombreObligatorio = driver.findElements(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_feedbackLabel']")).size() > 0;
+        //Boolean sexoObligatorio = driver.findElements(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel1_16_fila_repeaterSelect_1_feedbackLabel']")).size() > 0;
+        Boolean apellidoObligatorio = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_feedbackLabel']")).isDisplayed();
+        Boolean nombreObligatorio = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_feedbackLabel']")).isDisplayed();
+        Boolean sexoObligatorio = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel1_16_fila_repeaterSelect_1_feedbackLabel']")).isDisplayed();
+        Boolean mensajeErrores = driver.findElements(By.id("_wicket_window_12")).size() > 0;
+
+        if (exitosa){
+            log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Exitosa");
+        }
+        else if (apellidoObligatorio || nombreObligatorio || sexoObligatorio){
+            log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: * Todos los campos son obligatorios");
+            if (apellidoObligatorio)
+                log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: El campo  'Apellido Paterno'  es obligatorio.");
+            if (nombreObligatorio)
+                log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: El campo  'Primer Nombre'  es obligatorio.");
+            if (sexoObligatorio)
+                log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: El campo  'Sexo'  es obligatorio.");
+        }
+
+        else if (mensajeErrores && driver.findElement(By.id("_wicket_window_12")).getText().equals("Se encontraron los siguientes errores, por favor verifique")){
+            log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: Se encontraron los siguientes errores, por favor verifique");
+            Boolean numDocIdError = driver.findElements(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_errorsPanel_content_errorsForm_table_repeaterErrors_1_error']")).size() > 0;
+            if (numDocIdError && driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_errorsPanel_content_errorsForm_table_repeaterErrors_1_errorsMessage1_repeaterMessage_1_message']")).getText().equals("[ERROR] El identificador dado ya existe.")){
+                log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: [ERROR] El identificador dado ya existe.");
+            }
+            else if (numDocIdError && driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_errorsPanel_content_errorsForm_table_repeaterErrors_1_errorsMessage1_repeaterMessage_1_message']")).getText().equals("Debe incluir por lo menos una Identificacion")){
+                log.error("Test Case - " + nombreAutomatizacion + " - " + "Debe incluir por lo menos una Identificacion");
+            }
+            else if (numDocIdError && driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_errorsPanel_content_errorsForm_table_repeaterErrors_1_errorsMessage1_repeaterMessage_1_message']")).getText().equals("[Advertencia] La propiedad no cumple con las validaciones configuradas :\\d{8}")){
+                log.error("Test Case - " + nombreAutomatizacion + " - " + "[Advertencia]  La propiedad  no cumple con las validaciones configuradas :\\d{8}");
+            }
+        }
+    }
 }

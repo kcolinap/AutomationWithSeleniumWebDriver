@@ -6,6 +6,7 @@ import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_M
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
@@ -46,12 +47,8 @@ public class Inter_TercerosCrear {
             Thread.sleep(3000);
             interCrearTercero.CrearTerceroNatural(a, driver, interTercerosCrearBean, nombreAutomatizacion, i, 3, 4, 5, 6);
 
-            if (driver.findElement(By.xpath("//TipoElemento[@wicketpath='ThirdInformationContent_ThirdRolPanel_rolLabel']")).isDisplayed()){
-                log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Exitosa");
-            }
-            else if (driver.findElement(By.xpath("//TipoElemento[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_message']")).getText().equals("* Todos los campos son obligatorios")) {
-                log.error("Test Case - " + nombreAutomatizacion + " - " + "Prueba Fallida: * Todos los campos son obligatorios");
-            }
+            Thread.sleep(2000);
+            interCrearTercero.ValidarCreacionTercero(driver, nombreAutomatizacion);
 
 
         } catch (Exception e) {
