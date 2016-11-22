@@ -27,13 +27,13 @@ public class Interseguros_MenuMantenimiento {
     /** Mantenimiento de Tercero **/
 
 
-        public void MantTerc_IngresarTerceroFrontEnd(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+        public void MantTerc_IngresarTercero(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
             try {
                 Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[1]")); // Nuevo (FrontEnd)
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]")); // Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[34]/div[2]")); // Mantenimiento de Tercero
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[35]/div[1]")); // Nuevo
                 menu1.click();
                 menu2.click();
                 Thread.sleep(1000);
@@ -49,7 +49,7 @@ public class Interseguros_MenuMantenimiento {
             }
         }
 
-    public void MantTerc_BuscarTercero(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+        public void MantTerc_BuscarTercero(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
         try {
             Actions action = new Actions(driver);
