@@ -131,8 +131,8 @@ public class INTER_ConsultaAvanzadaPolizaBean implements Serializable {
     public String getFechaEventoAnterior() {return fechaEventoAnterior;}
     public void setFechaEventoAnterior(String fechaEventoAnterior) {this.fechaEventoAnterior = fechaEventoAnterior;}
 
-    public String getFechaProximaFacturacion() {return fechaInicioSuspenCancel;}
-    public void setFechaProximaFacturacion(String fechaInicioSuspenCancel) {this.fechaInicioSuspenCancel = fechaInicioSuspenCancel;}
+    public String getFechaProximaFacturacion() {return fechaProximaFacturacion;}
+    public void setFechaProximaFacturacion(String fechaProximaFacturacion) {this.fechaProximaFacturacion = fechaProximaFacturacion;}
 
     public String getFechaSuspensionCancel() {return fechaSuspensionCancel;}
     public void setFechaSuspensionCancel(String fechaSuspensionCancel) {this.fechaSuspensionCancel = fechaSuspensionCancel;}
