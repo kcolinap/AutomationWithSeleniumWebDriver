@@ -94,10 +94,17 @@ public class INTER_ConsultaAvanzadaPoliza {
             Thread.sleep(1000);
         }
 
-        // Fecha de Emision
-        if (interConsultaAvanzadaPolizaBean.getFechaEmision() != null){
-            WebElement fechaEmision = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_3_fila_fieldDate']"));
-            fechaEmision.sendKeys(interConsultaAvanzadaPolizaBean.getFechaEmision());
+        // Numero de Cotización
+        if (interConsultaAvanzadaPolizaBean.getNumCotizacion() != null){ //input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_2_fila_field']
+            WebElement numCotizacion = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_1_fila_field']"));
+            numCotizacion.sendKeys(interConsultaAvanzadaPolizaBean.getNumCotizacion());
+            Thread.sleep(1000);
+        }
+
+        // Numero de Propuesta
+        if (interConsultaAvanzadaPolizaBean.getNumPropuesta() != null){ //input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_2_fila_field']
+            WebElement numPropuesta = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_2_fila_field']"));
+            numPropuesta.sendKeys(interConsultaAvanzadaPolizaBean.getNumPropuesta());
             Thread.sleep(1000);
         }
 
@@ -108,6 +115,36 @@ public class INTER_ConsultaAvanzadaPoliza {
             Thread.sleep(1000);
         }
 
+        // Fecha de Emision
+        if (interConsultaAvanzadaPolizaBean.getFechaEmision() != null){
+            WebElement fechaEmision = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_3_fila_fieldDate']"));
+            fechaEmision.sendKeys(interConsultaAvanzadaPolizaBean.getFechaEmision());
+            Thread.sleep(1000);
+        }
+
+        //Canal de Venta
+        if (interConsultaAvanzadaPolizaBean.getCanalVenta() != null){
+            Select canalVenta = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_3_fila_repeaterSelect_1_field']")));
+
+            canalVenta.selectByValue(interConsultaAvanzadaPolizaBean.getCanalVenta());
+            Thread.sleep(1000);
+        }
+
+        //Fecha del evento Anterior
+        if (interConsultaAvanzadaPolizaBean.getFechaEventoAnterior() != null){
+            Select fechaEventoAnterior = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_4_fila_fieldDate']")));
+
+            fechaEventoAnterior.selectByValue(interConsultaAvanzadaPolizaBean.getFechaEventoAnterior());
+            Thread.sleep(1000);
+        }
+
+        //Fecha Proxima Generación de Prima
+        if (interConsultaAvanzadaPolizaBean.getFechaGeneracionPrima() != null){
+            Select fechaGeneracionPrima = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_5_fila_fieldDate']")));
+
+            fechaGeneracionPrima.selectByValue(interConsultaAvanzadaPolizaBean.getFechaGeneracionPrima());
+            Thread.sleep(1000);
+        }
         //Screenshot
         a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
         Toolkit.getDefaultToolkit().beep();
