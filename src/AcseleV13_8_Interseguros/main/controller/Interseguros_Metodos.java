@@ -148,8 +148,8 @@ public class Interseguros_Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("agil");       /** Usuario  **/
-        password2.sendKeys("a123456");
+        user2.sendKeys("aazuaje");       /** Usuario  **/
+        password2.sendKeys("Adriana1989");
 
         instance2.selectByVisibleText("INTERSEGURO");
         language2.selectByValue("es");

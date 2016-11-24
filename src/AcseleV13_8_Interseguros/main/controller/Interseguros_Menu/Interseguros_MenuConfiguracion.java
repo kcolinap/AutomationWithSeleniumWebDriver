@@ -134,8 +134,8 @@ public class Interseguros_MenuConfiguracion {
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[19]"));//NuevoPlantillasModoNoPrivilegiado
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[3]"));//configuracion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[24]/div[19]"));//NuevoPlantillasModoNoPrivilegiado
 
             menu1.click();
             Thread.sleep(1000);
