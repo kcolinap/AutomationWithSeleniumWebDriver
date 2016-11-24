@@ -65,9 +65,9 @@ public class Interseguros_MenuOperaciones {
     public void OpePol_CotizacionSuscripcionMantenimientoPolizas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
         try{
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Operaciones polizas
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));// Operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones polizas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
             action.moveToElement(menu3).build().perform();
