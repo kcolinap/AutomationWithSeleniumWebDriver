@@ -33,7 +33,8 @@ public class Inter_PolizaEmisionVariosOA {
             Inter_ObjetosAsegurados interObjetosAsegurados = new Inter_ObjetosAsegurados();
             Inter_Asegurado interAsegurado = new Inter_Asegurado();
             Inter_Beneficiario interBeneficiario = new Inter_Beneficiario();
-
+            Inter_Calcular interCalcular = new Inter_Calcular();
+            Inter_Validar interValidar = new Inter_Validar();
 
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -66,6 +67,16 @@ public class Inter_PolizaEmisionVariosOA {
             interAsegurado.AgregarAsegurado1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 10, 11);
             Thread.sleep(2000);
             interBeneficiario.AgregarBeneficiario1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 12, 13);
+            Thread.sleep(2000);
+            interObjetosAsegurados.ObjetoAsegurado2_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 14);
+            Thread.sleep(2000);
+            interAsegurado.AgregarAsegurado2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 15, 16);
+            Thread.sleep(2000);
+            interBeneficiario.AgregarBeneficiario2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 17, 18);
+            Thread.sleep(2000);
+            interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 19, 20);
+            Thread.sleep(2000);
+            interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
 
         } catch (Exception e) {
             e.printStackTrace();

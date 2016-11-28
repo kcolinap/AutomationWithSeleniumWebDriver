@@ -128,4 +128,112 @@ public class Inter_Beneficiario {
         }
     }
 
+    public void AgregarBeneficiario2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+
+        try { //TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+            if (interPolizaBean.getBeneficiario2Nombre1() != null || interPolizaBean.getBeneficiario2Nombre2() != null || interPolizaBean.getBeneficiario2Apellido1() != null || interPolizaBean.getBeneficiario2Apellido2() != null) {
+
+                WebElement beneficiario = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+                Thread.sleep(1500);
+                beneficiario.click();
+                beneficiario = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+
+                if (interPolizaBean.getBeneficiario2Nombre1() != null && interPolizaBean.getBeneficiario2Nombre2() != null && interPolizaBean.getBeneficiario2Apellido1() != null && interPolizaBean.getBeneficiario2Apellido2() != null) {
+                    beneficiario.sendKeys(interPolizaBean.getBeneficiario2Nombre1() + " " + interPolizaBean.getBeneficiario2Nombre2() + " " + interPolizaBean.getBeneficiario2Apellido1() + " " + interPolizaBean.getBeneficiario2Apellido2());
+                }
+                else if (interPolizaBean.getBeneficiario2Nombre1() != null && interPolizaBean.getBeneficiario2Nombre2() != null && interPolizaBean.getBeneficiario2Apellido1() != null && interPolizaBean.getBeneficiario2Apellido2() == null) {
+                    beneficiario.sendKeys(interPolizaBean.getBeneficiario2Nombre1() + " " + interPolizaBean.getBeneficiario2Nombre2() + " " + interPolizaBean.getBeneficiario2Apellido1());
+                }
+                else if (interPolizaBean.getBeneficiario2Nombre1() != null && interPolizaBean.getBeneficiario2Nombre2() == null && interPolizaBean.getBeneficiario2Apellido1() != null && interPolizaBean.getBeneficiario2Apellido2() != null) {
+                    beneficiario.sendKeys(interPolizaBean.getBeneficiario2Nombre1() + " " + interPolizaBean.getBeneficiario2Apellido1() + " " + interPolizaBean.getBeneficiario2Apellido2());
+                }
+                else if (interPolizaBean.getBeneficiario2Nombre1() != null && interPolizaBean.getBeneficiario2Nombre2() == null && interPolizaBean.getBeneficiario2Apellido1() != null && interPolizaBean.getBeneficiario2Apellido2() == null) {
+                    beneficiario.sendKeys(interPolizaBean.getBeneficiario2Nombre1() + " " + interPolizaBean.getBeneficiario2Apellido1());
+                }
+            }
+
+            Thread.sleep(2000);
+            WebElement selBeneficiario = driver.findElement(By.xpath("/html/body/div[10]/div/ul/li"));
+            // /html/body/div[6]/div/ul/li[1]
+            selBeneficiario.click();
+            Thread.sleep(2000);
+
+
+
+            WebElement asociarBeneficiario = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_AssociateButton']"));
+            asociarBeneficiario.click();
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Asociar Beneficiario");
+
+            if (interPolizaBean.getTipoBeneficiario2() != null){
+                Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel1_1_fila_repeaterSelect_1_field']")));
+                planFinanciamiento.selectByValue(interPolizaBean.getTipoBeneficiario2());
+                Thread.sleep(2000);
+            }
+
+            if (interPolizaBean.getBeneficiarioIrrevocable2() != null){
+                if (interPolizaBean.getBeneficiarioIrrevocable2().toLowerCase().equals("no")) {
+                    WebElement btnBeneficiarioIrrevocable = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel1_2_fila_field_repeaterChoice_1_radio']"));
+                    btnBeneficiarioIrrevocable.click();
+                    Thread.sleep(1000);
+                }
+                else if (interPolizaBean.getBeneficiarioIrrevocable2().toLowerCase().equals("si")) {
+                    WebElement btnBeneficiarioIrrevocable = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel1_2_fila_field_repeaterChoice_2_radio']"));
+                    btnBeneficiarioIrrevocable.click();
+                    Thread.sleep(1000);
+                }
+            }
+
+            if (interPolizaBean.getPorcentajeBeneficiario2() != null && !interPolizaBean.getPorcentajeBeneficiario2().equals("100")){
+                WebElement porcentajeContratante1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+                porcentajeContratante1.sendKeys(interPolizaBean.getPorcentajeBeneficiario2());
+                Thread.sleep(1000);
+            }
+
+            if (interPolizaBean.getCodigoBeneficiario2() != null){
+                WebElement porcentajeContratante1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_2_fila_field']"));
+                porcentajeContratante1.sendKeys(interPolizaBean.getCodigoBeneficiario2());
+                Thread.sleep(1000);
+            }
+
+            if (interPolizaBean.getParentescoBeneficiario2() != null){
+                Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_3_fila_repeaterSelect_1_field']")));
+                planFinanciamiento.selectByValue(interPolizaBean.getParentescoBeneficiario2());
+                Thread.sleep(2000);
+            }
+
+            jse.executeScript("window.scrollBy(0,150)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            WebElement guardarBeneficiario = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_2_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            guardarBeneficiario.click();
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Seleccionar Modo de Pago del Contratante");
+
+            //jse.executeScript("window.scrollBy(0,400)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+        }
+    }
+
 }
