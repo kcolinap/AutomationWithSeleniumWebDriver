@@ -77,6 +77,7 @@ public class Inter_PrePoliza {
 
             if (interPolizaBean.getFechaMovimiento() != null){
                 WebElement fechaMovimiento = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_templateContainer_repeaterPanel_1_fila_fieldDate']"));
+                fechaMovimiento.clear();
                 fechaMovimiento.sendKeys(interPolizaBean.getFechaMovimiento());
                 Thread.sleep(1000);
             }

@@ -56,27 +56,38 @@ public class Inter_PolizaEmisionVariosOA {
             Thread.sleep(2000);
             interPrePoliza.EvAplicar(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 4);
             Thread.sleep(2000);
-            interInformacionGeneralPoliza.InformacionGeneral(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 5);
-            Thread.sleep(2000);
-            interContratante.AgregarContratante(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 6, 7);
-            Thread.sleep(2000);
-            interUnidadesRiesgo.UnidadesRiesgo1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 8);
-            Thread.sleep(2000);
-            interObjetosAsegurados.ObjetoAsegurado1_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 9);
-            Thread.sleep(2000);
-            interAsegurado.AgregarAsegurado1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 10, 11);
-            Thread.sleep(2000);
-            interBeneficiario.AgregarBeneficiario1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 12, 13);
-            Thread.sleep(2000);
-            interObjetosAsegurados.ObjetoAsegurado2_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 14);
-            Thread.sleep(2000);
-            interAsegurado.AgregarAsegurado2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 15, 16);
-            Thread.sleep(2000);
-            interBeneficiario.AgregarBeneficiario2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 17, 18);
-            Thread.sleep(2000);
-            interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 19, 20);
-            Thread.sleep(2000);
-            interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
+            if (interPolizaEmisionVariosOABean.getProducto().equals("Inteligo")) {
+                interInformacionGeneralPoliza.InformacionGeneralInteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 5);
+                Thread.sleep(2000);
+                interContratante.AgregarContratante(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 6, 7);
+                Thread.sleep(2000);
+                interUnidadesRiesgo.UnidadesRiesgo1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 8);
+                Thread.sleep(2000);
+                interObjetosAsegurados.ObjetoAsegurado1_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 9);
+                Thread.sleep(2000);
+                interAsegurado.AgregarAsegurado1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 10, 11);
+                Thread.sleep(2000);
+                interBeneficiario.AgregarBeneficiario1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 12, 13);
+                Thread.sleep(2000);
+                interObjetosAsegurados.ObjetoAsegurado2_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 14);
+                Thread.sleep(2000);
+                interAsegurado.AgregarAsegurado2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 15, 16);
+                Thread.sleep(2000);
+                interBeneficiario.AgregarBeneficiario2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 17, 18);
+                Thread.sleep(2000);
+                interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 19, 20);
+                Thread.sleep(2000);
+                interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
+            }
+            else if (interPolizaEmisionVariosOABean.getProducto().equals("DotalSimple")){
+                interInformacionGeneralPoliza.InformacionGeneralDotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 5, 6, 7);
+                Thread.sleep(2000);
+                interContratante.AgregarContratante(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 8, 9);
+                Thread.sleep(2000);
+                interUnidadesRiesgo.UnidadesRiesgo1DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 10);
+                Thread.sleep(2000);
+                //interObjetosAsegurados.ObjetoAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 9);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
