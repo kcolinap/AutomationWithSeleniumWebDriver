@@ -1,10 +1,14 @@
 package util;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp.SQLNestedException;
+import org.apache.log4j.Logger;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -13,6 +17,8 @@ import java.util.Properties;
  * Created by Administrador on 16/05/2016.
  */
 public class DBUnitConnectionManager {
+
+    private final static Logger log = Logger.getLogger(DBUnitConnectionManager.class);
 
     private static Properties properties;
     private static final String DATABASE_DRIVER_SELENIUM = "driverDBSelenium";
@@ -67,6 +73,24 @@ public class DBUnitConnectionManager {
 
         } catch (DatabaseUnitException e) {
             e.printStackTrace();
+
+
+            e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            log.info("Test Case - " + sw.toString());
+        } catch (SQLNestedException e){
+            e.printStackTrace();
+
+
+            e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            log.info("Test Case - " + sw.toString());
         }
         return dbConn;
     }

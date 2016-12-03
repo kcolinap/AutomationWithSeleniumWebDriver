@@ -157,4 +157,150 @@ public class Inter_Asegurado {
         }
     }
 
+    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+
+        try { //TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+            if (interPolizaBean.getAsegurado1Nombre1() != null || interPolizaBean.getAsegurado1Nombre2() != null || interPolizaBean.getAsegurado1Apellido1() != null || interPolizaBean.getAsegurado1Apellido2() != null) {
+
+                Thread.sleep(3000);
+                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
+                otroElemento.click();
+                Thread.sleep(1500);
+                WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+                Thread.sleep(1500);
+                asegurado.click();
+                //asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+
+                if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() != null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() != null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Nombre2() + " " + interPolizaBean.getAsegurado1Apellido1() + " " + interPolizaBean.getAsegurado1Apellido2());
+                }
+                else if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() != null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() == null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Nombre2() + " " + interPolizaBean.getAsegurado1Apellido1());
+                }
+                else if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() == null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() != null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Apellido1() + " " + interPolizaBean.getAsegurado1Apellido2());
+                }
+                else if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() == null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() == null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Apellido1());
+                }
+            }
+
+            Thread.sleep(2000);
+            WebElement selAsegurado = driver.findElement(By.xpath("/html/body/div[7]/div/ul/li[1]"));
+            // /html/body/div[6]/div/ul/li[1]
+            selAsegurado.click();
+            Thread.sleep(2000);
+
+            WebElement asociarAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton']"));
+            asociarAsegurado.click();
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Asociar Asegurado");
+
+            if (interPolizaBean.getPorcentajeAsegurado1() != null && !interPolizaBean.getPorcentajeAsegurado1().equals("100")){
+                WebElement porcentajeContratante1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+                porcentajeContratante1.sendKeys(interPolizaBean.getPorcentajeAsegurado1());
+                Thread.sleep(1000);
+            }
+
+            WebElement guardarAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            guardarAsegurado.click();
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Guardar Asegurado");
+
+            jse.executeScript("window.scrollBy(0,100)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+        }
+    }
+
+    public void AgregarAsegurado2_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+
+        try { //TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+            if (interPolizaBean.getAsegurado1Nombre1() != null || interPolizaBean.getAsegurado1Nombre2() != null || interPolizaBean.getAsegurado1Apellido1() != null || interPolizaBean.getAsegurado1Apellido2() != null) {
+
+                Thread.sleep(3000);
+                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
+                otroElemento.click();
+                Thread.sleep(1500);
+                WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+                Thread.sleep(1500);
+                asegurado.click();
+                //asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+
+                if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() != null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() != null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Nombre2() + " " + interPolizaBean.getAsegurado1Apellido1() + " " + interPolizaBean.getAsegurado1Apellido2());
+                }
+                else if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() != null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() == null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Nombre2() + " " + interPolizaBean.getAsegurado1Apellido1());
+                }
+                else if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() == null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() != null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Apellido1() + " " + interPolizaBean.getAsegurado1Apellido2());
+                }
+                else if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() == null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() == null) {
+                    asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Apellido1());
+                }
+            }
+
+            Thread.sleep(2000);
+            WebElement selAsegurado = driver.findElement(By.xpath("/html/body/div[8]/div/ul/li[1]"));
+            // /html/body/div[6]/div/ul/li[1]
+            selAsegurado.click();
+            Thread.sleep(2000);
+
+            WebElement asociarAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton']"));
+            asociarAsegurado.click();
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Asociar Asegurado");
+
+            if (interPolizaBean.getPorcentajeAsegurado1() != null && !interPolizaBean.getPorcentajeAsegurado1().equals("100")){
+                WebElement porcentajeContratante1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_repeaterPanel2_1_fila_field']"));
+                porcentajeContratante1.sendKeys(interPolizaBean.getPorcentajeAsegurado1());
+                Thread.sleep(1000);
+            }
+
+            WebElement guardarAsegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
+            guardarAsegurado.click();
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Guardar Asegurado");
+
+            jse.executeScript("window.scrollBy(0,100)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+        }
+    }
+
 }

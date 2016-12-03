@@ -86,7 +86,17 @@ public class Inter_PolizaEmisionVariosOA {
                 Thread.sleep(2000);
                 interUnidadesRiesgo.UnidadesRiesgo1DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 10);
                 Thread.sleep(2000);
-                //interObjetosAsegurados.ObjetoAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 9);
+                interObjetosAsegurados.ObjetoAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 11, 12, 13);
+                Thread.sleep(2000);
+                interAsegurado.AgregarAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 14, 15);
+                Thread.sleep(2000);
+                interObjetosAsegurados.ObjetoAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 16, 17, 18, 19);
+                Thread.sleep(2000);
+                interAsegurado.AgregarAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 20, 21);
+                Thread.sleep(2000);
+                interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 22, 23);
+                Thread.sleep(2000);
+                interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
             }
 
         } catch (Exception e) {

@@ -186,6 +186,8 @@ public class Inter_PolizaBean {
     private String asegurado2Apellido1;
     private String asegurado2Apellido2;
     private String porcentajeAsegurado2;
+    private String estadoPropuesta;
+    private String estadoPropuesta2;
 
     private String beneficiario1Nombre1;
     private String beneficiario1Nombre2;
@@ -1701,5 +1703,21 @@ public class Inter_PolizaBean {
 
     public void setSolicitudAfiliacion(String solicitudAfiliacion) {
         this.solicitudAfiliacion = solicitudAfiliacion;
+    }
+
+    public String getEstadoPropuesta() {
+        return estadoPropuesta;
+    }
+
+    public void setEstadoPropuesta(String estadoPropuesta) {
+        this.estadoPropuesta = estadoPropuesta;
+    }
+
+    public String getEstadoPropuesta2() {
+        return estadoPropuesta2;
+    }
+
+    public void setEstadoPropuesta2(String estadoPropuesta2) {
+        this.estadoPropuesta2 = estadoPropuesta2;
     }
 }
