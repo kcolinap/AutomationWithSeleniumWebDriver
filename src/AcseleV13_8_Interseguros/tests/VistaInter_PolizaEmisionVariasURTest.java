@@ -54,14 +54,14 @@ public class VistaInter_PolizaEmisionVariasURTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("SELECT * FROM POLIZA_VARIAS_UR_INTER ORDER BY PRUEBA ASC",
+/*        DataSetManager.createPartialDataSet("SELECT * FROM POLIZA_VARIAS_UR_INTER ORDER BY PRUEBA ASC",
                 "POLIZA_VARIAS_UR_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interPolizaEmisionVariasURDotalSimple_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM POLIZA_VARIAS_UR_INTER ORDER BY PRUEBA ASC",
                 "POLIZA_VARIAS_UR_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interPolizaEmisionVariasURDotalSimple_dataset.xml");
-
+*/
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interPolizaEmisionVariasURDotalSimple_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 

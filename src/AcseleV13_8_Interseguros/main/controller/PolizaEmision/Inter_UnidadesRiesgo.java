@@ -129,6 +129,63 @@ public class Inter_UnidadesRiesgo {
                 Thread.sleep(1000);
             }
 
+            if (interPolizaBean.getCapitalAseguradoCoberturaFallecimiento1() != null) {
+                WebElement capitalAseguradoCoberturaFallecimiento1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
+                capitalAseguradoCoberturaFallecimiento1.clear();
+                capitalAseguradoCoberturaFallecimiento1.sendKeys(interPolizaBean.getCapitalAseguradoCoberturaFallecimiento1());
+                Thread.sleep(1000);
+            }
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(2000);
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_saveButtonRU']"));
+            btnGuardar.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+        }
+    }
+
+    public void UnidadesRiesgo2DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+            Thread.sleep(2000);
+
+            //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
+            //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
+
+            WebElement btnNuevo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
+            btnNuevo.click();
+
+            a.waitSearchWicket(driver, "Espere Nueva Unidad de Riesgo");
+
+            if (interPolizaBean.getNumeroUnidadRiesgo2() != null){
+                WebElement numUnidRiesgo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_field']"));
+                numUnidRiesgo.clear();
+                numUnidRiesgo.sendKeys(interPolizaBean.getNumeroUnidadRiesgo2());
+                Thread.sleep(1000);
+            }
+
+            if (interPolizaBean.getCapitalAseguradoCoberturaFallecimiento2() != null) {
+                WebElement capitalAseguradoCoberturaFallecimiento2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
+                capitalAseguradoCoberturaFallecimiento2.clear();
+                capitalAseguradoCoberturaFallecimiento2.sendKeys(interPolizaBean.getCapitalAseguradoCoberturaFallecimiento2());
+                Thread.sleep(1000);
+            }
+
             jse.executeScript("window.scrollBy(0,600)", "");
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2

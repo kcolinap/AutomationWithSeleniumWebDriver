@@ -91,6 +91,8 @@ public class Inter_PolizaEmisionVariasUR {
                 Thread.sleep(2000);
                 interAsegurado.AgregarAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, 14, 15);
                 Thread.sleep(2000);
+                interUnidadesRiesgo.UnidadesRiesgo2DotalSimple(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, 10);
+                Thread.sleep(2000);
                 interObjetosAsegurados.ObjetoAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, 16, 17, 18, 19);
                 Thread.sleep(2000);
                 interAsegurado.AgregarAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, 20, 21);
