@@ -253,7 +253,29 @@ public class Interseguros_MenuOperaciones {
 
     /** CoaRea_CuentasTecnicas **/
     public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(){}
-    public void CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(){}
+    public void CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+
+        try{
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));//coaseguro reaseguro
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[9]/div[4]"));//cuentas tecnicas
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[10]/div[2]"));//consulta de cuenta tecnica
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
+            action.moveToElement(menu4).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            menu4.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
     public void CoaRea_CuentasTecnicas_PrevisualizacionCuentasTecnicas(){}
     /** -- CoaRea_CuentasTecnicas -- **/
 
