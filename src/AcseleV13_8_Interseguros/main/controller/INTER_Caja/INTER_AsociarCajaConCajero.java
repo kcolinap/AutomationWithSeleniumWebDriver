@@ -1,7 +1,6 @@
 package AcseleV13_8_Interseguros.main.controller.INTER_Caja;
 
 
-import AcseleV13_8_Interseguros.beans.INTER_AsociarCajaCajeroBean;
 import AcseleV13_8_Interseguros.beans.INTER_CajaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
@@ -18,7 +17,7 @@ import java.awt.*;
 public class INTER_AsociarCajaConCajero {
     private final static Logger log = Logger.getLogger(INTER_AsociarCajaConCajero.class);
 
-    public void AsociarCajaConCajero(Interseguros_Metodos a, WebDriver driver, INTER_AsociarCajaCajeroBean interCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void AsociarCajaConCajero(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {
             Thread.sleep(2000);

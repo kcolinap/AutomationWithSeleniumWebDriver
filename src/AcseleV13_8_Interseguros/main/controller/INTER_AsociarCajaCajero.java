@@ -2,17 +2,19 @@ package AcseleV13_8_Interseguros.main.controller;
 
 
 import AcseleV13_8_Interseguros.beans.INTER_AsociarCajaCajeroBean;
+import AcseleV13_8_Interseguros.beans.INTER_CajaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_Caja.INTER_AsociarCajaConCajero;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * Created by mchurion on 07/12/2016.
  */
-public class INTER_AsociarCajaCajero {
+public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializable {
     private final static Logger log = Logger.getLogger(INTER_CreacionCaja.class);
 
     public String nombreAutomatizacion = "INTER Asociar Caja a Cajero";

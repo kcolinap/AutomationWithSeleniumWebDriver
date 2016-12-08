@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Created by mchurion on 07/12/2016.
  */
 public class INTER_AsociarCajaCajeroBean extends INTER_AsociarCajaCajero {
+
     private final static Logger log = Logger.getLogger(INTER_AsociarCajaCajeroBean.class);
 
     public static ArrayList getINTER_AsociarCajaCajeroBean() throws SQLException {

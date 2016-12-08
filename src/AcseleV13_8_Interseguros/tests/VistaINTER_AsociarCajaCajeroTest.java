@@ -47,13 +47,12 @@ public class VistaINTER_AsociarCajaCajeroTest {
     public void setUp() throws Exception {
 
 /*        DataSetManager.createPartialDataSet("SELECT PRUEBA, CAJERO, NUM_CAJA, NOMBRE_CAJERO, APELLIDO_CAJERO FROM ASOCIAR_CAJAS_CAJEROS_INTER ORDER BY PRUEBA ASC",
-                "ASOCIAR_CAJAS_CAJEROS_LBC",
+                "ASOCIAR_CAJAS_CAJEROS_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interAsociarCajaCajero_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, CAJERO, NUM_CAJA, NOMBRE_CAJERO, APELLIDO_CAJERO FROM ASOCIAR_CAJAS_CAJEROS_INTER ORDER BY PRUEBA ASC",
-                "ASOCIAR_CAJAS_CAJEROS_LBC",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interAsociarCajaCajero_dataset.xml");
-*/
+                "ASOCIAR_CAJAS_CAJEROS_INTER",
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interAsociarCajaCajero_dataset.xml");*/
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interAsociarCajaCajero_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
