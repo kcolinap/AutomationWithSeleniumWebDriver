@@ -1,10 +1,11 @@
 package AcseleV13_8_Interseguros.main.controller;
 
-import AcseleV13_8_Interseguros.beans.INTER_ConsultaCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.beans.INTER_PrevisualizacionCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
@@ -40,11 +41,32 @@ public class INTER_PrevisualizacionCuentaTecnica {
     public void PrevisualizacionCuentaTecnica(WebDriver driver, Interseguros_Metodos a, INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean, int i) throws IOException, InterruptedException{
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
+            if (inter_previsualizacionCuentaTecnicaBean.getFechaDesde() != null){
+                Thread.sleep(2000);
+                WebElement fechaDesde = driver.findElement(By.xpath("/html/body/form/center/table/tbody/tr[3]/td[2]/input[1]"));
+                fechaDesde.sendKeys(inter_previsualizacionCuentaTecnicaBean.getFechaDesde());
+            }
 
+            if (inter_previsualizacionCuentaTecnicaBean.getFechaHasta() != null){
+                Thread.sleep(2000);
+                WebElement fechaHasta = driver.findElement(By.xpath("/html/body/form/center/table/tbody/tr[3]/td[4]/input[1]"));
+                fechaHasta.sendKeys(inter_previsualizacionCuentaTecnicaBean.getFechaHasta());
+            }
 
+            WebElement seleccReasegurador = driver.findElement(By.xpath("//*[@id=\"centerPanel\"]/div[2]/div/div[9]/div/div/div/div[3]/div[1]/table/tbody/tr[1]/td[4]/div"));
+            seleccReasegurador.click();
 
+            Thread.sleep(2000);
+
+            WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"btnQueryPCT\"]/span/span"));
+            btnConsultar.click();
+
+            Thread.sleep(2000);
+
+            WebElement btnDetalle = driver.findElement(By.xpath("//*[@id=\"centerPanel\"]/div[2]/div/div[5]/div/div/div/div[3]/div[1]/table/tbody/tr[1]/td[3]/div/div/div[1]/div/span/span"));
+            btnDetalle.click();
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -52,3 +74,5 @@ public class INTER_PrevisualizacionCuentaTecnica {
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
+}

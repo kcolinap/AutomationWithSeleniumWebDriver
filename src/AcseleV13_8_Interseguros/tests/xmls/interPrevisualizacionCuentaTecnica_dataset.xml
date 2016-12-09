@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <PREVI_CUENTA_TECNICA PRUEBA="1" FECHA_DESDE="Fecha_Desde" FECHA_HASTA="Fecha_Hasta"/>
+  <PREVI_CUENTA_TECNICA PRUEBA="1" FECHA_DESDE="" FECHA_HASTA=""/>
 </dataset>
