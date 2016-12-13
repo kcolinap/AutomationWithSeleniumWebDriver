@@ -3,15 +3,13 @@ package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.security.Key;
 
 /**
  * Created by agil on 24/11/2016.
@@ -132,8 +130,15 @@ public class Inter_UnidadesRiesgo {
             if (interPolizaBean.getCapitalAseguradoCoberturaFallecimiento1() != null) {
                 WebElement capitalAseguradoCoberturaFallecimiento1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
                 capitalAseguradoCoberturaFallecimiento1.clear();
+                Thread.sleep(2000);
+                //jse.executeScript("showWait()", "");
+                jse.executeScript("hideWait()", "");
                 capitalAseguradoCoberturaFallecimiento1.sendKeys(interPolizaBean.getCapitalAseguradoCoberturaFallecimiento1());
                 Thread.sleep(1000);
+                WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                otro.click();
+                Thread.sleep(1000);
+                otro.sendKeys(Keys.ENTER);
             }
 
             jse.executeScript("window.scrollBy(0,600)", "");

@@ -486,7 +486,7 @@ public class Inter_InformacionGeneralPoliza {
             }
 
             if (interPolizaBean.getPlan() != null){
-                Select plan = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_18_fila_repeaterSelect_2_field']")));
+                Select plan = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_19_fila_repeaterSelect_2_field']")));
                 plan.selectByValue(interPolizaBean.getPlan());
                 Thread.sleep(2000);
             }
