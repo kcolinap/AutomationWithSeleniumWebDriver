@@ -163,7 +163,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-    public void OpeSini_CreacionSiniestro(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    public void OpeSini_CreacionSiniestro(WebDriver driver, Interseguros_Metodos a,  String nombreAutomatizacion, int numScreenShoot, int i){
         try{
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
