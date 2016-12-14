@@ -33,7 +33,7 @@ public class VistaINTER_CajaCierreTest {
             INTER_CajaCierre a = new INTER_CajaCierre();
 
             try {
-                //a.testLink(interCajaAperturaBean, j);
+                a.testLink(interCajaAperturaBean, j);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -45,13 +45,13 @@ public class VistaINTER_CajaCierreTest {
     @Before
     public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("SELECT PRUEBA, NUM_CAJA FROM CERRAR_CAJA_INTER ORDER BY PRUEBA ASC",
+/*        DataSetManager.createPartialDataSet("SELECT PRUEBA, NUM_CAJA FROM CERRAR_CAJA_INTER ORDER BY PRUEBA ASC",
                 "CERRAR_CAJA_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interCajaCierre_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA, NUM_CAJA FROM CERRAR_CAJA_INTER ORDER BY PRUEBA ASC",
                 "CERRAR_CAJA_INTER",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCajaCierre_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCajaCierre_dataset.xml");*/
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCajaCierre_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
