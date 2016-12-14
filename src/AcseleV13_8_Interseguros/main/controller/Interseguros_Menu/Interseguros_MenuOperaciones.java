@@ -339,10 +339,10 @@ public class Interseguros_MenuOperaciones {
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
-            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[1]")); // Apertura de Caja
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]")); // UAA (Administrador de Cuentas Universal))
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[11]/div[1]")); // Caja
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[12]/div[1]")); // Apertura de Caja
             menu1.click();
             menu2.click();
             menu3.click();
@@ -384,10 +384,10 @@ public class Interseguros_MenuOperaciones {
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
-            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[12]")); // Cierre de Caja
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]")); // UAA (Administrador de Cuentas Universal))
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[11]/div[1]")); // Caja
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[12]/div[12]")); // Cierre de Caja
             menu1.click();
             menu2.click();
             menu3.click();
