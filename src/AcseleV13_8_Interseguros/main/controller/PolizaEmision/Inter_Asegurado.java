@@ -166,8 +166,8 @@ public class Inter_Asegurado {
             if (interPolizaBean.getAsegurado1Nombre1() != null || interPolizaBean.getAsegurado1Nombre2() != null || interPolizaBean.getAsegurado1Apellido1() != null || interPolizaBean.getAsegurado1Apellido2() != null) {
 
                 Thread.sleep(3000);
-                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
-                otroElemento.click();
+//                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
+//                otroElemento.click();
                 Thread.sleep(1500);
                 WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
                 Thread.sleep(1500);
@@ -239,8 +239,8 @@ public class Inter_Asegurado {
             if (interPolizaBean.getAsegurado1Nombre1() != null || interPolizaBean.getAsegurado1Nombre2() != null || interPolizaBean.getAsegurado1Apellido1() != null || interPolizaBean.getAsegurado1Apellido2() != null) {
 
                 Thread.sleep(3000);
-                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
-                otroElemento.click();
+//                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
+//                otroElemento.click();
                 Thread.sleep(1500);
                 WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
                 Thread.sleep(1500);

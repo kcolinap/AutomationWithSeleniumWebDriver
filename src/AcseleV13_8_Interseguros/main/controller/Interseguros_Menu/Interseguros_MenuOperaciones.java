@@ -38,8 +38,8 @@ public class Interseguros_MenuOperaciones {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]")); // Operación
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Cotización - Suscripción - Edición
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[2]")); // Crear (FrontEnd)
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operaciones Pólizas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[2]")); // Crear
             menu1.click();
             menu2.click();
             Thread.sleep(1000);
