@@ -133,12 +133,15 @@ public class Inter_UnidadesRiesgo {
                 Thread.sleep(2000);
                 //jse.executeScript("showWait()", "");
                 jse.executeScript("hideWait()", "");
+                Thread.sleep(1000);
+                capitalAseguradoCoberturaFallecimiento1.click();
+                Thread.sleep(1000);
                 capitalAseguradoCoberturaFallecimiento1.sendKeys(interPolizaBean.getCapitalAseguradoCoberturaFallecimiento1());
                 Thread.sleep(1000);
                 WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
                 otro.click();
                 Thread.sleep(1000);
-                otro.sendKeys(Keys.ENTER);
+                //otro.sendKeys(Keys.ENTER);
             }
 
             jse.executeScript("window.scrollBy(0,600)", "");
@@ -187,8 +190,18 @@ public class Inter_UnidadesRiesgo {
             if (interPolizaBean.getCapitalAseguradoCoberturaFallecimiento2() != null) {
                 WebElement capitalAseguradoCoberturaFallecimiento2 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
                 capitalAseguradoCoberturaFallecimiento2.clear();
+                Thread.sleep(2000);
+                //jse.executeScript("showWait()", "");
+                jse.executeScript("hideWait()", "");
+                Thread.sleep(1000);
+                capitalAseguradoCoberturaFallecimiento2.click();
+                Thread.sleep(1000);
                 capitalAseguradoCoberturaFallecimiento2.sendKeys(interPolizaBean.getCapitalAseguradoCoberturaFallecimiento2());
                 Thread.sleep(1000);
+                WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                otro.click();
+                Thread.sleep(1000);
+                //otro.sendKeys(Keys.ENTER);
             }
 
             jse.executeScript("window.scrollBy(0,600)", "");

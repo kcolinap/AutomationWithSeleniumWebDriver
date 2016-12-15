@@ -18,7 +18,7 @@ public class Inter_PolizaEmisionVariasUR {
 
     private final static Logger log = Logger.getLogger(Inter_TercerosCrear.class);
 
-    public String nombreAutomatizacion = "Inter Poliza Emision Varios OA";
+    public String nombreAutomatizacion = "Inter Poliza Emision Varios UR";
 
     public void testLink(Inter_PolizaEmisionVariasURBean interPolizaEmisionVariasURBean, int i) throws IOException, InterruptedException {
 

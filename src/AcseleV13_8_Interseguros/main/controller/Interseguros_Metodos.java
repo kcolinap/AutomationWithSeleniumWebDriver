@@ -65,7 +65,7 @@ public class Interseguros_Metodos {
 
         // Ruta a ingresar
 
-        String ruta = "http://192.168.0.126:7001/WController/";
+        String ruta = "http://srvsonar:7020/WController";
         driver.get(ruta);
 
         driver.manage().window().maximize();
