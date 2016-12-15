@@ -43,7 +43,7 @@ public class INTER_TercerosInfTecnica {
 
             // Boton Inf Tecnica
             driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_technicalDataButton']")).click();
-            Thread.sleep(20000);
+            Thread.sleep(4000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
         }catch (Exception e) {
@@ -69,28 +69,24 @@ public class INTER_TercerosInfTecnica {
             }
             Thread.sleep(2000); // //TipoElemento[@wicketpath='WicketpathElemento']
 
+            if (interTercerosInfTecnicaBean.getNumDocIdentificacion()!= null) {
+                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_field']"));
+                cedu.sendKeys(interTercerosInfTecnicaBean.getNumDocIdentificacion());
+            }
+            Thread.sleep(2000);
+
             if (interTercerosInfTecnicaBean.getApellido() != null) {
-                WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_field']"));
+                WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
                 apellido.sendKeys(interTercerosInfTecnicaBean.getApellido());
             }
             Thread.sleep(2000);
 
             if (interTercerosInfTecnicaBean.getNombre() != null) {
-                WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+                WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
                 nombre.sendKeys(interTercerosInfTecnicaBean.getNombre());
             }
-            Thread.sleep(2000);
-            if (interTercerosInfTecnicaBean.getTipoDocIdentificacion() != null) {
-                Select tipoDocIdentificacion = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
-                tipoDocIdentificacion.selectByValue(interTercerosInfTecnicaBean.getTipoDocIdentificacion());
-            }
+            //Thread.sleep(2000);
 
-            Thread.sleep(2000);
-
-            if (interTercerosInfTecnicaBean.getNumDocIdentificacion()!= null) {
-                WebElement cedu = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_4_fila_field']"));
-                cedu.sendKeys(interTercerosInfTecnicaBean.getNumDocIdentificacion());
-            }
 
             //Screenshot
             a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
