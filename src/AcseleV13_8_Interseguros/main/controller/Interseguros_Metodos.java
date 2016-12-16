@@ -65,7 +65,7 @@ public class Interseguros_Metodos {
 
         // Ruta a ingresar
 
-        String ruta = "http://srvsonar:7020/WController/";
+        String ruta = "http://srvsonar:7020/WController";
         driver.get(ruta);
 
         driver.manage().window().maximize();
@@ -148,8 +148,8 @@ public class Interseguros_Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("");       /** Usuario  **/
-        password2.sendKeys("");
+        user2.sendKeys("system");       /** Usuario  **/
+        password2.sendKeys("consis");
 
         instance2.selectByVisibleText("INTERSEGURO");
         language2.selectByValue("es");
