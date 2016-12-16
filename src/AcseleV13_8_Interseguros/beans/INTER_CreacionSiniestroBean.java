@@ -263,7 +263,14 @@ public class INTER_CreacionSiniestroBean implements Serializable {
         ArrayList creacionSiniestro = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select * FROM INTER_CREACION_SINIESTRO ORDER BY PRUEBA ASC");
+        queryLoad.append("select Prueba,Ordenar_por,Producto,Estados_ciclo_vida,Contratante,Asegurado_Estipulante,ID_Poliza,Fecha_Desde,Fecha_Hasta,Oficina,Numero_Cotizacion,\n" +
+                "        Numero_Propuesta,Numero_Poliza,Fecha_Emision,Moneda,Tipo_Produccion,Renovacion_Automatica,Tipo_Moneda,Tipo_Vigencia,Vigencia,Canal_Venta, \n" +
+                "        Frecuencia_Pago,Fecha_Evento_Anterior,Fecha_Proxima_Generacion_Prima,Fecha_Proxima_Facturacion,Tipo_Poliza,Numero_Poliza_AS,Flag_Suspension_Cancelacion,\n" +
+                "         Fecha_Suspension_Cancelacon,Codigo_Superintendencia,Nombre_Archivo_Tramas,Número_Plan,Fecha_Inicial_Poliza_Matriz,Fecha_Final_Poliza_Matriz,\n" +
+                "         Nombre_Asegurado,Nombre_Beneficiario,Periodo_suspension_cancelacion,Fecha_Inicio_Susp_Canc,Proc_Suspension_Cancelacion,\n" +
+                "         Monto_Prima_Archivo_Trama,Fecha_Emision_Acsele,Numero_Solicitud,fecha_ocurrencia_siniestro,Sucursal,Numero_Caso,Fecha_Notificacion,\n" +
+                "         Fecha_Recepcion_Reclamo,Fecha_Ocurrencia,Lugar_Ocurrencia_Siniestro,Hora_Ocurrencia,Observaciones_Siniestro,Nombres_Apellidos,Direccion,Telefonos,\n" +
+                "         Correo_Electronico ,Envio_Comunicaciones_Siniestro,Correo_Electronico_Siniestro,Pago_Maximo,Monto_Siniestro,Razon FROM INTER_CREACION_SINIESTRO ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -275,7 +282,7 @@ public class INTER_CreacionSiniestroBean implements Serializable {
 
                 inter_creacionSiniestroBean.setOrdenarPor(rs.getString("ORDENAR_POR"));
                 inter_creacionSiniestroBean.setProducto(rs.getString("PRODUCTO"));
-                inter_creacionSiniestroBean.setEstadosCicloVida(rs.getString("ESTADO_CICLO_VIDA"));
+                inter_creacionSiniestroBean.setEstadosCicloVida(rs.getString("ESTADOS_CICLO_VIDA"));
                 inter_creacionSiniestroBean.setContratante(rs.getString("CONTRATANTE"));
                 inter_creacionSiniestroBean.setAseguradoEstipulante(rs.getString("ASEGURADO_ESTIPULANTE"));
                 inter_creacionSiniestroBean.setIdPoliza(rs.getString("ID_POLIZA"));
@@ -312,6 +319,7 @@ public class INTER_CreacionSiniestroBean implements Serializable {
                 inter_creacionSiniestroBean.setFechaInicioSuspCanc(rs.getString("FECHA_INICIO_SUSP_CANC"));
                 inter_creacionSiniestroBean.setProcSuspensionCancelacion(rs.getString("PROC_SUSPENSION_CANCELACION"));
                 inter_creacionSiniestroBean.setMontoPrimaArchivoTrama(rs.getString("MONTO_PRIMA_ARCHIVO_TRAMA"));
+                inter_creacionSiniestroBean.setFechaEmisionAcsele(rs.getString("FECHA_EMISION_ACSELE"));
                 inter_creacionSiniestroBean.setNumeroSolicitud(rs.getString("NUMERO_SOLICITUD"));
                 inter_creacionSiniestroBean.setFechaOcurrenciaSiniestro(rs.getString("FECHA_OCURRENCIA_SINIESTRO"));
                 inter_creacionSiniestroBean.setSucursal(rs.getString("SUCURSAL"));

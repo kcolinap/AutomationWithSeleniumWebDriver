@@ -49,7 +49,7 @@ public class VistaINTER_CreacionSiniestroTest {
                 "INTER_CREACION_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCreacionSiniestro_dataset.xml");
 */
-        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interPrevisualizacionCuentaTecnica_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCreacionSiniestro_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After

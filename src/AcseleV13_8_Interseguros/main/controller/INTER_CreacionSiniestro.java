@@ -359,7 +359,7 @@ public class INTER_CreacionSiniestro {
 
             Thread.sleep(5000);
 
-            WebElement selecEvento = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr[3]/td[1]/input"));
+            WebElement selecEvento = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr[6]/td[1]/input"));
             selecEvento.click();
 
             Thread.sleep(2000);
@@ -501,13 +501,13 @@ public class INTER_CreacionSiniestro {
 
             Thread.sleep(3000);
 
-            /*if (ExpectedConditions.alertIsPresent() != null) {
+            if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
                 Thread.sleep(1000);
                 driver.switchTo().defaultContent();
-            }*/
+            }
 
             Thread.sleep(3000);
 
@@ -552,6 +552,9 @@ public class INTER_CreacionSiniestro {
                 Thread.sleep(1000);
                 driver.switchTo().defaultContent();
             }
+
+            WebElement btnAceptardos = driver.findElement(By.xpath("//*[@id=\"idb_0402006_contextPageClaimTool_01\"]"));
+            btnAceptardos.click();
 
 
         }catch (Exception e) {
