@@ -17,208 +17,414 @@ public class INTER_TercerosDireccionesBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(INTER_TercerosDireccionesBean.class);
 
-    //NUEVO_TIPO_DIRECCION, NUEVO_TIPO_VIA, NUEVO_NUM_NOMBRE_VIA_PPAL, NUEVO_PREFIJO_BIS_VIA_PPAL,
-    // NUEVO_LETRA_NUM_PREF_VIA_PPAL, NUEVO_CUADRANTE_VIA_PPAL, NUEVO_NUM_VIA_GENERADORA, NUEVO_PAIS,
-    // NUEVO_DEPARTAMENTO, NUEVO_CIUDAD
-    private String nuevoTipoDireccion;
-    private String tipoTercero;
-    private String tipoDocId;
-    private String numCedula;
-    private String nombre;
-    private String apellido;
-    private String tipoDireccion;
-    private String tipoVia;
-    private String numNomViaPpal;
-    private String prefBisViaPpal;
-    private String letraNumPrefViaPpal;
-    private String cuadranteViaPpal;
-    private String numViaGeneradora;
-    private String pais;
-    private String departamento;
-    private String ciudad;
-    private String nuevoTipoVia;
-    private String nuevoNumNomViaPpal;
-    private String nuevoPrefBisViaPpal;
-    private String nuevoLetraNumPrefViaPpal;
-    private String nuevoCuadranteViaPpal;
-    private String nuevoNumViaGeneradora;
-    private String nuevoPais;
-    private String nuevoDepartamento;
-    private String nuevoCiudad;
+    private String tipoTerceros;
+    private String numDocIdentidad;
+    private String numCarnetExtranjeria;
+    private String numPartidaNacimiento;
+    private String numRucPersonaNatural;
+    private String numCarnetFuerzasArmadas;
+    private String indicadorColaborador;
+    private String apellidoPaterno;
+    private String primerNombre;
+    private String autorizarEnviosEmail;
+    private String autorizarEnviosLlamadas;
+    private String autorizarTratamientoDatos;
+    private String profesion;
+    private String codigoAfp;
+    private String estadoCivil;
+    private String fechaFallecimiento;
+    private String sexo;
+    private String tlfCelular1;
+    private String tlfCelular3;
+    private String email2;
+    private String twitterId;
+    private String yahooId;
+    private String comunicacionesGenerales;
+    private String actividadEconomica;
+    private String idOrigenTercero;
+    private String codIdentificador;
+    private String codigoInterno;
+    private String numPasaporte;
+    private String numCarnetMinTrabajo;
+    private String numCarnetIdentidadPolicia;
+    private String libretaMilitar;
+    private String carnetDiplomatico;
+    private String codigoColaboradorIs;
+    private String apellidoMaterno;
+    private String segundoNombre;
+    private String autorizarEnviosSms;
+    private String autorizarComercializacion;
+    private String autorizarAccesoDatos;
+    private String nacionalidad;
+    private String fechaNacimiento;
+    private String fechaMatrimonio;
+    private String esFumador;
+    private String tlfCelular2;
+    private String email1;
+    private String email3;
+    private String facebookId;
+    private String skypeId;
+    private String indicadorPep;
+    private String centroTrabajoAsegurado;
+    private String cargoAsegurado;
+    private String userLogin;
 
-    public String getTipoTercero(){
-        return tipoTercero;
-    }
-    public void setTipoTercero(String tipoTercero){
-        this.tipoTercero = tipoTercero;
-    }
 
-    public String getTipoDocId() {
-        return tipoDocId;
+    public String getTipoTerceros(){
+        return tipoTerceros;
     }
-    public void setTipoDocId(String tipoDocId) {
-        this.tipoDocId = tipoDocId;
-    }
-
-    public String getNumCedula() {
-        return numCedula;
-    }
-    public void setNumCedula(String numCedula) {
-        this.numCedula = numCedula;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido(){
-        return apellido;
-    }
-    public void setApellido(String apellido){
-        this.apellido = apellido;
+    public void setTipoTerceros(String tipoTerceros){
+        this.tipoTerceros = tipoTerceros;
     }
 
-    public String getTipoDireccion(){
-        return tipoDireccion;
+    public String getNumDocIdentidad() {
+        return numDocIdentidad;
     }
-    public void setTipoDireccion(String tipoDireccion){
-        this.tipoDireccion= tipoDireccion;
-    }
-
-    public String getTipoVia(){
-        return  tipoVia;
-    }
-    public void setTipoVia(String tipoVia){
-        this.tipoVia = tipoVia;
+    public void setNumDocIdentidad(String numDocIdentidad) {
+        this.numDocIdentidad = numDocIdentidad;
     }
 
-    public String getNumNomViaPpal(){
-        return numNomViaPpal;
+    public String getNumCarnetExtranjeria() {
+        return numCarnetExtranjeria;
     }
-    public void setNumNomViaPpal(String numNomViaPpal){
-        this.numNomViaPpal = numNomViaPpal;
-    }
-
-    public String getPrefBisViaPpal(){
-        return prefBisViaPpal;
-    }
-    public void setPrefBisViaPpal(String prefBisViaPpal){
-        this.prefBisViaPpal = prefBisViaPpal;
+    public void setNumCarnetExtranjeria(String numCarnetExtranjeria) {
+        this.numCarnetExtranjeria = numCarnetExtranjeria;
     }
 
-    public String getLetraNumPrefViaPpal(){
-        return letraNumPrefViaPpal;
+    public String getNumPartidaNacimiento() {
+        return numPartidaNacimiento;
     }
-    public void setLetraNumPrefViaPpal(String letraNumPrefViaPpal){
-        this.letraNumPrefViaPpal = letraNumPrefViaPpal;
-    }
-
-    public String getCuadranteViaPpal(){
-        return cuadranteViaPpal;
-    }
-    public void setCuadranteViaPpal(String cuadranteViaPpal){
-        this.cuadranteViaPpal = cuadranteViaPpal;
+    public void setNumPartidaNacimiento(String numPartidaNacimiento) {
+        this.numPartidaNacimiento = numPartidaNacimiento;
     }
 
-    public String getNumViaGeneradora(){
-        return numViaGeneradora;
+    public String getNumRucPersonaNatural(){
+        return numRucPersonaNatural;
     }
-    public void setNumViaGeneradora(String numViaGeneradora){
-        this.numViaGeneradora = numViaGeneradora;
-    }
-
-    public String getPais(){
-        return pais;
-    }
-    public void setPais(String pais){
-        this.pais = pais;
+    public void setNumRucPersonaNatural(String numRucPersonaNatural){
+        this.numRucPersonaNatural = numRucPersonaNatural;
     }
 
-    public String getDepartamento(){
-        return departamento;
+    public String getNumCarnetFuerzasArmadas(){
+        return numCarnetFuerzasArmadas;
     }
-    public void setDepartamento(String departamento){
-        this.departamento = departamento;
-    }
-
-    public String getCiudad(){
-        return ciudad;
-    }
-    public void setCiudad(String ciudad){
-        this.ciudad = ciudad;
+    public void setNumCarnetFuerzasArmadas(String numCarnetFuerzasArmadas){
+        this.numCarnetFuerzasArmadas= numCarnetFuerzasArmadas;
     }
 
-    public String getNuevoTipoDireccion(){
-        return nuevoTipoDireccion;
+    public String getIndicadorColaborador(){
+        return  indicadorColaborador;
     }
-    public void setNuevoTipoDireccion(String nuevoTipoDireccion){
-        this.nuevoTipoDireccion= nuevoTipoDireccion;
-    }
-
-    public String getNuevoTipoVia(){
-        return  nuevoTipoVia;
-    }
-    public void setNuevoTipoVia(String nuevoTipoVia){
-        this.nuevoTipoVia = nuevoTipoVia;
+    public void setIndicadorColaborador(String indicadorColaborador){
+        this.indicadorColaborador = indicadorColaborador;
     }
 
-    public String getNuevoNumNomViaPpal(){
-        return nuevoNumNomViaPpal;
+    public String getApellidoPaterno(){
+        return apellidoPaterno;
     }
-    public void setNuevoNumNomViaPpal(String nuevoNumNomViaPpal){
-        this.nuevoNumNomViaPpal = nuevoNumNomViaPpal;
-    }
-
-    public String getNuevoPrefBisViaPpal(){
-        return nuevoPrefBisViaPpal;
-    }
-    public void setNuevoPrefBisViaPpal(String nuevoPrefBisViaPpal){
-        this.nuevoPrefBisViaPpal = nuevoPrefBisViaPpal;
+    public void setApellidoPaterno(String apellidoPaterno){
+        this.apellidoPaterno = apellidoPaterno;
     }
 
-    public String getNuevoLetraNumPrefViaPpal(){
-        return nuevoLetraNumPrefViaPpal;
+    public String getPrimerNombre(){
+        return primerNombre;
     }
-    public void setNuevoLetraNumPrefViaPpal(String nuevoLetraNumPrefViaPpal){
-        this.nuevoLetraNumPrefViaPpal = nuevoLetraNumPrefViaPpal;
-    }
-
-    public String getNuevoCuadranteViaPpal(){
-        return nuevoCuadranteViaPpal;
-    }
-    public void setNuevoCuadranteViaPpal(String nuevoCuadranteViaPpal){
-        this.nuevoCuadranteViaPpal = nuevoCuadranteViaPpal;
+    public void setPrimerNombre(String primerNombre){
+        this.primerNombre = primerNombre;
     }
 
-    public String getNuevoNumViaGeneradora(){
-        return nuevoNumViaGeneradora;
+    public String getAutorizarEnviosEmail(){
+        return autorizarEnviosEmail;
     }
-    public void setNuevoNumViaGeneradora(String nuevoNumViaGeneradora){
-        this.nuevoNumViaGeneradora = nuevoNumViaGeneradora;
-    }
-
-    public String getNuevoPais(){
-        return nuevoPais;
-    }
-    public void setNuevoPais(String nuevoPais){
-        this.nuevoPais = nuevoPais;
+    public void setAutorizarEnviosEmail(String autorizarEnviosEmail){
+        this.autorizarEnviosEmail = autorizarEnviosEmail;
     }
 
-    public String getNuevoDepartamento(){
-        return nuevoDepartamento;
+    public String getAutorizarEnviosLlamadas(){
+        return autorizarEnviosLlamadas;
     }
-    public void setNuevoDepartamento(String nuevoDepartamento){
-        this.nuevoDepartamento = nuevoDepartamento;
+    public void setAutorizarEnviosLlamadas(String autorizarEnviosLlamadas){
+        this.autorizarEnviosLlamadas = autorizarEnviosLlamadas;
     }
 
-    public String getNuevoCiudad(){
-        return nuevoCiudad;
+    public String getAutorizarTratamientoDatos(){
+        return autorizarTratamientoDatos;
     }
-    public void setNuevoCiudad(String nuevoCiudad){
-        this.ciudad = nuevoCiudad;
+    public void setAutorizarTratamientoDatos(String autorizarTratamientoDatos){
+        this.autorizarTratamientoDatos = autorizarTratamientoDatos;
+    }
+
+    public String getProfesion(){
+        return profesion;
+    }
+    public void setProfesion(String profesion){
+        this.profesion = profesion;
+    }
+
+    public String getCodigoAfp(){
+        return codigoAfp;
+    }
+    public void setCodigoAfp(String codigoAfp){
+        this.codigoAfp = codigoAfp;
+    }
+
+    public String getEstadoCivil(){
+        return estadoCivil;
+    }
+    public void setEstadoCivil(String estadoCivil){
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getFechaFallecimiento(){
+        return fechaFallecimiento;
+    }
+    public void setFechaFallecimiento(String fechaFallecimiento){
+        this.fechaFallecimiento= fechaFallecimiento;
+    }
+
+    public String getSexo(){
+        return  sexo;
+    }
+    public void setSexo(String sexo){
+        this.sexo = sexo;
+    }
+
+    public String getTlfCelular1(){
+        return tlfCelular1;
+    }
+    public void setTlfCelular1(String tlfCelular1){
+        this.tlfCelular1 = tlfCelular1;
+    }
+
+    public String getTlfCelular3(){
+        return tlfCelular3;
+    }
+    public void setTlfCelular3(String tlfCelular3){
+        this.tlfCelular3 = tlfCelular3;
+    }
+
+    public String getEmail2(){
+        return email2;
+    }
+    public void setEmail2(String email2){
+        this.email2 = email2;
+    }
+
+    public String getTwitterId(){
+        return twitterId;
+    }
+    public void setTwitterId(String twitterId){
+        this.twitterId = twitterId;
+    }
+
+    public String getYahooId(){
+        return yahooId;
+    }
+    public void setYahooId(String yahooId){
+        this.yahooId = yahooId;
+    }
+
+    public String getComunicacionesGenerales(){
+        return comunicacionesGenerales;
+    }
+    public void setComunicacionesGenerales(String comunicacionesGenerales){
+        this.comunicacionesGenerales = comunicacionesGenerales;
+    }
+
+    public String getIdOrigenTercero(){
+        return idOrigenTercero;
+    }
+    public void setIdOrigenTercero(String idOrigenTercero){
+        this.idOrigenTercero = idOrigenTercero;
+    }
+
+    public String getCodigoInterno(){
+        return codigoInterno;
+    }
+    public void setCodigoInterno(String codigoInterno){
+        this.codigoInterno = codigoInterno;
+    }
+
+    public String getCodIdentificador() {
+        return codIdentificador;
+    }
+    public void setCodIdentificador(String codIdentificador) {
+        this.codIdentificador = codIdentificador;
+    }
+
+    public String getNumPasaporte() {
+        return numPasaporte;
+    }
+    public void setNumPasaporte(String numPasaporte) {
+        this.numPasaporte = numPasaporte;
+    }
+
+    public String getNumCarnetMinTrabajo() {
+        return numCarnetMinTrabajo;
+    }
+    public void setNumCarnetMinTrabajo(String numCarnetMinTrabajo) {
+        this.numCarnetMinTrabajo = numCarnetMinTrabajo;
+    }
+
+    public String getNumCarnetIdentidadPolicia(){
+        return numCarnetIdentidadPolicia;
+    }
+    public void setNumCarnetIdentidadPolicia(String numCarnetIdentidadPolicia){
+        this.numCarnetIdentidadPolicia = numCarnetIdentidadPolicia;
+    }
+
+    public String getLibretaMilitar() {
+        return libretaMilitar;
+    }
+    public void setLibretaMilitar(String libretaMilitar) {
+        this.libretaMilitar = libretaMilitar;
+    }
+
+    public String getCarnetDiplomatico() {
+        return carnetDiplomatico;
+    }
+    public void setCarnetDiplomatico(String carnetDiplomatico) {
+        this.carnetDiplomatico = carnetDiplomatico;
+    }
+
+    public String getCodigoColaboradorIs() {
+        return codigoColaboradorIs;
+    }
+    public void setCodigoColaboradorIs(String codigoColaboradorIs) {
+        this.codigoColaboradorIs = codigoColaboradorIs;
+    }
+
+    public String getApellidoMaterno(){
+        return apellidoMaterno;
+    }
+    public void setApellidoMaterno(String apellidoMaterno){
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public String getSegundoNombre() {
+        return segundoNombre;
+    }
+    public void setSegundoNombre(String segundoNombre) {
+        this.segundoNombre = segundoNombre;
+    }
+
+    public String getAutorizarEnviosSms() {
+        return autorizarEnviosSms;
+    }
+    public void setAutorizarEnviosSms(String autorizarEnviosSms) {
+        this.autorizarEnviosSms = autorizarEnviosSms;
+    }
+
+    public String getAutorizarComercializacion() {
+        return autorizarComercializacion;
+    }
+    public void setAutorizarComercializacion(String autorizarComercializacion) {
+        this.autorizarComercializacion = autorizarComercializacion;
+    }
+
+    public String getAutorizarAccesoDatos(){
+        return autorizarAccesoDatos;
+    }
+    public void setAutorizarAccesoDatos(String autorizarAccesoDatos){
+        this.autorizarAccesoDatos = autorizarAccesoDatos;
+    }
+
+    public String getActividadEconomica(){
+        return actividadEconomica;
+    }
+    public void setActividadEconomica(String actividadEconomica){
+        this.actividadEconomica= actividadEconomica;
+    }
+
+    public String getNacionalidad(){
+        return nacionalidad;
+    }
+    public void setNacionalidad(String nacionalidad){
+        this.nacionalidad = nacionalidad;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getFechaMatrimonio() {
+        return fechaMatrimonio;
+    }
+    public void setFechaMatrimonio(String fechaMatrimonio) {
+        this.fechaMatrimonio = fechaMatrimonio;
+    }
+
+    public String getEsFumador() {
+        return esFumador;
+    }
+    public void setEsFumador(String esFumador) {
+        this.esFumador = esFumador;
+    }
+
+    public String getTlfCelular2(){
+        return tlfCelular2;
+    }
+    public void setTlfCelular2(String tlfCelular2){
+        this.tlfCelular2 = tlfCelular2;
+    }
+
+    public String getEmail1() {
+        return email1;
+    }
+    public void setEmail1(String email1) {
+        this.email1 = email1;
+    }
+
+    public String getEmail3() {
+        return email3;
+    }
+    public void setEmail3(String email3) {
+        this.email3 = email3;
+    }
+
+    public String getFacebookId() {
+        return facebookId;
+    }
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
+    }
+
+    public String getSkypeId(){
+        return skypeId;
+    }
+    public void setSkypeId(String skypeId){
+        this.skypeId = skypeId;
+    }
+
+    public String getIndicadorPep(){
+        return indicadorPep;
+    }
+    public void setIndicadorPep(String indicadorPep){
+        this.indicadorPep= indicadorPep;
+    }
+
+    public String getCentroTrabajoAsegurado(){
+        return  centroTrabajoAsegurado;
+    }
+    public void setCentroTrabajoAsegurado(String centroTrabajoAsegurado){
+        this.centroTrabajoAsegurado = centroTrabajoAsegurado;
+    }
+
+    public String getCargoAsegurado(){
+        return cargoAsegurado;
+    }
+    public void setCargoAsegurado(String cargoAsegurado){
+        this.cargoAsegurado = cargoAsegurado;
+    }
+
+    public String getUserLogin(){
+        return userLogin;
+    }
+    public void setUserLogin(String userLogin){
+        this.userLogin = userLogin;
     }
 
     public static ArrayList getTercerodDirecciones() throws SQLException {
@@ -229,7 +435,7 @@ public class INTER_TercerosDireccionesBean implements Serializable {
         ArrayList direcciones = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM TERCEROS_DIRECCIONES ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM TERCEROS_DIRECCIONES_INTER ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -238,31 +444,57 @@ public class INTER_TercerosDireccionesBean implements Serializable {
 
             while (rs.next()) {
                 INTER_TercerosDireccionesBean interTercerosDireccionesBean = new INTER_TercerosDireccionesBean();
-                interTercerosDireccionesBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                interTercerosDireccionesBean.setTipoDocId(rs.getString("TIPO_DOC_IDENTIDAD"));
-                interTercerosDireccionesBean.setNumCedula(rs.getString("CEDULA"));
-                interTercerosDireccionesBean.setNombre(rs.getString("NOMBRE"));
-                interTercerosDireccionesBean.setApellido(rs.getString("APELLIDO"));
-                interTercerosDireccionesBean.setTipoDireccion(rs.getString("TIPO_DIRECCION"));
-                interTercerosDireccionesBean.setTipoVia(rs.getString("TIPO_VIA"));
-                interTercerosDireccionesBean.setNumNomViaPpal(rs.getString("NUM_NOMBRE_VIA_PPAL"));
-                interTercerosDireccionesBean.setPrefBisViaPpal(rs.getString("PREFIJO_BIS_VIA_PPAL"));
-                interTercerosDireccionesBean.setLetraNumPrefViaPpal(rs.getString("LETRA_NUM_PREF_VIA_PPAL"));
-                interTercerosDireccionesBean.setCuadranteViaPpal(rs.getString("CUADRANTE_VIA_PPAL"));
-                interTercerosDireccionesBean.setNumViaGeneradora(rs.getString("NUM_VIA_GENERADORA"));
-                interTercerosDireccionesBean.setPais(rs.getString("PAIS"));
-                interTercerosDireccionesBean.setDepartamento(rs.getString("DEPARTAMENTO"));
-                interTercerosDireccionesBean.setCiudad(rs.getString("CIUDAD"));
-                interTercerosDireccionesBean.setNuevoTipoDireccion(rs.getString("NUEVO_TIPO_DIRECCION"));
-                interTercerosDireccionesBean.setNuevoTipoVia(rs.getString("NUEVO_TIPO_VIA"));
-                interTercerosDireccionesBean.setNuevoNumNomViaPpal(rs.getString("NUEVO_NUM_NOMBRE_VIA_PPAL"));
-                interTercerosDireccionesBean.setNuevoPrefBisViaPpal(rs.getString("NUEVO_PREFIJO_BIS_VIA_PPAL"));
-                interTercerosDireccionesBean.setNuevoLetraNumPrefViaPpal(rs.getString("NUEVO_LETRA_NUM_PREF_VIA_PPAL"));
-                interTercerosDireccionesBean.setNuevoCuadranteViaPpal(rs.getString("NUEVO_CUADRANTE_VIA_PPAL"));
-                interTercerosDireccionesBean.setNuevoNumViaGeneradora(rs.getString("NUEVO_NUM_VIA_GENERADORA"));
-                interTercerosDireccionesBean.setNuevoPais(rs.getString("NUEVO_PAIS"));
-                interTercerosDireccionesBean.setNuevoDepartamento(rs.getString("NUEVO_DEPARTAMENTO"));
-                interTercerosDireccionesBean.setNuevoCiudad(rs.getString("NUEVO_CIUDAD"));
+                interTercerosDireccionesBean.setTipoTerceros(rs.getString("TIPO_TERCERO"));
+                interTercerosDireccionesBean.setNumDocIdentidad(rs.getString("NUM_DOC_IDENTIDAD"));
+                interTercerosDireccionesBean.setNumCarnetExtranjeria(rs.getString("NUM_CARNET_EXTRANJERIA"));
+                interTercerosDireccionesBean.setNumPartidaNacimiento(rs.getString("NUM_PARTIDA_NACIMIENTO"));
+                interTercerosDireccionesBean.setNumRucPersonaNatural(rs.getString("NUM_RUC_PERSONA_NATURAL"));
+                interTercerosDireccionesBean.setNumCarnetFuerzasArmadas(rs.getString("NUM_CARNET_FUERZAS_ARMADAS"));
+                interTercerosDireccionesBean.setIndicadorColaborador(rs.getString("INDICADOR_COLABORADOR"));
+                interTercerosDireccionesBean.setApellidoPaterno(rs.getString("APELLIDO_PATERNO"));
+                interTercerosDireccionesBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
+                interTercerosDireccionesBean.setAutorizarEnviosEmail(rs.getString("AUTORIZAR_ENVIOS_EMAIL"));
+                interTercerosDireccionesBean.setAutorizarEnviosLlamadas(rs.getString("AUTORIZAR_ENVIOS_LLAMADAS"));
+                interTercerosDireccionesBean.setAutorizarTratamientoDatos(rs.getString("AUTORIZAR_TRATAMIENTO_DATOS"));
+                interTercerosDireccionesBean.setProfesion(rs.getString("PROFESION"));
+                interTercerosDireccionesBean.setCodigoAfp(rs.getString("CODIGO_AFP"));
+                interTercerosDireccionesBean.setEstadoCivil(rs.getString("ESTADO_CIVIL"));
+                interTercerosDireccionesBean.setFechaFallecimiento(rs.getString("FECHA_FALLECIMIENTO"));
+                interTercerosDireccionesBean.setSexo(rs.getString("SEXO"));
+                interTercerosDireccionesBean.setTlfCelular1(rs.getString("TLF_CELULAR1"));
+                interTercerosDireccionesBean.setTlfCelular3(rs.getString("TLF_CELULAR3"));
+                interTercerosDireccionesBean.setEmail2(rs.getString("EMAIL2"));
+                interTercerosDireccionesBean.setTwitterId(rs.getString("TWITTER_ID"));
+                interTercerosDireccionesBean.setYahooId(rs.getString("YAHOO_ID"));
+                interTercerosDireccionesBean.setComunicacionesGenerales(rs.getString("COMUNICACIONES_GENERALES"));
+                interTercerosDireccionesBean.setActividadEconomica(rs.getString("ACTIVIDAD_ECONOMICA"));
+                interTercerosDireccionesBean.setIdOrigenTercero(rs.getString("ID_ORIGEN_TERCERO"));
+                interTercerosDireccionesBean.setCodigoInterno(rs.getString("CODIGO_INTERNO"));
+                interTercerosDireccionesBean.setCodIdentificador(rs.getString("COD_IDENTIFICADOR"));
+                interTercerosDireccionesBean.setNumPasaporte(rs.getString("NUM_PASAPORTE"));
+                interTercerosDireccionesBean.setNumCarnetMinTrabajo(rs.getString("NUM_CARNET_MIN_TRABAJO"));
+                interTercerosDireccionesBean.setNumCarnetIdentidadPolicia(rs.getString("NUM_CARNET_IDENTIDAD_POLICIA"));
+                interTercerosDireccionesBean.setLibretaMilitar(rs.getString("LIBRETA_MILITAR"));
+                interTercerosDireccionesBean.setCarnetDiplomatico(rs.getString("CARNET_DIPLOMATICO"));
+                interTercerosDireccionesBean.setCodigoColaboradorIs(rs.getString("CODIGO_COLABORADOR_IS"));
+                interTercerosDireccionesBean.setApellidoMaterno(rs.getString("APELLIDO_MATERNO"));
+                interTercerosDireccionesBean.setSegundoNombre(rs.getString("SEGUNDO_NOMBRE"));
+                interTercerosDireccionesBean.setAutorizarEnviosSms(rs.getString("AUTORIZAR_ENVIOS_SMS"));
+                interTercerosDireccionesBean.setAutorizarComercializacion(rs.getString("AUTORIZAR_COMERCIALIZACION"));
+                interTercerosDireccionesBean.setAutorizarAccesoDatos(rs.getString("AUTORIZAR_ACCESO_DATOS"));
+                interTercerosDireccionesBean.setNacionalidad(rs.getString("NACIONALIDAD"));
+                interTercerosDireccionesBean.setFechaNacimiento(rs.getString("FECHA_NACIMIENTO"));
+                interTercerosDireccionesBean.setFechaMatrimonio(rs.getString("FECHA_MATRIMONIO"));
+                interTercerosDireccionesBean.setEsFumador(rs.getString("ES_FUMADOR"));
+                interTercerosDireccionesBean.setTlfCelular2(rs.getString("TLF_CELULAR2"));
+                interTercerosDireccionesBean.setEmail1(rs.getString("EMAIL1"));
+                interTercerosDireccionesBean.setEmail3(rs.getString("EMAIL3"));
+                interTercerosDireccionesBean.setFacebookId(rs.getString("FACEBOOK_ID"));
+                interTercerosDireccionesBean.setSkypeId(rs.getString("SKYPE_ID"));
+                interTercerosDireccionesBean.setIndicadorPep(rs.getString("INDICADOR_PEP"));
+                interTercerosDireccionesBean.setCentroTrabajoAsegurado(rs.getString("CENTRO_TRABAJO_ASEGURADO"));
+                interTercerosDireccionesBean.setCargoAsegurado(rs.getString("CARGO_ASEGURADO"));
+                interTercerosDireccionesBean.setUserLogin(rs.getString("USER_LOGIN"));
                 direcciones.add(interTercerosDireccionesBean);
             }
         }catch(SQLException e){
