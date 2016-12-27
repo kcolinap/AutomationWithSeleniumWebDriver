@@ -1,11 +1,14 @@
 package AcseleV13_8_Interseguros.main.controller;
 
-import AcseleV13_8_Interseguros.beans.INTER_ReabrirSiniestroBean;
+
+import AcseleV13_8_Interseguros.beans.INTER_RechazarSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -13,13 +16,13 @@ import java.io.IOException;
 /**
  * Created by aazuaje on 22/12/2016.
  */
-public class INTER_ReabrirSiniestro {
+public class INTER_RechazarSiniestro {
 
     private final static Logger log = Logger.getLogger(INTER_ReabrirSiniestro.class);
 
-    public String nombreAutomatizacion = "Reabrir Siniestro";
+    public String nombreAutomatizacion = "Rechazar Siniestro";
 
-    public void testLink(INTER_ReabrirSiniestroBean inter_reabrirSiniestroBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_RechazarSiniestroBean inter_rechazarSiniestroBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Interseguros_Metodos a = new Interseguros_Metodos();
@@ -33,22 +36,20 @@ public class INTER_ReabrirSiniestro {
         Thread.sleep(10000);
 
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_reabrirSiniestroBean, i);
-        ResultadoBusqueda(driver, a, inter_reabrirSiniestroBean, i);
-        ReabrirSiniestro(driver, a, inter_reabrirSiniestroBean, i);
-
-
+        BuscarPoliza(driver, a, inter_rechazarSiniestroBean, i);
+        ResultadoBusqueda(driver, a, inter_rechazarSiniestroBean, i);
+        RechazarSiniestro(driver, a, inter_rechazarSiniestroBean, i);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_ReabrirSiniestroBean inter_reabrirSiniestroBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
 
         try {
 
-            if (inter_reabrirSiniestroBean.getOrdenarPor() != null){
+            if (inter_rechazarSiniestroBean.getOrdenarPor() != null){
                 Thread.sleep(1000);
 
-                if (inter_reabrirSiniestroBean.getOrdenarPor() == "Número de Reclamo"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Número de Reclamo"){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -57,7 +58,7 @@ public class INTER_ReabrirSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_reabrirSiniestroBean.getOrdenarPor() == "Producto"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Producto"){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -66,7 +67,7 @@ public class INTER_ReabrirSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_reabrirSiniestroBean.getOrdenarPor() == "Fecha de Ocurrencia"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Fecha de Ocurrencia"){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -75,7 +76,7 @@ public class INTER_ReabrirSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_reabrirSiniestroBean.getOrdenarPor() == "Estado del siniestro"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Estado del siniestro"){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -86,27 +87,27 @@ public class INTER_ReabrirSiniestro {
 
             }
 
-            if (inter_reabrirSiniestroBean.getNumeroSiniestro() != null){
+            if (inter_rechazarSiniestroBean.getNumeroSiniestro() != null){
                 Thread.sleep(2000);
                 WebElement numSiniestro = driver.findElement(By.xpath("//*[@id=\"textFieldClaimNumbre\"]"));
-                numSiniestro.sendKeys(inter_reabrirSiniestroBean.getNumeroSiniestro());
+                numSiniestro.sendKeys(inter_rechazarSiniestroBean.getNumeroSiniestro());
             }
 
-            if (inter_reabrirSiniestroBean.getNumeroPoliza() != null){
+            if (inter_rechazarSiniestroBean.getNumeroPoliza() != null){
                 Thread.sleep(2000);
                 WebElement numPoliza = driver.findElement(By.xpath("//*[@id=\"textFieldPolicyNumber\"]"));
-                numPoliza.sendKeys(inter_reabrirSiniestroBean.getNumeroPoliza());
+                numPoliza.sendKeys(inter_rechazarSiniestroBean.getNumeroPoliza());
             }
 
-            if (inter_reabrirSiniestroBean.getFechaOcurrenciaSiniestro() != null){
+            if (inter_rechazarSiniestroBean.getFechaOcurrenciaSiniestro() != null){
                 Thread.sleep(2000);
                 WebElement fechaOcurrenciaSiniestro  = driver.findElement(By.xpath("//*[@id=\"dateFieldOccurrenceDate\"]/input"));
-                fechaOcurrenciaSiniestro.sendKeys(inter_reabrirSiniestroBean.getFechaOcurrenciaSiniestro());
+                fechaOcurrenciaSiniestro.sendKeys(inter_rechazarSiniestroBean.getFechaOcurrenciaSiniestro());
             }
 
             String productos = "EducacionGarantizada";
 
-            if (inter_reabrirSiniestroBean.getProducto() != null){
+            if (inter_rechazarSiniestroBean.getProducto() != null){
                 //if (editarSiniestrosBean.getProducto() == productos){
                 Thread.sleep(1000);
                 WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
@@ -132,7 +133,7 @@ public class INTER_ReabrirSiniestro {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_ReabrirSiniestroBean inter_reabrirSiniestroBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -155,30 +156,42 @@ public class INTER_ReabrirSiniestro {
         }
     }
 
-    public void ReabrirSiniestro (WebDriver driver,Interseguros_Metodos a, INTER_ReabrirSiniestroBean inter_reabrirSiniestroBean, int i) throws IOException, InterruptedException{
+    public void RechazarSiniestro (WebDriver driver,Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
         try{
 
             Thread.sleep(2000);
 
-            WebElement btnReabrir = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_31\"]"));
-            btnReabrir.click();
+            WebElement btnRechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_29\"]"));
+            btnRechazar.click();
             Thread.sleep(20000);
 
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
 
-            Select motivoReapertura = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoReapertura\"]")));
-            motivoReapertura.selectByValue(inter_reabrirSiniestroBean.getMotivoReapertura());
+            Select motivoRechazo = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoRechazo\"]")));
+            motivoRechazo.selectByValue(inter_rechazarSiniestroBean.getMotivoRechazo());
             Thread.sleep(2000);
 
-            if (inter_reabrirSiniestroBean.getComentariosSiniestro() != null){
+            if (inter_rechazarSiniestroBean.getComentariosSiniestro() != null){
                 Thread.sleep(2000);
                 WebElement comentarioSiniestro = driver.findElement(By.xpath("//*[@id=\"ComentariosStro\"]"));
-                comentarioSiniestro.sendKeys(inter_reabrirSiniestroBean.getComentariosSiniestro());
+                comentarioSiniestro.sendKeys(inter_rechazarSiniestroBean.getComentariosSiniestro());
+            }
+
+            if (inter_rechazarSiniestroBean.getNombreBeneficiario() != null){
+                Thread.sleep(2000);
+                WebElement nombreBeneficiario = driver.findElement(By.xpath("//*[@id=\"NombreBeneficiario\"]"));
+                nombreBeneficiario.sendKeys(inter_rechazarSiniestroBean.getNombreBeneficiario());
+            }
+
+            if (inter_rechazarSiniestroBean.getDireccionBeneficiario() != null){
+                Thread.sleep(2000);
+                WebElement direccionBeneficiario = driver.findElement(By.xpath("//*[@id=\"DireccionBeneficiario\"]"));
+                direccionBeneficiario.sendKeys(inter_rechazarSiniestroBean.getDireccionBeneficiario());
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -187,8 +200,24 @@ public class INTER_ReabrirSiniestro {
             Thread.sleep(3000);
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
             btnAceptar.click();
-            Thread.sleep(15000);
+            Thread.sleep(2000);
             a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
+
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
 
 
         }catch (Exception e) {
@@ -198,4 +227,6 @@ public class INTER_ReabrirSiniestro {
         }
 
     }
+
+
 }

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_RECHAZAR_SINIESTRO PRUEBA="1" ORDENAR_POR="" NUMERO_POLIZA=""
+                            NUMERO_SINIESTRO="" FECHA_OCURRENCIA_SINIESTRO=""
+                            PRODUCTO="EducacionGarantizada" MOTIVO_RECHAZO="11.0" COMENTARIOS_SINIESTRO="Prueba"
+                            NOMBRE_BENEFICIARIO="Prueba" DIRECCION_BENEFICIARIO="Prueba"/>
+</dataset>
