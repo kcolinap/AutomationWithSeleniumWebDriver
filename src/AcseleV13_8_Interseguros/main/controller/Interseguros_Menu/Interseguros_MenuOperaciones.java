@@ -194,18 +194,19 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_HistorialActividadesReclamo(){}
 
-    public void OpeSini_HistorialReclamo(WebDriver driver, String nombreAutomatizacion, int i){
+    public void OpeSini_HistorialReclamo(WebDriver driver, Interseguros_Metodos a,  String nombreAutomatizacion, int numScreenShoot, int i){
 
         try{
 
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[3]"));//operaciones siniestros
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[10]/div[13]"));//historial reclamos
-
-            menu1.click();
-            menu2.click();
-            Thread.sleep(3000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//operaciones siniestros
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[8]/div[13]"));//Historial de Reclamos
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
             menu3.click();
 
         }catch (Exception e) {
