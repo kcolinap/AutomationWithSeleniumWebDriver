@@ -29,7 +29,7 @@ public class VistaINTER_CerrarSiniestroTest {
                 INTER_CerrarSiniestro a = new INTER_CerrarSiniestro();
 
                 try {
-                    //a.testLink(inter_cerrarSiniestroBean, j);
+                    a.testLink(inter_cerrarSiniestroBean, j);
                 } catch (Exception e) {
                     e.printStackTrace();
                     log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -41,14 +41,14 @@ public class VistaINTER_CerrarSiniestroTest {
         @Before
         public void setUp() throws Exception {
 
-        DataSetManager.createPartialDataSet("select Prueba,Ordenar_Por,Numero_Poliza,Numero_Siniestro,Fecha_Ocurrencia_Siniestro,Producto, Motivo_Cierre, Comentarios_Siniestro from INTER_CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
+        /*DataSetManager.createPartialDataSet("select * from INTER_CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
                 "INTER_CERRAR_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interCerrarSiniestro_dataset.xml");
 
-        DataSetManager.createPartialDataSet("select Prueba,Ordenar_Por,Numero_Poliza,Numero_Siniestro,Fecha_Ocurrencia_Siniestro,Producto, Motivo_Cierre, Comentarios_Siniestro from INTER_CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("select * from INTER_CERRAR_SINIESTRO ORDER BY PRUEBA ASC",
                 "INTER_CERRAR_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCerrarSiniestro_dataset.xml");
-
+*/
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCerrarSiniestro_dataset.xml", DataSetManager.REFRESH_OPERATION);
 
         }
