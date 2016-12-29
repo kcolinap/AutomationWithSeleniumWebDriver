@@ -75,12 +75,14 @@ public class INTER_TercerosDirecciones {
             System.out.println("Titulo de la pagina: " + title); // //TipoElemento[@wicketpath='WicketpathElemento']
 
             //Tipo de tercero
+
             if (interTercerosDireccionesBean.getTipoTerceros() != null) {
                 Thread.sleep(3000);
                 //Select tipoT = new Select(driver.findElement(By.name("SearchContent:ThirdInformation:thirdPartyTypes")));
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
                 tipoT.selectByValue(interTercerosDireccionesBean.getTipoTerceros());
             }
+
             Thread.sleep(2000);
 
             if (interTercerosDireccionesBean.getNumDocIdentidad() != null) {
@@ -170,34 +172,34 @@ public class INTER_TercerosDirecciones {
             }
 
             // Referencia Direccion
-            if (interTercerosDireccionesBean.getRefDireccion() != null) {
-                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_1_fila_field']")).sendKeys(interTercerosDireccionesBean.getRefDireccion());
+            if (interTercerosDireccionesBean.getRefDireccion() != null) {    //ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_1_fila_field
+                driver.findElement(By.xpath("//textarea[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_1_fila_field']")).sendKeys(interTercerosDireccionesBean.getRefDireccion());
                 Thread.sleep(2000);
             }
 
             // Codigo País
             if (interTercerosDireccionesBean.getCodPais() != null) {
-                Select codPais = new Select(driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_1_fila_repeaterSelect_1_field']")));
+                Select codPais = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_1_fila_repeaterSelect_1_field']")));
                 codPais.selectByValue(interTercerosDireccionesBean.getCodPais()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
                 Thread.sleep(2000);
             }
 
             // Descripcion de la Dirección
             if (interTercerosDireccionesBean.getDescripcionDireccion() != null) {
-                driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_2_fila_field']")).sendKeys(interTercerosDireccionesBean.getDescripcionDireccion());
+                driver.findElement(By.xpath("//textarea[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_2_fila_field']")).sendKeys(interTercerosDireccionesBean.getDescripcionDireccion());
                 Thread.sleep(2000);
             }
 
             // Codigo Departamento
             if (interTercerosDireccionesBean.getCodPais() != null) {
-                Select codDepartamento = new Select(driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_2_fila_repeaterSelect_1_field']")));
+                Select codDepartamento = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_2_fila_repeaterSelect_1_field']")));
                 codDepartamento.selectByValue(interTercerosDireccionesBean.getCodDepartamento()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
                 Thread.sleep(2000);
             }
 
             // Codigo Provincia
             if (interTercerosDireccionesBean.getCodProvincia() != null) {
-                Select codPais = new Select(driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_1_fila_repeaterSelect_1_field']")));
+                Select codPais = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_1_fila_repeaterSelect_1_field']")));
                 codPais.selectByValue(interTercerosDireccionesBean.getCodPais()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
                 Thread.sleep(2000);
             }
@@ -210,17 +212,20 @@ public class INTER_TercerosDirecciones {
 
             // Codigo Distrito
             if (interTercerosDireccionesBean.getCodDistrito() != null) {
-                Select codDistrito = new Select(driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_2_fila_repeaterSelect_3_field']")));
+                Select codDistrito = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_2_fila_repeaterSelect_3_field']")));
                 codDistrito.selectByValue(interTercerosDireccionesBean.getCodDistrito()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
                 Thread.sleep(2000);
             }
 
             // Tipo Direccion
             if (interTercerosDireccionesBean.getTipoDireccion() != null) {
-                Select tipoDireccion = new Select(driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_4_fila_repeaterSelect_1_field']")));
-                tipoDireccion.selectByValue(interTercerosDireccionesBean.getTipoDireccion()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
-                Thread.sleep(2000);
+                driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_4_fila_repeaterSelect_1_field']")).click();
+                Select tipoDireccion = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel2_4_fila_repeaterSelect_1_field']")));
+                tipoDireccion.selectByVisibleText(interTercerosDireccionesBean.getTipoDireccion()); //19631017=Calle; 19630717=Avenida Calle; 19630517=Autopista
+                Thread.sleep(1500);
+
             }
+
 
             // Telefono Fijo
             if (interTercerosDireccionesBean.getTlfFijo() != null) {
@@ -309,7 +314,7 @@ public class INTER_TercerosDirecciones {
             Thread.sleep(2000);
 
             //Seleccionar la poliza
-            driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_container_ThirdAddress_1_radio']")).click();
+            driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_container_ThirdAddress_3_radio']")).click();
             Thread.sleep(2000);
 
             // Boton "Definir como principal"
