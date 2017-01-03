@@ -1,16 +1,11 @@
 package AcseleV13_8_Interseguros.main.controller;
 
-import AcseleV13_8.beans.EditarSiniestrosBean;
-import AcseleV13_8.main.controller.Metodos;
 import AcseleV13_8_Interseguros.beans.INTER_EditarSiniestroBean;
-import AcseleV13_8_Interseguros.beans.INTER_RechazarSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -106,7 +101,7 @@ public class INTER_EditarSiniestro {
                 fechaOcurrenciaSiniestro.sendKeys(inter_editarSiniestroBean.getFechaOcurrenciaSiniestro());
             }
 
-            String productos = "EducacionGarantizada";
+            String productos = "DotalSimple";
 
             if (inter_editarSiniestroBean.getProducto() != null){
                 //if (editarSiniestrosBean.getProducto() == productos){
@@ -114,7 +109,7 @@ public class INTER_EditarSiniestro {
                 WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
                 btnSeleccionar.click();
                 Thread.sleep(1000);
-                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[8]/td/span"));
+                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[7]/td/span"));
                 producto.click();
                 //}
             }
@@ -134,11 +129,11 @@ public class INTER_EditarSiniestro {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_EditarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[6]/td[3]/div"));
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[2]/td[3]/div"));
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
@@ -182,13 +177,16 @@ public class INTER_EditarSiniestro {
                 numeroCaso.selectByValue(inter_editarSiniestroBean.getNumeroCaso());
             }
 
-            WebElement fechaNotificacion = driver.findElement(By.xpath("//*[@id=\"FechaNotificacion\"]"));
+            if (inter_editarSiniestroBean.getFechaNotificacion() != null){
+                WebElement fechaNotificacion = driver.findElement(By.xpath("//*[@id=\"FechaNotificacion\"]"));
             fechaNotificacion.sendKeys(inter_editarSiniestroBean.getFechaNotificacion());
+            }
 
             Thread.sleep(1000);
+            if (inter_editarSiniestroBean.getFechaRecepcionReclamo() != null){
             WebElement fechaRecepcionReclamo = driver.findElement(By.xpath("//*[@id=\"FechaRecepcion\"]"));
             fechaRecepcionReclamo.sendKeys(inter_editarSiniestroBean.getFechaRecepcionReclamo());
-
+            }
 
             if (inter_editarSiniestroBean.getFechaOcurrencia() != null){
                 Select fechaOcurrencia = new Select(driver.findElement(By.xpath("//*[@id=\"9486594\"]/td[3]/font/select")));
@@ -197,6 +195,7 @@ public class INTER_EditarSiniestro {
 
             if (inter_editarSiniestroBean.getLugarOcurrenciaSiniestro() != null){
                 WebElement lugarOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"LugarOcurrencia\"]"));
+                lugarOcurrenciaSiniestro.clear();
                 lugarOcurrenciaSiniestro.sendKeys(inter_editarSiniestroBean.getLugarOcurrenciaSiniestro());
             }
 

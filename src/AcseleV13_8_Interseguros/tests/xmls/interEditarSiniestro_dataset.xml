@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <INTER_EDITAR_SINIESTRO PRUEBA="1" ORDENAR_POR="" NUMERO_SINIESTRO="" NUMERO_POLIZA=""
-                          FECHA_OCURRENCIA_SINIESTRO="" PRODUCTO="Producto" NUMERO_CASO=""
-                          FECHA_NOTIFICACION="Fecha_Notificacion" FECHA_RECEPCION_RECLAMO="Fecha_Recepcion_Reclamo" FECHA_OCURRENCIA="Fecha_Ocurrencia"
-                          LUGAR_OCURRENCIA_SINIESTRO="Lugar_Ocurrencia_Siniestro" HORA_OCURRENCIA="Hora_Ocurrencia"
-                          OBSERVACIONES_SINIESTRO="Observaciones_Siniestro" NOMBRES_APELLIDOS="Nombres_Apellidos" DIRECCION="Direccion"
-                          TELEFONOS="Telefonos" CORREO_ELECTRONICO="Correo_Electronico" ENVIO_COMUNICACIONES_SINIESTRO="Envio_Comunicaciones_Siniestro"
-                          CORREO_ELECTRONICO_SINIESTRO="Correo_Electronico_Siniestro" SEXO="Sexo"/>
+                          FECHA_OCURRENCIA_SINIESTRO="" PRODUCTO="DotalSimple" NUMERO_CASO=""
+                          FECHA_NOTIFICACION="" FECHA_RECEPCION_RECLAMO="" FECHA_OCURRENCIA=""
+                          LUGAR_OCURRENCIA_SINIESTRO="nueva prueba" HORA_OCURRENCIA=""
+                          OBSERVACIONES_SINIESTRO="nueva prueba" NOMBRES_APELLIDOS="" DIRECCION=""
+                          TELEFONOS="" CORREO_ELECTRONICO="" ENVIO_COMUNICACIONES_SINIESTRO=""
+                          CORREO_ELECTRONICO_SINIESTRO="" SEXO=""/>
 </dataset>
