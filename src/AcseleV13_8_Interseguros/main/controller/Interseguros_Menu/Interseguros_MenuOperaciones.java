@@ -535,7 +535,7 @@ public class Interseguros_MenuOperaciones {
             try {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[12]"));//cumulos
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[1]"));//cumulos terceros
                 action.moveToElement(menu1).build().perform();
                 action.moveToElement(menu2).build().perform();
@@ -554,12 +554,12 @@ public class Interseguros_MenuOperaciones {
     }
     public void Cumulos_CumulosPorProducto(WebDriver driver, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[2]"));//cumulos productos
-
-            menu1.click();
-            menu2.click();
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[21]/div[2]"));//cumulos productos
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
             Thread.sleep(2000);
             a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             Thread.sleep(2000);
@@ -578,7 +578,7 @@ public class Interseguros_MenuOperaciones {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[12]"));//cumulos
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[3]"));//cumulos asegurado
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
