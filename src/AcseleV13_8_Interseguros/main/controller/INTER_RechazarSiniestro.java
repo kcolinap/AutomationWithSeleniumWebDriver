@@ -49,7 +49,7 @@ public class INTER_RechazarSiniestro {
             if (inter_rechazarSiniestroBean.getOrdenarPor() != null){
                 Thread.sleep(1000);
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Número de Reclamo"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Número de Reclamo")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -58,7 +58,7 @@ public class INTER_RechazarSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Producto"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Producto")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -67,7 +67,7 @@ public class INTER_RechazarSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Fecha de Ocurrencia"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Fecha de Ocurrencia")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -76,7 +76,7 @@ public class INTER_RechazarSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Estado del siniestro"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Estado del siniestro")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
