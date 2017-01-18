@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <MODOS_PAGO_TERCERO_INTER PRUEBA="1" NUM_DOC_IDENTIDAD="09844632" MODO_PAGO="6" EVALUACION_RIESGO="Minimo" TIPO_CUENTA="724737" COLECTOR="Carlos Chang" TIPO_TERCERO="PersonaNatural"/>
+</dataset>
