@@ -19,6 +19,7 @@ public class INTER_TercerosInfTecnica {
     private final static Logger log = Logger.getLogger(INTER_TercerosInfTecnica.class);
 
     public String nombreAutomatizacion = "Informacion Tecnica de INTER_Terceros";
+    private WebDriver driver;
 
     public void testLink(INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i)throws Exception{
 
@@ -28,7 +29,7 @@ public class INTER_TercerosInfTecnica {
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
             a.ValidandoSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(5000);
@@ -46,9 +47,14 @@ public class INTER_TercerosInfTecnica {
             Thread.sleep(4000);
             a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
 
+            driver.quit();
+
         }catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
 
     }
@@ -108,6 +114,9 @@ public class INTER_TercerosInfTecnica {
         }catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
     }
 

@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: AcseleV13_8_Interseguros.principal.EjecutarJar
+Main-Class: AcseleV13_8_Interseguros.principal.Inter_ConsultarTerceroJ
+ ar
 

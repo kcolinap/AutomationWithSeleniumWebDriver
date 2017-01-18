@@ -17,6 +17,7 @@ public class INTER_CreacionCaja {
     private final static Logger log = Logger.getLogger(INTER_CreacionCaja.class);
 
     public String nombreAutomatizacion = "INTER Creacion de Caja";
+    private WebDriver driver;
 
     public void testLink(INTER_CreacionCajaBean interCreacionCajaBean, int i) throws IOException, InterruptedException {
 
@@ -28,7 +29,7 @@ public class INTER_CreacionCaja {
             //Crear Caja
             INTER_CrearCaja interCrearCaja = new INTER_CrearCaja();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
             a.ValidandoSesion(driver, nombreAutomatizacion, i);
             Thread.sleep(5000);
@@ -46,10 +47,14 @@ public class INTER_CreacionCaja {
             Thread.sleep(3000);
             interCrearCaja.CrearCaja(a, driver, interCreacionCajaBean, nombreAutomatizacion, i, 3, 4, 5);
 
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
 
 
