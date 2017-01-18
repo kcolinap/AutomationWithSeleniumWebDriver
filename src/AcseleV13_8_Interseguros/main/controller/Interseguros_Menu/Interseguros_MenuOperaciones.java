@@ -40,8 +40,8 @@ public class Interseguros_MenuOperaciones {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]")); // Operación
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operaciones Pólizas
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[2]")); // Crear
-            menu1.click();
-            menu2.click();
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
@@ -338,9 +338,9 @@ public class Interseguros_MenuOperaciones {
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]")); // UAA (Administrador de Cuentas Universal))
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[11]/div[1]")); // Caja
             WebElement menu4 = driver.findElement(By.xpath("/html/body/div[12]/div[1]")); // Apertura de Caja
-            menu1.click();
-            menu2.click();
-            menu3.click();
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
             action.moveToElement(menu4).build().perform();
             Thread.sleep(1000);
@@ -383,9 +383,9 @@ public class Interseguros_MenuOperaciones {
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]")); // UAA (Administrador de Cuentas Universal))
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[11]/div[1]")); // Caja
             WebElement menu4 = driver.findElement(By.xpath("/html/body/div[12]/div[12]")); // Cierre de Caja
-            menu1.click();
-            menu2.click();
-            menu3.click();
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
             action.moveToElement(menu4).build().perform();
             Thread.sleep(1000);
@@ -530,36 +530,36 @@ public class Interseguros_MenuOperaciones {
 
 
     /** Cumulos **/
-    public void Cumulos_CumulosPorTerceros(WebDriver driver, String nombreAutomatizacion, int i ) throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorTerceros(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i ) throws IOException, InterruptedException{
 
-        try{
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[1]"));//cumulos terceros
-
-            menu1.click();
-            menu2.click();
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
-            Thread.sleep(2000);
-            menu3.click();
-
-        }catch (Exception e) {
-            e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-
+            try {
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[1]"));//cumulos terceros
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                Thread.sleep(2000);
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+                Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
+                menu3.click();
+            }catch (Exception e){
+                e.printStackTrace();
+                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            }
 
     }
     public void Cumulos_CumulosPorProducto(WebDriver driver, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[2]"));//cumulos productos
-
-            menu1.click();
-            menu2.click();
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[21]/div[2]"));//cumulos productos
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
             Thread.sleep(2000);
             a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
             Thread.sleep(2000);
@@ -573,24 +573,24 @@ public class Interseguros_MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorAsegurado(WebDriver driver, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
-        try{
+    public void Cumulos_CumulosPorAsegurado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i)throws IOException, InterruptedException{
 
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[24]/div[3]"));//cumulos asegurado
-
-            menu1.click();
-            menu2.click();
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[3]"));//cumulos asegurado
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
-            Thread.sleep(3000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
             menu3.click();
-
-
-        }catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
-//                log.info(e);
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
