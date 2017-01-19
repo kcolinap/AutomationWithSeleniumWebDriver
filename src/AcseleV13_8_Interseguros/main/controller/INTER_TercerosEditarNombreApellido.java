@@ -20,5 +20,12 @@ public class INTER_TercerosEditarNombreApellido {
 
     public void textLink(INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i) throws Exception{
 
+        Interseguros_Metodos a = new Interseguros_Metodos();
+        Interseguros_MenuMantenimiento intersegurosMenuMantenimiento = new Interseguros_MenuMantenimiento();
+
+        WebDriver driver = a.entrarPagina();
+        a.IniciarSesion(driver, nombreAutomatizacion, i);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        Thread.sleep(5000);
     }
 }
