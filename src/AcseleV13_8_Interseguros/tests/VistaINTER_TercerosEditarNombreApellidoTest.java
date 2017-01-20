@@ -48,15 +48,14 @@ public class VistaINTER_TercerosEditarNombreApellidoTest {
     @Before
     public void setUp() throws Exception{
 
+           /* DataSetManager.createPartialDataSet("select Prueba,Tipo_Tercero, Num_Doc_Identificacion, Apellido, Nombre from INTER_TERCEROS_EDITAR_NOM_APE ORDER BY PRUEBA ASC",
+                    "INTER_TERCEROS_EDITAR_NOM_APE",
+                    "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml");
             DataSetManager.createPartialDataSet("select Prueba,Tipo_Tercero, Num_Doc_Identificacion, Apellido, Nombre from INTER_TERCEROS_EDITAR_NOM_APE ORDER BY PRUEBA ASC",
                     "INTER_TERCEROS_EDITAR_NOM_APE",
-                    "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset_dataset.xml");
-
-            DataSetManager.createPartialDataSet("select Prueba,Tipo_Tercero, Num_Doc_Identificacion, Apellido, Nombre from INTER_TERCEROS_EDITAR_NOM_APE ORDER BY PRUEBA ASC",
-                    "INTER_TERCEROS_EDITAR_NOM_APE",
-                    "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset_dataset.xml");
-
-        //DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml", DataSetManager.REFRESH_OPERATION);
+                    "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml");
+       */
+        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
