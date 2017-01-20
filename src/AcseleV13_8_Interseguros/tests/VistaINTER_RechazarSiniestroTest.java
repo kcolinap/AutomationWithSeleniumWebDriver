@@ -24,7 +24,13 @@ public class VistaINTER_RechazarSiniestroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interRechazarSiniestro = INTER_RechazarSiniestroBean.getINTER_RechazarSiniestro();
+        ArrayList interRechazarSiniestro = null;
+
+        try {
+            interRechazarSiniestro = INTER_RechazarSiniestroBean.getINTER_RechazarSiniestro();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interRechazarSiniestro.size(); j++) {
             INTER_RechazarSiniestroBean inter_rechazarSiniestroBean = (INTER_RechazarSiniestroBean) interRechazarSiniestro.get(j);

@@ -22,7 +22,14 @@ public class VistaINTER_CumuloAseguradoTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interCumuloAsegurado = INTER_CumuloAseguradoBean.getINTER_CumuloAsegurado();
+        ArrayList interCumuloAsegurado = null;
+
+        try {
+            interCumuloAsegurado = INTER_CumuloAseguradoBean.getINTER_CumuloAsegurado();
+        }
+        catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interCumuloAsegurado.size(); j++) {
             INTER_CumuloAseguradoBean inter_cumuloAseguradoBean = (INTER_CumuloAseguradoBean) interCumuloAsegurado.get(j);

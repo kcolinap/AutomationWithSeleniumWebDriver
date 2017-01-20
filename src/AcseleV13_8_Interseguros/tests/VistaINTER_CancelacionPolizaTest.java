@@ -23,7 +23,13 @@ public class VistaINTER_CancelacionPolizaTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList anulacionPoliza = INTER_CancelacionPolizaBean.getAnulacionPoliza();
+        ArrayList anulacionPoliza = null;
+
+        try {
+            anulacionPoliza = INTER_CancelacionPolizaBean.getAnulacionPoliza();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < anulacionPoliza.size(); i++) {
 
@@ -36,7 +42,7 @@ public class VistaINTER_CancelacionPolizaTest {
                 a.testLink(inter_cancelacionPolizaBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }

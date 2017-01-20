@@ -23,7 +23,13 @@ public class VistaINTER_CreacionListaRestrictivaTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList interCreacionListaRestrictiva = INTER_CreacionListaRestrictivaBean.getInterCreacionListaRestrictiva();
+        ArrayList interCreacionListaRestrictiva = null;
+
+        try {
+            interCreacionListaRestrictiva = INTER_CreacionListaRestrictivaBean.getInterCreacionListaRestrictiva();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < interCreacionListaRestrictiva.size(); i++) {
 
@@ -36,7 +42,7 @@ public class VistaINTER_CreacionListaRestrictivaTest {
                 a.testLink(inter_creacionListaRestrictivaBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }

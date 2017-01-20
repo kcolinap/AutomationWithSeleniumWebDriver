@@ -23,7 +23,14 @@ public class VistaINTER_ObjetarCoberturaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList InterObjetarCobertura = INTER_ObjetarCoberturaBean.getInter_ObjetarCobertura();
+        ArrayList InterObjetarCobertura = null;
+
+        try {
+            InterObjetarCobertura = INTER_ObjetarCoberturaBean.getInter_ObjetarCobertura();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< InterObjetarCobertura.size(); j++) {
             INTER_ObjetarCoberturaBean inter_objetarCoberturaBean = (INTER_ObjetarCoberturaBean) InterObjetarCobertura.get(j);

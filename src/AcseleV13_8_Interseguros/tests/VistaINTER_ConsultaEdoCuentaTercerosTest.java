@@ -24,7 +24,14 @@ public class VistaINTER_ConsultaEdoCuentaTercerosTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList interEdoCuentas = INTER_ConsultaEdoCuentaTercerosBean.getInterConsultaEdoCuentaTerceros();
+        ArrayList interEdoCuentas = null;
+
+        try {
+            interEdoCuentas = INTER_ConsultaEdoCuentaTercerosBean.getInterConsultaEdoCuentaTerceros();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < interEdoCuentas.size(); i++) {
 
@@ -37,7 +44,7 @@ public class VistaINTER_ConsultaEdoCuentaTercerosTest {
                 a.testLink(inter_consultaEdoCuentaTercerosBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }

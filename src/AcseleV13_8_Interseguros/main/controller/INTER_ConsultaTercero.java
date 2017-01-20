@@ -46,7 +46,6 @@ public class INTER_ConsultaTercero {
         }catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-            //log.all("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null) {
                 driver.quit();
             }

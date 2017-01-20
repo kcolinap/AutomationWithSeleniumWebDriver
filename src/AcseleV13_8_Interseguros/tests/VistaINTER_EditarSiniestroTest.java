@@ -23,7 +23,13 @@ public class VistaINTER_EditarSiniestroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interEditarSiniestro = INTER_EditarSiniestroBean.getINTER_EditarSiniestro();
+        ArrayList interEditarSiniestro = null;
+
+        try {
+            interEditarSiniestro = INTER_EditarSiniestroBean.getINTER_EditarSiniestro();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interEditarSiniestro.size(); j++) {
             INTER_EditarSiniestroBean inter_editarSiniestroBean = (INTER_EditarSiniestroBean) interEditarSiniestro.get(j);

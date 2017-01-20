@@ -42,14 +42,17 @@ public class VistaINTER_PolizaEmisionBeneficiarioNaturalTest {
             try {
                 a.testLink(inter_polizaEmisionBeneficiarioNaturalBean, j, horaC);
             } catch (Exception e) {
+                e.printStackTrace();
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                // Para mandar a imprimir en el .log
                 //e.printStackTrace();
                 //log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
-                e.printStackTrace();
+                /*e.printStackTrace();
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 sw.toString(); // stack trace as a string
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + sw.toString());
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + sw.toString());*/
             }
         }
 

@@ -23,7 +23,13 @@ public class VistaINTER_HistorialReclamoTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList inter_historialReclamos = INTER_HistorialReclamoBean.getInter_HistorialReclamo();
+        ArrayList inter_historialReclamos = null;
+
+        try {
+            inter_historialReclamos = INTER_HistorialReclamoBean.getInter_HistorialReclamo();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< inter_historialReclamos.size(); j++) {
             INTER_HistorialReclamoBean inter_historialReclamoBean = (INTER_HistorialReclamoBean) inter_historialReclamos.get(j);

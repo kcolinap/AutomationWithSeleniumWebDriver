@@ -23,7 +23,14 @@ public class VistaINTER_CreacionSiniestroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList creacionSiniestro = INTER_CreacionSiniestroBean.getINTER_CreacionSiniestro();
+        ArrayList creacionSiniestro = null;
+
+        try {
+            creacionSiniestro = INTER_CreacionSiniestroBean.getINTER_CreacionSiniestro();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< creacionSiniestro.size(); j++) {
             INTER_CreacionSiniestroBean inter_creacionSiniestroBean = (INTER_CreacionSiniestroBean) creacionSiniestro.get(j);

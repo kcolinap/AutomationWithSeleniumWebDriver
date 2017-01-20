@@ -28,7 +28,13 @@ public class VistaINTER_ConsultaTerceroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList consultaTerceroINTER = INTER_ConsultaTerceroBean.getConsutaTercerosINTERBean();
+        ArrayList consultaTerceroINTER = null;
+
+        try {
+            consultaTerceroINTER = INTER_ConsultaTerceroBean.getConsutaTercerosINTERBean();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< consultaTerceroINTER.size(); j++) {
             INTER_ConsultaTerceroBean inter_consultaTerceroBean = (INTER_ConsultaTerceroBean) consultaTerceroINTER.get(j);

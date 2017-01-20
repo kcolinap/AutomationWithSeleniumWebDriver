@@ -22,7 +22,13 @@ public class VistaINTER_ConsultaCuentaTecnicaTest {
         @Test
         public void mainTest() throws SQLException {
 
-            ArrayList interCuentaTecnica = INTER_ConsultaCuentaTecnicaBean.getInterConsultaCuentaTecnica();
+            ArrayList interCuentaTecnica = null;
+
+            try {
+                interCuentaTecnica = INTER_ConsultaCuentaTecnicaBean.getInterConsultaCuentaTecnica();
+            }catch (SQLException e) {
+                log.error(e);
+            }
 
             for (int j = 0; j< interCuentaTecnica.size(); j++) {
                 INTER_ConsultaCuentaTecnicaBean inter_consultaCuentaTecnicaBean = (INTER_ConsultaCuentaTecnicaBean) interCuentaTecnica.get(j);

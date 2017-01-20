@@ -24,7 +24,13 @@ public class VistaINTER_CancelarPagosTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interCancelarPagos = INTER_CancelarPagosBean.getINTER_CancelarPagos();
+        ArrayList interCancelarPagos = null;
+
+        try {
+            interCancelarPagos = INTER_CancelarPagosBean.getINTER_CancelarPagos();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interCancelarPagos.size(); j++) {
             INTER_CancelarPagosBean inter_cancelarPagosBean  = (INTER_CancelarPagosBean) interCancelarPagos.get(j);

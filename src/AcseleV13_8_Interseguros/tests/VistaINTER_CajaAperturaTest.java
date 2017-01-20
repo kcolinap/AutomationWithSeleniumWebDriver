@@ -40,7 +40,7 @@ public class VistaINTER_CajaAperturaTest {
                 a.testLink(interCajaAperturaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

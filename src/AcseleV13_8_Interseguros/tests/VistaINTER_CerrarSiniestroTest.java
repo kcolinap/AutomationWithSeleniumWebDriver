@@ -23,7 +23,14 @@ public class VistaINTER_CerrarSiniestroTest {
         @Test
         public void mainTest() throws SQLException {
 
-            ArrayList interCerrarSiniestro = INTER_CerrarSiniestroBean.getINTER_CerrarSiniestro();
+            ArrayList interCerrarSiniestro = null;
+
+            try {
+                interCerrarSiniestro = INTER_CerrarSiniestroBean.getINTER_CerrarSiniestro();
+
+            }catch (SQLException e) {
+                log.error(e);
+            }
 
             for (int j = 0; j< interCerrarSiniestro.size(); j++) {
                 INTER_CerrarSiniestroBean inter_cerrarSiniestroBean = (INTER_CerrarSiniestroBean) interCerrarSiniestro.get(j);

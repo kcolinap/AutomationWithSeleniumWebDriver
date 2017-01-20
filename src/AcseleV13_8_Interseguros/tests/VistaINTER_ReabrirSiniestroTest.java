@@ -25,7 +25,14 @@ public class VistaINTER_ReabrirSiniestroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interReabrirSiniestro = INTER_ReabrirSiniestroBean.getINTER_ReabrirSiniestro();
+        ArrayList interReabrirSiniestro = null;
+
+        try {
+            interReabrirSiniestro = INTER_ReabrirSiniestroBean.getINTER_ReabrirSiniestro();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interReabrirSiniestro.size(); j++) {
             INTER_ReabrirSiniestroBean inter_reabrirSiniestroBean = (INTER_ReabrirSiniestroBean) interReabrirSiniestro.get(j);

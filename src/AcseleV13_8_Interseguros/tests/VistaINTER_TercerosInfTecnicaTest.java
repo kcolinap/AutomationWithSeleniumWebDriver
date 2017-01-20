@@ -21,10 +21,16 @@ public class VistaINTER_TercerosInfTecnicaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList TercerosInfTecnicaINTER = INTER_TercerosInfTecnicaBean.getTercerosInfTecnicaINTER();
+        ArrayList tercerosInfTecnicaINTER = null;
 
-        for (int j = 0; j< TercerosInfTecnicaINTER.size(); j++) {
-            INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean = (INTER_TercerosInfTecnicaBean) TercerosInfTecnicaINTER.get(j);
+        try {
+            tercerosInfTecnicaINTER = INTER_TercerosInfTecnicaBean.getTercerosInfTecnicaINTER();
+        }catch (SQLException e) {
+            log.error(e);
+        }
+
+        for (int j = 0; j< tercerosInfTecnicaINTER.size(); j++) {
+            INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean = (INTER_TercerosInfTecnicaBean) tercerosInfTecnicaINTER.get(j);
             INTER_TercerosInfTecnica a = new INTER_TercerosInfTecnica();
             Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
@@ -33,8 +39,7 @@ public class VistaINTER_TercerosInfTecnicaTest {
                 a.testLink(interTercerosInfTecnicaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-//                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

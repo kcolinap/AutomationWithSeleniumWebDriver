@@ -16,7 +16,7 @@ public class INTER_RenovacionPoliza {
 
     private final static Logger log = Logger.getLogger(INTER_RenovacionPoliza.class);
 
-    public static String nombreAutomatizacion ="INTER Renovacion de Poliza";
+    public String nombreAutomatizacion ="INTER Renovacion de Poliza";
     //Pliza a buscar
     //String nPoliza = "F004"; //F0003, K514, D21, D22, K512, K510, LR270401, ED250406
 

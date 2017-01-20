@@ -23,7 +23,13 @@ public class VistaINTER_ConsultaOrdenesPagoTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList inter_consultaOrdenesPagos = INTER_ConsultaOrdenesPagosBean.getINTER_ConsultaOrdenesPagos();
+        ArrayList inter_consultaOrdenesPagos = null;
+
+        try {
+            inter_consultaOrdenesPagos = INTER_ConsultaOrdenesPagosBean.getINTER_ConsultaOrdenesPagos();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< inter_consultaOrdenesPagos.size(); j++) {
             INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean = (INTER_ConsultaOrdenesPagosBean) inter_consultaOrdenesPagos.get(j);

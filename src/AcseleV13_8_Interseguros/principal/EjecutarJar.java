@@ -14,7 +14,7 @@ public class EjecutarJar {
 
     public static void main(String[] args) throws Exception {
 
-        args = new String[]{"2"};
+        //args = new String[]{"2"};
 
         for (int i = 0; i < args.length; i++) {
 

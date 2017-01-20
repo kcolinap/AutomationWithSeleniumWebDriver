@@ -23,7 +23,13 @@ public class VistaINTER_PrevisualizacionCuentaTecnicaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interPrevisualizacionCuentaTecnica = INTER_PrevisualizacionCuentaTecnicaBean.getInterPrevisualizacionCuentaTecnica();
+        ArrayList interPrevisualizacionCuentaTecnica = null;
+
+        try {
+            interPrevisualizacionCuentaTecnica = INTER_PrevisualizacionCuentaTecnicaBean.getInterPrevisualizacionCuentaTecnica();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interPrevisualizacionCuentaTecnica.size(); j++) {
             INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean = (INTER_PrevisualizacionCuentaTecnicaBean) interPrevisualizacionCuentaTecnica.get(j);

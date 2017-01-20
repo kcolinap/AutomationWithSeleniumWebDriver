@@ -41,7 +41,7 @@ public class VistaINTER_ConsultaSimplePolizaTest {
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

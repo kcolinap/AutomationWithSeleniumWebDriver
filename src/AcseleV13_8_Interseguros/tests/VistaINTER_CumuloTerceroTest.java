@@ -23,7 +23,13 @@ public class VistaINTER_CumuloTerceroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interCumuloTercero = INTER_CumuloTerceroBean.getINTER_CumuloTercero();
+        ArrayList interCumuloTercero = null;
+
+        try {
+            interCumuloTercero = INTER_CumuloTerceroBean.getINTER_CumuloTercero();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interCumuloTercero.size(); j++) {
             INTER_CumuloTerceroBean inter_cumuloTerceroBean = (INTER_CumuloTerceroBean) interCumuloTercero.get(j);

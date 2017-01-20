@@ -20,10 +20,15 @@ public class VistaINTER_RenovacionPolizaTest {
     private final static Logger log = Logger.getLogger(VistaINTER_RenovacionPolizaTest.class);
 
     @Test
-    //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList renovacionPoliza = INTER_RenovacionPolizaBean.getRenovacionPoliza();
+        ArrayList renovacionPoliza = null;
+
+        try {
+            renovacionPoliza = INTER_RenovacionPolizaBean.getRenovacionPoliza();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < renovacionPoliza.size(); i++) {
 
@@ -36,7 +41,7 @@ public class VistaINTER_RenovacionPolizaTest {
                 a.testLink(inter_renovacionPolizaBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

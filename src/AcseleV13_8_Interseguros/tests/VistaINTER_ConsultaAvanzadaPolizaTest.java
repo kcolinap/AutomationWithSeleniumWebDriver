@@ -21,7 +21,13 @@ public class VistaINTER_ConsultaAvanzadaPolizaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList consultaAvanzada = INTER_ConsultaAvanzadaPolizaBean.getConsultaAvanzadaPolizaBean();
+        ArrayList consultaAvanzada = null;
+
+        try {
+            consultaAvanzada = INTER_ConsultaAvanzadaPolizaBean.getConsultaAvanzadaPolizaBean();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< consultaAvanzada.size(); j++) {
             INTER_ConsultaAvanzadaPolizaBean inter_ConsultaAvanzadaPolizaBean = (INTER_ConsultaAvanzadaPolizaBean) consultaAvanzada.get(j);
@@ -34,7 +40,7 @@ public class VistaINTER_ConsultaAvanzadaPolizaTest {
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 
