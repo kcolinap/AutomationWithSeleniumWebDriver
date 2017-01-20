@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosInfTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_TercerosInfTecnica;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -25,9 +26,11 @@ public class VistaINTER_TercerosInfTecnicaTest {
         for (int j = 0; j< TercerosInfTecnicaINTER.size(); j++) {
             INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean = (INTER_TercerosInfTecnicaBean) TercerosInfTecnicaINTER.get(j);
             INTER_TercerosInfTecnica a = new INTER_TercerosInfTecnica();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(interTercerosInfTecnicaBean, j);
+                a.testLink(interTercerosInfTecnicaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);

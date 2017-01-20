@@ -18,27 +18,27 @@ public class INTER_ConsultaOrdenesPagos {
 
     public String nombreAutomatizacion = "Ordenes Pagos";
 
-    public void testLink(INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Interseguros_Metodos a = new Interseguros_Metodos();
         Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(5000);
 
         m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
         Thread.sleep(10000);
 
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_consultaOrdenesPagosBean, i);
-        ResultadoBusqueda(driver, a, inter_consultaOrdenesPagosBean, i);
-        ConsultaPagos(driver, a, inter_consultaOrdenesPagosBean, i);
+        BuscarPoliza(driver, a, inter_consultaOrdenesPagosBean, i, folderName);
+        ResultadoBusqueda(driver, a, inter_consultaOrdenesPagosBean, i, folderName);
+        ConsultaPagos(driver, a, inter_consultaOrdenesPagosBean, i, folderName);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -115,7 +115,7 @@ public class INTER_ConsultaOrdenesPagos {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion, folderName);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));
             btnBuscar.click();
@@ -129,7 +129,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -137,7 +137,7 @@ public class INTER_ConsultaOrdenesPagos {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
@@ -152,14 +152,14 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    private void ConsultaPagos(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i) {
+    private void ConsultaPagos(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) {
         try{
             Thread.sleep(1000);
             WebElement btnSelecCover  = driver.findElement(By.xpath("/html/body/div[13]/form[2]/select/option"));
             btnSelecCover.click();
 
 
-            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion, folderName);
 
 
             WebElement btnPagos = driver.findElement(By.xpath("/html/body/div[13]/form[2]/div[3]/input[6]"));
@@ -169,7 +169,7 @@ public class INTER_ConsultaOrdenesPagos {
             a.changeLastWindows(driver);
 
             Thread.sleep(5000);
-            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion, folderName);
 
 
         }

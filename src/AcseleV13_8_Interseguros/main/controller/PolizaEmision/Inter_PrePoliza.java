@@ -19,7 +19,7 @@ public class Inter_PrePoliza {
 
     private final static Logger log = Logger.getLogger(Inter_PrePoliza.class);
 
-    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
+    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
 
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
@@ -44,7 +44,7 @@ public class Inter_PrePoliza {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -64,7 +64,7 @@ public class Inter_PrePoliza {
         }
     }
 
-    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
         try {
 
             Thread.sleep(3000);
@@ -88,7 +88,7 @@ public class Inter_PrePoliza {
             }*/
 
 
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 

@@ -18,30 +18,30 @@ public class INTER_CumuloProduto {
 
     public String nombreAutomatizacion = "INTER Cumulos Productos";
 
-    public void testLink(INTER_CumuloProductoBean inter_cumuloProductoBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CumuloProductoBean inter_cumuloProductoBean, int i, String folderName) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Interseguros_Metodos a = new Interseguros_Metodos();
         Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(3000);
 
-        m.Cumulos_CumulosPorProducto(driver, nombreAutomatizacion,i);
+        m.Cumulos_CumulosPorProducto(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaProductos(driver, a, inter_cumuloProductoBean,i);
+        BusquedaProductos(driver, a, inter_cumuloProductoBean, i, folderName);
 
 
     }
 
 
-    public void BusquedaProductos (WebDriver driver, Interseguros_Metodos a, INTER_CumuloProductoBean inter_cumuloProductoBean, int i) throws IOException, InterruptedException{
+    public void BusquedaProductos (WebDriver driver, Interseguros_Metodos a, INTER_CumuloProductoBean inter_cumuloProductoBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);
-            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion, folderName);
             Select producto = new Select(driver.findElement(By.xpath("//*[@id=\"products\"]")));
             producto.selectByValue(inter_cumuloProductoBean.getProducto());
 
@@ -50,7 +50,7 @@ public class INTER_CumuloProduto {
             moneda.selectByValue(inter_cumuloProductoBean.getMoneda());
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();

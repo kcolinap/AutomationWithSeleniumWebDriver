@@ -18,13 +18,13 @@ public class INTER_CrearCaja {
 
     private final static Logger log = Logger.getLogger(INTER_CrearCaja.class);
 
-    public void CrearCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void CrearCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
 
             // Pantalla inicial
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             WebElement btnInsertar = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/div/input"));
@@ -52,7 +52,7 @@ public class INTER_CrearCaja {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             btnInsertar = driver.findElement(By.xpath("/html/body/form/table/tbody/tr[2]/td/div/input[1]"));
@@ -61,7 +61,7 @@ public class INTER_CrearCaja {
 
             // Pantalla inicial
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {

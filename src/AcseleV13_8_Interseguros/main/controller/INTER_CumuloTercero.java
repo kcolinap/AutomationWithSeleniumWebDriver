@@ -22,31 +22,31 @@ public class INTER_CumuloTercero {
 
     public String nombreAutomatizacion = "INTER Cumulo Tercero";
 
-    public void testLink(INTER_CumuloTerceroBean inter_cumuloTerceroBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CumuloTerceroBean inter_cumuloTerceroBean, int i, String folderName) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Interseguros_Metodos a = new Interseguros_Metodos();
         Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(8000);
 
-        m.Cumulos_CumulosPorTerceros(driver,nombreAutomatizacion, 3,i);
+        m.Cumulos_CumulosPorTerceros(driver,nombreAutomatizacion, 3, i, folderName);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BusquedaTerceros (driver, a, inter_cumuloTerceroBean, i);
+        BusquedaTerceros (driver, a, inter_cumuloTerceroBean, i, folderName);
 
 
     }
 
 
-    public void BusquedaTerceros (WebDriver driver, Interseguros_Metodos a, INTER_CumuloTerceroBean inter_cumuloTerceroBean, int i) throws IOException, InterruptedException{
+    public void BusquedaTerceros (WebDriver driver, Interseguros_Metodos a, INTER_CumuloTerceroBean inter_cumuloTerceroBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
 
             Thread.sleep(3000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             Select tipoTercero = new Select(driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select")));
             tipoTercero.selectByValue(inter_cumuloTerceroBean.getTipoTercero());
 
@@ -77,7 +77,7 @@ public class INTER_CumuloTercero {
 
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_0402036_ThirdPartySearchForCumulus_01\"]"));
             btnBuscar.click();
@@ -87,7 +87,7 @@ public class INTER_CumuloTercero {
             WebElement btnSeleccionar = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]"));
             btnSeleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
 
             Thread.sleep(1000);
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"td_button_submit_01\"]/input"));
@@ -106,7 +106,7 @@ public class INTER_CumuloTercero {
             moneda2.selectByValue(inter_cumuloTerceroBean.getMoneda2());*/
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
 
 
         }catch (Exception e) {

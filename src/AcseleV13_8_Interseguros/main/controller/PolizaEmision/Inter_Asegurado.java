@@ -19,7 +19,7 @@ public class Inter_Asegurado {
 
     private final static Logger log = Logger.getLogger(Inter_Asegurado.class);
 
-    public void AgregarAsegurado1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -72,7 +72,7 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -88,7 +88,7 @@ public class Inter_Asegurado {
         }
     }
 
-    public void AgregarAsegurado2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -141,7 +141,7 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -157,7 +157,7 @@ public class Inter_Asegurado {
         }
     }
 
-    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -214,7 +214,7 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -230,7 +230,7 @@ public class Inter_Asegurado {
         }
     }
 
-    public void AgregarAsegurado2_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado2_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -287,7 +287,7 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 

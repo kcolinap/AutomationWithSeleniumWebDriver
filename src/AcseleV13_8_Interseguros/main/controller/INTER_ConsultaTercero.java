@@ -20,7 +20,7 @@ public class INTER_ConsultaTercero {
     public String nombreAutomatizacion ="INTER Consulta Terceros";
     private WebDriver driver;
 
-    public void testLink(INTER_ConsultaTerceroBean inter_consultaTerceroBean, int i)throws Exception {
+    public void testLink(INTER_ConsultaTerceroBean inter_consultaTerceroBean, int i, String folderName)throws Exception {
 
         try {
 
@@ -29,17 +29,17 @@ public class INTER_ConsultaTercero {
             Interseguros_MenuMantenimiento interseguros_menuMantenimiento = new Interseguros_MenuMantenimiento();
 
             driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);
 
             //Entrando en Menu
-            interseguros_menuMantenimiento.MantTerc_BuscarTercero(driver,nombreAutomatizacion, i, 2);
+            interseguros_menuMantenimiento.MantTerc_BuscarTercero(driver,nombreAutomatizacion, i, 2, folderName);
 
             Thread.sleep(1000);
             a.cambiarVentana(driver); // Cambiar de ventana
 
-            BuscarTercero(a, driver, inter_consultaTerceroBean, i);
+            BuscarTercero(a, driver, inter_consultaTerceroBean, i, folderName);
 
             driver.quit();
 
@@ -53,7 +53,7 @@ public class INTER_ConsultaTercero {
         }
     }
 
-    public void BuscarTercero(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaTerceroBean inter_consultaTerceroBean, int i) throws InterruptedException, IOException {
+    public void BuscarTercero(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaTerceroBean inter_consultaTerceroBean, int i, String folderName) throws InterruptedException, IOException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -108,7 +108,7 @@ public class INTER_ConsultaTercero {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
 
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
@@ -119,7 +119,7 @@ public class INTER_ConsultaTercero {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
 
             // Boton Consultar
             WebElement btnConsultar = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[2]/div/form/input[2]"));
@@ -134,7 +134,7 @@ public class INTER_ConsultaTercero {
             }
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();

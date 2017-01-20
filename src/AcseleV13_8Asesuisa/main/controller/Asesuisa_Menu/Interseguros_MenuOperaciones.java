@@ -33,7 +33,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpePol_CrearWController(){}
 
-    public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
         try {
             Actions action = new Actions(driver);
@@ -45,7 +45,7 @@ public class Interseguros_MenuOperaciones {
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
             menu3.click();
@@ -132,7 +132,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_DeclaracionSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestro(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
+    public void OpeSini_MantenimientoSiniestro(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
         try {
             Actions action = new Actions(driver);
@@ -146,7 +146,7 @@ public class Interseguros_MenuOperaciones {
 
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
 
             menu3.click();
         }catch (Exception e) {
@@ -163,7 +163,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-    public void OpeSini_CreacionSiniestro(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    public void OpeSini_CreacionSiniestro(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
         try{
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -175,7 +175,7 @@ public class Interseguros_MenuOperaciones {
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
             Thread.sleep(1000);
             menu3.click();
 
@@ -200,7 +200,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_HistorialActividadesReclamo(){}
 
-    public void OpeSini_HistorialReclamo(WebDriver driver, String nombreAutomatizacion, int i){
+    public void OpeSini_HistorialReclamo(WebDriver driver, String nombreAutomatizacion, int i, String folderName){
 
         try{
 
@@ -211,7 +211,7 @@ public class Interseguros_MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(3000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
             menu3.click();
 
         }catch (Exception e) {
@@ -312,7 +312,7 @@ public class Interseguros_MenuOperaciones {
     /** UAA (Administrador de Cuentas Universal) **/
 
     /** Caja **/
-    public void UAA_Caja_AperturaCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    public void UAA_Caja_AperturaCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
         try {
             Actions action = new Actions(driver);
@@ -326,7 +326,7 @@ public class Interseguros_MenuOperaciones {
             Thread.sleep(1000);
             action.moveToElement(menu4).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
             menu4.click();
@@ -357,7 +357,7 @@ public class Interseguros_MenuOperaciones {
 
     public void UAA_Caja_CierreVariosCajeros(){}
 
-    public void UAA_Caja_CierreCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i) {
+    public void UAA_Caja_CierreCaja(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
         try {
             Actions action = new Actions(driver);
@@ -371,7 +371,7 @@ public class Interseguros_MenuOperaciones {
             Thread.sleep(1000);
             action.moveToElement(menu4).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
             menu4.click();
@@ -405,7 +405,7 @@ public class Interseguros_MenuOperaciones {
 
     /** -- Facturacion y Cobro -- **/
 
-    public void UAA_ModificacionMovimientosTercero(WebDriver driver, String nombreAutomatizacion, int i )throws IOException, InterruptedException{
+    public void UAA_ModificacionMovimientosTercero(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//cumulos
@@ -414,7 +414,7 @@ public class Interseguros_MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
             Thread.sleep(2000);
             menu3.click();
 
@@ -512,7 +512,7 @@ public class Interseguros_MenuOperaciones {
 
 
     /** Cumulos **/
-    public void Cumulos_CumulosPorTerceros(WebDriver driver, String nombreAutomatizacion, int i ) throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorTerceros(WebDriver driver, String nombreAutomatizacion, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -522,7 +522,7 @@ public class Interseguros_MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
             Thread.sleep(2000);
             menu3.click();
 
@@ -534,7 +534,7 @@ public class Interseguros_MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorProducto(WebDriver driver, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorProducto(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[11]"));//cumulos
@@ -543,7 +543,7 @@ public class Interseguros_MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
             Thread.sleep(2000);
             menu3.click();
 
@@ -555,7 +555,7 @@ public class Interseguros_MenuOperaciones {
 
 
     }
-    public void Cumulos_CumulosPorAsegurado(WebDriver driver, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorAsegurado(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -565,7 +565,7 @@ public class Interseguros_MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
             Thread.sleep(3000);
             menu3.click();
 
@@ -591,7 +591,7 @@ public class Interseguros_MenuOperaciones {
 
 
     /** Consultar en Lista Restrictiva **/
-    public void ConsultarListaRestrictiva(WebDriver driver, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
+    public void ConsultarListaRestrictiva(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
 
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
@@ -599,7 +599,7 @@ public class Interseguros_MenuOperaciones {
 
 
             menu1.click();
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
             Thread.sleep(4000);
             menu2.click();
             Thread.sleep(2000);

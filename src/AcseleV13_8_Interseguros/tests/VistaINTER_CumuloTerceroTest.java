@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CumuloTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CumuloTercero;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -27,9 +28,11 @@ public class VistaINTER_CumuloTerceroTest {
         for (int j = 0; j< interCumuloTercero.size(); j++) {
             INTER_CumuloTerceroBean inter_cumuloTerceroBean = (INTER_CumuloTerceroBean) interCumuloTercero.get(j);
             INTER_CumuloTercero a = new INTER_CumuloTercero();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_cumuloTerceroBean, j);
+                a.testLink(inter_cumuloTerceroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

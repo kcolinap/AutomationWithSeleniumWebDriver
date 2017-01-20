@@ -20,7 +20,7 @@ public class INTER_TercerosDirecciones {
 
     public String nombreAutomatizacion = "Direcciones Terceros";
 
-    public void testLink(INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i)throws Exception{
+    public void testLink(INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName)throws Exception{
 
         try {
 
@@ -29,12 +29,12 @@ public class INTER_TercerosDirecciones {
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
             //Entrando en Menu
-            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i);
+            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i, folderName);
 
             // Consulta del Tercero Creado
             Thread.sleep(2000);
@@ -53,7 +53,7 @@ public class INTER_TercerosDirecciones {
             a.regresarVentana(driver);
 
             //Entrando en Menu
-            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 15, i);
+            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 15, i, folderName);
             a.cambiarVentana(driver);
 
             BusquedaT(a, driver, interTercerosDireccionesBean);

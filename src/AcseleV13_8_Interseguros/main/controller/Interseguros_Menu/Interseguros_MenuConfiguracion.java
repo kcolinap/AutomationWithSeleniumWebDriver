@@ -129,7 +129,7 @@ public class Interseguros_MenuConfiguracion {
 
     /** (Nuevo) Plantillas (Modo No Privilegiado) **/
 
-    public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i ) {
+    public void NuevoPlantillasModoNoPrivilegiado(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
 
         try {
@@ -141,7 +141,7 @@ public class Interseguros_MenuConfiguracion {
             Thread.sleep(1000);
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i,  "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
             Thread.sleep(100);
             menu2.click();
 

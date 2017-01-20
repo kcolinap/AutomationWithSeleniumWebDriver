@@ -23,7 +23,7 @@ public class INTER_ConsultaAvanzadaPoliza {
     //String fechaEm = "17-12-2015";
 
 
-    public void testLink(INTER_ConsultaAvanzadaPolizaBean interConsultaAvanzadaPolizaBean, int i)throws Exception {
+    public void testLink(INTER_ConsultaAvanzadaPolizaBean interConsultaAvanzadaPolizaBean, int i, String folderName)throws Exception {
 
         // Instanciando Clases
         Interseguros_Metodos a= new Interseguros_Metodos();
@@ -31,8 +31,8 @@ public class INTER_ConsultaAvanzadaPoliza {
 
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
         Thread.sleep(3000);
 
         //Entrando en Menu
@@ -40,17 +40,17 @@ public class INTER_ConsultaAvanzadaPoliza {
         Thread.sleep(2000);
         a.cambiarVentana(driver); // Cambiar de ventana
 
-        BuscarPolizaAvanzada(a, driver, interConsultaAvanzadaPolizaBean, i);
+        BuscarPolizaAvanzada(a, driver, interConsultaAvanzadaPolizaBean, i, folderName);
     }
 
-    public void BuscarPolizaAvanzada(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaAvanzadaPolizaBean interConsultaAvanzadaPolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaAvanzada(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaAvanzadaPolizaBean interConsultaAvanzadaPolizaBean, int i, String folderName) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
 
         Thread.sleep(2000);
 
         //Screenshot
-        a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
         Toolkit.getDefaultToolkit().beep();
 
         // Boton Busqueda Avanzada
@@ -244,7 +244,7 @@ public class INTER_ConsultaAvanzadaPoliza {
         }
 
         //Screenshot
-        a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
         Toolkit.getDefaultToolkit().beep();
 
 
@@ -257,7 +257,7 @@ public class INTER_ConsultaAvanzadaPoliza {
 
         //Screenshot
         Thread.sleep(2000);
-        a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
         Toolkit.getDefaultToolkit().beep();
 
         // Boton Consultar
@@ -276,18 +276,18 @@ public class INTER_ConsultaAvanzadaPoliza {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/label")).click();
 
         //Screenshot
-        a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/div[1]/div[3]/div[3]/div/div/div/div/div[2]/div/div[2]/table/tbody/tr/td[1]/div[22]/div/div/div/div[3]")).click();
 
-        a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div[3]/form/div[7]/div/div/table/tfoot/tr/td[1]")).click();
 
         //Screenshot
-        a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
         Toolkit.getDefaultToolkit().beep();
         System.out.println("Fin del Test");
         Thread.sleep(1000);

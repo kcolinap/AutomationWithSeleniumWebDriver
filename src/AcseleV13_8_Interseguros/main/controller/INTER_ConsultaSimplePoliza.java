@@ -22,15 +22,15 @@ public class INTER_ConsultaSimplePoliza {
     //String nPoliza = "EA00222";
 
 
-    public void testLink(INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i) throws Exception {
+    public void testLink(INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i, String folderName) throws Exception {
 
         // Instanciando Clases
         Interseguros_Metodos a = new Interseguros_Metodos();
         Interseguros_MenuOperaciones interseguros_menuOperaciones = new Interseguros_MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
         Thread.sleep(5000);
 
         //Entrando en Menu
@@ -38,10 +38,10 @@ public class INTER_ConsultaSimplePoliza {
         Thread.sleep(2000);
         a.cambiarVentana(driver); // Cambiar de ventana
 
-        BuscarPolizaSimple(a, driver, inter_consultaSimplePolizaBean, i);
+        BuscarPolizaSimple(a, driver, inter_consultaSimplePolizaBean, i, folderName);
     }
 
-    public void BuscarPolizaSimple(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i, String folderName) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -53,7 +53,7 @@ public class INTER_ConsultaSimplePoliza {
         fieldNumPoliza.sendKeys(inter_consultaSimplePolizaBean.getNumPoliza());
 
         //Screenshot
-        a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
 
         //Boton Buscar
         driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
@@ -72,7 +72,7 @@ public class INTER_ConsultaSimplePoliza {
         driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
 
         //Screenshot
-        a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
 
         //Boton Consultar Poliza
         driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_ConsultPolicyButton']")).click();
@@ -91,7 +91,7 @@ public class INTER_ConsultaSimplePoliza {
         if (driver.findElement(By.xpath("//label[@wicketpath='modalWindowForm_EventSection_content_eventMessage']")).isDisplayed()){
             //Screenshot
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6-2", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6-2", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
             // Boton Continuar

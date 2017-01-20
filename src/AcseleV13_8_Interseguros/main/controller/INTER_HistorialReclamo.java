@@ -18,14 +18,14 @@ public class INTER_HistorialReclamo {
 
     public String nombreAutomatizacion = "Historial Reclamos";
 
-    public void testLink(INTER_HistorialReclamoBean inter_historialReclamoBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_HistorialReclamoBean inter_historialReclamoBean, int i, String folderName) throws IOException, InterruptedException {
 
 //implementando clase de metodos
         Interseguros_Metodos a = new Interseguros_Metodos();
         Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(5000);
 
         m.OpeSini_HistorialReclamo(driver, a,  nombreAutomatizacion,3, i);

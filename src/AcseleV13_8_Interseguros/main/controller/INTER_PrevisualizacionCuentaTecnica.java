@@ -17,7 +17,7 @@ public class INTER_PrevisualizacionCuentaTecnica {
     private final static Logger log = Logger.getLogger(INTER_PrevisualizacionCuentaTecnica.class);
     public String nombreAutomatizacion ="Previsualizacion Cuenta Tecnica";
 
-    public void testLink (INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean, int i )  throws Exception {
+    public void testLink (INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean, int i, String folderName)  throws Exception {
 
         //Metodos a = new Metodos();
         Interseguros_Metodos a = new Interseguros_Metodos();
@@ -25,8 +25,8 @@ public class INTER_PrevisualizacionCuentaTecnica {
 
 
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(1500);
         System.out.println("prueba");
 

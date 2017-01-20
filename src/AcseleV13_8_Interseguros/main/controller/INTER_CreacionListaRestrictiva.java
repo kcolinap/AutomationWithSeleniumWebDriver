@@ -21,7 +21,7 @@ public class INTER_CreacionListaRestrictiva {
 
     public String nombreAutomatizacion = "Creacion listas Restrictivas";
 
-    public void testLink (INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i )  throws Exception {
+    public void testLink (INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName)  throws Exception {
 
         try {
             //Metodos a = new Metodos();
@@ -32,13 +32,13 @@ public class INTER_CreacionListaRestrictiva {
 
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
             System.out.println("prueba");
 
 
-            m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i);
+            m.NuevoPlantillasModoNoPrivilegiado(driver, nombreAutomatizacion, 3, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -53,11 +53,11 @@ public class INTER_CreacionListaRestrictiva {
             //driver.findElement(By.xpath("/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/div")).click();
             Thread.sleep(1000);
             driver.findElement(By.xpath("/html/body/div[1]/div[1]")).click();
-            interseguros_menuMantenimiento.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3, i);
+            interseguros_menuMantenimiento.AdminLisRest_CrearListasRestrictivas(driver, nombreAutomatizacion, 3, i, folderName);
             Thread.sleep(3000);
             a.cambiarVentana(driver);
 
-            ListasRestrictivasCreacion (driver, a, inter_creacionListaRestrictivaBean, i);
+            ListasRestrictivasCreacion (driver, a, inter_creacionListaRestrictivaBean, i, folderName);
             Thread.sleep(1000);
 
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class INTER_CreacionListaRestrictiva {
         }
     }
 
-    public void CrearNuevaLista (WebDriver driver, Interseguros_Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i) throws IOException, InterruptedException{
+    public void CrearNuevaLista (WebDriver driver, Interseguros_Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             Actions action = new Actions(driver);
@@ -81,7 +81,7 @@ public class INTER_CreacionListaRestrictiva {
             WebElement plantillaPrincipal = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718\"]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[43]/td/div")); // selecciona la plantilla principal de listas restrictivas
             plantillaPrincipal.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             /*WebElement plantillaListas = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/table/tbody/tr[41]/td/div/span")); //despliega la carpeta con todas las listas restrictivas existentes
@@ -98,16 +98,16 @@ public class INTER_CreacionListaRestrictiva {
             Thread.sleep(1000);
             action.moveToElement(opcionAgregar).build().perform();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             opcionAgregar.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
 
             WebElement nombrePlantillaNueva = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[3]/input")); //se agrega el nombre de la nueva plantilla
             nombrePlantillaNueva.sendKeys(inter_creacionListaRestrictivaBean.getNombrePlantilla());
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"WControllerfront-1437825718-window-overlays\"]/div[3]/div/div/div[5]/div/div/div[5]/div/div[1]/button/span")); //se acacta la creacion de la nueva plantilla
@@ -149,7 +149,7 @@ public class INTER_CreacionListaRestrictiva {
             WebElement propiedadLista = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[2]/div/div[2]/div[1]/table/tbody/tr[16]/td/div"));// selecciona la propiedad
             propiedadLista.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
             Thread.sleep(1500);
 
             WebElement asociarPropiedad = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div/div/div[1]/button")); //hace click en el incono de asociar propiedad
@@ -173,7 +173,7 @@ public class INTER_CreacionListaRestrictiva {
                 if (texto.equals(inter_creacionListaRestrictivaBean.getNombrePlantilla())){
                     listaPropiedadCarpeta.click();
                     Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion, folderName);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
@@ -186,7 +186,7 @@ public class INTER_CreacionListaRestrictiva {
             WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div/div/div[9]/button"));
             btnSalvar.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button"));
@@ -202,18 +202,18 @@ public class INTER_CreacionListaRestrictiva {
         }
     }
 
-    public void ListasRestrictivasCreacion (WebDriver driver, Interseguros_Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i) throws IOException, InterruptedException{
+    public void ListasRestrictivasCreacion (WebDriver driver, Interseguros_Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAgregar = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div/span/span")); //hace click al boton agregar en listas restrictivas
             btnAgregar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement tipo = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[1]/div/div/div[2]/div/div")); //despliega los tipos de lista disponibles
@@ -223,7 +223,7 @@ public class INTER_CreacionListaRestrictiva {
             WebElement opcion = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td")); // selecciona el tipo de lista
             opcion.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement nombre = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div")); //despliega las listas que existen en el tempolate tool
@@ -244,7 +244,7 @@ public class INTER_CreacionListaRestrictiva {
                 if (texto.equals(inter_creacionListaRestrictivaBean.getNombrePlantilla())){
                     opcionNombre.click();
                     Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion, folderName);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
@@ -258,7 +258,7 @@ public class INTER_CreacionListaRestrictiva {
 
             Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\ListasTemplateInter.exe");  //se importa el archivo cn la data de la nueva lista
             Thread.sleep(1500);
-            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
 
@@ -280,7 +280,7 @@ public class INTER_CreacionListaRestrictiva {
                 if (texto.equals(inter_creacionListaRestrictivaBean.getNombrePlantilla())){
                     nuevaLista.click();
                     Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i,  "screen17", nombreAutomatizacion);
+                    a.ScreenShotPool(driver, i,  "screen17", nombreAutomatizacion, folderName);
                     System.out.println("Prueba: '" + texto + "' seleccionado");
                     break;
                 }
@@ -295,13 +295,13 @@ public class INTER_CreacionListaRestrictiva {
             WebElement ultimoRegistro = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/input")); // selecciona la fecha mas reciente
             ultimoRegistro.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[3]/div/div/div[1]/div/span")); //gace click al boton aceptar y muestra el detalle del import
             btnAcept.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen19", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen19", nombreAutomatizacion, folderName);
 
 
         }catch (Exception e) {

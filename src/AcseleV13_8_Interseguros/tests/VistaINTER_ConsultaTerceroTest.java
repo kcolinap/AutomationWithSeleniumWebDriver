@@ -33,9 +33,11 @@ public class VistaINTER_ConsultaTerceroTest {
         for (int j = 0; j< consultaTerceroINTER.size(); j++) {
             INTER_ConsultaTerceroBean inter_consultaTerceroBean = (INTER_ConsultaTerceroBean) consultaTerceroINTER.get(j);
             INTER_ConsultaTercero a = new INTER_ConsultaTercero();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_consultaTerceroBean, j);
+                a.testLink(inter_consultaTerceroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

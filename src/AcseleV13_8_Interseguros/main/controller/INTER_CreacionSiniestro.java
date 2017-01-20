@@ -26,29 +26,29 @@ public class INTER_CreacionSiniestro {
 
     public String nombreAutomatizacion = "Creacion Siniestros";
 
-    public void testLink(INTER_CreacionSiniestroBean inter_creacionSiniestroBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName) throws IOException, InterruptedException {
 
         //implementando clase de metodos
         Interseguros_Metodos a = new Interseguros_Metodos();
         Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
         Thread.sleep(5000);
 
         m.OpeSini_CreacionSiniestro(driver,a,nombreAutomatizacion,3, i);
         Thread.sleep(8000);
         a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_creacionSiniestroBean ,i);
-        ResultadoBusqueda(driver, a, inter_creacionSiniestroBean , i);
-        AgregarObjetoAfectado(driver, a, inter_creacionSiniestroBean, i);
-        AgregarCobertura(driver, a, inter_creacionSiniestroBean, i);
-        AgregarRequisitos(driver, a, inter_creacionSiniestroBean,i);
-        AgregarPagos(driver, a, inter_creacionSiniestroBean, i);
+        BuscarPoliza(driver, a, inter_creacionSiniestroBean ,i, folderName);
+        ResultadoBusqueda(driver, a, inter_creacionSiniestroBean , i, folderName);
+        AgregarObjetoAfectado(driver, a, inter_creacionSiniestroBean, i, folderName);
+        AgregarCobertura(driver, a, inter_creacionSiniestroBean, i, folderName);
+        AgregarRequisitos(driver, a, inter_creacionSiniestroBean,i, folderName);
+        AgregarPagos(driver, a, inter_creacionSiniestroBean, i, folderName);
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -300,7 +300,7 @@ public class INTER_CreacionSiniestro {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i, "screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen4",nombreAutomatizacion, folderName);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchformpolicy_01\"]"));
             btnBuscar.click();
@@ -314,7 +314,7 @@ public class INTER_CreacionSiniestro {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i){
+    public void ResultadoBusqueda (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName){
         try {
             Thread.sleep(2000);
 
@@ -335,7 +335,7 @@ public class INTER_CreacionSiniestro {
             driver.switchTo().defaultContent();
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
 
             WebElement btnSelecUnidadesRiesgo = driver.findElement(By.xpath("//*[@id=\"idb_040201401_searchresult_02\"]"));
             btnSelecUnidadesRiesgo.click();
@@ -346,7 +346,7 @@ public class INTER_CreacionSiniestro {
             selecUnidadRiesgo.click();
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen6", nombreAutomatizacion, folderName);
 
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_selectRiskUnitToClaim_05\"]"));
             btnEnviar.click();
@@ -363,7 +363,7 @@ public class INTER_CreacionSiniestro {
             selecEvento.click();
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion, folderName);
 
             btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_policyEventsToClaim_01\"]"));
             btnEnviar.click();
@@ -374,7 +374,7 @@ public class INTER_CreacionSiniestro {
             btnAceptar.click();
 
             Thread.sleep(20000);
-            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -383,7 +383,7 @@ public class INTER_CreacionSiniestro {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -460,7 +460,7 @@ public class INTER_CreacionSiniestro {
 
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen9",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen9",nombreAutomatizacion, folderName);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -473,7 +473,7 @@ public class INTER_CreacionSiniestro {
             Thread.sleep(25000);
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen10",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen10",nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -482,7 +482,7 @@ public class INTER_CreacionSiniestro {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i){
+    public void AgregarCobertura (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName){
         try{
 
             Thread.sleep(2000);
@@ -495,7 +495,7 @@ public class INTER_CreacionSiniestro {
             pagoMaximo.sendKeys(inter_creacionSiniestroBean.getPagoMaximo());
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen11",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen11",nombreAutomatizacion, folderName);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_addCoverages_03\"]"));
             btnEnviar.click();
 
@@ -564,7 +564,7 @@ public class INTER_CreacionSiniestro {
         }
     }
 
-    public void AgregarRequisitos (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i){
+    public void AgregarRequisitos (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName){
         try {
 
             Thread.sleep(6000);
@@ -583,7 +583,7 @@ public class INTER_CreacionSiniestro {
             WebElement btnRecibido = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/thead/tr/th[3]/input"));
             btnRecibido.click();
             Thread.sleep(3000);
-            a.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion, folderName);
 
             Thread.sleep(2000);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_requisites_02\"]"));
@@ -597,7 +597,7 @@ public class INTER_CreacionSiniestro {
         }
     }
 
-    public void AgregarPagos (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i){
+    public void AgregarPagos (WebDriver driver, Interseguros_Metodos a, INTER_CreacionSiniestroBean inter_creacionSiniestroBean, int i, String folderName){
         try {
             Thread.sleep(5000);
             Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));
@@ -612,25 +612,25 @@ public class INTER_CreacionSiniestro {
             btnPagos.click();
 
             Thread.sleep(20000);
-            a.ScreenShotPool(driver,i,"screen13",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen13",nombreAutomatizacion, folderName);
             WebElement tercerosPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
             tercerosPoliza.click();
 
             Thread.sleep(10000);
             WebElement seleccionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/table[2]/tbody/tr[4]/td[1]/input"));
             seleccionTercero.click();
-            a.ScreenShotPool(driver,i,"screen14",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen14",nombreAutomatizacion, folderName);
 
             Thread.sleep(4000);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_resultClaimThirdParty_01\"]"));
             btnEnviar.click();
 
             Thread.sleep(15000);
-            a.ScreenShotPool(driver,i,"screen15",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen15",nombreAutomatizacion, folderName);
             WebElement btnEditar = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]"));
             btnEditar.click();
             Thread.sleep(10000);
-            a.ScreenShotPool(driver,i,"screen16",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen16",nombreAutomatizacion, folderName);
 
            /* if (inter_creacionSiniestroBean.getFechaCompromiso() != null){
                 Thread.sleep(2000);
@@ -678,7 +678,7 @@ public class INTER_CreacionSiniestro {
 
 
             Thread.sleep(15000);
-            a.ScreenShotPool(driver,i,"screen17",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen17",nombreAutomatizacion, folderName);
 
             Thread.sleep(1000);
             WebElement btnEnviar2 = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
@@ -693,7 +693,7 @@ public class INTER_CreacionSiniestro {
             }
 
             Thread.sleep(4000);
-            a.ScreenShotPool(driver,i,"screen18",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen18",nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();

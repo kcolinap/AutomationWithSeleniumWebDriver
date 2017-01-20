@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ObjetarCoberturaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ObjetarCobertura;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -27,9 +28,11 @@ public class VistaINTER_ObjetarCoberturaTest {
         for (int j = 0; j< InterObjetarCobertura.size(); j++) {
             INTER_ObjetarCoberturaBean inter_objetarCoberturaBean = (INTER_ObjetarCoberturaBean) InterObjetarCobertura.get(j);
             INTER_ObjetarCobertura a = new INTER_ObjetarCobertura();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_objetarCoberturaBean, j);
+                a.testLink(inter_objetarCoberturaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

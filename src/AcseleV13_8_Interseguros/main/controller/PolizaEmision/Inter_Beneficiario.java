@@ -20,7 +20,7 @@ public class Inter_Beneficiario {
 
     private final static Logger log = Logger.getLogger(Inter_Beneficiario.class);
 
-    public void AgregarBeneficiario1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarBeneficiario1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -100,7 +100,7 @@ public class Inter_Beneficiario {
 
             jse.executeScript("window.scrollBy(0,150)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -112,7 +112,7 @@ public class Inter_Beneficiario {
 
             //jse.executeScript("window.scrollBy(0,400)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -128,7 +128,7 @@ public class Inter_Beneficiario {
         }
     }
 
-    public void AgregarBeneficiario2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarBeneficiario2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -208,7 +208,7 @@ public class Inter_Beneficiario {
 
             jse.executeScript("window.scrollBy(0,150)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -220,7 +220,7 @@ public class Inter_Beneficiario {
 
             //jse.executeScript("window.scrollBy(0,400)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 

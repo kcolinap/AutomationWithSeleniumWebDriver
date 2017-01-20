@@ -20,7 +20,7 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
 
     public String nombreAutomatizacion = "INTER Poliza Emision Beneficiario Natural";
 
-    public void testLink(INTER_PolizaEmisionBeneficiarioNaturalBean inter_polizaEmisionBeneficiarioNaturalBean, int i) throws IOException, InterruptedException {
+    public void testLink(INTER_PolizaEmisionBeneficiarioNaturalBean inter_polizaEmisionBeneficiarioNaturalBean, int i, String folderName) throws IOException, InterruptedException {
 
         try {
 
@@ -38,13 +38,13 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
             Inter_Validar interValidar = new Inter_Validar();
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
 
             //Entrando en Menu
-            intersegurosMenuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2, i);
+            intersegurosMenuOperaciones.OpePol_Crear(driver, nombreAutomatizacion, 2, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -53,39 +53,39 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
             /** Crear Poliza */
 
             Thread.sleep(3000);
-            interPrePoliza.AdministracionPropuestaPoliza(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 3);
+            interPrePoliza.AdministracionPropuestaPoliza(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 3);
             Thread.sleep(2000);
-            interPrePoliza.EvAplicar(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 4);
+            interPrePoliza.EvAplicar(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 4);
             Thread.sleep(2000);
             if (inter_polizaEmisionBeneficiarioNaturalBean.getProducto().equals("Inteligo")) {
-                interInformacionGeneralPoliza.InformacionGeneralInteligo(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 5);
+                interInformacionGeneralPoliza.InformacionGeneralInteligo(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 5);
                 Thread.sleep(2000);
-                interContratante.AgregarContratante(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 6, 7);
+                interContratante.AgregarContratante(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 6, 7);
                 Thread.sleep(2000);
-                interUnidadesRiesgo.UnidadesRiesgo1(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 8);
+                interUnidadesRiesgo.UnidadesRiesgo1(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 8);
                 Thread.sleep(2000);
-                interObjetosAsegurados.ObjetoAsegurado1_Inteligo(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 9);
+                interObjetosAsegurados.ObjetoAsegurado1_Inteligo(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 9);
                 Thread.sleep(2000);
-                interAsegurado.AgregarAsegurado1(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 10, 11);
+                interAsegurado.AgregarAsegurado1(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 10, 11);
                 Thread.sleep(2000);
-                interBeneficiario.AgregarBeneficiario1(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 12, 13);
+                interBeneficiario.AgregarBeneficiario1(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 12, 13);
                 Thread.sleep(2000);
                 //interObjetosAsegurados.ObjetoAsegurado2_Inteligo(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 14);
                 //Thread.sleep(2000);
-                interAsegurado.AgregarAsegurado2(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 15, 16);
+                interAsegurado.AgregarAsegurado2(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 15, 16);
                 Thread.sleep(2000);
-                interBeneficiario.AgregarBeneficiario2(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 17, 18);
+                interBeneficiario.AgregarBeneficiario2(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 17, 18);
                 Thread.sleep(2000);
-                interCalcular.Calcular(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 19, 20);
+                interCalcular.Calcular(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 19, 20);
                 Thread.sleep(2000);
                 interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
             }
             else if (inter_polizaEmisionBeneficiarioNaturalBean.getProducto().equals("Inteligo")){
-                interInformacionGeneralPoliza.InformacionGeneralDotalSimple(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 5, 6, 7);
+                interInformacionGeneralPoliza.InformacionGeneralDotalSimple(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 5, 6, 7);
                 Thread.sleep(2000);
-                interContratante.AgregarContratante(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 8, 9);
+                interContratante.AgregarContratante(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 8, 9);
                 Thread.sleep(2000);
-                interUnidadesRiesgo.UnidadesRiesgo1DotalSimple(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, 10);
+                interUnidadesRiesgo.UnidadesRiesgo1DotalSimple(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 10);
                 Thread.sleep(2000);
                 //interObjetosAsegurados.ObjetoAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 9);
             }

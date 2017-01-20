@@ -17,7 +17,7 @@ public class INTER_CajaApertura {
 
     public String nombreAutomatizacion = "INTER Caja Apertura";
 
-    public void testLink(INTER_CajaAperturaBean interCajaAperturaBean, int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CajaAperturaBean interCajaAperturaBean, int i, String folderName) throws IOException, InterruptedException {
 
         try {
 
@@ -29,13 +29,13 @@ public class INTER_CajaApertura {
 
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
 
             //Entrando en Menu
-            interMenuOperaciones.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 2, i);
+            interMenuOperaciones.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 2, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -44,7 +44,7 @@ public class INTER_CajaApertura {
             /** Asociar la Caja a Cajero */
 
             Thread.sleep(3000);
-            interCaja.AperturaCaja(a, driver, interCajaAperturaBean, nombreAutomatizacion, i, 3, 4, 5);
+            interCaja.AperturaCaja(a, driver, interCajaAperturaBean, nombreAutomatizacion, i, folderName, 3, 4, 5);
 
 
         } catch (Exception e) {

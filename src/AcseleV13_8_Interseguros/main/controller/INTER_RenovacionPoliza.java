@@ -20,15 +20,15 @@ public class INTER_RenovacionPoliza {
     //Pliza a buscar
     //String nPoliza = "F004"; //F0003, K514, D21, D22, K512, K510, LR270401, ED250406
 
-    public void testLink(INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i)throws Exception{
+    public void testLink(INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i, String folderName)throws Exception{
 
         try {
 
             Interseguros_Metodos a = new Interseguros_Metodos();   //implementando metodos.
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(5000);
 
             m.OpePol_CotizacionSuscripcionMantenimientoPolizas(driver, nombreAutomatizacion, 2);

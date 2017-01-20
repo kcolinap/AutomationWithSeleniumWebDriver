@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_RechazarSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_RechazarSiniestro;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -28,9 +29,11 @@ public class VistaINTER_RechazarSiniestroTest {
         for (int j = 0; j< interRechazarSiniestro.size(); j++) {
             INTER_RechazarSiniestroBean inter_rechazarSiniestroBean = (INTER_RechazarSiniestroBean) interRechazarSiniestro.get(j);
             INTER_RechazarSiniestro a = new INTER_RechazarSiniestro();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_rechazarSiniestroBean, j);
+                a.testLink(inter_rechazarSiniestroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

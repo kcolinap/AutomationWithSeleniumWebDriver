@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CreacionListaRestrictivaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CreacionListaRestrictiva;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -28,9 +29,11 @@ public class VistaINTER_CreacionListaRestrictivaTest {
 
             INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean = (INTER_CreacionListaRestrictivaBean) interCreacionListaRestrictiva.get(i);
             INTER_CreacionListaRestrictiva a = new INTER_CreacionListaRestrictiva();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_creacionListaRestrictivaBean, i);
+                a.testLink(inter_creacionListaRestrictivaBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);

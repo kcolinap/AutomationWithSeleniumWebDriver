@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CreacionCajaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CreacionCaja;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -33,9 +34,11 @@ public class VistaINTER_CreacionCajaTest {
         for (int j = 0; j < caja.size(); j++) {
             INTER_CreacionCajaBean interCreacionCajaBean = (INTER_CreacionCajaBean) caja.get(j);
             INTER_CreacionCaja a = new INTER_CreacionCaja();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(interCreacionCajaBean, j);
+                a.testLink(interCreacionCajaBean, j, horaC);
             } catch (Exception e) {
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
@@ -52,7 +55,8 @@ public class VistaINTER_CreacionCajaTest {
 
         DataSetManager.createPartialDataSet("SELECT PRUEBA,DESCRIPCION,UBICACION,SUCURSAL FROM CREAR_CAJA_INTER ORDER BY PRUEBA ASC",
                 "CREAR_CAJA_INTER",
-                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCreacionCaja_dataset.xml");*/
+                "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCreacionCaja_dataset.xml");
+*/
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCreacionCaja_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 

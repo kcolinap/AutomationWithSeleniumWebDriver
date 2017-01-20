@@ -26,7 +26,7 @@ public class INTER_ConsultaCuentaTecnica {
     private final static Logger log = Logger.getLogger(INTER_ConsultaCuentaTecnica.class);
     public String nombreAutomatizacion ="Consulta Cuenta Tecnica";
 
-    public void testLink (INTER_ConsultaCuentaTecnicaBean inter_creacionListaRestrictivaBean, int i )  throws Exception {
+    public void testLink (INTER_ConsultaCuentaTecnicaBean inter_creacionListaRestrictivaBean, int i, String folderName)  throws Exception {
 
             //Metodos a = new Metodos();
             Interseguros_Metodos a = new Interseguros_Metodos();
@@ -34,20 +34,20 @@ public class INTER_ConsultaCuentaTecnica {
 
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
             System.out.println("prueba");
 
             m.CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(driver, nombreAutomatizacion, 3, i);
             Thread.sleep(2000);
             a.cambiarVentana(driver);
-            ConsultaCuentaTecnica(driver, a, inter_creacionListaRestrictivaBean, i);
+            ConsultaCuentaTecnica(driver, a, inter_creacionListaRestrictivaBean, i, folderName);
 
 
     }
 
-    public void ConsultaCuentaTecnica(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaCuentaTecnicaBean inter_consultaCuentaTecnicaBean, int i) throws IOException, InterruptedException{
+    public void ConsultaCuentaTecnica(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaCuentaTecnicaBean inter_consultaCuentaTecnicaBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
             Thread.sleep(2000);
@@ -62,7 +62,7 @@ public class INTER_ConsultaCuentaTecnica {
             btnBuscar.click();
 
             Thread.sleep(3000);
-/*
+            /*
             Set<String> sid = driver.getWindowHandles();
             //Using iterator we can fetch the values from Set.
             Iterator<String> it = sid.iterator();
@@ -75,7 +75,7 @@ public class INTER_ConsultaCuentaTecnica {
             System.out.println("Prueba " + childId);
             //swtiching control to child Window
             driver.switchTo().window(childId);
-*/
+            */
             Thread.sleep(2000);
 
             WebElement btnBusqueda = driver.findElement(By.xpath("//*[@id=\"menuOperaciones\"]/center/table/tbody/tr[1]/td/table/tbody/tr/td/table/tbody/tr[2]/td[1]/input"));
@@ -87,7 +87,7 @@ public class INTER_ConsultaCuentaTecnica {
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"buttonSetTirdParty\"]"));
             btnAceptar.click();
             Thread.sleep(1000);
-/*
+            /*
             sid = driver.getWindowHandles();
             //Using iterator we can fetch the values from Set.
             it = sid.iterator();
@@ -100,7 +100,7 @@ public class INTER_ConsultaCuentaTecnica {
             System.out.println("Prueba " + childId2);
             //swtiching control to child Window
             driver.switchTo().window(childId2);
-*/
+              */
             Thread.sleep(3000);
 
 
@@ -139,7 +139,7 @@ public class INTER_ConsultaCuentaTecnica {
 
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i, "screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i, "screen4",nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("/html/body/form/center/table/tbody/tr[6]/td/center/input"));
             btnConsultar.click();

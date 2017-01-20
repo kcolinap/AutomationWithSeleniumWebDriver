@@ -25,13 +25,13 @@ public class INTER_ConsultaEdoCuentaTerceros {
     //String fechaEm = "17-12-2015";
 
 
-    public void testLink(INTER_ConsultaEdoCuentaTercerosBean inter_consultaEdoCuentaTercerosBean, int i)throws Exception {
+    public void testLink(INTER_ConsultaEdoCuentaTercerosBean inter_consultaEdoCuentaTercerosBean, int i, String folderName)throws Exception {
 
         Interseguros_Metodos a= new Interseguros_Metodos();   //implementando metodos.
         Interseguros_MenuConsultas m = new Interseguros_MenuConsultas();
         WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
         Thread.sleep(3000);
 
         m.EstadoCuentas(driver, nombreAutomatizacion,2 , i);

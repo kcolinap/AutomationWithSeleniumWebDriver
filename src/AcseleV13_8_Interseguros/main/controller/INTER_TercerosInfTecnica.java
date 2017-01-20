@@ -21,7 +21,7 @@ public class INTER_TercerosInfTecnica {
     public String nombreAutomatizacion = "Informacion Tecnica de INTER_Terceros";
     private WebDriver driver;
 
-    public void testLink(INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i)throws Exception{
+    public void testLink(INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName)throws Exception{
 
         try {
 
@@ -30,22 +30,22 @@ public class INTER_TercerosInfTecnica {
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
             driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
             // Consulta del Tercero Creado
-            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, i, 2);
+            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, i, 2, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, driver, interTercerosInfTecnicaBean, i); //Busqueda Tercero
+            BusquedaT(a, driver, interTercerosInfTecnicaBean, i, folderName); //Busqueda Tercero
 
             // Boton Inf Tecnica
             driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_technicalDataButton']")).click();
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
 
             driver.quit();
 
@@ -59,7 +59,7 @@ public class INTER_TercerosInfTecnica {
 
     }
 
-    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i) throws InterruptedException, IOException {
+    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName) throws InterruptedException, IOException {
 
         try {
 
@@ -95,7 +95,7 @@ public class INTER_TercerosInfTecnica {
 
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             //WebElement buscar = driver.findElement(By.name("searchButton"));
@@ -108,7 +108,7 @@ public class INTER_TercerosInfTecnica {
             Thread.sleep(2000);
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {
