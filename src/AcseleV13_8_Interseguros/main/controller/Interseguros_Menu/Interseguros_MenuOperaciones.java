@@ -423,7 +423,7 @@ public class Interseguros_MenuOperaciones {
 
     /** -- Facturacion y Cobro -- **/
 
-    public void UAA_ModificacionMovimientosTercero(WebDriver driver, String nombreAutomatizacion, int i )throws IOException, InterruptedException{
+    public void UAA_ModificacionMovimientosTercero(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//cumulos
@@ -432,7 +432,7 @@ public class Interseguros_MenuOperaciones {
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion);
+            this.a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
             Thread.sleep(2000);
             menu3.click();
 
