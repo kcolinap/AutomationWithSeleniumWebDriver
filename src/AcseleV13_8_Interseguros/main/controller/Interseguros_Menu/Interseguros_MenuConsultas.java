@@ -34,7 +34,6 @@ public class Interseguros_MenuConsultas {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 

@@ -19,8 +19,9 @@ public class INTER_TercerosDirecciones {
     private final static Logger log = Logger.getLogger(INTER_TercerosDirecciones.class);
 
     public String nombreAutomatizacion = "Direcciones Terceros";
+    private WebDriver driver;
 
-    public void testLink(INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName)throws Exception{
+    public void testLink(INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName){
 
         try {
 
@@ -28,7 +29,7 @@ public class INTER_TercerosDirecciones {
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -40,33 +41,37 @@ public class INTER_TercerosDirecciones {
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, driver, interTercerosDireccionesBean); //Busqueda Tercero
-            BotonEditar(a, driver);
+            BusquedaT(a, interTercerosDireccionesBean, i, folderName, 3, 4); //Busqueda Tercero
+            BotonEditar(a, i, folderName, 5);
             //Agregar Direccion
-            AgregarDireccion(a, driver, interTercerosDireccionesBean);
+            AgregarDireccion(a, interTercerosDireccionesBean, i, folderName, 6);
 
-            EditarDireccion(a, driver, interTercerosDireccionesBean);
+            EditarDireccion(a, interTercerosDireccionesBean, i, folderName, 7);
 
-            SeleccionarDirPrincipal(a, driver, interTercerosDireccionesBean);
+            SeleccionarDirPrincipal(a, interTercerosDireccionesBean, i, folderName, 8);
 
             driver.close();
             a.regresarVentana(driver);
 
             //Entrando en Menu
-            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 15, i, folderName);
+            interMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 9, i, folderName);
             a.cambiarVentana(driver);
 
-            BusquedaT(a, driver, interTercerosDireccionesBean);
-            BotonEditar(a, driver);
+            BusquedaT(a, interTercerosDireccionesBean, i, folderName, 10, 11);
+            BotonEditar(a, i, folderName, 12);
+
+            driver.quit();
 
         }catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 
-    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosDireccionesBean interTercerosDireccionesBean) throws InterruptedException, IOException {
-
+    public void BusquedaT(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try {
 
@@ -103,8 +108,7 @@ public class INTER_TercerosDirecciones {
                 nTercero.sendKeys(interTercerosDireccionesBean.getPrimerNombre());
             }
 
-            //Screenshot
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             //WebElement buscar = driver.findElement(By.name("searchButton"));
@@ -116,18 +120,16 @@ public class INTER_TercerosDirecciones {
             WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
             selccionTercero.click();
 
-            //Screenshot
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void BotonEditar(Interseguros_Metodos a, WebDriver driver) throws InterruptedException, IOException {
+    public void BotonEditar(Interseguros_Metodos a, int i, String folderName, int numScreenShoot){
 
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -137,25 +139,18 @@ public class INTER_TercerosDirecciones {
 
             Thread.sleep(1000);
 
-            /** Espere **/
-            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(5000);
-                System.out.println("Espera 1");
-            }
+            a.waitSearchWicket(driver, "Espere 1");
 
-            //Screenshot
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void AgregarDireccion(Interseguros_Metodos a, WebDriver driver, INTER_TercerosDireccionesBean interTercerosDireccionesBean) throws InterruptedException {
+    public void AgregarDireccion(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
 
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -164,12 +159,7 @@ public class INTER_TercerosDirecciones {
             driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_formThirdAddress_AddButton']")).click();
             Thread.sleep(1000);
 
-            /** Espere **/
-            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(3000);
-                System.out.println("Espera 2");
-            }
+            a.waitSearchWicket(driver, "Espere 3");
 
             // Referencia Direccion
             if (interTercerosDireccionesBean.getRefDireccion() != null) {    //ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_repeaterPanel1_1_fila_field
@@ -251,18 +241,19 @@ public class INTER_TercerosDirecciones {
                 Thread.sleep(2000);
             }
 
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+
             // Boton Guardar
             driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_saveButton']")).click();
             Thread.sleep(5000);
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void EditarDireccion(Interseguros_Metodos a, WebDriver driver, INTER_TercerosDireccionesBean interTercerosDireccionesBean) throws InterruptedException {
+    public void EditarDireccion(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -276,37 +267,26 @@ public class INTER_TercerosDirecciones {
                 driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_formThirdAddress_EditButton']")).click();
                 Thread.sleep(1000);
 
-                /** Espere **/
-                WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-                while (mensajeEspera.isDisplayed()) {
-                    Thread.sleep(5000);
-                    System.out.println("Espera 2");
-                }
+                a.waitSearchWicket(driver, "Espere 4");
 
-
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
                 // Boton Guardar
                 driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_saveButton']")).click();
                 Thread.sleep(1000);
 
-                /** Espere **/
-                mensajeEspera = driver.findElement(By.id("waitMessage"));
-                while (mensajeEspera.isDisplayed()) {
-                    Thread.sleep(5000);
-                    System.out.println("Espera 3");
-                }
+                a.waitSearchWicket(driver, "Espere 5");
             }
 
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
 
-    public void SeleccionarDirPrincipal(Interseguros_Metodos a, WebDriver driver, INTER_TercerosDireccionesBean interTercerosDireccionesBean) throws InterruptedException {
+    public void SeleccionarDirPrincipal(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
 
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
@@ -317,13 +297,14 @@ public class INTER_TercerosDirecciones {
             driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_container_ThirdAddress_3_radio']")).click();
             Thread.sleep(2000);
 
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+
             // Boton "Definir como principal"
             driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_formThirdAddress_DefineMain']"));
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 }

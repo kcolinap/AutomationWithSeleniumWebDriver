@@ -19,6 +19,7 @@ public class INTER_CajaCierre {
     private final static Logger log = Logger.getLogger(INTER_CajaCierre.class);
 
     public String nombreAutomatizacion = "INTER Caja Cierre";
+    private WebDriver driver;
 
     public void testLink(INTER_CajaCierreBean interCajaCierreBean, int i, String folderName) throws IOException, InterruptedException {
 
@@ -31,7 +32,7 @@ public class INTER_CajaCierre {
             INTER_Caja interCaja = new INTER_Caja();
 
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -49,10 +50,15 @@ public class INTER_CajaCierre {
             Thread.sleep(3000);
             interCaja.CierreCaja(a, driver, interCajaCierreBean, nombreAutomatizacion, i, folderName, 3, 4, 5);
 
+            driver.quit();
+
 
         } catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
     }
 }

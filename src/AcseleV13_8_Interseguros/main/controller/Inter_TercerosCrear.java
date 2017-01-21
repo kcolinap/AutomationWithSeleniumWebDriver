@@ -18,6 +18,7 @@ public class Inter_TercerosCrear {
     private final static Logger log = Logger.getLogger(Inter_TercerosCrear.class);
 
     public String nombreAutomatizacion = "Inter Terceros Crear";
+    private WebDriver driver;
 
     public void testLink(Inter_TercerosCrearBean interTercerosCrearBean, int i, String folderName) throws IOException, InterruptedException {
 
@@ -29,7 +30,7 @@ public class Inter_TercerosCrear {
             Inter_CrearTercero interCrearTercero = new Inter_CrearTercero();
 
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -50,10 +51,14 @@ public class Inter_TercerosCrear {
             Thread.sleep(2000);
             interCrearTercero.ValidarCreacionTercero(driver, nombreAutomatizacion);
 
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 }

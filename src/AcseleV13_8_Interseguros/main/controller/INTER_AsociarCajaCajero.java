@@ -18,6 +18,7 @@ public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializa
     private final static Logger log = Logger.getLogger(INTER_CreacionCaja.class);
 
     public String nombreAutomatizacion = "INTER Asociar Caja a Cajero";
+    private WebDriver driver;
 
     public void testLink(INTER_AsociarCajaCajeroBean interAsociarCajaCajeroBean, int i, String folderName) throws IOException, InterruptedException {
 
@@ -29,7 +30,7 @@ public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializa
             //Crear Caja
             INTER_AsociarCajaConCajero interAsociarCajaConCajero = new INTER_AsociarCajaConCajero();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -47,10 +48,14 @@ public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializa
             Thread.sleep(3000);
             interAsociarCajaConCajero.AsociarCajaConCajero(a, driver, interAsociarCajaCajeroBean, nombreAutomatizacion, i, folderName, 3, 4, 5, 6);
 
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
 
 

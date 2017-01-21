@@ -47,8 +47,7 @@ public class Inter_Calcular {
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 

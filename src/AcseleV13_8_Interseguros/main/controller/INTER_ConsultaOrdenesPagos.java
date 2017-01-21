@@ -17,28 +17,41 @@ public class INTER_ConsultaOrdenesPagos {
     private final static Logger log = Logger.getLogger(INTER_ConsultaOrdenesPagos.class);
 
     public String nombreAutomatizacion = "Ordenes Pagos";
+    private WebDriver driver;
 
     public void testLink(INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException {
 
-        //implementando clase de metodos
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
-        Thread.sleep(5000);
+        try {
 
-        m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
-        Thread.sleep(10000);
+            //implementando clase de metodos
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-        a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_consultaOrdenesPagosBean, i, folderName);
-        ResultadoBusqueda(driver, a, inter_consultaOrdenesPagosBean, i, folderName);
-        ConsultaPagos(driver, a, inter_consultaOrdenesPagosBean, i, folderName);
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
+            Thread.sleep(5000);
 
+            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            Thread.sleep(10000);
+
+            a.cambiarVentana(driver);
+            BuscarPoliza(a, inter_consultaOrdenesPagosBean, i, folderName);
+            ResultadoBusqueda(a, inter_consultaOrdenesPagosBean, i, folderName);
+            ConsultaPagos(a, inter_consultaOrdenesPagosBean, i, folderName);
+
+            driver.quit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
+        }
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -129,30 +142,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
-
-        try{
-            Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[6]/td[3]/div"));
-            btnSeleccionarPoliza.click();
-
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
-
-            WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
-            btnConsultar.click();
-
-            Thread.sleep(15000);
-            a.changeLastWindows(driver);
-
-        }catch (Exception e) {
-            e.printStackTrace();
-//                log.info(e);
-            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-    }
-
-    private void ConsultaPagos(WebDriver driver, Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) {
+    private void ConsultaPagos(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) {
         try{
             Thread.sleep(1000);
             WebElement btnSelecCover  = driver.findElement(By.xpath("/html/body/div[13]/form[2]/select/option"));
@@ -174,6 +164,29 @@ public class INTER_ConsultaOrdenesPagos {
 
         }
         catch (Exception e) {
+            e.printStackTrace();
+//                log.info(e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
+
+        try{
+            Thread.sleep(1000);
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[6]/td[3]/div"));
+            btnSeleccionarPoliza.click();
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
+
+            WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
+            btnConsultar.click();
+
+            Thread.sleep(15000);
+            a.changeLastWindows(driver);
+
+        }catch (Exception e) {
             e.printStackTrace();
 //                log.info(e);
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);

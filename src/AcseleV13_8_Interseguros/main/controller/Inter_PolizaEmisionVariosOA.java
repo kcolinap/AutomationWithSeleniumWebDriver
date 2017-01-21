@@ -18,8 +18,9 @@ public class Inter_PolizaEmisionVariosOA {
     private final static Logger log = Logger.getLogger(Inter_TercerosCrear.class);
 
     public String nombreAutomatizacion = "Inter Poliza Emision Varios OA";
+    private WebDriver driver;
 
-    public void testLink(Inter_PolizaEmisionVariosOABean interPolizaEmisionVariosOABean, int i, String folderName) throws IOException, InterruptedException {
+    public void testLink(Inter_PolizaEmisionVariosOABean interPolizaEmisionVariosOABean, int i, String folderName){
 
         try {
 
@@ -36,7 +37,7 @@ public class Inter_PolizaEmisionVariosOA {
             Inter_Calcular interCalcular = new Inter_Calcular();
             Inter_Validar interValidar = new Inter_Validar();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -99,14 +100,11 @@ public class Inter_PolizaEmisionVariosOA {
                 interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
             }
 
+            driver.quit();
+
         } catch (Exception e) {
             e.printStackTrace();
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            sw.toString(); // stack trace as a string
-            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 }

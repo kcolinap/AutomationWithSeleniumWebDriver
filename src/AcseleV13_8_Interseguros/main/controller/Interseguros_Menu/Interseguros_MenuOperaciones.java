@@ -51,8 +51,7 @@ public class Interseguros_MenuOperaciones {
             menu3.click();
         }catch (Exception e){
             e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
@@ -77,8 +76,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-            //                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
@@ -148,8 +146,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
@@ -175,8 +172,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 
@@ -211,8 +207,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
@@ -266,8 +261,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
@@ -289,8 +283,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 
@@ -350,7 +343,7 @@ public class Interseguros_MenuOperaciones {
             menu4.click();
         }catch (Exception e){
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
@@ -395,7 +388,7 @@ public class Interseguros_MenuOperaciones {
             menu4.click();
         }catch (Exception e){
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }
@@ -438,8 +431,7 @@ public class Interseguros_MenuOperaciones {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
@@ -548,11 +540,11 @@ public class Interseguros_MenuOperaciones {
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-                log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
 
     }
-    public void Cumulos_CumulosPorProducto(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
+    public void Cumulos_CumulosPorProducto(WebDriver driver, String nombreAutomatizacion, int i, String folderName, int numScreenShoot)throws IOException, InterruptedException{
         try{
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
@@ -561,14 +553,13 @@ public class Interseguros_MenuOperaciones {
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(2000);
             menu3.click();
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 
@@ -591,7 +582,7 @@ public class Interseguros_MenuOperaciones {
             menu3.click();
         }catch (Exception e){
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 
@@ -625,7 +616,7 @@ public class Interseguros_MenuOperaciones {
         }catch (Exception e) {
             e.printStackTrace();
 //                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }

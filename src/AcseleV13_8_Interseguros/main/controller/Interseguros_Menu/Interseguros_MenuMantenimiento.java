@@ -271,9 +271,9 @@ public class Interseguros_MenuMantenimiento {
             Thread.sleep(1000);
             menu3.click();
         }catch (Exception e){
-        e.printStackTrace();
-        log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-    }
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
 }
 
 

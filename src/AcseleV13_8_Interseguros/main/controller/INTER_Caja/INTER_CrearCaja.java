@@ -65,6 +65,7 @@ public class INTER_CrearCaja {
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {
+            e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }

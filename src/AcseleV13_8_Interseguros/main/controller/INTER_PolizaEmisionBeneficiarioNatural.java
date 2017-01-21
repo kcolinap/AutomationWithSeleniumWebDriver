@@ -19,8 +19,9 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
     private final static Logger log = Logger.getLogger(INTER_PolizaEmisionBeneficiarioNatural.class);
 
     public String nombreAutomatizacion = "INTER Poliza Emision Beneficiario Natural";
+    private WebDriver driver;
 
-    public void testLink(INTER_PolizaEmisionBeneficiarioNaturalBean inter_polizaEmisionBeneficiarioNaturalBean, int i, String folderName) throws IOException, InterruptedException {
+    public void testLink(INTER_PolizaEmisionBeneficiarioNaturalBean inter_polizaEmisionBeneficiarioNaturalBean, int i, String folderName){
 
         try {
 
@@ -37,7 +38,7 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
             Inter_Calcular interCalcular = new Inter_Calcular();
             Inter_Validar interValidar = new Inter_Validar();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -90,14 +91,14 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
                 //interObjetosAsegurados.ObjetoAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, 9);
             }
 
+            driver.quit();
+
         } catch (Exception e) {
             e.printStackTrace();
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            sw.toString(); // stack trace as a string
-            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 

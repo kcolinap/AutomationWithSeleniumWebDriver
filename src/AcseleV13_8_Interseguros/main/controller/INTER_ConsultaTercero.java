@@ -39,7 +39,7 @@ public class INTER_ConsultaTercero {
             Thread.sleep(1000);
             a.cambiarVentana(driver); // Cambiar de ventana
 
-            BuscarTercero(a, driver, inter_consultaTerceroBean, i, folderName);
+            BuscarTercero(a, inter_consultaTerceroBean, i, folderName);
 
             driver.quit();
 
@@ -52,7 +52,7 @@ public class INTER_ConsultaTercero {
         }
     }
 
-    public void BuscarTercero(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaTerceroBean inter_consultaTerceroBean, int i, String folderName) throws InterruptedException, IOException {
+    public void BuscarTercero(Interseguros_Metodos a, INTER_ConsultaTerceroBean inter_consultaTerceroBean, int i, String folderName) throws InterruptedException, IOException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -138,9 +138,6 @@ public class INTER_ConsultaTercero {
         }catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-            if (driver != null) {
-                driver.quit();
-            }
         }
 
     }

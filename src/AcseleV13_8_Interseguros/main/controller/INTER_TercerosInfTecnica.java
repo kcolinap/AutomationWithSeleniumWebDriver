@@ -21,7 +21,7 @@ public class INTER_TercerosInfTecnica {
     public String nombreAutomatizacion = "Informacion Tecnica de INTER_Terceros";
     private WebDriver driver;
 
-    public void testLink(INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName)throws Exception{
+    public void testLink(INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName){
 
         try {
 
@@ -40,12 +40,12 @@ public class INTER_TercerosInfTecnica {
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, driver, interTercerosInfTecnicaBean, i, folderName); //Busqueda Tercero
+            BusquedaT(a, interTercerosInfTecnicaBean, i, folderName, 3, 4); //Busqueda Tercero
 
             // Boton Inf Tecnica
             driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_technicalDataButton']")).click();
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
 
             driver.quit();
 
@@ -59,7 +59,7 @@ public class INTER_TercerosInfTecnica {
 
     }
 
-    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName) throws InterruptedException, IOException {
+    public void BusquedaT(Interseguros_Metodos a, INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try {
 
@@ -95,7 +95,7 @@ public class INTER_TercerosInfTecnica {
 
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             //WebElement buscar = driver.findElement(By.name("searchButton"));
@@ -108,15 +108,12 @@ public class INTER_TercerosInfTecnica {
             Thread.sleep(2000);
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            if (driver != null) {
-                driver.quit();
-            }
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 

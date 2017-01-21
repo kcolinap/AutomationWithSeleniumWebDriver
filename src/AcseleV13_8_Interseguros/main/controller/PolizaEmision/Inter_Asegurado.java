@@ -79,12 +79,14 @@ public class Inter_Asegurado {
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 
@@ -148,12 +150,14 @@ public class Inter_Asegurado {
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 
@@ -221,12 +225,14 @@ public class Inter_Asegurado {
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 
@@ -294,12 +300,14 @@ public class Inter_Asegurado {
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 

@@ -17,28 +17,42 @@ public class INTER_EditarSiniestro {
     private final static Logger log = Logger.getLogger(INTER_EditarSiniestroBean.class);
 
     public String nombreAutomatizacion = "Editar Siniestro";
+    private WebDriver driver;
 
     public void testLink(INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName) throws IOException, InterruptedException {
 
-        //implementando clase de metodos
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
-        Thread.sleep(5000);
+        try {
 
-        m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
-        Thread.sleep(10000);
+            //implementando clase de metodos
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-        a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_editarSiniestroBean, i, folderName);
-        ResultadoBusqueda(driver, a, inter_editarSiniestroBean, i, folderName);
-        EditarObjetoAfectado(driver, a, inter_editarSiniestroBean, i, folderName);
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
+            Thread.sleep(5000);
+
+            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            Thread.sleep(10000);
+
+            a.cambiarVentana(driver);
+            BuscarPoliza(a, inter_editarSiniestroBean, i, folderName, 4);
+            ResultadoBusqueda(a, inter_editarSiniestroBean, i, folderName, 5);
+            EditarObjetoAfectado(a, inter_editarSiniestroBean, i, folderName, 6, 7, 8, 9);
+
+            driver.quit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
+        }
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName, int numScreenShoot){
 
         try {
 
@@ -115,7 +129,7 @@ public class INTER_EditarSiniestro {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));
             btnBuscar.click();
@@ -124,12 +138,11 @@ public class INTER_EditarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName, int numScreenShoot){
 
         try{
             Thread.sleep(1000);
@@ -137,7 +150,7 @@ public class INTER_EditarSiniestro {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
@@ -147,26 +160,26 @@ public class INTER_EditarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void EditarObjetoAfectado (WebDriver driver, Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName){
+    public void EditarObjetoAfectado (Interseguros_Metodos a, INTER_EditarSiniestroBean inter_editarSiniestroBean, int i, String folderName,
+                                      int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
         try {
             Thread.sleep(2000);
             Select objetoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"ioID\"]")));
             objetoAsegurado.selectByIndex(0);
             WebElement btnSeleccionOA = driver.findElement(By.xpath("//*[@id=\"ioID\"]/option"));
             btnSeleccionOA.click();
-            a.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             Thread.sleep(2000);
             WebElement btnEditar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_03\"]"));
             btnEditar.click();
 
             Thread.sleep(20000);
-            a.ScreenShotPool(driver,i,"screen7", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
@@ -239,7 +252,7 @@ public class INTER_EditarSiniestro {
                 envioComunicacionesSiniestro.selectByValue(inter_editarSiniestroBean.getCorreoElectronicoSiniestro());
             }
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i,"screen8", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -252,11 +265,10 @@ public class INTER_EditarSiniestro {
             Thread.sleep(15000);
 
             Thread.sleep(5000);
-            a.ScreenShotPool(driver,i, "screen9",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }

@@ -17,16 +17,16 @@ public class INTER_RenovacionPoliza {
     private final static Logger log = Logger.getLogger(INTER_RenovacionPoliza.class);
 
     public String nombreAutomatizacion ="INTER Renovacion de Poliza";
-    //Pliza a buscar
-    //String nPoliza = "F004"; //F0003, K514, D21, D22, K512, K510, LR270401, ED250406
+    private WebDriver driver;
 
-    public void testLink(INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i, String folderName)throws Exception{
+    public void testLink(INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i, String folderName){
 
         try {
 
             Interseguros_Metodos a = new Interseguros_Metodos();   //implementando metodos.
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-            WebDriver driver = a.entrarPagina();
+
+            driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(5000);
@@ -35,17 +35,22 @@ public class INTER_RenovacionPoliza {
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
-            BuscarPoliza(a, driver, inter_renovacionPolizaBean);
+            BuscarPoliza(a, inter_renovacionPolizaBean, i, folderName, 3, 4, 5, 6, 7, 8, 9);
+
+            driver.quit();
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
 
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, WebDriver driver, INTER_RenovacionPolizaBean inter_renovacionPolizaBean) throws InterruptedException, IOException {
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i, String folderName,
+                             int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7){
 
         try {
 
@@ -57,27 +62,21 @@ public class INTER_RenovacionPoliza {
             fieldNumPoliza.sendKeys(inter_renovacionPolizaBean.getNumPoliza());
 
             Thread.sleep(1000);
-            //Screenshot
-            a.ScreenShot(driver, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             //Boton Buscar
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
 
             //Thread.sleep(10000);
             Thread.sleep(1000);
-            /** Espere **/
-            WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(5000);
-                System.out.println("Espera 1");
-            }
+            a.waitSearchWicket(driver, "Espera 1");
+
 
             //Seleccionar Poliza
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
 
             Thread.sleep(1000);
-            //Screenshot
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
             //Boton Renovar Poliza
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_RenewPolicyButton']")).click();
@@ -85,74 +84,48 @@ public class INTER_RenovacionPoliza {
             //Thread.sleep(5000);
 
             Thread.sleep(1000);
-            /** Espere **/
-            mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(5000);
-                System.out.println("Espera 2");
-            }
+            a.waitSearchWicket(driver, "Espera 2");
 
             Thread.sleep(1000);
-            //Screenshot
-            a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // Boton Continuar
             driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
             // Thread.sleep(15000);
 
             Thread.sleep(1000);
-            /** Espere **/
-            mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(5000);
-                System.out.println("Espera 2");
-            }
+            a.waitSearchWicket(driver, "Espera 3");
 
 
-            //Screenshot
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
             // Boton Calcular
             driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_calculateForm_calculateButton']")).click();
             //Thread.sleep(5000);
 
             Thread.sleep(1000);
-            /** Espere **/
-            mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(5000);
-                System.out.println("Espera 3");
-            }
+            a.waitSearchWicket(driver, "Espera 4");
 
-            //Screenshot
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
             // Boton Aplicar
             driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']")).click();
             //Thread.sleep(15000);
 
             Thread.sleep(1000);
-            /** Espere **/
-            mensajeEspera = driver.findElement(By.id("waitMessage"));
-            while (mensajeEspera.isDisplayed()) {
-                Thread.sleep(5000);
-                System.out.println("Espera 4");
-            }
+            a.waitSearchWicket(driver, "Espera 5");
 
             // Boton Ingnorar validaciones
             //driver.findElement(By.name("ErrorDialog:content:questionForm:check")).click();
-            //Screenshot
-            a.ScreenShot(driver, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot6, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // Boton Continuar
             driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")).click();
             Thread.sleep(5000);
 
-            //Screenshot
-            a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
