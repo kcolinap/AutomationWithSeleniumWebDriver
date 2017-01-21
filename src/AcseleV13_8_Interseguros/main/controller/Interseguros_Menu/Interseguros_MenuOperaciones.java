@@ -603,8 +603,8 @@ public class Interseguros_MenuOperaciones {
     public void ConsultarListaRestrictiva(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
 
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[13]"));//consulta listas restrictivas
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[13]"));//consulta listas restrictivas
 
 
             menu1.click();
