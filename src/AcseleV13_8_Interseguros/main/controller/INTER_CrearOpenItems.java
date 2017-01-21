@@ -29,7 +29,7 @@ public class INTER_CrearOpenItems {
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(5000);
+        Thread.sleep(4000);
 
         // Busqueda de Siniestro
         m.UAA_ModificacionMovimientosTercero(driver, a, nombreAutomatizacion, 50);
@@ -45,7 +45,7 @@ public class INTER_CrearOpenItems {
         a.ScreenShot(driver, "screen6", nombreAutomatizacion);
 
         //Presiono el botón Aceptar
-        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[2]/td/input")).click();
+        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[3]/td/input")).click();
 
         BorrarFechas(a, driver); //Insertar Datos de busqueda
 
@@ -55,6 +55,7 @@ public class INTER_CrearOpenItems {
         a.ScreenShot(driver, "screen8", nombreAutomatizacion);
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[8]/div/div[3]/div[2]/span[2]/button")).click();
+        Thread.sleep(3000);
         a.cambiarVentana(driver);
         //a.ScreenShot(driver, "screen9", nombreAutomatizacion);
 
@@ -92,7 +93,7 @@ public class INTER_CrearOpenItems {
                 desplegarComboTercero.click();
                 Thread.sleep(1000);
 
-                WebElement seleccionarValorTercero = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select/option[2]"));
+                WebElement seleccionarValorTercero = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select/option[3]"));
 
                 Thread.sleep(1000);
                 seleccionarValorTercero.click();
@@ -103,13 +104,13 @@ public class INTER_CrearOpenItems {
             //Insertar Apellido
             if (interCrearOpenItemsBean.getApellidoPaterno() != null) {
                 Thread.sleep(2000);
-                WebElement apellidoPaterno = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[1]/tbody/tr/td[3]/input[1]"));
+                WebElement apellidoPaterno = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[13]/tbody/tr/td[2]/font/input[1]"));
                 apellidoPaterno.sendKeys(interCrearOpenItemsBean.getApellidoPaterno());
             }
             //Insertar Nombre
             if (interCrearOpenItemsBean.getPrimerNombre() != null) {
                 Thread.sleep(2000);
-                WebElement primerNombre = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[3]/tbody/tr/td[3]/input[1]"));
+                WebElement primerNombre = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[15]/tbody/tr/td[2]/font/input[1]"));
                 primerNombre.sendKeys(interCrearOpenItemsBean.getPrimerNombre());
             }
 

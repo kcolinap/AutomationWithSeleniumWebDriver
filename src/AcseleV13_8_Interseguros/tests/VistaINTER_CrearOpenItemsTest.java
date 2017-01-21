@@ -28,7 +28,7 @@ public class VistaINTER_CrearOpenItemsTest {
             INTER_CrearOpenItems a = new INTER_CrearOpenItems();
 
             try {
-                //a.testLink(interCrearOpenItemsBean, i);
+                a.testLink(interCrearOpenItemsBean, i);
             } catch (Exception e) {
                 e.printStackTrace();
                 //                log.info(e);
@@ -41,6 +41,7 @@ public class VistaINTER_CrearOpenItemsTest {
     @Before
     public void setUp() throws Exception {
 
+/*
         DataSetManager.createPartialDataSet("SELECT PRUEBA,TERCERO,TIPO_TERCERO,ROL1,APELLIDO_PATERNO,APELLIDO_MATERNO,PRIMER_NOMBRE,SEGUNDO_NOMBRE,TERCER_NOMBRE,TIPO_DOC_IDENT,NUM_DOC_IDENT,CONCEPTO_CUENTA,ROL2,FECHA_MOV,FECHA_VENCIMIENTO,MONEDA,MONTO,NUM_POLIZA,TIPO_REF FROM CREAR_OPEN_ITEMS_INTER ORDER BY PRUEBA ASC",
                 "CREAR_OPEN_ITEMS_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interCrearOpenItems_dataset.xml");
@@ -48,6 +49,7 @@ public class VistaINTER_CrearOpenItemsTest {
         DataSetManager.createPartialDataSet("SELECT PRUEBA,TERCERO,TIPO_TERCERO,ROL1,APELLIDO_PATERNO,APELLIDO_MATERNO,PRIMER_NOMBRE,SEGUNDO_NOMBRE,TERCER_NOMBRE,TIPO_DOC_IDENT,NUM_DOC_IDENT,CONCEPTO_CUENTA,ROL2,FECHA_MOV,FECHA_VENCIMIENTO,MONEDA,MONTO,NUM_POLIZA,TIPO_REF FROM CREAR_OPEN_ITEMS_INTER ORDER BY PRUEBA ASC",
                 "CREAR_OPEN_ITEMS_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCrearOpenItems_dataset.xml");
+*/
 
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCrearOpenItems_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }

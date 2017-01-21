@@ -425,9 +425,9 @@ public class Interseguros_MenuOperaciones {
 
     public void UAA_ModificacionMovimientosTercero(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int i)throws IOException, InterruptedException{
         try{
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[3]"));//cumulos terceros
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[11]/div[3]"));//cumulos terceros
 
             menu1.click();
             menu2.click();
