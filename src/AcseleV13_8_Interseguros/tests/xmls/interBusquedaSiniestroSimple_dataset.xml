@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_BUSQUEDA_SIN_SIMPLE PRUEBA="1" NUMERO_SINIESTRO="numero_Siniestro" NUMERO_POLIZA=" numero_Poliza" FECHA_OCURRENCIA_SIN=" fecha_Ocurrencia_Sin" PRODUCTO=" producto" ORDENAR_POR=" ordenar_Por"/>
+</dataset>
