@@ -17,13 +17,13 @@ import java.awt.*;
 public class INTER_AsociarCajaConCajero {
     private final static Logger log = Logger.getLogger(INTER_AsociarCajaConCajero.class);
 
-    public void AsociarCajaConCajero(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void AsociarCajaConCajero(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {
             Thread.sleep(2000);
 
             // Pantalla inicial
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
@@ -50,7 +50,7 @@ public class INTER_AsociarCajaConCajero {
 
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(2000);
@@ -61,7 +61,7 @@ public class INTER_AsociarCajaConCajero {
 
             // Misma pantalla, se busca el cajero asociado
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             // Busqueda
@@ -97,7 +97,7 @@ public class INTER_AsociarCajaConCajero {
                             WebElement seleccionarCajero = driver.findElement(By.xpath("/html/body/center/form/div/table/tbody/tr[" + k + "]/td[1]/input"));
                             seleccionarCajero.click();
                             Thread.sleep(1000);
-                            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion);
+                            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                             Toolkit.getDefaultToolkit().beep();
                             break;
                         }
@@ -117,7 +117,7 @@ public class INTER_AsociarCajaConCajero {
 
         }catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 }

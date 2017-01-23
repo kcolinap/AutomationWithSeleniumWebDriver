@@ -20,7 +20,7 @@ public class Inter_Contratante {
 
     private final static Logger log = Logger.getLogger(Inter_Contratante.class);
 
-    public void AgregarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -73,7 +73,7 @@ public class Inter_Contratante {
 
             jse.executeScript("window.scrollBy(0,400)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -83,17 +83,19 @@ public class Inter_Contratante {
             a.waitSearchWicket(driver, "Espere Guardando Contratante");
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 

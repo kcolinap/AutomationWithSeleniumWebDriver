@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaAvanzadaPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaAvanzadaPoliza;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -20,18 +21,26 @@ public class VistaINTER_ConsultaAvanzadaPolizaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList consultaAvanzada = INTER_ConsultaAvanzadaPolizaBean.getConsultaAvanzadaPolizaBean();
+        ArrayList consultaAvanzada = null;
+
+        try {
+            consultaAvanzada = INTER_ConsultaAvanzadaPolizaBean.getConsultaAvanzadaPolizaBean();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< consultaAvanzada.size(); j++) {
             INTER_ConsultaAvanzadaPolizaBean inter_ConsultaAvanzadaPolizaBean = (INTER_ConsultaAvanzadaPolizaBean) consultaAvanzada.get(j);
             INTER_ConsultaAvanzadaPoliza a = new INTER_ConsultaAvanzadaPoliza();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_ConsultaAvanzadaPolizaBean, j);
+                a.testLink(inter_ConsultaAvanzadaPolizaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

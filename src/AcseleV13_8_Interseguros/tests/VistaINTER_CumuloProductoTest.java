@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CumuloProductoBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CumuloProduto;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -21,14 +22,22 @@ public class VistaINTER_CumuloProductoTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interCumuloProducto = INTER_CumuloProductoBean.getINTER_CumuloProducto();
+        ArrayList interCumuloProducto = null;
+
+        try {
+            interCumuloProducto = INTER_CumuloProductoBean.getINTER_CumuloProducto();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interCumuloProducto.size(); j++) {
             INTER_CumuloProductoBean inter_cumuloProductoBean = (INTER_CumuloProductoBean) interCumuloProducto.get(j);
             INTER_CumuloProduto a = new INTER_CumuloProduto();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_cumuloProductoBean, j);
+                a.testLink(inter_cumuloProductoBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

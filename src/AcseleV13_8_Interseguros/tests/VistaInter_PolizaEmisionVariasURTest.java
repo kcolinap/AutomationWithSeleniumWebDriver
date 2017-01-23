@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaEmisionVariasURBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_PolizaEmisionVariasUR;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,18 +35,23 @@ public class VistaInter_PolizaEmisionVariasURTest {
         for (int j = 0; j < poliza.size(); j++) {
             Inter_PolizaEmisionVariasURBean interPolizaEmisionVariasURBean = (Inter_PolizaEmisionVariasURBean) poliza.get(j);
             Inter_PolizaEmisionVariasUR a = new Inter_PolizaEmisionVariasUR();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(interPolizaEmisionVariasURBean, j);
+                a.testLink(interPolizaEmisionVariasURBean, j, horaC);
             } catch (Exception e) {
+                e.printStackTrace();
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                // Para mandar a imprimir en el .log
                 //e.printStackTrace();
                 //log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
-                e.printStackTrace();
+                /*e.printStackTrace();
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 sw.toString(); // stack trace as a string
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + sw.toString());
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + sw.toString());*/
             }
         }
 

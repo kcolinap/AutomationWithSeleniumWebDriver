@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaEdoCuentaTercerosBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaEdoCuentaTerceros;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -23,18 +24,27 @@ public class VistaINTER_ConsultaEdoCuentaTercerosTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList interEdoCuentas = INTER_ConsultaEdoCuentaTercerosBean.getInterConsultaEdoCuentaTerceros();
+        ArrayList interEdoCuentas = null;
+
+        try {
+            interEdoCuentas = INTER_ConsultaEdoCuentaTercerosBean.getInterConsultaEdoCuentaTerceros();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < interEdoCuentas.size(); i++) {
 
             INTER_ConsultaEdoCuentaTercerosBean inter_consultaEdoCuentaTercerosBean = (INTER_ConsultaEdoCuentaTercerosBean) interEdoCuentas.get(i);
             INTER_ConsultaEdoCuentaTerceros a = new INTER_ConsultaEdoCuentaTerceros();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_consultaEdoCuentaTercerosBean, i);
+                a.testLink(inter_consultaEdoCuentaTercerosBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }

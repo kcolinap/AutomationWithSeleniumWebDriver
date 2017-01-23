@@ -21,35 +21,49 @@ public class INTER_RechazarSiniestro {
     private final static Logger log = Logger.getLogger(INTER_ReabrirSiniestro.class);
 
     public String nombreAutomatizacion = "Rechazar Siniestro";
+    private WebDriver driver;
 
-    public void testLink(INTER_RechazarSiniestroBean inter_rechazarSiniestroBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i, String folderName){
 
-        //implementando clase de metodos
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(5000);
+        try {
 
-        m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
-        Thread.sleep(10000);
+            //implementando clase de metodos
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-        a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_rechazarSiniestroBean, i);
-        ResultadoBusqueda(driver, a, inter_rechazarSiniestroBean, i);
-        RechazarSiniestro(driver, a, inter_rechazarSiniestroBean, i);
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
+            Thread.sleep(5000);
+
+            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            Thread.sleep(10000);
+
+            a.cambiarVentana(driver);
+            BuscarPoliza(a, inter_rechazarSiniestroBean, i, folderName, 4);
+            ResultadoBusqueda(a, inter_rechazarSiniestroBean, i, folderName, 5);
+            RechazarSiniestro(a, inter_rechazarSiniestroBean, i, folderName, 6, 7);
+
+            driver.quit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
+        }
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i, String folderName, int numScreenShoot){
 
         try {
 
             if (inter_rechazarSiniestroBean.getOrdenarPor() != null){
                 Thread.sleep(1000);
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Número de Reclamo"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Número de Reclamo")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -58,7 +72,7 @@ public class INTER_RechazarSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Producto"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Producto")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -67,7 +81,7 @@ public class INTER_RechazarSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Fecha de Ocurrencia"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Fecha de Ocurrencia")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -76,7 +90,7 @@ public class INTER_RechazarSiniestro {
                     ordenarPor.click();
                 }
 
-                if (inter_rechazarSiniestroBean.getOrdenarPor() == "Estado del siniestro"){
+                if (inter_rechazarSiniestroBean.getOrdenarPor().equals("Estado del siniestro")){
                     Thread.sleep(1000);
                     WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"orderBy\"]/div"));
                     btnSeleccionar1.click();
@@ -119,7 +133,7 @@ public class INTER_RechazarSiniestro {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));
             btnBuscar.click();
@@ -128,12 +142,11 @@ public class INTER_RechazarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i, String folderName, int numScreenShoot){
 
         try{
             Thread.sleep(1000);
@@ -141,7 +154,7 @@ public class INTER_RechazarSiniestro {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
@@ -151,12 +164,11 @@ public class INTER_RechazarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void RechazarSiniestro (WebDriver driver,Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void RechazarSiniestro (Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
         try{
 
             Thread.sleep(2000);
@@ -191,7 +203,7 @@ public class INTER_RechazarSiniestro {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -201,7 +213,7 @@ public class INTER_RechazarSiniestro {
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
             btnAceptar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
@@ -222,10 +234,8 @@ public class INTER_RechazarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
     }
 
 

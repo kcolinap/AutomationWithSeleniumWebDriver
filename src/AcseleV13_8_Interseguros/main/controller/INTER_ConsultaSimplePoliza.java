@@ -18,90 +18,97 @@ public class INTER_ConsultaSimplePoliza {
     private final static Logger log = Logger.getLogger(INTER_ConsultaSimplePoliza.class);
 
     public String nombreAutomatizacion = "INTER Consulta Poliza Simple";
-    //Pliza a buscar
-    //String nPoliza = "EA00222";
+    private WebDriver driver;
 
 
-    public void testLink(INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i) throws Exception {
+    public void testLink(INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i, String folderName) throws Exception {
 
-        // Instanciando Clases
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones interseguros_menuOperaciones = new Interseguros_MenuOperaciones();
+        try {
 
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-        a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
-        Thread.sleep(5000);
+            // Instanciando Clases
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones interseguros_menuOperaciones = new Interseguros_MenuOperaciones();
 
-        //Entrando en Menu
-        interseguros_menuOperaciones.OpePol_CotizacionSuscripcionMantenimientoPolizas(driver, nombreAutomatizacion, 2);
-        Thread.sleep(2000);
-        a.cambiarVentana(driver); // Cambiar de ventana
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
+            Thread.sleep(5000);
 
-        BuscarPolizaSimple(a, driver, inter_consultaSimplePolizaBean, i);
+            //Entrando en Menu
+            interseguros_menuOperaciones.OpePol_CotizacionSuscripcionMantenimientoPolizas(driver, nombreAutomatizacion, 2);
+            Thread.sleep(2000);
+            a.cambiarVentana(driver); // Cambiar de ventana
+
+            BuscarPolizaSimple(a, inter_consultaSimplePolizaBean, i, folderName);
+
+            driver.quit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
+        }
     }
 
-    public void BuscarPolizaSimple(Interseguros_Metodos a, WebDriver driver, INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(Interseguros_Metodos a, INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i, String folderName) throws InterruptedException, IOException {
 
-        //TipoElemento[@wicketpath='WicketpathElemento']
+        try {
 
-        Thread.sleep(3000);
-        //Campo del num de la poliza
-        WebElement fieldNumPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
-//        WebElement fieldNumPoliza = driver.findElement(By.xpath("//*[@id=\"idd\"]"));
-        //fieldNumPoliza.sendKeys(nPoliza.getNumPoliza());
-        fieldNumPoliza.sendKeys(inter_consultaSimplePolizaBean.getNumPoliza());
+            //TipoElemento[@wicketpath='WicketpathElemento']
 
-        //Screenshot
-        a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+            Thread.sleep(3000);
+            //Campo del num de la poliza
+            WebElement fieldNumPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
+            /*WebElement fieldNumPoliza = driver.findElement(By.xpath("//*[@id=\"idd\"]"));
+            fieldNumPoliza.sendKeys(nPoliza.getNumPoliza());*/
+            fieldNumPoliza.sendKeys(inter_consultaSimplePolizaBean.getNumPoliza());
 
-        //Boton Buscar
-        driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
-
-        Thread.sleep(1000);
-
-        /** Espere **/
-        WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
-        while (mensajeEspera.isDisplayed()) {
-            Thread.sleep(5000);
-            System.out.println("Espera 1");
-        }
-
-        Thread.sleep(1000);
-        //Seleccionar Poliza
-        driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
-
-        //Screenshot
-        a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
-
-        //Boton Consultar Poliza
-        driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_ConsultPolicyButton']")).click();
-
-        Thread.sleep(1000);
-
-        /** Espere **/
-        mensajeEspera = driver.findElement(By.id("waitMessage"));
-        while (mensajeEspera.isDisplayed()) {
-            Thread.sleep(5000);
-            System.out.println("Espera 2");
-        }
-
-        Thread.sleep(1000);
-        // Si aparece un mensaje "El asegurado Presenta Cumulo"
-        if (driver.findElement(By.xpath("//label[@wicketpath='modalWindowForm_EventSection_content_eventMessage']")).isDisplayed()){
             //Screenshot
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6-2", nombreAutomatizacion);
-            Toolkit.getDefaultToolkit().beep();
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
+
+            //Boton Buscar
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
+
             Thread.sleep(1000);
-            // Boton Continuar
-            driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
+
+            a.waitSearchWicket(driver, "Espera 1");
+
+            Thread.sleep(1000);
+            //Seleccionar Poliza
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
+
+            //Screenshot
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
+
+            //Boton Consultar Poliza
+            driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_ConsultPolicyButton']")).click();
+
+            Thread.sleep(1000);
+
+            a.waitSearchWicket(driver, "Espera 2");
+
+            Thread.sleep(1000);
+            // Si aparece un mensaje "El asegurado Presenta Cumulo"
+            if (driver.findElement(By.xpath("//label[@wicketpath='modalWindowForm_EventSection_content_eventMessage']")).isDisplayed()) {
+                //Screenshot
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen6-2", nombreAutomatizacion, folderName);
+                Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
+                // Boton Continuar
+                driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
+            }
+
+            Thread.sleep(1000);
+
+            System.out.println("Fin de la prueba");
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
-        Thread.sleep(1000);
-
-        System.out.println("Fin de la prueba");
-
 
 
     }

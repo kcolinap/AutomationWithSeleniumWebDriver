@@ -16,7 +16,7 @@ public class Inter_Calcular {
 
     private final static Logger log = Logger.getLogger(Inter_Calcular.class);
 
-    public void Calcular(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void Calcular(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try {
 
@@ -28,7 +28,7 @@ public class Inter_Calcular {
             Thread.sleep(6000);
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -40,15 +40,14 @@ public class Inter_Calcular {
             Thread.sleep(3000);
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
 

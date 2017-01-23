@@ -16,13 +16,13 @@ import java.awt.*;
 public class INTER_Caja {
     private final static Logger log = Logger.getLogger(INTER_Caja.class);
 
-    public void AperturaCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void AperturaCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
 
             // Pantalla inicial
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
@@ -37,7 +37,7 @@ public class INTER_Caja {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
@@ -45,22 +45,22 @@ public class INTER_Caja {
             btnAceptar.click();
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void CierreCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void CierreCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
 
             // Pantalla inicial
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
@@ -75,7 +75,7 @@ public class INTER_Caja {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(1000);
@@ -83,12 +83,12 @@ public class INTER_Caja {
             btnAceptar.click();
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 

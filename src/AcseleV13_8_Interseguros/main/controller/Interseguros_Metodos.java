@@ -8,10 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -92,7 +89,7 @@ public class Interseguros_Metodos {
         Thread.sleep(1000);
     }
 
-    public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba) throws InterruptedException, IOException {
+    public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba, String folderName) throws InterruptedException, IOException {
 
         String rutaScreen = "";
         String oS = System.getProperty("os.name");
@@ -109,11 +106,11 @@ public class Interseguros_Metodos {
         //String rutaScreen = "C:\\ScrenShots\\Interseguros\\";
         TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + i + "\\" + titulo + ".png"));
+        FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + folderName + "\\"/* + i + "\\" */+ titulo + ".png"));
         System.out.println("tomando screenshot "+titulo);
     }
 
-    public void ValidandoSesion(WebDriver getDriver, String nombrePrueba, int i) throws InterruptedException, IOException {
+    public void ValidandoSesion(WebDriver getDriver, String nombrePrueba, int i, String folderName) throws InterruptedException, IOException {
 
         System.out.println("Verificando si ya estaba logeado el usuario");
         if (getDriver.getTitle().equals("Acsel-e Workflow")){
@@ -125,7 +122,7 @@ public class Interseguros_Metodos {
             System.out.println("Cerrando la otra sesion");
             //Screenshot
             //ScreenShot(getDriver, "screen1-1", nombrePrueba);
-            ScreenShotPool(getDriver, i, "screen1-1", nombrePrueba);
+            ScreenShotPool(getDriver, i, "screen1-1", nombrePrueba, folderName);
 
             WebElement acep = getDriver.findElement(By.name("SecuritySubmit"));
             acep.click();
@@ -140,7 +137,7 @@ public class Interseguros_Metodos {
         Thread.sleep(5000);
     }
 
-    public void IniciarSesion(WebDriver getDriver, String nombrePrueba, int i) throws IOException, InterruptedException {
+    public void IniciarSesion(WebDriver getDriver, String nombrePrueba, int i, String folderName) throws IOException, InterruptedException {
         WebElement user2 = getDriver.findElement(By.name("SecurityLogin"));
         WebElement password2= getDriver.findElement(By.name("SecurityPassword"));
         Select instance2= new Select(getDriver.findElement(By.name("USER_PREFERENCE_COUNTRY_NAME")));
@@ -148,14 +145,14 @@ public class Interseguros_Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("system");       /** Usuario  **/
-        password2.sendKeys("consis");
+        user2.sendKeys("agil");       /** Usuario  **/
+        password2.sendKeys("a123456");
 
         instance2.selectByVisibleText("INTERSEGURO");
         language2.selectByValue("es");
         //Screenshot
         //ScreenShot(getDriver, "screen1", nombrePrueba);
-        ScreenShotPool(getDriver, i, "screen1", nombrePrueba);
+        ScreenShotPool(getDriver, i, "screen1", nombrePrueba, folderName);
         /*TakesScreenshot ts = (TakesScreenshot)getDriver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         String rutaScreen = "C:\\ScrenShots\\";//"./Screenshot/";
@@ -212,6 +209,26 @@ public class Interseguros_Metodos {
             driver.switchTo().window(winHandle);
         }
         driver.get(driver.getCurrentUrl());
+    }
+
+    public String horaCarpeta(){
+        Calendar calendario = Calendar.getInstance();
+
+        int hora, minutos, segundos, dia, mes, anio;
+        String nombreCarpeta;
+
+        hora =calendario.get(Calendar.HOUR_OF_DAY);
+        minutos = calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND);
+        dia = calendario.get(Calendar.DAY_OF_MONTH);
+        mes = calendario.get(Calendar.MONTH);
+        anio = calendario.get(Calendar.YEAR);
+
+        //System.out.println(hora + ":" + minutos + ":" + segundos);
+        //System.out.println(dia + ":" + mes+1 + ":" + anio);
+        System.out.println(anio + "-" + mes+1 + "-" +dia + "_" + hora + "." + minutos + "." + segundos);
+        nombreCarpeta = anio + "-" + mes+1 + "-" +dia + "_" + hora + "." + minutos + "." + segundos;
+        return nombreCarpeta;
     }
 
     public WebDriver getDriver() {

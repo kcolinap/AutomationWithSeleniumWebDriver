@@ -18,7 +18,7 @@ public class Inter_CrearTercero {
 
     private final static Logger log = Logger.getLogger(Inter_CrearTercero.class);
 
-    public void CrearTerceroNatural(Interseguros_Metodos a, WebDriver driver, Inter_TercerosBean interTercerosBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void CrearTerceroNatural(Interseguros_Metodos a, WebDriver driver, Inter_TercerosBean interTercerosBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -33,7 +33,7 @@ public class Inter_CrearTercero {
                 Thread.sleep(2000);
             }
 
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(3000);
@@ -457,17 +457,17 @@ public class Inter_CrearTercero {
 
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             jse.executeScript("window.scrollBy(0,500)", "");
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             jse.executeScript("window.scrollBy(0,1000)", "");
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
 
             Thread.sleep(2000);
             WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_saveButton']"));
