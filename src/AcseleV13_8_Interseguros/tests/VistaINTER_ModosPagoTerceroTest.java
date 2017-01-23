@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ModosPagoTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ModosPagoTercero;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -23,12 +24,20 @@ public class VistaINTER_ModosPagoTerceroTest {
 
         ArrayList ModosPagoTerceroBean = INTER_ModosPagoTerceroBean.getINTER_ModosPagoTerceroBean();
 
+        try {
+            ModosPagoTerceroBean = INTER_ModosPagoTerceroBean.getINTER_ModosPagoTerceroBean();
+        }catch (SQLException e) {
+            log.error(e);
+        }
+
         for (int j = 0; j< ModosPagoTerceroBean.size(); j++) {
             INTER_ModosPagoTerceroBean interModosPagoTerceroBean = (INTER_ModosPagoTerceroBean) ModosPagoTerceroBean.get(j);
             INTER_ModosPagoTercero a = new INTER_ModosPagoTercero();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(interModosPagoTerceroBean, j);
+                a.testLink(interModosPagoTerceroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
 //                log.info(e);

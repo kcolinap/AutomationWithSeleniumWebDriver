@@ -23,15 +23,15 @@ public class INTER_PagoPorConceptos {
     public String nombreAutomatizacion = "Pago Por Conceptos Siniestros";
     private WebDriver driver;
 
-    public void testLink (INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i )  throws IOException, InterruptedException {
+    public void testLink (INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
             driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
             System.out.println("prueba");
 
@@ -40,15 +40,15 @@ public class INTER_PagoPorConceptos {
             a.cambiarVentana(driver);
 
 
-            BuscarSiniestro(a, inter_pagoPorConceptosBean, i);
+            BuscarSiniestro(a, inter_pagoPorConceptosBean, i, folderName);
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             // Thread.sleep(1500);
-            ReservaPorConceptos (a, inter_pagoPorConceptosBean, i);
+            ReservaPorConceptos (a, inter_pagoPorConceptosBean, i, folderName);
             Thread.sleep(1000);
-            ReservaPorConceptosPago(a, inter_pagoPorConceptosBean, i);
+            ReservaPorConceptosPago(a, inter_pagoPorConceptosBean, i, folderName);
             Thread.sleep(1000);
-            PagarOrdenes(a, inter_pagoPorConceptosBean, i);
+            PagarOrdenes(a, inter_pagoPorConceptosBean, i, folderName);
 
             driver.quit();
         }catch (Exception e){
@@ -61,7 +61,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void BuscarSiniestro(Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void BuscarSiniestro(Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -104,7 +104,7 @@ public class INTER_PagoPorConceptos {
 
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));//buscar siniestro
             buscar.click();
 
@@ -113,7 +113,7 @@ public class INTER_PagoPorConceptos {
             WebElement seleccionar = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[3]/td[3]/div"));
             seleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             WebElement consultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             consultar.click();
@@ -121,7 +121,7 @@ public class INTER_PagoPorConceptos {
             Thread.sleep(3000);
 
             a.changeLastWindows(driver);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
 
 
 
@@ -133,7 +133,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void ReservaPorConceptos(Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void ReservaPorConceptos(Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -156,12 +156,12 @@ public class INTER_PagoPorConceptos {
             montoReserva.sendKeys(inter_pagoPorConceptosBean.getMontoReserva());
             Thread.sleep(1000);
 
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form[2]/center/table/tbody/tr[6]/td/input[1]"));
             btnAceptar.click();
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
 
@@ -173,7 +173,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void ReservaPorConceptosPago (Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void ReservaPorConceptosPago (Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -191,7 +191,7 @@ public class INTER_PagoPorConceptos {
 
             WebElement seleccionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table[2]/tbody/tr[7]/td/input[1]"));
             Thread.sleep(1500);
-            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             seleccionTercero.click();
             Thread.sleep(3000);
@@ -203,7 +203,7 @@ public class INTER_PagoPorConceptos {
 
             WebElement btnBuscar = driver.findElement(By.xpath("/html/body/div[6]/table/tbody/tr[4]/td/button[1]"));
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             btnBuscar.click();
             Thread.sleep(8000);
@@ -211,21 +211,21 @@ public class INTER_PagoPorConceptos {
             WebElement opcionTercero = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[6]/div[1]/table/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]"));
             opcionTercero.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAsociar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[6]/div[1]/table/tbody/tr/td/table/tbody/tr[2]/td/input"));
             Thread.sleep(1000);
             btnAsociar.click();
             Thread.sleep(5000);
-            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion, folderName);
 
             Thread.sleep(1000);
             WebElement editarPago = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table[2]/tbody/tr[2]/td/table/tbody/tr/td[1]/input[2]"));
             Thread.sleep(1000);
             editarPago.click();
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen13", nombreAutomatizacion, folderName);
             Thread.sleep(2500);
 
             WebElement montoDelPago = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table/tbody/tr[3]/td[14]/input[1]"));
@@ -240,7 +240,7 @@ public class INTER_PagoPorConceptos {
             WebElement clickAfuera = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table/tbody/tr[2]/td[12]"));
             clickAfuera.click();
             Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen14", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAcept = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table/tbody/tr[10]/td[1]/input[4]"));
@@ -269,7 +269,7 @@ public class INTER_PagoPorConceptos {
                 driver.switchTo().defaultContent();
             }
 
-            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen15", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
 
@@ -281,7 +281,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void PagarOrdenes (Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void PagarOrdenes (Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -296,20 +296,20 @@ public class INTER_PagoPorConceptos {
             WebElement seleccionarPago = driver.findElement(By.xpath("/html/body/div[14]/div[2]/center/form/table/tbody/tr[6]/td[1]/input"));
             seleccionarPago.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen16", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/center/form/table/tbody/tr[7]/td/input[1]"));
             btnAceptar.click();
             Thread.sleep(3500);
-            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen17", nombreAutomatizacion, folderName);
             Thread.sleep(2000);
 
             WebElement btnPagos = driver.findElement(By.xpath("/html/body/div[13]/form[3]/div[2]/input[4]"));
             Thread.sleep(1000);
             btnPagos.click();
             Thread.sleep(3000);
-            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen18", nombreAutomatizacion, folderName);
 
 
 

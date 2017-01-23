@@ -35,10 +35,10 @@ public class VistaINTER_RechazarPagoSiniestroTest {
             INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean = (INTER_RechazarPagoSiniestroBean) interRechazarPagoSiniestro.get(j);
             INTER_RechazarPagoSiniestro a = new INTER_RechazarPagoSiniestro();
             Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
-            //String horaC = intersegurosMetodos.horaCarpeta ();
+            String horaC = intersegurosMetodos.horaCarpeta ();
 
             try {
-                a.testLink(inter_rechazarPagoSiniestroBean, j);
+                a.testLink(inter_rechazarPagoSiniestroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

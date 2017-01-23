@@ -18,8 +18,9 @@ public class INTER_ModosPagoTercero {
     private final static Logger log = Logger.getLogger(INTER_ModosPagoTercero.class);
 
     public String nombreAutomatizacion ="INTER Modos de Pago de Terceros";
+    private WebDriver driver;
 
-    public void testLink(INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i)throws Exception {
+    public void testLink(INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName)throws Exception {
 
         try {
 
@@ -27,33 +28,33 @@ public class INTER_ModosPagoTercero {
             Interseguros_Metodos a= new Interseguros_Metodos();   //implementando metodos.
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);
 
             //Entrando en Menu
-            interMenuMantenimiento.MantTerc_BuscarTercero(driver,nombreAutomatizacion, i, 2);
+            interMenuMantenimiento.MantTerc_BuscarTercero(driver,nombreAutomatizacion, i, 2, folderName);
 
             Thread.sleep(1000);
             a.cambiarVentana(driver); // Cambiar de ventana
 
-            BuscarTercero(a, driver, interModosPagoTercerobean, i);
+            BuscarTercero(a, interModosPagoTercerobean, i, folderName);
 
-            SelecionTercero(a, driver, interModosPagoTercerobean, i);
+            SelecionTercero(a, interModosPagoTercerobean, i, folderName);
 
-            AgregarModoDePago(a, driver, interModosPagoTercerobean, i);
+            AgregarModoDePago(a, interModosPagoTercerobean, i, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
             //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
 
 
-    public void BuscarTercero(Interseguros_Metodos a, WebDriver driver, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i) throws InterruptedException, IOException {
+    public void BuscarTercero(Interseguros_Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName) throws InterruptedException, IOException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -94,7 +95,7 @@ public class INTER_ModosPagoTercero {
 
             //Screenshot
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
         }catch (Exception e) {
@@ -104,7 +105,7 @@ public class INTER_ModosPagoTercero {
         }
     }
 
-    private void SelecionTercero(Interseguros_Metodos a, WebDriver driver, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i) throws InterruptedException, IOException {
+    private void SelecionTercero(Interseguros_Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName) throws InterruptedException, IOException {
 
         try {
             //Seleccionar Tercero
@@ -114,10 +115,10 @@ public class INTER_ModosPagoTercero {
             // Boton Editar
             WebElement btnEditar = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[2]/div/form/input[1]"));
             btnEditar.click();
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             Thread.sleep(3000);
 
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
 
             Thread.sleep(2000);
 
@@ -127,7 +128,7 @@ public class INTER_ModosPagoTercero {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
-    private void AgregarModoDePago(Interseguros_Metodos a, WebDriver driver, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i)  throws InterruptedException, IOException  {
+    private void AgregarModoDePago(Interseguros_Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName)  throws InterruptedException, IOException  {
         try {
 
             //Tipo de Pago
@@ -169,7 +170,7 @@ public class INTER_ModosPagoTercero {
             Thread.sleep(2000);
 
             Thread.sleep(1000);*/
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
                 //botón Guardar
@@ -177,7 +178,7 @@ public class INTER_ModosPagoTercero {
                 btnGuardar.click();
                 Thread.sleep(1500);
 
-                a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion);
+                a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
                 /** Espere **/
