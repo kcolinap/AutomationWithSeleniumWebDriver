@@ -153,20 +153,20 @@ public class INTER_CrearOpenItemsBean {
         this.moneda = moneda;
     }
 
-    public String getNumPoliza() {
-        return numPoliza;
-    }
-
     public void setMonto(String monto) {
         this.monto = monto;
     }
 
     public String getMonto() {
+        return monto;
+    }
+
+    public String getNumPoliza() {
         return numPoliza;
     }
 
-    public void setNumPoliza(String monto) {
-        this.monto = monto;
+    public void setNumPoliza(String numPoliza) {
+        this.numPoliza = numPoliza;
     }
 
     public String getTipoRef() {

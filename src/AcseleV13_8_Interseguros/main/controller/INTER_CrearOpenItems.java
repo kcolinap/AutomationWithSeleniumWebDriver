@@ -137,7 +137,7 @@ public class INTER_CrearOpenItems {
         catch (Exception e){
             e.printStackTrace();
 //             log.info(e);
-            log.info("Test Case ?? - Crear Open Items LBC - " + e);
+            log.info("Test Case ?? - Crear Open Items INTER - " + e);
         }
 
         //Presiono el botón Buscar
