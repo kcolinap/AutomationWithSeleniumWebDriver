@@ -1,7 +1,9 @@
 package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaListaRestrictivaBean;
+import AcseleV13_8_Interseguros.beans.INTER_PrevisualizacionCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaListaRestrictiva;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -21,14 +23,22 @@ public class VistaINTER_ConsultaListaRestrictivaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interConsultaLista = INTER_ConsultaListaRestrictivaBean.getINTER_ConsultaListaRestrictiva();
+        ArrayList interConsultaLista = null;
+
+        try {
+            interConsultaLista = INTER_PrevisualizacionCuentaTecnicaBean.getInterPrevisualizacionCuentaTecnica();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interConsultaLista.size(); j++) {
             INTER_ConsultaListaRestrictivaBean inter_consultaListaRestrictivaBean = (INTER_ConsultaListaRestrictivaBean) interConsultaLista.get(j);
             INTER_ConsultaListaRestrictiva a = new INTER_ConsultaListaRestrictiva();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_consultaListaRestrictivaBean, j);
+                a.testLink(inter_consultaListaRestrictivaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
