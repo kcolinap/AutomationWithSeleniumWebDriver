@@ -99,4 +99,23 @@ public class Inter_Contratante {
         }
     }
 
+    public void EditarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+
+        try {
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void EliminarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+
+        try {
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
 }
