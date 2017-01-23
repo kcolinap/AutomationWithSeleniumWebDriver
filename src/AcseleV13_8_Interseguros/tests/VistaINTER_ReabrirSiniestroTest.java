@@ -4,6 +4,7 @@ package AcseleV13_8_Interseguros.tests;
 import AcseleV13_8_Interseguros.beans.INTER_ReabrirSiniestroBean;
 
 import AcseleV13_8_Interseguros.main.controller.INTER_ReabrirSiniestro;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -24,14 +25,23 @@ public class VistaINTER_ReabrirSiniestroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interReabrirSiniestro = INTER_ReabrirSiniestroBean.getINTER_ReabrirSiniestro();
+        ArrayList interReabrirSiniestro = null;
+
+        try {
+            interReabrirSiniestro = INTER_ReabrirSiniestroBean.getINTER_ReabrirSiniestro();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interReabrirSiniestro.size(); j++) {
             INTER_ReabrirSiniestroBean inter_reabrirSiniestroBean = (INTER_ReabrirSiniestroBean) interReabrirSiniestro.get(j);
             INTER_ReabrirSiniestro a = new INTER_ReabrirSiniestro();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_reabrirSiniestroBean, j);
+                a.testLink(inter_reabrirSiniestroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

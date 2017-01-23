@@ -19,7 +19,7 @@ public class Inter_PrePoliza {
 
     private final static Logger log = Logger.getLogger(Inter_PrePoliza.class);
 
-    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
+    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
 
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
@@ -44,7 +44,7 @@ public class Inter_PrePoliza {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -55,16 +55,11 @@ public class Inter_PrePoliza {
 
         } catch (Exception e) {
             e.printStackTrace();
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            sw.toString(); // stack trace as a string
-            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
         try {
 
             Thread.sleep(3000);
@@ -88,7 +83,7 @@ public class Inter_PrePoliza {
             }*/
 
 
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
@@ -98,13 +93,8 @@ public class Inter_PrePoliza {
             a.waitSearchWicket(driver, "Espere Evento a Aplicar");
 
         }catch (Exception e) {
-            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             e.printStackTrace();
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            sw.toString(); // stack trace as a string
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 }

@@ -19,7 +19,7 @@ public class Inter_Asegurado {
 
     private final static Logger log = Logger.getLogger(Inter_Asegurado.class);
 
-    public void AgregarAsegurado1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -72,23 +72,25 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 
-    public void AgregarAsegurado2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -141,23 +143,25 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 
-    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -214,23 +218,25 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 
-    public void AgregarAsegurado2_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado2_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -287,19 +293,21 @@ public class Inter_Asegurado {
 
             jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
             Thread.sleep(1000);
 
 
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             sw.toString(); // stack trace as a string
             //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
         }
     }
 

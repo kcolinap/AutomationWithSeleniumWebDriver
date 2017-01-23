@@ -18,32 +18,46 @@ public class INTER_CumuloAsegurado {
     private final static Logger log = Logger.getLogger(INTER_CumuloAsegurado.class);
 
     public String nombreAutomatizacion = "INTER Cumulo Asegurado";
+    private WebDriver driver;
 
-    public void testLink(INTER_CumuloAseguradoBean inter_cumuloAseguradoBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CumuloAseguradoBean inter_cumuloAseguradoBean, int i, String folderName) throws IOException, InterruptedException {
 
-        //implementando clase de metodos
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(8000);
+        try {
 
-        m.Cumulos_CumulosPorAsegurado(driver,nombreAutomatizacion, 3,i);
-        Thread.sleep(8000);
-        a.cambiarVentana(driver);
-        BusquedaTerceros (driver, a, inter_cumuloAseguradoBean, i);
+            //implementando clase de metodos
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
+            Thread.sleep(8000);
+
+            m.Cumulos_CumulosPorAsegurado(driver, nombreAutomatizacion, 3, i, folderName);
+            Thread.sleep(8000);
+            a.cambiarVentana(driver);
+            BusquedaTerceros(a, inter_cumuloAseguradoBean, i, folderName, 4, 5, 6, 7);
+
+            driver.quit();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
+        }
 
     }
 
 
-    public void BusquedaTerceros (WebDriver driver, Interseguros_Metodos a, INTER_CumuloAseguradoBean inter_cumuloAseguradoBean, int i) throws IOException, InterruptedException{
+    public void BusquedaTerceros (Interseguros_Metodos a, INTER_CumuloAseguradoBean inter_cumuloAseguradoBean, int i, String folderName,
+                                  int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try{
 
             Thread.sleep(3000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             WebElement btnSeleccionar1 = driver.findElement(By.xpath("//*[@id=\"ThirdParty\"]/div"));
             btnSeleccionar1.click();
             WebElement tipoTercero  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[1]/td/span"));
@@ -76,7 +90,7 @@ public class INTER_CumuloAsegurado {
 
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"panelThirdParty\"]/div[2]/div/div[5]/div/div[3]/div/span/span"));
             btnBuscar.click();
@@ -86,22 +100,18 @@ public class INTER_CumuloAsegurado {
             WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"gwt-uid-128\"]/div[2]/div[1]/table/tbody/tr[1]/td[2]/div"));
             btnSeleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
             Thread.sleep(1000);
             WebElement btnAceptar = driver.findElement(By.xpath("//*[@id=\"panelThirdParty\"]/div[2]/div/div[7]/div/div[2]/div/div[3]/div/div/div/span/span"));
             btnAceptar.click();
 
             Thread.sleep(8000);
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
-
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
-
     }
 }

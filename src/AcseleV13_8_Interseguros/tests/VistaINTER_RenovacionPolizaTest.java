@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_RenovacionPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_RenovacionPoliza;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -19,21 +20,28 @@ public class VistaINTER_RenovacionPolizaTest {
     private final static Logger log = Logger.getLogger(VistaINTER_RenovacionPolizaTest.class);
 
     @Test
-    //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList renovacionPoliza = INTER_RenovacionPolizaBean.getRenovacionPoliza();
+        ArrayList renovacionPoliza = null;
+
+        try {
+            renovacionPoliza = INTER_RenovacionPolizaBean.getRenovacionPoliza();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < renovacionPoliza.size(); i++) {
 
             INTER_RenovacionPolizaBean inter_renovacionPolizaBean = (INTER_RenovacionPolizaBean) renovacionPoliza.get(i);
             INTER_RenovacionPoliza a = new INTER_RenovacionPoliza();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_renovacionPolizaBean, i);
+                a.testLink(inter_renovacionPolizaBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

@@ -19,7 +19,7 @@ public class INTER_CreacionCaja {
     public String nombreAutomatizacion = "INTER Creacion de Caja";
     private WebDriver driver;
 
-    public void testLink(INTER_CreacionCajaBean interCreacionCajaBean, int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CreacionCajaBean interCreacionCajaBean, int i, String folderName) throws IOException, InterruptedException {
 
         try {
 
@@ -30,13 +30,13 @@ public class INTER_CreacionCaja {
             INTER_CrearCaja interCrearCaja = new INTER_CrearCaja();
 
             driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
 
             //Entrando en Menu
-            interMenuMantenimiento.UAA_Caja(driver, nombreAutomatizacion, 2, i);
+            interMenuMantenimiento.UAA_Caja(driver, nombreAutomatizacion, 2, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -45,13 +45,13 @@ public class INTER_CreacionCaja {
             /** Creando la Caja */
 
             Thread.sleep(3000);
-            interCrearCaja.CrearCaja(a, driver, interCreacionCajaBean, nombreAutomatizacion, i, 3, 4, 5);
+            interCrearCaja.CrearCaja(a, driver, interCreacionCajaBean, nombreAutomatizacion, i, folderName, 3, 4, 5);
 
             driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null) {
                 driver.quit();
             }

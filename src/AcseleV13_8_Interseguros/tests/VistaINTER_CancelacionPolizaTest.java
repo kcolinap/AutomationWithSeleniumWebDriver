@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CancelacionPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CancelacionPoliza;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -22,18 +23,26 @@ public class VistaINTER_CancelacionPolizaTest {
     //@Transactional
     public void mainTest() throws SQLException {
 
-        ArrayList anulacionPoliza = INTER_CancelacionPolizaBean.getAnulacionPoliza();
+        ArrayList anulacionPoliza = null;
+
+        try {
+            anulacionPoliza = INTER_CancelacionPolizaBean.getAnulacionPoliza();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int i = 0; i < anulacionPoliza.size(); i++) {
 
             INTER_CancelacionPolizaBean inter_cancelacionPolizaBean = (INTER_CancelacionPolizaBean) anulacionPoliza.get(i);
             INTER_CancelacionPoliza a = new INTER_CancelacionPoliza();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_cancelacionPolizaBean, i);
+                a.testLink(inter_cancelacionPolizaBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
     }

@@ -18,8 +18,9 @@ public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializa
     private final static Logger log = Logger.getLogger(INTER_CreacionCaja.class);
 
     public String nombreAutomatizacion = "INTER Asociar Caja a Cajero";
+    private WebDriver driver;
 
-    public void testLink(INTER_AsociarCajaCajeroBean interAsociarCajaCajeroBean, int i) throws IOException, InterruptedException {
+    public void testLink(INTER_AsociarCajaCajeroBean interAsociarCajaCajeroBean, int i, String folderName) throws IOException, InterruptedException {
 
         try {
 
@@ -29,14 +30,14 @@ public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializa
             //Crear Caja
             INTER_AsociarCajaConCajero interAsociarCajaConCajero = new INTER_AsociarCajaConCajero();
 
-            WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
 
             //Entrando en Menu
-            interMenuMantenimiento.UAA_AsociarCajaCajero(driver, nombreAutomatizacion, 2, i);
+            interMenuMantenimiento.UAA_AsociarCajaCajero(driver, nombreAutomatizacion, 2, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
@@ -45,12 +46,16 @@ public class INTER_AsociarCajaCajero extends INTER_CajaBean implements Serializa
             /** Asociar la Caja a Cajero */
 
             Thread.sleep(3000);
-            interAsociarCajaConCajero.AsociarCajaConCajero(a, driver, interAsociarCajaCajeroBean, nombreAutomatizacion, i, 3, 4, 5, 6);
+            interAsociarCajaConCajero.AsociarCajaConCajero(a, driver, interAsociarCajaCajeroBean, nombreAutomatizacion, i, folderName, 3, 4, 5, 6);
 
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
 
 

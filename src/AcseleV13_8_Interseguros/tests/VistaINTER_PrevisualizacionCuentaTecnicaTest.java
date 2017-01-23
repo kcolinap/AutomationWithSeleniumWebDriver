@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_PrevisualizacionCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_PrevisualizacionCuentaTecnica;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -22,14 +23,22 @@ public class VistaINTER_PrevisualizacionCuentaTecnicaTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList interPrevisualizacionCuentaTecnica = INTER_PrevisualizacionCuentaTecnicaBean.getInterPrevisualizacionCuentaTecnica();
+        ArrayList interPrevisualizacionCuentaTecnica = null;
+
+        try {
+            interPrevisualizacionCuentaTecnica = INTER_PrevisualizacionCuentaTecnicaBean.getInterPrevisualizacionCuentaTecnica();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< interPrevisualizacionCuentaTecnica.size(); j++) {
             INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean = (INTER_PrevisualizacionCuentaTecnicaBean) interPrevisualizacionCuentaTecnica.get(j);
             INTER_PrevisualizacionCuentaTecnica a = new INTER_PrevisualizacionCuentaTecnica();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_previsualizacionCuentaTecnicaBean, j);
+                a.testLink(inter_previsualizacionCuentaTecnicaBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

@@ -18,8 +18,9 @@ public class INTER_CancelacionPoliza {
     private final static Logger log = Logger.getLogger(INTER_CancelacionPoliza.class);
 
     public String nombreAutomatizacion ="INTER Anulacion de Poliza";
+    private WebDriver driver;
 
-    public void testLink(INTER_CancelacionPolizaBean inter_cancelacionPolizaBean, int i)throws Exception{
+    public void testLink(INTER_CancelacionPolizaBean inter_cancelacionPolizaBean, int i, String folderName)throws Exception{
 
         try {
 
@@ -27,25 +28,30 @@ public class INTER_CancelacionPoliza {
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
-            a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);
 
             m.OpePol_CotizacionSuscripcionMantenimientoPolizas(driver, nombreAutomatizacion, 2);
             Thread.sleep(2000);
             a.cambiarVentana(driver); // Cambiar de ventana
-            BuscarPoliza(a, driver, inter_cancelacionPolizaBean, i);
+            BuscarPoliza(a, driver, inter_cancelacionPolizaBean, i, folderName);
+
+            driver.quit();
+
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
 
 
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, WebDriver driver, INTER_CancelacionPolizaBean inter_cancelacionPolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPoliza(Interseguros_Metodos a, WebDriver driver, INTER_CancelacionPolizaBean inter_cancelacionPolizaBean, int i, String folderName) throws InterruptedException, IOException {
 
         try {
 
@@ -58,7 +64,7 @@ public class INTER_CancelacionPoliza {
 
             Thread.sleep(1000);
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
 
             //Boton Buscar
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
@@ -79,7 +85,7 @@ public class INTER_CancelacionPoliza {
 
             Thread.sleep(1000);
             //Screenshot
-            a.ScreenShotPool(driver, i,  "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,  "screen4", nombreAutomatizacion, folderName);
 
             //Boton Cancelar Poliza
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_CancelPolicyButton']")).click();
@@ -110,14 +116,14 @@ public class INTER_CancelacionPoliza {
 
             Thread.sleep(1000);
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
 
             //Boton Continuar
             driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
 
             Thread.sleep(5000);
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
 
             // Boton Calcular
             driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']")).click();
@@ -132,7 +138,7 @@ public class INTER_CancelacionPoliza {
             }
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
 
             // Boton Aplicar
             WebElement btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
@@ -148,14 +154,13 @@ public class INTER_CancelacionPoliza {
 
             //Thread.sleep(15000);
             //Screenshot
-            a.ScreenShotPool(driver, i,  "screen8", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,  "screen8", nombreAutomatizacion, folderName);
 
             System.out.println("Fin de la prueba");
 
         }catch (Exception e) {
             e.printStackTrace();
-            //             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }

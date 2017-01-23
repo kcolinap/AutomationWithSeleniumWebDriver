@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosDireccionesBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_TercerosDirecciones;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -33,12 +34,14 @@ public class VistaINTERTercerosDireccionesTest {
 
             INTER_TercerosDireccionesBean intertercerosDireccionesBean = (INTER_TercerosDireccionesBean) dirTerceros.get(i);
             INTER_TercerosDirecciones a = new INTER_TercerosDirecciones();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(intertercerosDireccionesBean, i);
+                a.testLink(intertercerosDireccionesBean, i, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
 

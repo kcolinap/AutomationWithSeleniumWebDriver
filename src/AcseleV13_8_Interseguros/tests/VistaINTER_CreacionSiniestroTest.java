@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CreacionSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CreacionSiniestro;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -22,14 +23,23 @@ public class VistaINTER_CreacionSiniestroTest {
     @Test
     public void mainTest() throws SQLException {
 
-        ArrayList creacionSiniestro = INTER_CreacionSiniestroBean.getINTER_CreacionSiniestro();
+        ArrayList creacionSiniestro = null;
+
+        try {
+            creacionSiniestro = INTER_CreacionSiniestroBean.getINTER_CreacionSiniestro();
+
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
         for (int j = 0; j< creacionSiniestro.size(); j++) {
             INTER_CreacionSiniestroBean inter_creacionSiniestroBean = (INTER_CreacionSiniestroBean) creacionSiniestro.get(j);
             INTER_CreacionSiniestro a = new INTER_CreacionSiniestro();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_creacionSiniestroBean, j);
+                a.testLink(inter_creacionSiniestroBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

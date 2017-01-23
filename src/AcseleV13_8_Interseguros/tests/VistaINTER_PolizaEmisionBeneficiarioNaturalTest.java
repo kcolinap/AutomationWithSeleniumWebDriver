@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_PolizaEmisionBeneficiarioNaturalBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_PolizaEmisionBeneficiarioNatural;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -35,18 +36,23 @@ public class VistaINTER_PolizaEmisionBeneficiarioNaturalTest {
         for (int j = 0; j < polizaEmisionBeneficiarioNatural.size(); j++) {
             INTER_PolizaEmisionBeneficiarioNaturalBean inter_polizaEmisionBeneficiarioNaturalBean = (INTER_PolizaEmisionBeneficiarioNaturalBean) polizaEmisionBeneficiarioNatural.get(j);
             INTER_PolizaEmisionBeneficiarioNatural a = new INTER_PolizaEmisionBeneficiarioNatural();
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try {
-                a.testLink(inter_polizaEmisionBeneficiarioNaturalBean, j);
+                a.testLink(inter_polizaEmisionBeneficiarioNaturalBean, j, horaC);
             } catch (Exception e) {
+                e.printStackTrace();
+                log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
+                // Para mandar a imprimir en el .log
                 //e.printStackTrace();
                 //log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
-                e.printStackTrace();
+                /*e.printStackTrace();
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 sw.toString(); // stack trace as a string
-                log.info("Test Case - " + a.nombreAutomatizacion + " - " + sw.toString());
+                log.info("Test Case - " + a.nombreAutomatizacion + " - " + sw.toString());*/
             }
         }
 

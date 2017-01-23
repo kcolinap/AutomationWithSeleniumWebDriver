@@ -1,8 +1,8 @@
 package AcseleV13_8_Interseguros.tests;
 
 
-import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
-import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
+//import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
+//import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -20,7 +20,7 @@ public class VistaINTER_CrearOpenItemsTest {
 
     @Test
     public void mainTest() throws SQLException {
-        ArrayList item = INTER_CrearOpenItemsBean.getCrearOpenItems();
+       /* ArrayList item = INTER_CrearOpenItemsBean.getCrearOpenItems();
 
         for ( int i = 0; i < item.size(); i++) {
 
@@ -35,7 +35,7 @@ public class VistaINTER_CrearOpenItemsTest {
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
-
+*/
     }
 
     @Before

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_RECHAZAR_PAGO_SINIESTRO PRUEBA="1" NUMERO_SINIESTRO="" NUMERO_POLIZA=" "
+                                 FECHA_OCURRENCIA_SIN=" " PRODUCTO=" DotalSimple" ORDENAR_POR=" "
+                                 FECHA_COMPROMISO=" fecha_Compromiso" FECHA_INICIAL=" fecha_Inicial" FECHA_FINAL=" fecha_Final"
+                                 RAZON=" razon " TIPO="tipo" SUCURSAL=" sucursal" COBERTURA=" "
+                                 SELECCIONE_ACCION=" seleccione_Accion" MONTO_SINIESTRO="monto_Siniestro"/>
+</dataset>

@@ -18,30 +18,43 @@ import java.io.IOException;
 public class INTER_CerrarSiniestro {
 
     private final static Logger log = Logger.getLogger(INTER_CerrarSiniestro.class);
+    private WebDriver driver;
 
     public String nombreAutomatizacion = "Cerrar Siniestro";
 
-    public void testLink(INTER_CerrarSiniestroBean inter_cerrarSiniestroBean,int i) throws IOException, InterruptedException {
+    public void testLink(INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException {
 
-        //implementando clase de metodos
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(5000);
+        try {
 
-        m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
-        Thread.sleep(10000);
+            //implementando clase de metodos
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-        a.cambiarVentana(driver);
-        BuscarPoliza(driver, a, inter_cerrarSiniestroBean, i);
-        ResultadoBusqueda(driver, a, inter_cerrarSiniestroBean, i);
-        CerrarSiniestro(driver, a, inter_cerrarSiniestroBean, i);
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
+            Thread.sleep(5000);
 
+            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            Thread.sleep(10000);
+
+            a.cambiarVentana(driver);
+            BuscarPoliza(a, inter_cerrarSiniestroBean, i, folderName);
+            ResultadoBusqueda(a, inter_cerrarSiniestroBean, i, folderName);
+            CerrarSiniestro(a, inter_cerrarSiniestroBean, i, folderName);
+
+            driver.quit();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
+        }
     }
 
-    public void BuscarPoliza(WebDriver driver, Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -118,7 +131,7 @@ public class INTER_CerrarSiniestro {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion);
+            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion, folderName);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));
             btnBuscar.click();
@@ -127,12 +140,11 @@ public class INTER_CerrarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -140,7 +152,7 @@ public class INTER_CerrarSiniestro {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
@@ -150,12 +162,11 @@ public class INTER_CerrarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 
-    public void CerrarSiniestro (WebDriver driver,Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i) throws IOException, InterruptedException{
+    public void CerrarSiniestro(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
         try{
 
             Thread.sleep(2000);
@@ -178,7 +189,7 @@ public class INTER_CerrarSiniestro {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -188,7 +199,7 @@ public class INTER_CerrarSiniestro {
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
             btnAceptar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion);
+            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion, folderName);
 
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
@@ -209,8 +220,7 @@ public class INTER_CerrarSiniestro {
 
         }catch (Exception e) {
             e.printStackTrace();
-//                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
     }

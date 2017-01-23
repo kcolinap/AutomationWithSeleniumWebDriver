@@ -35,10 +35,10 @@ public class VistaINTER_PagoPorConceptosTest {
             INTER_PagoPorConceptosBean inter_pagoPorConceptosBean = (INTER_PagoPorConceptosBean) interPagoConceptos.get(j);
             INTER_PagoPorConceptos a = new INTER_PagoPorConceptos();
             Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
-            //String horaC = intersegurosMetodos.horaCarpeta ();
+            String horaC = intersegurosMetodos.horaCarpeta ();
 
             try {
-                a.testLink(inter_pagoPorConceptosBean, j);
+                a.testLink(inter_pagoPorConceptosBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
