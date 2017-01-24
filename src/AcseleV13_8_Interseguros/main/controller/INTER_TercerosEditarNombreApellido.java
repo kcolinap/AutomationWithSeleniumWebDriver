@@ -3,10 +3,7 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.INTER_TercerosEditarNombreApellidoBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
@@ -46,6 +43,8 @@ public class INTER_TercerosEditarNombreApellido {
             WebElement editar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
             editar.click();
 
+            a.waitSearchWicket(driver, "Espera para editar");
+
             EditarT(a, driver, inter_tercerosEditarNombreApellidoBean, i);
             Thread.sleep(4000);
 
@@ -61,17 +60,21 @@ public class INTER_TercerosEditarNombreApellido {
 
     public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i) throws InterruptedException, IOException{
 
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0,100)", "");
+        Thread.sleep(800);
+
         try{
 
-            Thread.sleep(4000);
+            Thread.sleep(1500);
             WebElement title = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
 
             //Tipo de tercero
             if(inter_tercerosEditarNombreApellidoBean.getTipoTerceros() != null){
-                Thread.sleep(3000);
+                Thread.sleep(1500);
                 Select tipoTerceros = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
                 tipoTerceros.selectByValue(inter_tercerosEditarNombreApellidoBean.getTipoTerceros());
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 title.click();
             }
 
@@ -80,7 +83,7 @@ public class INTER_TercerosEditarNombreApellido {
             if(inter_tercerosEditarNombreApellidoBean.getNumDocIdentificacion() != null){
                 WebElement nroDocIden = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_field']"));
                 nroDocIden.sendKeys(inter_tercerosEditarNombreApellidoBean.getNumDocIdentificacion());
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 title.click();
             }
 
@@ -89,8 +92,11 @@ public class INTER_TercerosEditarNombreApellido {
             if(inter_tercerosEditarNombreApellidoBean.getApellido() != null){
                 WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
                 //apellido.sendKeys(Keys.chord(Keys.CONTROL, "a"), inter_tercerosEditarNombreApellidoBean.getApellido());
+                apellido.clear();
+                Thread.sleep(500);
+                apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
                 apellido.sendKeys(inter_tercerosEditarNombreApellidoBean.getApellido());
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 title.click();
             }
 
@@ -98,8 +104,11 @@ public class INTER_TercerosEditarNombreApellido {
             if(inter_tercerosEditarNombreApellidoBean.getNombre() != null){
                 WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
                 //nombre.sendKeys(Keys.chord(Keys.CONTROL, "a"), inter_tercerosEditarNombreApellidoBean.getNombre());
+                nombre.clear();
+                Thread.sleep(500);
+                nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
                 nombre.sendKeys(inter_tercerosEditarNombreApellidoBean.getNombre());
-                Thread.sleep(2000);
+                Thread.sleep(1000);
                 title.click();
             }
 
@@ -109,14 +118,24 @@ public class INTER_TercerosEditarNombreApellido {
             a.ScreenShotPool(driver, i, "screen2", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
+            jse.executeScript("window.scrollBy(0,1500)", "");
+            Thread.sleep(800);
+
             //Buscar
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             //WebElement buscar2 = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
+            jse.executeScript("window.scrollBy(0,1700)", "");
+            Thread.sleep(800);
             buscar =driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();//Borrar funcion al corregirse defecto
-            Thread.sleep(6000);
+            Thread.sleep(500);
+
+            a.waitSearchWicket(driver, "Espera de busqueda");
+
+            jse.executeScript("window.scrollBy(0,1900)", "");
+            Thread.sleep(800);
 
             //Seleccionar tercero encontrado
             WebElement seleccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
@@ -134,65 +153,112 @@ public class INTER_TercerosEditarNombreApellido {
 
     public void EditarT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i) throws InterruptedException, IOException{
 
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+
         try{
 
-            Thread.sleep(2000);
-            //WebElement title = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformationLabel']"));
-
-            // = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
-            //apellido.clear();//.sendKeys(" ");
-
-            if(inter_tercerosEditarNombreApellidoBean.getNombre() != null) {
-                //WebElement title = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformationLabel']"));
-                //title.click();
-                //Thread.sleep(100);
-                WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
-                Thread.sleep(200);
-                nombre.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-                Thread.sleep(300);
-
-                nombre.sendKeys("Nombre 2");
-                //nombre.sendKeys(Keys.chord(Keys.ESCAPE));
-                Thread.sleep(500);
-                //nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));;
-
-                //Thread.sleep(800);
-                //nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));;
-                //Thread.sleep(800);
-
-                //nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
-
-                Thread.sleep(1500);
-            }
+            Thread.sleep(1500);
 
             if(inter_tercerosEditarNombreApellidoBean.getApellido() != null) {
-                WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
-                Thread.sleep(200);
-                apellido.clear();
-                Thread.sleep(300);
-
-                //apellido.clear();//pellido.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-                //Thread.sleep(1000);
-                apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
-                //apellido.sendKeys(Keys.chord(Keys.BACK_SPACE));
-                //Thread.sleep(800);
-                //apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
-                //Thread.sleep(200);
-                apellido.sendKeys("d");
-                Thread.sleep(100);
-                apellido.clear();
-                Thread.sleep(100);
-                apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
-                apellido.sendKeys("Apellido 2");
                 Thread.sleep(1500);
+                for (int j=0; j<=2; j++){
+
+                    try{
+
+                        WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                        apellido.sendKeys(Keys.chord(Keys.BACK_SPACE));
+                        Thread.sleep(800);
+                        apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                        apellido.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                        Thread.sleep(800);
+                        apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                        apellido.sendKeys(inter_tercerosEditarNombreApellidoBean.getApellidoNuevo());
+                        Thread.sleep(800);
+                        break;
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
                 WebElement title = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformationLabel']"));
                 title.click();
+            }else{
+                try{
+                    WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                    apellido.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                    Thread.sleep(800);
+                    apellido.sendKeys(inter_tercerosEditarNombreApellidoBean.getApellidoNuevo());
+                    Thread.sleep(800);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+            if(inter_tercerosEditarNombreApellidoBean.getNombre() != null) {
+
+                for (int j=0; j<=2; j++){
+
+                    try{
+
+                        WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
+                        nombre.sendKeys(Keys.chord(Keys.BACK_SPACE));
+                        Thread.sleep(800);
+                        nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
+                        nombre.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                        Thread.sleep(800);
+                        nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
+                        nombre.sendKeys(inter_tercerosEditarNombreApellidoBean.getNombreNuevo());
+                        Thread.sleep(800);
+                        break;
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }else{
+                try{
+                    WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
+                    nombre.sendKeys(Keys.chord(Keys.BACK_SPACE));
+                    Thread.sleep(800);
+                    nombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_8_fila_field']"));
+                    nombre.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                    Thread.sleep(1000);
+                    nombre.sendKeys(inter_tercerosEditarNombreApellidoBean.getNombreNuevo());
+                    Thread.sleep(800);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
 
             //ScreenShot
             a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
             Toolkit.getDefaultToolkit().beep();
 
+            //Boton guardar
+            Thread.sleep(2000);
+            WebElement guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']"));
+            jse.executeScript("window.scrollBy(0,1000)", "");
+            Thread.sleep(1000);
+
+            //ScreenShot
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
+
+            guardar.click();
+            Thread.sleep(1000);
+            guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']"));
+            guardar.click();
+            Thread.sleep(2000);
+
+            //Volver a la busqueda
+            WebElement volver = driver.findElement(By.xpath("//span[@wicketpath='ThirdInformationContent_panelInformationAndReturnPage_form_editValidity_editValidityLabel']"));
+            volver.click();
+            Thread.sleep(2000);
+
+            jse.executeScript("window.scrollBy(0,1900)", "");
+            Thread.sleep(800);
+
+            //ScreenShot
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e){
             e.printStackTrace();

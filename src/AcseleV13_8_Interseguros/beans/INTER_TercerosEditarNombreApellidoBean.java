@@ -21,6 +21,8 @@ public class INTER_TercerosEditarNombreApellidoBean implements Serializable {
     private String numDocIdentificacion;
     private String apellido;
     private String nombre;
+    private String apellidoNuevo;
+    private String nombreNuevo;
 
     public String getTipoTerceros() {
         return tipoTerceros;
@@ -54,6 +56,22 @@ public class INTER_TercerosEditarNombreApellidoBean implements Serializable {
         this.numDocIdentificacion = numDocIdentificacion;
     }
 
+    public String getApellidoNuevo() {
+        return apellidoNuevo;
+    }
+
+    public void setApellidoNuevo(String apellidoNuevo) {
+        this.apellidoNuevo = apellidoNuevo;
+    }
+
+    public String getNombreNuevo() {
+        return nombreNuevo;
+    }
+
+    public void setNombreNuevo(String nombreNuevo) {
+        this.nombreNuevo = nombreNuevo;
+    }
+
     public static ArrayList getINTER_TercerosEditarNombreApellido() throws SQLException {
 
         Connection conn = null;
@@ -78,6 +96,8 @@ public class INTER_TercerosEditarNombreApellidoBean implements Serializable {
                 inter_TercerosEditarNombreApellidoBean.setNumDocIdentificacion(rs.getString("Num_Doc_Identificacion"));
                 inter_TercerosEditarNombreApellidoBean.setApellido(rs.getString("Apellido"));
                 inter_TercerosEditarNombreApellidoBean.setNombre(rs.getString("Nombre"));
+                inter_TercerosEditarNombreApellidoBean.setApellidoNuevo(rs.getString("Apellido_Nuevo"));
+                inter_TercerosEditarNombreApellidoBean.setNombreNuevo(rs.getString("Nombre_Nuevo"));
 
                 interTercerosEditarNombreApellido.add(inter_TercerosEditarNombreApellidoBean);
             }
