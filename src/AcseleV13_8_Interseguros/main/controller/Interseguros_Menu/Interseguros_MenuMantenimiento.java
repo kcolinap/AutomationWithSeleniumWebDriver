@@ -54,8 +54,8 @@ public class Interseguros_MenuMantenimiento {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]")); // Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[36]/div[2]")); // Buscar (FrontEnd)
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[2]")); // Buscar (FrontEnd)
 
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();

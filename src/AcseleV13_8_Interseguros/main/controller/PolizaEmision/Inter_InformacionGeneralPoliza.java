@@ -400,13 +400,13 @@ public class Inter_InformacionGeneralPoliza {
             }
 
             if (interPolizaBean.getMonedaDePrima() != null){
-                Select monedaDePrima = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_5_fila_repeaterSelect_1_field']")));
+                Select monedaDePrima = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_repeaterSelect_1_field']")));
                 monedaDePrima.selectByValue(interPolizaBean.getMonedaDePrima());
                 Thread.sleep(2000);
             }
 
             if (interPolizaBean.getMontoPrimeraPrima() != null){
-                WebElement montoPrimeraPrima = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_6_fila_field']"));
+                WebElement montoPrimeraPrima = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_7_fila_field']"));
                 montoPrimeraPrima.sendKeys(interPolizaBean.getMontoPrimeraPrima());
                 otroElemento.click();
                 Thread.sleep(2000);
