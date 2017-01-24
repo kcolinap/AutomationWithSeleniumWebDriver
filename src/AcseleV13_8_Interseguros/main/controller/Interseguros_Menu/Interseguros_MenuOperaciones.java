@@ -130,7 +130,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_DeclaracionSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i) {
+    public void OpeSini_MantenimientoSiniestro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
         try{
             Actions action = new Actions(driver);
@@ -141,7 +141,7 @@ public class Interseguros_MenuOperaciones {
             action.moveToElement(menu2).build().perform();
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             menu3.click();
 
         }catch (Exception e) {
@@ -416,16 +416,16 @@ public class Interseguros_MenuOperaciones {
 
     /** -- Facturacion y Cobro -- **/
 
-    public void UAA_ModificacionMovimientosTercero(WebDriver driver, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
+    public void UAA_ModificacionMovimientosTercero(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[3]"));//cumulos terceros
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[11]/div[3]"));//cumulos terceros
 
             menu1.click();
             menu2.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion, folderName);
+            this.a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
             Thread.sleep(2000);
             menu3.click();
 

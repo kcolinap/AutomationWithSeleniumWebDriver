@@ -36,7 +36,7 @@ public class INTER_RechazarSiniestro {
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
-            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            m.OpeSini_MantenimientoSiniestro(driver,a , nombreAutomatizacion,2, i, folderName);
             Thread.sleep(10000);
 
             a.cambiarVentana(driver);
