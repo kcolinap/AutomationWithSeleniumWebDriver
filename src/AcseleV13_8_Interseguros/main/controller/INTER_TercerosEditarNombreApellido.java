@@ -20,24 +20,24 @@ public class INTER_TercerosEditarNombreApellido {
     public String nombreAutomatizacion = "Edicion de nombre y apellido de terceros";
     private WebDriver driver;
 
-    public void testLink(INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i) throws Exception{
+    public void testLink(INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i, String folderName) throws Exception{
         try{
 
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuMantenimiento intersegurosMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
-            a.IniciarSesion(driver, nombreAutomatizacion, i);
-            a.ValidandoSesion(driver, nombreAutomatizacion, i);
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1000);
 
             //Ingreso a la opcion Consulta de terceros
-            intersegurosMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, i, 2);
+            intersegurosMenuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, i, 2, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, driver, inter_tercerosEditarNombreApellidoBean, i);
+            BusquedaT(a, driver, inter_tercerosEditarNombreApellidoBean, i, folderName, 3, 4);
 
             //Boton editar
             WebElement editar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
@@ -45,7 +45,7 @@ public class INTER_TercerosEditarNombreApellido {
 
             a.waitSearchWicket(driver, "Espera para editar");
 
-            EditarT(a, driver, inter_tercerosEditarNombreApellidoBean, i);
+            EditarT(a, driver, inter_tercerosEditarNombreApellidoBean, i, folderName, 5, 6, 7);
             Thread.sleep(4000);
 
             //driver.quit();
@@ -58,13 +58,13 @@ public class INTER_TercerosEditarNombreApellido {
         }
     }
 
-    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i) throws InterruptedException, IOException{
+    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,100)", "");
-        Thread.sleep(800);
 
         try{
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("window.scrollBy(0,100)", "");
+            Thread.sleep(800);
 
             Thread.sleep(1500);
             WebElement title = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
@@ -115,7 +115,7 @@ public class INTER_TercerosEditarNombreApellido {
             Thread.sleep(1000);
 
             //ScreenShot
-            a.ScreenShotPool(driver, i, "screen2", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             jse.executeScript("window.scrollBy(0,1500)", "");
@@ -143,7 +143,7 @@ public class INTER_TercerosEditarNombreApellido {
             Thread.sleep(2000);
 
             //ScreenShot
-            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
         }catch (Exception e){
             e.printStackTrace();
@@ -151,7 +151,7 @@ public class INTER_TercerosEditarNombreApellido {
         }
     }
 
-    public void EditarT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i) throws InterruptedException, IOException{
+    public void EditarT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws InterruptedException, IOException{
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
@@ -229,7 +229,7 @@ public class INTER_TercerosEditarNombreApellido {
             }
 
             //ScreenShot
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             //Boton guardar
@@ -239,7 +239,7 @@ public class INTER_TercerosEditarNombreApellido {
             Thread.sleep(1000);
 
             //ScreenShot
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             guardar.click();
@@ -257,7 +257,7 @@ public class INTER_TercerosEditarNombreApellido {
             Thread.sleep(800);
 
             //ScreenShot
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e){

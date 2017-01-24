@@ -34,10 +34,10 @@ public class VistaINTER_TercerosEditarNombreApellidoTest {
             INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean = (INTER_TercerosEditarNombreApellidoBean) interTercerosEditarNombreApellido.get(j);
             INTER_TercerosEditarNombreApellido a = new INTER_TercerosEditarNombreApellido();
             Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
-            //String horaC = intersegurosMetodos.horaCarpeta();
+            String horaC = intersegurosMetodos.horaCarpeta();
 
             try{
-                a.testLink(inter_tercerosEditarNombreApellidoBean, j);
+                a.testLink(inter_tercerosEditarNombreApellidoBean, j, horaC);
             }catch (Exception e){
                 e.printStackTrace();
                 Log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
