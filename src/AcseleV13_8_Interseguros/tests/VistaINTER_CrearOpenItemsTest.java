@@ -1,8 +1,9 @@
 package AcseleV13_8_Interseguros.tests;
 
 
-//import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
-//import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
+import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
+import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -20,22 +21,27 @@ public class VistaINTER_CrearOpenItemsTest {
 
     @Test
     public void mainTest() throws SQLException {
-       /* ArrayList item = INTER_CrearOpenItemsBean.getCrearOpenItems();
+        ArrayList item = null;
 
-        for ( int i = 0; i < item.size(); i++) {
+        try {
+            item = INTER_CrearOpenItemsBean.getCrearOpenItems();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
-            INTER_CrearOpenItemsBean interCrearOpenItemsBean = (INTER_CrearOpenItemsBean) item.get(i);
+        for (int j = 0; j< item.size(); j++) {
+            INTER_CrearOpenItemsBean interCrearOpenItemsBean = (INTER_CrearOpenItemsBean) item.get(j);
             INTER_CrearOpenItems a = new INTER_CrearOpenItems();
-
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
             try {
-                a.testLink(interCrearOpenItemsBean, i);
+                a.testLink(interCrearOpenItemsBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 //                log.info(e);
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
-*/
     }
 
     @Before

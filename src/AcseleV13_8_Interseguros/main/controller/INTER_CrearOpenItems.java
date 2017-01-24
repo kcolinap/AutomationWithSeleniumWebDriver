@@ -21,65 +21,81 @@ public class INTER_CrearOpenItems {
     private final static Logger log = Logger.getLogger(INTER_CrearOpenItemsBean.class);
 
     public String nombreAutomatizacion = "Crear Open Items INTER";
+    private WebDriver driver;
 
-    public void testLink(INTER_CrearOpenItemsBean interCrearOpenItemsBean, int i) throws IOException, InterruptedException {
-        //Inicio de sesión
-        Interseguros_Metodos a = new Interseguros_Metodos();
-        Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-        WebDriver driver = a.entrarPagina();
-        a.IniciarSesion(driver, nombreAutomatizacion, i);
-        a.ValidandoSesion(driver, nombreAutomatizacion, i);
-        Thread.sleep(4000);
+    public void testLink(INTER_CrearOpenItemsBean interCrearOpenItemsBean, int i, String folderName) throws Exception {
 
-        // Busqueda de Siniestro
-        m.UAA_ModificacionMovimientosTercero(driver, a, nombreAutomatizacion, 50);
-        Thread.sleep(3000);
-        a.cambiarVentana(driver);
-        Thread.sleep(2000);
+        try {
+            //Inicio de sesión
+            Interseguros_Metodos a = new Interseguros_Metodos();
+            Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
+            //Interseguros_MenuMantenimiento interseguros_menuMantenimiento = new Interseguros_MenuMantenimiento();
 
-        InsertarDatos(a, driver, interCrearOpenItemsBean); //Insertar Datos de busqueda
+            driver = a.entrarPagina();
+            a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
+            Thread.sleep(3000);
 
-        //Selecciono el Siniestro a consultar
-        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]")).click();
-        Thread.sleep(1000);
-        a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            // Busqueda de Siniestro
+            m.UAA_ModificacionMovimientosTercero(driver, a, nombreAutomatizacion, 1, folderName);
+            Thread.sleep(3000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
 
-        //Presiono el botón Aceptar
-        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[3]/td/input")).click();
+            InsertarDatos(a, driver, interCrearOpenItemsBean, i, folderName); //Insertar Datos de busqueda
 
-        BorrarFechas(a, driver); //Insertar Datos de busqueda
-
-        //Presiono el botón Insertar
-        //Thread.sleep(1000);
-        a.cambiarVentana(driver);
-        a.ScreenShot(driver, "screen8", nombreAutomatizacion);
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[8]/div/div[3]/div[2]/span[2]/button")).click();
-        Thread.sleep(3000);
-        a.cambiarVentana(driver);
-        //a.ScreenShot(driver, "screen9", nombreAutomatizacion);
-
-        FormularioOpenItem(a, driver, interCrearOpenItemsBean); //Llenar formulario de Inserción del OpenItem
-
-        //Presiono el botón Insertar OpenItem
-        driver.findElement(By.xpath("//*[@id=\"idb_040203715_thirdPartyMovsInsert_01\"]")).click();
-        Thread.sleep(1500);
-        //a.ScreenShot(driver, "screen10", nombreAutomatizacion);
-        if (ExpectedConditions.alertIsPresent() != null) {
+            //Selecciono el Siniestro a consultar
+            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]/input[1]")).click();
             Thread.sleep(1000);
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
+            //a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
+            Thread.sleep(500);
+
+            //Presiono el botón Aceptar
+            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[3]/td/input")).click();
+
+            BorrarFechas(a, driver,i, folderName); //Insertar Datos de busqueda
+
+            //Presiono el botón Insertar
+            //Thread.sleep(1000);
+            a.cambiarVentana(driver);
+            a.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
-            driver.switchTo().defaultContent();
+            driver.findElement(By.xpath("/html/body/div[8]/div/div[3]/div[2]/span[2]/button")).click();
+            Thread.sleep(3000);
+            a.cambiarVentana(driver);
+            //a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+
+            FormularioOpenItem(a, driver, interCrearOpenItemsBean,i, folderName); //Llenar formulario de Inserción del OpenItem
+
+            //Presiono el botón Insertar OpenItem
+            driver.findElement(By.xpath("//*[@id=\"idb_040203715_thirdPartyMovsInsert_01\"]")).click();
+            Thread.sleep(1500);
+            //a.ScreenShot(driver, "screen10", nombreAutomatizacion);
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+            a.ScreenShotPool(driver, i,"screen10", nombreAutomatizacion,folderName);
+            Thread.sleep(1000);
+
+            driver.quit();
+
+        }catch(
+        Exception e)
+
+        {   e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null) {
+                driver.quit();
+            }
         }
-        a.ScreenShot(driver, "screen10", nombreAutomatizacion);
-        Thread.sleep(1000);
+}
 
-
-    }
-
-
-    public void InsertarDatos(AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean) throws InterruptedException, IOException {
+    public void InsertarDatos(Interseguros_Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean,int i,String folderName) throws InterruptedException, IOException {
         try {
             Thread.sleep(3000);
             String title = driver.getTitle();
@@ -120,17 +136,16 @@ public class INTER_CrearOpenItems {
                 tipoDoc.selectByValue(interCrearOpenItemsBean.getTipoDocIdent());
             }
 
-            //Insertar Número de Documento
+/*            //Insertar Número de Documento
 
             if (interCrearOpenItemsBean.getNumDocIdent() != null) {
                 WebElement numDocumento = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[8]/tbody/tr/td[3]/input[1]"));
                 numDocumento.sendKeys(interCrearOpenItemsBean.getNumDocIdent());
-            }
+            }*/
 
-            Thread.sleep(2000);
-
+            Thread.sleep(1000);
             //Screenshot
-            a.ScreenShot(driver, "screen4", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
         }
@@ -143,12 +158,12 @@ public class INTER_CrearOpenItems {
         //Presiono el botón Buscar
         driver.findElement(By.xpath("//*[@id=\"idb_0402036_ThirdPartySearchForStatementAccount_01\"]")).click();
         a.cambiarVentana(driver);
-        a.ScreenShot(driver, "screen5", nombreAutomatizacion);
+        a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
         Thread.sleep(2000);
     }
 
 
-    private void BorrarFechas(Interseguros_Metodos a, WebDriver driver) {
+    private void BorrarFechas(Interseguros_Metodos a, WebDriver driver,int i,String folderName) {
 
         try {
             Thread.sleep(3000);
@@ -159,12 +174,12 @@ public class INTER_CrearOpenItems {
             driver.findElement(By.xpath("/html/body/center[1]/table/tbody/tr[3]/td/table[1]/tbody/tr[5]/td[2]/input[1]")).clear();
             Thread.sleep(1000);
             driver.findElement(By.xpath("/html/body/center[1]/table/tbody/tr[3]/td/table[1]/tbody/tr[6]/td[2]/input[1]")).clear();
-            a.ScreenShot(driver, "screen6", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
 
             driver.findElement(By.xpath("//*[@id=\"idb_0402037_SearchConf_01\"]")).click();
-            a.ScreenShot(driver, "screen7", nombreAutomatizacion);
+            a.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
             Thread.sleep(1000);
         }
         catch (Exception e) {
@@ -174,7 +189,7 @@ public class INTER_CrearOpenItems {
         }
     }
 
-    private void FormularioOpenItem(Interseguros_Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean) {
+    private void FormularioOpenItem(Interseguros_Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean,int i,String folderName) {
         try {
             //LLenar formulario
 
@@ -191,12 +206,7 @@ public class INTER_CrearOpenItems {
                 Thread.sleep(1500);
             }
 
-/*        //Se seleciona la fecha de movimiento
-        if (lbcCrearOpenItemsBean.getFechaMov() != null) {
-            WebElement fechaMov = driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]"));
-            fechaMov.sendKeys(lbcCrearOpenItemsBean.getFechaMov());
-            Thread.sleep(1500);
-        }*/
+
             //Se seleciona la fecha de vencimiento
             if (interCrearOpenItemsBean.getFechaVencimiento() != null) {
                 driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[6]/td[2]/input")).clear();
@@ -225,7 +235,7 @@ public class INTER_CrearOpenItems {
                 Select tipoRef = new Select(driver.findElement(By.xpath("/html/body/center/form/table[2]/tbody/tr/td/table/tbody/tr[10]/td[2]/select")));
                 tipoRef.selectByVisibleText(interCrearOpenItemsBean.getTipoRef());
                 Thread.sleep(1500);
-                a.ScreenShot(driver, "screen9", nombreAutomatizacion);
+                a.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
         }
