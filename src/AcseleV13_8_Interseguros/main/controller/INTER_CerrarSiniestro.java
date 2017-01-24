@@ -35,13 +35,13 @@ public class INTER_CerrarSiniestro {
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
-            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            m.OpeSini_MantenimientoSiniestro(driver,a , nombreAutomatizacion,2, i, folderName);
             Thread.sleep(10000);
 
             a.cambiarVentana(driver);
-            BuscarPoliza(a, inter_cerrarSiniestroBean, i, folderName);
-            ResultadoBusqueda(a, inter_cerrarSiniestroBean, i, folderName);
-            CerrarSiniestro(a, inter_cerrarSiniestroBean, i, folderName);
+            BuscarPoliza(a, inter_cerrarSiniestroBean, i, folderName,3 );
+            ResultadoBusqueda(a, inter_cerrarSiniestroBean, i, folderName,4 );
+            CerrarSiniestro(a, inter_cerrarSiniestroBean, i, folderName, 5, 6);
 
             driver.quit();
 
@@ -54,7 +54,7 @@ public class INTER_CerrarSiniestro {
         }
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
 
         try {
 
@@ -131,7 +131,7 @@ public class INTER_CerrarSiniestro {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));
             btnBuscar.click();
@@ -144,7 +144,7 @@ public class INTER_CerrarSiniestro {
         }
     }
 
-    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName,  int numScreenShoot2) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -152,7 +152,7 @@ public class INTER_CerrarSiniestro {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
@@ -166,7 +166,7 @@ public class INTER_CerrarSiniestro {
         }
     }
 
-    public void CerrarSiniestro(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName) throws IOException, InterruptedException{
+    public void CerrarSiniestro(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{
         try{
 
             Thread.sleep(2000);
@@ -189,7 +189,7 @@ public class INTER_CerrarSiniestro {
             }
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
             // Salir del frame
             //driver.switchTo().parentFrame();
@@ -199,7 +199,7 @@ public class INTER_CerrarSiniestro {
             WebElement btnAceptar = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
             btnAceptar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
 
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);

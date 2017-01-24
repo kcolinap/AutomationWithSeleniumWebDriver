@@ -31,12 +31,12 @@ public class INTER_BusquedaSiniestroSimple {
             Thread.sleep(1500);
             System.out.println("prueba");
 
-            m.OpeSini_MantenimientoSiniestro(driver,a , nombreAutomatizacion,3, i);
+            m.OpeSini_MantenimientoSiniestro(driver,a , nombreAutomatizacion,2, i, folderName);
             Thread.sleep(3000);
             a.cambiarVentana(driver);
 
 
-            BuscarSiniestro(a, inter_busquedaSiniestroSimpleBean, i, folderName);
+            BuscarSiniestro(a, inter_busquedaSiniestroSimpleBean, i, folderName, 3, 4, 5);
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             // Thread.sleep(1500);
@@ -52,7 +52,7 @@ public class INTER_BusquedaSiniestroSimple {
 
     }
 
-    public void BuscarSiniestro(Interseguros_Metodos a, INTER_BusquedaSiniestroSimpleBean inter_busquedaSiniestroSimpleBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BuscarSiniestro(Interseguros_Metodos a, INTER_BusquedaSiniestroSimpleBean inter_busquedaSiniestroSimpleBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 
@@ -95,7 +95,7 @@ public class INTER_BusquedaSiniestroSimple {
 
 
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));//buscar siniestro
             buscar.click();
 
@@ -104,7 +104,7 @@ public class INTER_BusquedaSiniestroSimple {
             WebElement seleccionar = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[3]/td[3]/div"));
             seleccionar.click();
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             WebElement consultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             consultar.click();
@@ -112,7 +112,7 @@ public class INTER_BusquedaSiniestroSimple {
             Thread.sleep(3000);
 
             a.changeLastWindows(driver);
-            a.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
 
 

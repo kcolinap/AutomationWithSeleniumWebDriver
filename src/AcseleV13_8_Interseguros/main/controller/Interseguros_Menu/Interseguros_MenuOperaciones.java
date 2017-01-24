@@ -130,7 +130,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_DeclaracionSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i) {
+    public void OpeSini_MantenimientoSiniestro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
         try{
             Actions action = new Actions(driver);
@@ -141,7 +141,7 @@ public class Interseguros_MenuOperaciones {
             action.moveToElement(menu2).build().perform();
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             menu3.click();
 
         }catch (Exception e) {

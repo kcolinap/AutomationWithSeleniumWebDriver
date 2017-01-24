@@ -32,13 +32,13 @@ public class INTER_ConsultaOrdenesPagos {
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
 
-            m.OpeSini_MantenimientoSiniestro(driver, a, nombreAutomatizacion, 3, i);
+            m.OpeSini_MantenimientoSiniestro(driver,a , nombreAutomatizacion,2, i, folderName);
             Thread.sleep(10000);
 
             a.cambiarVentana(driver);
-            BuscarPoliza(a, inter_consultaOrdenesPagosBean, i, folderName);
-            ResultadoBusqueda(a, inter_consultaOrdenesPagosBean, i, folderName);
-            ConsultaPagos(a, inter_consultaOrdenesPagosBean, i, folderName);
+            BuscarPoliza(a, inter_consultaOrdenesPagosBean, i, folderName, 3);
+            ResultadoBusqueda(a, inter_consultaOrdenesPagosBean, i, folderName, 6);
+            ConsultaPagos(a, inter_consultaOrdenesPagosBean, i, folderName, 4, 5);
 
             driver.quit();
 
@@ -51,7 +51,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BuscarPoliza(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
 
         try {
 
@@ -128,7 +128,7 @@ public class INTER_ConsultaOrdenesPagos {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i,"screen4",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             WebElement btnBuscar  = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));
             btnBuscar.click();
@@ -142,14 +142,14 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    private void ConsultaPagos(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) {
+    private void ConsultaPagos(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot2, int numScreenShoot3) {
         try{
             Thread.sleep(1000);
             WebElement btnSelecCover  = driver.findElement(By.xpath("/html/body/div[13]/form[2]/select/option"));
             btnSelecCover.click();
 
 
-            a.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
 
             WebElement btnPagos = driver.findElement(By.xpath("/html/body/div[13]/form[2]/div[3]/input[6]"));
@@ -159,7 +159,7 @@ public class INTER_ConsultaOrdenesPagos {
             a.changeLastWindows(driver);
 
             Thread.sleep(5000);
-            a.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
 
         }
@@ -170,7 +170,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot4) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -178,7 +178,7 @@ public class INTER_ConsultaOrdenesPagos {
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
 
             WebElement btnConsultar = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span/span"));
             btnConsultar.click();
