@@ -127,7 +127,7 @@ public class INTER_TercerosEditarNombreApellido {
             buscar.click();
             Thread.sleep(1000);
             jse.executeScript("window.scrollBy(0,1700)", "");
-            Thread.sleep(800);
+            Thread.sleep(1500);
             buscar =driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();//Borrar funcion al corregirse defecto
             Thread.sleep(500);
