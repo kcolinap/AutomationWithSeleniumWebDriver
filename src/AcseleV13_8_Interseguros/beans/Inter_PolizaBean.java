@@ -75,6 +75,7 @@ public class Inter_PolizaBean {
     private String contratante1Apellido1;
     private String contratante1Apellido2;
     private String porcentajeContratante1;
+    private String porcentajeContratante2;
 
     private String numeroUnidadRiesgo1;
     private String capitalAseguradoCoberturaFallecimiento1;
@@ -695,6 +696,14 @@ public class Inter_PolizaBean {
 
     public void setPorcentajeContratante1(String porcentajeContratante1) {
         this.porcentajeContratante1 = porcentajeContratante1;
+    }
+
+    public String getPorcentajeContratante2() {
+        return porcentajeContratante2;
+    }
+
+    public void setPorcentajeContratante2(String porcentajeContratante2) {
+        this.porcentajeContratante2 = porcentajeContratante2;
     }
 
     public String getNumeroUnidadRiesgo1() {

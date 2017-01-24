@@ -1,8 +1,9 @@
 package AcseleV13_8_Interseguros.tests;
 
 
-//import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
-//import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
+import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
+import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
+import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -20,27 +21,33 @@ public class VistaINTER_CrearOpenItemsTest {
 
     @Test
     public void mainTest() throws SQLException {
-       /* ArrayList item = INTER_CrearOpenItemsBean.getCrearOpenItems();
+        ArrayList item = null;
 
-        for ( int i = 0; i < item.size(); i++) {
+        try {
+            item = INTER_CrearOpenItemsBean.getCrearOpenItems();
+        }catch (SQLException e) {
+            log.error(e);
+        }
 
-            INTER_CrearOpenItemsBean interCrearOpenItemsBean = (INTER_CrearOpenItemsBean) item.get(i);
+        for (int j = 0; j< item.size(); j++) {
+            INTER_CrearOpenItemsBean interCrearOpenItemsBean = (INTER_CrearOpenItemsBean) item.get(j);
             INTER_CrearOpenItems a = new INTER_CrearOpenItems();
-
+            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            String horaC = intersegurosMetodos.horaCarpeta();
             try {
-                //a.testLink(interCrearOpenItemsBean, i);
+                a.testLink(interCrearOpenItemsBean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 //                log.info(e);
                 log.info("Test Case - " + a.nombreAutomatizacion + " - " + e);
             }
         }
-*/
     }
 
     @Before
     public void setUp() throws Exception {
 
+/*
         DataSetManager.createPartialDataSet("SELECT PRUEBA,TERCERO,TIPO_TERCERO,ROL1,APELLIDO_PATERNO,APELLIDO_MATERNO,PRIMER_NOMBRE,SEGUNDO_NOMBRE,TERCER_NOMBRE,TIPO_DOC_IDENT,NUM_DOC_IDENT,CONCEPTO_CUENTA,ROL2,FECHA_MOV,FECHA_VENCIMIENTO,MONEDA,MONTO,NUM_POLIZA,TIPO_REF FROM CREAR_OPEN_ITEMS_INTER ORDER BY PRUEBA ASC",
                 "CREAR_OPEN_ITEMS_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interCrearOpenItems_dataset.xml");
@@ -48,6 +55,7 @@ public class VistaINTER_CrearOpenItemsTest {
         DataSetManager.createPartialDataSet("SELECT PRUEBA,TERCERO,TIPO_TERCERO,ROL1,APELLIDO_PATERNO,APELLIDO_MATERNO,PRIMER_NOMBRE,SEGUNDO_NOMBRE,TERCER_NOMBRE,TIPO_DOC_IDENT,NUM_DOC_IDENT,CONCEPTO_CUENTA,ROL2,FECHA_MOV,FECHA_VENCIMIENTO,MONEDA,MONTO,NUM_POLIZA,TIPO_REF FROM CREAR_OPEN_ITEMS_INTER ORDER BY PRUEBA ASC",
                 "CREAR_OPEN_ITEMS_INTER",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCrearOpenItems_dataset.xml");
+*/
 
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCrearOpenItems_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }

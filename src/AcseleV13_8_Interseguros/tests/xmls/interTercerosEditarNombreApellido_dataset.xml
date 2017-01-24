@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_TERCEROS_EDITAR_NOM_APE PRUEBA="1" TIPO_TERCERO="PersonaNatural" NUM_DOC_IDENTIFICACION="07969454" APELLIDO="GOMEZ" NOMBRE="ALBERTO"
+          APELLIDO_NUEVO="perez" NOMBRE_NUEVO="luis"/>
+</dataset>
