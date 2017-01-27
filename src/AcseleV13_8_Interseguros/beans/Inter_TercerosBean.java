@@ -61,6 +61,9 @@ public class Inter_TercerosBean {
     private String userLogin;
     private String codigoIdentificador;
     private String codigoInterno;
+    private String descripcion;
+    private String tipoArchivoAdjuntar;
+    private String comentarioArchivoAdjuntado;
 
     public String getTipoTercero() {
         return tipoTercero;
@@ -476,5 +479,29 @@ public class Inter_TercerosBean {
 
     public void setCodigoInterno(String codigoInterno) {
         this.codigoInterno = codigoInterno;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getTipoArchivoAdjuntar() {
+        return tipoArchivoAdjuntar;
+    }
+
+    public void setTipoArchivoAdjuntar(String tipoArchivoAdjuntar) {
+        this.tipoArchivoAdjuntar = tipoArchivoAdjuntar;
+    }
+
+    public String getComentarioArchivoAdjuntado() {
+        return comentarioArchivoAdjuntado;
+    }
+
+    public void setComentarioArchivoAdjuntado(String comentarioArchivoAdjuntado) {
+        this.comentarioArchivoAdjuntado = comentarioArchivoAdjuntado;
     }
 }
