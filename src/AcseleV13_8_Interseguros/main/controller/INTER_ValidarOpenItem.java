@@ -70,7 +70,7 @@ public class INTER_ValidarOpenItem {
             Inter_UnidadesRiesgo interUnidadesRiesgo = new Inter_UnidadesRiesgo();
             Inter_ObjetosAsegurados interObjetosAsegurados = new Inter_ObjetosAsegurados();
             Inter_Asegurado interAsegurado = new Inter_Asegurado();
-            Inter_Beneficiario interBeneficiario = new Inter_Beneficiario();
+            //Inter_Beneficiario interBeneficiario = new Inter_Beneficiario();
             Inter_Calcular interCalcular = new Inter_Calcular();
             Inter_Validar interValidar = new Inter_Validar();
 
@@ -99,7 +99,11 @@ public class INTER_ValidarOpenItem {
                 Thread.sleep(2000);
 
                 //Agregar asegurado
-                interAsegurado.AgregarAsegurado1_DotalSimple(a, driver, inter_validarOpenItemBean, nombreAutomatizacion, i, folderName, 14, 15);
+                interAsegurado.AgregarAsegurado1_DotalSimple(a, driver, inter_validarOpenItemBean, nombreAutomatizacion, i, folderName, 14);
+                Thread.sleep(2000);
+
+                //Boton calcular
+                interCalcular.Calcular(a, driver, inter_validarOpenItemBean, nombreAutomatizacion, i, folderName, 15, 16);
                 Thread.sleep(2000);
             }
 

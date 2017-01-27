@@ -51,13 +51,19 @@ public class VistaINTER_ValidarOpenItemTest {
     @Before
     public void setUp() throws Exception{
 
-        /* DataSetManager.createPartialDataSet("select Prueba,Tipo_Tercero, Num_Doc_Identificacion, Apellido, Nombre from INTER_TERCEROS_EDITAR_NOM_APE ORDER BY PRUEBA ASC",
-                    "INTER_TERCEROS_EDITAR_NOM_APE",
-                    "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml");
-            DataSetManager.createPartialDataSet("select Prueba,Tipo_Tercero, Num_Doc_Identificacion, Apellido, Nombre from INTER_TERCEROS_EDITAR_NOM_APE ORDER BY PRUEBA ASC",
-                    "INTER_TERCEROS_EDITAR_NOM_APE",
-                    "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml");
-       */
-        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interTercerosEditarNombreApellido_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        /* DataSetManager.createPartialDataSet("select * from INTER_VALIDAR_OPEN_ITEM ORDER BY PRUEBA ASC",
+                    "INTER_VALIDAR_OPEN_ITEM",
+                    "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml");
+            DataSetManager.createPartialDataSet("select * from INTER_VALIDAR_OPEN_ITEM ORDER BY PRUEBA ASC",
+                    "INTER_VALIDAR_OPEN_ITEM",
+                    "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml");
+        */
+        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml", DataSetManager.REFRESH_OPERATION);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml", DataSetManager.DELETE_OPERATION);
     }
 }

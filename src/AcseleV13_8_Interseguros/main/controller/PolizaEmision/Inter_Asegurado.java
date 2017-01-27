@@ -161,7 +161,7 @@ public class Inter_Asegurado {
         }
     }
 
-    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void AgregarAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -192,6 +192,7 @@ public class Inter_Asegurado {
                 }
             }
 
+            jse.executeScript("window.scrollBy(0,100)", "");
             Thread.sleep(2000);
             WebElement selAsegurado = driver.findElement(By.xpath("/html/body/div[7]/div/ul/li[1]"));
             // /html/body/div[6]/div/ul/li[1]
