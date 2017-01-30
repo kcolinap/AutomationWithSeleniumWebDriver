@@ -237,12 +237,54 @@ public class Interseguros_MenuOperaciones {
 
     public void CoaRea_OperacionConsultaReaseguros(){}
 
-    public void CoaRea_MantenimientoDistribucionReaseguro(){}
+    public void CoaRea_MantenimientoDistribucionReaseguro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+
+        try{
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));//coaseguro reaseguro
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[9]/div[2]"));//distribucion reaseguro
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
+            menu3.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+
+    }
 
     public void CoaRea_ContratoFacultativo(){}
 
     /** CoaRea_CuentasTecnicas **/
-    public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(){}
+    public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+
+        try{
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));//coaseguro reaseguro
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[9]/div[4]"));//cuentas tecnicas
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[10]/div[1]"));//consulta de cuenta tecnica
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
+            action.moveToElement(menu4).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
+            menu4.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+
+    }
     public void CoaRea_CuentasTecnicas_ConsultaCuentaTecnica(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
 
         try{
