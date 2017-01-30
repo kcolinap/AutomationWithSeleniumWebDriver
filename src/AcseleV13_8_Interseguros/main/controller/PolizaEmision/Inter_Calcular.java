@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.awt.*;
 
@@ -16,10 +17,12 @@ public class Inter_Calcular {
 
     private final static Logger log = Logger.getLogger(Inter_Calcular.class);
 
-    public void Calcular(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void Calcular(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int valorScrol, int numScreenShoot, int numScreenShoot2){
 
         try {
-
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("window.scrollBy(0,"+valorScrol+")", "");
+            //jse.executeScript("window.scrollBy(0,500)", "");
             WebElement btnCalcular = driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']"));
             btnCalcular.click();
 

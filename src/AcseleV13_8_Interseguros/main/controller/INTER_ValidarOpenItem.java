@@ -103,7 +103,7 @@ public class INTER_ValidarOpenItem {
                 Thread.sleep(2000);
 
                 //Boton calcular
-                interCalcular.Calcular(a, driver, inter_validarOpenItemBean, nombreAutomatizacion, i, folderName, 15, 16);
+                interCalcular.Calcular(a, driver, inter_validarOpenItemBean, nombreAutomatizacion, i, folderName, -5000, 15, 16);
                 Thread.sleep(2000);
             }
 

@@ -51,14 +51,19 @@ public class VistaINTER_ValidarOpenItemTest {
     @Before
     public void setUp() throws Exception{
 
-        /* DataSetManager.createPartialDataSet("select * from INTER_VALIDAR_OPEN_ITEM ORDER BY PRUEBA ASC",
+/*
+
+         DataSetManager.createPartialDataSet("select * from INTER_VALIDAR_OPEN_ITEM ORDER BY PRUEBA ASC",
                     "INTER_VALIDAR_OPEN_ITEM",
                     "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml");
-            DataSetManager.createPartialDataSet("select * from INTER_VALIDAR_OPEN_ITEM ORDER BY PRUEBA ASC",
+         DataSetManager.createPartialDataSet("select * from INTER_VALIDAR_OPEN_ITEM ORDER BY PRUEBA ASC",
                     "INTER_VALIDAR_OPEN_ITEM",
                     "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml");
-        */
-        DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml", DataSetManager.REFRESH_OPERATION);
+*/
+
+
+
+         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interValidarOpenItem_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
