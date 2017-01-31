@@ -83,12 +83,12 @@ public class Interseguros_Metodos {
         /** Espere **/
         WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
         while (mensajeEspera.isDisplayed()) {
-            for (int k = 0; k < 12; k++) {
+            //for (int k = 0; k < 12; k++) {
                 Thread.sleep(5000);
                 System.out.println("Espera " + tipoBusqueda);
-            }
-            System.out.println("1 minuto de espera");
-            break;
+            //}
+            //System.out.println("1 minuto de espera");
+            //break;
         }
         Thread.sleep(1000);
 
