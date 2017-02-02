@@ -331,11 +331,11 @@ public class Interseguros_MenuMantenimiento {
             log.error("Menu listas Restrictivas " + e);
         }
     }
-        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
             try {
                 Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]"));// Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
                 action.moveToElement(menu1).build().perform();
