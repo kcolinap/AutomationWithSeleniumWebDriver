@@ -427,28 +427,28 @@ public class Inter_InformacionGeneralPoliza {
                 otroElemento.click();
                 Thread.sleep(2000);
             }
-/*
+
             if (interPolizaBean.getCorreoAgenteInicial() != null){
-                WebElement correoAgenteInicial = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_10_fila_field']"));
+                WebElement correoAgenteInicial = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_12_fila_field']"));
                 correoAgenteInicial.sendKeys(interPolizaBean.getCorreoAgenteInicial());
                 otroElemento.click();
                 Thread.sleep(2000);
             }
 
             if (interPolizaBean.getCodigoAgenciaInicial() != null){
-                WebElement codigoAgenciaInicial = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_11_fila_field']"));
+                WebElement codigoAgenciaInicial = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_13_fila_field']"));
                 codigoAgenciaInicial.sendKeys(interPolizaBean.getCodigoAgenciaInicial());
                 otroElemento.click();
                 Thread.sleep(2000);
             }
 
             if (interPolizaBean.getAgenteFinalPoliza() != null){
-                WebElement agenteFinalPoliza = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_12_fila_field']"));
+                WebElement agenteFinalPoliza = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_14_fila_field']"));
                 agenteFinalPoliza.sendKeys(interPolizaBean.getAgenteFinalPoliza());
                 otroElemento.click();
                 Thread.sleep(2000);
             }
-
+/*
             if (interPolizaBean.getCodigoAgenteFinal() != null){
                 WebElement codigoAgenteFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_13_fila_field']"));
                 codigoAgenteFinal.sendKeys(interPolizaBean.getCodigoAgenteFinal());
