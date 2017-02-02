@@ -83,10 +83,15 @@ public class Interseguros_Metodos {
         /** Espere **/
         WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
         while (mensajeEspera.isDisplayed()) {
-            Thread.sleep(5000);
-            System.out.println("Espera " + tipoBusqueda);
+            //for (int k = 0; k < 12; k++) {
+                Thread.sleep(5000);
+                System.out.println("Espera " + tipoBusqueda);
+            //}
+            //System.out.println("1 minuto de espera");
+            //break;
         }
         Thread.sleep(1000);
+
     }
 
     public void ScreenShotPool(WebDriver getDriver, int i, String titulo, String nombrePrueba, String folderName) throws InterruptedException, IOException {
@@ -145,8 +150,8 @@ public class Interseguros_Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
-        user2.sendKeys("agil");       /** Usuario  **/
-        password2.sendKeys("a123456");
+        user2.sendKeys("system");       /** Usuario  **/
+        password2.sendKeys("consis");
 
         instance2.selectByVisibleText("INTERSEGURO");
         language2.selectByValue("es");
