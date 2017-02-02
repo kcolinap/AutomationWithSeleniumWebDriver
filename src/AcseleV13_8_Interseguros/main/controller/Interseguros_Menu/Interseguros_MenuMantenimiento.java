@@ -338,20 +338,20 @@ public class Interseguros_MenuMantenimiento {
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
-                menu1.click();
-                menu2.click();
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
                 Thread.sleep(1000);
                 action.moveToElement(menu3).build().perform();
-                this.a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                Toolkit.getDefaultToolkit().beep();
                 Thread.sleep(1000);
                 menu3.click();
-
-            } catch (Exception e){
+            }catch (Exception e){
                 e.printStackTrace();
-                log.error("Menu listas Restrictivas " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
-
-
+            
         }
         public void AdminLisRest_ConfiguracionPropiedades(){}
     /** -- Administracion de Listas Restrictivas -- **/
