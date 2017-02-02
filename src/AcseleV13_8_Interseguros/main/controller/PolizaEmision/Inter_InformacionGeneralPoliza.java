@@ -410,6 +410,7 @@ public class Inter_InformacionGeneralPoliza {
             if (interPolizaBean.getMontoPrimeraPrima() != null){
                 WebElement montoPrimeraPrima = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_8_fila_field']"));
                 montoPrimeraPrima.sendKeys(interPolizaBean.getMontoPrimeraPrima());
+                otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformationLabel']"));
                 otroElemento.click();
                 Thread.sleep(2000);
             }
