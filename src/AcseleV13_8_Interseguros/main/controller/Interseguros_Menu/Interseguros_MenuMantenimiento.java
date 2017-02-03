@@ -337,7 +337,7 @@ public class Interseguros_MenuMantenimiento {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]"));// Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[16]"));//Administrador de Listas Restrictivas
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[50]/div[2]"));// Coincidencia Listas Restrictivas
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[51]/div[2]"));// Coincidencia Listas Restrictivas
                 action.moveToElement(menu1).build().perform();
                 action.moveToElement(menu2).build().perform();
                 Thread.sleep(1000);

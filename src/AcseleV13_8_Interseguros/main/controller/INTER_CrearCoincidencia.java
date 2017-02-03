@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -72,11 +73,11 @@ public class INTER_CrearCoincidencia {
             System.out.println("Prueba " + parentId);
             Thread.sleep(2000);
             String childId = it.next();
-            String childId2 = it.next();
+            //String childId2 = it.next();
             System.out.println("Prueba " + childId);
-            System.out.println("Prueba " + childId2);
+            //System.out.println("Prueba " + childId2);
             //swtiching control to child Window
-            driver.switchTo().window(childId2);
+            //driver.switchTo().window(childId2);
 
             Thread.sleep(6000);
 
@@ -84,16 +85,16 @@ public class INTER_CrearCoincidencia {
             btnSeleccionar1.click();
             Thread.sleep(1000);
 
-            WebElement nombreLista = (driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td")));
-            nombreLista.sendKeys(inter_crearCoincidenciaBean.getNombreLista());
+            WebElement nombreLista = (driver.findElement(By.xpath("/*//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td")));
+            nombreLista.click();
             Thread.sleep(1000);
 
             WebElement btnSeleccionar2 = driver.findElement(By.xpath("//*[@id=\"listCoincidenceType\"]/div"));
             btnSeleccionar2.click();
             Thread.sleep(1000);
 
-            WebElement tipoCoindicencia = (driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td")));
-            tipoCoindicencia.sendKeys(inter_crearCoincidenciaBean.getTipoCoincidencia());
+            WebElement tipoCoindicencia = (driver.findElement(By.xpath("/*//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[2]/td")));
+            tipoCoindicencia.click();
             Thread.sleep(2000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
@@ -106,7 +107,8 @@ public class INTER_CrearCoincidencia {
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
-            WebElement btnSalvar = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span"));
+            Thread.sleep(3000);
+            WebElement btnSalvar = driver.findElement(By.xpath("/html/body/div[3]/div[5]/div/div/div[5]/div/div/div[2]/div/div[1]/div/span"));
             btnSalvar.click();
             Thread.sleep(1000);
 
