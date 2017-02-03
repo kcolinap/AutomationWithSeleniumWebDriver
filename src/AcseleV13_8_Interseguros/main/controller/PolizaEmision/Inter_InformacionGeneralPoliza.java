@@ -285,6 +285,7 @@ public class Inter_InformacionGeneralPoliza {
             if (interPolizaBean.getNumeroDocumento() != null){
                 WebElement numeroDocumento = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_10_fila_field']"));
                 numeroDocumento.sendKeys(interPolizaBean.getNumeroDocumento());
+                otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformationLabel']"));
                 otroElemento.click();
                 Thread.sleep(3000);
             }
@@ -449,23 +450,23 @@ public class Inter_InformacionGeneralPoliza {
                 otroElemento.click();
                 Thread.sleep(2000);
             }
-/*
+
             if (interPolizaBean.getCodigoAgenteFinal() != null){
-                WebElement codigoAgenteFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_13_fila_field']"));
+                WebElement codigoAgenteFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_15_fila_field']"));
                 codigoAgenteFinal.sendKeys(interPolizaBean.getCodigoAgenteFinal());
                 otroElemento.click();
                 Thread.sleep(2000);
             }
 
             if (interPolizaBean.getCorreoAgenteFinal() != null){
-                WebElement correoAgenteFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_14_fila_field']"));
+                WebElement correoAgenteFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_16_fila_field']"));
                 correoAgenteFinal.sendKeys(interPolizaBean.getCorreoAgenteFinal());
                 otroElemento.click();
                 Thread.sleep(2000);
             }
 
             if (interPolizaBean.getCodigoAgenciaFinal() != null){
-                WebElement codigoAgenciaFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_15_fila_field']"));
+                WebElement codigoAgenciaFinal = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_17_fila_field']"));
                 codigoAgenciaFinal.sendKeys(interPolizaBean.getCodigoAgenciaFinal());
                 otroElemento.click();
                 Thread.sleep(2000);
@@ -479,13 +480,13 @@ public class Inter_InformacionGeneralPoliza {
             }
 
             if (interPolizaBean.getProductosVida() != null){
-                Select productosVida = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_18_fila_repeaterSelect_1_field']")));
+                Select productosVida = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_22_fila_repeaterSelect_1_field']")));
                 productosVida.selectByValue(interPolizaBean.getProductosVida());
                 Thread.sleep(2000);
             }
 
             if (interPolizaBean.getPlan() != null){
-                Select plan = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_19_fila_repeaterSelect_2_field']")));
+                Select plan = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_22_fila_repeaterSelect_2_field']")));
                 plan.selectByValue(interPolizaBean.getPlan());
                 Thread.sleep(2000);
             }
@@ -512,7 +513,7 @@ public class Inter_InformacionGeneralPoliza {
                     otroElemento.click();
                     Thread.sleep(2000);
                 }
-            }*/
+            }
 
             jse.executeScript("window.scrollBy(0,-1000)", "");
             Thread.sleep(2000);
