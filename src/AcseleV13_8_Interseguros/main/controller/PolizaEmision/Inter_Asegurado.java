@@ -172,11 +172,12 @@ public class Inter_Asegurado {
                 Thread.sleep(3000);
 //                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
 //                otroElemento.click();
-                Thread.sleep(1500);
+                Thread.sleep(1500);                                                     // policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton
+                                                                                         //policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search
                 WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
                 Thread.sleep(1500);
                 asegurado.click();
-                //asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+                asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
 
                 if (interPolizaBean.getAsegurado1Nombre1() != null && interPolizaBean.getAsegurado1Nombre2() != null && interPolizaBean.getAsegurado1Apellido1() != null && interPolizaBean.getAsegurado1Apellido2() != null) {
                     asegurado.sendKeys(interPolizaBean.getAsegurado1Nombre1() + " " + interPolizaBean.getAsegurado1Nombre2() + " " + interPolizaBean.getAsegurado1Apellido1() + " " + interPolizaBean.getAsegurado1Apellido2());
