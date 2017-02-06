@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_REABRIR_SINIESTRO PRUEBA="1" ORDENAR_POR="" NUMERO_POLIZA=""
+                           NUMERO_SINIESTRO="" FECHA_OCURRENCIA_SINIESTRO=""
+                           PRODUCTO="EducacionGarantizada" MOTIVO_REAPERTURA="3.0"
+                           COMENTARIOS_SINIESTRO="prueba"/>
+</dataset>

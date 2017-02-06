@@ -105,6 +105,9 @@ public class Inter_PolizaEmisionVariosOA {
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 }
