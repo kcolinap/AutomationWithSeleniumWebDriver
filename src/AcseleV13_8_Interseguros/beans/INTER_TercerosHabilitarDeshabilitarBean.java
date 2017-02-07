@@ -63,7 +63,7 @@ public class INTER_TercerosHabilitarDeshabilitarBean implements Serializable {
         ArrayList interTercerosHabilitarDeshabilitar = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM INTER_TERCEROS_HABILITAR_DESHABILITAR ORDER BY Prueba ASC");
+        queryLoad.append("SELECT * FROM INTER_TERCEROS_HABIL_DESHABIL ORDER BY PRUEBA ASC");
 
         try{
 
@@ -75,10 +75,10 @@ public class INTER_TercerosHabilitarDeshabilitarBean implements Serializable {
 
                 INTER_TercerosHabilitarDeshabilitarBean inter_tercerosHabilitarDeshabilitarBeanBean = new INTER_TercerosHabilitarDeshabilitarBean();
 
-                inter_tercerosHabilitarDeshabilitarBeanBean.setTipoTerceros(rs.getString("Tipo_Tercero"));
-                inter_tercerosHabilitarDeshabilitarBeanBean.setNumDocIdentificacion(rs.getString("Num_Doc_Identificacion"));
-                inter_tercerosHabilitarDeshabilitarBeanBean.setApellido(rs.getString("Apellido"));
-                inter_tercerosHabilitarDeshabilitarBeanBean.setNombre(rs.getString("Nombre"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setTipoTerceros(rs.getString("TIPO_TERCERO"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setNumDocIdentificacion(rs.getString("NUM_DOC_IDENTIFICACION"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setApellido(rs.getString("APELLIDO"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setNombre(rs.getString("NOMBRE"));
 
                 interTercerosHabilitarDeshabilitar.add(inter_tercerosHabilitarDeshabilitarBeanBean);
             }
