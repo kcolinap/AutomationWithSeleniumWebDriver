@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by agil on 25/07/2016.
  */
-public class Interseguros_Menu {
+public class Asesuisa_Menu {
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 

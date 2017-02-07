@@ -13,11 +13,11 @@ import java.io.IOException;
 /**
  * Created by agil on 25/07/2016.
  */
-public class Interseguros_MenuOperaciones {
+public class Asesuisa_MenuOperaciones {
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
-    private final static Logger log = Logger.getLogger(Interseguros_MenuOperaciones.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_MenuOperaciones.class);
 
     Interseguros_Metodos a = new Interseguros_Metodos();
 

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<exportedConfiguration>
+  <dynamictables>
+    <dynamictable name="TDTarifaTDC">
+      <row pk="50658479">
+        <column name="CodPlan">
+          <input>1</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>B</input>
+        </column>
+        <column name="MonedaTD">
+          <input>US Dolar</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>17.28</input>
+        </column>
+      </row>
+      <row pk="50658519">
+        <column name="CodPlan">
+          <input>1</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>B</input>
+        </column>
+        <column name="MonedaTD">
+          <input>Nuevo Sol</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>48.36</input>
+        </column>
+      </row>
+      <row pk="50658399">
+        <column name="CodPlan">
+          <input>1</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>A</input>
+        </column>
+        <column name="MonedaTD">
+          <input>US Dolar</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>23.88</input>
+        </column>
+      </row>
+      <row pk="50658439">
+        <column name="CodPlan">
+          <input>1</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>A</input>
+        </column>
+        <column name="MonedaTD">
+          <input>Nuevo Sol</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>66.84</input>
+        </column>
+      </row>
+      <row pk="50658639">
+        <column name="CodPlan">
+          <input>2</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>B</input>
+        </column>
+        <column name="MonedaTD">
+          <input>US Dolar</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>23.88</input>
+        </column>
+      </row>
+      <row pk="50658679">
+        <column name="CodPlan">
+          <input>2</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>B</input>
+        </column>
+        <column name="MonedaTD">
+          <input>Nuevo Sol</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>66.84</input>
+        </column>
+      </row>
+      <row pk="50658719">
+        <column name="CodPlan">
+          <input>3</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>A</input>
+        </column>
+        <column name="MonedaTD">
+          <input>US Dolar</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>47.88</input>
+        </column>
+      </row>
+      <row pk="50658759">
+        <column name="CodPlan">
+          <input>3</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>A</input>
+        </column>
+        <column name="MonedaTD">
+          <input>Nuevo Sol</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>134.04</input>
+        </column>
+      </row>
+      <row pk="50658799">
+        <column name="CodPlan">
+          <input>3</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>B</input>
+        </column>
+        <column name="MonedaTD">
+          <input>US Dolar</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>35.88</input>
+        </column>
+      </row>
+      <row pk="50658839">
+        <column name="CodPlan">
+          <input>3</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>B</input>
+        </column>
+        <column name="MonedaTD">
+          <input>Nuevo Sol</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>100.44</input>
+        </column>
+      </row>
+      <row pk="50658559">
+        <column name="CodPlan">
+          <input>2</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>A</input>
+        </column>
+        <column name="MonedaTD">
+          <input>US Dolar</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>29.88</input>
+        </column>
+      </row>
+      <row pk="50658599">
+        <column name="CodPlan">
+          <input>2</input>
+        </column>
+        <column name="OpcionPlan">
+          <input>A</input>
+        </column>
+        <column name="MonedaTD">
+          <input>Nuevo Sol</input>
+        </column>
+        <column name="Fecha">
+          <input>2010-01-01</input>
+        </column>
+        <column name="Monto">
+          <input>83.64</input>
+        </column>
+      </row>
+    </dynamictable>
+  </dynamictables>
+</exportedConfiguration>

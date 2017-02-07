@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_TABLA_DINAMICA_IMPORT PRUEBA="1" NOMBRE_TABLA_DINAMICA="TDTarifaTDC" RUTA_ARCHIVO="C:\AcseleTests\AutomationTestAcsele\rutas\TDTarifaTDC-ExportedDynamicTable.xml"/>
+</dataset>

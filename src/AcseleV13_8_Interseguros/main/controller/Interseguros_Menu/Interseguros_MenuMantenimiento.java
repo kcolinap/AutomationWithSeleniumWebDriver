@@ -155,19 +155,25 @@ public class Interseguros_MenuMantenimiento {
 
     /** Mantenimiento General **/
 
-        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+
             try {
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+                Actions action = new Actions(driver);
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]")); // Mantenimiento
                 WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[8]")); // Mantenimiento General
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[43]/div[1]")); // Tablas Dinámicas
-                menu1.click();
-                menu2.click();
-                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion); //screenshot2
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[44]/div[1]")); // Tablas Dinámicas
+                action.moveToElement(menu1).build().perform();
+                action.moveToElement(menu2).build().perform();
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
                 Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();
-                log.error("Test Case 25 - " + nombreAutomatizacion + " - " + e);
+                log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             }
         }
         public void MantGeral_TablasEstaticas(){}

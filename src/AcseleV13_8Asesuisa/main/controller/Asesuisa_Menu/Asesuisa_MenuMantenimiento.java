@@ -12,11 +12,11 @@ import java.awt.*;
 /**
  * Created by agil on 25/07/2016.
  */
-public class Interseguros_MenuMantenimiento {
+public class Asesuisa_MenuMantenimiento {
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
-    private final static Logger log = Logger.getLogger(Interseguros_MenuMantenimiento.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_MenuMantenimiento.class);
 
     Interseguros_Metodos a = new Interseguros_Metodos();
 
