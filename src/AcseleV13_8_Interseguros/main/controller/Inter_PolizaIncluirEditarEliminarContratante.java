@@ -60,11 +60,14 @@ public class Inter_PolizaIncluirEditarEliminarContratante {
                 interContratante.EliminarContratante(a, driver, interPolizaIncluirEditarEliminarContratanteBean, nombreAutomatizacion, i, folderName, 13, 14, 15);
             }
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 }

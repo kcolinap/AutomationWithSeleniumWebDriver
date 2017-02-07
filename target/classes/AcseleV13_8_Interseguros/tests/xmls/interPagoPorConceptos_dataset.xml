@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_PAGO_CONCEPTOS PRUEBA="1" NUMERO_SINIESTRO="" NUMERO_POLIZA=""
+                        FECHA_OCURRENCIA_SIN="" PRODUCTO="DotalSimple" ORDENAR_POR=""
+                        COBERTURA="2369331" MONTO_RESERVA="1000" NUMERO_DOC_IDENT="numero_Doc_Ident"
+                        MONTO_SINIESTRO="monto_Siniestro" SELECCIONE_ACCION="seleccione_Accion"/>
+</dataset>

@@ -108,6 +108,9 @@ public class Inter_PolizaEmisionVariasUR {
         } catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 }
