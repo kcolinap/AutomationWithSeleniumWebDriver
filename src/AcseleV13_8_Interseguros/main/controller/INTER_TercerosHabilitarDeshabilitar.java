@@ -120,6 +120,8 @@ public class INTER_TercerosHabilitarDeshabilitar {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
+
+            //Scroll
             jse.executeScript("window.scrollBy(0,1500)", "");
             Thread.sleep(800);
 
@@ -128,6 +130,7 @@ public class INTER_TercerosHabilitarDeshabilitar {
             //WebElement buscar2 = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
             Thread.sleep(1000);
+            //scroll
             jse.executeScript("window.scrollBy(0,1700)", "");
             Thread.sleep(1500);
             buscar =driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
@@ -136,6 +139,7 @@ public class INTER_TercerosHabilitarDeshabilitar {
 
             a.waitSearchWicket(driver, "Buscando tercero");
 
+            //Scroll
             jse.executeScript("window.scrollBy(0,1900)", "");
             Thread.sleep(800);
 
