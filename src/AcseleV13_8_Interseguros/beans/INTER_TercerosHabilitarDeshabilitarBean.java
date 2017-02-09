@@ -14,46 +14,10 @@ import java.util.ArrayList;
 /**
  * Created by kcolina on 06/02/2017.
  */
-public class INTER_TercerosHabilitarDeshabilitarBean implements Serializable {
+public class INTER_TercerosHabilitarDeshabilitarBean extends Inter_TercerosBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(INTER_TercerosEditarNombreApellidoBean.class);
 
-    private String tipoTerceros;
-    private String numDocIdentificacion;
-    private String apellido;
-    private String nombre;
-
-    public String getTipoTerceros() {
-        return tipoTerceros;
-    }
-
-    public void setTipoTerceros(String tipoTerceros) {
-        this.tipoTerceros = tipoTerceros;
-    }
-
-    public String getNumDocIdentificacion() {
-        return numDocIdentificacion;
-    }
-
-    public void setNumDocIdentificacion(String numDocIdentificacion) {
-        this.numDocIdentificacion = numDocIdentificacion;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public static ArrayList getINTER_TercerosHabilitarDeshabilitar() throws SQLException {
 
@@ -75,10 +39,10 @@ public class INTER_TercerosHabilitarDeshabilitarBean implements Serializable {
 
                 INTER_TercerosHabilitarDeshabilitarBean inter_tercerosHabilitarDeshabilitarBeanBean = new INTER_TercerosHabilitarDeshabilitarBean();
 
-                inter_tercerosHabilitarDeshabilitarBeanBean.setTipoTerceros(rs.getString("TIPO_TERCERO"));
-                inter_tercerosHabilitarDeshabilitarBeanBean.setNumDocIdentificacion(rs.getString("NUM_DOC_IDENTIFICACION"));
-                inter_tercerosHabilitarDeshabilitarBeanBean.setApellido(rs.getString("APELLIDO"));
-                inter_tercerosHabilitarDeshabilitarBeanBean.setNombre(rs.getString("NOMBRE"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setNumeroDocumentoIdentidad(rs.getString("NUM_DOC_IDENTIFICACION"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setApellidoPaterno(rs.getString("APELLIDO"));
+                inter_tercerosHabilitarDeshabilitarBeanBean.setNombrePrimero(rs.getString("NOMBRE"));
 
                 interTercerosHabilitarDeshabilitar.add(inter_tercerosHabilitarDeshabilitarBeanBean);
             }

@@ -234,8 +234,8 @@ public class Interseguros_Metodos {
 
         //System.out.println(hora + ":" + minutos + ":" + segundos);
         //System.out.println(dia + ":" + mes+1 + ":" + anio);
-        System.out.println(anio + "-" + mes+1 + "-" +dia + "_" + hora + "." + minutos + "." + segundos);
-        nombreCarpeta = anio + "-" + mes+1 + "-" +dia + "_" + hora + "." + minutos + "." + segundos;
+        System.out.println(dia + "-" + (mes+1) + "-" + anio + "_" + hora + "." + minutos + "." + segundos);
+        nombreCarpeta = dia + "-" + (mes+1) + "-" + anio + "_" + hora + "." + minutos + "." + segundos;
         return nombreCarpeta;
     }
 

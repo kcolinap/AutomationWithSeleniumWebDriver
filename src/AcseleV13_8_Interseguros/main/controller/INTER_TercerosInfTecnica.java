@@ -2,9 +2,11 @@ package AcseleV13_8_Interseguros.main.controller;
 
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosInfTecnicaBean;
+import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -15,7 +17,7 @@ import java.io.IOException;
 /**
  * Created by mchurion on 14/12/2016.
  */
-public class INTER_TercerosInfTecnica {
+public class INTER_TercerosInfTecnica extends Inter_BuscarTerceros {
     private final static Logger log = Logger.getLogger(INTER_TercerosInfTecnica.class);
 
     public String nombreAutomatizacion = "Informacion Tecnica de INTER_Terceros";
@@ -28,6 +30,7 @@ public class INTER_TercerosInfTecnica {
             // Instanciando clases
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
+            Inter_BuscarTerceros interBuscarTerceros = new Inter_BuscarTerceros();
 
             driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
@@ -40,12 +43,14 @@ public class INTER_TercerosInfTecnica {
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-            BusquedaT(a, interTercerosInfTecnicaBean, i, folderName, 3, 4); //Busqueda Tercero
+           // BusquedaT(a, interTercerosInfTecnicaBean, i, folderName, 3, 4); //Busqueda Tercero
 
-            // Boton Inf Tecnica
-            driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_technicalDataButton']")).click();
-            Thread.sleep(4000);
-            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
+            interBuscarTerceros.BusquedaT(driver,a,interTercerosInfTecnicaBean,nombreAutomatizacion,i,folderName,3,4,5,6);
+            Thread.sleep(2000);
+
+           //Boton informacion tecnica
+            InfTecnica(driver,a,i,folderName,7,8,9);
+            Thread.sleep(2000);
 
             driver.quit();
 
@@ -59,7 +64,37 @@ public class INTER_TercerosInfTecnica {
 
     }
 
-    public void BusquedaT(Interseguros_Metodos a, INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void InfTecnica(WebDriver driver, Interseguros_Metodos a, int i,String folderName, int screenShoot, int screenShoot2, int screenShoot3){
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+        try {
+            WebElement btnInfTec = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_technicalDataButton']"));
+            btnInfTec.click();
+            Thread.sleep(3000);
+            jse.executeScript("window.scrollBy(0,-5000)", "");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver,i,"screen"+screenShoot,nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            jse.executeScript("window.scrollBy(0,500)", "");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver,i,"screen"+screenShoot2,nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver,i,"screen"+screenShoot3,nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+  /* *//* public void BusquedaT(Interseguros_Metodos a, INTER_TercerosInfTecnicaBean interTercerosInfTecnicaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try {
 
@@ -99,9 +134,9 @@ public class INTER_TercerosInfTecnica {
             Toolkit.getDefaultToolkit().beep();
 
             //WebElement buscar = driver.findElement(By.name("searchButton"));
-            WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));/***/
-            buscar.click();
-            Thread.sleep(10000);
+            WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+            //buscar.click();
+           // Thread.sleep(10000);
 
             WebElement seleccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
             seleccionTercero.click();
@@ -115,6 +150,6 @@ public class INTER_TercerosInfTecnica {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-    }
+    }*/
 
 }

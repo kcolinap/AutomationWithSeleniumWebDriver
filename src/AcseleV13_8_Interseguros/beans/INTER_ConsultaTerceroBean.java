@@ -13,10 +13,15 @@ import java.util.ArrayList;
 /**
  * Created by rmontilla on 14/11/2016.
  */
-public class INTER_ConsultaTerceroBean implements Serializable {
+
+/**
+ * Modified by kcolina on 09/02/2017
+ * Implementando herencia de la clase Inter_TercerosBean
+ */
+public class INTER_ConsultaTerceroBean extends Inter_TercerosBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(INTER_ConsultaTerceroBean.class);
-
+/*
     private String tipoTercero;
     private String apellido;
     private String nombre;
@@ -39,7 +44,7 @@ public class INTER_ConsultaTerceroBean implements Serializable {
     public void setCodIdenti(String codIdenti) {this.codIdenti = codIdenti;}
 
     public String getNumDocId() {return numDocId;}
-    public void setNumDocId(String numDocId) {this.numDocId = numDocId;}
+    public void setNumDocId(String numDocId) {this.numDocId = numDocId;}*/
 
 
     public static ArrayList getConsutaTercerosINTERBean() throws SQLException {
@@ -61,10 +66,10 @@ public class INTER_ConsultaTerceroBean implements Serializable {
                 INTER_ConsultaTerceroBean inter_consultaTerceroBean = new INTER_ConsultaTerceroBean();
 
                 inter_consultaTerceroBean.setTipoTercero(rs.getString("TIPO_TERCERO"));
-                inter_consultaTerceroBean.setApellido(rs.getString("APELLIDO"));
-                inter_consultaTerceroBean.setNombre(rs.getString("NOMBRE"));
-                inter_consultaTerceroBean.setCodIdenti(rs.getString("COD_IDENTIFICADOR"));
-                inter_consultaTerceroBean.setNumDocId(rs.getString("NUM_DOC_ID"));
+                inter_consultaTerceroBean.setApellidoPaterno(rs.getString("APELLIDO"));
+                inter_consultaTerceroBean.setNombrePrimero(rs.getString("NOMBRE"));
+                inter_consultaTerceroBean.setCodigoIdentificador(rs.getString("COD_IDENTIFICADOR"));
+                inter_consultaTerceroBean.setNumeroDocumentoIdentidad(rs.getString("NUM_DOC_ID"));
 
 
                 consultaTerceroINTER.add(inter_consultaTerceroBean);

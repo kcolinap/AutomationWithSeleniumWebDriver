@@ -1,6 +1,8 @@
 package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosHabilitarDeshabilitarBean;
+import AcseleV13_8_Interseguros.beans.Inter_TercerosBean;
+import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
 
 import org.apache.log4j.Logger;
@@ -14,7 +16,7 @@ import java.io.IOException;
  * Created by kcolina on 06/02/2017.
  */
 
-public class INTER_TercerosHabilitarDeshabilitar {
+public class INTER_TercerosHabilitarDeshabilitar extends Inter_BuscarTerceros {
 
     private final static Logger Log = Logger.getLogger(INTER_TercerosEditarNombreApellido.class);
 
@@ -27,6 +29,7 @@ public class INTER_TercerosHabilitarDeshabilitar {
 
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuMantenimiento intersegurosMenuMantenimiento = new Interseguros_MenuMantenimiento();
+           Inter_BuscarTerceros interBuscarTerceros = new Inter_BuscarTerceros();
 
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
@@ -40,10 +43,10 @@ public class INTER_TercerosHabilitarDeshabilitar {
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            BuscarTercero(a, driver, interTercerosHabilitarDeshabilitarBean, i, folderName, 3,4);
+            interBuscarTerceros.BusquedaT(driver,a,interTercerosHabilitarDeshabilitarBean, nombreAutomatizacion,i,folderName,3,4,5,6);
             Thread.sleep(1500);
 
-            HabilitarDeshabilitarTercero(a, driver, interTercerosHabilitarDeshabilitarBean,i,folderName,5,6,7);
+            HabilitarDeshabilitarTercero(a, driver, interTercerosHabilitarDeshabilitarBean,i,folderName,7,8,9);
 
             driver.quit();
 
@@ -53,103 +56,6 @@ public class INTER_TercerosHabilitarDeshabilitar {
             if (driver != null) {
                 driver.quit();
             }
-        }
-    }
-
-    public void BuscarTercero(Interseguros_Metodos a, WebDriver driver, INTER_TercerosHabilitarDeshabilitarBean
-            interTercerosHabilitarDeshabilitarBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
-
-        try{
-            JavascriptExecutor jse = (JavascriptExecutor) driver;
-            jse.executeScript("window.scrollBy(0,100)", "");
-            Thread.sleep(800);
-
-            Thread.sleep(1500);
-            WebElement title = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
-
-            //Seleccion de Tipo de tercero
-            if(interTercerosHabilitarDeshabilitarBean.getTipoTerceros() != null){
-                Thread.sleep(1500);
-                Select tipoTercero = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
-                tipoTercero.selectByValue(interTercerosHabilitarDeshabilitarBean.getTipoTerceros());
-                Thread.sleep(1000);
-                title.click();
-            }
-
-            //Ingresar dto de identidad
-            if(interTercerosHabilitarDeshabilitarBean.getNumDocIdentificacion() != null){
-                WebElement nroDocIden = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_1_fila_field']"));
-                nroDocIden.sendKeys(interTercerosHabilitarDeshabilitarBean.getNumDocIdentificacion());
-                Thread.sleep(1000);
-                title.click();
-            }
-
-            //Ingresar apellido
-            if(interTercerosHabilitarDeshabilitarBean.getApellido() != null){
-                WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
-                //apellido.sendKeys(Keys.chord(Keys.CONTROL, "a"), inter_tercerosEditarNombreApellidoBean.getApellido());
-                apellido.clear();
-                Thread.sleep(1000);
-                WebElement otroEelemento = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_etiqueta']"));
-                otroEelemento.click();
-                Thread.sleep(500);
-                apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
-                apellido.sendKeys(interTercerosHabilitarDeshabilitarBean.getApellido());
-                Thread.sleep(1000);
-                title.click();
-            }
-
-            //Ingresar nombre
-            if(interTercerosHabilitarDeshabilitarBean.getNombre() != null){
-                WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
-                //nombre.sendKeys(Keys.chord(Keys.CONTROL, "a"), inter_tercerosEditarNombreApellidoBean.getNombre());
-                nombre.clear();
-                Thread.sleep(1000);
-                WebElement otroEelemento = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_etiqueta']"));
-                otroEelemento.click();
-                Thread.sleep(500);
-                nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
-                nombre.sendKeys(interTercerosHabilitarDeshabilitarBean.getNombre());
-                Thread.sleep(1000);
-                title.click();
-            }
-
-            Thread.sleep(1000);
-
-            //ScreenShot tomando los campo que se estan insertando
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-
-
-            //Scroll
-            jse.executeScript("window.scrollBy(0,1500)", "");
-            Thread.sleep(800);
-
-            //Buscar
-            WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            //WebElement buscar2 = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            buscar.click();
-            Thread.sleep(1000);
-            //scroll
-            jse.executeScript("window.scrollBy(0,1700)", "");
-            Thread.sleep(1500);
-            buscar =driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            buscar.click();//Borrar funcion al corregirse defecto
-            Thread.sleep(500);
-
-            a.waitSearchWicket(driver, "Buscando tercero");
-
-            //Scroll
-            jse.executeScript("window.scrollBy(0,1900)", "");
-            Thread.sleep(800);
-
-            //ScreenShot tomando el registro buscado
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-
-        }catch (Exception e){
-            e.printStackTrace();
-
         }
     }
 

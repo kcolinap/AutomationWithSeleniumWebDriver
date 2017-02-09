@@ -22,7 +22,7 @@ public class Inter_BuscarTerceros {
 
         try {
 
-            Thread.sleep(4000);
+            Thread.sleep(3000);
             String title = driver.getTitle();
             System.out.println("Titulo de la pagina: " + title); // //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -134,11 +134,14 @@ public class Inter_BuscarTerceros {
             if (interTercerosBean.getApellidoPaterno() != null) {
                 WebElement apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
                 apellido.clear();
-                Thread.sleep(500);
+                Thread.sleep(1500);
+                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_etiqueta']"));
+                otroElemento.click();
+                Thread.sleep(1000);
                 apellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_7_fila_field']"));
                 apellido.sendKeys(interTercerosBean.getApellidoPaterno());
+                Thread.sleep(1500);
                 otro.click();
-                Thread.sleep(500);
             }
 
             if (interTercerosBean.getApellidoMaterno() != null) {
@@ -152,13 +155,16 @@ public class Inter_BuscarTerceros {
             }
 
             if (interTercerosBean.getNombrePrimero() != null) {
-                WebElement nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
-                nTercero.clear();
-                Thread.sleep(500);
-                nTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
-                nTercero.sendKeys(interTercerosBean.getNombrePrimero());
+                WebElement nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
+                nombre.clear();
+                Thread.sleep(1500);
+                WebElement otroEelemento = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_etiqueta']"));
+                otroEelemento.click();
+                Thread.sleep(1000);
+                nombre = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_8_fila_field']"));
+                nombre.sendKeys(interTercerosBean.getNombrePrimero());
+                Thread.sleep(1500);
                 otro.click();
-                Thread.sleep(500);
             }
 
             if (interTercerosBean.getNombreSegundo() != null) {
