@@ -611,7 +611,7 @@ public class Interseguros_MenuOperaciones {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[12]"));//cumulos
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[3]"));//cumulos asegurado
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();

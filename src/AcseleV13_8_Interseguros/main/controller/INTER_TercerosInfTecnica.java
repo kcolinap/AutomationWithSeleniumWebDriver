@@ -71,19 +71,19 @@ public class INTER_TercerosInfTecnica extends Inter_BuscarTerceros {
         try {
             WebElement btnInfTec = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_technicalDataButton']"));
             btnInfTec.click();
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             jse.executeScript("window.scrollBy(0,-5000)", "");
-            Thread.sleep(1000);
+            Thread.sleep(1500);
             a.ScreenShotPool(driver,i,"screen"+screenShoot,nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             jse.executeScript("window.scrollBy(0,500)", "");
-            Thread.sleep(1000);
+            Thread.sleep(1500);
             a.ScreenShotPool(driver,i,"screen"+screenShoot2,nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             jse.executeScript("window.scrollBy(0,600)", "");
-            Thread.sleep(1000);
+            Thread.sleep(1500);
             a.ScreenShotPool(driver,i,"screen"+screenShoot3,nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
