@@ -172,8 +172,10 @@ public class Inter_Asegurado {
                 Thread.sleep(3000);
 //                WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_TomadorLabel']"));
 //                otroElemento.click();
-                Thread.sleep(1500);                                                     // policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton
+                //Thread.sleep(1500);                                                     // policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton
                                                                                          //policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search
+
+                jse.executeScript("window.scrollBy(0,750)", "");
                 WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskAsegurado_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
                 Thread.sleep(1500);
                 asegurado.click();
@@ -193,8 +195,8 @@ public class Inter_Asegurado {
                 }
             }
 
-            jse.executeScript("window.scrollBy(0,100)", "");
-            Thread.sleep(2000);
+
+            Thread.sleep(5000);
             WebElement selAsegurado = driver.findElement(By.xpath("/html/body/div[7]/div/ul/li[1]"));
             // /html/body/div[6]/div/ul/li[1]
             selAsegurado.click();

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_TERCEROS_HABIL_DESHABIL PRUEBA="1" TIPO_TERCERO="PersonaNatural"
+                                 NUM_DOC_IDENTIFICACION="98765432" APELLIDO="CHANG"
+                                 NOMBRE="CARLOS"/>
+</dataset>
