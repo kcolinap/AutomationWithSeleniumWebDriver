@@ -150,8 +150,11 @@ public class Interseguros_Metodos {
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
         System.out.println("mandando user");
 
+
         user2.sendKeys("system");       /** Usuario  **/
         password2.sendKeys("consis");
+
+
 
         instance2.selectByVisibleText("INTERSEGURO");
         language2.selectByValue("es");
@@ -231,8 +234,8 @@ public class Interseguros_Metodos {
 
         //System.out.println(hora + ":" + minutos + ":" + segundos);
         //System.out.println(dia + ":" + mes+1 + ":" + anio);
-        System.out.println(anio + "-" + mes+1 + "-" +dia + "_" + hora + "." + minutos + "." + segundos);
-        nombreCarpeta = anio + "-" + mes+1 + "-" +dia + "_" + hora + "." + minutos + "." + segundos;
+        System.out.println(anio + "-" + (mes+1) + "-" + dia + "_" + hora + "." + minutos + "." + segundos);
+        nombreCarpeta = anio + "-" + (mes+1) + "-" + dia + "_" + hora + "." + minutos + "." + segundos;
         return nombreCarpeta;
     }
 

@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.principal;
 
 import AcseleV13_8_Interseguros.tests.*;
 import org.apache.log4j.Logger;
+//import org.eclipse.jetty.util.log.Log;
 
 /**
  * Created by agil on 11/15/16.
@@ -12,7 +13,7 @@ public class EjecutarJar {
 
     public static void main(String[] args) throws Exception {
 
-        //args = new String[]{"2"};
+        //args = new String[]{"20"};
 
         for (int t = 0; t < args.length; t++) {
 
@@ -204,6 +205,37 @@ public class EjecutarJar {
                         log.error("Test Case - " + prueba + " - " + e);
                     }
                     log.info("--->>> Final de la prueba " + prueba);
+                    break;
+                case "14":
+                    prueba = "VistaINTER_TercerosHabilitarDeshabilitarTest";
+                    log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
+                    try{
+                        VistaINTER_TercerosHabilitarDeshabilitarTest vistaINTERTercerosHabilitarDeshabilitarTest = new VistaINTER_TercerosHabilitarDeshabilitarTest();
+                        vistaINTERTercerosHabilitarDeshabilitarTest.setUp();
+                        vistaINTERTercerosHabilitarDeshabilitarTest.mainTest();
+                        vistaINTERTercerosHabilitarDeshabilitarTest.tearDown();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        log.error("Test Case - " + prueba + " - " + e);
+                    }
+                    log.info("--->>> Final de la prueba " + prueba);
+                    break;
+                case "15":
+                    prueba = "VistaINTER_TercerosEditarNombreApellidoTest";
+                    log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
+                    try {
+                        VistaINTER_TercerosEditarNombreApellidoTest vistaINTERTercerosEditarNombreApellidoTest = new VistaINTER_TercerosEditarNombreApellidoTest();
+                        vistaINTERTercerosEditarNombreApellidoTest.setUp();
+                        vistaINTERTercerosEditarNombreApellidoTest.mainTest();
+                        vistaINTERTercerosEditarNombreApellidoTest.tearDown();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        log.error("Test Case - " + prueba + " - " + e);
+                    }
+                    log.info("--->>> Final de la prueba " + prueba);
+                    break;
+                default:
+                    log.info("--->>> No se ha seleccionado ninguna prueba o el valor de la misma es incorrecto");
                     break;
                 /*case "":
                     prueba = "";

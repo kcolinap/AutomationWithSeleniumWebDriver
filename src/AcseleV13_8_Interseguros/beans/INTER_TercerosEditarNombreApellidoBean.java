@@ -13,48 +13,14 @@ import java.util.ArrayList;
 /**
  * Created by kcolina on 19/01/2017.
  */
-public class INTER_TercerosEditarNombreApellidoBean implements Serializable {
+public class INTER_TercerosEditarNombreApellidoBean extends Inter_TercerosBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(INTER_TercerosEditarNombreApellidoBean.class);
 
-    private String tipoTerceros;
-    private String numDocIdentificacion;
-    private String apellido;
-    private String nombre;
+
     private String apellidoNuevo;
     private String nombreNuevo;
 
-    public String getTipoTerceros() {
-        return tipoTerceros;
-    }
-
-    public void setTipoTerceros(String tipoTerceros) {
-        this.tipoTerceros = tipoTerceros;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNumDocIdentificacion() {
-        return numDocIdentificacion;
-    }
-
-    public void setNumDocIdentificacion(String numDocIdentificacion) {
-        this.numDocIdentificacion = numDocIdentificacion;
-    }
 
     public String getApellidoNuevo() {
         return apellidoNuevo;
@@ -92,10 +58,10 @@ public class INTER_TercerosEditarNombreApellidoBean implements Serializable {
 
                 INTER_TercerosEditarNombreApellidoBean inter_TercerosEditarNombreApellidoBean = new INTER_TercerosEditarNombreApellidoBean();
 
-                inter_TercerosEditarNombreApellidoBean.setTipoTerceros(rs.getString("Tipo_Tercero"));
-                inter_TercerosEditarNombreApellidoBean.setNumDocIdentificacion(rs.getString("Num_Doc_Identificacion"));
-                inter_TercerosEditarNombreApellidoBean.setApellido(rs.getString("Apellido"));
-                inter_TercerosEditarNombreApellidoBean.setNombre(rs.getString("Nombre"));
+                inter_TercerosEditarNombreApellidoBean.setTipoTercero(rs.getString("Tipo_Tercero"));
+                inter_TercerosEditarNombreApellidoBean.setNumeroDocumentoIdentidad(rs.getString("Num_Doc_Identificacion"));
+                inter_TercerosEditarNombreApellidoBean.setApellidoPaterno(rs.getString("Apellido"));
+                inter_TercerosEditarNombreApellidoBean.setNombrePrimero(rs.getString("Nombre"));
                 inter_TercerosEditarNombreApellidoBean.setApellidoNuevo(rs.getString("Apellido_Nuevo"));
                 inter_TercerosEditarNombreApellidoBean.setNombreNuevo(rs.getString("Nombre_Nuevo"));
 

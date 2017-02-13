@@ -49,8 +49,9 @@ public class VistaINTER_CumuloAseguradoTest {
 
     @Before
     public void setUp() throws Exception {
+/*
 
-        /*DataSetManager.createPartialDataSet("select * from INTER_CUMULO_ASEGURADO ORDER BY PRUEBA ASC",
+        DataSetManager.createPartialDataSet("select * from INTER_CUMULO_ASEGURADO ORDER BY PRUEBA ASC",
                 "INTER_CUMULO_ASEGURADO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8_Interseguros/tests/xmls/interCumulosAsegurado_dataset.xml");
 
@@ -58,6 +59,7 @@ public class VistaINTER_CumuloAseguradoTest {
                 "INTER_CUMULO_ASEGURADO",
                 "C:/AcseleTests/AutomationTestAcsele/target/classes/AcseleV13_8_Interseguros/tests/xmls/interCumulosAsegurado_dataset.xml");
 */
+
         DataSetManager.loadDataSet("/AcseleV13_8_Interseguros/tests/xmls/interCumulosAsegurado_dataset.xml", DataSetManager.REFRESH_OPERATION);
     }
 

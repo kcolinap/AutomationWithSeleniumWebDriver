@@ -118,7 +118,7 @@ public class Inter_UnidadesRiesgo {
             }
 
             if (interPolizaBean.getCapitalAseguradoCoberturaFallecimiento1() != null) {
-                WebElement capitalAseguradoCoberturaFallecimiento1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
+                WebElement capitalAseguradoCoberturaFallecimiento1 = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_templateRiskUnit_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field']"));
                 capitalAseguradoCoberturaFallecimiento1.clear();
                 Thread.sleep(2000);
                 //jse.executeScript("showWait()", "");

@@ -170,8 +170,8 @@ public class INTER_CerrarSiniestro {
         try{
 
             Thread.sleep(2000);
-
-            WebElement btnRechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_29\"]"));
+            // Xpath viejo //*[@id="idb_0402006_structure_29"]
+            WebElement btnRechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_07\"]"));
             btnRechazar.click();
             Thread.sleep(20000);
 
