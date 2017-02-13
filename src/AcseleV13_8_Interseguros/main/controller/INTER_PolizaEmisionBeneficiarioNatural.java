@@ -77,7 +77,7 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
                 Thread.sleep(2000);
                 interBeneficiario.AgregarBeneficiario2(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 17, 18);
                 Thread.sleep(2000);
-                interCalcular.Calcular(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName,0, 19, 20);
+                interCalcular.Calcular(a, driver, inter_polizaEmisionBeneficiarioNaturalBean, nombreAutomatizacion, i, folderName, 19, 20);
                 Thread.sleep(2000);
                 interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
             }

@@ -114,6 +114,55 @@ public class Inter_PolizaBean {
     private String informacionBeneficiario3DocumentoIdentidad;
     private String informacionBeneficiario3Parentesco;
     private String informacionBeneficiario3PorcDistribucion;
+    private String informacionBeneficiario4Apellido1;
+    private String informacionBeneficiario4Apellido2;
+    private String informacionBeneficiario4Nombres;
+    private String informacionBeneficiario4FechaNacimiento;
+    private String informacionBeneficiario4DocumentoIdentidad;
+    private String informacionBeneficiario4Parentesco;
+    private String informacionBeneficiario4PorcDistribucion;
+    private String informacionBeneficiario5Apellido1;
+    private String informacionBeneficiario5Apellido2;
+    private String informacionBeneficiario5Nombres;
+    private String informacionBeneficiario5FechaNacimiento;
+    private String informacionBeneficiario5DocumentoIdentidad;
+    private String informacionBeneficiario5Parentesco;
+    private String informacionBeneficiario5PorcDistribucion;
+    private String informacionBeneficiario6Apellido1;
+    private String informacionBeneficiario6Apellido2;
+    private String informacionBeneficiario6Nombres;
+    private String informacionBeneficiario6FechaNacimiento;
+    private String informacionBeneficiario6DocumentoIdentidad;
+    private String informacionBeneficiario6Parentesco;
+    private String informacionBeneficiario6PorcDistribucion;
+    private String informacionBeneficiario7Apellido1;
+    private String informacionBeneficiario7Apellido2;
+    private String informacionBeneficiario7Nombres;
+    private String informacionBeneficiario7FechaNacimiento;
+    private String informacionBeneficiario7DocumentoIdentidad;
+    private String informacionBeneficiario7Parentesco;
+    private String informacionBeneficiario7PorcDistribucion;
+    private String informacionBeneficiario8Apellido1;
+    private String informacionBeneficiario8Apellido2;
+    private String informacionBeneficiario8Nombres;
+    private String informacionBeneficiario8FechaNacimiento;
+    private String informacionBeneficiario8DocumentoIdentidad;
+    private String informacionBeneficiario8Parentesco;
+    private String informacionBeneficiario8PorcDistribucion;
+    private String informacionBeneficiario9Apellido1;
+    private String informacionBeneficiario9Apellido2;
+    private String informacionBeneficiario9Nombres;
+    private String informacionBeneficiario9FechaNacimiento;
+    private String informacionBeneficiario9DocumentoIdentidad;
+    private String informacionBeneficiario9Parentesco;
+    private String informacionBeneficiario9PorcDistribucion;
+    private String informacionBeneficiario10Apellido1;
+    private String informacionBeneficiario10Apellido2;
+    private String informacionBeneficiario10Nombres;
+    private String informacionBeneficiario10FechaNacimiento;
+    private String informacionBeneficiario10DocumentoIdentidad;
+    private String informacionBeneficiario10Parentesco;
+    private String informacionBeneficiario10PorcDistribucion;
     private String informacionBeneficiarioContingente1Apellido1;
     private String informacionBeneficiarioContingente1Apellido2;
     private String informacionBeneficiarioContingente1Nombres;
@@ -128,6 +177,27 @@ public class Inter_PolizaBean {
     private String informacionBeneficiarioContingente2DocumentoIdentidad;
     private String informacionBeneficiarioContingente2Parentesco;
     private String informacionBeneficiarioContingente2PorcDistribucion;
+    private String informacionBeneficiarioContingente3Apellido1;
+    private String informacionBeneficiarioContingente3Apellido2;
+    private String informacionBeneficiarioContingente3Nombres;
+    private String informacionBeneficiarioContingente3FechaNacimiento;
+    private String informacionBeneficiarioContingente3DocumentoIdentidad;
+    private String informacionBeneficiarioContingente3Parentesco;
+    private String informacionBeneficiarioContingente3PorcDistribucion;
+    private String informacionBeneficiarioContingente4Apellido1;
+    private String informacionBeneficiarioContingente4Apellido2;
+    private String informacionBeneficiarioContingente4Nombres;
+    private String informacionBeneficiarioContingente4FechaNacimiento;
+    private String informacionBeneficiarioContingente4DocumentoIdentidad;
+    private String informacionBeneficiarioContingente4Parentesco;
+    private String informacionBeneficiarioContingente4PorcDistribucion;
+    private String informacionBeneficiarioContingente5Apellido1;
+    private String informacionBeneficiarioContingente5Apellido2;
+    private String informacionBeneficiarioContingente5Nombres;
+    private String informacionBeneficiarioContingente5FechaNacimiento;
+    private String informacionBeneficiarioContingente5DocumentoIdentidad;
+    private String informacionBeneficiarioContingente5Parentesco;
+    private String informacionBeneficiarioContingente5PorcDistribucion;
     private String numeroObjetoAsegurado2;
     private String nombreCompletoAsegurado2;
     private String nombreCompletoBeneficiario2;
@@ -1352,6 +1422,567 @@ public class Inter_PolizaBean {
 
     public void setInformacionBeneficiarioContingente2PorcDistribucion(String informacionBeneficiarioContingente2PorcDistribucion) {
         this.informacionBeneficiarioContingente2PorcDistribucion = informacionBeneficiarioContingente2PorcDistribucion;
+    }
+
+
+    public String getInformacionBeneficiario4Apellido1() {
+        return informacionBeneficiario4Apellido1;
+    }
+
+    public void setInformacionBeneficiario4Apellido1(String informacionBeneficiario4Apellido1) {
+        this.informacionBeneficiario4Apellido1 = informacionBeneficiario4Apellido1;
+    }
+
+    public String getInformacionBeneficiario4Apellido2() {
+        return informacionBeneficiario4Apellido2;
+    }
+
+    public void setInformacionBeneficiario4Apellido2(String informacionBeneficiario4Apellido2) {
+        this.informacionBeneficiario4Apellido2 = informacionBeneficiario4Apellido2;
+    }
+
+    public String getInformacionBeneficiario4Nombres() {
+        return informacionBeneficiario4Nombres;
+    }
+
+    public void setInformacionBeneficiario4Nombres(String informacionBeneficiario4Nombres) {
+        this.informacionBeneficiario4Nombres = informacionBeneficiario4Nombres;
+    }
+
+    public String getInformacionBeneficiario4FechaNacimiento() {
+        return informacionBeneficiario4FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario4FechaNacimiento(String informacionBeneficiario4FechaNacimiento) {
+        this.informacionBeneficiario4FechaNacimiento = informacionBeneficiario4FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario4DocumentoIdentidad() {
+        return informacionBeneficiario4DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario4DocumentoIdentidad(String informacionBeneficiario4DocumentoIdentidad) {
+        this.informacionBeneficiario4DocumentoIdentidad = informacionBeneficiario4DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario4Parentesco() {
+        return informacionBeneficiario4Parentesco;
+    }
+
+    public void setInformacionBeneficiario4Parentesco(String informacionBeneficiario4Parentesco) {
+        this.informacionBeneficiario4Parentesco = informacionBeneficiario4Parentesco;
+    }
+
+    public String getInformacionBeneficiario4PorcDistribucion() {
+        return informacionBeneficiario4PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario4PorcDistribucion(String informacionBeneficiario4PorcDistribucion) {
+        this.informacionBeneficiario4PorcDistribucion = informacionBeneficiario4PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiario5Apellido1() {
+        return informacionBeneficiario5Apellido1;
+    }
+
+    public void setInformacionBeneficiario5Apellido1(String informacionBeneficiario5Apellido1) {
+        this.informacionBeneficiario5Apellido1 = informacionBeneficiario5Apellido1;
+    }
+
+    public String getInformacionBeneficiario5Apellido2() {
+        return informacionBeneficiario5Apellido2;
+    }
+
+    public void setInformacionBeneficiario5Apellido2(String informacionBeneficiario5Apellido2) {
+        this.informacionBeneficiario5Apellido2 = informacionBeneficiario5Apellido2;
+    }
+
+    public String getInformacionBeneficiario5Nombres() {
+        return informacionBeneficiario5Nombres;
+    }
+
+    public void setInformacionBeneficiario5Nombres(String informacionBeneficiario5Nombres) {
+        this.informacionBeneficiario5Nombres = informacionBeneficiario5Nombres;
+    }
+
+    public String getInformacionBeneficiario5FechaNacimiento() {
+        return informacionBeneficiario5FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario5FechaNacimiento(String informacionBeneficiario5FechaNacimiento) {
+        this.informacionBeneficiario5FechaNacimiento = informacionBeneficiario5FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario5DocumentoIdentidad() {
+        return informacionBeneficiario5DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario5DocumentoIdentidad(String informacionBeneficiario5DocumentoIdentidad) {
+        this.informacionBeneficiario5DocumentoIdentidad = informacionBeneficiario5DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario5Parentesco() {
+        return informacionBeneficiario5Parentesco;
+    }
+
+    public void setInformacionBeneficiario5Parentesco(String informacionBeneficiario5Parentesco) {
+        this.informacionBeneficiario5Parentesco = informacionBeneficiario5Parentesco;
+    }
+
+    public String getInformacionBeneficiario5PorcDistribucion() {
+        return informacionBeneficiario5PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario5PorcDistribucion(String informacionBeneficiario5PorcDistribucion) {
+        this.informacionBeneficiario5PorcDistribucion = informacionBeneficiario5PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiario6Apellido1() {
+        return informacionBeneficiario6Apellido1;
+    }
+
+    public void setInformacionBeneficiario6Apellido1(String informacionBeneficiario6Apellido1) {
+        this.informacionBeneficiario6Apellido1 = informacionBeneficiario6Apellido1;
+    }
+
+    public String getInformacionBeneficiario6Apellido2() {
+        return informacionBeneficiario6Apellido2;
+    }
+
+    public void setInformacionBeneficiario6Apellido2(String informacionBeneficiario6Apellido2) {
+        this.informacionBeneficiario6Apellido2 = informacionBeneficiario6Apellido2;
+    }
+
+    public String getInformacionBeneficiario6Nombres() {
+        return informacionBeneficiario6Nombres;
+    }
+
+    public void setInformacionBeneficiario6Nombres(String informacionBeneficiario6Nombres) {
+        this.informacionBeneficiario6Nombres = informacionBeneficiario6Nombres;
+    }
+
+    public String getInformacionBeneficiario6FechaNacimiento() {
+        return informacionBeneficiario6FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario6FechaNacimiento(String informacionBeneficiario6FechaNacimiento) {
+        this.informacionBeneficiario6FechaNacimiento = informacionBeneficiario6FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario6DocumentoIdentidad() {
+        return informacionBeneficiario6DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario6DocumentoIdentidad(String informacionBeneficiario6DocumentoIdentidad) {
+        this.informacionBeneficiario6DocumentoIdentidad = informacionBeneficiario6DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario6Parentesco() {
+        return informacionBeneficiario6Parentesco;
+    }
+
+    public void setInformacionBeneficiario6Parentesco(String informacionBeneficiario6Parentesco) {
+        this.informacionBeneficiario6Parentesco = informacionBeneficiario6Parentesco;
+    }
+
+    public String getInformacionBeneficiario6PorcDistribucion() {
+        return informacionBeneficiario6PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario6PorcDistribucion(String informacionBeneficiario6PorcDistribucion) {
+        this.informacionBeneficiario6PorcDistribucion = informacionBeneficiario6PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiario7Apellido1() {
+        return informacionBeneficiario7Apellido1;
+    }
+
+    public void setInformacionBeneficiario7Apellido1(String informacionBeneficiario7Apellido1) {
+        this.informacionBeneficiario7Apellido1 = informacionBeneficiario7Apellido1;
+    }
+
+    public String getInformacionBeneficiario7Apellido2() {
+        return informacionBeneficiario7Apellido2;
+    }
+
+    public void setInformacionBeneficiario7Apellido2(String informacionBeneficiario7Apellido2) {
+        this.informacionBeneficiario7Apellido2 = informacionBeneficiario7Apellido2;
+    }
+
+    public String getInformacionBeneficiario7Nombres() {
+        return informacionBeneficiario7Nombres;
+    }
+
+    public void setInformacionBeneficiario7Nombres(String informacionBeneficiario7Nombres) {
+        this.informacionBeneficiario7Nombres = informacionBeneficiario7Nombres;
+    }
+
+    public String getInformacionBeneficiario7FechaNacimiento() {
+        return informacionBeneficiario7FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario7FechaNacimiento(String informacionBeneficiario7FechaNacimiento) {
+        this.informacionBeneficiario7FechaNacimiento = informacionBeneficiario7FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario7DocumentoIdentidad() {
+        return informacionBeneficiario7DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario7DocumentoIdentidad(String informacionBeneficiario7DocumentoIdentidad) {
+        this.informacionBeneficiario7DocumentoIdentidad = informacionBeneficiario7DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario7Parentesco() {
+        return informacionBeneficiario7Parentesco;
+    }
+
+    public void setInformacionBeneficiario7Parentesco(String informacionBeneficiario7Parentesco) {
+        this.informacionBeneficiario7Parentesco = informacionBeneficiario7Parentesco;
+    }
+
+    public String getInformacionBeneficiario7PorcDistribucion() {
+        return informacionBeneficiario7PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario7PorcDistribucion(String informacionBeneficiario7PorcDistribucion) {
+        this.informacionBeneficiario7PorcDistribucion = informacionBeneficiario7PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiario8Apellido1() {
+        return informacionBeneficiario8Apellido1;
+    }
+
+    public void setInformacionBeneficiario8Apellido1(String informacionBeneficiario8Apellido1) {
+        this.informacionBeneficiario8Apellido1 = informacionBeneficiario8Apellido1;
+    }
+
+    public String getInformacionBeneficiario8Apellido2() {
+        return informacionBeneficiario8Apellido2;
+    }
+
+    public void setInformacionBeneficiario8Apellido2(String informacionBeneficiario8Apellido2) {
+        this.informacionBeneficiario8Apellido2 = informacionBeneficiario8Apellido2;
+    }
+
+    public String getInformacionBeneficiario8Nombres() {
+        return informacionBeneficiario8Nombres;
+    }
+
+    public void setInformacionBeneficiario8Nombres(String informacionBeneficiario8Nombres) {
+        this.informacionBeneficiario8Nombres = informacionBeneficiario8Nombres;
+    }
+
+    public String getInformacionBeneficiario8FechaNacimiento() {
+        return informacionBeneficiario8FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario8FechaNacimiento(String informacionBeneficiario8FechaNacimiento) {
+        this.informacionBeneficiario8FechaNacimiento = informacionBeneficiario8FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario8DocumentoIdentidad() {
+        return informacionBeneficiario8DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario8DocumentoIdentidad(String informacionBeneficiario8DocumentoIdentidad) {
+        this.informacionBeneficiario8DocumentoIdentidad = informacionBeneficiario8DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario8Parentesco() {
+        return informacionBeneficiario8Parentesco;
+    }
+
+    public void setInformacionBeneficiario8Parentesco(String informacionBeneficiario8Parentesco) {
+        this.informacionBeneficiario8Parentesco = informacionBeneficiario8Parentesco;
+    }
+
+    public String getInformacionBeneficiario8PorcDistribucion() {
+        return informacionBeneficiario8PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario8PorcDistribucion(String informacionBeneficiario8PorcDistribucion) {
+        this.informacionBeneficiario8PorcDistribucion = informacionBeneficiario8PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiario9Apellido1() {
+        return informacionBeneficiario9Apellido1;
+    }
+
+    public void setInformacionBeneficiario9Apellido1(String informacionBeneficiario9Apellido1) {
+        this.informacionBeneficiario9Apellido1 = informacionBeneficiario9Apellido1;
+    }
+
+    public String getInformacionBeneficiario9Apellido2() {
+        return informacionBeneficiario9Apellido2;
+    }
+
+    public void setInformacionBeneficiario9Apellido2(String informacionBeneficiario9Apellido2) {
+        this.informacionBeneficiario9Apellido2 = informacionBeneficiario9Apellido2;
+    }
+
+    public String getInformacionBeneficiario9Nombres() {
+        return informacionBeneficiario9Nombres;
+    }
+
+    public void setInformacionBeneficiario9Nombres(String informacionBeneficiario9Nombres) {
+        this.informacionBeneficiario9Nombres = informacionBeneficiario9Nombres;
+    }
+
+    public String getInformacionBeneficiario9FechaNacimiento() {
+        return informacionBeneficiario9FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario9FechaNacimiento(String informacionBeneficiario9FechaNacimiento) {
+        this.informacionBeneficiario9FechaNacimiento = informacionBeneficiario9FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario9DocumentoIdentidad() {
+        return informacionBeneficiario9DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario9DocumentoIdentidad(String informacionBeneficiario9DocumentoIdentidad) {
+        this.informacionBeneficiario9DocumentoIdentidad = informacionBeneficiario9DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario9Parentesco() {
+        return informacionBeneficiario9Parentesco;
+    }
+
+    public void setInformacionBeneficiario9Parentesco(String informacionBeneficiario9Parentesco) {
+        this.informacionBeneficiario9Parentesco = informacionBeneficiario9Parentesco;
+    }
+
+    public String getInformacionBeneficiario9PorcDistribucion() {
+        return informacionBeneficiario9PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario9PorcDistribucion(String informacionBeneficiario9PorcDistribucion) {
+        this.informacionBeneficiario9PorcDistribucion = informacionBeneficiario9PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiario10Apellido1() {
+        return informacionBeneficiario10Apellido1;
+    }
+
+    public void setInformacionBeneficiario10Apellido1(String informacionBeneficiario10Apellido1) {
+        this.informacionBeneficiario10Apellido1 = informacionBeneficiario10Apellido1;
+    }
+
+    public String getInformacionBeneficiario10Apellido2() {
+        return informacionBeneficiario10Apellido2;
+    }
+
+    public void setInformacionBeneficiario10Apellido2(String informacionBeneficiario10Apellido2) {
+        this.informacionBeneficiario10Apellido2 = informacionBeneficiario10Apellido2;
+    }
+
+    public String getInformacionBeneficiario10Nombres() {
+        return informacionBeneficiario10Nombres;
+    }
+
+    public void setInformacionBeneficiario10Nombres(String informacionBeneficiario10Nombres) {
+        this.informacionBeneficiario10Nombres = informacionBeneficiario10Nombres;
+    }
+
+    public String getInformacionBeneficiario10FechaNacimiento() {
+        return informacionBeneficiario10FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiario10FechaNacimiento(String informacionBeneficiario10FechaNacimiento) {
+        this.informacionBeneficiario10FechaNacimiento = informacionBeneficiario10FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiario10DocumentoIdentidad() {
+        return informacionBeneficiario10DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiario10DocumentoIdentidad(String informacionBeneficiario10DocumentoIdentidad) {
+        this.informacionBeneficiario10DocumentoIdentidad = informacionBeneficiario10DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiario10Parentesco() {
+        return informacionBeneficiario10Parentesco;
+    }
+
+    public void setInformacionBeneficiario10Parentesco(String informacionBeneficiario10Parentesco) {
+        this.informacionBeneficiario10Parentesco = informacionBeneficiario10Parentesco;
+    }
+
+    public String getInformacionBeneficiario10PorcDistribucion() {
+        return informacionBeneficiario10PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiario10PorcDistribucion(String informacionBeneficiario10PorcDistribucion) {
+        this.informacionBeneficiario10PorcDistribucion = informacionBeneficiario10PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiarioContingente3Apellido1() {
+        return informacionBeneficiarioContingente3Apellido1;
+    }
+
+    public void setInformacionBeneficiarioContingente3Apellido1(String informacionBeneficiarioContingente3Apellido1) {
+        this.informacionBeneficiarioContingente3Apellido1 = informacionBeneficiarioContingente3Apellido1;
+    }
+
+    public String getInformacionBeneficiarioContingente3Apellido2() {
+        return informacionBeneficiarioContingente3Apellido2;
+    }
+
+    public void setInformacionBeneficiarioContingente3Apellido2(String informacionBeneficiarioContingente3Apellido2) {
+        this.informacionBeneficiarioContingente3Apellido2 = informacionBeneficiarioContingente3Apellido2;
+    }
+
+    public String getInformacionBeneficiarioContingente3Nombres() {
+        return informacionBeneficiarioContingente3Nombres;
+    }
+
+    public void setInformacionBeneficiarioContingente3Nombres(String informacionBeneficiarioContingente3Nombres) {
+        this.informacionBeneficiarioContingente3Nombres = informacionBeneficiarioContingente3Nombres;
+    }
+
+    public String getInformacionBeneficiarioContingente3FechaNacimiento() {
+        return informacionBeneficiarioContingente3FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiarioContingente3FechaNacimiento(String informacionBeneficiarioContingente3FechaNacimiento) {
+        this.informacionBeneficiarioContingente3FechaNacimiento = informacionBeneficiarioContingente3FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiarioContingente3DocumentoIdentidad() {
+        return informacionBeneficiarioContingente3DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiarioContingente3DocumentoIdentidad(String informacionBeneficiarioContingente3DocumentoIdentidad) {
+        this.informacionBeneficiarioContingente3DocumentoIdentidad = informacionBeneficiarioContingente3DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiarioContingente3Parentesco() {
+        return informacionBeneficiarioContingente3Parentesco;
+    }
+
+    public void setInformacionBeneficiarioContingente3Parentesco(String informacionBeneficiarioContingente3Parentesco) {
+        this.informacionBeneficiarioContingente3Parentesco = informacionBeneficiarioContingente3Parentesco;
+    }
+
+    public String getInformacionBeneficiarioContingente3PorcDistribucion() {
+        return informacionBeneficiarioContingente3PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiarioContingente3PorcDistribucion(String informacionBeneficiarioContingente3PorcDistribucion) {
+        this.informacionBeneficiarioContingente3PorcDistribucion = informacionBeneficiarioContingente3PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiarioContingente4Apellido1() {
+        return informacionBeneficiarioContingente4Apellido1;
+    }
+
+    public void setInformacionBeneficiarioContingente4Apellido1(String informacionBeneficiarioContingente4Apellido1) {
+        this.informacionBeneficiarioContingente4Apellido1 = informacionBeneficiarioContingente4Apellido1;
+    }
+
+    public String getInformacionBeneficiarioContingente4Apellido2() {
+        return informacionBeneficiarioContingente4Apellido2;
+    }
+
+    public void setInformacionBeneficiarioContingente4Apellido2(String informacionBeneficiarioContingente4Apellido2) {
+        this.informacionBeneficiarioContingente4Apellido2 = informacionBeneficiarioContingente4Apellido2;
+    }
+
+    public String getInformacionBeneficiarioContingente4Nombres() {
+        return informacionBeneficiarioContingente4Nombres;
+    }
+
+    public void setInformacionBeneficiarioContingente4Nombres(String informacionBeneficiarioContingente4Nombres) {
+        this.informacionBeneficiarioContingente4Nombres = informacionBeneficiarioContingente4Nombres;
+    }
+
+    public String getInformacionBeneficiarioContingente4FechaNacimiento() {
+        return informacionBeneficiarioContingente4FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiarioContingente4FechaNacimiento(String informacionBeneficiarioContingente4FechaNacimiento) {
+        this.informacionBeneficiarioContingente4FechaNacimiento = informacionBeneficiarioContingente4FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiarioContingente4DocumentoIdentidad() {
+        return informacionBeneficiarioContingente4DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiarioContingente4DocumentoIdentidad(String informacionBeneficiarioContingente4DocumentoIdentidad) {
+        this.informacionBeneficiarioContingente4DocumentoIdentidad = informacionBeneficiarioContingente4DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiarioContingente4Parentesco() {
+        return informacionBeneficiarioContingente4Parentesco;
+    }
+
+    public void setInformacionBeneficiarioContingente4Parentesco(String informacionBeneficiarioContingente4Parentesco) {
+        this.informacionBeneficiarioContingente4Parentesco = informacionBeneficiarioContingente4Parentesco;
+    }
+
+    public String getInformacionBeneficiarioContingente4PorcDistribucion() {
+        return informacionBeneficiarioContingente4PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiarioContingente4PorcDistribucion(String informacionBeneficiarioContingente4PorcDistribucion) {
+        this.informacionBeneficiarioContingente4PorcDistribucion = informacionBeneficiarioContingente4PorcDistribucion;
+    }
+
+    public String getInformacionBeneficiarioContingente5Apellido1() {
+        return informacionBeneficiarioContingente5Apellido1;
+    }
+
+    public void setInformacionBeneficiarioContingente5Apellido1(String informacionBeneficiarioContingente5Apellido1) {
+        this.informacionBeneficiarioContingente5Apellido1 = informacionBeneficiarioContingente5Apellido1;
+    }
+
+    public String getInformacionBeneficiarioContingente5Apellido2() {
+        return informacionBeneficiarioContingente5Apellido2;
+    }
+
+    public void setInformacionBeneficiarioContingente5Apellido2(String informacionBeneficiarioContingente5Apellido2) {
+        this.informacionBeneficiarioContingente5Apellido2 = informacionBeneficiarioContingente5Apellido2;
+    }
+
+    public String getInformacionBeneficiarioContingente5Nombres() {
+        return informacionBeneficiarioContingente5Nombres;
+    }
+
+    public void setInformacionBeneficiarioContingente5Nombres(String informacionBeneficiarioContingente5Nombres) {
+        this.informacionBeneficiarioContingente5Nombres = informacionBeneficiarioContingente5Nombres;
+    }
+
+    public String getInformacionBeneficiarioContingente5FechaNacimiento() {
+        return informacionBeneficiarioContingente5FechaNacimiento;
+    }
+
+    public void setInformacionBeneficiarioContingente5FechaNacimiento(String informacionBeneficiarioContingente5FechaNacimiento) {
+        this.informacionBeneficiarioContingente5FechaNacimiento = informacionBeneficiarioContingente5FechaNacimiento;
+    }
+
+    public String getInformacionBeneficiarioContingente5DocumentoIdentidad() {
+        return informacionBeneficiarioContingente5DocumentoIdentidad;
+    }
+
+    public void setInformacionBeneficiarioContingente5DocumentoIdentidad(String informacionBeneficiarioContingente5DocumentoIdentidad) {
+        this.informacionBeneficiarioContingente5DocumentoIdentidad = informacionBeneficiarioContingente5DocumentoIdentidad;
+    }
+
+    public String getInformacionBeneficiarioContingente5Parentesco() {
+        return informacionBeneficiarioContingente5Parentesco;
+    }
+
+    public void setInformacionBeneficiarioContingente5Parentesco(String informacionBeneficiarioContingente5Parentesco) {
+        this.informacionBeneficiarioContingente5Parentesco = informacionBeneficiarioContingente5Parentesco;
+    }
+
+    public String getInformacionBeneficiarioContingente5PorcDistribucion() {
+        return informacionBeneficiarioContingente5PorcDistribucion;
+    }
+
+    public void setInformacionBeneficiarioContingente5PorcDistribucion(String informacionBeneficiarioContingente5PorcDistribucion) {
+        this.informacionBeneficiarioContingente5PorcDistribucion = informacionBeneficiarioContingente5PorcDistribucion;
     }
 
     public String getNumOACOT2() {

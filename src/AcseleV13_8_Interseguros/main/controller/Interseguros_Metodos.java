@@ -100,11 +100,11 @@ public class Interseguros_Metodos {
         String oS = System.getProperty("os.name");
         //System.out.println(oS);
         if (oS.equals("Windows 7")){
-            System.out.println("Windows 7");
+            //System.out.println("Windows 7");
             rutaScreen = "C:\\ScrenShots\\Interseguros\\";
         }
         else if (oS.equals("Linux")){
-            System.out.println("Linux");
+            //System.out.println("Linux");
             rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";//\\ScrenShots\\Interseguros\\";
         }
 
