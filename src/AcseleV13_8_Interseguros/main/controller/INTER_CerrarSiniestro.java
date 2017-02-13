@@ -117,7 +117,7 @@ public class INTER_CerrarSiniestro {
                 fechaOcurrenciaSiniestro.sendKeys(inter_cerrarSiniestroBean.getFechaOcurrenciaSiniestro());
             }
 
-            String productos = "EducacionGarantizada";
+            String productos = "DotalSimple";
 
             if (inter_cerrarSiniestroBean.getProducto() != null){
                 //if (editarSiniestrosBean.getProducto() == productos){
@@ -125,7 +125,7 @@ public class INTER_CerrarSiniestro {
                 WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
                 btnSeleccionar.click();
                 Thread.sleep(1000);
-                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[8]/td/span"));
+                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[7]/td"));
                 producto.click();
                 //}
             }
@@ -148,7 +148,7 @@ public class INTER_CerrarSiniestro {
 
         try{
             Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[6]/td[3]/div"));
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[3]/td[1]/div"));
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
@@ -171,14 +171,14 @@ public class INTER_CerrarSiniestro {
 
             Thread.sleep(2000);
             // Xpath viejo //*[@id="idb_0402006_structure_29"]
-            WebElement btnRechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_07\"]"));
+            WebElement btnRechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_32\"]"));
             btnRechazar.click();
             Thread.sleep(20000);
 
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
 
-            Select motivoCierre = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoRechazo\"]")));
+            Select motivoCierre = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoCierrelista\"]")));
             motivoCierre.selectByValue(inter_cerrarSiniestroBean.getMotivoCierre());
             Thread.sleep(2000);
 
