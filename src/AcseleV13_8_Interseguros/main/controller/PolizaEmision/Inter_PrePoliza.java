@@ -20,7 +20,7 @@ public class Inter_PrePoliza {
 
     private final static Logger log = Logger.getLogger(Inter_PrePoliza.class);
 
-    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, INTER_TerceroDeshabilitarBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
+    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
 
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
@@ -60,7 +60,7 @@ public class Inter_PrePoliza {
         }
     }
 
-    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, INTER_TerceroDeshabilitarBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
         try {
 
             Thread.sleep(3000);
