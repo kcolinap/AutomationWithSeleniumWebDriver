@@ -70,7 +70,7 @@ public class INTER_BusquedaSiniestroAvanzada {
             }*/
 
             Thread.sleep(2000);
-            String productos = "DotalSimple";
+            //String productos = "DotalSimple";
 
             if (inter_busquedaSiniestroAvanzadaBean.getProducto() != null){
                 Thread.sleep(1000);
@@ -82,7 +82,7 @@ public class INTER_BusquedaSiniestroAvanzada {
                 //}
             }
 
-            String eventoSiniestros = "Fallecimiento";
+            //String eventoSiniestros = "Fallecimiento";
 
             if (inter_busquedaSiniestroAvanzadaBean.getEventoSiniestro() != null){
                 Thread.sleep(1000);
