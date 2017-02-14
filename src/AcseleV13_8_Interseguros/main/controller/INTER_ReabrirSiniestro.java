@@ -115,7 +115,7 @@ public class INTER_ReabrirSiniestro {
                 fechaOcurrenciaSiniestro.sendKeys(inter_reabrirSiniestroBean.getFechaOcurrenciaSiniestro());
             }
 
-            String productos = "EducacionGarantizada";
+            String productos = "DotalSimple";
 
             if (inter_reabrirSiniestroBean.getProducto() != null){
                 //if (editarSiniestrosBean.getProducto() == productos){
@@ -123,7 +123,7 @@ public class INTER_ReabrirSiniestro {
                 WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
                 btnSeleccionar.click();
                 Thread.sleep(1000);
-                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[8]/td/span"));
+                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[7]/td"));
                 producto.click();
                 //}
             }
@@ -146,7 +146,7 @@ public class INTER_ReabrirSiniestro {
 
         try{
             Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[6]/td[3]/div"));
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[3]/td[1]/div"));
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
@@ -176,7 +176,7 @@ public class INTER_ReabrirSiniestro {
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
 
-            Select motivoReapertura = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoReapertura\"]")));
+            Select motivoReapertura = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoReaperturalista\"]")));
             motivoReapertura.selectByValue(inter_reabrirSiniestroBean.getMotivoReapertura());
             Thread.sleep(2000);
 

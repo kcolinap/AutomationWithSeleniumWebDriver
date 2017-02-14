@@ -42,7 +42,7 @@ public class INTER_RechazarSiniestro {
             a.cambiarVentana(driver);
             BuscarPoliza(a, inter_rechazarSiniestroBean, i, folderName, 4);
             ResultadoBusqueda(a, inter_rechazarSiniestroBean, i, folderName, 5);
-            RechazarSiniestro(a, inter_rechazarSiniestroBean, i, folderName, 6, 7);
+            RechazarSiniestro(a, inter_rechazarSiniestroBean, i, folderName, 6, 7,8);
 
             driver.quit();
 
@@ -119,7 +119,7 @@ public class INTER_RechazarSiniestro {
                 fechaOcurrenciaSiniestro.sendKeys(inter_rechazarSiniestroBean.getFechaOcurrenciaSiniestro());
             }
 
-            String productos = "EducacionGarantizada";
+            String productos = "DotalSimple";
 
             if (inter_rechazarSiniestroBean.getProducto() != null){
                 //if (editarSiniestrosBean.getProducto() == productos){
@@ -127,7 +127,7 @@ public class INTER_RechazarSiniestro {
                 WebElement btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
                 btnSeleccionar.click();
                 Thread.sleep(1000);
-                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[8]/td/span"));
+                WebElement producto  = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[7]/td"));
                 producto.click();
                 //}
             }
@@ -150,7 +150,7 @@ public class INTER_RechazarSiniestro {
 
         try{
             Thread.sleep(1000);
-            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[6]/td[3]/div"));
+            WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[3]/td[3]/div"));
             btnSeleccionarPoliza.click();
 
             Thread.sleep(1000);
@@ -168,7 +168,7 @@ public class INTER_RechazarSiniestro {
         }
     }
 
-    public void RechazarSiniestro (Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void RechazarSiniestro (Interseguros_Metodos a, INTER_RechazarSiniestroBean inter_rechazarSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
         try{
 
             Thread.sleep(2000);
@@ -180,7 +180,7 @@ public class INTER_RechazarSiniestro {
             // Cambiar de frame
             driver.switchTo().frame("plantilla");
 
-            Select motivoRechazo = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoRechazo\"]")));
+            Select motivoRechazo = new Select(driver.findElement(By.xpath("//*[@id=\"MotivoRechazolista\"]")));
             motivoRechazo.selectByValue(inter_rechazarSiniestroBean.getMotivoRechazo());
             Thread.sleep(2000);
 
@@ -214,6 +214,7 @@ public class INTER_RechazarSiniestro {
             btnAceptar.click();
             Thread.sleep(2000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            Thread.sleep(2000);
 
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
@@ -223,6 +224,8 @@ public class INTER_RechazarSiniestro {
                 driver.switchTo().defaultContent();
             }
 
+            Thread.sleep(3000);
+
             if (ExpectedConditions.alertIsPresent() != null) {
                 Thread.sleep(1000);
                 Alert alert = driver.switchTo().alert();
@@ -231,6 +234,8 @@ public class INTER_RechazarSiniestro {
                 driver.switchTo().defaultContent();
             }
 
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
 
         }catch (Exception e) {
             e.printStackTrace();
