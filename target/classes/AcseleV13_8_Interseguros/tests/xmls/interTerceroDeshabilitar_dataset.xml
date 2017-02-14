@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <INTER_TERCERODESHABILITAR PRUEBA="1" TIPO_TERCERO="PersonaNatural" TIPO_DOC="" DOC_ID="" NOMBRE="CARLOS"
+                             APELLIDO="CHANG" PRODUCTO="DotalSimple" VIGENCIA="120" FECHA_DESDE="2017-02-09"
+                             FECHA_HASTA="2027-02-08" EVENTO_APLICAR="PreActivar" FECHA_MOVIMIENTO="2017-02-09"
+                             PLANES_FINANCIAMIENTO="Anual" MONEDAS="0" TIPO_DOCUMENTO="DocumentoIdentidad"
+                             NUMERO_DOCUMENTO="20147852" MONEDA_DEPRIMA="1660632" MONTO_PRIMERA_PRIMA="5000"
+                             FECHA_COTIZACION="2017-02-09" ENVIO_COMUNICACIONES_POLIZA="1998765" PLAN="648.0"
+                             CONTRATANTE1_NOMBRE1="CARLOS" CONTRATANTE1_NOMBRE2="" CONTRATANTE1_APELLIDO1="CHANG"
+                             CONTRATANTE1_APELLIDO2="" PORCENTAJE_CONTRATANTE1=""
+                             PORCENTAJE_CONTRATANTE2=""/>
+</dataset>

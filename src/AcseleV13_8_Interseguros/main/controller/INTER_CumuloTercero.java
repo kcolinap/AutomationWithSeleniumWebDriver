@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.IOException;
 
@@ -26,7 +28,7 @@ public class INTER_CumuloTercero {
     public void testLink(INTER_CumuloTerceroBean inter_cumuloTerceroBean, int i, String folderName) throws IOException, InterruptedException {
 
         try {
-
+            //Alert alertaJS = driver.switchTo().alert();
             //implementando clase de metodos
             Interseguros_Metodos a = new Interseguros_Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
@@ -58,34 +60,52 @@ public class INTER_CumuloTercero {
 
         try{
 
+            Alert alertaJs;
             Thread.sleep(3000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Select tipoTercero = new Select(driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[1]/td/form/table/tbody/tr[1]/td[2]/select")));
             tipoTercero.selectByValue(inter_cumuloTerceroBean.getTipoTercero());
 
+            Thread.sleep(1500);
+
+            // Llamada a metodo Mensajes de Alerta JavaScript
+             alertaJs= driver.switchTo().alert();
+            MensajesAlert(alertaJs);
+
             Thread.sleep(1000);
             if (inter_cumuloTerceroBean.getDocumentoIdentidad() != null){
             WebElement documentoIdentidad = (driver.findElement(By.xpath("//*[@id=\"DocumentoIdentidad\"]")));
             documentoIdentidad.sendKeys(inter_cumuloTerceroBean.getDocumentoIdentidad());
-
+                MensajesAlert(alertaJs);
             }
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             if (inter_cumuloTerceroBean.getPasaporte() != null){
                 WebElement pasaporte = driver.findElement(By.xpath("//*[@id=\"Pasaporte\"]"));
                 pasaporte.sendKeys(inter_cumuloTerceroBean.getPasaporte());
+                MensajesAlert(alertaJs);
             }
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             if (inter_cumuloTerceroBean.getApellido() != null){
                 WebElement primerApellido = driver.findElement(By.xpath("//*[@id=\"Apellido\"]"));
                 primerApellido.sendKeys(inter_cumuloTerceroBean.getApellido());
+                Thread.sleep(1000);
+                WebElement primerNombre = driver.findElement(By.xpath("//*[@id=\"Nombre\"]"));
+                primerNombre.click();
+                Thread.sleep(1000);
+                MensajesAlert(alertaJs);
             }
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             if (inter_cumuloTerceroBean.getNombre() != null){
                 WebElement primerNombre = driver.findElement(By.xpath("//*[@id=\"Nombre\"]"));
                 primerNombre.sendKeys(inter_cumuloTerceroBean.getNombre());
+                Thread.sleep(1000);
+                WebElement primerApellido = driver.findElement(By.xpath("//*[@id=\"Apellido\"]"));
+                primerApellido.click();
+                Thread.sleep(1000);
+                MensajesAlert(alertaJs);
             }
 
 
@@ -128,6 +148,23 @@ public class INTER_CumuloTercero {
         }
 
 
+    }
+
+    public void MensajesAlert(Alert alertaJS){
+        try{
+            //alert= driver.switchTo().alert();
+            Thread.sleep(1500);
+            if(ExpectedConditions.alertIsPresent()!=null) {
+                Thread.sleep(1000);
+                alertaJS = driver.switchTo().alert();
+                alertaJS.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
     }
 
 }

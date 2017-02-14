@@ -98,7 +98,7 @@ public class Inter_PolizaEmisionVariasUR {
                 Thread.sleep(2000);
                 interAsegurado.AgregarAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, folderName, 20, 21);
                 Thread.sleep(2000);
-                interCalcular.Calcular(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, folderName,22, 23);
+                interCalcular.Calcular(a, driver, interPolizaEmisionVariasURBean, nombreAutomatizacion, i, folderName, 22, 23);
                 Thread.sleep(2000);
                 interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
             }

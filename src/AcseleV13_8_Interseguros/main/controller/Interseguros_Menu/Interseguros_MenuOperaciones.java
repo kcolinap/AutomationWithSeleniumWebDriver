@@ -569,7 +569,7 @@ public class Interseguros_MenuOperaciones {
             try {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[12]"));//cumulos
                 WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[1]"));//cumulos terceros
                 action.moveToElement(menu1).build().perform();
                 action.moveToElement(menu2).build().perform();
@@ -590,11 +590,13 @@ public class Interseguros_MenuOperaciones {
         try{
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[11]"));//cumulos
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[21]/div[2]"));//cumulos productos
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[12]"));//cumulos
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[22]/div[2]"));//cumulos productos
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
             Thread.sleep(2000);
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(2000);
             menu3.click();

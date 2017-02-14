@@ -95,18 +95,18 @@ public class Inter_PolizaEmisionVariosOA {
                 Thread.sleep(2000);
                 interAsegurado.AgregarAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 20, 21);
                 Thread.sleep(2000);
-                interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName ,22, 23);
+                interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 22, 23);
                 Thread.sleep(2000);
                 interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
             }
 
-            driver.quit();
+            //driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                driver.quit();
+                //driver.quit();
             }
         }
     }
