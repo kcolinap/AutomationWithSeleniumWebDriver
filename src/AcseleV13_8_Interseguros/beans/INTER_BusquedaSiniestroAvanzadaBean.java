@@ -70,8 +70,8 @@ public class INTER_BusquedaSiniestroAvanzadaBean {
         ArrayList interBusquedaSiniestroAvanzada = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select Prueba,Ordenar_Por, producto, Tipo_Tercero, apellido, nombre,Rol, Oficina, Num_Poliza,Num_Propuesta, evento_Siniestro FROM INTER_BUSQUEDA_AVANZADA ORDER BY PRUEBA ASC");
-
+        queryLoad.append("select * FROM INTER_BUSQUEDA_AVANZADA ORDER BY PRUEBA ASC");
+        //Prueba,Ordenar_Por, producto, Tipo_Tercero, apellido, nombre,Rol, Oficina, Num_Poliza,Num_Propuesta, evento_Siniestro
         try {
 
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();

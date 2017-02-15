@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by aazuaje on 23/01/2017.
  */
-public class INTER_BusquedaSiniestroAvanzada {
+public class    INTER_BusquedaSiniestroAvanzada {
 
     private final static Logger log = Logger.getLogger(INTER_BusquedaSiniestroAvanzada.class);
 
@@ -36,10 +36,10 @@ public class INTER_BusquedaSiniestroAvanzada {
             Thread.sleep(3000);
             a.cambiarVentana(driver);
 
-
+            //Aqui se especifican los 3 metodos de busqueda avanzada. Por defecto se deja el primero
             BuscarSiniestro(a, inter_busquedaSiniestroAvanzadaBean, i, folderName, 3, 4, 5);
-            BuscarSiniestroPoliza (a, inter_busquedaSiniestroAvanzadaBean, i, folderName, 3, 4, 5);
-            BuscarSiniestroTercero (a, inter_busquedaSiniestroAvanzadaBean, i, folderName, 3, 4, 5);
+            //BuscarSiniestroPoliza (a, inter_busquedaSiniestroAvanzadaBean, i, folderName, 3, 4, 5);
+            //BuscarSiniestroTercero (a, inter_busquedaSiniestroAvanzadaBean, i, folderName, 3, 4, 5);
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             // Thread.sleep(1500);
