@@ -5,6 +5,7 @@ import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_M
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -40,7 +41,7 @@ public class INTER_ConsultaSimplePoliza {
             Thread.sleep(2000);
             a.cambiarVentana(driver); // Cambiar de ventana
 
-            BuscarPolizaSimple(a, inter_consultaSimplePolizaBean, i, folderName);
+            BuscarPolizaSimple(a, inter_consultaSimplePolizaBean, i, folderName,3,4,5,6,7,8,9);
 
             driver.quit();
 
@@ -53,11 +54,15 @@ public class INTER_ConsultaSimplePoliza {
         }
     }
 
-    public void BuscarPolizaSimple(Metodos a, INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean, int i, String folderName) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(Metodos a, INTER_ConsultaSimplePolizaBean inter_consultaSimplePolizaBean,
+                                   int i, String folderName, int numScreenShoot, int numScreemShoot2, int numScreenShoot3,
+                                   int numScreenShoot4, int numScreenShoot5,int numScreenShoot6, int numScreenShoot7) throws InterruptedException, IOException {
+
 
         try {
 
             //TipoElemento[@wicketpath='WicketpathElemento']
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
 
             Thread.sleep(3000);
             //Campo del num de la poliza
@@ -67,7 +72,7 @@ public class INTER_ConsultaSimplePoliza {
             fieldNumPoliza.sendKeys(inter_consultaSimplePolizaBean.getNumPoliza());
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen"+numScreenShoot, nombreAutomatizacion, folderName);
 
             //Boton Buscar
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']")).click();
@@ -81,12 +86,12 @@ public class INTER_ConsultaSimplePoliza {
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']")).click();
 
             //Screenshot
-            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen"+numScreemShoot2, nombreAutomatizacion, folderName);
 
             //Boton Consultar Poliza
             driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_ConsultPolicyButton']")).click();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             a.waitSearchWicket(driver, "Espera 2");
 
@@ -95,14 +100,29 @@ public class INTER_ConsultaSimplePoliza {
             if (driver.findElement(By.xpath("//label[@wicketpath='modalWindowForm_EventSection_content_eventMessage']")).isDisplayed()) {
                 //Screenshot
                 Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen6-2", nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen"+numScreenShoot3, nombreAutomatizacion, folderName);
                 Toolkit.getDefaultToolkit().beep();
                 Thread.sleep(1000);
                 // Boton Continuar
                 driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']")).click();
             }
 
+            Thread.sleep(2000);
+            jse.executeScript("window.scrollBy(0,-5000)","");
             Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen"+numScreenShoot4, nombreAutomatizacion, folderName);
+
+            jse.executeScript("window.scrollBy(0,600)","");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen"+numScreenShoot5, nombreAutomatizacion, folderName);
+
+            jse.executeScript("window.scrollBy(0,600)","");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen"+numScreenShoot6, nombreAutomatizacion, folderName);
+
+            jse.executeScript("window.scrollBy(0,600)","");
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen"+numScreenShoot7, nombreAutomatizacion, folderName);
 
             System.out.println("Fin de la prueba");
 

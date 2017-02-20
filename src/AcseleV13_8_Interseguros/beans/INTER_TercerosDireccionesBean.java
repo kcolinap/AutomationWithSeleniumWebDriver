@@ -13,7 +13,12 @@ import java.util.ArrayList;
 /**
  * Created by mchurion on 16/12/2016.
  */
-public class INTER_TercerosDireccionesBean implements Serializable {
+
+/**
+ * Modified by kcolina 17/02/2017.
+ * Implementando herencia de la clase Inter_TercerosBean
+ */
+public class INTER_TercerosDireccionesBean extends Inter_TercerosBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(INTER_TercerosDireccionesBean.class);
 
@@ -163,10 +168,14 @@ public class INTER_TercerosDireccionesBean implements Serializable {
 
             while (rs.next()) {
                 INTER_TercerosDireccionesBean interTercerosDireccionesBean = new INTER_TercerosDireccionesBean();
-                interTercerosDireccionesBean.setTipoTerceros(rs.getString("TIPO_TERCEROS"));
-                interTercerosDireccionesBean.setNumDocIdentidad(rs.getString("NUM_DOC_IDENTIDAD"));
+                interTercerosDireccionesBean.setTipoTercero(rs.getString("TIPO_TERCEROS"));
+                //interTercerosDireccionesBean.setTipoTerceros(rs.getString("TIPO_TERCEROS"));
+                interTercerosDireccionesBean.setNumeroDocumentoIdentidad(rs.getString("NUM_DOC_IDENTIDAD"));
+                //interTercerosDireccionesBean.setNumDocIdentidad(rs.getString("NUM_DOC_IDENTIDAD"));
                 interTercerosDireccionesBean.setApellidoPaterno(rs.getString("APELLIDO_PATERNO"));
-                interTercerosDireccionesBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
+                //interTercerosDireccionesBean.setApellidoPaterno(rs.getString("APELLIDO_PATERNO"));
+                interTercerosDireccionesBean.setNombrePrimero(rs.getString("PRIMER_NOMBRE"));
+                //interTercerosDireccionesBean.setPrimerNombre(rs.getString("PRIMER_NOMBRE"));
                 interTercerosDireccionesBean.setRefDireccion(rs.getString("REF_DIRECCION"));
                 interTercerosDireccionesBean.setCodPais(rs.getString("COD_PAIS"));
                 interTercerosDireccionesBean.setDescripcionDireccion(rs.getString("DESCRIPCION_DIRECCION"));
