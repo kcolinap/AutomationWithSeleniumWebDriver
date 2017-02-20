@@ -63,18 +63,18 @@ public class INTER_ConsultaEdoCuentaTerceros {
             Thread.sleep(10000);
 
             // Num Documento Identificacion
-            WebElement numDocIdent = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[1]/tbody/tr/td[3]/input[1]"));
+            WebElement numDocIdent = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[1]/tbody/tr/td[2]/font/input[1]"));
             numDocIdent.sendKeys(inter_consultaEdoCuentaTercerosBean.getNumDocIdent());
 
             // Primer Apellido
-            WebElement priApellido = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[13]/tbody/tr/td[3]/input[1]"));
+            WebElement priApellido = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[13]/tbody/tr/td[2]/font/input[1]"));
             priApellido.sendKeys(inter_consultaEdoCuentaTercerosBean.getApellido());
             // Screenshot
             a.ScreenShot(driver, "screen4", nombreAutomatizacion);
             Thread.sleep(1000);
 
             // Primer Nombre
-            WebElement priNombre = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[15]/tbody/tr/td[3]/input[1]"));
+            WebElement priNombre = driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[3]/td/form/table[15]/tbody/tr/td[2]/font/input[1]"));
             priNombre.sendKeys(inter_consultaEdoCuentaTercerosBean.getNombre());
 
             // Boton Buscar

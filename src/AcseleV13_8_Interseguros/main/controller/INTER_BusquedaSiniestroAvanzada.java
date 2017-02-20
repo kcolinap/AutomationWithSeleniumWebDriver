@@ -45,6 +45,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
             // Thread.sleep(1500);
 
             driver.quit();
+
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
@@ -132,7 +133,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
 
             Thread.sleep(2000);
 
-            String productos = "Lima";
+            //String productos = "Lima";
 
             if (inter_busquedaSiniestroAvanzadaBean.getOficina() != null){
                 Thread.sleep(1000);
@@ -183,7 +184,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
 
             Thread.sleep(2000);
 
-            String terceros = "PersonaNatural";
+            //String terceros = "PersonaNatural";
 
             if (inter_busquedaSiniestroAvanzadaBean.getTipoTercero() != null){
                 Thread.sleep(1000);
@@ -209,7 +210,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
             }
             Thread.sleep(2000);
 
-            String rol = "Asegurado";
+            //String rol = "Asegurado";
 
             if (inter_busquedaSiniestroAvanzadaBean.getRol() != null){
                 Thread.sleep(3000);
@@ -227,7 +228,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]/span/span"));//buscar siniestro
             buscar.click();
 
-            Thread.sleep(4000);
+            Thread.sleep(10000);
 
             WebElement seleccionar = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[5]/td[3]/div"));
             seleccionar.click();
