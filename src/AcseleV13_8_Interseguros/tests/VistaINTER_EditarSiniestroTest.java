@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_EditarSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_EditarSiniestro;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_EditarSiniestroTest {
         for (int j = 0; j< interEditarSiniestro.size(); j++) {
             INTER_EditarSiniestroBean inter_editarSiniestroBean = (INTER_EditarSiniestroBean) interEditarSiniestro.get(j);
             INTER_EditarSiniestro a = new INTER_EditarSiniestro();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

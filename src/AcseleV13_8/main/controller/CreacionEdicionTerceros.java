@@ -25,7 +25,7 @@ public class CreacionEdicionTerceros {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -69,7 +69,7 @@ public class CreacionEdicionTerceros {
 
     }
 
-    public void CreacionT(Metodos a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException {
+    public void CreacionT(Metodos13_8 a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
         Thread.sleep(2000);
@@ -193,7 +193,7 @@ public class CreacionEdicionTerceros {
         driver.close();
     }
 
-    public void CreacionR(Metodos a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException {
+    public void CreacionR(Metodos13_8 a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException {
         //
         Thread.sleep(2000);
         if (creacionEdicionTercerosBean.getTipoTercero() != null){
@@ -268,7 +268,7 @@ public class CreacionEdicionTerceros {
         driver.close();
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         String title = driver.getTitle();
@@ -333,7 +333,7 @@ public class CreacionEdicionTerceros {
         driver.close();
     }
 
-    public void EdicionT(Metodos a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException{
+    public void EdicionT(Metodos13_8 a, WebDriver driver, CreacionEdicionTercerosBean creacionEdicionTercerosBean) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         String title = driver.getTitle();

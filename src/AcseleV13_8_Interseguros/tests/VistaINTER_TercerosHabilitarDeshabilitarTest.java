@@ -3,7 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosHabilitarDeshabilitarBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_TercerosHabilitarDeshabilitar;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_TercerosHabilitarDeshabilitarTest {
         for(int j = 0; j < interTercerosHabilitarDeshabilitar.size(); j++){
             INTER_TercerosHabilitarDeshabilitarBean inter_tercerosHabilitarDeshabilitarBean = (INTER_TercerosHabilitarDeshabilitarBean) interTercerosHabilitarDeshabilitar.get(j);
             INTER_TercerosHabilitarDeshabilitar a = new INTER_TercerosHabilitarDeshabilitar();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try{

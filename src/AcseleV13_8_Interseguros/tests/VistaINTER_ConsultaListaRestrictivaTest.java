@@ -3,7 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaListaRestrictivaBean;
 import AcseleV13_8_Interseguros.beans.INTER_PrevisualizacionCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaListaRestrictiva;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_ConsultaListaRestrictivaTest {
         for (int j = 0; j< interConsultaLista.size(); j++) {
             INTER_ConsultaListaRestrictivaBean inter_consultaListaRestrictivaBean = (INTER_ConsultaListaRestrictivaBean) interConsultaLista.get(j);
             INTER_ConsultaListaRestrictiva a = new INTER_ConsultaListaRestrictiva();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

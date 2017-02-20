@@ -2,7 +2,6 @@ package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.CancelarPagosBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
-import AcseleV13_8.main.controller.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -27,7 +26,7 @@ public class CancelarPagos {
     public void testLink(CancelarPagosBean cancelarPagosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -46,7 +45,7 @@ public class CancelarPagos {
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean, int i ) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, CancelarPagosBean cancelarPagosBean, int i ) throws IOException, InterruptedException{
 
         try {
 
@@ -209,7 +208,7 @@ public class CancelarPagos {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean, int i){
+    public void ResultadoBusqueda (WebDriver driver,Metodos13_8 a, CancelarPagosBean cancelarPagosBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
@@ -277,7 +276,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver,Metodos13_8 a, CancelarPagosBean cancelarPagosBean, int i){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -381,7 +380,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver,Metodos a, CancelarPagosBean cancelarPagosBean, int i){
+    public void AgregarCobertura (WebDriver driver,Metodos13_8 a, CancelarPagosBean cancelarPagosBean, int i){
         try{
 
             Thread.sleep(2000);
@@ -478,7 +477,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarRequisitos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean, int i){
+    public void AgregarRequisitos (WebDriver driver, Metodos13_8 a, CancelarPagosBean cancelarPagosBean, int i){
         try {
 
             Thread.sleep(6000);
@@ -511,7 +510,7 @@ public class CancelarPagos {
         }
     }
 
-    public void AgregarPagos (WebDriver driver, Metodos a, CancelarPagosBean cancelarPagosBean, int i){
+    public void AgregarPagos (WebDriver driver, Metodos13_8 a, CancelarPagosBean cancelarPagosBean, int i){
         try {
             Thread.sleep(5000);
             Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));

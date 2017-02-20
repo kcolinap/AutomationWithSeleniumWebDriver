@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -27,11 +28,11 @@ public class INTER_CrearOpenItems {
 
         try {
             //Inicio de sesión
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
             //Interseguros_MenuMantenimiento interseguros_menuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(3000);
@@ -95,7 +96,7 @@ public class INTER_CrearOpenItems {
         }
 }
 
-    public void InsertarDatos(Interseguros_Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean,int i,String folderName) throws InterruptedException, IOException {
+    public void InsertarDatos(Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean,int i,String folderName) throws InterruptedException, IOException {
         try {
             Thread.sleep(3000);
             String title = driver.getTitle();
@@ -163,7 +164,7 @@ public class INTER_CrearOpenItems {
     }
 
 
-    private void BorrarFechas(Interseguros_Metodos a, WebDriver driver,int i,String folderName) {
+    private void BorrarFechas(Metodos a, WebDriver driver,int i,String folderName) {
 
         try {
             Thread.sleep(3000);
@@ -189,7 +190,7 @@ public class INTER_CrearOpenItems {
         }
     }
 
-    private void FormularioOpenItem(Interseguros_Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean,int i,String folderName) {
+    private void FormularioOpenItem(Metodos a, WebDriver driver, INTER_CrearOpenItemsBean interCrearOpenItemsBean,int i,String folderName) {
         try {
             //LLenar formulario
 

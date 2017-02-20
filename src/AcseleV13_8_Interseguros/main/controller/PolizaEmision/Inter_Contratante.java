@@ -1,17 +1,14 @@
 package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 /**
  * Created by agil on 23/11/2016.
@@ -20,7 +17,7 @@ public class Inter_Contratante {
 
     private final static Logger log = Logger.getLogger(Inter_Contratante.class);
 
-    public void AgregarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void AgregarContratante(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -99,7 +96,7 @@ public class Inter_Contratante {
         }
     }
 
-    public void EditarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void EditarContratante(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 
@@ -148,7 +145,7 @@ public class Inter_Contratante {
         }
     }
 
-    public void EliminarContratante(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void EliminarContratante(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 

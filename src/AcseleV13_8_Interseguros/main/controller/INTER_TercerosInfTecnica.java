@@ -4,15 +4,14 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.INTER_TercerosInfTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * Created by mchurion on 14/12/2016.
@@ -28,11 +27,11 @@ public class INTER_TercerosInfTecnica extends Inter_BuscarTerceros {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
             Inter_BuscarTerceros interBuscarTerceros = new Inter_BuscarTerceros();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -64,7 +63,7 @@ public class INTER_TercerosInfTecnica extends Inter_BuscarTerceros {
 
     }
 
-    public void InfTecnica(WebDriver driver, Interseguros_Metodos a, int i,String folderName, int screenShoot, int screenShoot2, int screenShoot3){
+    public void InfTecnica(WebDriver driver, Metodos a, int i,String folderName, int screenShoot, int screenShoot2, int screenShoot3){
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 

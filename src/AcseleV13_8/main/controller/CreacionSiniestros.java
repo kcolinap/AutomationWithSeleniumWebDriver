@@ -26,7 +26,7 @@ public class CreacionSiniestros {
     public void testLink(CreacionSiniestrosBean creacionSiniestrosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -45,7 +45,7 @@ public class CreacionSiniestros {
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, CreacionSiniestrosBean creacionSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -208,7 +208,7 @@ public class CreacionSiniestros {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
+    public void ResultadoBusqueda (WebDriver driver, Metodos13_8 a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
@@ -276,7 +276,7 @@ public class CreacionSiniestros {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos13_8 a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
        try {
            Thread.sleep(2000);
            WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -380,7 +380,7 @@ public class CreacionSiniestros {
        }
     }
 
-    public void AgregarCobertura (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
+    public void AgregarCobertura (WebDriver driver, Metodos13_8 a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
         try{
 
             Thread.sleep(2000);
@@ -474,7 +474,7 @@ public class CreacionSiniestros {
         }
     }
 
-    public void AgregarRequisitos (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
+    public void AgregarRequisitos (WebDriver driver, Metodos13_8 a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
         try {
 
             Thread.sleep(6000);
@@ -507,7 +507,7 @@ public class CreacionSiniestros {
         }
     }
 
-    public void AgregarPagos (WebDriver driver, Metodos a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
+    public void AgregarPagos (WebDriver driver, Metodos13_8 a, CreacionSiniestrosBean creacionSiniestrosBean, int i){
         try {
             Thread.sleep(5000);
             Select cobertura = new Select(driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]")));

@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_RenovacionPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_RenovacionPoliza;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_RenovacionPolizaTest {
 
             INTER_RenovacionPolizaBean inter_renovacionPolizaBean = (INTER_RenovacionPolizaBean) renovacionPoliza.get(i);
             INTER_RenovacionPoliza a = new INTER_RenovacionPoliza();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

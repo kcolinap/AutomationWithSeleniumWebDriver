@@ -1,14 +1,12 @@
 package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 /**
  * Created by agil on 24/11/2016.
@@ -17,7 +15,7 @@ public class Inter_ObjetosAsegurados {
 
     private final static Logger log = Logger.getLogger(Inter_ObjetosAsegurados.class);
 
-    public void ObjetoAsegurado1_Inteligo(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void ObjetoAsegurado1_Inteligo(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -73,7 +71,7 @@ public class Inter_ObjetosAsegurados {
         }
     }
 
-    public void ObjetoAsegurado2_Inteligo(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void ObjetoAsegurado2_Inteligo(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -134,7 +132,7 @@ public class Inter_ObjetosAsegurados {
         }
     }
 
-    public void ObjetoAsegurado1_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void ObjetoAsegurado1_DotalSimple(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -1152,7 +1150,7 @@ public class Inter_ObjetosAsegurados {
         }
     }
 
-    public void ObjetoAsegurado2_DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void ObjetoAsegurado2_DotalSimple(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 

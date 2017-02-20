@@ -2,7 +2,6 @@ package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.ImportExportTablasDinamicasBean;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
-import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -29,7 +28,7 @@ public class ImportExportTablasDinamicas {
 
         try {
             //implementando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento m = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -54,7 +53,7 @@ public class ImportExportTablasDinamicas {
         }
     }
 
-    public void TablaDinamica(Metodos a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
+    public void TablaDinamica(Metodos13_8 a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
 
         try {
 
@@ -76,7 +75,7 @@ public class ImportExportTablasDinamicas {
         }
     }
 
-    public void BuscarTabla(Metodos a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
+    public void BuscarTabla(Metodos13_8 a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
 
         try {
 
@@ -103,7 +102,7 @@ public class ImportExportTablasDinamicas {
     }
 
 
-    public void ExportarTablaDinamica(Metodos a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
+    public void ExportarTablaDinamica(Metodos13_8 a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
 
         try {
 
@@ -188,7 +187,7 @@ public class ImportExportTablasDinamicas {
 
     }
 
-    public  void ImportTablaDinamica(Metodos a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
+    public  void ImportTablaDinamica(Metodos13_8 a, WebDriver driver, ImportExportTablasDinamicasBean importExportTablasDinamicasBean){
 
         try {
 

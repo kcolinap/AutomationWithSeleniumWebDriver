@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.Inter_TablaDinamicaExportBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,7 +19,7 @@ public class Inter_TablaDinamicaExport {
 
     public String nombreAutomatizacion = "Inter Tabla Dinamica Export";
     private WebDriver driver;
-    Interseguros_Metodos a = new Interseguros_Metodos();
+    Metodos a = new Metodos();
 
     public void testLink(Inter_TablaDinamicaExportBean interTablaDinamicaExportBean, int i, String folderName){
 
@@ -27,7 +28,7 @@ public class Inter_TablaDinamicaExport {
             // Instanciando clases
             Interseguros_MenuMantenimiento menuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

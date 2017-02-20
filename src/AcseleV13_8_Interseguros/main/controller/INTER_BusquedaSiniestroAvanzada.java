@@ -2,11 +2,11 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_BusquedaSiniestroAvanzadaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import sun.awt.windows.ThemeReader;
 
 import java.io.IOException;
 
@@ -23,10 +23,10 @@ public class    INTER_BusquedaSiniestroAvanzada {
     public void testLink (INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -56,7 +56,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
 
     }
 
-    public void BuscarSiniestro(Interseguros_Metodos a, INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void BuscarSiniestro(Metodos a, INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 
@@ -123,7 +123,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
 
     }
 
-    public void BuscarSiniestroPoliza(Interseguros_Metodos a, INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void BuscarSiniestroPoliza(Metodos a, INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 
@@ -174,7 +174,7 @@ public class    INTER_BusquedaSiniestroAvanzada {
     }
 
 
-    public void BuscarSiniestroTercero(Interseguros_Metodos a, INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void BuscarSiniestroTercero(Metodos a, INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 

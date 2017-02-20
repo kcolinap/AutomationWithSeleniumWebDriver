@@ -25,7 +25,7 @@ public class ConsultaTerceros {
         try {
 
             // Instanciando clases
-            Metodos a= new Metodos();   //implementando metodos.
+            Metodos13_8 a= new Metodos13_8();   //implementando metodos.
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -48,7 +48,7 @@ public class ConsultaTerceros {
         }
     }
 
-    public void BuscarTercero(Metodos a, WebDriver driver, ConsultaTercerosBean consultaTercerosBean, int i) throws InterruptedException, IOException {
+    public void BuscarTercero(Metodos13_8 a, WebDriver driver, ConsultaTercerosBean consultaTercerosBean, int i) throws InterruptedException, IOException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

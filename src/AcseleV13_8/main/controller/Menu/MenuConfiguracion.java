@@ -1,6 +1,6 @@
 package AcseleV13_8.main.controller.Menu;
 
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +17,7 @@ public class MenuConfiguracion {
 
     private final static Logger log = Logger.getLogger(MenuConfiguracion.class);
 
-    Metodos a = new Metodos();
+    Metodos13_8 a = new Metodos13_8();
     //27
 
     /** Plantillas (Modo Privilegiados) **/

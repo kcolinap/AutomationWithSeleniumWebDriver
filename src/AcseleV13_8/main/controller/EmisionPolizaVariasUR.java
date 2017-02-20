@@ -4,12 +4,8 @@ import AcseleV13_8.beans.EmisionPolizaVariasURBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import AcseleV13_8.main.controller.PolizaEmision.*;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
-import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -26,7 +22,7 @@ public class EmisionPolizaVariasUR {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
             //PrePoliza
             PrePoliza prePoliza = new PrePoliza();

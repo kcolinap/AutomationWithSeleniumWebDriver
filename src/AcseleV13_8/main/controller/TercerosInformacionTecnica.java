@@ -25,7 +25,7 @@ public class TercerosInformacionTecnica {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -53,7 +53,7 @@ public class TercerosInformacionTecnica {
 
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosInfTecnicaBean tercerosInfTecnicaBean, int i) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosInfTecnicaBean tercerosInfTecnicaBean, int i) throws InterruptedException, IOException{
 
         try {
 

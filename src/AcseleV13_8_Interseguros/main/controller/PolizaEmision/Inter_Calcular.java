@@ -1,7 +1,7 @@
 package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class Inter_Calcular {
 
     private final static Logger log = Logger.getLogger(Inter_Calcular.class);
 
-    public void Calcular(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void Calcular(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try {
 

@@ -5,6 +5,7 @@ import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_M
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.Inter_Contratante;
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.Inter_InformacionGeneralPoliza;
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.Inter_PrePoliza;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -23,13 +24,13 @@ public class Inter_PolizaIncluirEditarEliminarContratante {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones intersegurosMenuOperaciones = new Interseguros_MenuOperaciones();
             Inter_PrePoliza interPrePoliza = new Inter_PrePoliza();
             Inter_InformacionGeneralPoliza interInformacionGeneralPoliza = new Inter_InformacionGeneralPoliza();
             Inter_Contratante interContratante = new Inter_Contratante();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

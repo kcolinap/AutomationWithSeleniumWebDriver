@@ -2,12 +2,11 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_PrevisualizacionCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.io.IOException;
 
 /**
  * Created by aazuaje on 09/12/2016.
@@ -24,11 +23,11 @@ public class INTER_PrevisualizacionCuentaTecnica {
         try {
 
             //Metodos a = new Metodos();
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -52,7 +51,7 @@ public class INTER_PrevisualizacionCuentaTecnica {
 
     }
 
-    public void PrevisualizacionCuentaTecnica(Interseguros_Metodos a, INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean, int i, String folderName,
+    public void PrevisualizacionCuentaTecnica(Metodos a, INTER_PrevisualizacionCuentaTecnicaBean inter_previsualizacionCuentaTecnicaBean, int i, String folderName,
                                               int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {

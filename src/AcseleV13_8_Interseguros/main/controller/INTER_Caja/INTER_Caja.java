@@ -1,7 +1,7 @@
 package AcseleV13_8_Interseguros.main.controller.INTER_Caja;
 
 import AcseleV13_8_Interseguros.beans.INTER_CajaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import java.awt.*;
 public class INTER_Caja {
     private final static Logger log = Logger.getLogger(INTER_Caja.class);
 
-    public void AperturaCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void AperturaCaja(Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);
@@ -54,7 +54,7 @@ public class INTER_Caja {
         }
     }
 
-    public void CierreCaja(Interseguros_Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void CierreCaja(Metodos a, WebDriver driver, INTER_CajaBean interCajaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
             Thread.sleep(2000);

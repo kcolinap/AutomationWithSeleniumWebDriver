@@ -12,7 +12,6 @@ import java.io.IOException;
 
 
 import org.openqa.selenium.support.ui.Select;
-import sun.java2d.loops.TransformHelper;
 
 
 /**
@@ -29,7 +28,7 @@ public class ListasRestrictivas {
 
 
         //Metodos a = new Metodos();
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento m = new MenuMantenimiento();
         MenuOperaciones menuOperaciones = new MenuOperaciones();
 
@@ -98,7 +97,7 @@ public class ListasRestrictivas {
 
 
 
-  public void ListasRestrictivasCrear (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
+  public void ListasRestrictivasCrear (WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
        try {
            //se ingresa en la ruta para crear listas restrictivas.
@@ -234,7 +233,7 @@ public class ListasRestrictivas {
 
 
 
-   public void LeerArchivos (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+   public void LeerArchivos (WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
            try {
                a.changeLastWindows(driver);
@@ -316,7 +315,7 @@ public class ListasRestrictivas {
    }
 
 
-   public void CrearCoincidencias (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
+   public void CrearCoincidencias (WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
 
        try {
@@ -409,7 +408,7 @@ public class ListasRestrictivas {
 
    }
 
- public void CrearPoliza (WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+ public void CrearPoliza (WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         a.changeLastWindows(driver);
         try { //TipoElemento[@wicketpath='WicketpathElemento']
@@ -476,7 +475,7 @@ public class ListasRestrictivas {
         }
     }
 
-    public void InformacionPoliza(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void InformacionPoliza(WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -542,7 +541,7 @@ public class ListasRestrictivas {
         }
     }
 
-    public void AgregarTerceroTomador(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void AgregarTerceroTomador(WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -605,7 +604,7 @@ public class ListasRestrictivas {
         }
     }
 
-    public void AgregarUnidadRiesgo(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void AgregarUnidadRiesgo(WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -749,7 +748,7 @@ public class ListasRestrictivas {
     }
 
 
-    public void AgregarObjetoAsegurado(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void AgregarObjetoAsegurado(WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -872,7 +871,7 @@ public class ListasRestrictivas {
         }
     }
 
-    public void Comprobar(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
+    public void Comprobar(WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean) throws IOException, InterruptedException{
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -939,7 +938,7 @@ public class ListasRestrictivas {
         }
     }
 
-    public void TrazasCoincidencias(WebDriver driver, Metodos a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
+    public void TrazasCoincidencias(WebDriver driver, Metodos13_8 a, ListasRestrictivasBean listasRestrictivasBean, int i) throws IOException, InterruptedException{
 
         try{
             a.changeLastWindows(driver);

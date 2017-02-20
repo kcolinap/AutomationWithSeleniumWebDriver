@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosDireccionesBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * Created by mchurion on 16/12/2016.
@@ -26,10 +26,10 @@ public class INTER_TercerosDirecciones {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -71,7 +71,7 @@ public class INTER_TercerosDirecciones {
         }
     }
 
-    public void BusquedaT(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void BusquedaT(Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try {
 
@@ -129,7 +129,7 @@ public class INTER_TercerosDirecciones {
         }
     }
 
-    public void BotonEditar(Interseguros_Metodos a, int i, String folderName, int numScreenShoot){
+    public void BotonEditar(Metodos a, int i, String folderName, int numScreenShoot){
 
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -150,7 +150,7 @@ public class INTER_TercerosDirecciones {
         }
     }
 
-    public void AgregarDireccion(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
+    public void AgregarDireccion(Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
 
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -253,7 +253,7 @@ public class INTER_TercerosDirecciones {
         }
     }
 
-    public void EditarDireccion(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
+    public void EditarDireccion(Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -286,7 +286,7 @@ public class INTER_TercerosDirecciones {
 
     }
 
-    public void SeleccionarDirPrincipal(Interseguros_Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
+    public void SeleccionarDirPrincipal(Metodos a, INTER_TercerosDireccionesBean interTercerosDireccionesBean, int i, String folderName, int numScreenShoot){
 
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']

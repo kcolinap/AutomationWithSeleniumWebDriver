@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaIncluirEditarEliminarContratanteBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_PolizaIncluirEditarEliminarContratante;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class VistaInter_PolizaIncluirEditarEliminarContratanteTest {
         for (int j = 0; j < poliza.size(); j++) {
             Inter_PolizaIncluirEditarEliminarContratanteBean inter_polizaIncluirEditarEliminarContratanteBean = (Inter_PolizaIncluirEditarEliminarContratanteBean) poliza.get(j);
             Inter_PolizaIncluirEditarEliminarContratante a = new Inter_PolizaIncluirEditarEliminarContratante();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

@@ -1,6 +1,6 @@
 package AcseleV13_8_Alfa.main.controller.Menu;
 
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +15,7 @@ public class MenuMantenimiento {
 
     private final static Logger log = Logger.getLogger(MenuMantenimiento.class);
 
-    Metodos a = new Metodos();
+    Metodos13_8 a = new Metodos13_8();
 
     /** Mantenimiento de Tercero (Wcontroller) **/
     public void MantenimientoTerceroWcontroller(){}
@@ -46,7 +46,7 @@ public class MenuMantenimiento {
         public void UAA_HerenciRoles(){}
         public void UAA_Documentos(){}
         public void UAA_RolesDocumentos(){}
-        public void UAA_Caja(WebDriver driver, Metodos a, String nombrePrueba){
+        public void UAA_Caja(WebDriver driver, Metodos13_8 a, String nombrePrueba){
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento

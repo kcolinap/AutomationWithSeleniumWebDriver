@@ -6,8 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 
@@ -24,7 +22,7 @@ public class PropiedadesTipoListas {
     public void testLink(PropiedadesTipoListasBean propiedadesTipoListasBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuConfiguracion m = new MenuConfiguracion();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -44,7 +42,7 @@ public class PropiedadesTipoListas {
     }
 
 
-    public void AgregarPropiedades (WebDriver driver, Metodos a, PropiedadesTipoListasBean propiedadesTipoListasBean, int i) throws IOException, InterruptedException{
+    public void AgregarPropiedades (WebDriver driver, Metodos13_8 a, PropiedadesTipoListasBean propiedadesTipoListasBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(8000);
@@ -150,7 +148,7 @@ public class PropiedadesTipoListas {
 
     }
 
-    public void ConsultaLista (WebDriver driver, Metodos a, PropiedadesTipoListasBean propiedadesTipoListasBean, int i) throws IOException, InterruptedException{
+    public void ConsultaLista (WebDriver driver, Metodos13_8 a, PropiedadesTipoListasBean propiedadesTipoListasBean, int i) throws IOException, InterruptedException{
 
         try{
 

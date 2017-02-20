@@ -3,7 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaEdoCuentaTercerosBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaEdoCuentaTerceros;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -37,7 +37,7 @@ public class VistaINTER_ConsultaEdoCuentaTercerosTest {
 
             INTER_ConsultaEdoCuentaTercerosBean inter_consultaEdoCuentaTercerosBean = (INTER_ConsultaEdoCuentaTercerosBean) interEdoCuentas.get(i);
             INTER_ConsultaEdoCuentaTerceros a = new INTER_ConsultaEdoCuentaTerceros();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

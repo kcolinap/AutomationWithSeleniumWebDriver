@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
-import java.io.*;
 import java.io.IOException;
 
 /**
@@ -26,7 +25,7 @@ public class ValidacionFormulacionesImExProducto {
 
         try {
             //implementando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
 
             MenuConfiguracion menuConfiguracion = new MenuConfiguracion();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
@@ -93,7 +92,7 @@ public class ValidacionFormulacionesImExProducto {
         }
     }
 
-    public void IngresarProductTool(Metodos a, WebDriver driver, ValidacionFormulacionesImExProductoBean validacionFormulacionesImExProductoBean, int i,
+    public void IngresarProductTool(Metodos13_8 a, WebDriver driver, ValidacionFormulacionesImExProductoBean validacionFormulacionesImExProductoBean, int i,
                                     int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         try {
@@ -203,7 +202,7 @@ public class ValidacionFormulacionesImExProducto {
         }
     }
 
-    public void IngresarCobertura(Metodos a, WebDriver driver, ValidacionFormulacionesImExProductoBean validacionFormulacionesImExProductoBean, int i, int numScreenShoot, int numScreenShoot2){
+    public void IngresarCobertura(Metodos13_8 a, WebDriver driver, ValidacionFormulacionesImExProductoBean validacionFormulacionesImExProductoBean, int i, int numScreenShoot, int numScreenShoot2){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -265,7 +264,7 @@ public class ValidacionFormulacionesImExProducto {
         }
     }
 
-    public void ValidarFormula (Metodos a, WebDriver driver, ValidacionFormulacionesImExProductoBean validacionFormulacionesImExProductoBean, int i, int numScreenShoot2){
+    public void ValidarFormula (Metodos13_8 a, WebDriver driver, ValidacionFormulacionesImExProductoBean validacionFormulacionesImExProductoBean, int i, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

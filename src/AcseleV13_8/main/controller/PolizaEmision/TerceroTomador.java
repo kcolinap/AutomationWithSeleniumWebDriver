@@ -2,7 +2,7 @@ package AcseleV13_8.main.controller.PolizaEmision;
 
 import AcseleV13_8.beans.EmisionPolizaBeneficiarioNaturalBean;
 import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class TerceroTomador {
 
     private final static Logger log = Logger.getLogger(TerceroTomador.class);
 
-    public void TomadorTercero(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void TomadorTercero(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
             Thread.sleep(2000);
@@ -113,7 +113,7 @@ public class TerceroTomador {
         }
     }
 
-    public void TomadorTercero2(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
+    public void TomadorTercero2(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2){
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
             Thread.sleep(2000);
@@ -218,7 +218,7 @@ public class TerceroTomador {
         }
     }
 
-    public void TomadorTercero2BusquedaAvanzada(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void TomadorTercero2BusquedaAvanzada(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
         try {
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
             btnBusquedaAvanzada.click();
@@ -293,7 +293,7 @@ public class TerceroTomador {
             }
         }
 
-    public void EditarTomadorTercero1(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void EditarTomadorTercero1(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -347,7 +347,7 @@ public class TerceroTomador {
 
     }
 
-    public void EditarTomadorTercero2(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void EditarTomadorTercero2(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -397,7 +397,7 @@ public class TerceroTomador {
         }
     }
 
-    public void EliminarTomador2(Metodos a, WebDriver driver, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) {
+    public void EliminarTomador2(Metodos13_8 a, WebDriver driver, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) {
 
         try {
             Thread.sleep(5000);
@@ -444,7 +444,7 @@ public class TerceroTomador {
 
     }
 
-    public void TomadorTerceroBusquedaAvanzada(Metodos a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, String nombreAutomatizacion){
+    public void TomadorTerceroBusquedaAvanzada(Metodos13_8 a, WebDriver driver, EmisionPolizaBeneficiarioNaturalBean emisionPolizaBeneficiarioNaturalBean, String nombreAutomatizacion){
         try {
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
             btnBusquedaAvanzada.click();

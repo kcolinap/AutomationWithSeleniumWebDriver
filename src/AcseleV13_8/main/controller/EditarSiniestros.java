@@ -3,7 +3,6 @@ package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.EditarSiniestrosBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
-import AcseleV13_8.main.controller.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +24,7 @@ public class EditarSiniestros {
     public void testLink(EditarSiniestrosBean editarSiniestrosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -44,7 +43,7 @@ public class EditarSiniestros {
     }
 
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, EditarSiniestrosBean editarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -135,7 +134,7 @@ public class EditarSiniestros {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Metodos a, EditarSiniestrosBean editarSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Metodos13_8 a, EditarSiniestrosBean editarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -160,7 +159,7 @@ public class EditarSiniestros {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, EditarSiniestrosBean editarSiniestrosBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos13_8 a, EditarSiniestrosBean editarSiniestrosBean, int i){
         try {
             Thread.sleep(2000);
             Select objetoAsegurado = new Select(driver.findElement(By.xpath("//*[@id=\"ioID\"]")));

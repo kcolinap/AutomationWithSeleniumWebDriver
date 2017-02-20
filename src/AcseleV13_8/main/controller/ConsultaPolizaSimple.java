@@ -25,7 +25,7 @@ public class ConsultaPolizaSimple {
     public void testLink(ConsultaPolizaSimpleBean consultaPolizaSimpleBean, int i) throws Exception {
 
         // Instanciando Clases
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones menuOperaciones = new MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
@@ -41,7 +41,7 @@ public class ConsultaPolizaSimple {
         BuscarPolizaSimple(a, driver, consultaPolizaSimpleBean, i);
     }
 
-    public void BuscarPolizaSimple(Metodos a, WebDriver driver, ConsultaPolizaSimpleBean consultaPolizaSimpleBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(Metodos13_8 a, WebDriver driver, ConsultaPolizaSimpleBean consultaPolizaSimpleBean, int i) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
 

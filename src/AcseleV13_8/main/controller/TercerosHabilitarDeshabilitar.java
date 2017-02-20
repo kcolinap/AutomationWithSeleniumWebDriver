@@ -5,7 +5,6 @@ import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza;
 import AcseleV13_8.main.controller.PolizaEmision.PrePoliza;
-import AcseleV13_8.main.controller.PolizaEmision.TerceroTomador;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +26,7 @@ public class TercerosHabilitarDeshabilitar {
     public void testLink(TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean, int i) throws Exception{
 
         // Instanciando clases
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
         MenuOperaciones menuOperaciones = new MenuOperaciones();
         PrePoliza prePoliza = new PrePoliza();
@@ -93,7 +92,7 @@ public class TercerosHabilitarDeshabilitar {
 
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         try {
@@ -152,7 +151,7 @@ public class TercerosHabilitarDeshabilitar {
         }
     }
 
-    public void CrearPoliza(Metodos a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException {
+    public void CrearPoliza(Metodos13_8 a, WebDriver driver, TercerosHabilitarDeshabilitarBean tercerosHabilitarDeshabilitarBean) throws InterruptedException {
 
         // //TipoElemento[@wicketpath='WicketpathElemento']
 

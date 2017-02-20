@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaAvanzadaPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaAvanzadaPoliza;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -32,7 +32,7 @@ public class VistaINTER_ConsultaAvanzadaPolizaTest {
         for (int j = 0; j< consultaAvanzada.size(); j++) {
             INTER_ConsultaAvanzadaPolizaBean inter_ConsultaAvanzadaPolizaBean = (INTER_ConsultaAvanzadaPolizaBean) consultaAvanzada.get(j);
             INTER_ConsultaAvanzadaPoliza a = new INTER_ConsultaAvanzadaPoliza();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

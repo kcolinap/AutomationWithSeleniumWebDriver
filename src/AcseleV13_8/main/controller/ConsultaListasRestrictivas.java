@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 
@@ -21,7 +20,7 @@ public class ConsultaListasRestrictivas {
     public void testLink(ConsultaListasRestrictivasBean consultaListasRestrictivasBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -36,7 +35,7 @@ public class ConsultaListasRestrictivas {
 
     }
 
-    public void BusquedaLista (WebDriver driver, Metodos a, ConsultaListasRestrictivasBean consultaListasRestrictivasBean, int i) throws IOException, InterruptedException{
+    public void BusquedaLista (WebDriver driver, Metodos13_8 a, ConsultaListasRestrictivasBean consultaListasRestrictivasBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);

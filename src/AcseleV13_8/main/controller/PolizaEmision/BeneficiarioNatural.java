@@ -1,8 +1,7 @@
 package AcseleV13_8.main.controller.PolizaEmision;
 
-import AcseleV13_8.beans.EmisionPolizaBeneficiarioNaturalBean;
 import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,7 @@ public class BeneficiarioNatural {
 
     private final static Logger log = Logger.getLogger(BeneficiarioNatural.class);
 
-    public void AgregarBneficiarioNaturalBusquedaSimple(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot,
+    public void AgregarBneficiarioNaturalBusquedaSimple(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot,
                                                         int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -141,7 +140,7 @@ public class BeneficiarioNatural {
         }
     }
 
-    public void EditarBeneficiarioNatural(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i,
+    public void EditarBeneficiarioNatural(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i,
                                           int numScreenShoot, int numScreenShoot2){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -223,7 +222,7 @@ public class BeneficiarioNatural {
         }
     }
 
-    public void EliminarBeneficiarioNatural(Metodos a, WebDriver driver, String nombreAutomatizacion, int i, int numScreenShoot,
+    public void EliminarBeneficiarioNatural(Metodos13_8 a, WebDriver driver, String nombreAutomatizacion, int i, int numScreenShoot,
                                             int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
@@ -271,7 +270,7 @@ public class BeneficiarioNatural {
         }
     }
 
-    public void AgregarBeneficiarioNaturalBusquedaAvanzada(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion){
+    public void AgregarBeneficiarioNaturalBusquedaAvanzada(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion){
         try {
             //TipoElemento[@wicketpath='WicketpathElemento']
 

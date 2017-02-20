@@ -23,7 +23,7 @@ public class ConsultasOrdenesPago {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
 
             WebDriver driver = a.entrarPagina();
@@ -51,7 +51,7 @@ public class ConsultasOrdenesPago {
 
 
 
-    public void BusquedaSiniestro (WebDriver driver, ConsultasOrdenesPagoBean consultasOrdenesPagoBean, Metodos a, int i) throws InterruptedException, IOException {
+    public void BusquedaSiniestro (WebDriver driver, ConsultasOrdenesPagoBean consultasOrdenesPagoBean, Metodos13_8 a, int i) throws InterruptedException, IOException {
 
         try{
         if (consultasOrdenesPagoBean.getOrdenarPor() != null){
@@ -146,7 +146,7 @@ public class ConsultasOrdenesPago {
     }
 
 
-    private void ResultadoBusqueda(WebDriver driver, ConsultasOrdenesPagoBean consultasOrdenesPagoBean, Metodos a, int i) {
+    private void ResultadoBusqueda(WebDriver driver, ConsultasOrdenesPagoBean consultasOrdenesPagoBean, Metodos13_8 a, int i) {
         try{
             Thread.sleep(1000);
             WebElement btnSeleccionarPoliza  = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
@@ -172,7 +172,7 @@ public class ConsultasOrdenesPago {
         }
     }
 
-    private void ConsultaPagos(WebDriver driver, ConsultasOrdenesPagoBean consultasOrdenesPagoBean, Metodos a, int i) {
+    private void ConsultaPagos(WebDriver driver, ConsultasOrdenesPagoBean consultasOrdenesPagoBean, Metodos13_8 a, int i) {
         try{
             Thread.sleep(1000);
             WebElement btnSelecCover  = driver.findElement(By.xpath("/html/body/div[13]/form[2]/select/option"));

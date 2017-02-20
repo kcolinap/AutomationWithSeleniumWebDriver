@@ -9,8 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * Created by aazuaje on 23/09/2016.
@@ -24,7 +22,7 @@ public class ReabrirSiniestro {
     public void testLink(ReabrirSiniestroBean reabrirSiniestroBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -43,7 +41,7 @@ public class ReabrirSiniestro {
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -134,7 +132,7 @@ public class ReabrirSiniestro {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Metodos a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Metodos13_8 a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -157,7 +155,7 @@ public class ReabrirSiniestro {
         }
     }
 
-    public void ReabrirSiniestro (WebDriver driver,Metodos a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
+    public void ReabrirSiniestro (WebDriver driver,Metodos13_8 a, ReabrirSiniestroBean reabrirSiniestroBean, int i) throws IOException, InterruptedException{
         try{
 
             Thread.sleep(2000);

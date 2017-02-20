@@ -3,10 +3,9 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.Inter_TercerosCrearBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_CrearTercero;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
@@ -25,12 +24,12 @@ public class Inter_TercerosCrear {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento intersegurosMenuMantenimiento = new Interseguros_MenuMantenimiento();
             Inter_CrearTercero interCrearTercero = new Inter_CrearTercero();
 
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

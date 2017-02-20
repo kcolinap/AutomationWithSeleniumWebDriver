@@ -1,8 +1,7 @@
 package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 
-import AcseleV13_8_Interseguros.beans.INTER_TerceroDeshabilitarBean;
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 /**
  * Created by agil on 23/11/2016.
@@ -20,7 +17,7 @@ public class Inter_PrePoliza {
 
     private final static Logger log = Logger.getLogger(Inter_PrePoliza.class);
 
-    public void AdministracionPropuestaPoliza(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
+    public void AdministracionPropuestaPoliza(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
 
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
@@ -60,7 +57,7 @@ public class Inter_PrePoliza {
         }
     }
 
-    public void EvAplicar(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void EvAplicar(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
         try {
 
             Thread.sleep(3000);

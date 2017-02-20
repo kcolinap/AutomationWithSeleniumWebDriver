@@ -1,8 +1,7 @@
 package AcseleV13_8.main.controller.PolizaEmision;
 
-import AcseleV13_8.beans.EmisionPolizaAseguradoVidaBean;
 import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +16,7 @@ public class AseguradoVida {
 
     private final static Logger log = Logger.getLogger(AseguradoVida.class);
 
-    public void AseguradoVida(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void AseguradoVida(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -89,7 +88,7 @@ public class AseguradoVida {
         }
     }
 
-    public void EditarAseguradoVida(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2,
+    public void EditarAseguradoVida(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2,
                                     int numScreenShoot3){
 
         try {
@@ -147,7 +146,7 @@ public class AseguradoVida {
 
     }
 
-    public void EliminarAseguradoVida(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2,
+    public void EliminarAseguradoVida(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot, int numScreenShoot2,
                                       int numScreenShoot3){
 
         try {

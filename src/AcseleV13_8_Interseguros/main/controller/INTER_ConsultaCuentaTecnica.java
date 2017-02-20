@@ -1,11 +1,10 @@
 
 package AcseleV13_8_Interseguros.main.controller;
 
-import AcseleV13_8.beans.CreacionSiniestrosBean;
-import AcseleV13_8.main.controller.Metodos;
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaCuentaTecnicaBean;
 
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 
 /**
@@ -33,11 +30,11 @@ public class INTER_ConsultaCuentaTecnica {
         try {
 
             //Metodos a = new Metodos();
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -60,7 +57,7 @@ public class INTER_ConsultaCuentaTecnica {
 
     }
 
-    public void ConsultaCuentaTecnica(Interseguros_Metodos a, INTER_ConsultaCuentaTecnicaBean inter_consultaCuentaTecnicaBean, int i, String folderName) throws IOException, InterruptedException{
+    public void ConsultaCuentaTecnica(Metodos a, INTER_ConsultaCuentaTecnicaBean inter_consultaCuentaTecnicaBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
             Thread.sleep(2000);

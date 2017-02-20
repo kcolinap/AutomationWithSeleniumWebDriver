@@ -23,7 +23,7 @@ public class CumulosTerceros {
     public void testLink(CumulosTercerosBean cumulosTercerosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -39,7 +39,7 @@ public class CumulosTerceros {
     }
 
 
-    public void BusquedaTerceros (WebDriver driver, Metodos a, CumulosTercerosBean cumulosTercerosBean, int i) throws IOException, InterruptedException{
+    public void BusquedaTerceros (WebDriver driver, Metodos13_8 a, CumulosTercerosBean cumulosTercerosBean, int i) throws IOException, InterruptedException{
 
         try{
 

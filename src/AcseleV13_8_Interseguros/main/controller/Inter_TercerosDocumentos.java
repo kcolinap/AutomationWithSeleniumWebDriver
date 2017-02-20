@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.Inter_TercerosDocumentosBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,11 +26,11 @@ public class Inter_TercerosDocumentos {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
             Inter_BuscarTerceros interBuscarTerceros = new Inter_BuscarTerceros();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -56,7 +57,7 @@ public class Inter_TercerosDocumentos {
         }
     }
 
-    public void CargaDocumentos (Interseguros_Metodos a, Inter_TercerosDocumentosBean interTercerosDocumentosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) {
+    public void CargaDocumentos (Metodos a, Inter_TercerosDocumentosBean interTercerosDocumentosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) {
 
         try {
 
@@ -112,7 +113,7 @@ public class Inter_TercerosDocumentos {
         }
     }
 
-    public void RegresarBusqueda (Interseguros_Metodos a, Inter_TercerosDocumentosBean interTercerosDocumentosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) {
+    public void RegresarBusqueda (Metodos a, Inter_TercerosDocumentosBean interTercerosDocumentosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) {
 
         try {
 

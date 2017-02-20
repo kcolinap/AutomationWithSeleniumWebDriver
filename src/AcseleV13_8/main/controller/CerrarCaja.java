@@ -21,7 +21,7 @@ public class CerrarCaja {
 
     public void testLink(CerrarCajaBean cerrarCajaBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -44,7 +44,7 @@ public class CerrarCaja {
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
     }
 
-    public void SeleccionCierreCaja(Metodos a, WebDriver driver, CerrarCajaBean cerrarCajaBean) throws InterruptedException, IOException {
+    public void SeleccionCierreCaja(Metodos13_8 a, WebDriver driver, CerrarCajaBean cerrarCajaBean) throws InterruptedException, IOException {
 
         try {
             Thread.sleep(4000);

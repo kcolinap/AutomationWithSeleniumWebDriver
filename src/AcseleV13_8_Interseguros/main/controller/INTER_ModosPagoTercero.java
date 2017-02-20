@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_ModosPagoTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
-import oracle.net.aso.e;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,10 +25,10 @@ public class INTER_ModosPagoTercero {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a= new Interseguros_Metodos();   //implementando metodos.
+            Metodos a= new Metodos();   //implementando metodos.
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);
@@ -54,7 +54,7 @@ public class INTER_ModosPagoTercero {
 
 
 
-    public void BuscarTercero(Interseguros_Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName) throws InterruptedException, IOException {
+    public void BuscarTercero(Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName) throws InterruptedException, IOException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -105,7 +105,7 @@ public class INTER_ModosPagoTercero {
         }
     }
 
-    private void SelecionTercero(Interseguros_Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName) throws InterruptedException, IOException {
+    private void SelecionTercero(Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName) throws InterruptedException, IOException {
 
         try {
             //Seleccionar Tercero
@@ -128,7 +128,7 @@ public class INTER_ModosPagoTercero {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
-    private void AgregarModoDePago(Interseguros_Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName)  throws InterruptedException, IOException  {
+    private void AgregarModoDePago(Metodos a, INTER_ModosPagoTerceroBean interModosPagoTercerobean, int i, String folderName)  throws InterruptedException, IOException  {
         try {
 
             //Tipo de Pago

@@ -2,19 +2,13 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaTercero;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import util.DataSetManager;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -39,7 +33,7 @@ public class VistaINTER_ConsultaTerceroTest {
         for (int j = 0; j< consultaTerceroINTER.size(); j++) {
             INTER_ConsultaTerceroBean inter_consultaTerceroBean = (INTER_ConsultaTerceroBean) consultaTerceroINTER.get(j);
             INTER_ConsultaTercero a = new INTER_ConsultaTercero();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

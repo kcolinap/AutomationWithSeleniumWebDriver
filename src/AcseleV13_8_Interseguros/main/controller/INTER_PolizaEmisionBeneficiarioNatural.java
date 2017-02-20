@@ -1,15 +1,11 @@
 package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_PolizaEmisionBeneficiarioNaturalBean;
-import AcseleV13_8_Interseguros.beans.Inter_PolizaEmisionVariosOABean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.*;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 /**
  * Created by aazuaje on 02/12/2016.
@@ -26,7 +22,7 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones intersegurosMenuOperaciones = new Interseguros_MenuOperaciones();
             Inter_PrePoliza interPrePoliza = new Inter_PrePoliza();
             Inter_InformacionGeneralPoliza interInformacionGeneralPoliza = new Inter_InformacionGeneralPoliza();
@@ -38,7 +34,7 @@ public class INTER_PolizaEmisionBeneficiarioNatural {
             Inter_Calcular interCalcular = new Inter_Calcular();
             Inter_Validar interValidar = new Inter_Validar();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

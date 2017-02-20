@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ModosPagoTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ModosPagoTercero;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class VistaINTER_ModosPagoTerceroTest {
         for (int j = 0; j< ModosPagoTerceroBean.size(); j++) {
             INTER_ModosPagoTerceroBean interModosPagoTerceroBean = (INTER_ModosPagoTerceroBean) ModosPagoTerceroBean.get(j);
             INTER_ModosPagoTercero a = new INTER_ModosPagoTercero();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

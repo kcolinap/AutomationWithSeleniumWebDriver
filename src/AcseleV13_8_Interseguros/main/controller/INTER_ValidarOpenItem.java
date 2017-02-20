@@ -5,6 +5,7 @@ import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_M
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuConsultas;
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.*;
 
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -22,7 +23,7 @@ public class INTER_ValidarOpenItem {
         try{
 
             //Instanciando las clases a utilizar
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones menuOperaciones = new Interseguros_MenuOperaciones();
             Interseguros_MenuConsultas menuConsultas = new Interseguros_MenuConsultas();
             /*Inter_PrePoliza interPrePoliza = new Inter_PrePoliza();
@@ -36,7 +37,7 @@ public class INTER_ValidarOpenItem {
             Inter_Validar interValidar = new Inter_Validar();*/
 
             //Inicia y valida la sesion
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(2000);
@@ -59,7 +60,7 @@ public class INTER_ValidarOpenItem {
     }
 
     //En este metodo se crean los objetos de creacion de poliza
-    public void CrearPoliza(Interseguros_Metodos a, WebDriver driver, INTER_ValidarOpenItemBean inter_validarOpenItemBean, String nombreAutomatizacion, int i, String folderName){
+    public void CrearPoliza(Metodos a, WebDriver driver, INTER_ValidarOpenItemBean inter_validarOpenItemBean, String nombreAutomatizacion, int i, String folderName){
 
         try{
 

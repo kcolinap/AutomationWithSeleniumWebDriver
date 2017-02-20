@@ -1,7 +1,6 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.JobsListasRestrictivasCreacionBean;
-import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -29,7 +28,7 @@ public class JobsListasRestrictivasCreacion {
         try {
 
             //implementando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -84,7 +83,7 @@ public class JobsListasRestrictivasCreacion {
         }
     }
 
-    public void InsertarActividades(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
+    public void InsertarActividades(Metodos13_8 a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
 
         try {
 
@@ -200,7 +199,7 @@ public class JobsListasRestrictivasCreacion {
         }
     }
 
-    public void BuscarActividades(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
+    public void BuscarActividades(Metodos13_8 a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
         try {
 
             Thread.sleep(2000);
@@ -248,7 +247,7 @@ public class JobsListasRestrictivasCreacion {
         }
     }
 
-    public void InsertarTareas(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean, String numeroActividad){
+    public void InsertarTareas(Metodos13_8 a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean, String numeroActividad){
 
         try {
 
@@ -405,7 +404,7 @@ public class JobsListasRestrictivasCreacion {
         }
     }
 
-    public void BuscarTareas(Metodos a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
+    public void BuscarTareas(Metodos13_8 a, WebDriver driver, JobsListasRestrictivasCreacionBean jobsListasRestrictivasCreacionBean){
 
         try {
 

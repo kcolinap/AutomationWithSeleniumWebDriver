@@ -25,7 +25,7 @@ public class TercerosDocumentos {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -66,7 +66,7 @@ public class TercerosDocumentos {
 
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosDocumentosBean tercerosDocumentosBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosDocumentosBean tercerosDocumentosBean) throws InterruptedException, IOException{
 
         try {
 
@@ -138,7 +138,7 @@ public class TercerosDocumentos {
 
     }
 
-    public void CargaDocumentos(Metodos a, WebDriver driver) throws InterruptedException, IOException {
+    public void CargaDocumentos(Metodos13_8 a, WebDriver driver) throws InterruptedException, IOException {
 
         try {
 

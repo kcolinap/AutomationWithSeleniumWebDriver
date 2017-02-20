@@ -21,7 +21,7 @@ public class HistorialReclamos {
     public void testLink(HistorialReclamosBean historialReclamosBean,int i) throws IOException, InterruptedException {
 
 //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -37,7 +37,7 @@ public class HistorialReclamos {
     }
 
 
-    public void BuscarHistorialReclamos (WebDriver driver, Metodos a, HistorialReclamosBean historialReclamosBean) throws IOException, InterruptedException {
+    public void BuscarHistorialReclamos (WebDriver driver, Metodos13_8 a, HistorialReclamosBean historialReclamosBean) throws IOException, InterruptedException {
         Thread.sleep(3000);
         WebElement numeroReclamo = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr[1]/td[2]/input"));
         numeroReclamo.sendKeys(historialReclamosBean.getNumeroReclamo());

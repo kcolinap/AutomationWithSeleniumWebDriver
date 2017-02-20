@@ -4,7 +4,6 @@ import AcseleV13_8.beans.TransformadoresBean;
 import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 
@@ -20,7 +19,7 @@ public class Transformadores {
     public void testLink (TransformadoresBean transformadoresBean, int i )  throws IOException, InterruptedException {
 
         //Metodos a = new Metodos();
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuConfiguracion m = new MenuConfiguracion();
 
         WebDriver driver = a.entrarPagina();
@@ -46,7 +45,7 @@ public class Transformadores {
 
     }
 
-    public void TranformadoresGeneral (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
+    public void TranformadoresGeneral (WebDriver driver, Metodos13_8 a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
             Thread.sleep(10000);
@@ -161,7 +160,7 @@ public class Transformadores {
         }
     }
 
-    public void AgregarTranformadores (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
+    public void AgregarTranformadores (WebDriver driver, Metodos13_8 a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -202,7 +201,7 @@ public class Transformadores {
 
     }
 
-    public void EliminarTransformadores (WebDriver driver, Metodos a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
+    public void EliminarTransformadores (WebDriver driver, Metodos13_8 a, TransformadoresBean transformadoresBean, int i) throws IOException, InterruptedException{
 
         try {
 

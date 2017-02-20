@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.INTER_CreacionCajaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_Caja.INTER_CrearCaja;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -24,12 +25,12 @@ public class INTER_CreacionCaja {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento interMenuMantenimiento = new Interseguros_MenuMantenimiento();
             //Crear Caja
             INTER_CrearCaja interCrearCaja = new INTER_CrearCaja();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

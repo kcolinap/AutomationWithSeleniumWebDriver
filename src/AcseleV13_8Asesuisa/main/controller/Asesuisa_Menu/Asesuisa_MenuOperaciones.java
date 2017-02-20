@@ -1,6 +1,6 @@
 package AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu;
 
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class Asesuisa_MenuOperaciones {
 
     private final static Logger log = Logger.getLogger(Asesuisa_MenuOperaciones.class);
 
-    Interseguros_Metodos a = new Interseguros_Metodos();
+    Metodos a = new Metodos();
 
     /** Operaciones (Workflow) **/
 

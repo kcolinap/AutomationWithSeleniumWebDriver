@@ -6,8 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 /**
@@ -24,7 +22,7 @@ public class Formulaciones {
     public void testLink(FormulacionesBean formulacionesBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuConfiguracion m = new MenuConfiguracion();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -43,7 +41,7 @@ public class Formulaciones {
     }
 
 
-    public void AgregarFormulaciones (WebDriver driver, Metodos a, FormulacionesBean formulacionesBean, int i) throws IOException, InterruptedException{
+    public void AgregarFormulaciones (WebDriver driver, Metodos13_8 a, FormulacionesBean formulacionesBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(8000);
@@ -132,7 +130,7 @@ public class Formulaciones {
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
-    public void ConsultaFormulaciones (WebDriver driver, Metodos a, FormulacionesBean formulacionesBean, int i) throws IOException, InterruptedException{
+    public void ConsultaFormulaciones (WebDriver driver, Metodos13_8 a, FormulacionesBean formulacionesBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(2000);

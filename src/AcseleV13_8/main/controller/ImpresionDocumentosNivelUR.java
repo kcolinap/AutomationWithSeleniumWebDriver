@@ -24,7 +24,7 @@ public class ImpresionDocumentosNivelUR {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
             //PrePoliza
             PrePoliza prePoliza = new PrePoliza();
@@ -74,7 +74,7 @@ public class ImpresionDocumentosNivelUR {
 
     }
 
-    public void Calcular (Metodos a, WebDriver driver, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void Calcular (Metodos13_8 a, WebDriver driver, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 

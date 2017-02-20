@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CreacionCajaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CreacionCaja;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_CreacionCajaTest {
         for (int j = 0; j < caja.size(); j++) {
             INTER_CreacionCajaBean interCreacionCajaBean = (INTER_CreacionCajaBean) caja.get(j);
             INTER_CreacionCaja a = new INTER_CreacionCaja();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

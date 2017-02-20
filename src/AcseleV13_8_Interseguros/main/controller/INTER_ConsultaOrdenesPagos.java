@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaOrdenesPagosBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,10 +25,10 @@ public class INTER_ConsultaOrdenesPagos {
         try {
 
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -51,7 +52,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
+    public void BuscarPoliza(Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
 
         try {
 
@@ -142,7 +143,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    private void ConsultaPagos(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot2, int numScreenShoot3) {
+    private void ConsultaPagos(Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot2, int numScreenShoot3) {
         try{
             Thread.sleep(1000);
             WebElement btnSelecCover  = driver.findElement(By.xpath("/html/body/div[13]/form[2]/select/option"));
@@ -170,7 +171,7 @@ public class INTER_ConsultaOrdenesPagos {
         }
     }
 
-    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot4) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Metodos a, INTER_ConsultaOrdenesPagosBean inter_consultaOrdenesPagosBean, int i, String folderName, int numScreenShoot4) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);

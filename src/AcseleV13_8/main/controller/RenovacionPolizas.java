@@ -24,7 +24,7 @@ public class RenovacionPolizas {
 
         try {
 
-            Metodos a = new Metodos();   //implementando metodos.
+            Metodos13_8 a = new Metodos13_8();   //implementando metodos.
             MenuOperaciones m = new MenuOperaciones();
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
@@ -45,7 +45,7 @@ public class RenovacionPolizas {
 
     }
 
-    public void BuscarPoliza(Metodos a, WebDriver driver, RenovacionPolizaBean renovacionPolizaBean) throws InterruptedException, IOException {
+    public void BuscarPoliza(Metodos13_8 a, WebDriver driver, RenovacionPolizaBean renovacionPolizaBean) throws InterruptedException, IOException {
 
         try {
 

@@ -29,7 +29,7 @@ public class ObjetarCobertura {
     public void testLink(ObjetarCoberturaBean objetarCoberturaBean,int i) throws IOException, InterruptedException{
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -46,7 +46,7 @@ public class ObjetarCobertura {
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, ObjetarCoberturaBean objetarCoberturaBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -209,7 +209,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
+    public void ResultadoBusqueda (WebDriver driver, Metodos13_8 a, ObjetarCoberturaBean objetarCoberturaBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
@@ -277,7 +277,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos13_8 a, ObjetarCoberturaBean objetarCoberturaBean, int i){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -381,7 +381,7 @@ public class ObjetarCobertura {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver, Metodos a, ObjetarCoberturaBean objetarCoberturaBean, int i){
+    public void AgregarCobertura (WebDriver driver, Metodos13_8 a, ObjetarCoberturaBean objetarCoberturaBean, int i){
         try{
 
             Thread.sleep(2000);

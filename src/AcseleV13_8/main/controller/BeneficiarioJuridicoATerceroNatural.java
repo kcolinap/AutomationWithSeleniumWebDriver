@@ -21,7 +21,7 @@ public class BeneficiarioJuridicoATerceroNatural {
 
     public void testLink(BeneficiarioJuridicoATerceroNaturalBean beneficiarioJuridicoATerceroNaturalBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
         a.ValidandoSesion(driver, nombreAutomatizacion, i);
@@ -47,7 +47,7 @@ public class BeneficiarioJuridicoATerceroNatural {
 
     }
 
-    public void IngresarMenuBuscarTercero(WebDriver driver, Metodos a) throws IOException, InterruptedException {
+    public void IngresarMenuBuscarTercero(WebDriver driver, Metodos13_8 a) throws IOException, InterruptedException {
 
         try {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]"));// Mantenimiento
@@ -65,7 +65,7 @@ public class BeneficiarioJuridicoATerceroNatural {
         }
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, BeneficiarioJuridicoATerceroNaturalBean beneficiarioJuridicoATerceroNaturalBean) throws InterruptedException, IOException {
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, BeneficiarioJuridicoATerceroNaturalBean beneficiarioJuridicoATerceroNaturalBean) throws InterruptedException, IOException {
 
         try{
             Thread.sleep(4000);
@@ -118,7 +118,7 @@ public class BeneficiarioJuridicoATerceroNatural {
 
     }
 
-    public void ValidarAsignarRol(Metodos a, WebDriver driver, BeneficiarioJuridicoATerceroNaturalBean beneficiarioJuridicoATerceroNaturalBean) throws IOException, InterruptedException {
+    public void ValidarAsignarRol(Metodos13_8 a, WebDriver driver, BeneficiarioJuridicoATerceroNaturalBean beneficiarioJuridicoATerceroNaturalBean) throws IOException, InterruptedException {
 
         try {
             if (beneficiarioJuridicoATerceroNaturalBean.getTipoTercero() != null) {

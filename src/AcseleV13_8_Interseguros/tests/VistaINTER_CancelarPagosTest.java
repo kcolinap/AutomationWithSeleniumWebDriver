@@ -3,7 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CancelarPagosBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CancelarPagos;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -35,7 +35,7 @@ public class VistaINTER_CancelarPagosTest {
         for (int j = 0; j< interCancelarPagos.size(); j++) {
             INTER_CancelarPagosBean inter_cancelarPagosBean  = (INTER_CancelarPagosBean) interCancelarPagos.get(j);
             INTER_CancelarPagos a = new INTER_CancelarPagos();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

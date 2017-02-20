@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_PagoPorConceptosBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -26,10 +27,10 @@ public class INTER_PagoPorConceptos {
     public void testLink (INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -61,7 +62,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void BuscarSiniestro(Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws IOException, InterruptedException{
+    public void BuscarSiniestro(Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws IOException, InterruptedException{
 
         try {
 
@@ -133,7 +134,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void ReservaPorConceptos(Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) throws IOException, InterruptedException{
+    public void ReservaPorConceptos(Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -173,7 +174,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void ReservaPorConceptosPago (Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7) throws IOException, InterruptedException{
+    public void ReservaPorConceptosPago (Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -281,7 +282,7 @@ public class INTER_PagoPorConceptos {
 
     }
 
-    public void PagarOrdenes (Interseguros_Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws IOException, InterruptedException{
+    public void PagarOrdenes (Metodos a, INTER_PagoPorConceptosBean inter_pagoPorConceptosBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws IOException, InterruptedException{
 
         try {
 

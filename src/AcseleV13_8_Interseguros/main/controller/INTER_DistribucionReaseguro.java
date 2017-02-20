@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_DistribucionReaseguroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,10 +24,10 @@ public class INTER_DistribucionReaseguro {
     public void testLink (INTER_DistribucionReaseguroBean inter_distribucionReaseguroBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -54,7 +55,7 @@ public class INTER_DistribucionReaseguro {
 
     }
 
-    public void BuscarTercero(Interseguros_Metodos a, INTER_DistribucionReaseguroBean inter_distribucionReaseguroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void BuscarTercero(Metodos a, INTER_DistribucionReaseguroBean inter_distribucionReaseguroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 
@@ -92,7 +93,7 @@ public class INTER_DistribucionReaseguro {
 
     }
 
-    public void ResultadoBuscar(Interseguros_Metodos a, INTER_DistribucionReaseguroBean inter_distribucionReaseguroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void ResultadoBuscar(Metodos a, INTER_DistribucionReaseguroBean inter_distribucionReaseguroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
 

@@ -1,6 +1,6 @@
 package AcseleV13_8_Interseguros.main.controller.Interseguros_Menu;
 
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class Interseguros_MenuConfiguracion {
 
     private final static Logger log = Logger.getLogger(Interseguros_MenuConfiguracion.class);
 
-    Interseguros_Metodos a = new Interseguros_Metodos();
+    Metodos a = new Metodos();
     //27
 
     /** Plantillas (Modo Privilegiados) **/

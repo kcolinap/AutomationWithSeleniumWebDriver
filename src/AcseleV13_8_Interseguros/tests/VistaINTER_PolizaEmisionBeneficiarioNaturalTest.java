@@ -3,15 +3,13 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_PolizaEmisionBeneficiarioNaturalBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_PolizaEmisionBeneficiarioNatural;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.DataSetManager;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -36,7 +34,7 @@ public class VistaINTER_PolizaEmisionBeneficiarioNaturalTest {
         for (int j = 0; j < polizaEmisionBeneficiarioNatural.size(); j++) {
             INTER_PolizaEmisionBeneficiarioNaturalBean inter_polizaEmisionBeneficiarioNaturalBean = (INTER_PolizaEmisionBeneficiarioNaturalBean) polizaEmisionBeneficiarioNatural.get(j);
             INTER_PolizaEmisionBeneficiarioNatural a = new INTER_PolizaEmisionBeneficiarioNatural();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

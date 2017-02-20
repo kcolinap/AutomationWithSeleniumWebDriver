@@ -2,12 +2,11 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_RenovacionPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.io.IOException;
 
 /**
  * Created by rmontilla on 27/12/2016.
@@ -23,10 +22,10 @@ public class INTER_RenovacionPoliza {
 
         try {
 
-            Interseguros_Metodos a = new Interseguros_Metodos();   //implementando metodos.
+            Metodos a = new Metodos();   //implementando metodos.
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(5000);
@@ -49,7 +48,7 @@ public class INTER_RenovacionPoliza {
 
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i, String folderName,
+    public void BuscarPoliza(Metodos a, INTER_RenovacionPolizaBean inter_renovacionPolizaBean, int i, String folderName,
                              int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7){
 
         try {

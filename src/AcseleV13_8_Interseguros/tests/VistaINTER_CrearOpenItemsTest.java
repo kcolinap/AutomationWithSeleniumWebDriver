@@ -3,7 +3,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CrearOpenItemsBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CrearOpenItems;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -32,7 +32,7 @@ public class VistaINTER_CrearOpenItemsTest {
         for (int j = 0; j< item.size(); j++) {
             INTER_CrearOpenItemsBean interCrearOpenItemsBean = (INTER_CrearOpenItemsBean) item.get(j);
             INTER_CrearOpenItems a = new INTER_CrearOpenItems();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
             try {
                 a.testLink(interCrearOpenItemsBean, j, horaC);

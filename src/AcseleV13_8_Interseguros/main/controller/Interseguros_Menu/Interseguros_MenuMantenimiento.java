@@ -1,6 +1,6 @@
 package AcseleV13_8_Interseguros.main.controller.Interseguros_Menu;
 
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class Interseguros_MenuMantenimiento {
 
     private final static Logger log = Logger.getLogger(Interseguros_MenuMantenimiento.class);
 
-    Interseguros_Metodos a = new Interseguros_Metodos();
+    Metodos a = new Metodos();
 
     /** Mantenimiento de Tercero (Wcontroller) **/
     public void MantenimientoTerceroWcontroller(){}
@@ -337,7 +337,7 @@ public class Interseguros_MenuMantenimiento {
             log.error("Menu listas Restrictivas " + e);
         }
     }
-        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+        public void AdminLisRest_CoincidenciaListasRestrictivas(WebDriver driver, Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
             try {
                 Actions action = new Actions(driver);

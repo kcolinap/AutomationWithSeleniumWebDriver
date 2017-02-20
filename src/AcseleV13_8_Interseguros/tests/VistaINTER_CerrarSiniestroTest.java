@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_CerrarSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_CerrarSiniestro;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -35,7 +35,7 @@ public class VistaINTER_CerrarSiniestroTest {
             for (int j = 0; j< interCerrarSiniestro.size(); j++) {
                 INTER_CerrarSiniestroBean inter_cerrarSiniestroBean = (INTER_CerrarSiniestroBean) interCerrarSiniestro.get(j);
                 INTER_CerrarSiniestro a = new INTER_CerrarSiniestro();
-                Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+                Metodos intersegurosMetodos = new Metodos();
                 String horaC = intersegurosMetodos.horaCarpeta();
 
                 try {

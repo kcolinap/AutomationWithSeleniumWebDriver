@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * Created by kzambrano on 27/09/2016.
@@ -25,7 +23,7 @@ public class SiniestroProductoImportado {
     public void testLink(SiniestroProductoImportadoBean siniestroProductoImportadoBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -42,7 +40,7 @@ public class SiniestroProductoImportado {
 
     }
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -205,7 +203,7 @@ public class SiniestroProductoImportado {
         }
     }
 
-    public void ResultadoBusqueda (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
+    public void ResultadoBusqueda (WebDriver driver, Metodos13_8 a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try {
             Thread.sleep(2000);
             WebElement fechaOcurrenciaSiniestro = driver.findElement(By.xpath("//*[@id=\"tableHeader\"]/tbody/tr/td[2]/input[4]"));
@@ -273,7 +271,7 @@ public class SiniestroProductoImportado {
         }
     }
 
-    public void AgregarObjetoAfectado (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
+    public void AgregarObjetoAfectado (WebDriver driver, Metodos13_8 a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -377,7 +375,7 @@ public class SiniestroProductoImportado {
         }
     }
 
-    public void AgregarCobertura (WebDriver driver, Metodos a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
+    public void AgregarCobertura (WebDriver driver, Metodos13_8 a, SiniestroProductoImportadoBean siniestroProductoImportadoBean, int i){
         try{
 
             Thread.sleep(5000);

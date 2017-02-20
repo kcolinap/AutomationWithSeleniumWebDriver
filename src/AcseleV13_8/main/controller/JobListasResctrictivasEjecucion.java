@@ -25,7 +25,7 @@ public class JobListasResctrictivasEjecucion {
         try {
 
             //implementando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -51,7 +51,7 @@ public class JobListasResctrictivasEjecucion {
         }
     }
 
-    public void BuscarTareas(Metodos a, WebDriver driver, JobListasResctrictivasEjecucionBean jobListasResctrictivasEjecucionBean){
+    public void BuscarTareas(Metodos13_8 a, WebDriver driver, JobListasResctrictivasEjecucionBean jobListasResctrictivasEjecucionBean){
 
         try {
 

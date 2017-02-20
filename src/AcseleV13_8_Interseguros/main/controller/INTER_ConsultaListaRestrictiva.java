@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaListaRestrictivaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,9 +26,9 @@ public class INTER_ConsultaListaRestrictiva {
         try {
 
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -35,7 +36,7 @@ public class INTER_ConsultaListaRestrictiva {
             m.ConsultarListaRestrictiva(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(8000);
             a.cambiarVentana(driver);
-            BusquedaLista(driver, a, inter_consultaListaRestrictivaBean, i, folderName);
+            BusquedaLista(a, inter_consultaListaRestrictivaBean, i, folderName);
 
             driver.quit();
 
@@ -49,7 +50,7 @@ public class INTER_ConsultaListaRestrictiva {
 
     }
 
-    public void BusquedaLista (WebDriver driver, Interseguros_Metodos a, INTER_ConsultaListaRestrictivaBean inter_consultaListaRestrictivaBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BusquedaLista (Metodos a, INTER_ConsultaListaRestrictivaBean inter_consultaListaRestrictivaBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);

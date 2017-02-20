@@ -23,7 +23,7 @@ public class TercerosRoles {
     public void testLink(TercerosRolesBean tercerosRolesBean, int i)throws Exception{
 
         // Instanciando clases
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
@@ -52,7 +52,7 @@ public class TercerosRoles {
 
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosRolesBean tercerosRolesBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosRolesBean tercerosRolesBean) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         String title = driver.getTitle();
@@ -110,7 +110,7 @@ public class TercerosRoles {
 
     }
 
-    public void RolesTerceros(Metodos a, WebDriver driver, TercerosRolesBean tercerosRolesBean) throws InterruptedException, IOException {
+    public void RolesTerceros(Metodos13_8 a, WebDriver driver, TercerosRolesBean tercerosRolesBean) throws InterruptedException, IOException {
 
         // Tipo de rol
         //Select tRol = new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));

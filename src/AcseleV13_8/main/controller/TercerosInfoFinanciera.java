@@ -4,7 +4,6 @@ import AcseleV13_8.beans.TercerosInfoFinancieraBean;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -26,7 +25,7 @@ public class TercerosInfoFinanciera {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -60,7 +59,7 @@ public class TercerosInfoFinanciera {
 
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosInfoFinancieraBean tercerosInfoFinancieraBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosInfoFinancieraBean tercerosInfoFinancieraBean) throws InterruptedException, IOException{
 
         try {
 
@@ -114,7 +113,7 @@ public class TercerosInfoFinanciera {
         }
     }
 
-    public void Formulario(Metodos a, WebDriver driver, TercerosInfoFinancieraBean tercerosInfoFinancieraBean) throws InterruptedException {
+    public void Formulario(Metodos13_8 a, WebDriver driver, TercerosInfoFinancieraBean tercerosInfoFinancieraBean) throws InterruptedException {
         Thread.sleep(2000);
         try {
 
@@ -441,7 +440,7 @@ public class TercerosInfoFinanciera {
 //        }
     }
 
-    public void InfoFinanciera(Metodos a, WebDriver driver, TercerosInfoFinancieraBean tercerosInfoFinancieraBean) throws InterruptedException, IOException {
+    public void InfoFinanciera(Metodos13_8 a, WebDriver driver, TercerosInfoFinancieraBean tercerosInfoFinancieraBean) throws InterruptedException, IOException {
 
         try {
 

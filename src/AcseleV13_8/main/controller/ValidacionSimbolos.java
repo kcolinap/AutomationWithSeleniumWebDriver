@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
-import java.io.*;
 import java.io.IOException;
 /**
  * Created by aazuaje on 05/10/2016.
@@ -22,7 +21,7 @@ public class ValidacionSimbolos {
 
         try {
             //implementando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuConfiguracion menuConfiguracion = new MenuConfiguracion();
             WebDriver driver = a.entrarPagina();
             a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -47,7 +46,7 @@ public class ValidacionSimbolos {
         }
     }
 
-    public void IngresarProductTool(Metodos a, WebDriver driver, ValidacionSimbolosBean validacionSimbolosBean, int i,
+    public void IngresarProductTool(Metodos13_8 a, WebDriver driver, ValidacionSimbolosBean validacionSimbolosBean, int i,
                                     int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         try {

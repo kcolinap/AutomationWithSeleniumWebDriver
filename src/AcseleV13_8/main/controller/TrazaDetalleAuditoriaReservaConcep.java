@@ -22,7 +22,7 @@ public class TrazaDetalleAuditoriaReservaConcep {
 
     public void testLink (TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i )  throws IOException, InterruptedException {
 
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
@@ -57,7 +57,7 @@ public class TrazaDetalleAuditoriaReservaConcep {
         Thread.sleep(2000);
     }
 
-    public void BuscarSiniestro(WebDriver driver, Metodos a, TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i) throws IOException, InterruptedException{
+    public void BuscarSiniestro(WebDriver driver, Metodos13_8 a, TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -122,7 +122,7 @@ public class TrazaDetalleAuditoriaReservaConcep {
 
     }
 
-    public void ReservaPorConceptos(WebDriver driver, Metodos a, TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i) throws IOException, InterruptedException{
+    public void ReservaPorConceptos(WebDriver driver, Metodos13_8 a, TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -172,7 +172,7 @@ public class TrazaDetalleAuditoriaReservaConcep {
 
     }
 
-    public void DetalleTrazaAuditoriaReservaConceptos (WebDriver driver, Metodos a, TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i) throws IOException, InterruptedException{
+    public void DetalleTrazaAuditoriaReservaConceptos (WebDriver driver, Metodos13_8 a, TrazaDetalleAuditoriaReservaConcepBean trazaDetalleAuditoriaReservaConcepBean, int i) throws IOException, InterruptedException{
 
         try {
 

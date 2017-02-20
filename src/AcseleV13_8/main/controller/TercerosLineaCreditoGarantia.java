@@ -25,7 +25,7 @@ public class TercerosLineaCreditoGarantia {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -58,7 +58,7 @@ public class TercerosLineaCreditoGarantia {
         }
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         try{
@@ -118,7 +118,7 @@ public class TercerosLineaCreditoGarantia {
 
     }
 
-    public void LineaCreditoGarantia(Metodos a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException {
+    public void LineaCreditoGarantia(Metodos13_8 a, WebDriver driver, TercerosLineaCreditoGarantiaBean tercerosLineaCreditoGarantiaBean, int i) throws InterruptedException {
 
         Thread.sleep(4000);
         try{

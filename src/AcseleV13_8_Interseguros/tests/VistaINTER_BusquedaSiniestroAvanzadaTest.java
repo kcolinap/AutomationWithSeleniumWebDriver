@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_BusquedaSiniestroAvanzadaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_BusquedaSiniestroAvanzada;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_BusquedaSiniestroAvanzadaTest {
         for (int j = 0; j< interBusquedaSiniestroAvanzada.size(); j++) {
             INTER_BusquedaSiniestroAvanzadaBean inter_busquedaSiniestroAvanzadaBean = (INTER_BusquedaSiniestroAvanzadaBean) interBusquedaSiniestroAvanzada.get(j);
             INTER_BusquedaSiniestroAvanzada a = new INTER_BusquedaSiniestroAvanzada();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

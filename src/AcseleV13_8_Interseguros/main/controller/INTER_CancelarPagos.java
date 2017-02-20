@@ -1,8 +1,8 @@
 package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_CancelarPagosBean;
-import AcseleV13_8_Interseguros.beans.INTER_CreacionSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -30,10 +30,10 @@ public class INTER_CancelarPagos {
         try {
 
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -60,7 +60,7 @@ public class INTER_CancelarPagos {
 
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName) throws IOException, InterruptedException{
+    public void BuscarPoliza(Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName) throws IOException, InterruptedException{
 
         try {
 
@@ -325,7 +325,7 @@ public class INTER_CancelarPagos {
         }
     }
 
-    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
+    public void ResultadoBusqueda(Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
         try {
             Thread.sleep(2000);
 
@@ -393,7 +393,7 @@ public class INTER_CancelarPagos {
         }
     }
 
-    public void AgregarObjetoAfectado(Interseguros_Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
+    public void AgregarObjetoAfectado(Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
         try {
             Thread.sleep(2000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -496,7 +496,7 @@ public class INTER_CancelarPagos {
         }
     }
 
-    public void AgregarCobertura(Interseguros_Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
+    public void AgregarCobertura(Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
         try{
 
             Thread.sleep(2000);
@@ -574,7 +574,7 @@ public class INTER_CancelarPagos {
         }
     }
 
-    public void AgregarRequisitos (Interseguros_Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
+    public void AgregarRequisitos (Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
         try {
 
             Thread.sleep(6000);
@@ -614,7 +614,7 @@ public class INTER_CancelarPagos {
         }
     }
 
-    public void AgregarPagos (Interseguros_Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
+    public void AgregarPagos (Metodos a, INTER_CancelarPagosBean inter_cancelarPagosBean, int i, String folderName){
         try {
 
             Thread.sleep(5000);

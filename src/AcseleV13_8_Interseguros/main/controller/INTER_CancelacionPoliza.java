@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_CancelacionPolizaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,10 +26,10 @@ public class INTER_CancelacionPoliza {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);
@@ -51,7 +52,7 @@ public class INTER_CancelacionPoliza {
 
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, WebDriver driver, INTER_CancelacionPolizaBean inter_cancelacionPolizaBean, int i, String folderName) throws InterruptedException, IOException {
+    public void BuscarPoliza(Metodos a, WebDriver driver, INTER_CancelacionPolizaBean inter_cancelacionPolizaBean, int i, String folderName) throws InterruptedException, IOException {
 
         try {
 

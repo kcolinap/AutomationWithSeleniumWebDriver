@@ -1,8 +1,7 @@
 package AcseleV13_8.main.controller.PolizaEmision;
 
-import AcseleV13_8.beans.ImpresionDocumentosNivelPolizaBean;
 import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,7 @@ public class PrePoliza {
 
     private final static Logger log = Logger.getLogger(PrePoliza.class);
 
-    public void AdminPropuestaPoliza(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
+    public void AdminPropuestaPoliza(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot) {
         try {
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
             productoSelect.selectByValue(polizaBean.getProducto()); //VidaDeudoresAvVillas
@@ -64,7 +63,7 @@ public class PrePoliza {
         }
     }
 
-    public void EvAplicar(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void EvAplicar(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
         try {
             Thread.sleep(3000);
             Select eventoAplicarSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='modalWindowForm_EventSection_content_events_repeaterSelect_1_field']")));

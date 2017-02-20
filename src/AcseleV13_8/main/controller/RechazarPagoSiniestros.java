@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import sun.java2d.loops.TransformHelper;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class RechazarPagoSiniestros {
     public void testLink(RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
@@ -57,7 +56,7 @@ public class RechazarPagoSiniestros {
     }
 
 
-    public void BuscarSiniestro(WebDriver driver, Metodos a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{ //se busca el siniestro por el numero del mismo
+    public void BuscarSiniestro(WebDriver driver, Metodos13_8 a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{ //se busca el siniestro por el numero del mismo
 
         try {
 
@@ -121,7 +120,7 @@ public class RechazarPagoSiniestros {
 
     }
 
-    public void SiniestroEncontrado(WebDriver driver, Metodos a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{ // dentro de la pantalla del siniestro
+    public void SiniestroEncontrado(WebDriver driver, Metodos13_8 a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{ // dentro de la pantalla del siniestro
         a.changeLastWindows(driver);
 
         try {
@@ -200,7 +199,7 @@ public class RechazarPagoSiniestros {
 
     }
 
-    public void EditarPago (WebDriver driver, Metodos a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void EditarPago (WebDriver driver, Metodos13_8 a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
         try {
 
             WebElement montoSiniestro = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
@@ -229,7 +228,7 @@ public class RechazarPagoSiniestros {
     }
 
 
-    public void CambiarEstado (WebDriver driver, Metodos a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void CambiarEstado (WebDriver driver, Metodos13_8 a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -248,7 +247,7 @@ public class RechazarPagoSiniestros {
     }
 
 
-    public void SeleccionarOpcion (WebDriver driver, Metodos a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
+    public void SeleccionarOpcion (WebDriver driver, Metodos13_8 a, RechazarPagoSiniestrosBean rechazarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
 
         try {
 

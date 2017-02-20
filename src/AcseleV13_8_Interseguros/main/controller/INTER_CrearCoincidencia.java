@@ -1,14 +1,12 @@
 package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_CrearCoincidenciaBean;
-import AcseleV13_8_Interseguros.beans.INTER_CumuloAseguradoBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -27,10 +25,10 @@ public class INTER_CrearCoincidencia {
     public void testLink (INTER_CrearCoincidenciaBean inter_crearCoincidenciaBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento m = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -57,7 +55,7 @@ public class INTER_CrearCoincidencia {
 
     }
 
-    public void CrearCoincidencia (Interseguros_Metodos a, INTER_CrearCoincidenciaBean inter_crearCoincidenciaBean, int i, String folderName,
+    public void CrearCoincidencia (Metodos a, INTER_CrearCoincidenciaBean inter_crearCoincidenciaBean, int i, String folderName,
                                   int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try{

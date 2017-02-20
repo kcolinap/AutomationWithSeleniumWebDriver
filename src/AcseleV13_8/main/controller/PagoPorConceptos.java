@@ -7,8 +7,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import sun.awt.windows.ThemeReader;
-import sun.font.TextRecord;
 
 import java.io.IOException;
 
@@ -23,7 +21,7 @@ public class PagoPorConceptos {
 
     public void testLink (PagoPorConceptosBean pagoPorConceptosBean, int i )  throws IOException, InterruptedException {
 
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
@@ -59,7 +57,7 @@ public class PagoPorConceptos {
 
     }
 
-    public void BuscarSiniestro(WebDriver driver, Metodos a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void BuscarSiniestro(WebDriver driver, Metodos13_8 a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -124,7 +122,7 @@ public class PagoPorConceptos {
 
     }
 
-    public void ReservaPorConceptos(WebDriver driver, Metodos a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void ReservaPorConceptos(WebDriver driver, Metodos13_8 a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -164,7 +162,7 @@ public class PagoPorConceptos {
 
     }
 
-    public void ReservaPorConceptosPago (WebDriver driver, Metodos a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void ReservaPorConceptosPago (WebDriver driver, Metodos13_8 a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);
@@ -272,7 +270,7 @@ public class PagoPorConceptos {
 
     }
 
-    public void PagarOrdenes (WebDriver driver, Metodos a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
+    public void PagarOrdenes (WebDriver driver, Metodos13_8 a, PagoPorConceptosBean pagoPorConceptosBean, int i) throws IOException, InterruptedException{
 
         try {
 

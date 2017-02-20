@@ -1,6 +1,5 @@
 package AcseleV13_8.main.controller;
 
-import AcseleV13_8.beans.JobsListasRestrictivasCreacionBean;
 import AcseleV13_8.beans.JobsListasRestrictivasEjecucionBean;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
@@ -22,7 +21,7 @@ public class JobsListasRestrictivasEjecucion {
         try {
 
             //implementando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();

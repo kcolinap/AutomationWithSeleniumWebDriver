@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_CumuloProductoBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,10 +25,10 @@ public class INTER_CumuloProduto {
         try {
 
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(3000);
@@ -49,7 +50,7 @@ public class INTER_CumuloProduto {
     }
 
 
-    public void BusquedaProductos (Interseguros_Metodos a, INTER_CumuloProductoBean inter_cumuloProductoBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void BusquedaProductos (Metodos a, INTER_CumuloProductoBean inter_cumuloProductoBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try{
             Thread.sleep(3000);

@@ -25,7 +25,7 @@ public class TercerosDirecciones {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
             WebDriver driver = a.entrarPagina();
@@ -65,7 +65,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void BusquedaT(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos13_8 a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException, IOException{
 
         try {
 
@@ -130,7 +130,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void BotonEditar(Metodos a, WebDriver driver) throws InterruptedException, IOException {
+    public void BotonEditar(Metodos13_8 a, WebDriver driver) throws InterruptedException, IOException {
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -157,7 +157,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void AgregarDireccion(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void AgregarDireccion(Metodos13_8 a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
             Thread.sleep(5000);
@@ -255,7 +255,7 @@ public class TercerosDirecciones {
         }
     }
 
-    public void EditarDireccion(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void EditarDireccion(Metodos13_8 a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -365,7 +365,7 @@ public class TercerosDirecciones {
 
     }
 
-    public void SeleccionarDirPrincipal(Metodos a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
+    public void SeleccionarDirPrincipal(Metodos13_8 a, WebDriver driver, TercerosDireccionesBean tercerosDireccionesBean) throws InterruptedException {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

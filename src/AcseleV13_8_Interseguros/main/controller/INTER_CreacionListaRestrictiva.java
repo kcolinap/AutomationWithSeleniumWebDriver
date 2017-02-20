@@ -3,6 +3,7 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.INTER_CreacionListaRestrictivaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuConfiguracion;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -25,11 +26,11 @@ public class INTER_CreacionListaRestrictiva {
     public void testLink (INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName)  throws Exception {
 
         try {
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuConfiguracion m = new Interseguros_MenuConfiguracion();
             Interseguros_MenuMantenimiento interseguros_menuMantenimiento  = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -67,7 +68,7 @@ public class INTER_CreacionListaRestrictiva {
         }
     }
 
-    public void CrearNuevaLista (Interseguros_Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName) throws IOException, InterruptedException{
+    public void CrearNuevaLista (Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName) throws IOException, InterruptedException{
 
         try{
             Actions action = new Actions(driver);
@@ -203,7 +204,7 @@ public class INTER_CreacionListaRestrictiva {
         }
     }
 
-    public void ListasRestrictivasCreacion(Interseguros_Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName,
+    public void ListasRestrictivasCreacion(Metodos a, INTER_CreacionListaRestrictivaBean inter_creacionListaRestrictivaBean, int i, String folderName,
                                            int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6,
                                            int numScreenShoot7, int numScreenShoot8){
 

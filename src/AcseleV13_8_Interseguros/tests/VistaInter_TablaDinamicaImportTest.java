@@ -1,9 +1,8 @@
 package AcseleV13_8_Interseguros.tests;
 
-import AcseleV13_8_Interseguros.beans.Inter_TablaDinamicaExportBean;
 import AcseleV13_8_Interseguros.beans.Inter_TablaDinamicaImportBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_TablaDinamicaImport;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +33,7 @@ public class VistaInter_TablaDinamicaImportTest {
         for (int j = 0; j < tabla.size(); j++) {
             Inter_TablaDinamicaImportBean interTablaDinamicaImportBean = (Inter_TablaDinamicaImportBean) tabla.get(j);
             Inter_TablaDinamicaImport a = new Inter_TablaDinamicaImport();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

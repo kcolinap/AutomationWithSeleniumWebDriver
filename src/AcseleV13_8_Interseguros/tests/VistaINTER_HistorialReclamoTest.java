@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_HistorialReclamoBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_HistorialReclamo;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_HistorialReclamoTest {
         for (int j = 0; j< inter_historialReclamos.size(); j++) {
             INTER_HistorialReclamoBean inter_historialReclamoBean = (INTER_HistorialReclamoBean) inter_historialReclamos.get(j);
             INTER_HistorialReclamo a = new INTER_HistorialReclamo();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

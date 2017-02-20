@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_RechazarPagoSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -25,10 +26,10 @@ public class INTER_RechazarPagoSiniestro {
     public void testLink (INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -63,7 +64,7 @@ public class INTER_RechazarPagoSiniestro {
 
     }
 
-    public void BuscarSiniestro(Interseguros_Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws IOException, InterruptedException{
+    public void BuscarSiniestro(Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws IOException, InterruptedException{
 
         try {
 
@@ -132,7 +133,7 @@ public class INTER_RechazarPagoSiniestro {
 
     }
 
-    public void SiniestroEncontrado(Interseguros_Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{ // dentro de la pantalla del siniestro
+    public void SiniestroEncontrado(Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{ // dentro de la pantalla del siniestro
         a.changeLastWindows(driver);
 
         try {
@@ -211,7 +212,7 @@ public class INTER_RechazarPagoSiniestro {
 
     }
 
-    public void EditarPago (Interseguros_Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
+    public void EditarPago (Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
         try {
 
             WebElement montoSiniestro = driver.findElement(By.xpath("/*//*[@id=\"amount1\"]"));
@@ -240,7 +241,7 @@ public class INTER_RechazarPagoSiniestro {
     }
 
 
-    public void CambiarEstado (Interseguros_Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
+    public void CambiarEstado (Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
 
         try {
 
@@ -259,7 +260,7 @@ public class INTER_RechazarPagoSiniestro {
     }
 
 
-    public void SeleccionarOpcion (Interseguros_Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException {
+    public void SeleccionarOpcion (Metodos a, INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException {
 
         try {
 

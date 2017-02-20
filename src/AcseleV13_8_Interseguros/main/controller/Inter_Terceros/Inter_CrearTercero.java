@@ -1,7 +1,7 @@
 package AcseleV13_8_Interseguros.main.controller.Inter_Terceros;
 
 import AcseleV13_8_Interseguros.beans.Inter_TercerosBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,7 +18,7 @@ public class Inter_CrearTercero {
 
     private final static Logger log = Logger.getLogger(Inter_CrearTercero.class);
 
-    public void CrearTerceroNatural(Interseguros_Metodos a, WebDriver driver, Inter_TercerosBean interTercerosBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public void CrearTerceroNatural(Metodos a, WebDriver driver, Inter_TercerosBean interTercerosBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 

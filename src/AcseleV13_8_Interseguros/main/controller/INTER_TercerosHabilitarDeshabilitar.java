@@ -1,16 +1,14 @@
 package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_TercerosHabilitarDeshabilitarBean;
-import AcseleV13_8_Interseguros.beans.Inter_TercerosBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
 
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * Created by kcolina on 06/02/2017.
@@ -27,11 +25,11 @@ public class INTER_TercerosHabilitarDeshabilitar extends Inter_BuscarTerceros {
 
         try{
 
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento intersegurosMenuMantenimiento = new Interseguros_MenuMantenimiento();
            Inter_BuscarTerceros interBuscarTerceros = new Inter_BuscarTerceros();
 
-            WebDriver driver = a.entrarPagina();
+            WebDriver driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1000);
@@ -59,7 +57,7 @@ public class INTER_TercerosHabilitarDeshabilitar extends Inter_BuscarTerceros {
         }
     }
 
-    public void HabilitarDeshabilitarTercero(Interseguros_Metodos a, WebDriver driver, INTER_TercerosHabilitarDeshabilitarBean
+    public void HabilitarDeshabilitarTercero(Metodos a, WebDriver driver, INTER_TercerosHabilitarDeshabilitarBean
             interTercerosHabilitarDeshabilitarBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
        try{

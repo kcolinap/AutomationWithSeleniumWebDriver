@@ -22,7 +22,7 @@ public class TrazaAuditoriaExportar {
 
     public void testLink (TrazaAuditoriaExportarBean trazaAuditoriaExportarBean, int i )  throws IOException, InterruptedException {
 
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
@@ -40,7 +40,7 @@ public class TrazaAuditoriaExportar {
         Thread.sleep(2000);
     }
 
-    public void TrazaAuditoriaExportarDocumento (WebDriver driver, Metodos a, TrazaAuditoriaExportarBean trazaAuditoriaExportarBean, int i) throws IOException, InterruptedException{
+    public void TrazaAuditoriaExportarDocumento (WebDriver driver, Metodos13_8 a, TrazaAuditoriaExportarBean trazaAuditoriaExportarBean, int i) throws IOException, InterruptedException{
 
         try {
 

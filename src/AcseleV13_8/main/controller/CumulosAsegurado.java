@@ -1,13 +1,11 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.CumulosAseguradoBean;
-import AcseleV13_8.beans.CumulosProductosBean;
 import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 
@@ -23,7 +21,7 @@ public class CumulosAsegurado {
     public void testLink(CumulosAseguradoBean cumulosAseguradoBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -38,7 +36,7 @@ public class CumulosAsegurado {
 
     }
 
-    public void BusquedaAsegurado (WebDriver driver, Metodos a, CumulosAseguradoBean cumulosAseguradoBean, int i) throws IOException, InterruptedException{
+    public void BusquedaAsegurado (WebDriver driver, Metodos13_8 a, CumulosAseguradoBean cumulosAseguradoBean, int i) throws IOException, InterruptedException{
 
         try {
             Thread.sleep(3000);

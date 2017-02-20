@@ -22,7 +22,7 @@ public class CrearCaja {
 
     public void testLink(CrearCajaBean crearCajaBean, int i) throws IOException, InterruptedException {
         //Inicio de sesión
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento m = new MenuMantenimiento();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -46,7 +46,7 @@ public class CrearCaja {
         a.ScreenShot(driver, "screen5", nombreAutomatizacion);
     }
 
-    public void InsertarDatosCaja(Metodos a, WebDriver driver, CrearCajaBean crearCajaBean) throws InterruptedException, IOException {
+    public void InsertarDatosCaja(Metodos13_8 a, WebDriver driver, CrearCajaBean crearCajaBean) throws InterruptedException, IOException {
 
         try{
             Thread.sleep(4000);

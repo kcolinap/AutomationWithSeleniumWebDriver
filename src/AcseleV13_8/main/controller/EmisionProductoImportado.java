@@ -21,7 +21,7 @@ public class EmisionProductoImportado {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
             //PrePoliza
             PrePoliza prePoliza = new PrePoliza();

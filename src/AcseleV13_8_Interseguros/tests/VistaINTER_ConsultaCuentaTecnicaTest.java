@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaCuentaTecnicaBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ConsultaCuentaTecnica;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -33,7 +33,7 @@ public class VistaINTER_ConsultaCuentaTecnicaTest {
             for (int j = 0; j< interCuentaTecnica.size(); j++) {
                 INTER_ConsultaCuentaTecnicaBean inter_consultaCuentaTecnicaBean = (INTER_ConsultaCuentaTecnicaBean) interCuentaTecnica.get(j);
                 INTER_ConsultaCuentaTecnica a = new INTER_ConsultaCuentaTecnica();
-                Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+                Metodos intersegurosMetodos = new Metodos();
                 String horaC = intersegurosMetodos.horaCarpeta();
 
                 try {

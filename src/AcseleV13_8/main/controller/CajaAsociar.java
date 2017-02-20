@@ -23,7 +23,7 @@ public class CajaAsociar {
     public void testLink(CajaAsociarBean cajaAsociarBean, int i) throws InterruptedException, IOException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento m = new MenuMantenimiento();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -38,7 +38,7 @@ public class CajaAsociar {
         AsociarCajaCajero(a, driver, cajaAsociarBean, i); //Busqueda Tercero
     }
 
-    public  void AsociarCajaCajero(Metodos a, WebDriver driver, CajaAsociarBean cajaAsociarBean, int i ) throws InterruptedException {
+    public  void AsociarCajaCajero(Metodos13_8 a, WebDriver driver, CajaAsociarBean cajaAsociarBean, int i ) throws InterruptedException {
 
         Thread.sleep(3000);
         try {

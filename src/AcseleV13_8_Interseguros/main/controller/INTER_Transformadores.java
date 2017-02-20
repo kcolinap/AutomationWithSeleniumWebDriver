@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_TransformadoresBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuConfiguracion;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,10 +23,10 @@ public class INTER_Transformadores {
     public void testLink (INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuConfiguracion m = new Interseguros_MenuConfiguracion();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -54,7 +55,7 @@ public class INTER_Transformadores {
 
     }
 
-    public void TranformadoresGeneral (Interseguros_Metodos a, INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) throws IOException, InterruptedException{
+    public void TranformadoresGeneral (Metodos a, INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) throws IOException, InterruptedException{
 
         try {
             Thread.sleep(10000);
@@ -127,7 +128,7 @@ public class INTER_Transformadores {
         }
     }
 
-    public void AgregarTranformadores (Interseguros_Metodos a, INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{
+    public void AgregarTranformadores (Metodos a, INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{
 
         try {
 
@@ -168,7 +169,7 @@ public class INTER_Transformadores {
 
     }
 
-    public void EliminarTransformadores (Interseguros_Metodos a, INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5) throws IOException, InterruptedException{
+    public void EliminarTransformadores (Metodos a, INTER_TransformadoresBean inter_transformadoresBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5) throws IOException, InterruptedException{
 
         try {
 

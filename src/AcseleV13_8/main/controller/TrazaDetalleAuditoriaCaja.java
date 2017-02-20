@@ -23,7 +23,7 @@ public class TrazaDetalleAuditoriaCaja {
     public void testLink (TrazaDetalleAuditoriaCajaBean trazaDetalleAuditoriaCajaBean, int i )  throws IOException, InterruptedException {
 
         //Metodos a = new Metodos();
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
@@ -52,7 +52,7 @@ public class TrazaDetalleAuditoriaCaja {
 
     }
 
-    public void GenerarTrazaAuditoriaAperturarCaja (WebDriver driver, Metodos a, TrazaDetalleAuditoriaCajaBean trazaDetalleAuditoriaCajaBean, int i) throws IOException, InterruptedException{
+    public void GenerarTrazaAuditoriaAperturarCaja (WebDriver driver, Metodos13_8 a, TrazaDetalleAuditoriaCajaBean trazaDetalleAuditoriaCajaBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -89,7 +89,7 @@ public class TrazaDetalleAuditoriaCaja {
 
     }
 
-    public void DetalleTrazaAuditoriaAperturarCaja (WebDriver driver, Metodos a, TrazaDetalleAuditoriaCajaBean trazaDetalleAuditoriaCajaBean, int i) throws IOException, InterruptedException{
+    public void DetalleTrazaAuditoriaAperturarCaja (WebDriver driver, Metodos13_8 a, TrazaDetalleAuditoriaCajaBean trazaDetalleAuditoriaCajaBean, int i) throws IOException, InterruptedException{
 
         try {
 

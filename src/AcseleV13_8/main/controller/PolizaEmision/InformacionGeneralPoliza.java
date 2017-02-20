@@ -1,8 +1,7 @@
 package AcseleV13_8.main.controller.PolizaEmision;
 
-import AcseleV13_8.beans.EmisionPolizaBeneficiarioNaturalBean;
 import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,7 @@ public class InformacionGeneralPoliza {
 
     private final static Logger log = Logger.getLogger(InformacionGeneralPoliza.class);
 
-    public void InformacionGeneral(Metodos a, WebDriver driver, PolizaBean polizaBean,
+    public void InformacionGeneral(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean,
                                    String nombreAutomatizacion, int i, int numScreenShoot){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']

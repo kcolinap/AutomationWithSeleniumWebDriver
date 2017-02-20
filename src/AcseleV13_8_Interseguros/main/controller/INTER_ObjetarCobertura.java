@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_ObjetarCoberturaBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -10,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -29,10 +29,10 @@ public class INTER_ObjetarCobertura {
         try {
 
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -57,7 +57,7 @@ public class INTER_ObjetarCobertura {
 
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName, int numScreenShoot){
+    public void BuscarPoliza(Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName, int numScreenShoot){
 
         try {
 
@@ -322,7 +322,7 @@ public class INTER_ObjetarCobertura {
         }
     }
 
-    public void ResultadoBusqueda (Interseguros_Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName,
+    public void ResultadoBusqueda (Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName,
                                    int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
         try {
             Thread.sleep(1000);
@@ -391,7 +391,7 @@ public class INTER_ObjetarCobertura {
         }
     }
 
-    public void AgregarObjetoAfectado (Interseguros_Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void AgregarObjetoAfectado (Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2){
         try {
             Thread.sleep(1000);
             WebElement btnAgregar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_01\"]"));
@@ -490,7 +490,7 @@ public class INTER_ObjetarCobertura {
         }
     }
 
-    public void AgregarCobertura (Interseguros_Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) {
+    public void AgregarCobertura (Metodos a, INTER_ObjetarCoberturaBean inter_objetarCoberturaBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) {
         try{
 
             Thread.sleep(2000);

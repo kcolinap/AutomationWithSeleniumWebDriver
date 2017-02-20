@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaEdoCuentaTercerosBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuConsultas;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,10 +25,10 @@ public class INTER_ConsultaEdoCuentaTerceros {
 
         try {
 
-            Interseguros_Metodos a = new Interseguros_Metodos();   //implementando metodos.
+            Metodos a = new Metodos();   //implementando metodos.
             Interseguros_MenuConsultas m = new Interseguros_MenuConsultas();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);
@@ -49,7 +50,7 @@ public class INTER_ConsultaEdoCuentaTerceros {
         }
     }
 
-    public void consultaEdoCuentaTerceros(Interseguros_Metodos a, INTER_ConsultaEdoCuentaTercerosBean inter_consultaEdoCuentaTercerosBean) throws InterruptedException, IOException {
+    public void consultaEdoCuentaTerceros(Metodos a, INTER_ConsultaEdoCuentaTercerosBean inter_consultaEdoCuentaTercerosBean) throws InterruptedException, IOException {
 
         try {
             Thread.sleep(3000);

@@ -6,13 +6,9 @@ import AcseleV13_8.main.controller.PolizaEmision.InformacionGeneralPoliza;
 import AcseleV13_8.main.controller.PolizaEmision.PrePoliza;
 import AcseleV13_8.main.controller.PolizaEmision.TerceroTomador;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
-import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -30,7 +26,7 @@ public class EmisionPolizaInclusionTomadores {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
             //PrePoliza
             PrePoliza prePoliza = new PrePoliza();

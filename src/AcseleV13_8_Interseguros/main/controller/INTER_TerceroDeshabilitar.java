@@ -5,6 +5,7 @@ import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_M
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.Inter_InformacionGeneralPoliza;
 import AcseleV13_8_Interseguros.main.controller.PolizaEmision.Inter_PrePoliza;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,14 +28,14 @@ public class INTER_TerceroDeshabilitar {
     public void testLink(INTER_TerceroDeshabilitarBean inter_terceroDeshabilitarBean, int i, String folderName)  throws IOException, InterruptedException {
 
         try{
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento interseguros_menuMantenimiento = new Interseguros_MenuMantenimiento();
             Interseguros_MenuOperaciones interseguros_menuOperaciones = new Interseguros_MenuOperaciones ();
             Inter_PrePoliza inter_prePoliza = new Inter_PrePoliza();
             Inter_InformacionGeneralPoliza inter_informacionGeneralPoliza = new Inter_InformacionGeneralPoliza();
 
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1500);
@@ -92,7 +93,7 @@ public class INTER_TerceroDeshabilitar {
 
     }
 
-    public void BusquedaT(Interseguros_Metodos a, WebDriver driver, INTER_TerceroDeshabilitarBean inter_terceroDeshabilitarBean, int i, String folderName, int numScreenShoot4, int numScreenShoot5) throws InterruptedException, IOException{
+    public void BusquedaT(Metodos a, WebDriver driver, INTER_TerceroDeshabilitarBean inter_terceroDeshabilitarBean, int i, String folderName, int numScreenShoot4, int numScreenShoot5) throws InterruptedException, IOException{
 
         Thread.sleep(4000);
         try {
@@ -164,7 +165,7 @@ public class INTER_TerceroDeshabilitar {
         }
     }
 
-    public void CrearPoliza(Interseguros_Metodos a, WebDriver driver, INTER_TerceroDeshabilitarBean inter_terceroDeshabilitarBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) throws InterruptedException {
+    public void CrearPoliza(Metodos a, WebDriver driver, INTER_TerceroDeshabilitarBean inter_terceroDeshabilitarBean, int i, String folderName, int numScreenShoot, int numScreenShoot2) throws InterruptedException {
 
         // //TipoElemento[@wicketpath='WicketpathElemento']
 

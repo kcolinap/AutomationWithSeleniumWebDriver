@@ -5,7 +5,6 @@ import AcseleV13_8.main.controller.Menu.MenuOperaciones;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class CumulosProductos {
     public void testLink(CumulosProductosBean cumulosProductosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -39,7 +38,7 @@ public class CumulosProductos {
     }
 
 
-    public void BusquedaProductos (WebDriver driver, Metodos a, CumulosProductosBean cumulosProductosBean, int i) throws IOException, InterruptedException{
+    public void BusquedaProductos (WebDriver driver, Metodos13_8 a, CumulosProductosBean cumulosProductosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(3000);

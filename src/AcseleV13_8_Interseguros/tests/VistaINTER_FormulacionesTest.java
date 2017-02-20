@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_FormulacionesBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_Formulaciones;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_FormulacionesTest {
         for (int j = 0; j< interFormulaciones.size(); j++) {
             INTER_FormulacionesBean inter_formulacionesBean = (INTER_FormulacionesBean) interFormulaciones.get(j);
             INTER_Formulaciones a = new INTER_Formulaciones();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try {

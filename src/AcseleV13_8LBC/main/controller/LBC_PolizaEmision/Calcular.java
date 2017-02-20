@@ -1,7 +1,7 @@
 package AcseleV13_8LBC.main.controller.LBC_PolizaEmision;
 
 import AcseleV13_8.beans.PolizaBean;
-import AcseleV13_8.main.controller.Metodos;
+import AcseleV13_8.main.controller.Metodos13_8;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 public class Calcular {
     private final static Logger log = Logger.getLogger(Calcular.class);
 
-    public void Calcular(Metodos a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
+    public void Calcular(Metodos13_8 a, WebDriver driver, PolizaBean polizaBean, String nombreAutomatizacion, int i, int numScreenShoot){
 
         try {
 

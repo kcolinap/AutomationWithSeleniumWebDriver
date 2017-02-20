@@ -2,10 +2,10 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.Inter_TablaDinamicaImportBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by agil on 07/02/2017.
@@ -16,7 +16,7 @@ public class Inter_TablaDinamicaImport {
 
     public String nombreAutomatizacion = "Inter Tabla Dinamica Import";
     private WebDriver driver;
-    Interseguros_Metodos a = new Interseguros_Metodos();
+    Metodos a = new Metodos();
 
     public void testLink(Inter_TablaDinamicaImportBean interTablaDinamicaimportBean, int i, String folderName){
 
@@ -25,7 +25,7 @@ public class Inter_TablaDinamicaImport {
             // Instanciando clases
             Interseguros_MenuMantenimiento menuMantenimiento = new Interseguros_MenuMantenimiento();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

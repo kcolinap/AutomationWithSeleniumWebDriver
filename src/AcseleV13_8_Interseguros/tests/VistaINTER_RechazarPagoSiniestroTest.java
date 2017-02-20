@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_RechazarPagoSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_RechazarPagoSiniestro;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public class VistaINTER_RechazarPagoSiniestroTest {
         for (int j = 0; j< interRechazarPagoSiniestro.size(); j++) {
             INTER_RechazarPagoSiniestroBean inter_rechazarPagoSiniestroBean = (INTER_RechazarPagoSiniestroBean) interRechazarPagoSiniestro.get(j);
             INTER_RechazarPagoSiniestro a = new INTER_RechazarPagoSiniestro();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta ();
 
             try {

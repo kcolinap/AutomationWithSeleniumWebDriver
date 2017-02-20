@@ -1,10 +1,8 @@
 package AcseleV13_8_Interseguros.main.controller;
 
-import AcseleV13_8.beans.CumulosTercerosBean;
-import AcseleV13_8.main.controller.Menu.MenuOperaciones;
-import AcseleV13_8.main.controller.Metodos;
 import AcseleV13_8_Interseguros.beans.INTER_CumuloTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,10 +28,10 @@ public class INTER_CumuloTercero {
         try {
             //Alert alertaJS = driver.switchTo().alert();
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(8000);
@@ -55,7 +53,7 @@ public class INTER_CumuloTercero {
     }
 
 
-    public void BusquedaTerceros (Interseguros_Metodos a, INTER_CumuloTerceroBean inter_cumuloTerceroBean, int i, String folderName,
+    public void BusquedaTerceros (Metodos a, INTER_CumuloTerceroBean inter_cumuloTerceroBean, int i, String folderName,
                                   int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try{

@@ -7,6 +7,7 @@ import AcseleV13_8LBC.main.controller.LBC_Metodos;*/
 import AcseleV13_8_Interseguros.beans.INTER_CajaCierreBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_Caja.INTER_Caja;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -26,13 +27,13 @@ public class INTER_CajaCierre {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones interMenuOperaciones = new Interseguros_MenuOperaciones();
             //Aperturar Caja
             INTER_Caja interCaja = new INTER_Caja();
 
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);

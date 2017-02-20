@@ -3,13 +3,9 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.INTER_ConsultaTerceroBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import java.io.IOException;
 
 /**
  * Created by rmontilla on 14/11/2016.
@@ -31,11 +27,11 @@ public class INTER_ConsultaTercero extends Inter_BuscarTerceros {
         try {
 
             // Instanciando clases
-            Interseguros_Metodos a= new Interseguros_Metodos();   //implementando metodos.
+            Metodos a= new Metodos();   //implementando metodos.
             Interseguros_MenuMantenimiento interseguros_menuMantenimiento = new Interseguros_MenuMantenimiento();
             Inter_BuscarTerceros buscarTerceros = new Inter_BuscarTerceros();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName); //iniciando sesion.
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName); //validando sesion.
             Thread.sleep(3000);

@@ -25,7 +25,7 @@ public class AprobarEnviarPagoSiniestros {
     public void testLink (AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i )  throws IOException, InterruptedException {
 
         //Metodos a = new Metodos();
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
 
         WebDriver driver = a.entrarPagina();
@@ -69,7 +69,7 @@ public class AprobarEnviarPagoSiniestros {
     }
 
 
-    public void BuscarSiniestro(WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void BuscarSiniestro(WebDriver driver, Metodos13_8 a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -201,7 +201,7 @@ public class AprobarEnviarPagoSiniestros {
 
     }
 
-    public void EditarPago (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void EditarPago (WebDriver driver, Metodos13_8 a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
         try {
 
             WebElement montoSiniestro = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
@@ -230,7 +230,7 @@ public class AprobarEnviarPagoSiniestros {
     }
 
 
-    public void CambiarEstado (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void CambiarEstado (WebDriver driver, Metodos13_8 a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -250,7 +250,7 @@ public class AprobarEnviarPagoSiniestros {
     }
 
 
-    public void SeleccionarOpcion (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException {
+    public void SeleccionarOpcion (WebDriver driver, Metodos13_8 a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean) throws IOException, InterruptedException {
 
         try {
 
@@ -302,7 +302,7 @@ public class AprobarEnviarPagoSiniestros {
 
     }
 
-    public void  Sucursal (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
+    public void  Sucursal (WebDriver driver, Metodos13_8 a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
 
         try {
 
@@ -339,7 +339,7 @@ public class AprobarEnviarPagoSiniestros {
         }
     }
 
-    public void  EnviarPago (WebDriver driver, Metodos a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
+    public void  EnviarPago (WebDriver driver, Metodos13_8 a, AprobarEnviarPagoSiniestrosBean aprobarEnviarPagoSiniestrosBean, int i) throws IOException, InterruptedException {
 
         try {
 

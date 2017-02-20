@@ -1,7 +1,6 @@
 package AcseleV13_8.main.controller;
 
 import AcseleV13_8.beans.CreacionTercerosBean;
-import AcseleV13_8.main.controller.Menu.MenuConfiguracion;
 import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +19,7 @@ public class CreacionTerceros {
 
 
         // Instanciando clases
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
         WebDriver driver = a.entrarPagina();
@@ -39,7 +38,7 @@ public class CreacionTerceros {
         Thread.sleep(5000);
     }
 
-    public void CreacionT(Metodos a, WebDriver driver, CreacionTercerosBean creacionTercerosBean) throws InterruptedException, IOException {
+    public void CreacionT(Metodos13_8 a, WebDriver driver, CreacionTercerosBean creacionTercerosBean) throws InterruptedException, IOException {
 
         //Select tipoTercero = new Select(driver.findElement(By.name("ThirdInformationContent:ThirdInformation:thirdPartyTypes")));
         Select tipoTercero = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_ThirdInformation_thirdPartyTypes']")));

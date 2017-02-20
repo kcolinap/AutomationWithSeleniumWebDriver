@@ -1,15 +1,11 @@
 package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.security.Key;
 
 /**
  * Created by agil on 24/11/2016.
@@ -18,7 +14,7 @@ public class Inter_UnidadesRiesgo {
 
     private final static Logger log = Logger.getLogger(Inter_UnidadesRiesgo.class);
 
-    public void UnidadesRiesgo1(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void UnidadesRiesgo1(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -56,7 +52,7 @@ public class Inter_UnidadesRiesgo {
         }
     }
 
-    public void UnidadesRiesgo2(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void UnidadesRiesgo2(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -94,7 +90,7 @@ public class Inter_UnidadesRiesgo {
         }
     }
 
-    public void UnidadesRiesgo1DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void UnidadesRiesgo1DotalSimple(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -149,7 +145,7 @@ public class Inter_UnidadesRiesgo {
         }
     }
 
-    public void UnidadesRiesgo2DotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
+    public void UnidadesRiesgo2DotalSimple(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 

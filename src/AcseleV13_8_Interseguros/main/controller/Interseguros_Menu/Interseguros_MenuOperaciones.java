@@ -1,6 +1,6 @@
 package AcseleV13_8_Interseguros.main.controller.Interseguros_Menu;
 
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class Interseguros_MenuOperaciones {
 
     private final static Logger log = Logger.getLogger(Interseguros_MenuOperaciones.class);
 
-    Interseguros_Metodos a = new Interseguros_Metodos();
+    Metodos a = new Metodos();
 
     /** Operaciones (Workflow) **/
 
@@ -130,7 +130,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_DeclaracionSiniestro(){}
 
-    public void OpeSini_MantenimientoSiniestro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
+    public void OpeSini_MantenimientoSiniestro(WebDriver driver, Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
         try{
             Actions action = new Actions(driver);
@@ -157,7 +157,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_MantenimientoSiniestroVaadin(){}
 
-    public void OpeSini_CreacionSiniestro(WebDriver driver, Interseguros_Metodos a,  String nombreAutomatizacion, int numScreenShoot, int i){
+    public void OpeSini_CreacionSiniestro(WebDriver driver, Metodos a,  String nombreAutomatizacion, int numScreenShoot, int i){
         try{
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
@@ -190,7 +190,7 @@ public class Interseguros_MenuOperaciones {
 
     public void OpeSini_HistorialActividadesReclamo(){}
 
-    public void OpeSini_HistorialReclamo(WebDriver driver, Interseguros_Metodos a,  String nombreAutomatizacion, int numScreenShoot, int i){
+    public void OpeSini_HistorialReclamo(WebDriver driver, Metodos a,  String nombreAutomatizacion, int numScreenShoot, int i){
 
         try{
 
@@ -237,7 +237,7 @@ public class Interseguros_MenuOperaciones {
 
     public void CoaRea_OperacionConsultaReaseguros(){}
 
-    public void CoaRea_MantenimientoDistribucionReaseguro(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+    public void CoaRea_MantenimientoDistribucionReaseguro(WebDriver driver, Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
         try{
             Actions action = new Actions(driver);
@@ -262,7 +262,7 @@ public class Interseguros_MenuOperaciones {
     public void CoaRea_ContratoFacultativo(){}
 
     /** CoaRea_CuentasTecnicas **/
-    public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+    public void CoaRea_CuentasTecnicas_LiquidacionCuentaTecnica(WebDriver driver, Metodos a, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
         try{
             Actions action = new Actions(driver);
@@ -458,7 +458,7 @@ public class Interseguros_MenuOperaciones {
 
     /** -- Facturacion y Cobro -- **/
 
-    public void UAA_ModificacionMovimientosTercero(WebDriver driver, Interseguros_Metodos a, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
+    public void UAA_ModificacionMovimientosTercero(WebDriver driver, Metodos a, String nombreAutomatizacion, int i, String folderName)throws IOException, InterruptedException{
         try{
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));//operacion
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[5]"));//cumulos

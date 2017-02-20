@@ -2,7 +2,7 @@ package AcseleV13_8_Interseguros.tests;
 
 import AcseleV13_8_Interseguros.beans.INTER_ValidarOpenItemBean;
 import AcseleV13_8_Interseguros.main.controller.INTER_ValidarOpenItem;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -36,7 +36,7 @@ public class VistaINTER_ValidarOpenItemTest {
 
             INTER_ValidarOpenItemBean inter_validarOpenItemBean = (INTER_ValidarOpenItemBean) interValidarOpenItem.get(j);
             INTER_ValidarOpenItem a = new INTER_ValidarOpenItem();
-            Interseguros_Metodos intersegurosMetodos = new Interseguros_Metodos();
+            Metodos intersegurosMetodos = new Metodos();
             String horaC = intersegurosMetodos.horaCarpeta();
 
             try{

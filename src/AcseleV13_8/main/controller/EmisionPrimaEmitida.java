@@ -27,7 +27,7 @@ public class EmisionPrimaEmitida {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
             MenuConsultas menuConsultas = new MenuConsultas();
             //PrePoliza
@@ -88,7 +88,7 @@ public class EmisionPrimaEmitida {
 
     }
 
-    public void Calcular (Metodos a, WebDriver driver, int i, int numScreenShoot2, int numScreenShoot3){
+    public void Calcular (Metodos13_8 a, WebDriver driver, int i, int numScreenShoot2, int numScreenShoot3){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -135,7 +135,7 @@ public class EmisionPrimaEmitida {
         }
     }
 
-    public void ConsultaEstadoCuenta (WebDriver driver, Metodos a, EmisionPrimaEmitidaBean emisionPrimaEmitidaBean, int i) throws IOException, InterruptedException{
+    public void ConsultaEstadoCuenta (WebDriver driver, Metodos13_8 a, EmisionPrimaEmitidaBean emisionPrimaEmitidaBean, int i) throws IOException, InterruptedException{
 
         try {
             a.changeLastWindows(driver);

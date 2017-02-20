@@ -3,9 +3,9 @@ package AcseleV13_8_Interseguros.main.controller;
 import AcseleV13_8_Interseguros.beans.INTER_TercerosEditarNombreApellidoBean;
 import AcseleV13_8_Interseguros.main.controller.Inter_Terceros.Inter_BuscarTerceros;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuMantenimiento;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.io.IOException;
@@ -24,11 +24,11 @@ public class INTER_TercerosEditarNombreApellido extends Inter_BuscarTerceros {
     public void testLink(INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i, String folderName) throws Exception{
         try{
 
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuMantenimiento intersegurosMenuMantenimiento = new Interseguros_MenuMantenimiento();
             Inter_BuscarTerceros interBuscarTerceros = new Inter_BuscarTerceros();
 
-            WebDriver driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(1000);
@@ -48,7 +48,7 @@ public class INTER_TercerosEditarNombreApellido extends Inter_BuscarTerceros {
 
             a.waitSearchWicket(driver, "Espera para editar");
 
-            EditarT(a, driver, inter_tercerosEditarNombreApellidoBean, i, folderName, 7, 8, 9);
+            EditarT(a, inter_tercerosEditarNombreApellidoBean, i, folderName, 7, 8, 9);
             Thread.sleep(4000);
 
             driver.quit();
@@ -61,7 +61,7 @@ public class INTER_TercerosEditarNombreApellido extends Inter_BuscarTerceros {
         }
     }
 
-    public void EditarT(Interseguros_Metodos a, WebDriver driver, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws InterruptedException, IOException{
+    public void EditarT(Metodos a, INTER_TercerosEditarNombreApellidoBean inter_tercerosEditarNombreApellidoBean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3) throws InterruptedException, IOException{
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 

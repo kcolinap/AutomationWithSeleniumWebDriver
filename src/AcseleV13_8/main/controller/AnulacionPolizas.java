@@ -24,7 +24,7 @@ public class AnulacionPolizas {
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuOperaciones m = new MenuOperaciones();
 
             WebDriver driver = a.entrarPagina();
@@ -45,7 +45,7 @@ public class AnulacionPolizas {
 
     }
 
-    public void BuscarPoliza(Metodos a, WebDriver driver, AnulacionPolizaBean anulacionPolizaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPoliza(Metodos13_8 a, WebDriver driver, AnulacionPolizaBean anulacionPolizaBean, int i) throws InterruptedException, IOException {
 
         try {
 

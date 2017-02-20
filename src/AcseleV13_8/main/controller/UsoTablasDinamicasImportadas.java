@@ -7,11 +7,9 @@ import AcseleV13_8.main.controller.PolizaEmision.*;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.io.IOException;
-import java.security.Key;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -28,7 +26,7 @@ public class UsoTablasDinamicasImportadas {
 
         try {
             // Instanciando las clases
-            Metodos a = new Metodos();
+            Metodos13_8 a = new Metodos13_8();
             MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
             MenuOperaciones menuOperaciones = new MenuOperaciones();
             PrePoliza prePoliza = new PrePoliza();
@@ -95,7 +93,7 @@ public class UsoTablasDinamicasImportadas {
 
     }
 
-    public void BuscarTabla(Metodos a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot){
+    public void BuscarTabla(Metodos13_8 a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot){
 
         try {
 
@@ -120,7 +118,7 @@ public class UsoTablasDinamicasImportadas {
 
     }
 
-    public  void ImportTablaDinamica(Metodos a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
+    public  void ImportTablaDinamica(Metodos13_8 a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4){
 
         try {
 
@@ -193,7 +191,7 @@ public class UsoTablasDinamicasImportadas {
 
     }
 
-    public static void Comprobar(Metodos a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot){
+    public static void Comprobar(Metodos13_8 a, WebDriver driver, UsoTablasDinamicasImportadasBean usoTablasDinamicasImportadasBean, int i, int numScreenShoot){
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 

@@ -2,6 +2,7 @@ package AcseleV13_8_Interseguros.main.controller;
 
 import AcseleV13_8_Interseguros.beans.INTER_CerrarSiniestroBean;
 import AcseleV13_8_Interseguros.main.controller.Interseguros_Menu.Interseguros_MenuOperaciones;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -27,10 +28,10 @@ public class INTER_CerrarSiniestro {
         try {
 
             //implementando clase de metodos
-            Interseguros_Metodos a = new Interseguros_Metodos();
+            Metodos a = new Metodos();
             Interseguros_MenuOperaciones m = new Interseguros_MenuOperaciones();
 
-            driver = a.entrarPagina();
+            driver = a.entrarPagina(a.UrlInterseguros());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(5000);
@@ -54,7 +55,7 @@ public class INTER_CerrarSiniestro {
         }
     }
 
-    public void BuscarPoliza(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
+    public void BuscarPoliza(Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName, int numScreenShoot) throws IOException, InterruptedException{
 
         try {
 
@@ -144,7 +145,7 @@ public class INTER_CerrarSiniestro {
         }
     }
 
-    public void ResultadoBusqueda(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName,  int numScreenShoot2) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName,  int numScreenShoot2) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -166,7 +167,7 @@ public class INTER_CerrarSiniestro {
         }
     }
 
-    public void CerrarSiniestro(Interseguros_Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{
+    public void CerrarSiniestro(Metodos a, INTER_CerrarSiniestroBean inter_cerrarSiniestroBean, int i, String folderName, int numScreenShoot3, int numScreenShoot4) throws IOException, InterruptedException{
         try{
 
             Thread.sleep(2000);

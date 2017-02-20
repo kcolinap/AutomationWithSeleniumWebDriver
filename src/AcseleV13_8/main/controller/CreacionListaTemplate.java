@@ -6,7 +6,6 @@ import AcseleV13_8.main.controller.Menu.MenuMantenimiento;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import sun.font.TextRecord;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class CreacionListaTemplate {
     public void testLink (CreacionListaTemplateBean creacionListaTemplateBean, int i )  throws IOException, InterruptedException {
 
         //Metodos a = new Metodos();
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuConfiguracion m = new MenuConfiguracion();
         MenuMantenimiento menuMantenimiento = new MenuMantenimiento();
 
@@ -58,7 +57,7 @@ public class CreacionListaTemplate {
 
     }
 
-   public void CrearNuevaLista (WebDriver driver, Metodos a, CreacionListaTemplateBean creacionListaTemplateBean, int i) throws IOException, InterruptedException{
+   public void CrearNuevaLista (WebDriver driver, Metodos13_8 a, CreacionListaTemplateBean creacionListaTemplateBean, int i) throws IOException, InterruptedException{
 
         try{
             Actions action = new Actions(driver);
@@ -194,7 +193,7 @@ public class CreacionListaTemplate {
         }
     }
 
-    public void ListasRestrictivasCreacion (WebDriver driver, Metodos a, CreacionListaTemplateBean creacionListaTemplateBean, int i) throws IOException, InterruptedException{
+    public void ListasRestrictivasCreacion (WebDriver driver, Metodos13_8 a, CreacionListaTemplateBean creacionListaTemplateBean, int i) throws IOException, InterruptedException{
 
         try {
 

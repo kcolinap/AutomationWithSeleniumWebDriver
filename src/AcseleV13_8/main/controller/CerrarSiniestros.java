@@ -9,8 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * Created by aazuaje on 13/09/2016.
@@ -24,7 +22,7 @@ public class CerrarSiniestros {
     public void testLink(CerrarSiniestrosBean cerrarSiniestrosBean,int i) throws IOException, InterruptedException {
 
         //implementando clase de metodos
-        Metodos a = new Metodos();
+        Metodos13_8 a = new Metodos13_8();
         MenuOperaciones m = new MenuOperaciones();
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i);
@@ -44,7 +42,7 @@ public class CerrarSiniestros {
     }
 
 
-    public void BuscarPoliza(WebDriver driver, Metodos a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void BuscarPoliza(WebDriver driver, Metodos13_8 a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try {
 
@@ -135,7 +133,7 @@ public class CerrarSiniestros {
         }
     }
 
-    public void ResultadoBusqueda(WebDriver driver,Metodos a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void ResultadoBusqueda(WebDriver driver,Metodos13_8 a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(1000);
@@ -158,7 +156,7 @@ public class CerrarSiniestros {
         }
     }
 
-    public void CerrarSiniestro (WebDriver driver,Metodos a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
+    public void CerrarSiniestro (WebDriver driver,Metodos13_8 a, CerrarSiniestrosBean cerrarSiniestrosBean, int i) throws IOException, InterruptedException{
 
         try{
             Thread.sleep(2000);

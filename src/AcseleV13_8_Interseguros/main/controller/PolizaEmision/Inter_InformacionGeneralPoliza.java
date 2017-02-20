@@ -1,7 +1,7 @@
 package AcseleV13_8_Interseguros.main.controller.PolizaEmision;
 
 import AcseleV13_8_Interseguros.beans.Inter_PolizaBean;
-import AcseleV13_8_Interseguros.main.controller.Interseguros_Metodos;
+import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,8 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 /**
  * Created by agil on 23/11/2016.
@@ -20,7 +18,7 @@ public class Inter_InformacionGeneralPoliza {
 
     private final static Logger log = Logger.getLogger(Inter_InformacionGeneralPoliza.class);
 
-    public void InformacionGeneralInteligo(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot){
+    public void InformacionGeneralInteligo(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -193,7 +191,7 @@ public class Inter_InformacionGeneralPoliza {
         }
     }
 
-    public void InformacionGeneralDotalSimple(Interseguros_Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+    public void InformacionGeneralDotalSimple(Metodos a, WebDriver driver, Inter_PolizaBean interPolizaBean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

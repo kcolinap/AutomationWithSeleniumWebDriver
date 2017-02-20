@@ -21,7 +21,7 @@ public class EstadoCuentas {
 
     public void testLink(EstadoCuentasBean estadoCuentasBean, int i)throws Exception {
 
-        Metodos a= new Metodos();   //implementando metodos.
+        Metodos13_8 a= new Metodos13_8();   //implementando metodos.
         WebDriver driver = a.entrarPagina();
         a.IniciarSesion(driver, nombreAutomatizacion, i); //iniciando sesion.
         a.ValidandoSesion(driver, nombreAutomatizacion, i); //validando sesion.
@@ -38,7 +38,7 @@ public class EstadoCuentas {
         EdoCuentas(a, driver, estadoCuentasBean);
     }
 
-    public void EdoCuentas(Metodos a, WebDriver driver, EstadoCuentasBean estadoCuentasBean) throws InterruptedException, IOException {
+    public void EdoCuentas(Metodos13_8 a, WebDriver driver, EstadoCuentasBean estadoCuentasBean) throws InterruptedException, IOException {
 
         Thread.sleep(3000);
 

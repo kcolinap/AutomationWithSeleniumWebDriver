@@ -27,7 +27,7 @@ public class ConsultaPolizaAvanzada {
     public void testLink(ConsultaPolizaAvanzadaBean consultaPolizaAvanzadaBean, int i)throws Exception {
 
         // Instanciando Clases
-        Metodos a= new Metodos();
+        Metodos13_8 a= new Metodos13_8();
         MenuOperaciones menuOperaciones = new MenuOperaciones();
 
 
@@ -44,7 +44,7 @@ public class ConsultaPolizaAvanzada {
         BuscarPolizaSimple(a, driver, consultaPolizaAvanzadaBean, i);
     }
 
-    public void BuscarPolizaSimple(Metodos a, WebDriver driver, ConsultaPolizaAvanzadaBean consultaPolizaAvanzadaBean, int i) throws InterruptedException, IOException {
+    public void BuscarPolizaSimple(Metodos13_8 a, WebDriver driver, ConsultaPolizaAvanzadaBean consultaPolizaAvanzadaBean, int i) throws InterruptedException, IOException {
 
         //TipoElemento[@wicketpath='WicketpathElemento']
 
