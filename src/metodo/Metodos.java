@@ -117,8 +117,14 @@ public class Metodos {
             }
         }
         else if (oS.equals("Linux")){
-            //System.out.println("Linux");
-            rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";//\\ScrenShots\\Interseguros\\";
+            if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlAsesuisa().substring(0, 20))) {
+                //System.out.println("Linux");
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Asesuisa//";
+            }
+            else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlInterseguros().substring(0, 20))) {
+                //System.out.println("Linux");
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
+            }
         }
 
         //String rutaScreen = "C:\\ScrenShots\\Interseguros\\";
@@ -126,6 +132,7 @@ public class Metodos {
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + folderName + "\\"/* + i + "\\" */+ titulo + ".png"));
         System.out.println("tomando screenshot "+titulo);
+        Thread.sleep(1000);
     }
 
     public void ValidandoSesion(WebDriver getDriver, String nombrePrueba, int i, String folderName) throws InterruptedException, IOException {
