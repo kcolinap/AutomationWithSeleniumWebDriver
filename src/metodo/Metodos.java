@@ -107,8 +107,14 @@ public class Metodos {
         String oS = System.getProperty("os.name");
         //System.out.println(oS);
         if (oS.equals("Windows 7")){
-            //System.out.println("Windows 7");
-            rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+            if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlAsesuisa().substring(0, 20))) {
+                //System.out.println("Windows 7");
+                rutaScreen = "C:\\ScrenShots\\Asesuisa\\";
+            }
+            else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlInterseguros().substring(0, 20))) {
+                //System.out.println("Windows 7");
+                rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+            }
         }
         else if (oS.equals("Linux")){
             //System.out.println("Linux");
