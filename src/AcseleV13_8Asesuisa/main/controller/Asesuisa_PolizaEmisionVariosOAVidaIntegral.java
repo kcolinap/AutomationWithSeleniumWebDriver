@@ -14,7 +14,7 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
 
     private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAVidaIntegral.class);
 
-    public String nombreAutomatizacion = "Inter Poliza Emision Varios OA";
+    public String nombreAutomatizacion = "Asesuisa Poliza Emision Varios OA";
     private WebDriver driver;
 
     public void testLink(Asesuisa_PolizaEmisionVariosOAVidaIntegralBean bean, int i, String folderName){
