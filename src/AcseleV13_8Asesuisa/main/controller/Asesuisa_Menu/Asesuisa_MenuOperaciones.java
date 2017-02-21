@@ -33,52 +33,29 @@ public class Asesuisa_MenuOperaciones {
 
     public void OpePol_CrearWController(){}
 
-    public void OpePol_Crear(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
-
-        try {
-            Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]")); // Operación
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Cotización - Suscripción - Edición
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[2]")); // Crear (FrontEnd)
-            menu1.click();
-            menu2.click();
-            Thread.sleep(1000);
-            action.moveToElement(menu3).build().perform();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-            menu3.click();
-        }catch (Exception e){
-            e.printStackTrace();
-//             log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-    }
-
     public void OpePol_CrearCotizacion(){}
 
     public void OpePol_BusquedaCotizaciones(){}
 
     public void OpePol_SuscripcionMantenimientoPolizasWController(){}
 
-    public void OpePol_CotizacionSuscripcionMantenimientoPolizas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot){
+    public void OpePol_CotizacionSuscripcionEdicionCrearFrontEnd(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
         try{
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]"));// Operacion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operaciones polizas
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[6]"));// Cotización-Suscripción-Mantenimiento de Pólizas
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Cotización - Suscripción - Edición
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]"));// Crear (FrontEnd)
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
-            a.ScreenShot(driver, "screen" + numScreenShoot, nombreAutomatizacion); //screenshot2
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
             menu3.click();
 
         }catch (Exception e) {
             e.printStackTrace();
-            //                log.info(e);
-            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 

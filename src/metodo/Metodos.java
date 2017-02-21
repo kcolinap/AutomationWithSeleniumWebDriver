@@ -37,12 +37,12 @@ public class Metodos {
 
     public String UrlInterseguros(){
 
-        return "http://srvsonar:7020/WController";
+        return "http://srvsonar:7020/WController/";
     }
 
     public String UrlAsesuisa(){
 
-        return "http://srvsonar:7044/WController";
+        return "http://srvsonar:7044/WController/";
     }
 
     public WebDriver entrarPagina(String url){
@@ -66,9 +66,6 @@ public class Metodos {
         //options.addArguments("user-data-dir=" + profilePath);
 
         WebDriver driver = new ChromeDriver(options);
-
-//        WebDriver driver = new FirefoxDriver();
-//        driver.get("http://qa19:7001/WController"); // lineas para usar el driver de firefox
 
         // Ruta a ingresar
 
@@ -165,17 +162,17 @@ public class Metodos {
         password2.sendKeys("consis");
 
 
+        if (getDriver.getCurrentUrl().equals(UrlInterseguros())){
+            instance2.selectByVisibleText("INTERSEGURO");
+            language2.selectByValue("es");
+        }
+        else if (getDriver.getCurrentUrl().equals(UrlAsesuisa())){
+            instance2.selectByVisibleText("ASESUISA");
+            language2.selectByValue("es");
+        }
 
-        instance2.selectByVisibleText("INTERSEGURO");
-        language2.selectByValue("es");
-        //Screenshot
-        //ScreenShot(getDriver, "screen1", nombrePrueba);
         ScreenShotPool(getDriver, i, "screen1", nombrePrueba, folderName);
-        /*TakesScreenshot ts = (TakesScreenshot)getDriver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        String rutaScreen = "C:\\ScrenShots\\";//"./Screenshot/";
-        FileUtils.copyFile(source, new File(rutaScreen + "screen1.png"));
-        System.out.println("Screenshot1");*/
+
         button_sumit2.click();
     }
 
