@@ -1,4 +1,4 @@
-package AcseleV13_8Asesuisa.main.controller.polizaEmision;
+package AcseleV13_8Asesuisa.main.controller.Asesuisa_Terceros;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizasBean;
 import metodo.Metodos;

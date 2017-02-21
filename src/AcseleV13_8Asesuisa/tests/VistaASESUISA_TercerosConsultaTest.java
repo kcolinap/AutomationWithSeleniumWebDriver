@@ -35,9 +35,6 @@ public class VistaASESUISA_TercerosConsultaTest {
             Metodos asesuisaMetodos = new Metodos();
             String horaC = asesuisaMetodos.horaCarpeta();
 
-            try{
-                a.testLink
-            }
         }
     }
 }

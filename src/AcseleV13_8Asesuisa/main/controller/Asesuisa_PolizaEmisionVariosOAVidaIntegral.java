@@ -2,7 +2,7 @@ package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_PrePoliza;
+import AcseleV13_8Asesuisa.main.controller.Asesuisa_Terceros.Asesuisa_PrePoliza;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
