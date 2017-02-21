@@ -1,7 +1,6 @@
 package AcseleV13_8Asesuisa.beans;
 
 import org.apache.log4j.Logger;
-import org.eclipse.jetty.util.log.Log;
 import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
@@ -10,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import AcseleV13_8Asesuisa.beans.Terceros.ASESUISA_TercerosBean;
 
 /**
  * Created by kcolina on 21/02/2017.
