@@ -27,13 +27,13 @@ public class Asesuisa_BuscarTerceros {
 
         try{
 
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             JavascriptExecutor jse = (JavascriptExecutor)driver;
             WebElement etiqueta;
 
             //Tipo tercero
             if (asesuisaTercerosBean.getTipoTercero() != null) {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
                 tipoT.selectByValue(asesuisaTercerosBean.getTipoTercero());
                 Thread.sleep(1000);
