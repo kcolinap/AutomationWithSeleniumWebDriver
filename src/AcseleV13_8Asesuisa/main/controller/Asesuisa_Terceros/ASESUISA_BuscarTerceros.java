@@ -1,6 +1,6 @@
 package AcseleV13_8Asesuisa.main.controller.Asesuisa_Terceros;
 
-import AcseleV13_8Asesuisa.beans.ASESUISA_TercerosBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_TercerosBean;
 import metodo.Metodos;
 
 import org.apache.log4j.Logger;
@@ -17,11 +17,11 @@ import java.lang.String;
 /**
  * Created by kcolina on 21/02/2017.
  */
-public class ASESUISA_BuscarTerceros {
+public class Asesuisa_BuscarTerceros {
 
-    private final static Logger log = Logger.getLogger(ASESUISA_BuscarTerceros.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_BuscarTerceros.class);
 
-    public void BusquedaT(WebDriver driver, Metodos a, ASESUISA_TercerosBean asesuisaTercerosBean, String nombreAutomatizacion,
+    public void BusquedaT(WebDriver driver, Metodos a, Asesuisa_TercerosBean asesuisaTercerosBean, String nombreAutomatizacion,
                           int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3,
                           int numScreenShoot4){
 

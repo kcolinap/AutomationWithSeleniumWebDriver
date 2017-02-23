@@ -1,6 +1,6 @@
 package AcseleV13_8Asesuisa.tests;
 
-import AcseleV13_8Asesuisa.beans.ASESUISA_TercerosConsultaBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_TercerosConsultaBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_TercerosConsulta;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
@@ -24,13 +24,13 @@ public class VistaAsesuisa_TercerosConsultaTest {
         ArrayList asesuisaTercerosConsulta = null;
 
         try{
-            asesuisaTercerosConsulta = ASESUISA_TercerosConsultaBean.getTecerosConsultaBean();
+            asesuisaTercerosConsulta = Asesuisa_TercerosConsultaBean.getTecerosConsultaBean();
         }catch (SQLException e){
             Log.error(e);
         }
 
         for (int j=0; j<asesuisaTercerosConsulta.size(); j++){
-            ASESUISA_TercerosConsultaBean asesuisaTercerosConsultaBean = (ASESUISA_TercerosConsultaBean)asesuisaTercerosConsulta.get(j);
+            Asesuisa_TercerosConsultaBean asesuisaTercerosConsultaBean = (Asesuisa_TercerosConsultaBean)asesuisaTercerosConsulta.get(j);
             Asesuisa_TercerosConsulta a = new Asesuisa_TercerosConsulta();
             Metodos asesuisaMetodos = new Metodos();
             String horaC = asesuisaMetodos.horaCarpeta();

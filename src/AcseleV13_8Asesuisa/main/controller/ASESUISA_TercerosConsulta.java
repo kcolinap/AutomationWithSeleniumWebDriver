@@ -1,7 +1,7 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.ASESUISA_TercerosConsultaBean;
-import AcseleV13_8Asesuisa.main.controller.Asesuisa_Terceros.ASESUISA_BuscarTerceros;
+import AcseleV13_8Asesuisa.beans.Asesuisa_TercerosConsultaBean;
+import AcseleV13_8Asesuisa.main.controller.Asesuisa_Terceros.Asesuisa_BuscarTerceros;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuMantenimiento;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
@@ -16,20 +16,20 @@ import java.awt.*;
 /**
  * Created by kcolina on 21/02/2017.
  */
-public class Asesuisa_TercerosConsulta extends ASESUISA_BuscarTerceros {
+public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
 
     private final static Logger log = Logger.getLogger(Asesuisa_TercerosConsulta.class);
 
     public String nombreAutomatizacion = "Consulta de terceros";
     private WebDriver driver;
 
-    public void testLink(ASESUISA_TercerosConsultaBean asesuisaTercerosConsultaBean, int i, String folderName){
+    public void testLink(Asesuisa_TercerosConsultaBean asesuisaTercerosConsultaBean, int i, String folderName){
 
         try{
 
             Metodos m = new Metodos();
             Asesuisa_MenuMantenimiento asesuisaMenuMantenimiento = new Asesuisa_MenuMantenimiento();
-            ASESUISA_BuscarTerceros asesuisaBuscarTerceros = new ASESUISA_BuscarTerceros();
+            Asesuisa_BuscarTerceros asesuisaBuscarTerceros = new Asesuisa_BuscarTerceros();
 
             driver = m.entrarPagina(m.UrlAsesuisa());
             m.IniciarSesion(driver, nombreAutomatizacion,i,folderName);

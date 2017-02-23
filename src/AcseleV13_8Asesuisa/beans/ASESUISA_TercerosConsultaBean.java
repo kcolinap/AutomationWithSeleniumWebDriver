@@ -13,9 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by kcolina on 21/02/2017.
  */
-public class ASESUISA_TercerosConsultaBean extends ASESUISA_TercerosBean implements Serializable {
+public class Asesuisa_TercerosConsultaBean extends Asesuisa_TercerosBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(ASESUISA_TercerosConsultaBean.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_TercerosConsultaBean.class);
 
     public static ArrayList getTecerosConsultaBean() throws SQLException{
 
@@ -34,7 +34,7 @@ public class ASESUISA_TercerosConsultaBean extends ASESUISA_TercerosBean impleme
 
             while (rs.next()){
 
-                ASESUISA_TercerosConsultaBean asesuisaTercerosConsultaBean = new ASESUISA_TercerosConsultaBean();
+                Asesuisa_TercerosConsultaBean asesuisaTercerosConsultaBean = new Asesuisa_TercerosConsultaBean();
 
                 asesuisaTercerosConsultaBean.setTipoTercero(rs.getString("tipoTercero"));
                 asesuisaTercerosConsultaBean.setAseguradoAp(rs.getString("aseguradoAp"));

@@ -5,9 +5,9 @@ import org.apache.log4j.Logger;
 /**
  * Created by kcolina on 20/02/2017.
  */
-public class ASESUISA_TercerosBean {
+public class Asesuisa_TercerosBean {
 
-    private final static Logger log = Logger.getLogger(ASESUISA_TercerosBean.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_TercerosBean.class);
 
     private String tipoTercero;
     private String aseguradoAp;
