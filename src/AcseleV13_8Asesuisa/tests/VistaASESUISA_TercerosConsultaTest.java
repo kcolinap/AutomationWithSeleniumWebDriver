@@ -1,7 +1,7 @@
 package AcseleV13_8Asesuisa.tests;
 
 import AcseleV13_8Asesuisa.beans.ASESUISA_TercerosConsultaBean;
-import AcseleV13_8Asesuisa.main.controller.ASESUISA_TercerosConsulta;
+import AcseleV13_8Asesuisa.main.controller.Asesuisa_TercerosConsulta;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 /**
  * Created by kcolina on 21/02/2017.
  */
-public class VistaASESUISA_TercerosConsultaTest {
+public class VistaAsesuisa_TercerosConsultaTest {
 
-    private final static Logger Log = Logger.getLogger(VistaASESUISA_TercerosConsultaTest.class);
+    private final static Logger Log = Logger.getLogger(VistaAsesuisa_TercerosConsultaTest.class);
 
     @Test
     public void mainTest() throws SQLException{
@@ -31,10 +31,38 @@ public class VistaASESUISA_TercerosConsultaTest {
 
         for (int j=0; j<asesuisaTercerosConsulta.size(); j++){
             ASESUISA_TercerosConsultaBean asesuisaTercerosConsultaBean = (ASESUISA_TercerosConsultaBean)asesuisaTercerosConsulta.get(j);
-            ASESUISA_TercerosConsulta a = new ASESUISA_TercerosConsulta();
+            Asesuisa_TercerosConsulta a = new Asesuisa_TercerosConsulta();
             Metodos asesuisaMetodos = new Metodos();
             String horaC = asesuisaMetodos.horaCarpeta();
 
+            try{
+                a.testLink(asesuisaTercerosConsultaBean, j, horaC);
+            }catch (Exception e){
+                e.printStackTrace();
+                Log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
+            }
         }
+    }
+    @Before
+    public void setUp() throws Exception {
+/*
+
+        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_TERCEROS_CONSULTA ORDER BY PRUEBA ASC",
+                "ASESUISA_TERCEROS_CONSULTA",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml");
+
+        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_TERCEROS_CONSULTA ORDER BY PRUEBA ASC",
+                "ASESUISA_TERCEROS_CONSULTA",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml");
+*/
+
+
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml", DataSetManager.REFRESH_OPERATION);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml", DataSetManager.DELETE_OPERATION);
     }
 }

@@ -1,4 +1,4 @@
-package AcseleV13_8Asesuisa.main.controller.Asesuisa_Terceros;
+package AcseleV13_8Asesuisa.main.controller.polizaEmision;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizasBean;
 import metodo.Metodos;
@@ -20,6 +20,7 @@ public class Asesuisa_PrePoliza {
     public void AdministracionPropuestaPoliza(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
 
         try {
+
             Select productoSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_productsComboBox']")));
             productoSelect.selectByValue(bean.getProducto());
             Thread.sleep(2000);
@@ -36,9 +37,12 @@ public class Asesuisa_PrePoliza {
             fechaDes.sendKeys(bean.getFechaDesde());
             Thread.sleep(2000);
 
+            WebElement fechaHas = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_finalDate']"));
             if (bean.getFechaHasta() != null) {
-                WebElement fechaHas = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_finalDate']"));
                 fechaHas.sendKeys(bean.getFechaHasta());
+            }
+            else{
+                fechaHas.click();
             }
 
             Thread.sleep(2000);
