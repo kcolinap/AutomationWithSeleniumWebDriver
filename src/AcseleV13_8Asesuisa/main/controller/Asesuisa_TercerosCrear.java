@@ -44,6 +44,7 @@ public class Asesuisa_TercerosCrear {
 
             //validacion de tercero
             asesuisaCrearTerceros.ValidarCreacionTercero(driver,nombreAutomatizacion);
+            Thread.sleep(1000);
 
             driver.quit();
 

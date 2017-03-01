@@ -74,13 +74,13 @@ public class Asesuisa_CrearTerceros {
 
             //Primer apellido
             if(asesuisaTercerosBean.getPrimerApellido() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_2_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel2_2_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement primerApellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_2_fila_field']"));
+                WebElement primerApellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel2_2_fila_field']"));
                 primerApellido.clear();
                 Thread.sleep(600);
-                primerApellido = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_2_fila_field']"));
+                primerApellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel2_2_fila_field']"));
                 primerApellido.click();
                 Thread.sleep(600);
                 primerApellido.sendKeys(asesuisaTercerosBean.getPrimerApellido());
@@ -143,13 +143,13 @@ public class Asesuisa_CrearTerceros {
 
             //Fecha nacimiento
             if(asesuisaTercerosBean.getFechaNacimiento() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_4_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel2_4_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement fechaNacimiento = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_4_fila_fieldDate']"));
+                WebElement fechaNacimiento = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel2_4_fila_fieldDate']"));
                 fechaNacimiento.clear();
                 Thread.sleep(600);
-                fechaNacimiento = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_4_fila_fieldDate']"));
+                fechaNacimiento = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_DataTemplate_repeaterPanel2_4_fila_fieldDate']"));
                 fechaNacimiento.click();
                 Thread.sleep(600);
                 fechaNacimiento.sendKeys(asesuisaTercerosBean.getFechaNacimiento());
@@ -549,6 +549,13 @@ public class Asesuisa_CrearTerceros {
             WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_saveButton']"));
             Thread.sleep(1000);
             btnGuardar.click();
+            m.waitSearchWicket(driver, "Guardando, espere");
+
+            Thread.sleep(1000);
+            btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_formThirdBasic_saveButton']"));
+            Thread.sleep(3000);
+            btnGuardar.click();
+            m.waitSearchWicket(driver,"Guardando, espere");
 
         }catch (Exception e){
             e.printStackTrace();
