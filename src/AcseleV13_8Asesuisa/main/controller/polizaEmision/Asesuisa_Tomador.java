@@ -22,12 +22,14 @@ public class Asesuisa_Tomador {
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
             JavascriptExecutor jse = (JavascriptExecutor)driver;
-            jse.executeScript("window.scrollBy(0,800)", "");
+            //jse.executeScript("window.scrollBy(0,500)", "");
 
             if (bean.getTomador1Nombre1() != null || bean.getTomador1Nombre2() != null || bean.getTomador1Apellido1() != null || bean.getTomador1Apellido2() != null) {
 
-                WebElement tomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
                 Thread.sleep(1500);
+                WebElement tomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
+                tomador.click();
+                Thread.sleep(500);
                 tomador.click();
                 tomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
 
@@ -85,6 +87,39 @@ public class Asesuisa_Tomador {
             Toolkit.getDefaultToolkit().beep();
 
         }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            /*e.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            sw.toString(); // stack trace as a string
+            //log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+            log.info("Test Case - " + nombreAutomatizacion + " - " + sw.toString());*/
+        }
+    }
+
+    public void AgregarTomadorBusquedaAvanzada(Metodos a, WebDriver driver, Asesuisa_PolizaEmisionVariosOAVidaIntegralBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+
+        try { //TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+            //jse.executeScript("window.scrollBy(0,500)", "");
+
+            WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
+            btnBusquedaAvanzada.click();
+
+            WebElement primerNombre = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel2_1_fila_field']"));
+            WebElement segundoNombre = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+            WebElement primerApellido = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel2_2_fila_field']"));
+            WebElement segundoApellido = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel1_3_fila_field']"));
+
+            Thread.sleep(2000);
+
+
+
+
+        } catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             /*e.printStackTrace();
