@@ -46,25 +46,97 @@ public class Asesuisa_TercerosEditarNombreApellido extends Asesuisa_BuscarTercer
             Thread.sleep(600);
 
             //Lamada al metodo editar tercero
-            EditarT(driver, asesuisaTercerosEditarNombreApellidoBean, i,folderName,7,8,9);
+            EditarT(driver, asesuisaTercerosEditarNombreApellidoBean, i,m,folderName,7,8,9,10);
             Thread.sleep(1000);
 
             //Salimos
             driver.quit();
         }catch (Exception e){
-
+            e.printStackTrace();
+            Log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if(driver != null){
+                driver.quit();
+            }
         }
     }
 
     public void EditarT(WebDriver driver, Asesuisa_TercerosEditarNombreApellidoBean asesuisaTercerosEditarNombreApellidoBean,
-                        int i, String folderName, int numscreen, int numScreen2, int numScreen3){
+                        int i, Metodos m, String folderName, int numScreen, int numScreen2, int numScreen3, int numScreen4){
 
         try{
             JavascriptExecutor jse = (JavascriptExecutor) driver;
+            WebElement etiqueta;
 
             //Boton editar
             WebElement btnEditar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
             btnEditar.click();
+            Thread.sleep(2000);
+
+            //Capturo el nombre nuevo
+            if (asesuisaTercerosEditarNombreApellidoBean.getPrimerNombre()!=null){
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_1_fila_etiqueta']"));
+                etiqueta.click();
+                WebElement primerNombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_1_fila_field']"));
+                primerNombre.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                Thread.sleep(600);
+                primerNombre = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_1_fila_field']"));
+                primerNombre.sendKeys(asesuisaTercerosEditarNombreApellidoBean.getNombreNuevo());
+                Thread.sleep(1000);
+            }
+
+            WebElement primerApellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_2_fila_field']"));
+            primerApellido.click();
+            Thread.sleep(300);
+
+            //Capturo el apellido nuevo
+            if (asesuisaTercerosEditarNombreApellidoBean.getPrimerApellido()!=null){
+                primerApellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_2_fila_field']"));
+                primerApellido.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                primerApellido = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_2_fila_field']"));
+                primerApellido.click();
+                Thread.sleep(300);
+                primerApellido.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                Thread.sleep(300);
+                primerApellido.sendKeys(asesuisaTercerosEditarNombreApellidoBean.getApellidoNuevo());
+                Thread.sleep(1000);
+            }
+
+            jse.executeScript("window.scrollBy(0,-5000)", "");
+            Thread.sleep(2000);
+            m.ScreenShotPool(driver, i, "screen" + numScreen, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            jse.executeScript("window.scrollBy(0,400)", "");
+            Thread.sleep(2000);
+            m.ScreenShotPool(driver, i, "screen" + numScreen2, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            jse.executeScript("window.scrollBy(0,500)", "");
+            Thread.sleep(2000);
+            m.ScreenShotPool(driver, i, "screen" + numScreen3, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            //Guardando los cambios
+            //Boton guardar
+            Thread.sleep(2000);
+            WebElement guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']"));
+            guardar.click();
+            Thread.sleep(2000);
+            guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']"));
+            guardar.click();
+            Thread.sleep(4000);
+
+            //Volver a la busqueda
+            WebElement volver = driver.findElement(By.xpath("//span[@wicketpath='ThirdInformationContent_panelInformationAndReturnPage_form_editValidity_editValidityLabel']"));
+            volver.click();
+            Thread.sleep(2000);
+
+            jse.executeScript("window.scrollBy(0,1900)", "");
+            Thread.sleep(800);
+
+            //ScreenShot
+            m.ScreenShotPool(driver, i, "screen" + numScreen4, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
 
 
         }catch (Exception e){

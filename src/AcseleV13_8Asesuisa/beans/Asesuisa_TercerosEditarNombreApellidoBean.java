@@ -44,7 +44,7 @@ public class Asesuisa_TercerosEditarNombreApellidoBean extends Asesuisa_Terceros
         ArrayList asesuisaTercerosEditarNombreApellido = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASESUISA_TER_EDIT_NOM_APE ORDER BY Prueba ASC");
+        queryLoad.append("SELECT * FROM asesuisa_terceros_edit_nomape ORDER BY Prueba ASC");
 
         try{
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -56,7 +56,7 @@ public class Asesuisa_TercerosEditarNombreApellidoBean extends Asesuisa_Terceros
 
                 asesuisaTercerosEditarNombreApellidoBean.setTipoTercero(rs.getString("TIPOTERCERO"));
                 asesuisaTercerosEditarNombreApellidoBean.setPrimerNombre(rs.getString("PRIMERNOMBRE"));
-                asesuisaTercerosEditarNombreApellidoBean.setPrimerApellido("PRIMERAPELLIDO");
+                asesuisaTercerosEditarNombreApellidoBean.setPrimerApellido(rs.getString("PRIMERAPELLIDO"));
                 asesuisaTercerosEditarNombreApellidoBean.setNombreNuevo(rs.getString("NOMBRENUEVO"));
                 asesuisaTercerosEditarNombreApellidoBean.setApellidoNuevo(rs.getString("APELLIDONUEVO"));
 
