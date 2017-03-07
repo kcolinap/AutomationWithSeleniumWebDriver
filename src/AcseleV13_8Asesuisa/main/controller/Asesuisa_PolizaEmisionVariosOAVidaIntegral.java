@@ -2,10 +2,10 @@ package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_InformacionGeneralPoliza;
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_PrePoliza;
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_Tomador;
+import AcseleV13_8Asesuisa.main.controller.polizaEmision.*;
 
 import metodo.Metodos;
 import org.apache.log4j.Logger;
@@ -31,16 +31,10 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             Asesuisa_PrePoliza prePoliza = new Asesuisa_PrePoliza();
             Asesuisa_InformacionGeneralPoliza informacionGeneralPoliza = new Asesuisa_InformacionGeneralPoliza();
             Asesuisa_Tomador tomador = new Asesuisa_Tomador();
+            Asesuisa_UnidadRiesgo unidadRiesgo = new Asesuisa_UnidadRiesgo();
+            Asesuisa_ObjetoAsegurado objetoAsegurado = new Asesuisa_ObjetoAsegurado();
+            Asesuisa_FinalizarPoliza finalizarPoliza = new Asesuisa_FinalizarPoliza();
 
-           /* Inter_InformacionGeneralPoliza interInformacionGeneralPoliza = new Inter_InformacionGeneralPoliza();
-            Inter_Contratante interContratante = new Inter_Contratante();
-            Inter_UnidadesRiesgo interUnidadesRiesgo = new Inter_UnidadesRiesgo();
-            Inter_ObjetosAsegurados interObjetosAsegurados = new Inter_ObjetosAsegurados();
-            Inter_Asegurado interAsegurado = new Inter_Asegurado();
-            Inter_Beneficiario interBeneficiario = new Inter_Beneficiario();
-            Inter_Calcular interCalcular = new Inter_Calcular();
-            Inter_Validar interValidar = new Inter_Validar();
-*/
             driver = a.entrarPagina(a.UrlAsesuisa());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
@@ -64,49 +58,21 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             informacionGeneralPoliza.InformacionGeneralVidaIntegral(a, driver, bean, nombreAutomatizacion, i, folderName, 4, 5, 6);
             Thread.sleep(2000);
             tomador.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 7, 8);
-/*            if (interPolizaEmisionVariosOABean.getProducto().equals("Inteligo")) {
-                interInformacionGeneralPoliza.InformacionGeneralInteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 5);
-                Thread.sleep(2000);
-                interContratante.AgregarContratante(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 6, 7);
-                Thread.sleep(2000);
-                interUnidadesRiesgo.UnidadesRiesgo1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 8);
-                Thread.sleep(2000);
-                interObjetosAsegurados.ObjetoAsegurado1_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 9);
-                Thread.sleep(2000);
-                interAsegurado.AgregarAsegurado1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 10, 11);
-                Thread.sleep(2000);
-                interBeneficiario.AgregarBeneficiario1(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 12, 13);
-                Thread.sleep(2000);
-                interObjetosAsegurados.ObjetoAsegurado2_Inteligo(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 14);
-                Thread.sleep(2000);
-                interAsegurado.AgregarAsegurado2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName,15, 16);
-                Thread.sleep(2000);
-                interBeneficiario.AgregarBeneficiario2(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 17, 18);
-                Thread.sleep(2000);
-                interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 19, 20);
-                Thread.sleep(2000);
-                interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
-            }
-            else if (interPolizaEmisionVariosOABean.getProducto().equals("DotalSimple")){
-                interInformacionGeneralPoliza.InformacionGeneralDotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 5, 6, 7);
-                Thread.sleep(2000);
-                interContratante.AgregarContratante(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 8, 9);
-                Thread.sleep(2000);
-                interUnidadesRiesgo.UnidadesRiesgo1DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 10);
-                Thread.sleep(2000);
-                interObjetosAsegurados.ObjetoAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 11, 12, 13);
-                Thread.sleep(2000);
-                interAsegurado.AgregarAsegurado1_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 14);
-                Thread.sleep(2000);
-                interObjetosAsegurados.ObjetoAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 16, 17, 18, 19);
-                Thread.sleep(2000);
-                interAsegurado.AgregarAsegurado2_DotalSimple(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 20, 21);
-                Thread.sleep(2000);
-                interCalcular.Calcular(a, driver, interPolizaEmisionVariosOABean, nombreAutomatizacion, i, folderName, 22, 23);
-                Thread.sleep(2000);
-                interValidar.ValidarEmisionPoliza(driver, nombreAutomatizacion);
-            }
-*/
+            Thread.sleep(2000);
+            unidadRiesgo.UnidadesRiesgo1(a, driver, bean, nombreAutomatizacion, i, folderName, 9);
+            Thread.sleep(2000);
+            objetoAsegurado.ObjetoAsegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 10);
+            Thread.sleep(2000);
+            objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12);
+            Thread.sleep(2000);
+            objetoAsegurado.Requisitos1(a, driver, bean, nombreAutomatizacion, i, folderName, 13);
+            Thread.sleep(2000);
+            objetoAsegurado.ObjetoAsegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 14);
+            Thread.sleep(2000);
+            objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 15, 16);
+            Thread.sleep(2000);
+            objetoAsegurado.Requisitos2(a, driver, bean, nombreAutomatizacion, i, folderName, 17);
+
             //driver.quit();
 
         } catch (Exception e) {
