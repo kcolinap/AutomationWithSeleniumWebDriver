@@ -275,9 +275,9 @@ public class Asesuisa_InformacionGeneralPoliza {
             a.waitSearchWicket(driver, "Espere Informacion General Poliza");
             Thread.sleep(1000);
 
-            btnGuardarInfGeneral.click();
-            a.waitSearchWicket(driver, "Espere Informacion General Poliza");
-            Thread.sleep(1000);
+            //btnGuardarInfGeneral.click();
+            //a.waitSearchWicket(driver, "Espere Informacion General Poliza");
+            Thread.sleep(10000);
 
         }catch (Exception e){
             e.printStackTrace();

@@ -172,8 +172,8 @@ public class Metodos {
         System.out.println("mandando user");
 
 
-        user2.sendKeys("system");       /** Usuario  **/
-        password2.sendKeys("consis");
+        user2.sendKeys("agil");       /** Usuario  **/
+        password2.sendKeys("A123456");
 
 
         if (getDriver.getCurrentUrl().equals(UrlInterseguros())){

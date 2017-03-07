@@ -3,10 +3,7 @@ package AcseleV13_8Asesuisa.main.controller.polizaEmision;
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.awt.*;
 
@@ -45,12 +42,17 @@ public class Asesuisa_Tomador {
                 else if (bean.getTomador1Nombre1() != null && bean.getTomador1Nombre2() == null && bean.getTomador1Apellido1() != null && bean.getTomador1Apellido2() == null) {
                     tomador.sendKeys(bean.getTomador1Nombre1() + " " + bean.getTomador1Apellido1());
                 }
+                Thread.sleep(2000);
+                tomador.sendKeys(Keys.ARROW_DOWN);
+                Thread.sleep(500);
+                tomador.sendKeys(Keys.ENTER);
+
             }
 
             Thread.sleep(2000);
-            WebElement selTomador = driver.findElement(By.xpath("/html/body/div[6]/div/ul/li[1]"));
+            //WebElement selTomador = driver.findElement(By.xpath("/html/body/div[6]/div/ul/li[1]"));
             // /html/body/div[6]/div/ul/li[1]
-            selTomador.click();
+            //selTomador.click();
             Thread.sleep(2000);
 
             WebElement asociarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AssociateButton']"));
@@ -75,7 +77,7 @@ public class Asesuisa_Tomador {
             Thread.sleep(2000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
 
             WebElement btnGuardarTomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_addThird_registerFormParticipation_saveButtonParticipation']"));
             btnGuardarTomador.click();
@@ -103,10 +105,14 @@ public class Asesuisa_Tomador {
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
+            Thread.sleep(1000);
             JavascriptExecutor jse = (JavascriptExecutor)driver;
-            //jse.executeScript("window.scrollBy(0,500)", "");
+            jse.executeScript("window.scrollBy(0,500)", "");
 
+            Thread.sleep(1000);
             WebElement btnBusquedaAvanzada = driver.findElement(By.xpath("//a[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearchLink']"));
+            btnBusquedaAvanzada.click();
+            Thread.sleep(1000);
             btnBusquedaAvanzada.click();
 
             WebElement primerNombre = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_detailSearch_templateContainer_searchForm_templateThird_repeaterPanel2_1_fila_field']"));
