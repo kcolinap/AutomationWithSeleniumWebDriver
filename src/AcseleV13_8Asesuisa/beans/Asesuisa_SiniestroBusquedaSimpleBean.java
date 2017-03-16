@@ -1,6 +1,7 @@
 package AcseleV13_8Asesuisa.beans;
 
 import org.apache.log4j.Logger;
+import util.DBUnitConnectionManager;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -25,5 +26,33 @@ public class Asesuisa_SiniestroBusquedaSimpleBean extends Asesuisa_SiniestroBean
 
         StringBuilder queryLoad = new StringBuilder();
         queryLoad.append("select");
+
+        try{
+            conexion = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+            stmt = conexion.createStatement();
+            rs = stmt.executeQuery(queryLoad.toString());
+
+            while (rs.next()){
+
+                Asesuisa_SiniestroBusquedaSimpleBean asesuisaSiniestroBusquedaSimpleBean = new Asesuisa_SiniestroBusquedaSimpleBean();
+
+                asesuisaSiniestroBusquedaSimpleBean.setOrdenarPor(rs.getString("ORDENARPOR"));
+                asesuisaSiniestroBusquedaSimpleBean.setNroSiniestro(rs.getString("NUMEROSINIESTRO"));
+                asesuisaSiniestroBusquedaSimpleBean.setNroPoliza(rs.getString("NUMEROPOLIZA"));
+                asesuisaSiniestroBusquedaSimpleBean.setFechaOcurrencia(rs.getString("FECHAOCURRENCIA"));
+                asesuisaSiniestroBusquedaSimpleBean.setProducto(rs.getString("PRODUCTO"));
+
+                asesuisaSiniestroBusquedaSimple.add(asesuisaSiniestroBusquedaSimpleBean);
+            }
+
+        }catch (SQLException e){
+            log.error(e);
+        }finally {
+            if (conexion!=null){
+                conexion.close();
+            }
+        }
+
+        return asesuisaSiniestroBusquedaSimple;
     }
 }
