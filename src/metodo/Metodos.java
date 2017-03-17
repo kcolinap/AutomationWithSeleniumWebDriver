@@ -46,6 +46,11 @@ public class Metodos {
         return "http://srvsonar:7022/WController/";
     }
 
+    public String UrlRimac(){
+
+        return "http://srvscm02:9081/WController/";
+    }
+
     public WebDriver entrarPagina(String url){
 
         String oS = System.getProperty("os.name");
@@ -116,6 +121,10 @@ public class Metodos {
                 //System.out.println("Windows 7");
                 rutaScreen = "C:\\ScrenShots\\Interseguros\\";
             }
+            else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlRimac().substring(0, 20))) {
+                //System.out.println("Windows 7");
+                rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+            }
         }
         else if (oS.equals("Linux")){
             if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlAsesuisa().substring(0, 20))) {
@@ -123,6 +132,9 @@ public class Metodos {
                 rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Asesuisa//";
             }
             else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlInterseguros().substring(0, 20))) {
+                //System.out.println("Linux");
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
+            }else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlRimac().substring(0, 20))) {
                 //System.out.println("Linux");
                 rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
             }
@@ -182,6 +194,10 @@ public class Metodos {
         }
         else if (getDriver.getCurrentUrl().equals(UrlAsesuisa())){
             instance2.selectByVisibleText("ASESUISA");
+            language2.selectByValue("es");
+        }
+        else if (getDriver.getCurrentUrl().equals(UrlRimac())){
+            instance2.selectByVisibleText("RIMAC");
             language2.selectByValue("es");
         }
 
