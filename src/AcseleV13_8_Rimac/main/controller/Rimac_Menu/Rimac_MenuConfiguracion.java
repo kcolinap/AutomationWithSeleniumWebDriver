@@ -63,13 +63,18 @@ public class Rimac_MenuConfiguracion {
     }
     /** -- Mantenimiento de Producto -- **/
 
-    /** -- Nuevo Mantenimiento de Producto -- **/
+
+    /** Nuevo Mantenimiento de Producto **/
+
+
     public void NuevoMantenimientoProducto(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName) {
 
         try {
             Actions action = new Actions(driver);
+
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]")); // Configuración
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[27]/div[5]")); // Nuevo Mantenimiento de Producto
+
             Thread.sleep(1000);
 
             action.moveToElement(menu1).build().perform();
@@ -89,7 +94,6 @@ public class Rimac_MenuConfiguracion {
 
     }
     /** -- Nuevo Mantenimiento de Producto -- **/
-
 
     /** Configuracion de Eventos **/
         public void ConfigEventos_Recargos(){}

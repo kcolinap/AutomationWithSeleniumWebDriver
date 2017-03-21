@@ -188,6 +188,7 @@ public class Metodos {
         System.out.println("mandando user");
 
 
+
         user2.sendKeys(user);       /** Usuario  **/
         password2.sendKeys(pass);
 

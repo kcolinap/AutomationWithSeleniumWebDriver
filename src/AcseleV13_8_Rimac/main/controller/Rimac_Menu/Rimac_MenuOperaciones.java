@@ -37,9 +37,9 @@ public class Rimac_MenuOperaciones {
 
         try {
             Actions action = new Actions(driver);
-            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]")); // Operación
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operaciones Pólizas
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[4]/div[2]")); // Crear
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]")); // Operaciones Pólizas
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[2]")); // Crear
             action.moveToElement(menu1).build().perform();
             action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
