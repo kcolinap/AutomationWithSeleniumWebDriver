@@ -123,7 +123,7 @@ public class Metodos {
             }
             else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlRimac().substring(0, 20))) {
                 //System.out.println("Windows 7");
-                rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+                rutaScreen = "C:\\ScrenShots\\Rimac\\";
             }
         }
         else if (oS.equals("Linux")){
@@ -184,8 +184,8 @@ public class Metodos {
         System.out.println("mandando user");
 
 
-        user2.sendKeys("agil");       /** Usuario  **/
-        password2.sendKeys("A123456");
+        user2.sendKeys("kcolina");       /** Usuario  **/
+        password2.sendKeys("kcolina");
 
 
         if (getDriver.getCurrentUrl().equals(UrlInterseguros())){
@@ -198,7 +198,7 @@ public class Metodos {
         }
         else if (getDriver.getCurrentUrl().equals(UrlRimac())){
             instance2.selectByVisibleText("RIMAC");
-            language2.selectByValue("es");
+            language2.selectByValue("es_US");
         }
 
         ScreenShotPool(getDriver, i, "screen1", nombrePrueba, folderName);
