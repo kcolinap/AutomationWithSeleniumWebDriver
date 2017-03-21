@@ -6,9 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 
 /**
@@ -16,7 +18,8 @@ import java.util.*;
  */
 public class Metodos {
 
-
+    private String user = "system";
+    private String pass = "consis";
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
@@ -123,7 +126,7 @@ public class Metodos {
             }
             else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlRimac().substring(0, 20))) {
                 //System.out.println("Windows 7");
-                rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+                rutaScreen = "C:\\ScrenShots\\Rimac\\";
             }
         }
         else if (oS.equals("Linux")){
@@ -136,7 +139,7 @@ public class Metodos {
                 rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
             }else if (getDriver.getCurrentUrl().substring(0, 20).equals(UrlRimac().substring(0, 20))) {
                 //System.out.println("Linux");
-                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Rimac//";
             }
         }
 
@@ -145,6 +148,7 @@ public class Metodos {
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File(rutaScreen + nombrePrueba + "\\" + folderName + "\\"/* + i + "\\" */+ titulo + ".png"));
         System.out.println("tomando screenshot "+titulo);
+        Toolkit.getDefaultToolkit().beep();
         Thread.sleep(1000);
     }
 
@@ -184,8 +188,8 @@ public class Metodos {
         System.out.println("mandando user");
 
 
-        user2.sendKeys("agil");       /** Usuario  **/
-        password2.sendKeys("A123456");
+        user2.sendKeys(user);       /** Usuario  **/
+        password2.sendKeys(pass);
 
 
         if (getDriver.getCurrentUrl().equals(UrlInterseguros())){
@@ -198,7 +202,7 @@ public class Metodos {
         }
         else if (getDriver.getCurrentUrl().equals(UrlRimac())){
             instance2.selectByVisibleText("RIMAC");
-            language2.selectByValue("es");
+            language2.selectByValue("es_US");
         }
 
         ScreenShotPool(getDriver, i, "screen1", nombrePrueba, folderName);
