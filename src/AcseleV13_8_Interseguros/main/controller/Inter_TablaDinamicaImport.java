@@ -44,14 +44,14 @@ public class Inter_TablaDinamicaImport {
             BuscarTablaDinamica(interTablaDinamicaimportBean, i, folderName, 3);
             ImportarTablaDinamica(interTablaDinamicaimportBean, i, folderName, 4, 5);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-            /*if (driver != null){
+            if (driver != null){
                 driver.quit();
-            }*/
+            }
         }
     }
 

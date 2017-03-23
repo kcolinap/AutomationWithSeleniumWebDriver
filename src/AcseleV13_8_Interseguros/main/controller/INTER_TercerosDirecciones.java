@@ -92,7 +92,7 @@ public class INTER_TercerosDirecciones extends Inter_BuscarTerceros{
             //BusquedaT(a, interTercerosDireccionesBean, i, folderName, 10, 11);
             //BotonEditar(a, i, folderName, 12);
 
-            //driver.quit();
+            driver.quit();
 
         }catch (Exception e) {
             e.printStackTrace();

@@ -50,6 +50,9 @@ public class INTER_ValidarOpenItem {
 
             CrearPoliza(a, driver, inter_validarOpenItemBean, nombreAutomatizacion, i, folderName);
 
+            Thread.sleep(1000);
+            driver.quit();
+
         }catch (Exception e){
             e.printStackTrace();
             Log.error("Test case - " + nombreAutomatizacion + " - " + e);
