@@ -1,27 +1,23 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosURVidaIntegralBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_InformacionGeneralPoliza;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_PrePoliza;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_Tomador;
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.*;
-
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Created by agil on 21/02/2017.
+ * Created by agil on 21/03/2017.
  */
-public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
+public class Asesuisa_PolizaEmisionVariosURVidaIntegral {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAVidaIntegral.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosURVidaIntegral.class);
 
     public String nombreAutomatizacion = "Asesuisa Poliza Emision Varios OA Vida Integral";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_PolizaEmisionVariosOAVidaIntegralBean bean, int i, String folderName){
+    public void testLink(Asesuisa_PolizaEmisionVariosURVidaIntegralBean bean, int i, String folderName){
 
         try {
 
@@ -73,13 +69,13 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             Thread.sleep(2000);
             objetoAsegurado.Requisitos2(a, driver, bean, nombreAutomatizacion, i, folderName, 17);
 
-            driver.quit();
+            //driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                driver.quit();
+                //driver.quit();
             }
         }
     }

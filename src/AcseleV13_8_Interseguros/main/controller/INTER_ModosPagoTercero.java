@@ -45,10 +45,15 @@ public class INTER_ModosPagoTercero {
 
             AgregarModoDePago(a, interModosPagoTercerobean, i, folderName);
 
+            driver.quit();
+
         }catch (Exception e) {
             e.printStackTrace();
             //             log.info(e);
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+            if (driver != null){
+                driver.quit();
+            }
         }
     }
 

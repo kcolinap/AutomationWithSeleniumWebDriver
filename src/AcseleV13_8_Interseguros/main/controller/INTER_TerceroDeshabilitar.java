@@ -82,12 +82,12 @@ public class INTER_TerceroDeshabilitar {
             CrearPoliza (a, driver, inter_terceroDeshabilitarBean,i, folderName, 10, 11 );
 
 
-            //driver.quit();
+            driver.quit();
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
 

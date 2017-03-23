@@ -1,6 +1,7 @@
 package AcseleV13_8Asesuisa.main.controller.polizaEmision;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_PolizasBean;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -14,7 +15,7 @@ public class Asesuisa_Tomador {
 
     private final static Logger log = Logger.getLogger(Asesuisa_Tomador.class);
 
-    public void AgregarTomador(Metodos a, WebDriver driver, Asesuisa_PolizaEmisionVariosOAVidaIntegralBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void AgregarTomador(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

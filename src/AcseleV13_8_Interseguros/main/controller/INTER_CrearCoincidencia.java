@@ -44,12 +44,12 @@ public class INTER_CrearCoincidencia {
             a.cambiarVentana(driver);
             // Thread.sleep(1500);
 
-            //driver.quit();
+            driver.quit();
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
 
