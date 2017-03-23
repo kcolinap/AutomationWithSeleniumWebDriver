@@ -16,45 +16,43 @@ public class Asesuisa_SiniestroBean {
     private String nroPoliza;
     private String fechaOcurrencia;
     private String producto;
-    private String eventoSiniestro;
+
 
     /****************************************
      * Campos para busqueda avanzada
      ****************************************/
+
+    //Informacion de sieniestro
+    private String eventoSiniestro;
+
     //Informacion de la poliza
-    private String oficina;
+    private String sucursal;
     private String nroCotizacion;
-    private String nroPropuesta;
     private String fechaEmision;
+    private String tipoPoliza;
+    private String codigoRamo;
+    private String clasePoliza;
+    private String tipoProduccion;
+    private String primaACeder;
+    private String primaARetener;
+    private String comisonCorredor;
     private String canalVenta;
-    private String frecuenciaPago;
-    private String fechaEventoAnterior;
     private String proximaGeneracionPrima;
-    private String proximaFacturacion;
-    private String flagSuspension;
-    private String fechaSuspension;
-    private String nombreArchivoTramas;
-    private String nroPlan;
-    private String periodoDiasSuspension;
-    private String fechaInicioSuspension;
-    private String procedeSuspension;
-    private String montoPrimaArchivoTrama;
-    private String fechaEmisionAcsele;
+    private String comisionNegociable;
+    private String porcentajeComisionNeg;
+    private String nivelAgrupacionReaseguro;
+    private String unidadComercial;
+    private String proyectoDependencia;
+    private String nombreDP;
+    private String codigoAgrupador;
+    private String observacionesSuscripcion;
+    private String observacionesPoliza;
+
 
     //informacion de tercero
     private String tipoTercero;
-    private String actividadEconomica;
-    private String correo1;
-    private String correo2;
-    private String correo3;
-    private String twitterId;
-    private String facebookId;
-    private String yahooId;
-    private String skypeId;
-    private String origenTerceroId;
     private String codigoIdentificador;
-    private String userLogin;
-    private String codigoInterno;
+    private String login;
     private String rol;
 
     //Informacion unidad de riesgo
@@ -63,11 +61,9 @@ public class Asesuisa_SiniestroBean {
     //Informacion Objeto Asegurado
     private String tipoObjetoAsegurado;
     private String nroObjetoAsegurado;
-    private String nombreAsegurado;
-    private String nombreBeneficiario;
 
-    //Getters and setters
 
+    //Getters and Setters
 
     public String getOrdenarPor() {
         return ordenarPor;
@@ -117,12 +113,12 @@ public class Asesuisa_SiniestroBean {
         this.eventoSiniestro = eventoSiniestro;
     }
 
-    public String getOficina() {
-        return oficina;
+    public String getSucursal() {
+        return sucursal;
     }
 
-    public void setOficina(String oficina) {
-        this.oficina = oficina;
+    public void setSucursal(String sucursal) {
+        this.sucursal = sucursal;
     }
 
     public String getNroCotizacion() {
@@ -133,20 +129,68 @@ public class Asesuisa_SiniestroBean {
         this.nroCotizacion = nroCotizacion;
     }
 
-    public String getNroPropuesta() {
-        return nroPropuesta;
-    }
-
-    public void setNroPropuesta(String nroPropuesta) {
-        this.nroPropuesta = nroPropuesta;
-    }
-
     public String getFechaEmision() {
         return fechaEmision;
     }
 
     public void setFechaEmision(String fechaEmision) {
         this.fechaEmision = fechaEmision;
+    }
+
+    public String getTipoPoliza() {
+        return tipoPoliza;
+    }
+
+    public void setTipoPoliza(String tipoPoliza) {
+        this.tipoPoliza = tipoPoliza;
+    }
+
+    public String getCodigoRamo() {
+        return codigoRamo;
+    }
+
+    public void setCodigoRamo(String codigoRamo) {
+        this.codigoRamo = codigoRamo;
+    }
+
+    public String getClasePoliza() {
+        return clasePoliza;
+    }
+
+    public void setClasePoliza(String clasePoliza) {
+        this.clasePoliza = clasePoliza;
+    }
+
+    public String getTipoProduccion() {
+        return tipoProduccion;
+    }
+
+    public void setTipoProduccion(String tipoProduccion) {
+        this.tipoProduccion = tipoProduccion;
+    }
+
+    public String getPrimaACeder() {
+        return primaACeder;
+    }
+
+    public void setPrimaACeder(String primaACeder) {
+        this.primaACeder = primaACeder;
+    }
+
+    public String getPrimaARetener() {
+        return primaARetener;
+    }
+
+    public void setPrimaARetener(String primaARetener) {
+        this.primaARetener = primaARetener;
+    }
+
+    public String getComisonCorredor() {
+        return comisonCorredor;
+    }
+
+    public void setComisonCorredor(String comisonCorredor) {
+        this.comisonCorredor = comisonCorredor;
     }
 
     public String getCanalVenta() {
@@ -157,22 +201,6 @@ public class Asesuisa_SiniestroBean {
         this.canalVenta = canalVenta;
     }
 
-    public String getFrecuenciaPago() {
-        return frecuenciaPago;
-    }
-
-    public void setFrecuenciaPago(String frecuenciaPago) {
-        this.frecuenciaPago = frecuenciaPago;
-    }
-
-    public String getFechaEventoAnterior() {
-        return fechaEventoAnterior;
-    }
-
-    public void setFechaEventoAnterior(String fechaEventoAnterior) {
-        this.fechaEventoAnterior = fechaEventoAnterior;
-    }
-
     public String getProximaGeneracionPrima() {
         return proximaGeneracionPrima;
     }
@@ -181,84 +209,76 @@ public class Asesuisa_SiniestroBean {
         this.proximaGeneracionPrima = proximaGeneracionPrima;
     }
 
-    public String getProximaFacturacion() {
-        return proximaFacturacion;
+    public String getComisionNegociable() {
+        return comisionNegociable;
     }
 
-    public void setProximaFacturacion(String proximaFacturacion) {
-        this.proximaFacturacion = proximaFacturacion;
+    public void setComisionNegociable(String comisionNegociable) {
+        this.comisionNegociable = comisionNegociable;
     }
 
-    public String getFlagSuspension() {
-        return flagSuspension;
+    public String getPorcentajeComisionNeg() {
+        return porcentajeComisionNeg;
     }
 
-    public void setFlagSuspension(String flagSuspension) {
-        this.flagSuspension = flagSuspension;
+    public void setPorcentajeComisionNeg(String porcentajeComisionNeg) {
+        this.porcentajeComisionNeg = porcentajeComisionNeg;
     }
 
-    public String getFechaSuspension() {
-        return fechaSuspension;
+    public String getNivelAgrupacionReaseguro() {
+        return nivelAgrupacionReaseguro;
     }
 
-    public void setFechaSuspension(String fechaSuspension) {
-        this.fechaSuspension = fechaSuspension;
+    public void setNivelAgrupacionReaseguro(String nivelAgrupacionReaseguro) {
+        this.nivelAgrupacionReaseguro = nivelAgrupacionReaseguro;
     }
 
-    public String getNombreArchivoTramas() {
-        return nombreArchivoTramas;
+    public String getUnidadComercial() {
+        return unidadComercial;
     }
 
-    public void setNombreArchivoTramas(String nombreArchivoTramas) {
-        this.nombreArchivoTramas = nombreArchivoTramas;
+    public void setUnidadComercial(String unidadComercial) {
+        this.unidadComercial = unidadComercial;
     }
 
-    public String getNroPlan() {
-        return nroPlan;
+    public String getProyectoDependencia() {
+        return proyectoDependencia;
     }
 
-    public void setNroPlan(String nroPlan) {
-        this.nroPlan = nroPlan;
+    public void setProyectoDependencia(String proyectoDependencia) {
+        this.proyectoDependencia = proyectoDependencia;
     }
 
-    public String getPeriodoDiasSuspension() {
-        return periodoDiasSuspension;
+    public String getNombreDP() {
+        return nombreDP;
     }
 
-    public void setPeriodoDiasSuspension(String periodoDiasSuspension) {
-        this.periodoDiasSuspension = periodoDiasSuspension;
+    public void setNombreDP(String nombreDP) {
+        this.nombreDP = nombreDP;
     }
 
-    public String getFechaInicioSuspension() {
-        return fechaInicioSuspension;
+    public String getCodigoAgrupador() {
+        return codigoAgrupador;
     }
 
-    public void setFechaInicioSuspension(String fechaInicioSuspension) {
-        this.fechaInicioSuspension = fechaInicioSuspension;
+    public void setCodigoAgrupador(String codigoAgrupador) {
+        this.codigoAgrupador = codigoAgrupador;
     }
 
-    public String getProcedeSuspension() {
-        return procedeSuspension;
+    public String getObservacionesSuscripcion() {
+        return observacionesSuscripcion;
     }
 
-    public void setProcedeSuspension(String procedeSuspension) {
-        this.procedeSuspension = procedeSuspension;
+    public void setObservacionesSuscripcion(String observacionesSuscripcion) {
+        this.observacionesSuscripcion = observacionesSuscripcion;
     }
 
-    public String getMontoPrimaArchivoTrama() {
-        return montoPrimaArchivoTrama;
+    public String getObservacionesPoliza() {
+        return observacionesPoliza;
     }
 
-    public void setMontoPrimaArchivoTrama(String montoPrimaArchivoTrama) {
-        this.montoPrimaArchivoTrama = montoPrimaArchivoTrama;
-    }
-
-    public String getFechaEmisionAcsele() {
-        return fechaEmisionAcsele;
-    }
-
-    public void setFechaEmisionAcsele(String fechaEmisionAcsele) {
-        this.fechaEmisionAcsele = fechaEmisionAcsele;
+    public void setObservacionesPoliza(String observacionesPoliza) {
+        this.observacionesPoliza = observacionesPoliza;
     }
 
     public String getTipoTercero() {
@@ -269,78 +289,6 @@ public class Asesuisa_SiniestroBean {
         this.tipoTercero = tipoTercero;
     }
 
-    public String getActividadEconomica() {
-        return actividadEconomica;
-    }
-
-    public void setActividadEconomica(String actividadEconomica) {
-        this.actividadEconomica = actividadEconomica;
-    }
-
-    public String getCorreo1() {
-        return correo1;
-    }
-
-    public void setCorreo1(String correo1) {
-        this.correo1 = correo1;
-    }
-
-    public String getCorreo2() {
-        return correo2;
-    }
-
-    public void setCorreo2(String correo2) {
-        this.correo2 = correo2;
-    }
-
-    public String getCorreo3() {
-        return correo3;
-    }
-
-    public void setCorreo3(String correo3) {
-        this.correo3 = correo3;
-    }
-
-    public String getTwitterId() {
-        return twitterId;
-    }
-
-    public void setTwitterId(String twitterId) {
-        this.twitterId = twitterId;
-    }
-
-    public String getFacebookId() {
-        return facebookId;
-    }
-
-    public void setFacebookId(String facebookId) {
-        this.facebookId = facebookId;
-    }
-
-    public String getYahooId() {
-        return yahooId;
-    }
-
-    public void setYahooId(String yahooId) {
-        this.yahooId = yahooId;
-    }
-
-    public String getSkypeId() {
-        return skypeId;
-    }
-
-    public void setSkypeId(String skypeId) {
-        this.skypeId = skypeId;
-    }
-
-    public String getOrigenTerceroId() {
-        return origenTerceroId;
-    }
-
-    public void setOrigenTerceroId(String origenTerceroId) {
-        this.origenTerceroId = origenTerceroId;
-    }
-
     public String getCodigoIdentificador() {
         return codigoIdentificador;
     }
@@ -349,20 +297,12 @@ public class Asesuisa_SiniestroBean {
         this.codigoIdentificador = codigoIdentificador;
     }
 
-    public String getUserLogin() {
-        return userLogin;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
-    }
-
-    public String getCodigoInterno() {
-        return codigoInterno;
-    }
-
-    public void setCodigoInterno(String codigoInterno) {
-        this.codigoInterno = codigoInterno;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getRol() {
@@ -395,21 +335,5 @@ public class Asesuisa_SiniestroBean {
 
     public void setNroObjetoAsegurado(String nroObjetoAsegurado) {
         this.nroObjetoAsegurado = nroObjetoAsegurado;
-    }
-
-    public String getNombreAsegurado() {
-        return nombreAsegurado;
-    }
-
-    public void setNombreAsegurado(String nombreAsegurado) {
-        this.nombreAsegurado = nombreAsegurado;
-    }
-
-    public String getNombreBeneficiario() {
-        return nombreBeneficiario;
-    }
-
-    public void setNombreBeneficiario(String nombreBeneficiario) {
-        this.nombreBeneficiario = nombreBeneficiario;
     }
 }
