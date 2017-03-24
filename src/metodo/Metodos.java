@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "system";
-    private String pass = "consis";
+    private String user = "agil";
+    private String pass = "a123456";
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
@@ -46,7 +46,7 @@ public class Metodos {
     public String UrlAsesuisa(){
 
         //return "http://srvsonar:7044/WController/";
-        return "http://srvsonar:7022/WController/";
+        return "http://srvsonar:7028/WController/";
     }
 
     public String UrlRimac(){
