@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "agil";
-    private String pass = "a123456";
+    private String user = "system";//"agil";
+    private String pass = "consis";//"a123456";
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 

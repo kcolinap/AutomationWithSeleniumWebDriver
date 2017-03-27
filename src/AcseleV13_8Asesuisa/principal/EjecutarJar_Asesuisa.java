@@ -1,5 +1,6 @@
 package AcseleV13_8Asesuisa.principal;
 
+import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
 import org.apache.log4j.Logger;
 
 /**
@@ -20,13 +21,41 @@ public class EjecutarJar_Asesuisa {
 
             switch (args[t]){
                 case "1":
-                    prueba = "";
+                    prueba = "VistaAsesuisa_BusquedaSimplePolizaTest";
                     log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
                     try {
-                        //VistaINTER_ConsultaTerceroTest vistaINTER_consultaTerceroTest = new VistaINTER_ConsultaTerceroTest();
-                        //vistaINTER_consultaTerceroTest.setUp();
-                        //vistaINTER_consultaTerceroTest.mainTest();
-                        //vistaINTER_consultaTerceroTest.tearDown();
+                        VistaAsesuisa_BusquedaSimplePolizaTest busquedaSimplePolizaTest = new VistaAsesuisa_BusquedaSimplePolizaTest();
+                        busquedaSimplePolizaTest.setUp(1);
+                        busquedaSimplePolizaTest.mainTest();
+                        busquedaSimplePolizaTest.tearDown(1);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        log.error("Test Case - " + prueba + " - " + e);
+                    }
+                    log.info("--->>> Final de la prueba " + prueba);
+                    break;
+                case "2":
+                    prueba = "VistaAsesuisa_BusquedaSimplePolizaTest";
+                    log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
+                    try {
+                        VistaAsesuisa_BusquedaSimplePolizaTest busquedaSimplePolizaTest = new VistaAsesuisa_BusquedaSimplePolizaTest();
+                        busquedaSimplePolizaTest.setUp(2);
+                        busquedaSimplePolizaTest.mainTest();
+                        busquedaSimplePolizaTest.tearDown(2);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        log.error("Test Case - " + prueba + " - " + e);
+                    }
+                    log.info("--->>> Final de la prueba " + prueba);
+                    break;
+                case "3":
+                    prueba = "VistaAsesuisa_BusquedaSimplePolizaTest";
+                    log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
+                    try {
+                        VistaAsesuisa_BusquedaSimplePolizaTest busquedaSimplePolizaTest = new VistaAsesuisa_BusquedaSimplePolizaTest();
+                        busquedaSimplePolizaTest.setUp(3);
+                        busquedaSimplePolizaTest.mainTest();
+                        busquedaSimplePolizaTest.tearDown(3);
                     } catch (Exception e) {
                         e.printStackTrace();
                         log.error("Test Case - " + prueba + " - " + e);

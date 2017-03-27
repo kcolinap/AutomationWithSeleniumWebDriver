@@ -46,22 +46,22 @@ public class VistaAsesuisa_BusquedaSimplePolizaTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(int num) throws Exception {
 
         /*DataSetManager.createPartialDataSet("SELECT * FROM ASE_BUSQUEDA_SIMPLE_POLIZA ORDER BY PRUEBA ASC",
                 "ASE_BUSQUEDA_SIMPLE_POLIZA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisa_BusquedaSimplePoliza_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset.xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASE_BUSQUEDA_SIMPLE_POLIZA ORDER BY PRUEBA ASC",
                 "ASE_BUSQUEDA_SIMPLE_POLIZA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisa_BusquedaSimplePoliza_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset.xml");
         */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisa_BusquedaSimplePoliza_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset" + num +".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown(int num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisa_BusquedaSimplePoliza_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset" + num +".xml", DataSetManager.DELETE_OPERATION);
     }
 }
