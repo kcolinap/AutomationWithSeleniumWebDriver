@@ -24,7 +24,7 @@ public class Asesuisa_MenuConsultas {
 
     }
 
-    public void EstadoCuentas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i){
+    public void EstadoCuentas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[1]"));// Consulta
