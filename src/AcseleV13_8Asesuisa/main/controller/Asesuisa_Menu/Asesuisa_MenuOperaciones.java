@@ -59,6 +59,28 @@ public class Asesuisa_MenuOperaciones {
         }
     }
 
+        // Busqueda de pólizas
+    public void OpePol_CotizacionSuscripcionEdicion_MantenimientoEdicionFrontEnd(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+
+        try{
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]"));// Operacion
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]"));// Cotización - Suscripción - Edición
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[6]/div[6]"));// Cotización-Suscripción-Mantenimiento de Edición (FrontEnd)
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
+            action.moveToElement(menu3).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+            menu3.click();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
     public void OpePol_BusquedaSolicitud(){}
 
     public void OpePol_AdministracionCuotasComodin(){}
