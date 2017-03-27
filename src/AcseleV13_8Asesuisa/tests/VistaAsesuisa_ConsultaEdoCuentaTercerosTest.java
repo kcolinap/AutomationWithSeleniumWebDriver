@@ -48,14 +48,14 @@ public class VistaAsesuisa_ConsultaEdoCuentaTercerosTest {
     @Before
     public void setUp(int num) throws Exception {
 
-        /*DataSetManager.createPartialDataSet("SELECT * FROM ASE_CONSULTA_ESTADO_CUENTA ORDER BY PRUEBA ASC",
+       /* DataSetManager.createPartialDataSet("SELECT * FROM ASE_CONSULTA_ESTADO_CUENTA ORDER BY PRUEBA ASC",
                 "ASE_CONSULTA_ESTADO_CUENTA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaConsultaEdoCuentaTerceros_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaConsultaEdoCuentaTerceros_dataset"+num+".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASE_CONSULTA_ESTADO_CUENTA ORDER BY PRUEBA ASC",
                 "ASE_CONSULTA_ESTADO_CUENTA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaConsultaEdoCuentaTerceros_dataset.xml");
-        */
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaConsultaEdoCuentaTerceros_dataset"+num+".xml");
+*/
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaConsultaEdoCuentaTerceros_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 

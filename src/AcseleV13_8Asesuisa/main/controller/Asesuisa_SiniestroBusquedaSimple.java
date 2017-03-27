@@ -16,7 +16,7 @@ import sun.awt.windows.ThemeReader;
  */
 public class Asesuisa_SiniestroBusquedaSimple {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_SiniestroBusquedaSimple.class);
+   /* private final static Logger log = Logger.getLogger(Asesuisa_SiniestroBusquedaSimple.class);
 
     public String nombreAutomatizacion = "Busqueda simple de siniestro";
     private WebDriver driver;
@@ -59,37 +59,37 @@ public class Asesuisa_SiniestroBusquedaSimple {
 
             //Capturar los campos con los que se realizara la busqueda
             if (asesuisaSiniestroBusquedaSimpleBean.getOrdenarPor()!=null){
-                Select ordenarPor = new Select(driver.findElement(By.xpath("//*[@id=\"orderBy\"]/input")));
+                Select ordenarPor = new Select(driver.findElement(By.xpath("/*//*[@id=\"orderBy\"]/input")));
                 ordenarPor.selectByValue(asesuisaSiniestroBusquedaSimpleBean.getOrdenarPor());
                 Thread.sleep(800);
             }
 
             if (asesuisaSiniestroBusquedaSimpleBean.getNroSiniestro()!=null){
-                WebElement nroSiniestro = driver.findElement(By.xpath("//*[@id=\"textFieldClaimNumbre\"]"));
+                WebElement nroSiniestro = driver.findElement(By.xpath("/*//*[@id=\"textFieldClaimNumbre\"]"));
                 nroSiniestro.sendKeys(asesuisaSiniestroBusquedaSimpleBean.getNroSiniestro());
                 Thread.sleep(800);
             }
 
             if (asesuisaSiniestroBusquedaSimpleBean.getFechaOcurrencia()!=null){
-                WebElement fechaOcurrencia = driver.findElement(By.xpath("//*[@id=\"dateFieldOccurrenceDate\"]/input"));
+                WebElement fechaOcurrencia = driver.findElement(By.xpath("/*//*[@id=\"dateFieldOccurrenceDate\"]/input"));
                 fechaOcurrencia.sendKeys(asesuisaSiniestroBusquedaSimpleBean.getFechaOcurrencia());
                 Thread.sleep(800);
             }
 
             if (asesuisaSiniestroBusquedaSimpleBean.getNroPoliza()!=null){
-                WebElement nroPoliza = driver.findElement(By.xpath("//*[@id=\"dateFieldOccurrenceDate\"]/input"));
+                WebElement nroPoliza = driver.findElement(By.xpath("/*//*[@id=\"dateFieldOccurrenceDate\"]/input"));
                 nroPoliza.sendKeys(asesuisaSiniestroBusquedaSimpleBean.getNroPoliza());
                 Thread.sleep(800);
             }
 
             if (asesuisaSiniestroBusquedaSimpleBean.getProducto()!=null){
                 WebElement producto, btnSeleccionar;
-                btnSeleccionar = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
+                btnSeleccionar = driver.findElement(By.xpath("/*//*[@id=\"comboProductoSimpleSearch\"]/div"));
                 btnSeleccionar.click();
                 Thread.sleep(500);
-                producto = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/input"));
-                producto.s
+                producto = driver.findElement(By.xpath("/*//*[@id=\"comboProductoSimpleSearch\"]/input"));
+
             }
         }
-    }
+    }*/
 }

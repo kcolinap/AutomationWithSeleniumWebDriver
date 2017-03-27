@@ -142,10 +142,10 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
         //WebElement bntAceptar, rdButton;
         boolean aux=false;
         try {
-            if (driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr/td")).isDisplayed()){
+            if (!(driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr/td")).isDisplayed())){
                 System.out.println("No se encontraron terceros");
                 aux=false;
-            }else if (driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[16]/td/input")).isDisplayed()){
+            }else if (driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/table/tbody/tr[1]/td[1]")).isDisplayed()){
                 System.out.println("Se encontraron terceros");
                 aux=true;
             }

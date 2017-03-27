@@ -1,6 +1,7 @@
 package AcseleV13_8Asesuisa.principal;
 
 import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
+import AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
 import org.apache.log4j.Logger;
 
 /**
@@ -12,7 +13,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"20"};
+        args = new String[]{"4"};
 
         for (int t = 0; t < args.length; t++) {
 
@@ -62,9 +63,24 @@ public class EjecutarJar_Asesuisa {
                     }
                     log.info("--->>> Final de la prueba " + prueba);
                     break;
+                case "4":
+                    prueba = "";
+                    log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
+                    try {
+                        VistaAsesuisa_ConsultaEdoCuentaTercerosTest consultaEdoCuentaTercerosTest = new VistaAsesuisa_ConsultaEdoCuentaTercerosTest();
+                        consultaEdoCuentaTercerosTest.setUp(1);
+                        consultaEdoCuentaTercerosTest.mainTest();
+                        consultaEdoCuentaTercerosTest.tearDown(1);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        log.error("Test Case - " + prueba + " - " + e);
+                    }
+                    log.info("--->>> Final de la prueba " + prueba);
+                    break;
                 default:
                     log.info("--->>> No se ha seleccionado ninguna prueba o el valor de la misma es incorrecto");
                     break;
+
                 /*case "":
                     prueba = "";
                     log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
