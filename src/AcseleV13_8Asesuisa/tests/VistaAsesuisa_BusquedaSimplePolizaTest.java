@@ -50,11 +50,11 @@ public class VistaAsesuisa_BusquedaSimplePolizaTest {
 
         /*DataSetManager.createPartialDataSet("SELECT * FROM ASE_BUSQUEDA_SIMPLE_POLIZA ORDER BY PRUEBA ASC",
                 "ASE_BUSQUEDA_SIMPLE_POLIZA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset" + num + ".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASE_BUSQUEDA_SIMPLE_POLIZA ORDER BY PRUEBA ASC",
                 "ASE_BUSQUEDA_SIMPLE_POLIZA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset" + num + ".xml");
         */
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset" + num +".xml", DataSetManager.REFRESH_OPERATION);
     }

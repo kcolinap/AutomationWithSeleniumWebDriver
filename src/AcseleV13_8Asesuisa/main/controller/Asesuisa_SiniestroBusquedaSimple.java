@@ -17,7 +17,7 @@ import sun.awt.windows.ThemeReader;
 public class Asesuisa_SiniestroBusquedaSimple {
 
     private final static Logger log = Logger.getLogger(Asesuisa_SiniestroBusquedaSimple.class);
-
+/*
     public String nombreAutomatizacion = "Busqueda simple de siniestro";
     private WebDriver driver;
 
@@ -91,5 +91,5 @@ public class Asesuisa_SiniestroBusquedaSimple {
                 producto.s
             }
         }
-    }
+    }*/
 }
