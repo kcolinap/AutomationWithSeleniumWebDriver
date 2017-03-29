@@ -1,7 +1,7 @@
 package AcseleV13_8Asesuisa.principal;
 
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
+import AcseleV13_8Asesuisa.tests.*;//VistaAsesuisa_BusquedaSimplePolizaTest;
+// AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
 import org.apache.log4j.Logger;
 
 /**
@@ -13,7 +13,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        args = new String[]{"2"};
+        args = new String[]{"3"};
 
         int j;
 
@@ -50,6 +50,23 @@ public class EjecutarJar_Asesuisa {
                             consultaEdoCuentaTercerosTest.setUp(j+1);
                             consultaEdoCuentaTercerosTest.mainTest();
                             consultaEdoCuentaTercerosTest.tearDown(j+1);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                    }
+                    break;
+                case "3":
+                    for (j=0; j<8; j++) {
+                        prueba = "VistaAsesuisa_CancelacionAnulacionPolizaTest";
+                        log.info("--->>> Ejecutando la prueba " + args[t] + " " + prueba);
+                        log.info("--->>> Caso #" + (j + 1));
+                        try {
+                            VistaAsesuisa_CancelacionAnulacionPolizaTest cancelacionAnulacionPolizaTest = new VistaAsesuisa_CancelacionAnulacionPolizaTest();
+                            cancelacionAnulacionPolizaTest.setUp(j + 1);
+                            cancelacionAnulacionPolizaTest.mainTest();
+                            cancelacionAnulacionPolizaTest.tearDown(j + 1);
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);
