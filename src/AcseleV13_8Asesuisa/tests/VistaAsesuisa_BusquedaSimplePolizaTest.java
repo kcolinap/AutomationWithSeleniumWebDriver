@@ -46,7 +46,7 @@ public class VistaAsesuisa_BusquedaSimplePolizaTest {
     }
 
     @Before
-    public void setUp(int num) throws Exception {
+    public void setUp(String num) throws Exception {
 
         /*DataSetManager.createPartialDataSet("SELECT * FROM ASE_BUSQUEDA_SIMPLE_POLIZA ORDER BY PRUEBA ASC",
                 "ASE_BUSQUEDA_SIMPLE_POLIZA",
@@ -60,7 +60,7 @@ public class VistaAsesuisa_BusquedaSimplePolizaTest {
     }
 
     @After
-    public void tearDown(int num) throws Exception {
+    public void tearDown(String num) throws Exception {
 
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaBusquedaSimplePoliza_dataset" + num +".xml", DataSetManager.DELETE_OPERATION);
     }
