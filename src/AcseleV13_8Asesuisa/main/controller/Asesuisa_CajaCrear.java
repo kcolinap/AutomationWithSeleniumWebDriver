@@ -47,13 +47,13 @@ public class Asesuisa_CajaCrear {
             Thread.sleep(3000);
 
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }

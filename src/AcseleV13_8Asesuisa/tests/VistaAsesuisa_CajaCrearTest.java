@@ -50,18 +50,24 @@ public class VistaAsesuisa_CajaCrearTest {
 
         /* DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_CREAR ORDER BY PRUEBA ASC",
                 "ASESUISA_CAJA_CREAR",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset1.xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_CREAR ORDER BY PRUEBA ASC",
                 "ASESUISA_CAJA_CREAR",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset1.xml");
 */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" +  ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "1" +  ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "2" +  ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "3" +  ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "4" +  ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
     public void tearDown() throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "1" + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "2" + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "3" + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaCrear_dataset" + "4" + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }
