@@ -17,9 +17,18 @@ public class Asesuisa_BusquedaAvanzadaPolizaBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(Asesuisa_BusquedaAvanzadaPolizaBean.class);
 
+    private String tipoProducto;
     private String numeroPoliza;
-    private String cliente;
-    private String asegurado;
+    private String estadoCicloVida;
+    private String fechaEmision;
+
+    public String getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public void setTipoProducto(String tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
 
     public String getNumeroPoliza() {
         return numeroPoliza;
@@ -29,20 +38,20 @@ public class Asesuisa_BusquedaAvanzadaPolizaBean implements Serializable {
         this.numeroPoliza = numeroPoliza;
     }
 
-    public String getCliente() {
-        return cliente;
+    public String getEstadoCicloVida() {
+        return estadoCicloVida;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setEstadoCicloVida(String estadoCicloVida) {
+        this.estadoCicloVida = estadoCicloVida;
     }
 
-    public String getAsegurado() {
-        return asegurado;
+    public String getFechaEmision() {
+        return fechaEmision;
     }
 
-    public void setAsegurado(String asegurado) {
-        this.asegurado = asegurado;
+    public void setFechaEmision(String fechaEmision) {
+        this.fechaEmision = fechaEmision;
     }
 
     public static ArrayList getAsesuisa_BusquedaAvanzadaPoliza() throws SQLException {
@@ -61,9 +70,12 @@ public class Asesuisa_BusquedaAvanzadaPolizaBean implements Serializable {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                Asesuisa_BusquedaSimplePolizaBean bean = new Asesuisa_BusquedaSimplePolizaBean();
+                Asesuisa_BusquedaAvanzadaPolizaBean bean = new Asesuisa_BusquedaAvanzadaPolizaBean();
 
-                bean.setNumeroPoliza(rs.getString("numeroPoliza"));
+                bean.setTipoProducto(rs.getString("TIPO_PRODUCTO"));
+                bean.setEstadoCicloVida(rs.getString("ESTADO_CICLO_VIDA"));
+                bean.setNumeroPoliza(rs.getString("NUMERO_POLIZA"));
+                bean.setFechaEmision(rs.getString("FECHA_EMISION"));
 
                 poliza.add(bean);
             }
