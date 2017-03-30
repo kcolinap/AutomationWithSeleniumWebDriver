@@ -1,6 +1,7 @@
 package AcseleV13_8Asesuisa.principal;
 
 import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
+import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CajaCrearTest;
 import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CancelacionAnulacionPolizaTest;
 import AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
 import org.apache.log4j.Logger;
@@ -14,16 +15,16 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        args = new String[]{"1", "10", "4"};
-        System.out.println("El tamaño del arreglo es: " + args.length);
+        //args = new String[]{"7", "1", "1"};
+        //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
         String segundo = args[1];
         String tercero = args[2];
-        System.out.println(primero);
+        /*System.out.println(primero);
         System.out.println(segundo);
         System.out.println(tercero);
-
+*/
         log.info("Arrancando el main");
         String prueba;
 
@@ -141,6 +142,20 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Crear caja
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaCrearTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaCrearTest cajaCrearTest = new VistaAsesuisa_CajaCrearTest();
+                            cajaCrearTest.setUp(tercero);
+                            cajaCrearTest.mainTest();
+                            cajaCrearTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "2": // b. Asociar caja a cajero
                         System.out.println("Numero: " + tercero);
