@@ -25,7 +25,7 @@ public class EjecutarJar_Asesuisa2 {
             log.info("Arrancando el main");
             String prueba;
 
-            switch (args[t]){
+            /*switch (args[t]){
                 case "1":
                     for (j=0; j<3; j++) {
                         prueba = "VistaAsesuisa_BusquedaSimplePolizaTest";
@@ -97,7 +97,7 @@ public class EjecutarJar_Asesuisa2 {
                     log.info("--->>> Final de la prueba " + prueba);
                     break;
                 */
-            }
+            //}
             log.info("Final del main");
         }
     }
