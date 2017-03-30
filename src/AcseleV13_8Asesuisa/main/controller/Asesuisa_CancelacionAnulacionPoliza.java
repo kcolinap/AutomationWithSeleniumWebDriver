@@ -7,6 +7,7 @@ import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import sun.awt.windows.ThemeReader;
 
 import java.util.List;
 
@@ -143,7 +144,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
                         Thread.sleep(800);
                     }
                 }else if (dialog &&(driver.findElements(By.className("w_windowPanel"))).size()>0){
-                    CancelarPoliza(m,driver,nombreAutomatizacion,i,6,7,folderName);
+                    CancelarPoliza(m,driver,nombreAutomatizacion,i,6,7,8,folderName);
                 }
 
             }
@@ -154,7 +155,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
     }
 
     public void CancelarPoliza(Metodos m, WebDriver driver, String nombreAutomatizacion, int i,
-                               int screenShoot1, int screenShoot2, String folderName){
+                               int screenShoot1, int screenShoot2,int screenShoot3, String folderName){
 
         try {
 
@@ -212,6 +213,30 @@ public class Asesuisa_CancelacionAnulacionPoliza {
             Thread.sleep(800);
 
             //Boton calcular
+            WebElement btnCalcular, div;
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            jse.executeScript("window.scrollBy(0,5000)", "");
+            Thread.sleep(800);
+
+            //pantallazo
+            m.ScreenShotPool(driver,i,"screen"+screenShoot3,nombreAutomatizacion,folderName);
+            Thread.sleep(800);
+
+            btnCalcular = driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']"));
+            btnCalcular.click();
+            Thread.sleep(1000);
+            m.waitSearchWicket(driver, "Se esta procesando su solicitud");
+
+            //Ventana aplicar
+            Thread.sleep(1000);
+            WebElement btnAplicar;
+
+            btnAplicar=driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
+            btnAplicar.click();
+            m.waitSearchWicket(driver, "Se esta aplicando el evento");
+
+            //Validar mensaje de error
 
         }catch (Exception e) {
             e.printStackTrace();
