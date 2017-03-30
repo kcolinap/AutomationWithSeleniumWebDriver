@@ -46,7 +46,7 @@ public class VistaAsesuisa_ConsultaEdoCuentaTercerosTest {
     }
 
     @Before
-    public void setUp(int num) throws Exception {
+    public void setUp(String num) throws Exception {
 
        /* DataSetManager.createPartialDataSet("SELECT * FROM ASE_CONSULTA_ESTADO_CUENTA ORDER BY PRUEBA ASC",
                 "ASE_CONSULTA_ESTADO_CUENTA",
@@ -60,7 +60,7 @@ public class VistaAsesuisa_ConsultaEdoCuentaTercerosTest {
     }
 
     @After
-    public void tearDown(int num) throws Exception {
+    public void tearDown(String num) throws Exception {
 
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaConsultaEdoCuentaTerceros_dataset" + num +".xml", DataSetManager.DELETE_OPERATION);
     }

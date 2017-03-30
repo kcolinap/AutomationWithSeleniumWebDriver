@@ -161,7 +161,7 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
         Select paisOrigen;
         boolean result;
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        Alert alert= driver.switchTo().alert();;
+        Alert alert= driver.switchTo().alert();
 
         //Mensaje de alerta
         alert.accept();
