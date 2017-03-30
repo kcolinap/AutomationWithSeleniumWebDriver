@@ -252,7 +252,7 @@ public class Asesuisa_MenuMantenimiento {
         public void Aud_MantenimientoAuditoria(){}
         public void Aud_MantenimientoSLA(){}
         public void Aud_TrazasAuditoria(){}
-        public void Aud_TrazasAuditoriaVaadin( WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+        public void Aud_TrazasAuditoriaVaadin(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
 
             try {
 
@@ -260,8 +260,8 @@ public class Asesuisa_MenuMantenimiento {
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
             WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[10]")); // Auditoria
             WebElement menu3 = driver.findElement(By.xpath("/html/body/div[45]/div[4]")); // Trazas de Auditoria (Vaadin)
-            menu1.click();
-            menu2.click();
+            action.moveToElement(menu1).build().perform();
+            action.moveToElement(menu2).build().perform();
             Thread.sleep(1000);
             action.moveToElement(menu3).build().perform();
             Thread.sleep(1000);
