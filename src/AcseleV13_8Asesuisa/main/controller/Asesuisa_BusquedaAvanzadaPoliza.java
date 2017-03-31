@@ -42,7 +42,7 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
 
             /** Buscar Poliza */
 
-            FormularioBusquedaAvanzada(bean, a, i, folderName, 3, 4, 5, 6, 7);
+            FormularioBusquedaAvanzada(bean, a, i, folderName, 3, 4, 5, 6, 7, 8);
             Thread.sleep(3000);
 
 
@@ -57,7 +57,7 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
         }
     }
 
-    public void FormularioBusquedaAvanzada(Asesuisa_BusquedaAvanzadaPolizaBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
+    public void FormularioBusquedaAvanzada(Asesuisa_BusquedaAvanzadaPolizaBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6){
 
         what: try {
             //WebElement prueba = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
@@ -109,26 +109,31 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
                 System.out.println("Busqueda con producto");
                 if (bean.getTipoProducto().toLowerCase().equals("automotores")){
 
+                    Thread.sleep(1000);
                     Select tipoProducto = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_productsList']")));
                     tipoProducto.selectByValue(bean.getTipoProducto());
 
                     Thread.sleep(2000);
 
                     if (bean.getEstadoCicloVida() != null){
+                        Thread.sleep(1000);
                         Select estadoCicloVida = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_stateProductsList']")));
                         estadoCicloVida.selectByValue(bean.getEstadoCicloVida());
                     }
 
                     if (bean.getNumeroPoliza() != null) {
+                        Thread.sleep(1000);
                         WebElement numPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_1_fila_field']"));
                         numPoliza.sendKeys(bean.getNumeroPoliza());
                     }
 
                     if (bean.getFechaEmision() != null){
+                        Thread.sleep(1000);
                         WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_4_fila_fieldDate']"));
                         asegurado.sendKeys(bean.getFechaEmision());
                     }
                 }else {
+                    Thread.sleep(1000);
                     System.out.println("Tipo de Producto no valido! failed");
                     break what;
                 }
@@ -136,19 +141,23 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
             // 6. Sin producto
             else if (bean.getTipoProducto() == null/* && bean.getNumeroPoliza() == null && bean.getFechaEmision() == null && bean.getEstadoCicloVida() == null*/){
 
+                Thread.sleep(1000);
                 System.out.println("Busqueda con producto");
 
                 if (bean.getEstadoCicloVida() != null) {
+                    Thread.sleep(1000);
                     Select estadoCicloVida = new Select(driver.findElement(By.xpath("//select[@wicketpath='ConsultPolicy_searchForm_stateProductsList']")));
                     estadoCicloVida.selectByValue(bean.getEstadoCicloVida());
                 }
 
                 if (bean.getNumeroPoliza() != null) {
+                    Thread.sleep(1000);
                     WebElement numPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_2_fila_field']"));
                     numPoliza.sendKeys(bean.getNumeroPoliza());
                 }
 
                 if (bean.getFechaEmision() != null) {
+                    Thread.sleep(1000);
                     WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_2_fila_fieldDate']"));
                     asegurado.sendKeys(bean.getFechaEmision());
                 }
@@ -157,20 +166,29 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
             // 9. Solo Numero de Poliza
             else if (bean.getNumeroPoliza() != null && bean.getTipoProducto() == null && bean.getFechaEmision() == null && bean.getEstadoCicloVida() == null){
 
+                Thread.sleep(1000);
+                WebElement numPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel1_2_fila_field']"));
+                numPoliza.sendKeys(bean.getNumeroPoliza());
+
+
             }
             // 10. Solo fecha de emision
             else if (bean.getFechaEmision() != null && bean.getNumeroPoliza() != null && bean.getTipoProducto() == null && bean.getEstadoCicloVida() == null){
 
+                Thread.sleep(1000);
+                WebElement asegurado = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_templatePolicy_repeaterPanel2_2_fila_fieldDate']"));
+                asegurado.sendKeys(bean.getFechaEmision());
+
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             jse.executeScript("window.scrollBy(0,1000)", "");
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             WebElement btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']"));
@@ -182,7 +200,7 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
             jse.executeScript("window.scrollBy(0,1000)", "");
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot6, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 /*
             Boolean mensageID = driver.findElements(By.id("_wicket_window_2")).size() > 0;
