@@ -1,9 +1,6 @@
 package AcseleV13_8Asesuisa.principal;
 
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CajaCrearTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CancelacionAnulacionPolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
+import AcseleV13_8Asesuisa.tests.*;
 import org.apache.log4j.Logger;
 
 /**
@@ -15,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"7", "1", "1"};
+        args = new String[]{"11", "2", "3"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -306,7 +303,30 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Detalle de las trazas
                         System.out.println("Numero: " + tercero);
+                        prueba = "MostrarDetalleauditoria";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaTrazaDetalleAuditoriaTest vistaTrazaDetalleAuditoria = new VistaTrazaDetalleAuditoriaTest();
+                            vistaTrazaDetalleAuditoria.setUp(3);
+                            vistaTrazaDetalleAuditoria.mainTest();
+                            vistaTrazaDetalleAuditoria.tearDown(3);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
+
+                              /*switch (tercero) {
+                                     case "1": // a. Capturar mensaje "no hay resultados"
+                                            System.out.println("Numero: " + tercero);
+                                             break;
+                                     case "2": // a. Capturar mensaje "colocar fechas"
+                                            System.out.println("Numero: " + tercero);
+                                             break;
+
+                              }*/
                     case "3": // c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
                         System.out.println("Numero: " + tercero);
                         break;
