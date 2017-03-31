@@ -1,9 +1,6 @@
 package AcseleV13_8Asesuisa.principal;
 
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CajaCrearTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CancelacionAnulacionPolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
+import AcseleV13_8Asesuisa.tests.*;
 import org.apache.log4j.Logger;
 
 /**
@@ -159,6 +156,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Asociar caja a cajero
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaAsociarCajeroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaAsociarCajeroTest cajaAsociarCajeroTest = new VistaAsesuisa_CajaAsociarCajeroTest();
+                            cajaAsociarCajeroTest.setUp(tercero);
+                            cajaAsociarCajeroTest.mainTest();
+                            cajaAsociarCajeroTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "3": // c. Aperturar y Cerrar Caja
                         System.out.println("Numero: " + tercero);
