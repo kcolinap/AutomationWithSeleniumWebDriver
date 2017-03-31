@@ -64,7 +64,6 @@ public class Asesuisa_CajaAsociarCajeroBean {
 
                 cajaAsociarCajeroBean.setCajero(rs.getString("CAJERO"));
                 cajaAsociarCajeroBean.setNrocaja(rs.getString("NROCAJA"));
-                cajaAsociarCajeroBean.setCajeroasoc(rs.getString("CAJEROASOC"));
 
                 caja.add(cajaAsociarCajeroBean);
             }

@@ -118,9 +118,9 @@ public class Asesuisa_MenuMantenimiento {
         public void UAA_AsociarCajaCajero(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
             try {
                 Actions action = new Actions(driver);
-                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[1]/div[4]")); // Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[35]/div[7]")); // UAA (Administrador de Cuentas Universal)
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[38]/div[5]")); // Asociar Caja con Cajero
+                WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[5]")); // Asociar Caja con Cajero
                 menu1.click();
                 menu2.click();
                 Thread.sleep(1000);
