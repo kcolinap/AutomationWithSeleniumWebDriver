@@ -15,7 +15,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"7", "1", "1"};
+        args = new String[]{"4", "4", "1"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -73,6 +73,21 @@ public class EjecutarJar_Asesuisa {
                 break;
 
             case "4": // 4) Cancelación/Anulación de Pólizas.
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_CancelacionAnulacionPolizaTest cancelacionAnulacionPolizaTest = new VistaAsesuisa_CancelacionAnulacionPolizaTest();
+                    cancelacionAnulacionPolizaTest.setUp(segundo);
+                    cancelacionAnulacionPolizaTest.mainTest();
+                    cancelacionAnulacionPolizaTest.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
 
                 break;
 

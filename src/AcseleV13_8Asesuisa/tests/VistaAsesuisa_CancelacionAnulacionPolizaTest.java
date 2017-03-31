@@ -45,7 +45,7 @@ public class VistaAsesuisa_CancelacionAnulacionPolizaTest {
     }
 
     @Before
-    public void setUp(int num) throws Exception {
+    public void setUp(String num) throws Exception {
 
        /* DataSetManager.createPartialDataSet("SELECT * FROM ASE_CANCEL_ANULA_POLIZA ORDER BY PRUEBA ASC",
                 "ASE_CANCEL_ANULA_POLIZA",
@@ -59,7 +59,7 @@ public class VistaAsesuisa_CancelacionAnulacionPolizaTest {
     }
 
     @After
-    public void tearDown(int num) throws Exception {
+    public void tearDown(String num) throws Exception {
 
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCancelacionAnulacionPoliza_dataset" + num +".xml", DataSetManager.DELETE_OPERATION);
     }
