@@ -285,6 +285,16 @@ public class Asesuisa_InformacionGeneralPoliza {
         }
     }
 
+    public void InformacionGeneralRoboYHurto(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+        try {
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
     public void InformacionGeneralDotalSimple(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']

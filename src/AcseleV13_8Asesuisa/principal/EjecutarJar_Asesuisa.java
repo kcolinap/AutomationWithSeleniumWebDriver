@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"4", "4", "1"};
+        args = new String[]{"38", "1", "0"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -817,6 +817,44 @@ public class EjecutarJar_Asesuisa {
                     //.setUp(segundo);
                     //.mainTest();
                     //.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
+
+                break;
+            case "37": // 36) Prestamos documentados
+
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+
+                    //.setUp(segundo);
+                    //.mainTest();
+                    //.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
+
+                break;
+            case "38": // 36) Emision poliza userStory 30282
+
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "VistaAsesuisa_PolizaEmisionGeneral30282Test";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_PolizaEmisionGeneral30282Test polizaEmisionGeneral30282Test = new VistaAsesuisa_PolizaEmisionGeneral30282Test();
+                    polizaEmisionGeneral30282Test.setUp(segundo);
+                    polizaEmisionGeneral30282Test.mainTest();
+                    polizaEmisionGeneral30282Test.tearDown(segundo);
                 } catch (Exception e) {
                     e.printStackTrace();
                     log.error("Test Case - " + prueba + " - " + e);
