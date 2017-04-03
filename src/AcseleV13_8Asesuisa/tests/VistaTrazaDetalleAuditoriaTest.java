@@ -45,7 +45,7 @@ public class VistaTrazaDetalleAuditoriaTest {
     }
 
     @Before
-    public void setUp(int num) throws Exception {
+    public void setUp(String num) throws Exception {
 
        /* DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_DETALLE_TRAZA ORDER BY PRUEBA ASC",
                 "ASESUISA_DETALLE_TRAZA",
@@ -59,7 +59,7 @@ public class VistaTrazaDetalleAuditoriaTest {
     }
 
     @After
-    public void tearDown(int num) throws Exception {
+    public void tearDown(String num) throws Exception {
 
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTrazaDetalleAuditoria_dataset"+ num + ".xml", DataSetManager.DELETE_OPERATION);
     }

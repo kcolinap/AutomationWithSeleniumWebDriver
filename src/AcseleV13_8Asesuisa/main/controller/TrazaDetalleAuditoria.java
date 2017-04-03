@@ -46,7 +46,7 @@ public class TrazaDetalleAuditoria {
             Thread.sleep(2000);
 
             /** Consultar Traza */
-            ConsultarTrazaAuditoria(trazaDetalleAuditoriaBean, a, i, folderName, 3,4,5,6,7,8,9,10);
+            ConsultarTrazaAuditoria(trazaDetalleAuditoriaBean, a, i, folderName, 3,4,5,6,7,8,9,10,11,12,13);
 
             Thread.sleep(3000);
 
@@ -63,7 +63,7 @@ public class TrazaDetalleAuditoria {
         }
     }
 
-    public void  ConsultarTrazaAuditoria(TrazaDetalleAuditoriaBean bean, Metodos a, int i, String folderName, int screen, int screen2, int screen3, int screen4, int screen5, int screen6, int screen7, int screen8) {
+    public void  ConsultarTrazaAuditoria(TrazaDetalleAuditoriaBean bean, Metodos a, int i, String folderName, int screen, int screen2, int screen3, int screen4, int screen5, int screen6, int screen7, int screen8, int screen9, int screen10, int screen11  ) {
 
         try {
 
@@ -176,49 +176,86 @@ public class TrazaDetalleAuditoria {
             WebElement btnBuscar = driver.findElement(By.xpath("//*[@id=\"horizontalButton\"]/div/div/div/span/span"));
             btnBuscar.click();
             Thread.sleep(2000);
-
-
-            WebElement exportar = driver.findElement(By.xpath("//*[@id=\"horizontalButtonExport\"]/div/div/div/span/span"));
-            exportar.click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + screen7, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + screen4, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+
+            if (bean.getTipoTraza().equals("Jobs")) {
+                 //busqueda de id traza
+            WebElement idTraza  = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/span"));
+                idTraza.click();
+                Thread.sleep(2000);
+                a.cambiarVentana(driver);
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen6, nombreAutomatizacion, folderName);
+                Thread.sleep(3000);
+                //botòn cerrar de ventana detalle traza
+                WebElement btnclose = driver.findElement(By.xpath("//*[@id=\"layoutButton\"]/div/div/div/span"));
+                btnclose.click();
+                Thread.sleep(2000);
+
+            }
+            //Caso 6
+            if (bean.getTipoTraza().equals("Siniestro")) {
+            WebElement exportar = driver.findElement(By.xpath("/*//*[@id=\"horizontalButtonExport\"]/div/div/div/span/span"));
+            exportar.click();
+
             a.cambiarVentana(driver);
-            WebElement btnExportar = driver.findElement(By.xpath("//*[@id="formExportAuditTrail"]/table/tbody/tr/td[3]/div/div[3]/div/span"));
-            WebElement seleccionarTipo = null;
+            Thread.sleep(2000);
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen7, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            WebElement btnExportar = driver.findElement(By.xpath("//*[@id=\"formExportAuditTrail\"]/table/tbody/tr/td[3]/div/div[3]/div/span"));
+          //  WebElement seleccionarTipo = null;
+            /*WebElement tipodoc = driver.findElement(By.xpath("/*//*[@id=\"type\"]/div"));
+            tipodoc.click();
             for  (int k= 1; k<3; k++) {
                 Thread.sleep(1000);
-                WebElement seleccionarTipo = driver.findElement(By.xpath("/html/body/div[5]/div[5]/div/div/div[5]/div/div/table/tbody/tr/td[3]/div/div[1]/div/div[3]/div/div"));
+               WebElement seleccionarTipo = driver.findElement(By.xpath("*//*//**//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[k]/td"));
+                System.out.println("Elemento recorrido: " + seleccionarTipo.getText());
                 if (seleccionarTipo.getText().equals("pdf")) {
+                    Thread.sleep(1000);
                     seleccionarTipo.click();
                 }
+            }*/
+                       btnExportar.click();
+                       Thread.sleep(10000);
             }
 
-/*
+            //Caso 7
+            if (bean.getTipoTraza().equals("UAA")) {
 
-            WebElement scroll = driver.findElement(By.xpath("/*/
-/*[@id=\"formAuditTrail\"]/table/tbody/tr[7]/td[3]"));
-            scroll.sendKeys(Keys.DOWN);
-            Thread.sleep(1500);
-            a.ScreenShotPool(driver, i, "screen" + screen4, nombreAutomatizacion, folderName);
-*/
+              WebElement pagNext = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[13]/div/span/span"));
+                pagNext.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen8, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            }
 
+            //Caso 8
+            if (bean.getTipoTraza().equals("Carta")) {
 
+                WebElement lastPag = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[15]/div/span/span"));
+                lastPag.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen9, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            }
 
-          /* //busqueda de id traza
-            WebElement idTraza  = driver.findElement(By.xpath("*//*//**//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div"));
-            idTraza.click();
-            Thread.sleep(2000);
-            a.cambiarVentana(driver);
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + screen6, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
-            //botòn cerrar de ventana detalle traza
-            WebElement btnclose = driver.findElement(By.xpath("*//*//**//*[@id=\"layoutButton\"]/div/div/div/span"));
-            btnclose.click();
-*/
+            //Caso 9
+            if (bean.getTipoTraza().equals("Póliza")) {
 
-
-
+                WebElement pagNext = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[13]/div/span/span"));
+                pagNext.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen10, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                WebElement pagPrevious = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/div/span/span"));
+                pagPrevious.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen11, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            }
 
 
 
@@ -248,14 +285,18 @@ public class TrazaDetalleAuditoria {
                     Thread.sleep(1000);
                     WebElement btnx= driver.findElement(By.id("82_window_close"));
                     btnx.click();
-            } else { //Si consigue tipo traza
-                    System.out.println("encontrado");
-
             }
 
 
 
+/*
 
+            WebElement scroll = driver.findElement(By.xpath("/*/
+/*[@id=\"formAuditTrail\"]/table/tbody/tr[7]/td[3]"));
+            scroll.sendKeys(Keys.DOWN);
+            Thread.sleep(1500);
+            a.ScreenShotPool(driver, i, "screen" + screen5, nombreAutomatizacion, folderName);
+*/
 
 /*
 

@@ -12,7 +12,8 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        args = new String[]{"11", "2", "3"};
+        //args = new String[]{"4", "4", "1"};
+
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -70,6 +71,21 @@ public class EjecutarJar_Asesuisa {
                 break;
 
             case "4": // 4) Cancelación/Anulación de Pólizas.
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_CancelacionAnulacionPolizaTest cancelacionAnulacionPolizaTest = new VistaAsesuisa_CancelacionAnulacionPolizaTest();
+                    cancelacionAnulacionPolizaTest.setUp(segundo);
+                    cancelacionAnulacionPolizaTest.mainTest();
+                    cancelacionAnulacionPolizaTest.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
 
                 break;
 
@@ -156,6 +172,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Asociar caja a cajero
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaAsociarCajeroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaAsociarCajeroTest cajaAsociarCajeroTest = new VistaAsesuisa_CajaAsociarCajeroTest();
+                            cajaAsociarCajeroTest.setUp(tercero);
+                            cajaAsociarCajeroTest.mainTest();
+                            cajaAsociarCajeroTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "3": // c. Aperturar y Cerrar Caja
                         System.out.println("Numero: " + tercero);
@@ -307,9 +337,9 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaTrazaDetalleAuditoriaTest vistaTrazaDetalleAuditoria = new VistaTrazaDetalleAuditoriaTest();
-                            vistaTrazaDetalleAuditoria.setUp(3);
+                            vistaTrazaDetalleAuditoria.setUp(tercero);
                             vistaTrazaDetalleAuditoria.mainTest();
-                            vistaTrazaDetalleAuditoria.tearDown(3);
+                            vistaTrazaDetalleAuditoria.tearDown(tercero);
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);
