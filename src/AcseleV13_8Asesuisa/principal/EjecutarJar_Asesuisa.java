@@ -188,7 +188,7 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
-                    case "4": // c. Cerrar Caja
+                    case "4": // d. Cerrar Caja
                         System.out.println("Numero: " + tercero);
 
                         prueba = "VistaAsesuisa_CajaCerrarTest";
@@ -205,13 +205,13 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
-                    case "5": // d. Dosificaciones de caja
+                    case "5": // e. Dosificaciones de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "6": // e. Notas de credito de caja
+                    case "6": // f. Notas de credito de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "7": // f. Modalidades de factura en caja
+                    case "7": // g. Modalidades de factura en caja
                         System.out.println("Numero: " + tercero);
                         break;
                 }
