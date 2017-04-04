@@ -10,11 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by aandrade on 31/03/2017.
+ * Created by aandrade on 03/04/2017.
  */
-public class Asesuisa_CajaAperturarCerrarBean {
-
-    private final static Logger log = Logger.getLogger(Asesuisa_CajaAperturarCerrarBean.class);
+public class Asesuisa_CajaCerrarBean {
+    private final static Logger log = Logger.getLogger(Asesuisa_CajaCerrarBean.class);
 
     private String nrocaja;
 
@@ -26,7 +25,7 @@ public class Asesuisa_CajaAperturarCerrarBean {
         this.nrocaja = nrocaja;
     }
 
-    public static ArrayList getAsesuisa_CajaAperturarCerrar() throws SQLException {
+    public static ArrayList getAsesuisa_CajaCerrar() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
@@ -42,11 +41,11 @@ public class Asesuisa_CajaAperturarCerrarBean {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                Asesuisa_CajaAperturarCerrarBean cajaAperturarCerrarBean = new Asesuisa_CajaAperturarCerrarBean();
+                Asesuisa_CajaCerrarBean cajaCerrarBean = new Asesuisa_CajaCerrarBean();
 
-                cajaAperturarCerrarBean.setNrocaja(rs.getString("NROCAJA"));
+                cajaCerrarBean.setNrocaja(rs.getString("NROCAJA"));
 
-                caja.add(cajaAperturarCerrarBean);
+                caja.add(cajaCerrarBean);
             }
         }catch(SQLException e) {
             log.error(e);
