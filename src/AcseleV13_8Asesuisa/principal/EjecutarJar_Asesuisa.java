@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"4", "4", "1"};
+       // args = new String[]{"11", "3", "3"};
 
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
@@ -343,23 +343,26 @@ public class EjecutarJar_Asesuisa {
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                    case "3": //c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
+                        System.out.println("Numero: " + tercero);
+                        prueba = "Exportar traza auditoria";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ExportarTrazaAuditoriaTest vistaExportarTrazaAuditoria = new VistaAsesuisa_ExportarTrazaAuditoriaTest();
+                            vistaExportarTrazaAuditoria.setUp(tercero);
+                            vistaExportarTrazaAuditoria.mainTest();
+                            vistaExportarTrazaAuditoria.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
                         }
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
 
-                              /*switch (tercero) {
-                                     case "1": // a. Capturar mensaje "no hay resultados"
-                                            System.out.println("Numero: " + tercero);
-                                             break;
-                                     case "2": // a. Capturar mensaje "colocar fechas"
-                                            System.out.println("Numero: " + tercero);
-                                             break;
-
-                              }*/
-                    case "3": // c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
-                        System.out.println("Numero: " + tercero);
-                        break;
                 }
                 break;
 

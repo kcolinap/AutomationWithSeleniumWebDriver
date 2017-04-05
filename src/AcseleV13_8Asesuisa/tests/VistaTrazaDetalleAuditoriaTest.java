@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class VistaTrazaDetalleAuditoriaTest {
 
-    private final static Logger log = Logger.getLogger(VistaRechazarPagoSiniestrosTest.class);
+    private final static Logger log = Logger.getLogger(VistaTrazaDetalleAuditoriaTest.class);
 
     @Test
     public void mainTest() throws SQLException {

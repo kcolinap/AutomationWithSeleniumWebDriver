@@ -101,7 +101,8 @@ public class TrazaDetalleAuditoria {
                 WebElement selectCategoria = null;
 
 
-
+           //  WebElement textoCategoria = driver.findElement(By.xpath("//*[@id="VAADIN_COMBOBOX_OPTIONLIST"]/div/div[4]"));
+            //    textoCategoria.getText();
                 for (int h = 1; h <11; h++) {
                     Thread.sleep(1000);
                     selectCategoria = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[h]/table/tbody/tr[h]/td"));
@@ -180,6 +181,36 @@ public class TrazaDetalleAuditoria {
             a.ScreenShotPool(driver, i, "screen" + screen4, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
+            if (bean.getTipoTraza().equals("Caja")) {
+                System.out.println("No se encontró resultados asociados con esta búsqueda");
+                System.out.println(driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]")).getText());
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen3, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                WebElement btnx= driver.findElement(By.id("82_window_close"));
+                btnx.click();
+
+
+            }
+
+            if ((bean.getTipoTraza().equals("Caja")) && ((bean.getDesde() == null))){
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + screen2, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                Thread.sleep(3000);
+                
+
+            }
+
+
+
+
+
+
+
+             //caso 5
             if (bean.getTipoTraza().equals("Jobs")) {
                  //busqueda de id traza
             WebElement idTraza  = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[1]/div/div/span/span"));
@@ -204,11 +235,14 @@ public class TrazaDetalleAuditoria {
             Thread.sleep(2000);
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + screen7, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
+                Thread.sleep(3000);
+             WebElement tipodoc = driver.findElement(By.xpath("//*[@id=\"type\"]/input"));
+                tipodoc.click();
             WebElement btnExportar = driver.findElement(By.xpath("//*[@id=\"formExportAuditTrail\"]/table/tbody/tr/td[3]/div/div[3]/div/span"));
-          //  WebElement seleccionarTipo = null;
-            /*WebElement tipodoc = driver.findElement(By.xpath("/*//*[@id=\"type\"]/div"));
-            tipodoc.click();
+
+
+
+           // WebElement seleccionarTipo = null;
             for  (int k= 1; k<3; k++) {
                 Thread.sleep(1000);
                WebElement seleccionarTipo = driver.findElement(By.xpath("*//*//**//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[k]/td"));
@@ -217,7 +251,7 @@ public class TrazaDetalleAuditoria {
                     Thread.sleep(1000);
                     seleccionarTipo.click();
                 }
-            }*/
+            }
                        btnExportar.click();
                        Thread.sleep(10000);
             }
@@ -260,102 +294,14 @@ public class TrazaDetalleAuditoria {
 
 
 
-            WebElement msg = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div"));
-            Boolean mensageID = driver.findElements(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]")).size() > 0;
 
 
 
-            if ((mensageID) &&  msg.getText().equals("Debe seleccionar una fecha de inicio y fin")) {
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + screen2, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-                WebElement btnx= driver.findElement(By.id("82_window_close"));
-                btnx.click();
-
-
-            } else if ((mensageID) &&  msg.getText().equals("No hay resultados")){
-               // No consigue tipo traza
-
-                    System.out.println("No se encontró resultados asociados con esta búsqueda");
-                    System.out.println(driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]")).getText());
-
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + screen3, nombreAutomatizacion, folderName);
-                    Thread.sleep(1000);
-                    WebElement btnx= driver.findElement(By.id("82_window_close"));
-                    btnx.click();
-            }
 
 
 
-/*
-
-            WebElement scroll = driver.findElement(By.xpath("/*/
-/*[@id=\"formAuditTrail\"]/table/tbody/tr[7]/td[3]"));
-            scroll.sendKeys(Keys.DOWN);
-            Thread.sleep(1500);
-            a.ScreenShotPool(driver, i, "screen" + screen5, nombreAutomatizacion, folderName);
-*/
-
-/*
-
-            WebElement btnExportar = driver.findElement(By.xpath("//*[@id="formExportAuditTrail"]/table/tbody/tr/td[3]/div/div[3]/div/span"));
-            WebElement seleccionarTipo = null;
-             for  (int k= 1; k<3; k++){
-                  Thread.sleep(1000);
-                  WebElement seleccionarTipo = driver.findElement(By.xpath("/html/body/div[5]/div[5]/div/div/div[5]/div/div/table/tbody/tr/td[3]/div/div[1]/div/div[3]/div/div"));
-                      if (seleccionarTipo.getText().equals("pdf")){
-                         seleccionarTipo.click();
-                      }
 
 
-             }
-
-            Thread.sleep(1000);
-            WebElement pdf = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td"));
-            pdf.click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion);
-            Thread.sleep(1000);
-                btnExportar.click();
-                Thread.sleep(900);
-                a.ScreenShotPool(driver, i, "screen" + screen, nombreAutomatizacion, folderName);
-
-                Thread.sleep(1500);
-                a.ScreenShotPool(driver, i, "screen" + screen, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
-                WebElement cerrarVentana = driver.findElement(By.xpath("//*[@id="193_window_close"]"));
-                cerrarVentana.click();
-
-                Thread.sleep(1000);
-
-                a.ScreenShotPool(driver, i, "screen" + screen, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
-            WebElement export= driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/div/div/span"));
-            export.click();
-            Thread.sleep(1000);
-
-
-
-            WebElement btnExport = driver.findElement(By.xpath("/html/body/div[5]/div[5]/div/div/div[5]/div/div/table/tbody/tr/td[3]/div/div[3]/div/span"));
-            btnExport.click();
-
-            Thread.sleep(2000);
-
-            a.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion);
-
-            Thread.sleep(1000);
-
-            WebElement descargar = driver.findElement(By.xpath("/html/body/div[5]/div[4]/div/div/div[5]/div/div/div[2]/div/div/div/a/span"));
-            descargar.click();
-            Thread.sleep(2000);
-
-            a.ScreenShotPool(driver, i, "screen12", nombreAutomatizacion);
-           Thread.sleep(1000);
-                */
 
 
         } catch (Exception e) {
