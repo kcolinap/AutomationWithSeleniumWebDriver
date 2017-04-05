@@ -48,15 +48,14 @@ public class VistaAsesuisa_PolizaEmisionGeneral30282Test {
     @Before
     public void setUp(String num) throws Exception {
 
-       /* DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLIZAEMISION_30282 ORDER BY PRUEBA ASC",
+      /*  DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLIZAEMISION_30282 ORDER BY PRUEBA ASC",
                 "ASE_POLIZAEMISION_30282",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaPolizaEmisionGeneral30282_dataset"+num+".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLIZAEMISION_30282 ORDER BY PRUEBA ASC",
                 "ASE_POLIZAEMISION_30282",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaPolizaEmisionGeneral30282_dataset"+num+".xml");
-       */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaPolizaEmisionGeneral30282_dataset" + num +".xml", DataSetManager.REFRESH_OPERATION);
+        */DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaPolizaEmisionGeneral30282_dataset"+num+".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
