@@ -67,7 +67,8 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             Tomador(metodos, driver,bean,nombreAutomatizacion,i,9,10);
             Asegurado(metodos,driver,bean,nombreAutomatizacion,i,11,12);
             Beneficiario(metodos,driver,bean,nombreAutomatizacion,i,13,14);
-
+            UnidadRiesgo(metodos,driver,bean,nombreAutomatizacion,i);
+            ObjetosAsegurados(metodos,driver,bean,nombreAutomatizacion,i);
 
 
             //WebElement lblTomador = driver.findElement(By.xpath("//li[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']"));
@@ -156,10 +157,10 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             }
 
             if (bean.getGiro()!=null){
-                Select giro= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_1_field']")));
+                Select giro= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_4_fila_repeaterSelect_1_field']")));
                 giro.selectByValue(bean.getGiro());
                 Thread.sleep(2000);
-                giro= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_1_field']")));
+                giro= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_4_fila_repeaterSelect_1_field']")));
                 giro.selectByValue(bean.getGiro());
             }
 
@@ -169,6 +170,14 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
                 Thread.sleep(2000);
                 actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_2_field']")));
                 actividadComercial.selectByValue(bean.getActvidadEconomica());
+            }
+
+            if (bean.getSumaAsegurada()!=null){
+                WebElement sumaAsegurada= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater2_1_fila_field']"));
+                sumaAsegurada.sendKeys(bean.getSumaAsegurada());
+                Thread.sleep(2000);
+               // actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_2_field']")));
+                //actividadComercial.selectByValue(bean.getActvidadEconomica());
             }
 
             if (bean.getTipoPoliza()!=null){
@@ -324,6 +333,81 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
                 //WebElement lblTomador = driver.findElement(By.xpath("//li[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']"));
                 //lblTomador.click();
             }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void UnidadRiesgo(Metodos metodos,WebDriver driver,Asesuisa_PolizaEmisionGeneral30282Bean bean,
+                             String nombreAutomatizacion,int i){
+        try {
+            //Boton nuevo
+            System.out.println("Ingresando a unidades de riesgo");
+            WebElement btnNuevo= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
+            btnNuevo.click();
+            metodos.waitSearchWicket(driver,"Agregando unidad de riesgo");
+
+            //Guardar unidad de riesgo
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+            btnGuardar.click();
+            metodos.waitSearchWicket(driver,"Guardando unidad de riesgo");
+            System.out.println("Unidad de riesgo guardada de manrea correcta");
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void ObjetosAsegurados(Metodos metodos,WebDriver driver,Asesuisa_PolizaEmisionGeneral30282Bean bean,
+                                  String nombreAutomatizacion,int i){
+        try {
+            //Objetos asegurados
+            System.out.println("Ingresando a objetos asegurados");
+
+            if (bean.getNombrePredio()!=null){
+                WebElement txtNombrePredio = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_textarea_field']"));
+                txtNombrePredio.sendKeys(bean.getNombrePredio());
+                Thread.sleep(1500);
+            }
+
+            if (bean.getDepartamento()!=null){
+                Select dpto= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_1_field']")));
+                dpto.selectByValue(bean.getDepartamento());
+                Thread.sleep(2000);
+                dpto= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_1_field']")));
+                dpto.selectByValue(bean.getDepartamento());
+            }
+
+            if (bean.getMunicipio()!=null){
+                Select mun= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_2_field']")));
+                mun.selectByValue(bean.getMunicipio());
+                Thread.sleep(2000);
+                mun= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_2_field']")));
+                mun.selectByValue(bean.getMunicipio());
+            }
+
+            if (bean.getColonia()!=null){
+                Select colonia= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater2_1_fila_repeaterSelect_1_field']")));
+                colonia.selectByValue(bean.getColonia());
+                Thread.sleep(2000);
+                colonia= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater2_1_fila_repeaterSelect_1_field']")));
+                colonia.selectByValue(bean.getColonia());
+            }
+
+            if (bean.getDireccion()!=null){
+                WebElement txtdireccion = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_textarea_field']"));
+                txtdireccion.sendKeys(bean.getDireccion());
+                Thread.sleep(1500);
+            }
+
+            //boton guardar
+            WebElement btnGuardar= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+            btnGuardar.click();
+            metodos.waitSearchWicket(driver,"Guardando objetos asegurados");
+            System.out.println("Objetos guardados");
+
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);

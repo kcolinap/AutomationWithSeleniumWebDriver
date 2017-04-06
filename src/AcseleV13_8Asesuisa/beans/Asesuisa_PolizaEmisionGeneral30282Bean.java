@@ -35,6 +35,20 @@ public class Asesuisa_PolizaEmisionGeneral30282Bean extends Asesuisa_PolizasBean
     private String textoDineroValores;
     private String nivelAgrupacion;
     private String descuentosDonaciones;
+    private String nombrePredio;
+    private String departamento;
+    private String municipio;
+    private String colonia;
+    private String direccion;
+    private String sumaAsegurada;
+
+    public String getSumaAsegurada() {
+        return sumaAsegurada;
+    }
+
+    public void setSumaAsegurada(String sumaAsegurada) {
+        this.sumaAsegurada = sumaAsegurada;
+    }
 
     public String getCodigoAgrupador() {
         return codigoAgrupador;
@@ -180,6 +194,46 @@ public class Asesuisa_PolizaEmisionGeneral30282Bean extends Asesuisa_PolizasBean
         this.descuentosDonaciones = descuentosDonaciones;
     }
 
+    public String getNombrePredio() {
+        return nombrePredio;
+    }
+
+    public void setNombrePredio(String nombrePredio) {
+        this.nombrePredio = nombrePredio;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public static ArrayList getAsesuisaPolizaEmisionGeneral30282() throws SQLException {
 
         Connection conn = null;
@@ -240,6 +294,12 @@ public class Asesuisa_PolizaEmisionGeneral30282Bean extends Asesuisa_PolizasBean
                 bean.setAsegurado1Nombre1(rs.getString("ASEGURADO1NOMBRE1"));
                 bean.setBeneficiario1Nombre1(rs.getString("BENEFICIARIO1NOMBRE1"));
                 bean.setTipoBeneficiario1(rs.getString("TIPOBENEFICIARIO1"));
+                bean.setNombrePredio(rs.getString("NOMBREPREDIO"));
+                bean.setDepartamento(rs.getString("DEPARTAMENTO"));
+                bean.setMunicipio(rs.getString("MUNICIPIO"));
+                bean.setColonia(rs.getString("COLONIA"));
+                bean.setDireccion(rs.getString("DIRECCION"));
+                bean.setSumaAsegurada(rs.getString("SUMAASEGURADA"));
 
                 poliza.add(bean);
             }
