@@ -226,37 +226,16 @@ public class TrazaDetalleAuditoria {
                 Thread.sleep(2000);
 
             }
-            //Caso 6
+            //Caso 6 fecha inicial mayor que la fecha final
             if (bean.getTipoTraza().equals("Siniestro")) {
-            WebElement exportar = driver.findElement(By.xpath("/*//*[@id=\"horizontalButtonExport\"]/div/div/div/span/span"));
-            exportar.click();
 
-            a.cambiarVentana(driver);
-            Thread.sleep(2000);
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + screen7, nombreAutomatizacion, folderName);
                 Thread.sleep(3000);
-             WebElement tipodoc = driver.findElement(By.xpath("//*[@id=\"type\"]/input"));
-                tipodoc.click();
-            WebElement btnExportar = driver.findElement(By.xpath("//*[@id=\"formExportAuditTrail\"]/table/tbody/tr/td[3]/div/div[3]/div/span"));
 
-
-
-           // WebElement seleccionarTipo = null;
-            for  (int k= 1; k<3; k++) {
-                Thread.sleep(1000);
-               WebElement seleccionarTipo = driver.findElement(By.xpath("*//*//**//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[k]/td"));
-                System.out.println("Elemento recorrido: " + seleccionarTipo.getText());
-                if (seleccionarTipo.getText().equals("pdf")) {
-                    Thread.sleep(1000);
-                    seleccionarTipo.click();
-                }
-            }
-                       btnExportar.click();
-                       Thread.sleep(10000);
             }
 
-            //Caso 7
+            //Caso 7 proxima pagina
             if (bean.getTipoTraza().equals("UAA")) {
 
               WebElement pagNext = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[13]/div/span/span"));
@@ -266,7 +245,7 @@ public class TrazaDetalleAuditoria {
                 Thread.sleep(1000);
             }
 
-            //Caso 8
+            //Caso 8 ultima pagina
             if (bean.getTipoTraza().equals("Carta")) {
 
                 WebElement lastPag = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[15]/div/span/span"));
@@ -276,7 +255,7 @@ public class TrazaDetalleAuditoria {
                 Thread.sleep(1000);
             }
 
-            //Caso 9
+            //Caso 9 siguiente pagina para luego regresar a la anterior
             if (bean.getTipoTraza().equals("Póliza")) {
 
                 WebElement pagNext = driver.findElement(By.xpath("//*[@id=\"PanelCenter\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[13]/div/span/span"));
