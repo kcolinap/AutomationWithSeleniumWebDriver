@@ -5,7 +5,7 @@ import AcseleV13_8Asesuisa.main.controller.polizaEmision.*;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
 
 import metodo.Metodos;
-import org.apache.log4j.DailyRollingFileAppender;
+//import org.apache.log4j.DailyRollingFileAppender;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
