@@ -1,8 +1,7 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_CajaCerrarBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_CajaDosificacionesBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import aaar.CapturaPantalla;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -12,16 +11,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
- * Created by aandrade on 03/04/2017.
+ * Created by aandrade on 06/04/2017.
  */
-public class Asesuisa_CajaCerrar {
-
+public class Asesuisa_CajaDosificaciones {
     private final static Logger log = Logger.getLogger(Asesuisa_CajaAperturar.class);
 
-    public String nombreAutomatizacion = "Asesuisa Caja Cerrar";
+    public String nombreAutomatizacion = "Asesuisa Caja Dosificaciones";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_CajaCerrarBean bean, int i, String folderName){
+    public void testLink(Asesuisa_CajaDosificacionesBean bean, int i, String folderName){
 
         try {
 

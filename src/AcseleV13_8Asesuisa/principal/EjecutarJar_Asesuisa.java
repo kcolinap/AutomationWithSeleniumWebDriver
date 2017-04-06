@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"4", "4", "1"};
+        args = new String[]{"7", "4", "2"};
 
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
