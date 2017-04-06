@@ -165,15 +165,31 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             }
 
             if (bean.getActvidadEconomica()!=null){
-                Select actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_2_field']")));
+                Select actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_4_fila_repeaterSelect_2_field']")));
+                actividadComercial.selectByIndex(0);
+                Thread.sleep(2000);
+                actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_4_fila_repeaterSelect_2_field']")));
                 actividadComercial.selectByValue(bean.getActvidadEconomica());
                 Thread.sleep(2000);
-                actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_2_field']")));
+                actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_4_fila_repeaterSelect_2_field']")));
                 actividadComercial.selectByValue(bean.getActvidadEconomica());
             }
 
             if (bean.getSumaAsegurada()!=null){
                 WebElement sumaAsegurada= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater2_1_fila_field']"));
+                sumaAsegurada.click();
+                sumaAsegurada.sendKeys(Keys.BACK_SPACE);
+                Thread.sleep(150);
+                sumaAsegurada.sendKeys(Keys.BACK_SPACE);
+                Thread.sleep(150);
+                sumaAsegurada.sendKeys(Keys.BACK_SPACE);
+                Thread.sleep(150);
+                sumaAsegurada.sendKeys(Keys.BACK_SPACE);
+                Thread.sleep(2500);
+                WebElement click = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater2_2_fila_field']"));
+                click.click();
+                Thread.sleep(1000);
+                sumaAsegurada= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater2_1_fila_field']"));
                 sumaAsegurada.sendKeys(bean.getSumaAsegurada());
                 Thread.sleep(2000);
                // actividadComercial= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_datatemplates_repeater_2_fila_repeaterSelect_2_field']")));
@@ -349,7 +365,7 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             metodos.waitSearchWicket(driver,"Agregando unidad de riesgo");
 
             //Guardar unidad de riesgo
-            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_saveButton']"));
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_saveButtonRU']"));
             btnGuardar.click();
             metodos.waitSearchWicket(driver,"Guardando unidad de riesgo");
             System.out.println("Unidad de riesgo guardada de manrea correcta");
