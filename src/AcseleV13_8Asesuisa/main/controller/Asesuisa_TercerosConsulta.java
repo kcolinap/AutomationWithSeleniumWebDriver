@@ -44,18 +44,18 @@ public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
             Thread.sleep(2000);
 
             //buscar tercero
-            asesuisaBuscarTerceros.BusquedaT(driver,m,asesuisaTercerosConsultaBean,nombreAutomatizacion,i,folderName,3,4,5,6);
+            asesuisaBuscarTerceros.BusquedaT(driver,m,asesuisaTercerosConsultaBean,nombreAutomatizacion,i,folderName,3,4,5,6, 7);
             Thread.sleep(1500);
 
             //Llamada al metodo consultar
-            ConsultaT(driver, m, i, folderName,7,8,9,10,11,12);
-            driver.quit();
+            ConsultaT(driver, m, i, folderName,8,9,10,11,12, 13);
+            //driver.quit();
 
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null) {
-                driver.quit();
+                //driver.quit();
             }
         }
     }

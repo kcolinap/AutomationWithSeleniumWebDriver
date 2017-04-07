@@ -76,7 +76,7 @@ public class EjecutarJar_Asesuisa {
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
 
-                prueba = "";
+                prueba = "VistaAsesuisa_CancelacionAnulacionPolizaTest";
                 log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                 try {
                     VistaAsesuisa_CancelacionAnulacionPolizaTest cancelacionAnulacionPolizaTest = new VistaAsesuisa_CancelacionAnulacionPolizaTest();
@@ -101,6 +101,21 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Consulta de Terceros
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosConsultaTest tercerosConsultaTest = new VistaAsesuisa_TercerosConsultaTest();
+                            tercerosConsultaTest.setUp(tercero);
+                            tercerosConsultaTest.mainTest();
+                            tercerosConsultaTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+
                         break;
                     case "2": // b. Creación de Terceros con el mismo tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);

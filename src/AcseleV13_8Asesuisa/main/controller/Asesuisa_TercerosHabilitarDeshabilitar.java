@@ -40,11 +40,11 @@ public class Asesuisa_TercerosHabilitarDeshabilitar extends Asesuisa_BuscarTerce
             Thread.sleep(2000);
 
             //buscar tercero
-            asesuisaBuscarTerceros.BusquedaT(driver,m,asesuisaTercerosHabilitarDeshabilitarBean,nombreAutomatizacion,i,folderName,3,4,5,6);
+            asesuisaBuscarTerceros.BusquedaT(driver,m,asesuisaTercerosHabilitarDeshabilitarBean,nombreAutomatizacion,i,folderName,3,4,5,6, 7);
             Thread.sleep(1500);
 
             //Llamada al metodo habilitar-deshabilitar
-            HabilitarDeshabilitarT(driver, m, i, folderName, 7, 8);
+            HabilitarDeshabilitarT(driver, m, i, folderName, 8, 9);
             driver.quit();
         }catch (Exception e){
             e.printStackTrace();

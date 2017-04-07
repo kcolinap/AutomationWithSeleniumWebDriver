@@ -23,7 +23,7 @@ public class Asesuisa_BuscarTerceros {
 
     public void BusquedaT(WebDriver driver, Metodos a, Asesuisa_TercerosBean asesuisaTercerosBean, String nombreAutomatizacion,
                           int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3,
-                          int numScreenShoot4){
+                          int numScreenShoot4, int numScreenShoot5){
 
         try{
 
@@ -547,26 +547,52 @@ public class Asesuisa_BuscarTerceros {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
+            Thread.sleep(500);
+            WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
+            otro.click();
+            Thread.sleep(500);
+
             //Boton buscar
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
             a.waitSearchWicket(driver, "Espera busqueda 1");
 
-            Thread.sleep(500);
-            buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            buscar.click();
-            a.waitSearchWicket(driver, "Espera busqueda 2");
+            boolean muchosRegistros = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']")).size() > 0;
+            if (muchosRegistros){
+                WebElement muchosReg = driver.findElement(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']"));
+                System.out.println(muchosReg.getText());
+                Thread.sleep(500);
+                WebElement btnAceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
+                btnAceptar.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
+                jse.executeScript("window.scrollBy(0,500)", "");
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+                Toolkit.getDefaultToolkit().beep();
+
+                //seleccionar tercero encontrado
+                Thread.sleep(500);
+                WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+                selccionTercero.click();
 
 
-            //seleccionar tercero encontrado
-            Thread.sleep(500);
-            WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
-            selccionTercero.click();
+            }
 
-            jse.executeScript("window.scrollBy(0,500)", "");
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
+            else {
+
+                //seleccionar tercero encontrado
+                Thread.sleep(500);
+                WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+                selccionTercero.click();
+
+                jse.executeScript("window.scrollBy(0,500)", "");
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Toolkit.getDefaultToolkit().beep();
+            }
 
         }catch (Exception e){
             e.printStackTrace();

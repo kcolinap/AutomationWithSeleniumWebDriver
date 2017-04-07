@@ -39,12 +39,11 @@ public class Asesuisa_TercerosInformacionTecnica {
             Thread.sleep(500);
 
             //Buscar tercero
-            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosInformacionTecnicaBean,nombreAutomatizacion,i,folderName,
-                    3,4,5,6);
+            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosInformacionTecnicaBean,nombreAutomatizacion,i,folderName, 3,4,5,6, 7);
             Thread.sleep(1500);
 
             //Llamada a metodo informacion tecnica
-            InformacionTecnica(driver, m, i, folderName, 7,8,9);
+            InformacionTecnica(driver, m, i, folderName, 8, 9, 10);
             Thread.sleep(1000);
 
             //Salgo de la aplicacion
