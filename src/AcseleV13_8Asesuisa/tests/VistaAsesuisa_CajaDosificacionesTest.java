@@ -1,6 +1,7 @@
 package AcseleV13_8Asesuisa.tests;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CajaDosificacionesBean;
+import AcseleV13_8Asesuisa.main.controller.Asesuisa_CajaDosificaciones;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -36,7 +37,7 @@ public class VistaAsesuisa_CajaDosificacionesTest {
             String horaC = metodos.horaCarpeta();
 
             try {
-               // a.testLink(bean, j, horaC);
+                a.testLink(bean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -47,7 +48,8 @@ public class VistaAsesuisa_CajaDosificacionesTest {
 
     @Before
     public void setUp(String num) throws Exception {
-//
+
+/*
          DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC",
                 "ASESUISA_CAJA_DOSIFICACIONES",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml");
@@ -55,7 +57,7 @@ public class VistaAsesuisa_CajaDosificacionesTest {
         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC",
                 "ASESUISA_CAJA_DOSIFICACIONES",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml");
-//
+*/
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
 
     }

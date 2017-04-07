@@ -16,15 +16,72 @@ public class Asesuisa_CajaDosificacionesBean {
 
     private final static Logger log = Logger.getLogger(Asesuisa_CajaDosificacionesBean.class);
 
-    private String nrocaja;
+    private String generica;
+    private String modfactura;
+    private String comtiraje;
+    private String anotiraje;
+    private String certiraje;
+    private String rangodesd;
+    private String rangohast;
 
-    public String getNrocaja() {
-        return nrocaja;
+    public String getGenerica() {
+        return generica;
     }
 
-    public void setNrocaja(String nrocaja) {
-        this.nrocaja = nrocaja;
+    public void setGenerica(String generica) {
+        this.generica = generica;
     }
+
+    public String getModfactura() {
+        return modfactura;
+    }
+
+    public void setModfactura(String modfactura) {
+        this.modfactura = modfactura;
+    }
+
+    public String getComtiraje() {
+        return comtiraje;
+    }
+
+    public void setComtiraje(String comtiraje) {
+        this.comtiraje = comtiraje;
+    }
+
+    public String getAnotiraje() {
+        return anotiraje;
+    }
+
+    public void setAnotiraje(String anotiraje) {
+        this.anotiraje = anotiraje;
+    }
+
+    public String getCertiraje() {
+        return certiraje;
+    }
+
+    public void setCertiraje(String certiraje) {
+        this.certiraje = certiraje;
+    }
+
+    public String getRangodesd() {
+        return rangodesd;
+    }
+
+    public void setRangodesd(String rangodesd) {
+        this.rangodesd = rangodesd;
+    }
+
+    public String getRangohast() {
+        return rangohast;
+    }
+
+    public void setRangohast(String rangohast) {
+        this.rangohast = rangohast;
+    }
+
+
+
 
     public static ArrayList getAsesuisa_CajaDosificaciones() throws SQLException {
 
@@ -44,7 +101,13 @@ public class Asesuisa_CajaDosificacionesBean {
             while (rs.next()) {
                 Asesuisa_CajaDosificacionesBean cajaDosificacionesBean = new Asesuisa_CajaDosificacionesBean();
 
-                cajaDosificacionesBean.setNrocaja(rs.getString("NROCAJA"));
+                cajaDosificacionesBean.setGenerica(rs.getString("GENERICA"));
+                cajaDosificacionesBean.setModfactura(rs.getString("MODFACTURA"));
+                cajaDosificacionesBean.setComtiraje(rs.getString("COMTIRAJE"));
+                cajaDosificacionesBean.setAnotiraje(rs.getString("ANOTIRAJE"));
+                cajaDosificacionesBean.setCertiraje(rs.getString("CERTIRAJE"));
+                cajaDosificacionesBean.setRangodesd(rs.getString("RANGODESD"));
+                cajaDosificacionesBean.setRangohast(rs.getString("RANGOHAST"));
 
                 caja.add(cajaDosificacionesBean);
             }

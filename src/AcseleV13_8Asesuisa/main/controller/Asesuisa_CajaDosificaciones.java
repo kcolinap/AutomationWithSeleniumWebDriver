@@ -1,12 +1,14 @@
 package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CajaDosificacionesBean;
+import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuMantenimiento;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -14,7 +16,7 @@ import org.openqa.selenium.support.ui.Select;
  * Created by aandrade on 06/04/2017.
  */
 public class Asesuisa_CajaDosificaciones {
-    private final static Logger log = Logger.getLogger(Asesuisa_CajaAperturar.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_CajaDosificaciones.class);
 
     public String nombreAutomatizacion = "Asesuisa Caja Dosificaciones";
     private WebDriver driver;
@@ -25,7 +27,7 @@ public class Asesuisa_CajaDosificaciones {
 
             // Instanciando clases
             Metodos a = new Metodos();
-            Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
+            Asesuisa_MenuMantenimiento menuMantenimiento = new Asesuisa_MenuMantenimiento();
 
             driver = a.entrarPagina(a.UrlAsesuisa());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
@@ -33,15 +35,15 @@ public class Asesuisa_CajaDosificaciones {
             Thread.sleep(5000);
 
             //Entrando en Menu
-            menuOperaciones.UAA_Caja_CierreCaja(driver, nombreAutomatizacion, 2, i, folderName);
+            menuMantenimiento.UAA_Fac_DosificacionFacturas(driver, nombreAutomatizacion, 2, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            /** Cerrar Caja*/
+            /** Dosificaciones Caja*/
 
-            CerrarCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
+            DosificacionesCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(3000);
 
             driver.quit();
@@ -55,28 +57,45 @@ public class Asesuisa_CajaDosificaciones {
         }
     }
 
-    public void CerrarCaja(Asesuisa_CajaCerrarBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
+    public void DosificacionesCaja(Asesuisa_CajaDosificacionesBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
+
+        int tamanotr;
+        WebElement indextr;
 
         try {
 
-            String mensaje = driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[3]/td[2]")).getText();
-            String acselurl=(driver.getCurrentUrl().substring(0, 20));
+            // Si no se selecciona Creacion Generica
+           if(bean.getGenerica() == null) {
 
-            // Si no permite aperturar caja
-            if (!mensaje.substring(0,2).equals("--")){
+               if (bean.getModfactura() != null) {
+                   driver.findElement(By.xpath("//*[@id='gwt-uid-8']")).click();
+                   Thread.sleep(1000);
 
-                // Captura la pantalla con el mensaje de informacion
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-                System.out.println(mensaje);
-            }
-            // Si se seleccionan todos los campos solicitados: numero de caja
-            else if(bean.getNrocaja() != null){
+                   tamanotr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).size();
 
-                Thread.sleep(1000);
-                Select nrocaja = new Select(driver.findElement(By.xpath("//select[@name='cashierRegisterID']")));
-                nrocaja.selectByValue(bean.getNrocaja());
+                   for (int j = 0; j == tamanotr; j++) {
+                       indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
+                       System.out.println("Texto del arreglo:  " + indextr.getText());
+                       if (bean.getModfactura().equals(indextr.getText())) {
+
+                           indextr.click();
+                       }
+                   }
+                   Thread.sleep(1000);
+
+               }
+
+           }
+
+
+
+
+              // WebElement generica = driver.findElement(By.xpath("//*[@id=\'gwt-uid-2\']"));
+              // generica.click();
+/*
+               Thread.sleep(1000);
+               Select generica = new Select(driver.findElement(By.xpath("//*[@id=\"gwt-uid-2\"]")));
+               generica.selectByValue(bean.getGenerica());
 
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
@@ -89,7 +108,6 @@ public class Asesuisa_CajaDosificaciones {
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
-            }
             // Si no se selecciona el campo: Nro. de caja
             else if (bean.getNrocaja() == null){
 
@@ -113,7 +131,7 @@ public class Asesuisa_CajaDosificaciones {
                 }
 
             }
-
+*/
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);

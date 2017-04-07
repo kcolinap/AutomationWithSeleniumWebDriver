@@ -2,7 +2,6 @@ package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CajaCerrarBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import aaar.CapturaPantalla;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -62,7 +61,6 @@ public class Asesuisa_CajaCerrar {
         try {
 
             String mensaje = driver.findElement(By.xpath("/html/body/center/form/table/tbody/tr[3]/td[2]")).getText();
-            String acselurl=(driver.getCurrentUrl().substring(0, 20));
 
             // Si no permite aperturar caja
             if (!mensaje.substring(0,2).equals("--")){
@@ -88,7 +86,7 @@ public class Asesuisa_CajaCerrar {
 
                 // Mensajes de Resultado de la operacion
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
             }
@@ -99,7 +97,6 @@ public class Asesuisa_CajaCerrar {
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
-                //String acselurl=(driver.getCurrentUrl().substring(0, 20));
                 driver.findElement(By.xpath("//input[@value='Aceptar']")).click();
 
                 // Mensajes de Alerta JavaScript
@@ -107,9 +104,8 @@ public class Asesuisa_CajaCerrar {
                     Thread.sleep(1000);
                     Alert alert = driver.switchTo().alert();
                     String alertmess = alert.getText();
-                    a.ScreenShotJavaScript(acselurl, i, nombreAutomatizacion, folderName, "screen" + numScreenShoot2 );
                     alert.accept();
-                    //System.out.println(alertmess);
+                    System.out.println(alertmess);
                     Thread.sleep(1000);
                     driver.switchTo().defaultContent();
                 }

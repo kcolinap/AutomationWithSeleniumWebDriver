@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        args = new String[]{"7", "4", "2"};
+        //args = new String[]{"7", "5", "1"};
 
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
@@ -185,7 +185,6 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
                         break;
                     case "3": // c. Aperturar Caja
                         System.out.println("Numero: " + tercero);
@@ -202,7 +201,6 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
                         break;
                     case "4": // d. Cerrar Caja
                         System.out.println("Numero: " + tercero);
@@ -219,10 +217,21 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
                         break;
                     case "5": // e. Dosificaciones de caja
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaDosificacionesTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaDosificacionesTest cajaDosificacionesTest = new VistaAsesuisa_CajaDosificacionesTest();
+                            cajaDosificacionesTest.setUp(tercero);
+                            cajaDosificacionesTest.mainTest();
+                            cajaDosificacionesTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "6": // f. Notas de credito de caja
                         System.out.println("Numero: " + tercero);

@@ -21,8 +21,15 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "aandrade";//"agil";
-    private String pass = "aandrade";//"a123456";
+    private String user = "system";//"agil";
+    private String pass = "consis";//"a123456";
+    private String acselUrl;
+
+    public String test(WebDriver driver){
+
+        //System.out.println(driver.getCurrentUrl().substring(0, 20));
+        return this.acselUrl = driver.getCurrentUrl().substring(0, 20);// = otra;
+    }
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
