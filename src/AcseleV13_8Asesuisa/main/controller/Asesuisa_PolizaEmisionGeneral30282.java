@@ -69,7 +69,16 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             Beneficiario(metodos,driver,bean,nombreAutomatizacion,i,13,14);
             UnidadRiesgo(metodos,driver,bean,nombreAutomatizacion,i);
             ObjetosAsegurados(metodos,driver,bean,nombreAutomatizacion,i);
+            Pantallazo(1, metodos, driver, i, nombreAutomatizacion,folderName);
 
+            //Boton calcular
+            Thread.sleep(1500);
+            WebElement btnCalcular = driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']"));
+            btnCalcular.click();
+            metodos.waitSearchWicket(driver,"Calculando");
+
+            //Pantallazos despues de calcular
+            Pantallazo(2, metodos, driver, i, nombreAutomatizacion,folderName);
 
             //WebElement lblTomador = driver.findElement(By.xpath("//li[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']"));
             //lblTomador.click();
@@ -80,7 +89,7 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             /***
              * FIN GENERACION DE POLIZA
              */
-            //driver.quit();
+            driver.quit();
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -94,7 +103,6 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
     public void InformacionGeneralRoboYHurto30282(Metodos a, WebDriver driver, Asesuisa_PolizaEmisionGeneral30282Bean bean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
 
         try {
-            JavascriptExecutor jse = (JavascriptExecutor)driver;
 
             if (bean.getPlanesFinanciamiento()!=null){
                 Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']")));
@@ -391,13 +399,21 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             if (bean.getDepartamento()!=null){
                 Select dpto= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_1_field']")));
                 dpto.selectByValue(bean.getDepartamento());
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 dpto= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_1_field']")));
                 dpto.selectByValue(bean.getDepartamento());
             }
 
             if (bean.getMunicipio()!=null){
                 Select mun= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_2_field']")));
+                mun.selectByIndex(0);
+                Thread.sleep(2000);
+                WebElement txtNombrePredio = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_textarea_field']"));
+                txtNombrePredio.click();
+                Thread.sleep(500);
+                mun= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_2_field']")));
+                mun.selectByIndex(0);
+                Thread.sleep(500);
                 mun.selectByValue(bean.getMunicipio());
                 Thread.sleep(2000);
                 mun= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater_1_fila_repeaterSelect_2_field']")));
@@ -406,6 +422,15 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
 
             if (bean.getColonia()!=null){
                 Select colonia= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater2_1_fila_repeaterSelect_1_field']")));
+                colonia.selectByVisibleText("Seleccione uno");
+                Thread.sleep(500);
+                WebElement txtNombrePredio = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_textarea_field']"));
+                txtNombrePredio.click();
+                Thread.sleep(500);
+               /* colonia= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater2_1_fila_repeaterSelect_1_field']")));
+                colonia.selectByIndex(0);*/
+                Thread.sleep(2000);
+                colonia= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater2_1_fila_repeaterSelect_1_field']")));
                 colonia.selectByValue(bean.getColonia());
                 Thread.sleep(2000);
                 colonia= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_datatemplates_repeater2_1_fila_repeaterSelect_1_field']")));
@@ -416,6 +441,23 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
                 WebElement txtdireccion = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_textarea_field']"));
                 txtdireccion.sendKeys(bean.getDireccion());
                 Thread.sleep(1500);
+                txtdireccion = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_textarea_field']"));
+                txtdireccion.click();
+                Thread.sleep(1000);
+                txtdireccion = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_textarea_field']"));
+                txtdireccion.sendKeys(Keys.TAB);
+                //txtdireccion.clear();
+                Thread.sleep(500);
+                txtdireccion = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_2_textarea_field']"));
+                txtdireccion.sendKeys(bean.getDireccion());
+                Thread.sleep(1500);
+
+               /* WebElement lbl = driver.findElement(By.xpath("/*//*[@id=\"campos_obligatoriosPan\"]/h1/div"));
+                lbl.click();
+                Thread.sleep(500);*/
+                                /*WebElement txtNombrePredio = driver.findElement(By.xpath("//textarea[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_1_SubTabsInformation_textAreaPanel_wrapperRepeater_1_textarea_field']"));
+                txtNombrePredio.click();
+                Thread.sleep(500);*/
             }
 
             //boton guardar
@@ -424,6 +466,110 @@ public class Asesuisa_PolizaEmisionGeneral30282 {
             metodos.waitSearchWicket(driver,"Guardando objetos asegurados");
             System.out.println("Objetos guardados");
 
+            //Chequear todos los botones
+            WebElement btnChk = driver.findElement(By.xpath("//span[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RequirementsContainer_headerRecieved_recieve']"));
+            btnChk.click();
+            Thread.sleep(2000);
+            System.out.println("Seleccionados todos los documentos");
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void Pantallazo(int id, Metodos metodos, WebDriver driver, int i, String nombreAutomatizacion,
+                           String folderName){
+        try {
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+            switch (id){
+                case 1:
+                    jse.executeScript("window.scrollBy(0,-10000)", "");
+                    metodos.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen6",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen9",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen10",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen11",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen12",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen13",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen14",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen15",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen16",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen17",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    jse.executeScript("window.scrollBy(0,570)", "");
+                    metodos.ScreenShotPool(driver,i,"screen18",nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    break;
+                case 2:
+                    metodos.ScreenShotPool(driver,i,"screen19",nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
+                    WebElement btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
+                    btnAplicar.click();
+                    Thread.sleep(1000);
+                    metodos.waitSearchWicket(driver,"Aplicando la configuracion para la emision de la poliza");
+                    boolean avd = driver.findElements(By.className("w_windowMessage")).size()>0;
+                    if (avd){
+                        WebElement chk = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']"));
+                        chk.click();
+                        Thread.sleep(800);
+
+                        //boton continuar
+                        WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
+                        btnContinuar.click();
+                        Thread.sleep(800);
+
+                        metodos.waitSearchWicket(driver,"Emitiendo poliza");
+                        metodos.ScreenShotPool(driver,i,"screen20",nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                    }
+                    //Boton finalizar
+                    WebElement btnFin = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_pdfForm_CloseFinalize_closeFinalize']"));
+                    btnFin.click();
+                    Thread.sleep(1000);
+
+            }
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
