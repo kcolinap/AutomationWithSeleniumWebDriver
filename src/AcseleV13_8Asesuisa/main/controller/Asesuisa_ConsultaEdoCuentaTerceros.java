@@ -88,9 +88,9 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 Thread.sleep(500);
             }
 
-            if (asesuisaConsultaEdoCuentaTercerosBean.getCodigoIdentificador()!=null){
-                txtcIdentificador = driver.findElement(By.xpath("//*[@id=\"CodeIdentifier\"]"));
-                txtcIdentificador.sendKeys(asesuisaConsultaEdoCuentaTercerosBean.getCodigoIdentificador());
+            if (asesuisaConsultaEdoCuentaTercerosBean.getCodigoNit()!=null){
+                txtcIdentificador = driver.findElement(By.xpath("//*[@id=\"Nit\"]"));
+                txtcIdentificador.sendKeys(asesuisaConsultaEdoCuentaTercerosBean.getCodigoNit());
                 Thread.sleep(500);
             }
 
