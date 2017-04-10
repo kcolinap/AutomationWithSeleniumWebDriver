@@ -70,22 +70,56 @@ public class Asesuisa_CajaDosificaciones {
                if (bean.getModfactura() != null) {
                    driver.findElement(By.xpath("//*[@id='gwt-uid-8']")).click();
                    Thread.sleep(1000);
-
                    tamanotr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).size();
-
-                   for (int j = 0; j == tamanotr; j++) {
+                   for (int j = 0; j < tamanotr; j++) {
                        indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
-                       System.out.println("Texto del arreglo:  " + indextr.getText());
                        if (bean.getModfactura().equals(indextr.getText())) {
-
                            indextr.click();
+                           break;
                        }
                    }
-                   Thread.sleep(1000);
-
                }
 
+               if (bean.getComtiraje() != null) {
+                   driver.findElement(By.xpath("//*[@id=\'gwt-uid-10\']")).click();
+                   Thread.sleep(1000);
+                   tamanotr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).size();
+                   for (int j = 0; j < tamanotr; j++) {
+                       indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
+                       if (bean.getComtiraje().equals(indextr.getText())) {
+                           indextr.click();
+                           break;
+                       }
+                   }
+               }
+
+               if (bean.getAnotiraje() != null) {
+                   WebElement anotiraje = driver.findElement(By.xpath("//*[@id='gwt-uid-12']"));
+                   anotiraje.sendKeys(bean.getAnotiraje());
+               }
+
+               if (bean.getCertiraje() != null) {
+                   WebElement certiraje = driver.findElement(By.xpath("//*[@id=\'CertificadoHacienda\']"));
+                   certiraje.sendKeys(bean.getCertiraje());
+               }
+
+               Thread.sleep(1000);
+               a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+               Thread.sleep(1000);
+
+               driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/span")).click();
+
+               Thread.sleep(1000);
+               a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+               Thread.sleep(1000);
+
            }
+
+
+
+
+
+
 
 
 
