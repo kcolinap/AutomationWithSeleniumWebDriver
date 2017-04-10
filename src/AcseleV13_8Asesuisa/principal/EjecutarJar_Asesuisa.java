@@ -12,7 +12,11 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
+
         //args = new String[]{"38", "1", "0"};
+
+      //  args = new String[]{"11", "3", "3"};
+
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -186,16 +190,47 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
-                    case "3": // c. Aperturar y Cerrar Caja
+                    case "3": // c. Aperturar Caja
+                        System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaAperturarTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaAperturarTest cajaAperturarTest = new VistaAsesuisa_CajaAperturarTest();
+                            cajaAperturarTest.setUp(tercero);
+                            cajaAperturarTest.mainTest();
+                            cajaAperturarTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+                        break;
+                    case "4": // d. Cerrar Caja
+                        System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaCerrarTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaCerrarTest cajaCerrarTest = new VistaAsesuisa_CajaCerrarTest();
+                            cajaCerrarTest.setUp(tercero);
+                            cajaCerrarTest.mainTest();
+                            cajaCerrarTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+                        break;
+                    case "5": // e. Dosificaciones de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // d. Dosificaciones de caja
+                    case "6": // f. Notas de credito de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "5": // e. Notas de credito de caja
-                        System.out.println("Numero: " + tercero);
-                        break;
-                    case "6": // f. Modalidades de factura en caja
+                    case "7": // g. Modalidades de factura en caja
                         System.out.println("Numero: " + tercero);
                         break;
                 }
@@ -332,10 +367,36 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Detalle de las trazas
                         System.out.println("Numero: " + tercero);
-                        break;
-                    case "3": // c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
+                        prueba = "MostrarDetalleauditoria";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaTrazaDetalleAuditoriaTest vistaTrazaDetalleAuditoria = new VistaTrazaDetalleAuditoriaTest();
+                            vistaTrazaDetalleAuditoria.setUp(tercero);
+                            vistaTrazaDetalleAuditoria.mainTest();
+                            vistaTrazaDetalleAuditoria.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                    case "3": //c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
                         System.out.println("Numero: " + tercero);
+                        prueba = "Exportar traza auditoria";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ExportarTrazaAuditoriaTest vistaExportarTrazaAuditoria = new VistaAsesuisa_ExportarTrazaAuditoriaTest();
+                            vistaExportarTrazaAuditoria.setUp(tercero);
+                            vistaExportarTrazaAuditoria.mainTest();
+                            vistaExportarTrazaAuditoria.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
+
                 }
                 break;
 
