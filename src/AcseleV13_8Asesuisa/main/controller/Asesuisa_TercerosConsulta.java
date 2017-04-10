@@ -29,7 +29,6 @@ public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
 
             Metodos m = new Metodos();
             Asesuisa_MenuMantenimiento asesuisaMenuMantenimiento = new Asesuisa_MenuMantenimiento();
-            Asesuisa_BuscarTerceros asesuisaBuscarTerceros = new Asesuisa_BuscarTerceros();
 
             driver = m.entrarPagina(m.UrlAsesuisa());
             m.IniciarSesion(driver, nombreAutomatizacion,i,folderName);
@@ -44,7 +43,7 @@ public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
             Thread.sleep(2000);
 
             //buscar tercero
-            asesuisaBuscarTerceros.BusquedaT(driver,m,asesuisaTercerosConsultaBean,nombreAutomatizacion,i,folderName,3,4,5,6, 7);
+            BusquedaT(driver,m,asesuisaTercerosConsultaBean,nombreAutomatizacion,i,folderName,3,4,5,6, 7);
             Thread.sleep(1500);
 
             //Llamada al metodo consultar
