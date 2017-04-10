@@ -1,5 +1,6 @@
 package AcseleV13_8Asesuisa.main.controller.polizaEmision;
 
+import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionGeneral30282Bean;
 import AcseleV13_8Asesuisa.beans.Asesuisa_PolizasBean;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
@@ -283,6 +284,55 @@ public class Asesuisa_InformacionGeneralPoliza {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }
+
+    public void InformacionGeneralRoboYHurto30282(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+       /* try {
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+            if (bean.getPlanesFinanciamiento()!=null){
+                Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']")));
+                planFinanciamiento.selectByValue(bean.getPlanesFinanciamiento());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getMonedas() != null){
+                Select moneda = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_ListCurrencies']")));
+                moneda.selectByValue(bean.getMonedas());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getSucursal() != null){
+                Select sucursal= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
+                sucursal.selectByValue(bean.getSucursal());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getNumeroPoliza() != null){
+                WebElement numPoliza = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_field']"));
+                numPoliza.sendKeys(bean.getNumeroPoliza());
+                Thread.sleep(1000);
+                //otroElemento.click();
+                //Thread.sleep(3000);
+            }
+
+            if (bean.getTipoProduccion()!=null){
+                Select tipoProduccion= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_6_fila_repeaterSelect_1_field']")));
+                tipoProduccion.selectByValue(bean.getTipoProduccion());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getFuncionamientoPoliza()!=null){
+                Select tipoProduccion= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_1_field']")));
+                tipoProduccion.selectByValue(bean.getFuncionamientoPoliza());
+                Thread.sleep(1000);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }*/
     }
 
     public void InformacionGeneralDotalSimple(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
