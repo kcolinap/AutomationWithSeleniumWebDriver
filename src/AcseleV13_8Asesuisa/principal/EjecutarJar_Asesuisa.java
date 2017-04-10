@@ -102,7 +102,7 @@ public class EjecutarJar_Asesuisa {
                     case "1": // a. Consulta de Terceros
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "";
+                        prueba = "VistaAsesuisa_TercerosConsultaTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_TercerosConsultaTest tercerosConsultaTest = new VistaAsesuisa_TercerosConsultaTest();

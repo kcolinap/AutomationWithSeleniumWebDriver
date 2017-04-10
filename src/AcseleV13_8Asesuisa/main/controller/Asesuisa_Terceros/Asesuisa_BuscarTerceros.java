@@ -25,7 +25,7 @@ public class Asesuisa_BuscarTerceros {
                           int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3,
                           int numScreenShoot4, int numScreenShoot5){
 
-        try{
+        busqueda: try{
 
             Thread.sleep(2000);
             JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -558,27 +558,39 @@ public class Asesuisa_BuscarTerceros {
             a.waitSearchWicket(driver, "Espera busqueda 1");
 
             boolean muchosRegistros = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']")).size() > 0;
+            boolean noEncontrados = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size() > 0;
             if (muchosRegistros){
                 WebElement muchosReg = driver.findElement(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']"));
                 System.out.println(muchosReg.getText());
                 Thread.sleep(500);
-                WebElement btnAceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
-                btnAceptar.click();
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
+                WebElement btnAceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
+                btnAceptar.click();
 
                 jse.executeScript("window.scrollBy(0,500)", "");
                 Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
                 Toolkit.getDefaultToolkit().beep();
 
                 //seleccionar tercero encontrado
                 Thread.sleep(500);
                 WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
                 selccionTercero.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
 
+                ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 8, 9, 10, 11, 12, 13);
 
+            }
+            else if (noEncontrados){
+                Thread.sleep(1000);
+                jse.executeScript("window.scrollBy(0,1000)", "");
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                break busqueda;
             }
 
             else {
@@ -592,11 +604,65 @@ public class Asesuisa_BuscarTerceros {
                 Thread.sleep(2000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                 Toolkit.getDefaultToolkit().beep();
+
+                ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 7, 8, 9, 10, 11, 12);
             }
 
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }
+
+    public void ConsultaT(WebDriver driver, Metodos m, String nombreAutomatizacion, int i, String folderName, int numScreenShot, int numScreenShot2,
+                          int numScreenShot3, int numScreenShot4, int numScreenShot5, int numScreenShot6){
+
+        try{
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            //Boton consultar
+            WebElement btnConsulta = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_consultThirdButton']"));
+            btnConsulta.click();
+            Thread.sleep(2000);
+
+
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot2, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot3, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot4, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot5, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot6, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
