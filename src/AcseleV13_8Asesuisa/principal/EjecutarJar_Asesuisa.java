@@ -13,7 +13,7 @@ public class EjecutarJar_Asesuisa {
     public static void main(String[] args) {
 
 
-      //  args = new String[]{"11", "3", "3"};
+        args = new String[]{"6", "1", "10"};
 
 
         //System.out.println("El tamaño del arreglo es: " + args.length);
@@ -24,7 +24,7 @@ public class EjecutarJar_Asesuisa {
         /*System.out.println(primero);
         System.out.println(segundo);
         System.out.println(tercero);
-*/
+        */
         log.info("Arrancando el main");
         String prueba;
 

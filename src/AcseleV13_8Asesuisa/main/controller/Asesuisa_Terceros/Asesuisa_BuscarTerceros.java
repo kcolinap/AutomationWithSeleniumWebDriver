@@ -111,7 +111,7 @@ public class Asesuisa_BuscarTerceros {
                 etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_3_fila_repeaterSelect_1_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                Select nacionalidad = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_3_fila_repeaterSelect_1_field']")));
+                Select nacionalidad = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
                 //nacionalidad.clear();
                 Thread.sleep(400);
                 nacionalidad.selectByValue(asesuisaTercerosBean.getNacionalidad());
@@ -123,7 +123,7 @@ public class Asesuisa_BuscarTerceros {
                 etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                Select paisOrigen = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
+                Select paisOrigen = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_3_fila_repeaterSelect_1_field']")));
                 //nacionalidad.clear();
                 Thread.sleep(400);
                 paisOrigen.selectByValue(asesuisaTercerosBean.getPaisOrigen());
@@ -132,13 +132,13 @@ public class Asesuisa_BuscarTerceros {
 
             //Edad persona natural
             if(asesuisaTercerosBean.getEdadPersonaNatural() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                WebElement edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
                 edadPnatural.clear();
                 Thread.sleep(600);
-                edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
                 edadPnatural.click();
                 Thread.sleep(600);
                 edadPnatural.sendKeys(asesuisaTercerosBean.getEdadPersonaNatural());
@@ -162,28 +162,29 @@ public class Asesuisa_BuscarTerceros {
 
             //Numero DUI
             if(asesuisaTercerosBean.getNumeroDUI() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
+                WebElement numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
                 numeroDui.clear();
                 Thread.sleep(600);
-                numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
+                numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
                 numeroDui.click();
                 Thread.sleep(600);
+                numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
                 numeroDui.sendKeys(asesuisaTercerosBean.getNumeroDUI());
                 Thread.sleep(1000);
             }
 
             //Numero NIT
             if(asesuisaTercerosBean.getNumeroNIT() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
+                WebElement numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
                 numeroNit.clear();
                 Thread.sleep(600);
-                numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
+                numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
                 numeroNit.click();
                 Thread.sleep(600);
                 numeroNit.sendKeys(asesuisaTercerosBean.getNumeroNIT());
@@ -556,9 +557,10 @@ public class Asesuisa_BuscarTerceros {
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
             a.waitSearchWicket(driver, "Espera busqueda 1");
+            Thread.sleep(2000);
 
             boolean muchosRegistros = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']")).size() > 0;
-            boolean noEncontrados = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size() > 0;
+            boolean noEncontrados = driver.findElements(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size() > 0;
             if (muchosRegistros){
                 WebElement muchosReg = driver.findElement(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']"));
                 System.out.println(muchosReg.getText());
