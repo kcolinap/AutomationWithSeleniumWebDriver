@@ -56,9 +56,10 @@ public class Asesuisa_RenovacionPoliza {
             btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']"));
             btnBuscar.click();
             Thread.sleep(1000);
+            m.waitSearchWicket(driver," Buscando póliza");
 
             //Valido la busqueda
-            ValidaBusqueda(m, driver, nombreAutomatizacion, bean, i, 4,5, folderName,
+            ValidaBusqueda(m, driver, nombreAutomatizacion, bean, i, 4, 5, folderName,
                     nroPoliza);
 
             //Cierra navegador
@@ -103,7 +104,7 @@ public class Asesuisa_RenovacionPoliza {
                 Thread.sleep(800);
 
             }else{//Poliza encontrada
-                WebElement optPoliza, btnCancelar;
+                WebElement optPoliza, btnRenovar;
                 String message;
 
                 msj="Poliza encontrada";
@@ -119,8 +120,8 @@ public class Asesuisa_RenovacionPoliza {
                 Thread.sleep(800);
 
                 Thread.sleep(800);
-                btnCancelar = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_CancelPolicyButton']"));
-                btnCancelar.click();
+                btnRenovar = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_buttonsForm_container_RenewPolicyButton']"));
+                btnRenovar.click();
                 Thread.sleep(1000);
 
                 //Evaluo si hay mensaje de error
