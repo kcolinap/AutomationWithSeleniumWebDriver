@@ -1,9 +1,6 @@
 package AcseleV13_8Asesuisa.principal;
 
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_BusquedaSimplePolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CajaCrearTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_CancelacionAnulacionPolizaTest;
-import AcseleV13_8Asesuisa.tests.VistaAsesuisa_ConsultaEdoCuentaTercerosTest;
+import AcseleV13_8Asesuisa.tests.*;
 import org.apache.log4j.Logger;
 
 /**
@@ -15,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"7", "1", "1"};
+        args = new String[]{"3", "8", "1"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -69,6 +66,21 @@ public class EjecutarJar_Asesuisa {
                 break;
 
             case "3": // 3)Consultas de pólizas por todos los campos (búsqueda avanzada)
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "VistaAsesuisa_BusquedaAvanzadaPolizaTest";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_BusquedaAvanzadaPolizaTest busquedaAvanzadaPolizaTest= new VistaAsesuisa_BusquedaAvanzadaPolizaTest();
+                    busquedaAvanzadaPolizaTest.setUp(segundo);
+                    busquedaAvanzadaPolizaTest.mainTest();
+                    busquedaAvanzadaPolizaTest.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
 
                 break;
 
