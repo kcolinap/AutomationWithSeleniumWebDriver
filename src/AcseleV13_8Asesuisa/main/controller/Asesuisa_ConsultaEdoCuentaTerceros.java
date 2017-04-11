@@ -164,7 +164,8 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
         Alert alert= driver.switchTo().alert();
 
         //Mensaje de alerta
-        alert.accept();
+        if (alertPresente(driver))
+            alert.accept();
 
 
         try {
@@ -178,7 +179,8 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxRazon = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[2]/tbody/tr/td[1]/font"));
                 auxRazon.click();
                 Thread.sleep(2500);
-                alert.accept();
+                if (alertPresente(driver))
+                    alert.accept();
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getCodigoIJuridico()!=null){
@@ -188,14 +190,16 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxLogin = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[25]/tbody/tr/td[1]/font"));
                 auxLogin.click();
                 Thread.sleep(2500);
-                alert.accept();
+                if (alertPresente(driver))
+                    alert.accept();
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getPaisOrigen()!=null){
                 paisOrigen = new Select(driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[3]/tbody/tr/td[2]/font/select")));
                 paisOrigen.selectByValue(asesuisaConsultaEdoCuentaTercerosBean.getPaisOrigen());
                 Thread.sleep(2500);
-                alert.accept();
+                if (alertPresente(driver))
+                    alert.accept();
                 /*WebElement auxPais = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[3]/tbody/tr/td[1]/font"));
                 auxPais.click();
                 Thread.sleep(2500);
@@ -209,7 +213,8 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxtlfn = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[5]/tbody/tr/td[1]/font"));
                 auxtlfn.click();
                 Thread.sleep(2500);
-                alert.accept();
+                if (alertPresente(driver))
+                    alert.accept();
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getEmailContacto()!=null){
@@ -219,7 +224,8 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxEmail = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[11]/tbody/tr/td[1]/font"));
                 auxEmail.click();
                 Thread.sleep(2500);
-                alert.accept();
+                if (alertPresente(driver))
+                    alert.accept();
             }
 
             //Pantallazos
@@ -326,6 +332,15 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
             Log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
 
+    }
+
+    public boolean alertPresente(WebDriver driver){
+        try {
+            driver.switchTo().alert();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }
