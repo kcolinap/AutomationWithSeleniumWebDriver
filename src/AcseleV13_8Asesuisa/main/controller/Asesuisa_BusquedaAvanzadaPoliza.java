@@ -46,13 +46,13 @@ public class Asesuisa_BusquedaAvanzadaPoliza {
             Thread.sleep(3000);
 
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
