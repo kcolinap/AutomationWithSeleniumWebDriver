@@ -48,13 +48,13 @@ public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
 
             //Llamada al metodo consultar
             //ConsultaT(driver, m, i, folderName,8,9,10,11,12, 13);
-            //driver.quit();
+            driver.quit();
 
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null) {
-                //driver.quit();
+                driver.quit();
             }
         }
     }
