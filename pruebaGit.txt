@@ -1,0 +1,13 @@
+AutoIT/
+AutomationTestAcsele.iml
+lib/
+log/
+out/
+pom.xml
+prueba.txt
+pruebaGit.txt
+rutas/
+schemaToolLog.log
+src/
+target/
+TestInit.txt
