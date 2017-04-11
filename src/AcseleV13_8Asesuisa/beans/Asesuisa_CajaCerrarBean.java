@@ -10,23 +10,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by aandrade on 30/03/2017.
+ * Created by aandrade on 03/04/2017.
  */
-public class Asesuisa_CajaAsociarCajeroBean {
+public class Asesuisa_CajaCerrarBean {
+    private final static Logger log = Logger.getLogger(Asesuisa_CajaCerrarBean.class);
 
-    private final static Logger log = Logger.getLogger(Asesuisa_CajaAsociarCajeroBean.class);
-
-    private String cajero;
     private String nrocaja;
-    private String cajeroasoc;
-
-    public String getCajero() {
-        return cajero;
-    }
-
-    public void setCajero(String cajero) {
-        this.cajero = cajero;
-    }
 
     public String getNrocaja() {
         return nrocaja;
@@ -36,15 +25,7 @@ public class Asesuisa_CajaAsociarCajeroBean {
         this.nrocaja = nrocaja;
     }
 
-    public String getCajeroasoc() {
-        return cajeroasoc;
-    }
-
-    public void setCajeroasoc(String cajeroasoc) {
-        this.cajeroasoc = cajeroasoc;
-    }
-
-    public static ArrayList getAsesuisa_CajaAsociarCajero() throws SQLException {
+    public static ArrayList getAsesuisa_CajaCerrar() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
@@ -52,7 +33,7 @@ public class Asesuisa_CajaAsociarCajeroBean {
         ArrayList caja = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASESUISA_CAJA_ASOCIAR_CAJERO ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASESUISA_CAJA_APERTURAR_CERRAR ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -60,12 +41,11 @@ public class Asesuisa_CajaAsociarCajeroBean {
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                Asesuisa_CajaAsociarCajeroBean cajaAsociarCajeroBean = new Asesuisa_CajaAsociarCajeroBean();
+                Asesuisa_CajaCerrarBean cajaCerrarBean = new Asesuisa_CajaCerrarBean();
 
-                cajaAsociarCajeroBean.setCajero(rs.getString("CAJERO"));
-                cajaAsociarCajeroBean.setNrocaja(rs.getString("NROCAJA"));
+                cajaCerrarBean.setNrocaja(rs.getString("NROCAJA"));
 
-                caja.add(cajaAsociarCajeroBean);
+                caja.add(cajaCerrarBean);
             }
         }catch(SQLException e) {
             log.error(e);
@@ -76,4 +56,5 @@ public class Asesuisa_CajaAsociarCajeroBean {
         }
         return caja;
     }
+
 }

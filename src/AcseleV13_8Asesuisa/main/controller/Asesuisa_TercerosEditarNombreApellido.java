@@ -40,13 +40,12 @@ public class Asesuisa_TercerosEditarNombreApellido extends Asesuisa_BuscarTercer
             Thread.sleep(1000);
 
             //Buscamos al tercero a ser editado
-            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosEditarNombreApellidoBean,nombreAutomatizacion,i,folderName,
-                    3,4,5,6);
+            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosEditarNombreApellidoBean,nombreAutomatizacion,i,folderName, 3,4,5,6, 7);
 
             Thread.sleep(600);
 
             //Lamada al metodo editar tercero
-            EditarT(driver, asesuisaTercerosEditarNombreApellidoBean, i,m,folderName,7,8,9,10);
+            EditarT(driver, asesuisaTercerosEditarNombreApellidoBean, i,m,folderName, 8,9,10, 11);
             Thread.sleep(1000);
 
             //Salimos

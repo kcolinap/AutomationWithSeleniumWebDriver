@@ -22,7 +22,7 @@ public class Asesuisa_ConsultaEdoCuentaTercerosBean implements Serializable {
     //Campos para persona Natural
     private String primerNombre;
     private String primerApellido;
-    private String codigoIdentificador;
+    private String codigoNit;
     private String email;
     private String dctoIdentificacion;
 
@@ -57,12 +57,12 @@ public class Asesuisa_ConsultaEdoCuentaTercerosBean implements Serializable {
         this.primerApellido = primerApellido;
     }
 
-    public String getCodigoIdentificador() {
-        return codigoIdentificador;
+    public String getCodigoNit() {
+        return codigoNit;
     }
 
-    public void setCodigoIdentificador(String codigoIdentificador) {
-        this.codigoIdentificador = codigoIdentificador;
+    public void setCodigoNit(String codigoNit) {
+        this.codigoNit = codigoNit;
     }
 
     public String getEmail() {
@@ -143,7 +143,7 @@ public class Asesuisa_ConsultaEdoCuentaTercerosBean implements Serializable {
                 asesuisaConsultaEdoCuentaTercerosBean.setTipoTercero(rs.getString("TIPOTERCERO"));
                 asesuisaConsultaEdoCuentaTercerosBean.setPrimerNombre(rs.getString("PRIMERNOMBRE"));
                 asesuisaConsultaEdoCuentaTercerosBean.setPrimerApellido(rs.getString("PRIMERAPELLIDO"));
-                asesuisaConsultaEdoCuentaTercerosBean.setCodigoIdentificador(rs.getString("CODIGOIDENTIFICADOR"));
+                asesuisaConsultaEdoCuentaTercerosBean.setCodigoNit(rs.getString("CODIGOIDENTIFICADOR"));
                 asesuisaConsultaEdoCuentaTercerosBean.setEmail(rs.getString("EMAIL"));
                 asesuisaConsultaEdoCuentaTercerosBean.setDctoIdentificacion(rs.getString("DCTOIDENTIFICACION"));
                 asesuisaConsultaEdoCuentaTercerosBean.setRazonSocial(rs.getString("RAZONSOCIAL"));

@@ -44,25 +44,23 @@ public class VistaAsesuisa_TercerosConsultaTest {
         }
     }
     @Before
-    public void setUp() throws Exception {
-/*
+    public void setUp(String num) throws Exception {
+
+
+        /*DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_TERCEROS_CONSULTA ORDER BY PRUEBA ASC",
+                "ASESUISA_TERCEROS_CONSULTA",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset" + num + ".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_TERCEROS_CONSULTA ORDER BY PRUEBA ASC",
                 "ASESUISA_TERCEROS_CONSULTA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml");
-
-        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_TERCEROS_CONSULTA ORDER BY PRUEBA ASC",
-                "ASESUISA_TERCEROS_CONSULTA",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml");
-*/
-
-
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml", DataSetManager.REFRESH_OPERATION);
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset" + num + ".xml");
+        */
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown(String num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosConsulta_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }

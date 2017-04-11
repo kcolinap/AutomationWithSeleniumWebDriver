@@ -29,7 +29,6 @@ public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
 
             Metodos m = new Metodos();
             Asesuisa_MenuMantenimiento asesuisaMenuMantenimiento = new Asesuisa_MenuMantenimiento();
-            Asesuisa_BuscarTerceros asesuisaBuscarTerceros = new Asesuisa_BuscarTerceros();
 
             driver = m.entrarPagina(m.UrlAsesuisa());
             m.IniciarSesion(driver, nombreAutomatizacion,i,folderName);
@@ -44,71 +43,21 @@ public class Asesuisa_TercerosConsulta extends Asesuisa_BuscarTerceros {
             Thread.sleep(2000);
 
             //buscar tercero
-            asesuisaBuscarTerceros.BusquedaT(driver,m,asesuisaTercerosConsultaBean,nombreAutomatizacion,i,folderName,3,4,5,6);
+            BusquedaT(driver,m,asesuisaTercerosConsultaBean,nombreAutomatizacion,i,folderName,3,4,5,6, 7);
             Thread.sleep(1500);
 
             //Llamada al metodo consultar
-            ConsultaT(driver, m, i, folderName,7,8,9,10,11,12);
-            driver.quit();
+            //ConsultaT(driver, m, i, folderName,8,9,10,11,12, 13);
+            //driver.quit();
 
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null) {
-                driver.quit();
+                //driver.quit();
             }
         }
     }
 
-    public void ConsultaT(WebDriver driver, Metodos m, int i, String folderName, int numScreenShot, int numScreenShot2,
-                          int numScreenShot3, int numScreenShot4, int numScreenShot5, int numScreenShot6){
 
-        try{
-            JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-            //Boton consultar
-            WebElement btnConsulta = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_consultThirdButton']"));
-            btnConsulta.click();
-            Thread.sleep(2000);
-
-
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i, "screen" + numScreenShot, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            jse.executeScript("window.scrollBy(0,600)", "");
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i, "screen" + numScreenShot2, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            jse.executeScript("window.scrollBy(0,600)", "");
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i, "screen" + numScreenShot3, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            jse.executeScript("window.scrollBy(0,600)", "");
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i, "screen" + numScreenShot4, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            jse.executeScript("window.scrollBy(0,600)", "");
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i, "screen" + numScreenShot5, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-
-            jse.executeScript("window.scrollBy(0,600)", "");
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i, "screen" + numScreenShot6, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-            Thread.sleep(1000);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
 }

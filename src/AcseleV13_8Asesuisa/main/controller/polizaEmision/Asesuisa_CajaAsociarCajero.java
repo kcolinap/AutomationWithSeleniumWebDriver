@@ -43,62 +43,59 @@ public class Asesuisa_CajaAsociarCajero {
 
             /** Asociar Caja con Cajero */
 
-            //AsociarCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
+            AsociarCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(3000);
 
-
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
-/* Logica Selenium
+
     public void AsociarCaja(Asesuisa_CajaAsociarCajeroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         try {
 
-            driver.findElement(By.xpath("//input[@name='insert']")).click();
-            // Si se ingresaron todos los campos solicitados: Descripcion, Ubicacion y Localidad
-            if (bean.getDescripcion() != null && bean.getUbicacion() != null && bean.getSucursal() != null ) {
-                WebElement descripcion = driver.findElement(By.xpath("//input[@name='description']"));
-                descripcion.sendKeys(bean.getDescripcion());
-                Thread.sleep(2000);
-                WebElement ubicacion = driver.findElement(By.xpath("//input[@name='location']"));
-                ubicacion.sendKeys(bean.getUbicacion());
-                Thread.sleep(2000);
-                Select sucursal = new Select(driver.findElement(By.xpath("//select[@name='branchID']")));
-                sucursal.selectByValue(bean.getSucursal());
+            // Si se seleccionan todos los campos solicitados: cajero y numero de caja
+            if(bean.getCajero() != null && bean.getNrocaja() != null){
+                Thread.sleep(1000);
+                Select cajero = new Select(driver.findElement(By.xpath("//select[@name='cashierID']")));
+                cajero.selectByValue(bean.getCajero());
+
+                Thread.sleep(1000);
+                Select nrocaja = new Select(driver.findElement(By.xpath("//select[@name='cashierRegisterID']")));
+                nrocaja.selectByValue(bean.getNrocaja());
+
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
-                driver.findElement(By.xpath("//input[@name='Insert']")).click();
+                driver.findElement(By.xpath("//input[@id='idb_040203703_associateCashierRegisterWithCashier_01']")).click();
+
+                int t = (driver.findElements(By.xpath("//*[@id='scrolly']/table/tbody/tr")).size())-1;
+                driver.findElement(By.xpath("//*[@id='scrolly']/table/tbody/tr[" + t + "]/td[1]/input")).click();
 
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
-            }
-            // Si el campo Descripcion esta vacio
-            else if (bean.getDescripcion() == null && bean.getUbicacion() != null) {
-                WebElement descripcion = driver.findElement(By.xpath("//input[@name='description']"));
-                descripcion.clear();
-                Thread.sleep(2000);
-                WebElement ubicacion = driver.findElement(By.xpath("//input[@name='location']"));
-                ubicacion.sendKeys(bean.getUbicacion());
-                Thread.sleep(2000);
-                Select sucursal = new Select(driver.findElement(By.xpath("//select[@name='branchID']")));
-                sucursal.selectByValue(bean.getSucursal());
 
-                Thread.sleep(2000);
+            }
+            // Si no se selecciona el campo: cajero
+            else if (bean.getCajero() == null && bean.getNrocaja() != null){
+                Thread.sleep(1000);
+                Select nrocaja = new Select(driver.findElement(By.xpath("//select[@name='cashierRegisterID']")));
+                nrocaja.selectByValue(bean.getNrocaja());
+
+                Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
-                driver.findElement(By.xpath("//input[@name='Insert']")).click();
+                driver.findElement(By.xpath("//input[@id='idb_040203703_associateCashierRegisterWithCashier_01']")).click();
 
                 // Mensajes de Alerta JavaScript
                 if (ExpectedConditions.alertIsPresent() != null) {
@@ -112,22 +109,17 @@ public class Asesuisa_CajaAsociarCajero {
                 }
 
             }
-            // Si el campo Ubicacion esta vacio
-            else if (bean.getDescripcion() != null && bean.getUbicacion() == null){
-                WebElement descripcion = driver.findElement(By.xpath("//input[@name='description']"));
-                descripcion.sendKeys(bean.getDescripcion());
-                Thread.sleep(2000);
-                WebElement ubicacion = driver.findElement(By.xpath("//input[@name='location']"));
-                ubicacion.clear();
-                Thread.sleep(2000);
-                Select sucursal = new Select(driver.findElement(By.xpath("//select[@name='branchID']")));
-                sucursal.selectByValue(bean.getSucursal());
+            // Si no se selecciona el campo: numero de caja
+            else if (bean.getCajero() != null && bean.getNrocaja() == null){
+                Thread.sleep(1000);
+                Select cajero = new Select(driver.findElement(By.xpath("//select[@name='cashierID']")));
+                cajero.selectByValue(bean.getCajero());
 
-                Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
-                driver.findElement(By.xpath("//input[@name='Insert']")).click();
+                driver.findElement(By.xpath("//input[@id='idb_040203703_associateCashierRegisterWithCashier_01']")).click();
 
                 // Mensajes de Alerta JavaScript
                 if (ExpectedConditions.alertIsPresent() != null) {
@@ -141,20 +133,15 @@ public class Asesuisa_CajaAsociarCajero {
                 }
 
             }
-
-            // Si todos los campos estan vacios
-            else if (bean.getDescripcion() == null && bean.getUbicacion() == null && bean.getSucursal() == null){
-                WebElement descripcion = driver.findElement(By.xpath("//input[@name='description']"));
-                descripcion.clear();
-                Thread.sleep(2000);
-                WebElement ubicacion = driver.findElement(By.xpath("//input[@name='location']"));
-                ubicacion.clear();
-
-                Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            // Si no se selecciona ningun campo
+            else if (bean.getCajero() == null && bean.getNrocaja() == null){
                 Thread.sleep(1000);
 
-                driver.findElement(By.xpath("//input[@name='Insert']")).click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
+                driver.findElement(By.xpath("//input[@id='idb_040203703_associateCashierRegisterWithCashier_01']")).click();
 
                 // Mensajes de Alerta JavaScript
                 if (ExpectedConditions.alertIsPresent() != null) {
@@ -168,7 +155,6 @@ public class Asesuisa_CajaAsociarCajero {
                 }
 
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -176,5 +162,4 @@ public class Asesuisa_CajaAsociarCajero {
         }
 
     }
-*/ //fin logica Selenium
 }

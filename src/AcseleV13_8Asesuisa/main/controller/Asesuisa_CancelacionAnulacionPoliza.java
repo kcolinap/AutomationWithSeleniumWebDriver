@@ -7,6 +7,7 @@ import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import sun.awt.windows.ThemeReader;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
     private final static Logger Log = Logger.getLogger(Asesuisa_ConsultaEdoCuentaTerceros.class);
     public String nombreAutomatizacion = "Cancelacion-Anulacion de Poliza";
     private WebDriver driver;
+    Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
 
     public void testLink(Asesuisa_CancelacionAnulacionPolizaBean asesuisaCancelacionAnulacionPolizaBean, int i,
                          String folderName){
@@ -25,7 +27,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
             WebElement txtNroPoliza,btnBuscar;
             String nroPoliza;
             Metodos m = new Metodos();
-            Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
+
 
             //Inicio y valido sesion a la aplicacion
             driver=m.entrarPagina(m.UrlAsesuisa());
@@ -43,7 +45,12 @@ public class Asesuisa_CancelacionAnulacionPoliza {
             //Capturo nro de poliza y click en buscar
             nroPoliza=asesuisaCancelacionAnulacionPolizaBean.getNroPoliza();
             txtNroPoliza= driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
-            txtNroPoliza.sendKeys(nroPoliza);
+            if (nroPoliza==null){
+                nroPoliza="";
+                txtNroPoliza.sendKeys(nroPoliza);
+            }else {
+                txtNroPoliza.sendKeys(nroPoliza);
+            }
             Thread.sleep(500);
 
             //Pantallazo
@@ -72,7 +79,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
     }
 
     public void ValidaBusqueda(Metodos m, WebDriver driver, String nombreAutomatizacion,
-                              Asesuisa_CancelacionAnulacionPolizaBean asesuisaCancelacionAnulacionPoliza, int i,
+                              Asesuisa_CancelacionAnulacionPolizaBean asesuisaCancelacionAnulacionPolizaBean, int i,
                               int screenShoot1, int screenShoot2, String folderName, String nroPoliza ){
 
         try {
@@ -81,19 +88,19 @@ public class Asesuisa_CancelacionAnulacionPoliza {
 
             //Evaluo si el campo nroPoliza esta en blanco
             if (nroPoliza.equals("")){
-                msj=(driver.findElement(By.id("_wicket_window_15")).getText());
+                msj=(driver.findElement(By.className("w_windowMessage")).getText());
                 System.out.println(msj);
-                System.out.println("");
+                System.out.println("Nro de póliza en blanco. No se encontró resultados asociados con esta búsqueda");
                 Thread.sleep(500);
 
                 //pantallazo
                 m.ScreenShotPool(driver,i,"screen"+screenShoot1,nombreAutomatizacion,folderName);
                 Thread.sleep(800);
 
-            }else if (driver.findElements(By.id("_wicket_window_15")).size()>0){//Nro de poliza no encontrado
-                msj=(driver.findElement(By.id("_wicket_window_15")).getText());
+            }else if (driver.findElements(By.className("w_windowMessage")).size()>0){//Nro de poliza no encontrado
+                msj=(driver.findElement(By.className("w_windowMessage")).getText());
                 System.out.println(msj);
-                System.out.println("");
+                System.out.println("No se encontró resultados asociados con esta búsqueda");
                 Thread.sleep(500);
 
                 //pantallazo
@@ -143,7 +150,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
                         Thread.sleep(800);
                     }
                 }else if (dialog &&(driver.findElements(By.className("w_windowPanel"))).size()>0){
-                    CancelarPoliza(m,driver,nombreAutomatizacion,i,6,7,folderName);
+                    CancelarPoliza(m,driver,nombreAutomatizacion,i,5,6,7,8,9,11,12,13, folderName, asesuisaCancelacionAnulacionPolizaBean);
                 }
 
             }
@@ -154,9 +161,13 @@ public class Asesuisa_CancelacionAnulacionPoliza {
     }
 
     public void CancelarPoliza(Metodos m, WebDriver driver, String nombreAutomatizacion, int i,
-                               int screenShoot1, int screenShoot2, String folderName){
+                               int screenShoot1, int screenShoot2,int screenShoot3, int screenShoot4, int screenShoot5,
+                               int screenShoot6,int screenShoot7, int screenShoot8, String folderName,
+                               Asesuisa_CancelacionAnulacionPolizaBean asesuisaCancelacionAnulacionPolizaBean){
 
-        try {
+
+
+       salida: try {
 
             /********************************************************************
              * ******************************************************************
@@ -206,12 +217,101 @@ public class Asesuisa_CancelacionAnulacionPoliza {
             /**************************************************************
              * Fin formulario
              */
+
             //pantallazo
             Thread.sleep(800);
             m.ScreenShotPool(driver,i,"screen"+screenShoot2,nombreAutomatizacion,folderName);
             Thread.sleep(800);
 
             //Boton calcular
+            WebElement btnCalcular, div;
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            jse.executeScript("window.scrollBy(0,5000)", "");
+            Thread.sleep(800);
+
+            //pantallazo
+            m.ScreenShotPool(driver,i,"screen"+screenShoot3,nombreAutomatizacion,folderName);
+            Thread.sleep(800);
+
+            btnCalcular = driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']"));
+            btnCalcular.click();
+            Thread.sleep(1000);
+            m.waitSearchWicket(driver, "Se esta procesando su solicitud");
+
+            //Ventana aplicar
+            Thread.sleep(1000);
+            //pantallazo
+            m.ScreenShotPool(driver, i, "screen" + screenShoot4, nombreAutomatizacion, folderName);
+            Thread.sleep(800);
+
+            WebElement btnAplicar;
+
+            btnAplicar=driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
+            btnAplicar.click();
+            m.waitSearchWicket(driver, "Se esta aplicando el evento");
+
+            //Validar mensaje de error
+            boolean errorAplicandoEvento= (driver.findElements(By.className("w_windowMessage")).size()>0);
+            if (errorAplicandoEvento) {
+
+                WebElement chkIgnorar, btnAux, imgMore;
+                boolean ignorar = driver.findElements(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']")).size()>0;
+                if (ignorar){
+                    chkIgnorar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']"));
+                    chkIgnorar.click();
+                    Thread.sleep(500);
+                    btnAux = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
+                    btnAux.click();
+                    m.waitSearchWicket(driver, "Aplicando evento");
+                    Thread.sleep(1000);
+                }else{
+                    imgMore= driver.findElement(By.className("imageMore"));
+                    imgMore.click();
+                    Thread.sleep(800);
+                    //pantallazo
+                    m.ScreenShotPool(driver, i, "screen" + screenShoot5, nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+                    break salida;
+                }
+            }
+
+            //Pantallazo
+            m.ScreenShotPool(driver, i, "screen" + screenShoot5, nombreAutomatizacion, folderName);
+            Thread.sleep(800);
+
+            //Dialogo resumen
+            WebElement auxFinalizar;
+
+            auxFinalizar = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_pdfForm_CloseFinalize_closeFinalize']"));
+            auxFinalizar.click();
+            Thread.sleep(500);
+            System.out.println("Póliza cancelada de manera exitosa");
+
+            /*********************************************
+             //Validar nuevo estatus de la poliza
+             **********************************************/
+            Thread.sleep(1000);
+            m.cambiarVentana(driver);
+           Thread.sleep(1000);
+            menuOperaciones.OpePol_CotizacionSuscripcionEdicion_MantenimientoEdicionFrontEnd(driver, nombreAutomatizacion, 10,i,folderName);
+            Thread.sleep(1200);
+           m.cambiarVentana(driver);
+            Thread.sleep(1000);
+
+            System.out.println("Buscamos nuevamente la poliza para validar su nuevo status");
+            WebElement auxNroPoliza, auxBtnBuscar;
+            auxNroPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
+            auxNroPoliza.sendKeys(asesuisaCancelacionAnulacionPolizaBean.getNroPoliza());
+            Thread.sleep(400);
+            m.ScreenShotPool(driver,i,"screen"+screenShoot6,nombreAutomatizacion,folderName);
+
+            auxBtnBuscar=driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']"));
+            auxBtnBuscar.click();
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i,"screen"+screenShoot7,nombreAutomatizacion,folderName);
+            Thread.sleep(1000);
+
 
         }catch (Exception e) {
             e.printStackTrace();

@@ -47,7 +47,7 @@ public class VistaAsesuisa_CajaAsociarCajeroTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(String num) throws Exception {
 /*
          DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_ASOCIAR_CAJERO ORDER BY PRUEBA ASC",
                 "ASESUISA_CAJA_ASOCIAR_CAJERO",
@@ -57,12 +57,12 @@ public class VistaAsesuisa_CajaAsociarCajeroTest {
                 "ASESUISA_CAJA_ASOCIAR_CAJERO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAsociarCajero_dataset1.xml");
 */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAsociarCajero_dataset" + "1" + ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAsociarCajero_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown(String num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAsociarCajero_dataset" + "1" + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAsociarCajero_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }

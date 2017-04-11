@@ -21,7 +21,7 @@ public class EjecutarJar_Asesuisa {
         /*System.out.println(primero);
         System.out.println(segundo);
         System.out.println(tercero);
-*/
+        */
         log.info("Arrancando el main");
         String prueba;
 
@@ -85,6 +85,21 @@ public class EjecutarJar_Asesuisa {
                 break;
 
             case "4": // 4) Cancelación/Anulación de Pólizas.
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "VistaAsesuisa_CancelacionAnulacionPolizaTest";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_CancelacionAnulacionPolizaTest cancelacionAnulacionPolizaTest = new VistaAsesuisa_CancelacionAnulacionPolizaTest();
+                    cancelacionAnulacionPolizaTest.setUp(segundo);
+                    cancelacionAnulacionPolizaTest.mainTest();
+                    cancelacionAnulacionPolizaTest.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
 
                 break;
 
@@ -98,6 +113,21 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Consulta de Terceros
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosConsultaTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosConsultaTest tercerosConsultaTest = new VistaAsesuisa_TercerosConsultaTest();
+                            tercerosConsultaTest.setUp(tercero);
+                            tercerosConsultaTest.mainTest();
+                            tercerosConsultaTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+
                         break;
                     case "2": // b. Creación de Terceros con el mismo tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);
@@ -171,17 +201,62 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Asociar caja a cajero
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaAsociarCajeroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaAsociarCajeroTest cajaAsociarCajeroTest = new VistaAsesuisa_CajaAsociarCajeroTest();
+                            cajaAsociarCajeroTest.setUp(tercero);
+                            cajaAsociarCajeroTest.mainTest();
+                            cajaAsociarCajeroTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
-                    case "3": // c. Aperturar y Cerrar Caja
+                    case "3": // c. Aperturar Caja
+                        System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaAperturarTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaAperturarTest cajaAperturarTest = new VistaAsesuisa_CajaAperturarTest();
+                            cajaAperturarTest.setUp(tercero);
+                            cajaAperturarTest.mainTest();
+                            cajaAperturarTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+                        break;
+                    case "4": // d. Cerrar Caja
+                        System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_CajaCerrarTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaCerrarTest cajaCerrarTest = new VistaAsesuisa_CajaCerrarTest();
+                            cajaCerrarTest.setUp(tercero);
+                            cajaCerrarTest.mainTest();
+                            cajaCerrarTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+                        break;
+                    case "5": // e. Dosificaciones de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // d. Dosificaciones de caja
+                    case "6": // f. Notas de credito de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "5": // e. Notas de credito de caja
-                        System.out.println("Numero: " + tercero);
-                        break;
-                    case "6": // f. Modalidades de factura en caja
+                    case "7": // g. Modalidades de factura en caja
                         System.out.println("Numero: " + tercero);
                         break;
                 }
@@ -318,10 +393,36 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Detalle de las trazas
                         System.out.println("Numero: " + tercero);
-                        break;
-                    case "3": // c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
+                        prueba = "MostrarDetalleauditoria";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaTrazaDetalleAuditoriaTest vistaTrazaDetalleAuditoria = new VistaTrazaDetalleAuditoriaTest();
+                            vistaTrazaDetalleAuditoria.setUp(tercero);
+                            vistaTrazaDetalleAuditoria.mainTest();
+                            vistaTrazaDetalleAuditoria.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                    case "3": //c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
                         System.out.println("Numero: " + tercero);
+                        prueba = "Exportar traza auditoria";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ExportarTrazaAuditoriaTest vistaExportarTrazaAuditoria = new VistaAsesuisa_ExportarTrazaAuditoriaTest();
+                            vistaExportarTrazaAuditoria.setUp(tercero);
+                            vistaExportarTrazaAuditoria.mainTest();
+                            vistaExportarTrazaAuditoria.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
+
                 }
                 break;
 
@@ -803,6 +904,44 @@ public class EjecutarJar_Asesuisa {
                     //.setUp(segundo);
                     //.mainTest();
                     //.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
+
+                break;
+            case "37": // 36) Prestamos documentados
+
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+
+                    //.setUp(segundo);
+                    //.mainTest();
+                    //.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
+
+                break;
+            case "38": // 36) Emision poliza userStory 30282
+
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+
+                prueba = "VistaAsesuisa_PolizaEmisionGeneral30282Test";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_PolizaEmisionGeneral30282Test polizaEmisionGeneral30282Test = new VistaAsesuisa_PolizaEmisionGeneral30282Test();
+                    polizaEmisionGeneral30282Test.setUp(segundo);
+                    polizaEmisionGeneral30282Test.mainTest();
+                    polizaEmisionGeneral30282Test.tearDown(segundo);
                 } catch (Exception e) {
                     e.printStackTrace();
                     log.error("Test Case - " + prueba + " - " + e);

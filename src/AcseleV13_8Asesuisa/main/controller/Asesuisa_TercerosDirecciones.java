@@ -38,12 +38,11 @@ public class Asesuisa_TercerosDirecciones {
             Thread.sleep(1000);
 
             //Buscar tercero
-            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosDireccionesBean, nombreAutomatizacion, i, folderName,
-                    3,4,5,6);
+            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosDireccionesBean, nombreAutomatizacion, i, folderName, 3,4,5,6, 7);
             Thread.sleep(1500);
 
             //Llamada a metodo agregar direccion
-            AgregarDirTerceroNatural(driver, m, asesuisaTercerosDireccionesBean,i,folderName,7,8,9 );
+            AgregarDirTerceroNatural(driver, m, asesuisaTercerosDireccionesBean,i,folderName,8,9, 10);
             Thread.sleep(1500);
 
             driver.quit();

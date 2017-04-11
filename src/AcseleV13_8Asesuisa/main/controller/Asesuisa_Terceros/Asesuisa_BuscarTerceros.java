@@ -23,9 +23,9 @@ public class Asesuisa_BuscarTerceros {
 
     public void BusquedaT(WebDriver driver, Metodos a, Asesuisa_TercerosBean asesuisaTercerosBean, String nombreAutomatizacion,
                           int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3,
-                          int numScreenShoot4){
+                          int numScreenShoot4, int numScreenShoot5){
 
-        try{
+        busqueda: try{
 
             Thread.sleep(2000);
             JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -111,7 +111,7 @@ public class Asesuisa_BuscarTerceros {
                 etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_3_fila_repeaterSelect_1_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                Select nacionalidad = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_3_fila_repeaterSelect_1_field']")));
+                Select nacionalidad = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
                 //nacionalidad.clear();
                 Thread.sleep(400);
                 nacionalidad.selectByValue(asesuisaTercerosBean.getNacionalidad());
@@ -123,7 +123,7 @@ public class Asesuisa_BuscarTerceros {
                 etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                Select paisOrigen = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_4_fila_repeaterSelect_1_field']")));
+                Select paisOrigen = new Select (driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_3_fila_repeaterSelect_1_field']")));
                 //nacionalidad.clear();
                 Thread.sleep(400);
                 paisOrigen.selectByValue(asesuisaTercerosBean.getPaisOrigen());
@@ -132,13 +132,13 @@ public class Asesuisa_BuscarTerceros {
 
             //Edad persona natural
             if(asesuisaTercerosBean.getEdadPersonaNatural() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                WebElement edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
                 edadPnatural.clear();
                 Thread.sleep(600);
-                edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
+                edadPnatural = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
                 edadPnatural.click();
                 Thread.sleep(600);
                 edadPnatural.sendKeys(asesuisaTercerosBean.getEdadPersonaNatural());
@@ -162,28 +162,29 @@ public class Asesuisa_BuscarTerceros {
 
             //Numero DUI
             if(asesuisaTercerosBean.getNumeroDUI() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
+                WebElement numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
                 numeroDui.clear();
                 Thread.sleep(600);
-                numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_6_fila_field']"));
+                numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
                 numeroDui.click();
                 Thread.sleep(600);
+                numeroDui = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
                 numeroDui.sendKeys(asesuisaTercerosBean.getNumeroDUI());
                 Thread.sleep(1000);
             }
 
             //Numero NIT
             if(asesuisaTercerosBean.getNumeroNIT() != null){
-                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_etiqueta']"));
+                etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_etiqueta']"));
                 etiqueta.click();
                 Thread.sleep(1000);
-                WebElement numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
+                WebElement numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
                 numeroNit.clear();
                 Thread.sleep(600);
-                numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_5_fila_field']"));
+                numeroNit = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_5_fila_field']"));
                 numeroNit.click();
                 Thread.sleep(600);
                 numeroNit.sendKeys(asesuisaTercerosBean.getNumeroNIT());
@@ -547,30 +548,123 @@ public class Asesuisa_BuscarTerceros {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
+            Thread.sleep(500);
+            WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
+            otro.click();
+            Thread.sleep(500);
+
             //Boton buscar
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
             a.waitSearchWicket(driver, "Espera busqueda 1");
-
-            Thread.sleep(500);
-            buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            buscar.click();
-            a.waitSearchWicket(driver, "Espera busqueda 2");
-
-
-            //seleccionar tercero encontrado
-            Thread.sleep(500);
-            WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
-            selccionTercero.click();
-
-            jse.executeScript("window.scrollBy(0,500)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
+
+            boolean muchosRegistros = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']")).size() > 0;
+            boolean noEncontrados = driver.findElements(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size() > 0;
+            if (muchosRegistros){
+                WebElement muchosReg = driver.findElement(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']"));
+                System.out.println(muchosReg.getText());
+                Thread.sleep(500);
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                WebElement btnAceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
+                btnAceptar.click();
+
+                jse.executeScript("window.scrollBy(0,500)", "");
+                Thread.sleep(2000);
+                Toolkit.getDefaultToolkit().beep();
+
+                //seleccionar tercero encontrado
+                Thread.sleep(500);
+                WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+                selccionTercero.click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
+                ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 8, 9, 10, 11, 12, 13);
+
+            }
+            else if (noEncontrados){
+                Thread.sleep(1000);
+                jse.executeScript("window.scrollBy(0,1000)", "");
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                break busqueda;
+            }
+
+            else {
+
+                //seleccionar tercero encontrado
+                Thread.sleep(500);
+                WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+                selccionTercero.click();
+
+                jse.executeScript("window.scrollBy(0,500)", "");
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Toolkit.getDefaultToolkit().beep();
+
+                ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 7, 8, 9, 10, 11, 12);
+            }
 
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }
+
+    public void ConsultaT(WebDriver driver, Metodos m, String nombreAutomatizacion, int i, String folderName, int numScreenShot, int numScreenShot2,
+                          int numScreenShot3, int numScreenShot4, int numScreenShot5, int numScreenShot6){
+
+        try{
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            //Boton consultar
+            WebElement btnConsulta = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_consultThirdButton']"));
+            btnConsulta.click();
+            Thread.sleep(2000);
+
+
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot2, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot3, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot4, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot5, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,600)", "");
+            Thread.sleep(1000);
+            m.ScreenShotPool(driver, i, "screen" + numScreenShot6, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
