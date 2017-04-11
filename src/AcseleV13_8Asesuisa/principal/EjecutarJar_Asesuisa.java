@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"7", "5", "1"};
+        //args = new String[]{"7", "6", "6"};
 
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
@@ -233,10 +233,25 @@ public class EjecutarJar_Asesuisa {
                         }
                         log.info("--->>> Final de la prueba " + prueba);
                         break;
-                    case "6": // f. Notas de credito de caja
+                    case "6": // f. Dosificaciones de caja mantenimiento
+                        System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaDosificacionesMantTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaDosificacionesMantTest cajaDosificacionesMantTest = new VistaAsesuisa_CajaDosificacionesMantTest();
+                            cajaDosificacionesMantTest.setUp(tercero);
+                            cajaDosificacionesMantTest.mainTest();
+                            cajaDosificacionesMantTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                        break;
+                    case "7": // g. Notas de credito de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "7": // g. Modalidades de factura en caja
+                    case "8": // h. Modalidades de factura en caja
                         System.out.println("Numero: " + tercero);
                         break;
                 }

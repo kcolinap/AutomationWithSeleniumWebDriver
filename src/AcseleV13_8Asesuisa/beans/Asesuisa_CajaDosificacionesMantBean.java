@@ -27,6 +27,8 @@ public class Asesuisa_CajaDosificacionesMantBean {
     private String certiraje;
     private String rangodesd;
     private String rangohast;
+    private String estado;
+    private String operacion;
 
     public String getGenerica() {
         return generica;
@@ -84,6 +86,22 @@ public class Asesuisa_CajaDosificacionesMantBean {
         this.rangohast = rangohast;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getOperacion() {
+        return operacion;
+    }
+
+    public void setOperacion(String operacion) {
+        this.operacion = operacion;
+    }
+
 
 
 
@@ -95,7 +113,7 @@ public class Asesuisa_CajaDosificacionesMantBean {
         ArrayList caja = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASESUISA_CAJA_DOSIFIC_MANT ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -112,6 +130,8 @@ public class Asesuisa_CajaDosificacionesMantBean {
                 cajaDosificacionesMantBean.setCertiraje(rs.getString("CERTIRAJE"));
                 cajaDosificacionesMantBean.setRangodesd(rs.getString("RANGODESD"));
                 cajaDosificacionesMantBean.setRangohast(rs.getString("RANGOHAST"));
+                cajaDosificacionesMantBean.setEstado(rs.getString("ESTADO"));
+                cajaDosificacionesMantBean.setOperacion(rs.getString("OPERACION"));
 
                 caja.add(cajaDosificacionesMantBean);
             }

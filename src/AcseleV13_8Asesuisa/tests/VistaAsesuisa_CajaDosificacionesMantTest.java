@@ -37,7 +37,7 @@ public class VistaAsesuisa_CajaDosificacionesMantTest {
             String horaC = metodos.horaCarpeta();
 
             try {
-                //a.testLink(bean, j, horaC);
+                a.testLink(bean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -50,21 +50,21 @@ public class VistaAsesuisa_CajaDosificacionesMantTest {
     public void setUp(String num) throws Exception {
 
 /*
-         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC",
-                "ASESUISA_CAJA_DOSIFICACIONES",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml");
+         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFIC_MANT ORDER BY PRUEBA ASC",
+                "ASESUISA_CAJA_DOSIFIC_MANT",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificMant_dataset" + num + ".xml");
 
-        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC",
-                "ASESUISA_CAJA_DOSIFICACIONES",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml");
+        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFIC_MANT ORDER BY PRUEBA ASC",
+                "ASESUISA_CAJA_DOSIFIC_MANT",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificMant_dataset" + num + ".xml");
 */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificMant_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
 
     }
 
     @After
     public void tearDown(String num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificMant_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }
