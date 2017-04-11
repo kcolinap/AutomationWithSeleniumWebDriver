@@ -13,7 +13,7 @@ public class EjecutarJar_Asesuisa {
     public static void main(String[] args) {
 
 
-        //args = new String[]{"38", "1", "0"};
+        args = new String[]{"5", "1", "0"};
 
       //  args = new String[]{"11", "3", "3"};
 
@@ -93,7 +93,21 @@ public class EjecutarJar_Asesuisa {
                 break;
 
             case "5": // 5) Renovación de pólizas.
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
 
+                prueba = "";
+                log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                try {
+                    VistaAsesuisa_RenovacionPolizaTest renovacionPolizaTestPolizaTest = new VistaAsesuisa_RenovacionPolizaTest();
+                    renovacionPolizaTestPolizaTest.setUp(segundo);
+                    renovacionPolizaTestPolizaTest.mainTest();
+                    renovacionPolizaTestPolizaTest.tearDown(segundo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error("Test Case - " + prueba + " - " + e);
+                }
+                log.info("--->>> Final de la prueba " + prueba);
                 break;
 
             case "6": // 6) Terceros:
