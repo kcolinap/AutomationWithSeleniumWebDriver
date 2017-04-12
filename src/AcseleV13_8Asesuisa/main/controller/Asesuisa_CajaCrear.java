@@ -62,6 +62,7 @@ public class Asesuisa_CajaCrear {
 
         try {
 
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//input[@name='insert']")).click();
             // Si se ingresaron todos los campos solicitados: Descripcion, Ubicacion y Localidad
             if (bean.getDescripcion() != null && bean.getUbicacion() != null && bean.getSucursal() != null ) {
