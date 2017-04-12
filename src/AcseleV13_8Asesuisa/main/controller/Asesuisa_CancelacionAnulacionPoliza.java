@@ -239,80 +239,92 @@ public class Asesuisa_CancelacionAnulacionPoliza {
             Thread.sleep(1000);
             m.waitSearchWicket(driver, "Se esta procesando su solicitud");
 
-            //Ventana aplicar
+
             Thread.sleep(1000);
-            //pantallazo
-            m.ScreenShotPool(driver, i, "screen" + screenShoot4, nombreAutomatizacion, folderName);
-            Thread.sleep(800);
 
-            WebElement btnAplicar;
+            if ((driver.findElements(By.className("w_windowMessage")).size()>0)&&((driver.findElement(By.className("w_caption"))).getText()).equals("Mensaje de Error")){
+                System.out.println("Error al cancelar");
+               /* WebElement imgMore = driver.findElement(By.xpath("/*//*[@id=\"id171\"]/table/tbody/tr/td/div[2]"));
+                imgMore.click();*/
+                Thread.sleep(800);
+                //pantallazo
+                m.ScreenShotPool(driver, i, "screen" + screenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(800);
+                break salida;
+            }else {
+                //Ventana aplicar
+                WebElement btnAplicar;
 
-            btnAplicar=driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
-            btnAplicar.click();
-            m.waitSearchWicket(driver, "Se esta aplicando el evento");
+                //pantallazo
+                m.ScreenShotPool(driver, i, "screen" + screenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(800);
 
-            //Validar mensaje de error
-            boolean errorAplicandoEvento= (driver.findElements(By.className("w_windowMessage")).size()>0);
-            if (errorAplicandoEvento) {
+                btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
+                btnAplicar.click();
+                m.waitSearchWicket(driver, "Se esta aplicando el evento");
 
-                WebElement chkIgnorar, btnAux, imgMore;
-                boolean ignorar = driver.findElements(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']")).size()>0;
-                if (ignorar){
-                    chkIgnorar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']"));
-                    chkIgnorar.click();
-                    Thread.sleep(500);
-                    btnAux = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
-                    btnAux.click();
-                    m.waitSearchWicket(driver, "Aplicando evento");
-                    Thread.sleep(1000);
-                }else{
-                    imgMore= driver.findElement(By.className("imageMore"));
-                    imgMore.click();
-                    Thread.sleep(800);
-                    //pantallazo
-                    m.ScreenShotPool(driver, i, "screen" + screenShoot5, nombreAutomatizacion, folderName);
-                    Thread.sleep(800);
-                    break salida;
+                //Validar mensaje de error
+                boolean errorAplicandoEvento = (driver.findElements(By.className("w_windowMessage")).size() > 0);
+                if (errorAplicandoEvento) {
+
+                    WebElement chkIgnorar, btnAux, imgMore;
+                    boolean ignorar = driver.findElements(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']")).size() > 0;
+                    if (ignorar) {
+                        chkIgnorar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']"));
+                        chkIgnorar.click();
+                        Thread.sleep(500);
+                        btnAux = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
+                        btnAux.click();
+                        m.waitSearchWicket(driver, "Aplicando evento");
+                        Thread.sleep(1000);
+                    } else {
+                        imgMore = driver.findElement(By.className("imageMore"));
+                        imgMore.click();
+                        Thread.sleep(800);
+                        //pantallazo
+                        m.ScreenShotPool(driver, i, "screen" + screenShoot5, nombreAutomatizacion, folderName);
+                        Thread.sleep(800);
+                        break salida;
+                    }
                 }
+
+                //Pantallazo
+                m.ScreenShotPool(driver, i, "screen" + screenShoot5, nombreAutomatizacion, folderName);
+                Thread.sleep(800);
+
+                //Dialogo resumen
+                WebElement auxFinalizar;
+
+                auxFinalizar = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_pdfForm_CloseFinalize_closeFinalize']"));
+                auxFinalizar.click();
+                Thread.sleep(500);
+                System.out.println("Póliza cancelada de manera exitosa");
+
+                /*********************************************
+                 //Validar nuevo estatus de la poliza
+                 **********************************************/
+                Thread.sleep(1000);
+                m.cambiarVentana(driver);
+                Thread.sleep(1000);
+                menuOperaciones.OpePol_CotizacionSuscripcionEdicion_MantenimientoEdicionFrontEnd(driver, nombreAutomatizacion, 10, i, folderName);
+                Thread.sleep(1200);
+                m.cambiarVentana(driver);
+                Thread.sleep(1000);
+
+                System.out.println("Buscamos nuevamente la poliza para validar su nuevo status");
+                WebElement auxNroPoliza, auxBtnBuscar;
+                auxNroPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
+                auxNroPoliza.sendKeys(asesuisaCancelacionAnulacionPolizaBean.getNroPoliza());
+                Thread.sleep(400);
+                m.ScreenShotPool(driver, i, "screen" + screenShoot6, nombreAutomatizacion, folderName);
+
+                auxBtnBuscar = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']"));
+                auxBtnBuscar.click();
+                Thread.sleep(1000);
+                m.ScreenShotPool(driver, i, "screen" + screenShoot7, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
             }
-
-            //Pantallazo
-            m.ScreenShotPool(driver, i, "screen" + screenShoot5, nombreAutomatizacion, folderName);
-            Thread.sleep(800);
-
-            //Dialogo resumen
-            WebElement auxFinalizar;
-
-            auxFinalizar = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_pdfForm_CloseFinalize_closeFinalize']"));
-            auxFinalizar.click();
-            Thread.sleep(500);
-            System.out.println("Póliza cancelada de manera exitosa");
-
-            /*********************************************
-             //Validar nuevo estatus de la poliza
-             **********************************************/
-            Thread.sleep(1000);
-            m.cambiarVentana(driver);
-           Thread.sleep(1000);
-            menuOperaciones.OpePol_CotizacionSuscripcionEdicion_MantenimientoEdicionFrontEnd(driver, nombreAutomatizacion, 10,i,folderName);
-            Thread.sleep(1200);
-           m.cambiarVentana(driver);
-            Thread.sleep(1000);
-
-            System.out.println("Buscamos nuevamente la poliza para validar su nuevo status");
-            WebElement auxNroPoliza, auxBtnBuscar;
-            auxNroPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));
-            auxNroPoliza.sendKeys(asesuisaCancelacionAnulacionPolizaBean.getNroPoliza());
-            Thread.sleep(400);
-            m.ScreenShotPool(driver,i,"screen"+screenShoot6,nombreAutomatizacion,folderName);
-
-            auxBtnBuscar=driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_searchButton']"));
-            auxBtnBuscar.click();
-            Thread.sleep(1000);
-            m.ScreenShotPool(driver, i,"screen"+screenShoot7,nombreAutomatizacion,folderName);
-            Thread.sleep(1000);
-
-
         }catch (Exception e) {
             e.printStackTrace();
             Log.error("Test Case - " + nombreAutomatizacion + " - " + e);

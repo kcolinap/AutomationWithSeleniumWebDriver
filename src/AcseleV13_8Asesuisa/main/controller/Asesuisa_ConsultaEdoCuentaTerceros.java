@@ -184,10 +184,13 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getCodigoIJuridico()!=null){
-                txtCodigoIJuridico = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[24]/tbody/tr/td[2]/font/input[1]"));
+                txtCodigoIJuridico = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[8]/tbody/tr/td[2]/font/input[1]"));
                 txtCodigoIJuridico.sendKeys(asesuisaConsultaEdoCuentaTercerosBean.getCodigoIJuridico());
                 Thread.sleep(800);
-                WebElement auxLogin = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[25]/tbody/tr/td[1]/font"));
+
+                WebElement auxLogin = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[9]/tbody/tr/td[2]/font/input[1]"));
+                if (alertPresente(driver))
+                    alert.accept();
                 auxLogin.click();
                 Thread.sleep(2500);
                 if (alertPresente(driver))
@@ -228,6 +231,9 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                     alert.accept();
             }
 
+            if (alertPresente(driver))
+                alert.accept();
+
             //Pantallazos
             Thread.sleep(1500);
             jse.executeScript("window.scrollBy(0,-3000)", "");
@@ -244,9 +250,9 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
 
 
             //Boton buscar
-            btnBuscar = driver.findElement(By.xpath("//*[@id=\"idb_0402036_ThirdPartySearchForStatementAccount_01\"]"));
+            btnBuscar = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[4]/td/button[1]"));
             btnBuscar.click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             result= ValidarBusqueda(driver);
             if (result){
