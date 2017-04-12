@@ -170,7 +170,6 @@ public class Asesuisa_MenuMantenimiento {
 
             }
 
-        /** Facturacion **/
         public void UAA_Fac_DosificacionFacturasMant(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
             try {
                 Actions action = new Actions(driver);
@@ -196,7 +195,28 @@ public class Asesuisa_MenuMantenimiento {
 
     }
 
-            public void UAA_Fac_ModalidadFacturas(){}
+            public void UAA_Fac_ModalidadFacturas(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+                try {
+                    Actions action = new Actions(driver);
+                    WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[14]")); // Facturacion
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[40]/div[2]")); // Modalidad de Facturas
+                    action.moveToElement(menu1).build().perform();
+                    action.moveToElement(menu2).build().perform();
+                    action.moveToElement(menu3).build().perform();
+                    action.moveToElement(menu4).build().perform();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                    Toolkit.getDefaultToolkit().beep();
+                    Thread.sleep(1000);
+                    menu4.click();
+                }catch (Exception e){
+                    e.printStackTrace();
+                    log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+                }
+
+            }
         /** Facturacion **/
         public void UAA_AgrupadoresAsientosContables(){}
     /** -- UAA (Administracion de Cuentas Universal) -- **/
