@@ -38,30 +38,45 @@ public class Asesuisa_GenerarTraza {
 
             //Entrando en Menu
 
+
+
             menuOperaciones.UAA_Caja_AperturaCaja(driver, nombreAutomatizacion, 2, i, folderName);
 
             Thread.sleep(2000);
             a.cambiarVentana(driver);
             Thread.sleep(2000);
-//regresar ventana
-            menuMantenimiento.UAA_Caja(driver, nombreAutomatizacion, 7, i, folderName); //tener cuidado copn nro de screenshot
-
+            AperturarCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(2000);
-            a.cambiarVentana(driver);
-            Thread.sleep(2000);
-//metodo
-            menuMantenimiento.Aud_TrazasAuditoriaVaadin(driver, nombreAutomatizacion, 15, i, folderName);
-
-            Thread.sleep(2000);
-            a.cambiarVentana(driver);
-            Thread.sleep(2000);
-
-            GenerarTraza(bean, a, i, folderName, 3,4,5,6);
-
-
             driver.close();
+            a.regresarVentana(driver);     //regresar ventana
 
-           // driver.quit();
+            menuOperaciones.UAA_Caja_CierreCaja(driver, nombreAutomatizacion, 8, i, folderName);
+
+            Thread.sleep(2000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
+
+            CerrarCaja(bean, a, i, folderName, 9, 10, 11, 12, 13);
+            Thread.sleep(2000);
+            driver.close();
+            a.regresarVentana(driver);
+            driver.findElement(By.xpath("/html/body/table/tbody/tr[4]/td/table/tbody/tr[2]/td[1]/select[1]")).click();
+
+
+
+             Thread.sleep(4000);
+            menuMantenimiento.Aud_TrazasAuditoriaVaadin(driver, nombreAutomatizacion, 14, i, folderName);
+
+            Thread.sleep(4000);
+            a.cambiarVentana(driver);
+            Thread.sleep(2000);
+
+            GenerarTraza(bean, a, i, folderName, 15,16,17);
+
+            driver.quit();
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,23 +89,32 @@ public class Asesuisa_GenerarTraza {
         }
     }
 
-    public void GenerarTraza(Asesuisa_GenerarTrazaBean bean, Metodos a, int i, String folderName, int screen, int screen2, int screen3, int screen4 ){
+    public void GenerarTraza(Asesuisa_GenerarTrazaBean bean, Metodos a, int i, String folderName, int screen, int screen2, int screen3){
 
         try {
+
+            Thread.sleep(2000);
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + screen, nombreAutomatizacion, folderName);
+            Thread.sleep(3000);
             if (bean.getTipoTraza() != null) {
                 Thread.sleep(1000);
-                WebElement tipotraza = driver.findElement(By.xpath("//*[@id=\"type\"]/div"));
+                WebElement tipotraza = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/div/table/tbody/tr[1]/td[3]/div/div/div[1]/div/div/div[3]/div/div"));
                 tipotraza.click();
                 WebElement selectTipoTraza = null;
 
                 for (int j = 1; j < 11; j++) {
                     Thread.sleep(1000);
-                    selectTipoTraza = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + j + "]/td"));
+                  //  selectTipoTraza = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + j + "]/td"));
+                    selectTipoTraza = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div[2]/table/tbody/tr["+ j + "]/td"));
+
                     System.out.println("Elemento recorrido: " + selectTipoTraza.getText());
 
                     if (selectTipoTraza.getText().toLowerCase().equals(bean.getTipoTraza().toLowerCase())) {
+                      //  if (selectTipoTraza.getText().equals("Caja")){
                         Thread.sleep(1000);
                         selectTipoTraza.click();
+                        System.out.println("Seleccionò caja");
                         break;
                     }
 
@@ -108,10 +132,11 @@ public class Asesuisa_GenerarTraza {
 
                 for (int h = 1; h < 11; h++) {
                     Thread.sleep(1000);
-                    selectCategoria = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[h]/table/tbody/tr[h]/td"));
-                    System.out.println("Elemento recorrido: " + selectCategoria.getText());
+                    selectCategoria = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr["+ h +"]/td"));
+                    System.out.println("Categoria recorrida: " + selectCategoria.getText());
 
                     if (selectCategoria.getText().toLowerCase().equals(bean.getCategoria_Traza().toLowerCase())) {
+                      //  if (selectCategoria.getText().equals("Apertura de Caja")){
                         Thread.sleep(1000);
                         selectCategoria.click();
                         break;
@@ -141,7 +166,7 @@ public class Asesuisa_GenerarTraza {
             btnBuscar.click();
             Thread.sleep(2000);
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + screen4, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + screen3, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
            // hacer lo del scroll

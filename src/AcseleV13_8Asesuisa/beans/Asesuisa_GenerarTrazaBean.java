@@ -71,7 +71,7 @@ public class Asesuisa_GenerarTrazaBean {
         ArrayList generarTraza = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM Asesuisa_GenerarTraza ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASESUISA_GENERARTRAZA ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -82,10 +82,10 @@ public class Asesuisa_GenerarTrazaBean {
                 Asesuisa_GenerarTrazaBean generarTrazaBean = new Asesuisa_GenerarTrazaBean();
 
                 generarTrazaBean.setNrocaja(rs.getString("NROCAJA"));
-                generarTrazaBean.setTipoTraza(("TIPO_TRAZA"));
-                generarTrazaBean.setCategoria_Traza(("CATEGORIA_TRAZA"));
-                generarTrazaBean.setDesde(("DESDE"));
-                generarTrazaBean.setHasta(("HASTA"));
+                generarTrazaBean.setTipoTraza(rs.getString("TIPO_TRAZA"));
+                generarTrazaBean.setCategoria_Traza(rs.getString("CATEGORIA_TRAZA"));
+                generarTrazaBean.setDesde(rs.getString("DESDE"));
+                generarTrazaBean.setHasta(rs.getString("HASTA"));
                 generarTraza.add(generarTrazaBean);
 
 

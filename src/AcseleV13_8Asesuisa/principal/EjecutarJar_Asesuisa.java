@@ -13,7 +13,7 @@ public class EjecutarJar_Asesuisa {
     public static void main(String[] args) {
 
 
-        args = new String[]{"11", "1", "1"};
+        args = new String[]{"6", "9", "1"};
 
 
         //System.out.println("El tamaño del arreglo es: " + args.length);
@@ -125,6 +125,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "9": // i. Modos de Pago
                         System.out.println("Numero: " + tercero);
+                        prueba = "Terceros Modo de pago";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ModosdePagoTest mododePago = new VistaAsesuisa_ModosdePagoTest();
+                            mododePago.setUp(tercero);
+                            mododePago.mainTest();
+                            mododePago.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
                         break;
                     case "10": // j. Roles revisión general
                         System.out.println("Numero: " + tercero);
