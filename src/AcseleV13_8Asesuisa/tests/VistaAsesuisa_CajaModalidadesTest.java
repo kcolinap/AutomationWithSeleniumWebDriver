@@ -1,6 +1,7 @@
 package AcseleV13_8Asesuisa.tests;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CajaModalidadesBean;
+import AcseleV13_8Asesuisa.main.controller.Asesuisa_CajaModalidades;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -48,22 +49,22 @@ public class VistaAsesuisa_CajaModalidadesTest {
     @Before
     public void setUp(String num) throws Exception {
 
-//
-         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC",
-                "ASESUISA_CAJA_DOSIFICACIONES",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml");
+/*
+         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_MODALIDADES ORDER BY PRUEBA ASC",
+                "ASESUISA_CAJA_MODALIDADES",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaModalidades_dataset" + num + ".xml");
 
-        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC",
-                "ASESUISA_CAJA_DOSIFICACIONES",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml");
-//
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_CAJA_MODALIDADES ORDER BY PRUEBA ASC",
+                "ASESUISA_CAJA_MODALIDADES",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaModalidades_dataset" + num + ".xml");
+*/
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaModalidades_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
 
     }
 
     @After
     public void tearDown(String num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaDosificaciones_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaModalidades_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }

@@ -44,7 +44,7 @@ public class Asesuisa_CajaModalidadesBean {
         ArrayList caja = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASESUISA_CAJA_DOSIFICACIONES ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASESUISA_CAJA_MODALIDADES ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();

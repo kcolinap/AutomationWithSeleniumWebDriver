@@ -40,139 +40,70 @@ public class Asesuisa_CajaModalidades {
 
             /** Modalidad Caja*/
 
-            DosificacionesCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
+            ModalidadesCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(3000);
-
-            // driver.quit();
-
-        } catch (Exception e) {
+            driver.quit();
+        }
+        catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
 
-    public void DosificacionesCaja(Asesuisa_CajaDosificacionesBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
+    public void ModalidadesCaja(Asesuisa_CajaModalidadesBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         int tamanotr;
         WebElement indextr;
 
         try {
 
-            // Si no se selecciona Creacion Generica
-            if(bean.getGenerica() == null) {
+            // Si se selecciona Modalidad
+            if (bean.getModalidad() != null) {
                 // Modalidad de Factura
-                if (bean.getModfactura() != null) {
-                    driver.findElement(By.xpath("//*[@id='gwt-uid-8']")).click();
-                    Thread.sleep(1000);
-                    tamanotr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).size();
-                    for (int j = 0; j < tamanotr; j++) {
-                        indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
-                        if (bean.getModfactura().equals(indextr.getText())) {
-                            indextr.click();
-                            break;
-                        }
+                driver.findElement(By.xpath("//*[@id=\"gwt-uid-6\"]")).click();
+                Thread.sleep(1000);
+                tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
+
+                for (int j = 0; j < tamanotr; j++) {
+                    indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
+                    if (bean.getModalidad().equals(indextr.getText())) {
+                        indextr.click();
+                        break;
                     }
                 }
-                // Compañia de Tiraje
-                if (bean.getComtiraje() != null) {
-                    driver.findElement(By.xpath("//*[@id=\'gwt-uid-10\']")).click();
-                    Thread.sleep(1000);
-                    tamanotr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).size();
-                    for (int j = 0; j < tamanotr; j++) {
-                        indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
-                        if (bean.getComtiraje().equals(indextr.getText())) {
-                            indextr.click();
-                            break;
-                        }
-                    }
-                }
-                // Año del Tiraje
-                if (bean.getAnotiraje() != null) {
-                    WebElement anotiraje = driver.findElement(By.xpath("//*[@id='gwt-uid-12']"));
-                    anotiraje.sendKeys(bean.getAnotiraje());
-                }
-                // Certificado de Hacienda
-                if (bean.getCertiraje() != null) {
-                    WebElement certiraje = driver.findElement(By.xpath("//*[@id=\'CertificadoHacienda\']"));
-                    certiraje.sendKeys(bean.getCertiraje());
-                }
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
-                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/span")).click();
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
             }
-            // Si se selecciona Creacion Generica
-            else  {
-                driver.findElement(By.xpath("//*[@id=\"gwt-uid-2\"]")).click();
-                Thread.sleep(2000);
-                // Si se ingresa rango de factura desde
-                if (bean.getRangodesd() != null) {
-                    WebElement rangodesd = driver.findElement(By.xpath("//*[@id=\'gwt-uid-16\']"));
-                    rangodesd.sendKeys(bean.getRangodesd());
-                }
-                else {
-                    WebElement rangodesd = driver.findElement(By.xpath("//*[@id=\'gwt-uid-16\']"));
-                    rangodesd.clear();
-                }
-                // Si se ingresa rango de factura hasta
-                if (bean.getRangohast() != null) {
-                    WebElement rangohast = driver.findElement(By.xpath("//*[@id=\'gwt-uid-18\']"));
-                    rangohast.sendKeys(bean.getRangohast());
-                }
-                else {
-                    WebElement rangohast = driver.findElement(By.xpath("//*[@id=\'gwt-uid-18\']"));
-                    rangohast.clear();
-                }
-                // Compañia de Tiraje
-                if (bean.getComtiraje() != null) {
-                    driver.findElement(By.xpath("//*[@id=\'gwt-uid-10\']")).click();
-                    Thread.sleep(1000);
-                    tamanotr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).size();
-                    for (int j = 0; j < tamanotr; j++) {
-                        indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
-                        if (bean.getComtiraje().equals(indextr.getText())) {
-                            indextr.click();
-                            break;
-                        }
+
+            // Si se selecciona la Plantilla
+            if (bean.getPlantilla() != null) {
+                // Plantilla
+                driver.findElement(By.xpath("//*[@id=\"gwt-uid-8\"]")).click();
+                Thread.sleep(1000);
+                tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
+
+                for (int j = 0; j < tamanotr; j++) {
+                    indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
+                    if (bean.getPlantilla().equals(indextr.getText())) {
+                        indextr.click();
+                        break;
                     }
                 }
-                // Año del Tiraje
-                if (bean.getAnotiraje() != null) {
-                    WebElement anotiraje = driver.findElement(By.xpath("//*[@id='gwt-uid-12']"));
-                    anotiraje.sendKeys(bean.getAnotiraje());
-                }
-                // Certificado de Hacienda
-                if (bean.getCertiraje() != null) {
-                    WebElement certiraje = driver.findElement(By.xpath("//*[@id=\'CertificadoHacienda\']"));
-                    certiraje.sendKeys(bean.getCertiraje());
-                }
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
-                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/span")).click();
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
             }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            // Clic boton Guardar
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div[1]/div/span")).click();
+            // Captura pantalla del resultado
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-
     }
 }
