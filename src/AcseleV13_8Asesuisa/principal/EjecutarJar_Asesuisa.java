@@ -145,6 +145,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "2": // b. Creación de Terceros con el mismo tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosCreacionRepetidaTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosCreacionRepetidaTest tercerosCreacionRepetidaTest = new VistaAsesuisa_TercerosCreacionRepetidaTest();
+                            tercerosCreacionRepetidaTest.setUp(tercero);
+                            tercerosCreacionRepetidaTest.mainTest();
+                            tercerosCreacionRepetidaTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "3": // c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);

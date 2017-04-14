@@ -47,6 +47,7 @@ public class Asesuisa_TercerosBean {
     private String codigoIdentificador;
     private String login;
     private String numeroDocumentoIdentificacion;
+    private String numeroDocumentoIdentificacion2;
 
     public String getTipoTercero() {
         return tipoTercero;
@@ -350,5 +351,13 @@ public class Asesuisa_TercerosBean {
 
     public void setNumeroDocumentoIdentificacion(String numeroDocumentoIdentificacion) {
         this.numeroDocumentoIdentificacion = numeroDocumentoIdentificacion;
+    }
+
+    public String getNumeroDocumentoIdentificacion2() {
+        return numeroDocumentoIdentificacion2;
+    }
+
+    public void setNumeroDocumentoIdentificacion2(String numeroDocumentoIdentificacion2) {
+        this.numeroDocumentoIdentificacion2 = numeroDocumentoIdentificacion2;
     }
 }
