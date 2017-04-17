@@ -6,7 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -20,6 +23,13 @@ public class Metodos {
 
     private String user = "system";//"agil";
     private String pass = "consis";//"a123456";
+    private String acselUrl;
+
+    public String test(WebDriver driver){
+
+        //System.out.println(driver.getCurrentUrl().substring(0, 20));
+        return this.acselUrl = driver.getCurrentUrl().substring(0, 20);// = otra;
+    }
 
     protected ThreadLocal<WebDriver> threadDriver = null;
 
@@ -151,6 +161,52 @@ public class Metodos {
         Toolkit.getDefaultToolkit().beep();
         Thread.sleep(1000);
     }
+
+    public void ScreenShotJavaScript(String acselurl, int i, String nombrePrueba, String folderName, String titulo) throws InterruptedException, IOException, AWTException{
+        String rutaScreen = "";
+        //rutaScreen = "C:\\ScrenShots\\Asesuisa\\";
+        String fileName = "";
+        String oS = System.getProperty("os.name");
+        //System.out.println(oS);
+        if (oS.equals("Windows 7")){
+            if (acselurl.equals(UrlAsesuisa().substring(0, 20))) {
+                //System.out.println("Windows 7");
+                rutaScreen = "C:\\ScrenShots\\Asesuisa\\";
+            }
+            else if (acselurl.equals(UrlInterseguros().substring(0, 20))) {
+                //System.out.println("Windows 7");
+                rutaScreen = "C:\\ScrenShots\\Interseguros\\";
+            }
+            else if (acselurl.equals(UrlRimac().substring(0, 20))) {
+                //System.out.println("Windows 7");
+                rutaScreen = "C:\\ScrenShots\\Rimac\\";
+            }
+        }
+        else if (oS.equals("Linux")){
+            if (acselurl.equals(UrlAsesuisa().substring(0, 20))) {
+                //System.out.println("Linux");
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Asesuisa//";
+            }
+            else if (acselurl.equals(UrlInterseguros().substring(0, 20))) {
+                //System.out.println("Linux");
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Interseguros//";
+            }else if (acselurl.equals(UrlRimac().substring(0, 20))) {
+                //System.out.println("Linux");
+                rutaScreen = "//home//Consisint//Automatizacion//ScrenShots//Rimac//";
+            }
+        }
+
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle screenRectangle = new Rectangle(screenSize);
+        Robot robot = new Robot();
+        BufferedImage image = robot.createScreenCapture(screenRectangle);
+        System.out.println("tomando screenshot "+titulo);
+        System.out.println("Ruta del archivo  "+fileName);
+        fileName = rutaScreen + nombrePrueba + "\\" + folderName + "\\"/* + i + "\\" */+ titulo + ".png";
+        ImageIO.write(image, "png", new File(fileName));
+    }
+
+
 
     public void ValidandoSesion(WebDriver getDriver, String nombrePrueba, int i, String folderName) throws InterruptedException, IOException {
 

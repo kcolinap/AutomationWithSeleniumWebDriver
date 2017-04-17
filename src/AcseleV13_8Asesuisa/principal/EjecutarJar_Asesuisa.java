@@ -242,7 +242,6 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
                         break;
                     case "3": // c. Aperturar Caja
                         System.out.println("Numero: " + tercero);
@@ -259,7 +258,6 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
                         break;
                     case "4": // d. Cerrar Caja
                         System.out.println("Numero: " + tercero);
@@ -276,16 +274,54 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
                         break;
                     case "5": // e. Dosificaciones de caja
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaDosificacionesTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaDosificacionesTest cajaDosificacionesTest = new VistaAsesuisa_CajaDosificacionesTest();
+                            cajaDosificacionesTest.setUp(tercero);
+                            cajaDosificacionesTest.mainTest();
+                            cajaDosificacionesTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
-                    case "6": // f. Notas de credito de caja
+                    case "6": // f. Dosificaciones de caja mantenimiento
+                        System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaDosificacionesMantTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaDosificacionesMantTest cajaDosificacionesMantTest = new VistaAsesuisa_CajaDosificacionesMantTest();
+                            cajaDosificacionesMantTest.setUp(tercero);
+                            cajaDosificacionesMantTest.mainTest();
+                            cajaDosificacionesMantTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                        break;
+                    case "7": // g. Notas de credito de caja
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "7": // g. Modalidades de factura en caja
+                    case "8": // h. Modalidades de factura en caja
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaModalidadesTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaModalidadesTest cajaModalidadesTest = new VistaAsesuisa_CajaModalidadesTest();
+                            cajaModalidadesTest.setUp(tercero);
+                            cajaModalidadesTest.mainTest();
+                            cajaModalidadesTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                 }
                 break;
