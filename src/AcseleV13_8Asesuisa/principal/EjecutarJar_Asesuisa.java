@@ -180,6 +180,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "9": // i. Modos de Pago
                         System.out.println("Numero: " + tercero);
+                        prueba = "Terceros Modo de pago";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ModosdePagoTest mododePago = new VistaAsesuisa_ModosdePagoTest();
+                            mododePago.setUp(tercero);
+                            mododePago.mainTest();
+                            mododePago.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
                         break;
                     case "10": // j. Roles revisión general
                         System.out.println("Numero: " + tercero);
@@ -454,6 +466,18 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Generación de trazas
                         System.out.println("Numero: " + tercero);
+                        prueba = "Generar Traza";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_GenerarTrazaTest generarTraza = new VistaAsesuisa_GenerarTrazaTest();
+                            generarTraza.setUp(tercero);
+                            generarTraza.mainTest();
+                            generarTraza.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
                         break;
                     case "2": // b. Detalle de las trazas
                         System.out.println("Numero: " + tercero);
@@ -469,6 +493,7 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
 
                         }
+                        break;
                     case "3": //c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
                         System.out.println("Numero: " + tercero);
                         prueba = "Exportar traza auditoria";

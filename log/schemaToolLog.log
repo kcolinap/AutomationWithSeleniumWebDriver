@@ -1,53 +1,7 @@
-INFO main AcseleV13_8Asesuisa.main.controller.Asesuisa_BusquedaSimplePoliza - Test Case - Asesuisa Busqueda Simple Poliza - org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"class name","selector":"CeldaEncabezado"}
-  (Session info: chrome=56.0.2924.87)
-  (Driver info: chromedriver=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 104 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf), userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir12936_26459}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=56.0.2924.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 54cc9fad10b286833dedf45a27e3a193
-*** Element info: {Using=class name, value=CeldaEncabezado}
-ERROR main AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones - Test Case - Asesuisa Busqueda Simple Poliza - org.openqa.selenium.ElementNotVisibleException: element not visible
-  (Session info: chrome=56.0.2924.87)
-  (Driver info: chromedriver=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 29 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf), userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir5412_21914}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=56.0.2924.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 731af67236b4fb81a43918f36066a94c
-INFO main AcseleV13_8Asesuisa.main.controller.Asesuisa_BusquedaSimplePoliza - Test Case - Asesuisa Busqueda Simple Poliza - java.util.NoSuchElementException
-INFO main AcseleV13_8Asesuisa.main.controller.Asesuisa_BusquedaSimplePoliza - Test Case - Asesuisa Busqueda Simple Poliza - org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']"}
-  (Session info: chrome=56.0.2924.87)
-  (Driver info: chromedriver=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 27 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf), userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir9880_28811}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=56.0.2924.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 1bde66d8ee3563fd947362b48fd8a96a
-*** Element info: {Using=xpath, value=//input[@wicketpath='modalWindowForm_EventSection_content_Form_continueButton']}
-ERROR main AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones - Test Case - Asesuisa Busqueda Simple Poliza - org.openqa.selenium.ElementNotVisibleException: element not visible
-  (Session info: chrome=56.0.2924.87)
-  (Driver info: chromedriver=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 26 milliseconds
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf), userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir6076_22358}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=56.0.2924.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 9be56a0a5e01f0606f3aaeae0ca79ab9
-INFO main AcseleV13_8Asesuisa.main.controller.Asesuisa_BusquedaSimplePoliza - Test Case - Asesuisa Busqueda Simple Poliza - java.util.NoSuchElementException
-INFO main AcseleV13_8Asesuisa.main.controller.Asesuisa_BusquedaSimplePoliza - Test Case - Asesuisa Busqueda Simple Poliza - org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@wicketpath='ConsultPolicy_errorSimpleSearchModalDialog_content_text']"}
-  (Session info: chrome=56.0.2924.87)
-  (Driver info: chromedriver=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 27 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
-System info: host: 'QA19', ip: '192.168.0.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_25'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.24.417431 (9aea000394714d2fbb20850021f6204f2256b9cf), userDataDir=C:\Users\agil\AppData\Local\Temp\scoped_dir19408_17771}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=56.0.2924.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 25f6401dd00ac8c63165b5114df39e0b
-*** Element info: {Using=xpath, value=//input[@wicketpath='ConsultPolicy_errorSimpleSearchModalDialog_content_text']}
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - Final del main
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - Arrancando el main
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - --->>> Ejecutando la prueba 9 Terceros Modo de pago
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - Final del main
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - Arrancando el main
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - --->>> Ejecutando la prueba 9 Terceros Modo de pago
+INFO main AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa2 - Final del main
