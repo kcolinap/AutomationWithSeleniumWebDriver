@@ -47,19 +47,19 @@ public class Asesuisa_ModosdePago {
             Thread.sleep(2000);
 
             BusquedaT(bean, a, i, folderName, 3,4,5,6,7);
-            AgregarModoPago(bean, a, i, folderName,8);
-          //  EditarModoPago(bean, a, i, folderName, 9);
+            AgregarModoPago(bean, a, i, folderName,8,9,10,11,12);
+
 
             Thread.sleep(3000);
 
 
-//            driver.quit();
+           driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null) {
-//                driver.quit();
+               driver.quit();
             }
         }
     }
@@ -87,62 +87,45 @@ public class Asesuisa_ModosdePago {
                 Thread.sleep(1000);
             }
 
-          /*  jse.executeScript("window.scrollBy(0,-5000)", "");
-            Thread.sleep(2000);
+          //  jse.executeScript("window.scrollBy(0,-5000)", "");
+            Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
 
-            jse.executeScript("window.scrollBy(0,400)", "");
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
-
-            jse.executeScript("window.scrollBy(0,500)", "");
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();*/
 
             //Boton buscar
             WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
             buscar.click();
-           // boolean ventana = driver.findElements(By.id("_wicket_window_2")).size() > 0;
 
-           // if (ventana){
+
+
                 Thread.sleep(2000);
                 WebElement aceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
                 aceptar.click();
-            //}
 
 
-            //a.waitSearchWicket(driver, "Espera busqueda 1");
-            //*[@id="_wicket_window_2"]
-
-
-            /*Thread.sleep(500);
-            buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            buscar.click();
-            a.waitSearchWicket(driver, "Espera busqueda 2");
-*/
 
             //seleccionar tercero encontrado
-            jse.executeScript("window.scrollBy(0,1000)", "");
+
             Thread.sleep(2000);
             WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_11_thirdPartyRadio']"));
-            selccionTercero.click();                                                  //     SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio
+            selccionTercero.click();
 
-           /* jse.executeScript("window.scrollBy(0,500)", "");
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
-*/
+
             //Boton editar
             WebElement editar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
             editar.click();
             Thread.sleep(2000);
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShot5, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
         } catch (Exception e) {
@@ -151,104 +134,193 @@ public class Asesuisa_ModosdePago {
         }
     }
 
-    public void AgregarModoPago(Asesuisa_ModosdePagoBean bean, Metodos a, int i, String folderName, int numScreenShoot){
+    public void AgregarModoPago(Asesuisa_ModosdePagoBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         try{
             Thread.sleep(2000);
             JavascriptExecutor jse = (JavascriptExecutor)driver;
-            WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_styleAcordeon_label']"));
 
 
-            if (bean.getMododePago() != null) {
+            if (bean.getMododePago() != null){
                 Thread.sleep(1000);
-                Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_RolForm_rolComb']")));
+                Select   tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_RolForm_rolComb']")));
                 tipoT.selectByValue(bean.getMododePago());
                 Thread.sleep(1000);
+
             }
+
+
 
             WebElement Agregar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_RolForm_AddButton']"));
             Agregar.click();
-            Thread.sleep(2000);
-
-
-
-            jse.executeScript("window.scrollBy(0,400)", "");
-            if (bean.getMarca_Tarjeta() != null) {
-                Thread.sleep(1000);
-                Select marcaT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_repeaterSelect_1_field']")));
-                marcaT.selectByValue(bean.getMarca_Tarjeta());
-                otro.click();
-                Thread.sleep(1000);
-            }
-
-            if (bean.getTipo_Tarjeta() != null) {
-                Thread.sleep(1000);
-                Select tipoTa = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_repeaterSelect_1_field']")));
-                tipoTa.selectByValue(bean.getTipo_Tarjeta());
-                otro.click();
-                Thread.sleep(1000);
-            }
-
-            if (bean.getNro_Tarjeta() != null) {
-                Thread.sleep(1000);
-            WebElement NumTar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_field']"));
-            NumTar.clear();
-            NumTar.sendKeys(bean.getNro_Tarjeta());
             Thread.sleep(1000);
-            }
-
-            if (bean.getMes_Venc_Tar() != null) {
-                Thread.sleep(3000);
-                Select mesVencTar = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_repeaterSelect_1_field']")));
-                mesVencTar.selectByValue(bean.getMes_Venc_Tar());
-                otro.click();
-                Thread.sleep(1000);
-            }
-
-            //jse.executeScript("hideWait()", ""); funciòn para desbloquear pantalla negra
-
-            if (bean.getAno_Venc_Tar() != null) {
-
-                Thread.sleep(1000);
-                Select anoVencTar = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_6_fila_repeaterSelect_1_field']")));
-                anoVencTar.selectByValue(bean.getAno_Venc_Tar());
-                otro.click();
-                Thread.sleep(1000);
-            }
-
-            if (bean.getBanco_Emi() != null) {
-
-                Thread.sleep(1000);
-                Select bancoE = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_1_field']")));
-                bancoE.selectByValue(bean.getBanco_Emi());
-                otro.click();
-                Thread.sleep(1000);
-            }
-            jse.executeScript("window.scrollBy(0,500)", "");
-
-
-            Thread.sleep(3000);
-            WebElement colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
-            colector.click();
-            colector.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
-            colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
-            colector.sendKeys(bean.getCollector());
-            Thread.sleep(1000);
-            colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
-            colector.sendKeys(Keys.ARROW_DOWN);
-            Thread.sleep(1000);
-            colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
-            colector.sendKeys(Keys.ENTER);
 
 
-            Thread.sleep(1000);
+            if (bean.getMododePago().equals("0")) {
+                WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_styleAcordeon_label']"));
 
+                jse.executeScript("window.scrollBy(0,600)", "");
+                    if (bean.getMarca_Tarjeta() != null) {
+                        Thread.sleep(1000);
+                        Select marcaT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_repeaterSelect_1_field']")));
+                        marcaT.selectByValue(bean.getMarca_Tarjeta());
+                        otro.click();
+                        Thread.sleep(1000);
+
+
+
+                    }
+
+                    if (bean.getTipo_Tarjeta() != null) {
+                        Thread.sleep(1000);
+                        Select tipoTa = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_3_fila_repeaterSelect_1_field']")));
+                        tipoTa.selectByValue(bean.getTipo_Tarjeta());
+                       /* otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                        otro.click();*/
+                        Thread.sleep(1000);
+                    }
+
+                    if (bean.getNro_Tarjeta() != null) {
+                        Thread.sleep(1000);
+                        WebElement NumTar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_4_fila_field']"));
+                        NumTar.clear();
+                        NumTar.sendKeys(bean.getNro_Tarjeta());
+                        Thread.sleep(1000);
+                    }
+
+                    if (bean.getMes_Venc_Tar() != null) {
+                        Thread.sleep(1000);
+                        Select mesVencTar = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_repeaterSelect_1_field']")));
+                        mesVencTar.selectByValue(bean.getMes_Venc_Tar());
+                        Thread.sleep(3000);
+                        otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                        otro.click();
+                        Thread.sleep(1000);
+                        mesVencTar = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_5_fila_repeaterSelect_1_field']")));
+                        mesVencTar.selectByValue(bean.getMes_Venc_Tar());
+                    }
+
+                    //jse.executeScript("hideWait()", ""); funciòn para desbloquear pantalla negra
+
+                    if (bean.getAno_Venc_Tar() != null) {
+
+                        Thread.sleep(1000);
+                        Select anoVencTar = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_6_fila_repeaterSelect_1_field']")));
+                        anoVencTar.selectByValue(bean.getAno_Venc_Tar());
+                        Thread.sleep(1000);
+                    }
+
+                    if (bean.getBanco_Emi() != null) {
+
+                        Thread.sleep(1000);
+                        Select bancoE = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_repeaterSelect_1_field']")));
+                        bancoE.selectByValue(bean.getBanco_Emi());
+                      /*  otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+                        otro.click();*/
+                        Thread.sleep(1000);
+                    }
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                    Thread.sleep(2000);
+                    WebElement colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                    colector.click();
+                    colector.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                    Thread.sleep(1000);
+
+                    colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                    colector.sendKeys(bean.getCollector());
+                    Thread.sleep(1000);
+                    colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                    colector.sendKeys(Keys.ARROW_DOWN);
+                    Thread.sleep(1000);
+                    colector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                    colector.sendKeys(Keys.ENTER);
+                }
+
+            if (bean.getMododePago().equals("1")) {
+                WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_styleAcordeon_label']"));
+
+                Select tipocta = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
+                tipocta.selectByValue(bean.getTipoCta());
+
+                Thread.sleep(1000);
+
+                Select bEmisor = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater_2_fila_repeaterSelect_1_field']")));
+                bEmisor.selectByValue(bean.getBanco_Emi());
+
+                Thread.sleep(1000);
+
+                //Colector
+                Thread.sleep(2000);
+                WebElement collector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+
+                collector.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                Thread.sleep(1000);
+
+                collector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                collector.sendKeys(bean.getCollector());
+                Thread.sleep(1000);
+                collector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                collector.sendKeys(Keys.ARROW_DOWN);
+                Thread.sleep(1000);
+                collector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                collector.sendKeys(Keys.ENTER);
+
+
+                //Colector
+                Thread.sleep(1000);
+                WebElement numCta = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_templateBasicThird_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_1_fila_field']"));
+                numCta.clear();
+                numCta.sendKeys(bean.getNroCta());
+                Thread.sleep(1000);
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
+            }
+
+            if (bean.getMododePago().equals("2")) {
+
+                     //Colector
+                Thread.sleep(1000);
+                WebElement kollector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                kollector.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                Thread.sleep(1000);
+
+                kollector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                kollector.sendKeys(bean.getCollector());
+                Thread.sleep(1000);
+                kollector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                kollector.sendKeys(Keys.ARROW_DOWN);
+                Thread.sleep(1000);
+                kollector = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_field_search']"));
+                kollector.sendKeys(Keys.ENTER);
+                //Colector
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
+            }
+
+
+                Thread.sleep(1000);
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
             driver.findElement(By.xpath("//*[@id=\"campos_obligatoriosPan\"]/h1/div/label")).click();
             WebElement guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_saveButton']"));
             guardar.click();
-            Thread.sleep(5000);
+            Thread.sleep(4000);
+
 
 
 
@@ -258,10 +330,9 @@ public class Asesuisa_ModosdePago {
         }
 
 
-    }
-
-    public void EditarModoPago(Asesuisa_ModosdePagoBean bean, Metodos a, int i, String folderName, int numScreenShoot){
 
     }
+
+
 
 }
