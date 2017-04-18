@@ -37,7 +37,7 @@ public class VistaAsesuisa_CajaNotasCreditoTest {
             String horaC = metodos.horaCarpeta();
 
             try {
-                //a.testLink(bean, j, horaC);
+                a.testLink(bean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);

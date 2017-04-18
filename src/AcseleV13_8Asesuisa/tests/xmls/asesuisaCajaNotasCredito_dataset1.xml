@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <ASESUISA_CAJA_NOTACREDITO PRUEBA="1" RAZON="RAZON" GENERAR="GENERAR"/>
+  <ASESUISA_CAJA_NOTACREDITO PRUEBA="1" RAZON="Valor Incorrecto" GENERAR="GENERAR"/>
 </dataset>
