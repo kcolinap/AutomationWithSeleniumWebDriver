@@ -117,24 +117,40 @@ public class Asesuisa_CajaNotasCredito {
                 if (texto.equals("Valida")) {
                     // Selecciona la linea de la tabla a Anular
                     indextr.click();
+                    Thread.sleep(2000);
                     // Selecciona el boton Anular
-                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span")).click();
-                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[9]/div/div[5]/div/span")).click();
+                    Thread.sleep(2000);
 
-                    // Razon de Anulacion
-                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div/span")).click();
-                    //driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[3]/div/div")).click();
-/*
+                    // Click a la lista Razon de Anulacion
+                    //driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div/span")).click();
+                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[3]/div/div")).click();
+
+                    // Selecciona la razon de anulacion
+
+
+
+
                     Thread.sleep(1000);
                     tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
-                    for (int k = 0; k < tamanotr; k++) {
-                        indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
-                        if (bean.getRazon() != null) {
+                    for (int k = 1; k < tamanotr; k++) {
+                        //indextr = driver.findElements(By.xpath("//*[@id=\'VAADIN_COMBOBOX_OPTIONLIST\']/div/div[2]/table/tbody/tr")).get(j);
+                        indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr["+k+"]/td/span"));
+                        texto = indextr.getText();
+
+                        if (bean.getRazon().equals(texto)) {
                             indextr.click();
+                            Thread.sleep(2000);
                             break;
                         }
+                        // Selecciona Generar Nota de Credito Si
+                        driver.findElement(By.xpath("//*[@id=\"gwt-uid-48\"]"));
+                        Select radiob = new Select(driver.findElement(By.xpath("//*[@id=\"gwt-uid-48\"]")));
+                        radiob.selectByValue();
+                       // Thread.sleep(2000);
+                        //driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[1]/div/span")).click();
                     }
-*/
+
                     break;
                 }
             }
