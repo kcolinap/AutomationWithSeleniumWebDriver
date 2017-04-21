@@ -48,6 +48,14 @@ public class Asesuisa_TercerosBean {
     private String login;
     private String numeroDocumentoIdentificacion;
     private String numeroDocumentoIdentificacion2;
+    private String numeroUnicoBanco;
+    private String numeroTelefonoTrabajo;
+    private String predeterminedName;
+    private String chequeoUnicidad;
+    private String idioma;
+    private String idiomaOmision;
+    private String nitBuscar;
+    private String descripcion;
 
     public String getTipoTercero() {
         return tipoTercero;
@@ -359,5 +367,69 @@ public class Asesuisa_TercerosBean {
 
     public void setNumeroDocumentoIdentificacion2(String numeroDocumentoIdentificacion2) {
         this.numeroDocumentoIdentificacion2 = numeroDocumentoIdentificacion2;
+    }
+
+    public String getNumeroUnicoBanco() {
+        return numeroUnicoBanco;
+    }
+
+    public void setNumeroUnicoBanco(String numeroUnicoBanco) {
+        this.numeroUnicoBanco = numeroUnicoBanco;
+    }
+
+    public String getNumeroTelefonoTrabajo() {
+        return numeroTelefonoTrabajo;
+    }
+
+    public void setNumeroTelefonoTrabajo(String numeroTelefonoTrabajo) {
+        this.numeroTelefonoTrabajo = numeroTelefonoTrabajo;
+    }
+
+    public String getPredeterminedName() {
+        return predeterminedName;
+    }
+
+    public void setPredeterminedName(String predeterminedName) {
+        this.predeterminedName = predeterminedName;
+    }
+
+    public String getChequeoUnicidad() {
+        return chequeoUnicidad;
+    }
+
+    public void setChequeoUnicidad(String chequeoUnicidad) {
+        this.chequeoUnicidad = chequeoUnicidad;
+    }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public String getIdiomaOmision() {
+        return idiomaOmision;
+    }
+
+    public void setIdiomaOmision(String idiomaOmision) {
+        this.idiomaOmision = idiomaOmision;
+    }
+
+    public String getNitBuscar() {
+        return nitBuscar;
+    }
+
+    public void setNitBuscar(String nitBuscar) {
+        this.nitBuscar = nitBuscar;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

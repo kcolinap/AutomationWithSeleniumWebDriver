@@ -165,6 +165,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "4": // d. Edición de Terceros.
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosEditarTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosEditarTest tercerosEditarTest = new VistaAsesuisa_TercerosEditarTest();
+                            tercerosEditarTest.setUp(tercero);
+                            tercerosEditarTest.mainTest();
+                            tercerosEditarTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
@@ -177,6 +191,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "8": // h. Documentos
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosDocumentosTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosDocumentosTest tercerosDocumentosTest = new VistaAsesuisa_TercerosDocumentosTest();
+                            tercerosDocumentosTest.setUp(tercero);
+                            tercerosDocumentosTest.mainTest();
+                            tercerosDocumentosTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "9": // i. Modos de Pago
                         System.out.println("Numero: " + tercero);
