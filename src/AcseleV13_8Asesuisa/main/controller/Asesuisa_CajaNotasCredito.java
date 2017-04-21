@@ -66,8 +66,11 @@ public class Asesuisa_CajaNotasCredito {
 
     public void NotasCreditoCaja(Asesuisa_CajaNotasCreditoBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
-        int tamanotr;
+        int tamanotr, numpantalla;
+        String texto = null;
+        //int numpantalla;
         WebElement indextr;
+        Boolean siguiente = true;
 
         try {
             Thread.sleep(1000);
@@ -77,16 +80,24 @@ public class Asesuisa_CajaNotasCredito {
             driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span")).click();
             Thread.sleep(2000);
 
-            // Busca las facturas que esten en estado Valida
+            numpantalla = Integer.parseInt(driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).getText());
+
+            for (int l = 1; l < (numpantalla); l++){
+            //Avanza una pantalla
+            //driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).click();
+            //Thread.sleep(2000);
+
+            // Busca las facturas que esten en estado "Valida"
             tamanotr = driver.findElements(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr")).size();
-            for (int j = 1; j < (tamanotr+1); j++) {
+            for (int j = 1; j < (tamanotr + 1); j++) {
                 indextr = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[8]/div"));
-                String texto = indextr.getText();
+                texto = indextr.getText();
                 if (texto.equals("Valida")) {
                     // Selecciona la linea de la tabla a Anular
                     indextr.click();
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
                     Thread.sleep(2000);
+
                     // Selecciona el boton Anular
                     driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[9]/div/div[5]/div/span")).click();
                     Thread.sleep(2000);
@@ -98,7 +109,7 @@ public class Asesuisa_CajaNotasCredito {
                     Thread.sleep(1000);
                     tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
                     for (int k = 1; k < tamanotr; k++) {
-                        indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr["+k+"]/td/span"));
+                        indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + k + "]/td/span"));
                         texto = indextr.getText();
 
                         if (bean.getRazon().equals(texto)) {
@@ -107,49 +118,61 @@ public class Asesuisa_CajaNotasCredito {
                             break;
                         }
                     }
+
                     // Selecciona Generar Nota de Credito Si
                     Thread.sleep(1000);
-                    if(bean.getGenerar().equals("Si")) {
+                    if (bean.getGenerar().equals("Si")) {
                         driver.findElement(By.xpath("//*[@id=\"gwt-uid-48\"]")).click();
                     }
-                    else if(bean.getGenerar().equals("No")) {
+                    // Selecciona Generar Nota de Credito No
+                    else if (bean.getGenerar().equals("No")) {
                         driver.findElement(By.xpath("//*[@id=\"gwt-uid-49\"]")).click();
                     }
+
+                    Thread.sleep(1000);
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
                     Thread.sleep(1000);
-/*
-                    // Selecciona Boton Aceptar
-                    if (bean.getGenerar() != null) {
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[1]/div/span")).click();
+
+
+                    // Selecciona primer Boton Aceptar
+                    if (bean.getAceptar1().equals("Si")) {
+                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[1]/div")).click();
 
                         // Selecciona segundo Boton Aceptar
                         Thread.sleep(1000);
                         a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                         Thread.sleep(1000);
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button")).click();
-                        // fin
-
+                        if (bean.getAceptar2().equals("Si")) {
+                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button")).click();
+                        }
+                        // Selecciona segundo Boton Cancelar
+                        else {
+                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[2]/button")).click();
+                        }
 
                     }
-                    // Selecciona Boton Cancelar
+                    // Selecciona primer Boton Cancelar
                     else {
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div/span")).click();
+                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div")).click();
                     }
-*/
-                    // Selecciona segundo Boton Aceptar
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
-                    Thread.sleep(1000);
-                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button")).click();
 
                     // Muestra el resultado de la operacion
-                    Thread.sleep(2000);
+                    Thread.sleep(5000);
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
-                    Thread.sleep(2000);
-                    //driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[2]/div/div/div")).click();
+                    Thread.sleep(1000);
                     break;
                 }
+
             }
+
+                if (texto.equals("Valida") || l == numpantalla) {
+                    break; }
+                else {
+                    //Avanza una pantalla
+                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).click();
+                    Thread.sleep(2000);
+                }
+        } //while
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);

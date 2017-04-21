@@ -18,6 +18,8 @@ public class Asesuisa_CajaNotasCreditoBean {
 
     private String razon;
     private String generar;
+    private String aceptar1;
+    private String aceptar2;
 
     public String getRazon() {
         return razon;
@@ -33,6 +35,22 @@ public class Asesuisa_CajaNotasCreditoBean {
 
     public void setGenerar(String generar) {
         this.generar = generar;
+    }
+
+    public String getAceptar1() {
+        return aceptar1;
+    }
+
+    public void setAceptar1(String aceptar1) {
+        this.aceptar1 = aceptar1;
+    }
+
+    public String getAceptar2() {
+        return aceptar2;
+    }
+
+    public void setAceptar2(String aceptar2) {
+        this.aceptar2 = aceptar2;
     }
 
     public static ArrayList getAsesuisa_CajaNotasCredito() throws SQLException {
@@ -55,6 +73,8 @@ public class Asesuisa_CajaNotasCreditoBean {
 
                 cajaNotasCreditoBean.setRazon(rs.getString("RAZON"));
                 cajaNotasCreditoBean.setGenerar(rs.getString("GENERAR"));
+                cajaNotasCreditoBean.setAceptar1(rs.getString("ACEPTAR1"));
+                cajaNotasCreditoBean.setAceptar2(rs.getString("ACEPTAR2"));
 
                 caja.add(cajaNotasCreditoBean);
             }
