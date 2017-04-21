@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"3", "8", "1"};
+       args = new String[]{"6", "10", "1"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -195,6 +195,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "10": // j. Roles revisión general
                         System.out.println("Numero: " + tercero);
+                        prueba = "Terceros Roles";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_RolesTest roles = new VistaAsesuisa_RolesTest();
+                            roles.setUp(tercero);
+                            roles.mainTest();
+                            roles.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
                         break;
                     case "11": // k. Asociar rol a tercero nuevo y validarlo
                         System.out.println("Numero: " + tercero);
