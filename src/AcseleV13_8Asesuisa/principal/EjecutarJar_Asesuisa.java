@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"3", "8", "1"};
+        //args = new String[]{"6", "5", "1"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -168,6 +168,19 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosCambioTipoDocumentoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosCambioTipoDocumentoTest tercerosCambioTipoDocumentoTest = new VistaAsesuisa_TercerosCambioTipoDocumentoTest();
+                            tercerosCambioTipoDocumentoTest.setUp(tercero);
+                            tercerosCambioTipoDocumentoTest.mainTest();
+                            tercerosCambioTipoDocumentoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "6": // f. Información Técnica
                         System.out.println("Numero: " + tercero);
