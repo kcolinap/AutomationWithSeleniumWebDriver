@@ -66,9 +66,10 @@ public class Asesuisa_CajaNotasCredito {
 
     public void NotasCreditoCaja(Asesuisa_CajaNotasCreditoBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
-        int tamanotr, numpantalla;
+        int tamanotr, numpagina;
         String texto = null;
-        //int numpantalla;
+        String texto1 = null;
+        //int numpagina;
         WebElement indextr;
         Boolean siguiente = true;
 
@@ -79,13 +80,10 @@ public class Asesuisa_CajaNotasCredito {
             Thread.sleep(1000);
             driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span")).click();
             Thread.sleep(2000);
+            // Obtiene el total de paginas mostradas
+            numpagina = Integer.parseInt(driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[11]/div")).getText());
 
-            numpantalla = Integer.parseInt(driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).getText());
-
-            for (int l = 1; l < (numpantalla); l++){
-            //Avanza una pantalla
-            //driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).click();
-            //Thread.sleep(2000);
+            for (int l = 1; l < (numpagina); l++){
 
             // Busca las facturas que esten en estado "Valida"
             tamanotr = driver.findElements(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr")).size();
@@ -110,9 +108,9 @@ public class Asesuisa_CajaNotasCredito {
                     tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
                     for (int k = 1; k < tamanotr; k++) {
                         indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + k + "]/td/span"));
-                        texto = indextr.getText();
+                        texto1 = indextr.getText();
 
-                        if (bean.getRazon().equals(texto)) {
+                        if (bean.getRazon().equals(texto1)) {
                             indextr.click();
                             Thread.sleep(2000);
                             break;
@@ -165,14 +163,14 @@ public class Asesuisa_CajaNotasCredito {
 
             }
 
-                if (texto.equals("Valida") || l == numpantalla) {
+                if (texto.equals("Valida") || l == numpagina) {
                     break; }
                 else {
-                    //Avanza una pantalla
+                    //Avanza a la siguiente pagina
                     driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).click();
                     Thread.sleep(2000);
                 }
-        } //while
+        } // for
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
