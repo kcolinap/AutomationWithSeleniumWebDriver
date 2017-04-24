@@ -4,11 +4,9 @@ import AcseleV13_8Asesuisa.beans.Asesuisa_TercerosCambioTipoDocumentoBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuMantenimiento;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import sun.awt.windows.ThemeReader;
 
 import java.awt.*;
 /**
@@ -20,6 +18,7 @@ public class Asesuisa_TercerosCambioTipoDocumento {
 
     public String nombreAutomatizacion = "Cambio de documento Tercero";
     private WebDriver driver;
+    public String identi="";
 
     public void testLink(Asesuisa_TercerosCambioTipoDocumentoBean bean, int i, String folderName){
 
@@ -41,10 +40,48 @@ public class Asesuisa_TercerosCambioTipoDocumento {
             Thread.sleep(2000);
 
             //Buscar tercero
-            TipoBusqueda(driver, m, bean, folderName, i, 3, 4, 5);
+            TipoBusqueda(driver, m, bean, folderName, i);
             Thread.sleep(1000);
 
-            //driver.quit();
+
+            System.out.println("Vuelvo a busqueda para consultar los cambios en tercero");
+
+            //Vuelvo a busqueda para consultar los cambios en tercero
+            WebElement btnVolver, txtCodIdenti, txtaux;
+            btnVolver = driver.findElement(By.xpath("//span[@wicketpath='ThirdInformationContent_panelInformationAndReturnPage_form_editValidity_editValidityLabel']"));
+            btnVolver.click();
+            m.waitSearchWicket(driver,". Volviendo a busqueda");
+            Thread.sleep(1000);
+
+            txtCodIdenti=driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_19_fila_field']"));
+            txtCodIdenti.sendKeys(identi);
+            Thread.sleep(1500);
+            txtaux= driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_19_fila_field']"));
+            txtaux.click();
+            m.waitSearchWicket(driver,". Validando");
+
+            //Btn Buscar
+            WebElement btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+            btnBuscar.click();
+            m.waitSearchWicket(driver, ". Buscando tercero");
+            Thread.sleep(400);
+
+            WebElement opt = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+            opt.click();
+            Thread.sleep(1000);
+            //pantallazo
+
+            //Consultar
+            WebElement btnConsultar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_consultThirdButton']"));
+            btnConsultar.click();
+            m.waitSearchWicket(driver, ". Entrando modo consulta");
+
+            //Pantallazos
+
+
+            System.out.println("Fin de la prueba");
+            Thread.sleep(2000);
+            driver.quit();
         }catch (Exception e){
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
@@ -55,7 +92,7 @@ public class Asesuisa_TercerosCambioTipoDocumento {
     }
 
     public void TipoBusqueda(WebDriver driver, Metodos m, Asesuisa_TercerosCambioTipoDocumentoBean bean,
-                             String folderName, int i, int screen1, int screen2, int screen3){
+                             String folderName, int i){
         try{
 
             int scenarioBusqueda;
@@ -78,17 +115,28 @@ public class Asesuisa_TercerosCambioTipoDocumento {
                     txtNombre.sendKeys(bean.getPrimerNombre());
                     Thread.sleep(1000);
                 }
+
+                if (bean.getCodigoIdentificador()!=null){
+
+                }
                 scenarioBusqueda=2;
             }
 
+            int nroAux;
             switch (scenarioBusqueda){
                 case 1:
-                    //Busqueda general, sin campo especxifico
-                    BusquedaGeneral(driver, m, bean, folderName, i, screen1, screen2, screen3);
+
+                    if (bean.getNumeroDocumentoN()==null){//Busqueda general, sin campo especxifico, solo tipo documento
+                        BusquedaCaseGeneral(driver, m, bean, folderName, i, 1);
+                    }else if ((bean.getNumeroDocumentoN()!=null)){
+                        BusquedaCaseGeneral(driver, m, bean, folderName, i, 2);
+                    } else if ((bean.getNumeroDocumentoN()!=null) && (bean.getCodigoIdentificador()!=null)) {
+                        BusquedaCaseGeneral(driver, m, bean, folderName, i, 3);
+                    }
                     break;
                 case 2:
-                    //Busqueda especiofica, se lleno algun campo de busqueda
-                    System.out.println("Caso 2");
+                    //Busqueda por codigo identificador. Nro existente(pasaporte)
+                    BusquedaCaseGeneral(driver, m, bean, folderName, i, 3);
                     break;
                 default:
                     break;
@@ -101,46 +149,248 @@ public class Asesuisa_TercerosCambioTipoDocumento {
         }
     }
 
-    public void BusquedaGeneral(WebDriver driver, Metodos m, Asesuisa_TercerosCambioTipoDocumentoBean bean,
-                                String folderName, int i, int screen1, int screen2, int screen3){
-        try{
-            //Boton buscar
-            WebElement btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            btnBuscar.click();
-            m.waitSearchWicket(driver,". Buscando tercero");
-            Thread.sleep(400);
+    public void BusquedaCaseGeneral(WebDriver driver, Metodos m, Asesuisa_TercerosCambioTipoDocumentoBean bean,
+                                    String folderName, int i, int testCase){
+        int nroAux;
+        try {
+            WebElement btnEditar;
+            switch (testCase){
+                case 1://cambio de tipo documento
+                    Busqueda(driver, m, bean, folderName, 1, i, 3, 4, 5);
 
-
-            //Evaluo si se despliega el dialogo
-            if (driver.findElements(By.className("w_windowMessage")).size()>0){
-                WebElement btnAceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
-                btnAceptar.click();
-                Thread.sleep(1000);
-            }
-
-            //Recorrer los terceros encontrados hasta encontrar uno habilitado(Si aplica)
-            int nroFilas = driver.findElements(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr")).size();
-            String lblStatus="", lblCodigo;
-            WebElement optTercero;
-            int aux=0;
-
-            for (int k=0; k<nroFilas; k++){
-               lblStatus=driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr["+(k+1)+"]/td[4]/div/span")).getText();
-                lblCodigo = driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr["+(k+1)+"]/td[3]/div/span")).getText();
-                if ((lblStatus.equals("Habilitado")) && (lblCodigo!=null)){
-                    optTercero=driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr["+(k+1)+"]/td[1]/div/input"));
-                    optTercero.click();
+                    //Boton editar
+                    btnEditar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
+                    btnEditar.click();
+                    m.waitSearchWicket(driver,". Entrando en modo edicion");
                     Thread.sleep(1000);
-                    System.out.println("Tercero seleccionado: ");
-                    System.out.println("Nombre: " + (driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[2]/div/span")).getText()));
-                    System.out.println("Codigo Identificador: "+(driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr["+(k+1)+"]/td[3]/div/span")).getText()));
-                    aux=k;
-                    break;
-                }
-            }
-            aux+=1;
 
-            //pantallazo
+                    //pantallazo
+
+                    if (bean.getTipoDocumento()!=null) {
+                        String tipoA = "", nombreDoc = "";
+                        tipoA = driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_6_fila_repeaterSelect_1_field']")).getAttribute("value");
+
+                        Select tipoD = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_6_fila_repeaterSelect_1_field']")));
+                        if (tipoA.equals("844135")) {
+                            nombreDoc="N° de Pasaporte";
+                            System.out.println("Tipo documento actual: "+nombreDoc);
+                            Thread.sleep(1000);
+                            tipoD.selectByValue("844136");
+                            Thread.sleep(500);
+                            nombreDoc="";
+                            nombreDoc="N° de Carnet de Residencia";
+                        } else if (tipoA.equals("844136")){
+                            nombreDoc="N° de Carnet de Residencia";
+                            System.out.println("Tipo documento actual: "+nombreDoc);
+                            Thread.sleep(1000);
+                            tipoD.selectByValue("844135");
+                            Thread.sleep(500);
+                            nombreDoc="";
+                            nombreDoc="N° de Pasaporte";
+                        }
+
+
+                        //pantallazo
+
+
+                        //Boton guardar
+                        WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']"));
+                        btnGuardar.click();
+                        m.waitSearchWicket(driver, ". Guardando cambios");
+                        Thread.sleep(1000);
+                        System.out.println("El tipo de documento ha sido cambiado correctamente a "+nombreDoc);
+                    }
+                    break;
+                case 2://Cambio de tipo y numero
+                    Busqueda(driver, m, bean, folderName, 1, i, 3, 4, 5);
+
+                    //Boton editar
+                    btnEditar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
+                    btnEditar.click();
+                    m.waitSearchWicket(driver,". Entrando en modo edicion");
+                    Thread.sleep(1000);
+
+                    //pantallazo
+
+                    if (bean.getTipoDocumento()!=null) {
+                        int nro;
+                        String tipoA = "", nombreDoc = "", nroDoc="";
+                        tipoA = driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_6_fila_repeaterSelect_1_field']")).getAttribute("value");
+
+                        Select tipoD = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_6_fila_repeaterSelect_1_field']")));
+                        if (tipoA.equals("844135")) {
+                            nombreDoc="N° de Pasaporte";
+                            nroDoc= driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']")).getAttribute("value");
+                            System.out.println("Tipo documento actual: "+nombreDoc);
+                            System.out.println("Numer documento actual: "+nroDoc);
+                            Thread.sleep(1000);
+                            tipoD.selectByValue("844136");
+                            Thread.sleep(2000);
+                            nombreDoc="";nroDoc="";
+                            nombreDoc="N° de Carnet de Residencia";
+                            //nroDoc=bean.getNumeroDocumentoN();
+                            for(int ram=0; ram<8; ram++){
+                                nro=GeneraNumero();
+                                nroDoc+=String.valueOf(nro);
+                            }
+
+                            WebElement txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            WebElement txtAux = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_7_fila_field']"));
+
+                            Thread.sleep(2000);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                            Thread.sleep(600);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.click();
+                            m.waitSearchWicket(driver, ". Refrescando");
+                            Thread.sleep(2000);
+                            txtAux = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_7_fila_field']"));
+                            txtAux.click();
+                            Thread.sleep(500);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                            Thread.sleep(400);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(Keys.chord(Keys.BACK_SPACE));
+                            Thread.sleep(400);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                            Thread.sleep(200);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(nroDoc);
+                            Thread.sleep(500);
+                            txtAux = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_7_fila_field']"));
+                            txtAux.click();
+                            Thread.sleep(500);
+                        } else if (tipoA.equals("844136")){
+                            nombreDoc="N° de Carnet de Residencia";
+                            nroDoc= driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']")).getAttribute("value");
+                            System.out.println("Tipo documento actual: "+nombreDoc);
+                            System.out.println("Numer documento actual: "+nroDoc);
+                            Thread.sleep(1000);
+                            tipoD.selectByValue("844135");
+                            Thread.sleep(20000);
+                            nombreDoc="";nroDoc="";
+                            nombreDoc="N° de Pasaporte";
+                            for(int ram=0; ram<8; ram++){
+                                nro=GeneraNumero();
+                                nroDoc+=String.valueOf(nro);
+                            }
+                            WebElement txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            WebElement txtAux = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_7_fila_field']"));
+
+                            Thread.sleep(2000);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                            Thread.sleep(600);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.click();
+                            m.waitSearchWicket(driver, ". Refrescando");
+                            Thread.sleep(2000);
+                            txtAux = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel2_7_fila_field']"));
+                            txtAux.click();
+                            Thread.sleep(1000);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                            Thread.sleep(600);
+                            txtNroDoc = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_DataTemplate_repeaterPanel1_7_fila_field']"));
+                            txtNroDoc.sendKeys(nroDoc);
+                            //System.out.println(nroDoc);
+                        }
+
+
+                        //pantallazo
+
+
+                        //Boton guardar
+
+                        WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_BasicInformation_formThirdBasic_saveButton']"));
+                        Thread.sleep(1500);
+                        btnGuardar.click();
+                        m.waitSearchWicket(driver, ". Guardando cambios");
+                        Thread.sleep(1000);
+                        System.out.println("El tipo de documento ha sido cambiado correctamente a "+nombreDoc);
+                        System.out.println("El numero de documento ha sido cambiado correctamente a "+nroDoc);
+                    }
+                    break;
+                case 3:
+                    Busqueda(driver, m, bean, folderName, 2, i, 3, 4, 5);
+                    break;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void Busqueda(WebDriver driver, Metodos m, Asesuisa_TercerosCambioTipoDocumentoBean bean,
+                                String folderName, int tipoB, int i, int screen1, int screen2, int screen3){
+        //int aux = 0;
+        String codIdenti="";
+        WebElement btnBuscar;
+        try {
+            switch (tipoB) {
+                case 1:
+                    //Boton buscar
+                    btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+                    btnBuscar.click();
+                    m.waitSearchWicket(driver, ". Buscando tercero");
+                    Thread.sleep(400);
+
+
+                    //Evaluo si se despliega el dialogo
+                    if (driver.findElements(By.className("w_windowMessage")).size() > 0) {
+                        WebElement btnAceptar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_questionForm_confirmButton']"));
+                        btnAceptar.click();
+                        Thread.sleep(1000);
+                    }
+
+                    //Recorrer los terceros encontrados hasta encontrar uno habilitado(Si aplica)
+                    int nroFilas = driver.findElements(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr")).size();
+                    String lblStatus = "", lblCodigo;
+                    WebElement optTercero;
+
+
+                    for (int k = 0; k < nroFilas; k++) {
+                        lblStatus = driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[4]/div/span")).getText();
+                        lblCodigo = driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[3]/div/span")).getText();
+                        if ((lblStatus.equals("Habilitado")) && (lblCodigo != null)) {
+                            optTercero = driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[1]/div/input"));
+                            optTercero.click();
+                            Thread.sleep(1000);
+                            System.out.println("Tercero seleccionado: ");
+                            System.out.println("Nombre: " + (driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[2]/div/span")).getText()));
+                            System.out.println("Codigo Identificador: " + (driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[3]/div/span")).getText()));
+                            //aux = k;
+                            codIdenti = driver.findElement(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody/tr[" + (k + 1) + "]/td[3]/div/span")).getText();
+                            identi = codIdenti;
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+
+                    //Escribo el codigo identificador
+                    WebElement txtCodI = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_19_fila_field']"));
+                    txtCodI.sendKeys(bean.getCodigoIdentificador());
+                    Thread.sleep(2000);
+
+                    //Boton buscar
+                    btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+                    btnBuscar.click();
+                    m.waitSearchWicket(driver, ". Buscando tercero");
+                    Thread.sleep(400);
+                    break;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+            //aux += 1;
+    }
+           /* //pantallazo
             //Boton Consultar
             WebElement btnConsultar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_consultThirdButton']"));
             btnConsultar.click();
@@ -192,5 +442,13 @@ public class Asesuisa_TercerosCambioTipoDocumento {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
+    }*/
+
+    public int GeneraNumero(){
+        double dou;
+
+        dou=(Math.random()* 8 + 1);
+        int nro = (int)(dou);
+        return nro;
     }
 }

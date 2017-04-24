@@ -23,6 +23,33 @@ public class Asesuisa_TercerosCambioTipoDocumentoBean implements Serializable {
     private String numeroDocumento;
     private String codigoIdentificador;
     private String tipoDocumento;
+    private String tipoDocumentoN;
+    private String numeroDocumentoN;
+    private String testCase;
+
+    public String getTipoDocumentoN() {
+        return tipoDocumentoN;
+    }
+
+    public void setTipoDocumentoN(String tipoDocumentoN) {
+        this.tipoDocumentoN = tipoDocumentoN;
+    }
+
+    public String getNumeroDocumentoN() {
+        return numeroDocumentoN;
+    }
+
+    public void setNumeroDocumentoN(String numeroDocumentoN) {
+        this.numeroDocumentoN = numeroDocumentoN;
+    }
+
+    public String getTestCase() {
+        return testCase;
+    }
+
+    public void setTestCase(String testCase) {
+        this.testCase = testCase;
+    }
 
     public String getTipoDocumento() {
         return tipoDocumento;
@@ -96,6 +123,8 @@ public class Asesuisa_TercerosCambioTipoDocumentoBean implements Serializable {
                 bean.setNumeroDocumento(rs.getString("NUMERODOCUMENTO"));
                 bean.setCodigoIdentificador(rs.getString("CODIGOIDENTIFICADOR"));
                 bean.setTipoDocumento(rs.getString("TIPODOCUMENTO"));
+                bean.setTipoDocumentoN(rs.getString("TIPODOCUMENTON"));
+                bean.setNumeroDocumentoN(rs.getString("NUMERODOCUMENTON"));
 
                 asesuisaTercerosCambioTipoDoc.add(bean);
             }
