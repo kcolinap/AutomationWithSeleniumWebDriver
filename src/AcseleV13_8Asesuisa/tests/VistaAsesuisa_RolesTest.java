@@ -12,13 +12,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by aandrade on 29/03/2017.
+ * Created by cortiz on 29/03/2017.
  */
 public class VistaAsesuisa_RolesTest {
     private final static Logger log = Logger.getLogger(VistaAsesuisa_RolesTest.class);
 
     @org.junit.Test
-    public void mainTest() throws SQLException {
+    public void mainTest(String num) throws SQLException {
 
         ArrayList rol = null;
 
@@ -36,7 +36,7 @@ public class VistaAsesuisa_RolesTest {
             String horaC = metodos.horaCarpeta();
 
             try {
-              a.testLink(bean, j, horaC);
+             a.testLink(bean, j, horaC,num);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -50,19 +50,19 @@ public class VistaAsesuisa_RolesTest {
 
 
 
-/*
-         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_ROLES ORDER BY PRUEBA ASC",
+
+ /*        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_ROLES ORDER BY PRUEBA ASC",
                 "ASESUISA_ROLES",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaRoles_dataset" + num + ".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_ROLES ORDER BY PRUEBA ASC",
                 "ASESUISA_ROLES",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaRoles_dataset"+ num + ".xml");*/
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaRoles_dataset"+ num + ".xml");
+*/
 
 
 
-
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaRoles_dataset" + num +  ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaRoles_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After

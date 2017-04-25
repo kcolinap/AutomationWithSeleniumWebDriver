@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-       args = new String[]{"6", "10", "1"};
+     //  args = new String[]{"6", "10", "26"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -200,7 +200,7 @@ public class EjecutarJar_Asesuisa {
                         try {
                             VistaAsesuisa_RolesTest roles = new VistaAsesuisa_RolesTest();
                             roles.setUp(tercero);
-                            roles.mainTest();
+                            roles.mainTest(tercero);
                             roles.tearDown(tercero);
                         } catch (Exception e) {
                             e.printStackTrace();

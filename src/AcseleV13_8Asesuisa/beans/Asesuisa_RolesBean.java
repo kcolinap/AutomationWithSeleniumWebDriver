@@ -40,6 +40,53 @@ public class Asesuisa_RolesBean implements Serializable {
     private String EMAIL;
     private String TipoCta;
     private String NroCta;
+    private String FNACIMIENTO;
+
+    public String getNDUI() {
+        return NDUI;
+    }
+
+    public void setNDUI(String NDUI) {
+        this.NDUI = NDUI;
+    }
+
+    public String getFNACIMIENTO() {
+        return FNACIMIENTO;
+    }
+
+    public void setFNACIMIENTO(String FNACIMIENTO) {
+        this.FNACIMIENTO = FNACIMIENTO;
+    }
+
+    public String getNNIT() {
+        return NNIT;
+    }
+
+    public void setNNIT(String NNIT) {
+        this.NNIT = NNIT;
+    }
+
+    public String getTDOCUMENTO() {
+        return TDOCUMENTO;
+    }
+
+    public void setTDOCUMENTO(String TDOCUMENTO) {
+        this.TDOCUMENTO = TDOCUMENTO;
+    }
+
+    public String getNDOCUMENTO() {
+        return NDOCUMENTO;
+    }
+
+    public void setNDOCUMENTO(String NDOCUMENTO) {
+        this.NDOCUMENTO = NDOCUMENTO;
+    }
+
+    private String NDUI;
+    private String NNIT;
+    private String TDOCUMENTO;
+    private String NDOCUMENTO;
+
 
 
     public String getTipoTercero() {
@@ -265,6 +312,14 @@ public class Asesuisa_RolesBean implements Serializable {
                 rolBean.setTIPCTA(rs.getString("TIPCTA"));
                 rolBean.setNOMCONTACTO(rs.getString("NOMCONTACTO"));
                 rolBean.setEMAIL(rs.getString("EMAIL"));
+                rolBean.setFNACIMIENTO(rs.getString("FNACIMIENTO"));
+                rolBean.setNNIT(rs.getString("NNIT"));
+                rolBean.setNNIT(rs.getString("NDUI"));
+                rolBean.setNDOCUMENTO(rs.getString("NDOCUMENTO"));
+                rolBean.setTDOCUMENTO(rs.getString("TDOCUMENTO"));
+
+
+
 
                 rol.add(rolBean);
             }
