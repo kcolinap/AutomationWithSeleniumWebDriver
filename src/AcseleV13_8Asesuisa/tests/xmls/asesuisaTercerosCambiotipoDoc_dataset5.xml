@@ -3,6 +3,6 @@
     <!--Caso 5 cambio nro  documento(existente) pasaporte busqueda por codigo identificadort-->
   <Asesuisa_terc_CambioTipoDoc PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE=""
                                PRIMERAPELLIDO="" NUMERODOCUMENTO="" NUMERODOCUMENTON="3536987"
-                               CODIGOIDENTIFICADOR="10101010813534"
+                               CODIGOIDENTIFICADOR="10101010813510"
                                TIPODOCUMENTO="844135" TIPODOCUMENTON="" TESTCASE="3"/>
 </dataset>

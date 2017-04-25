@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Caso 7 cambio nro  documento(existente) carnet busqueda por nombre/apellido-->
+  <Asesuisa_terc_CambioTipoDoc PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE="NOEMIS"
+                               PRIMERAPELLIDO="RODRIGUEZ" NUMERODOCUMENTO="" NUMERODOCUMENTON="1009842"
+                               CODIGOIDENTIFICADOR="10101010813270"
+                               TIPODOCUMENTO="844136" TIPODOCUMENTON="" TESTCASE="4"/>
+</dataset>
