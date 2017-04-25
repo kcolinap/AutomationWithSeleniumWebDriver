@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"7", "7", "4"};
+        //args = new String[]{"7", "9", "6"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -329,6 +329,21 @@ public class EjecutarJar_Asesuisa {
                             cajaModalidadesTest.setUp(tercero);
                             cajaModalidadesTest.mainTest();
                             cajaModalidadesTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                        break;
+                    case "9": // f. Caja Anulacion de Facturas
+                        System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaAnularFacturaTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaAnularFacturaTest cajaAnularFacturaTestTest = new VistaAsesuisa_CajaAnularFacturaTest();
+                            cajaAnularFacturaTestTest.setUp(tercero);
+                            cajaAnularFacturaTestTest.mainTest();
+                            cajaAnularFacturaTestTest.tearDown(tercero);
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);

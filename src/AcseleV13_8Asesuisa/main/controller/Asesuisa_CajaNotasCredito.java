@@ -69,9 +69,7 @@ public class Asesuisa_CajaNotasCredito {
         int tamanotr, numpagina;
         String texto = null;
         String texto1 = null;
-        //int numpagina;
         WebElement indextr;
-        Boolean siguiente = true;
 
         try {
             Thread.sleep(1000);
