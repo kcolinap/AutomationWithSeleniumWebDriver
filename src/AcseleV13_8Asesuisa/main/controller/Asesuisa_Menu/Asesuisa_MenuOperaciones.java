@@ -361,6 +361,31 @@ public class Asesuisa_MenuOperaciones {
 
     }
 
+    public void UAA_Caja_ColeccionDeProcesos(WebDriver driver, String nombreAutomatizacion, int numScreenShoot, int i, String folderName){
+
+        try {
+            Actions action = new Actions(driver);
+            WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[2]")); // Operación
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[5]/div[5]")); // UAA (Administrador de Cuentas Universal))
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[13]/div[1]")); // Caja
+            WebElement menu4 = driver.findElement(By.xpath("/html/body/div[14]/div[3]")); // Coleccion de Procesos
+            menu1.click();
+            menu2.click();
+            menu3.click();
+            Thread.sleep(1000);
+            action.moveToElement(menu4).build().perform();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+            menu4.click();
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+
+    }
+
     public void UAA_Caja_AplicacionCobro(){}
 
     public void UAA_Caja_ConsultaOperacionesCobranza(){}
