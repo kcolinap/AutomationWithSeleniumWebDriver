@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Caso 3 cambio numero  de documento(No existente) y tipo (pasaporte)-->
+  <Asesuisa_terc_CambioTipoDoc PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE=""
+                               PRIMERAPELLIDO="" NUMERODOCUMENTO="" NUMERODOCUMENTON="12354"
+                               CODIGOIDENTIFICADOR=""
+                               TIPODOCUMENTO="844135" TIPODOCUMENTON="" TESTCASE="2"/>
+</dataset>

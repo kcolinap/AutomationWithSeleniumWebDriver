@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Caso 2 cambio de tipo de documento pasaporte a nro de carnet-->
+  <Asesuisa_terc_CambioTipoDoc PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE=""
+                               PRIMERAPELLIDO="" NUMERODOCUMENTO="" NUMERODOCUMENTON="" CODIGOIDENTIFICADOR=""
+                               TIPODOCUMENTO="" TIPODOCUMENTON="" TESTCASE="1"/>
+</dataset>

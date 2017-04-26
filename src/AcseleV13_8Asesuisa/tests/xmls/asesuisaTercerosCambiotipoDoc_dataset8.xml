@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Caso 8 cambio nro  documento(existente) pasaporte busqueda por nombre/apellido-->
+  <Asesuisa_terc_CambioTipoDoc PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE="MARIA"
+                               PRIMERAPELLIDO="RIVAS" NUMERODOCUMENTO="" NUMERODOCUMENTON="3536987"
+                               CODIGOIDENTIFICADOR="10101010813510"
+                               TIPODOCUMENTO="844135" TIPODOCUMENTON="" TESTCASE="4"/>
+</dataset>

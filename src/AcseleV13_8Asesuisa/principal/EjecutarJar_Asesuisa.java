@@ -182,6 +182,19 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosCambioTipoDocumentoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosCambioTipoDocumentoTest tercerosCambioTipoDocumentoTest = new VistaAsesuisa_TercerosCambioTipoDocumentoTest();
+                            tercerosCambioTipoDocumentoTest.setUp(tercero);
+                            tercerosCambioTipoDocumentoTest.mainTest();
+                            tercerosCambioTipoDocumentoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "6": // f. Información Técnica
                         System.out.println("Numero: " + tercero);

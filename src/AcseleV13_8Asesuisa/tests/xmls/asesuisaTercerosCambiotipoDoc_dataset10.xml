@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Caso 10 cambio nro  documento(No existente)pasaporte busqueda por nombre apellido-->
+  <Asesuisa_terc_CambioTipoDoc PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE="CARLOS ALEXANDER"
+                               PRIMERAPELLIDO="PONCE" NUMERODOCUMENTO="" NUMERODOCUMENTON=""
+                               CODIGOIDENTIFICADOR="10101010813531"
+                               TIPODOCUMENTO="844135" TIPODOCUMENTON="" TESTCASE="4"/>
+</dataset>
