@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-  <INTER_CONSULTA_EDO_CUENTAS PRUEBA="1" TIPO_TERCERO="PersonaNatural" NUM_DOC_IDENT="98765432"
-                              APELLIDO="chang" NOMBRE="carlos" FECHA_INICIAL=""
-                              FECHA_FINAL="" MONEDA="2123" PRODUCTO=""/>
-</dataset>

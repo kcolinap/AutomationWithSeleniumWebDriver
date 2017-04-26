@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-  <CREACION_CAJAS_LBC PRUEBA="1"
-                      DESCRIPCION="Caja Automatica1" UBICACION="Consis" SUCURSAL="420"/>
-  <CREACION_CAJAS_LBC PRUEBA="2"
-                      DESCRIPCION="Caja Automatica2" UBICACION="Consis2" SUCURSAL="420"/>
-</dataset>

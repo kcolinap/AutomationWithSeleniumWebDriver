@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-  <INTER_FORMULACIONES PRUEBA="1" REGLA=""
-                       DESCRIPCION_FORMULA='Period IF PolicyEvent.equals("Cancel") OR PolicyEvent.equals("Refuse") THEN (PolicyEndDate-PolicyInitialDate) ELSE (NextBillingDate-MovementDate) ENDIF Movenment Period'
-                       BUSCAR="PruebaInter"/>
-</dataset>

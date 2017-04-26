@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-  <Reserva_Conceptos_Traza PRUEBA="1" NRO_SINIESTRO="500001-2016-001376" NRO_POLIZA=""
-                           FECHA_SINIESTRO="" PRODUCTO=""
-                           ORDENAR_POR="" COBERTURA="MUERTE"
-                           MONTO_RESERVA="50" TIPO_TRAZA="Tipo_Traza"
-                           FECHA_DESDE="01-09-2016" FECHA_HASTA="22-09-2016"
-                           CATEGORIA_TRAZA=""/>
-</dataset>
