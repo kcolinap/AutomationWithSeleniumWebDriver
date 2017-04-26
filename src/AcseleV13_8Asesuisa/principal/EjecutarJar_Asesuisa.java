@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-     //  args = new String[]{"6", "10", "26"};
+     // args = new String[]{"6", "12", "1"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -223,7 +223,7 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "10": // j. Roles revisión general
                         System.out.println("Numero: " + tercero);
-                        prueba = "Terceros Roles";
+                        prueba = "VistaAsesuisa_RolesTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_RolesTest roles = new VistaAsesuisa_RolesTest();
@@ -241,6 +241,19 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "12": // l. Modificar rol: cambiar género y fecha nacimiento rol Asegurado Vida – luego consultar traza de auditoria
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_ModificarRolTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ModificarRolTest modRol = new VistaAsesuisa_ModificarRolTest();
+                            modRol.setUp(tercero);
+                            modRol.mainTest();
+                            modRol.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+
                         break;
                     case "13": // m.Información financiera
                         System.out.println("Numero: " + tercero);
