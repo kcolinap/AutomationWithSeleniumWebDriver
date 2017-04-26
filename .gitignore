@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+#.idea
+*.iml
+out
+gen
+workspace.xml
+.idea/artifacts/AutomationTestAcsele_jar.xml
+
+# Package Files #
+*.jar
+
+# Compiled class file
+target
+#*.class
+
+# Log file
+*.log
