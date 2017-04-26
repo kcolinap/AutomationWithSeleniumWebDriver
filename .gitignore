@@ -4,14 +4,14 @@
 
 # IntelliJ project files
 #.idea
-*.iml
+#*.iml
 out
 gen
 workspace.xml
-.idea/artifacts/AutomationTestAcsele_jar.xml
+#.idea/artifacts/AutomationTestAcsele_jar.xml
 
 # Package Files #
-*.jar
+#.jar
 
 # Compiled class file
 target
