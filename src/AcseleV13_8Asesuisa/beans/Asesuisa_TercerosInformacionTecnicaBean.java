@@ -17,6 +17,16 @@ public class Asesuisa_TercerosInformacionTecnicaBean extends Asesuisa_TercerosBe
 
     private final static Logger log = Logger.getLogger(Asesuisa_TercerosInformacionTecnicaBean.class);
 
+    private String tipoBusqueda;
+
+    public String getTipoBusqueda() {
+        return tipoBusqueda;
+    }
+
+    public void setTipoBusqueda(String tipoBusqueda) {
+        this.tipoBusqueda = tipoBusqueda;
+    }
+
     public static ArrayList getTercerosInformacionTecnicaBean() throws SQLException{
 
         Connection conexion = null;
@@ -36,9 +46,19 @@ public class Asesuisa_TercerosInformacionTecnicaBean extends Asesuisa_TercerosBe
                 Asesuisa_TercerosInformacionTecnicaBean asesuisaTercerosInformacionTecnicaBean = new Asesuisa_TercerosInformacionTecnicaBean();
 
                 asesuisaTercerosInformacionTecnicaBean.setTipoTercero(rs.getString("tipoTercero"));
+
                 asesuisaTercerosInformacionTecnicaBean.setPrimerNombre(rs.getString("primerNombre"));
                 asesuisaTercerosInformacionTecnicaBean.setPrimerApellido(rs.getString("primerApellido"));
                 asesuisaTercerosInformacionTecnicaBean.setNumeroDocumento(rs.getString("NUMERODOCUMENTO"));
+                asesuisaTercerosInformacionTecnicaBean.setTipoDocumentoIdentificacion(rs.getString("TIPODOCUMENTO"));
+
+                asesuisaTercerosInformacionTecnicaBean.setCodigoIdentificador(rs.getString("CODIGOIDENTIFICADOR"));
+
+                asesuisaTercerosInformacionTecnicaBean.setRazonSocial(rs.getString("RAZONSOCIAL"));
+                asesuisaTercerosInformacionTecnicaBean.setNroNRC(rs.getString("NRC"));
+
+                asesuisaTercerosInformacionTecnicaBean.setTipoBusqueda(rs.getString("TIPOB"));
+
 
                 asesuisaTercerosInformacionTecnica.add(asesuisaTercerosInformacionTecnicaBean);
             }

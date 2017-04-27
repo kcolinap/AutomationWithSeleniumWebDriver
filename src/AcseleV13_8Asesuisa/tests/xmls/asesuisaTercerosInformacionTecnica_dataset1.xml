@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 1: busqueda persona natural por nombre apellido. Consulta fallida-->
+  <asesuisa_terceros_inftec
+          PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE="NATHALY" PRIMERAPELLIDO="MORENO" NUMERODOCUMENTO=""
+          TIPODOCUMENTO="" CODIGOIDENTIFICADOR="10101010813150" RAZONSOCIAL="" NRC="" TIPOB="1"
+  />
+</dataset>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 4: busqueda persona natural sin campo especifico. Consulta exitosa-->
+  <asesuisa_terceros_inftec
+          PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE="" PRIMERAPELLIDO="" NUMERODOCUMENTO=""
+          TIPODOCUMENTO="" CODIGOIDENTIFICADOR="" RAZONSOCIAL="" NRC="" TIPOB="0"
+  />
+</dataset>
