@@ -68,6 +68,7 @@ public class Asesuisa_CajaPagos {
     public void PagosCaja(Asesuisa_CajaPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         WebElement indextr;
+        String monto=null;
 
         try {
 
@@ -93,39 +94,64 @@ public class Asesuisa_CajaPagos {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
-
-            // ***** Pestaña  Estado de cuenta *****
-            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[7]/a")).click();
-            Thread.sleep(1000);
-            // Selecciona la cuota
-            driver.findElement(By.xpath("//*[@id=\"openItemID22050\"]")).click();
-            Thread.sleep(1000);
-            // Selecciona el boton Aceptar
-            driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
-            Thread.sleep(1000);
+            if(bean.getTipotran().equals("Pago")) {
+                // ***** Pestaña  Estado de cuenta *****
+                driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[7]/a")).click();
+                Thread.sleep(1000);
+                // Selecciona la cuota
+                driver.findElement(By.xpath("//*[@id=\"openItemID22050\"]")).click();
+                Thread.sleep(1000);
+                // Selecciona el boton Aceptar
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
+                Thread.sleep(1000);
+            }
 
             // ***** Pestaña  Ingreso de caja *****
             driver.findElement(By.xpath("//*[@id=\"link_caja\"]/a")).click();
             Thread.sleep(1000);
-            // Clic al check Tipo de pago
-            driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[1]/input")).click();
-            // Selecciona el Tipo de Pago
-            Select tipopago = new Select(driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[2]/select")));
-            tipopago.selectByVisibleText(bean.getTipopago());
-            // Selecciona Cuenta Bancaria
-            Select cuentab = new Select(driver.findElement(By.xpath("//*[@id=\"accountsTypePaymentSelect\"]")));
-            cuentab.selectByVisibleText(bean.getCuentab());
-            // Selecciona el boton Aceptar
-            driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterReception_01\"]")).click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
-            // Selecciona el boton Aceptar
-            driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_10\"]")).click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-            // Asigna el monto de la cuota a una variable
-            String monto = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/table[1]/tbody/tr[3]/td[2]")).getText();
+
+
+
+
+
+            if(bean.getTipotran().equals("Pago")) {
+                // Clic al check Tipo de pago
+                driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[1]/input")).click();
+                // Selecciona el Tipo de Pago
+                Select tipopago = new Select(driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[2]/select")));
+                tipopago.selectByVisibleText(bean.getTipopago());
+                if (bean.getTipopago().equals("Cheque")) {
+                    // Selecciona Cuenta Bancaria
+                    Select cuentab = new Select(driver.findElement(By.xpath("//*[@id=\"accountsTypePaymentSelect\"]")));
+                    cuentab.selectByVisibleText(bean.getCuentab());
+                }
+                // Selecciona el boton Aceptar
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterReception_01\"]")).click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // Selecciona el boton Aceptar
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_10\"]")).click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                // Asigna el monto de la cuota a una variable
+                monto = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/table[1]/tbody/tr[3]/td[2]")).getText();
+            }
+            // AQUI
+            if(bean.getTipotran().equals("Prima depósito")) {
+
+                
+
+            }
+
+
+
+
+
+
+
+
+
 
             Thread.sleep(1000);
             // Selecciona el boton Detalle Pago
@@ -134,24 +160,56 @@ public class Asesuisa_CajaPagos {
             // Pantalla del Detalle
             Thread.sleep(2000);
             a.changeLastWindows(driver);
-            Thread.sleep(2000);
-            // Monto del Cheque
-            driver.findElement(By.xpath("//*[@id=\"_MontoCheque\"]")).clear();
-            driver.findElement(By.xpath("//*[@id=\"_MontoCheque\"]")).sendKeys(monto);
-            // Banco Emisor del Cheque
-            Select banemisor = new Select(driver.findElement(By.xpath("//*[@id=\"BancoEmisorCheque\"]")));
-            banemisor.selectByVisibleText(bean.getBancoe());
-            // Fecha del Cheque
-            java.util.Date date = new java.util.Date();
-            java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");
-            String fecha = sdf.format(date);
-            driver.findElement(By.xpath("//*[@id=\"_FechaCheque\"]")).sendKeys(fecha);
-            // Numero del Cheque
-            //String aanumcheque = "123456789";
-            driver.findElement(By.xpath("//*[@id=\"_NumeroChequeCaja\"]")).sendKeys(bean.getNumcheq());
+            Thread.sleep(3000);
+
+            if (bean.getTipopago().equals("Cheque")) {
+
+                // Monto del Cheque
+                driver.findElement(By.xpath("//*[@id=\"_MontoCheque\"]")).clear();
+                driver.findElement(By.xpath("//*[@id=\"_MontoCheque\"]")).sendKeys(monto);
+                // Banco Emisor del Cheque
+                Select banemisor = new Select(driver.findElement(By.xpath("//*[@id=\"BancoEmisorCheque\"]")));
+                banemisor.selectByVisibleText(bean.getBancoe());
+                // Fecha del Cheque
+                java.util.Date date = new java.util.Date();
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+                String fecha = sdf.format(date);
+                driver.findElement(By.xpath("//*[@id=\"_FechaCheque\"]")).sendKeys(fecha);
+                // Numero del Cheque
+                driver.findElement(By.xpath("//*[@id=\"_NumeroChequeCaja\"]")).sendKeys(bean.getNumcheq());
+                //Thread.sleep(1000);
+                //a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                //Thread.sleep(1000);
+            }
+            else if (bean.getTipopago().equals("Efectivo")) {
+                // Nombre del Pagador
+                driver.findElement(By.xpath("//*[@id=\"_NombrePagadorCaja\"]")).sendKeys(bean.getPagador());
+                Thread.sleep(1000);
+                // DIU del Pagador
+                driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
+                Thread.sleep(1000);
+            }
+            else if (bean.getTipopago().equals("Tarjeta de D?bito o Cr?dito")) {
+                // Tipo de Tarjeta
+                Select tipot = new Select(driver.findElement(By.xpath("//*[@id=\"TipoTarjeta\"]")));
+                tipot.selectByVisibleText(bean.getTipotarj());
+                // Numero de Tarjeta
+                driver.findElement(By.xpath("//*[@id=\"_NumeroTarjetaCaja\"]")).sendKeys(bean.getNumerot());
+                // Numero Autorizacion POS
+                driver.findElement(By.xpath("//*[@id=\"_NumeroAutorizPOS\"]")).sendKeys(bean.getNumpos());
+                // Numero Voucher
+                driver.findElement(By.xpath("//*[@id=\"_NumeroVoucherPOS\"]")).sendKeys(bean.getVoucher());
+                // Nombre del Pagador
+                driver.findElement(By.xpath("//*[@id=\"_NombrePagadorCaja\"]")).sendKeys(bean.getPagador());
+                // DIU del Pagador
+                driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
+            }
+
+
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
+
             // Boton Aceptar
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_registerCheckInfo_01\"]")).click();
             Thread.sleep(1000);
@@ -164,7 +222,7 @@ public class Asesuisa_CajaPagos {
 
             // ***** Pestaña Aplicar Pagos  *****
             Thread.sleep(1000);
-            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
+            //driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
