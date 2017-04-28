@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Caso 4: Consulta direccion a tercero juridico. Resultado esperado: exitoso-->
+  <asesuisa_terceros_dir PRUEBA="1" TIPOTERCERO="LegalPerson"
+                         PRIMERNOMBRE="" PRIMERAPELLIDO="" NUMERODOCUMENTO=""
+                         PAIS="" DPTO="" MUNICIPIO="" AVENIDA=""
+                         DIRCOMPLETA="" CODIGOIDENTIFICADOR=""
+                         RAZONSOCIAL="ASEGURADORA SUIZA SALVADOREÑA, S.A." NIT="" NRC="2550"/>
+</dataset>

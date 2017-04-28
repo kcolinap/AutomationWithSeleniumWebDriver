@@ -85,11 +85,15 @@ public class Asesuisa_TercerosDireccionesBean extends Asesuisa_TercerosBean impl
                 asesuisaTercerosDireccionesBean.setPrimerNombre(rs.getString("PRIMERNOMBRE"));
                 asesuisaTercerosDireccionesBean.setPrimerApellido(rs.getString("PRIMERAPELLIDO"));
                 asesuisaTercerosDireccionesBean.setNumeroDocumento(rs.getString("NUMERODOCUMENTO"));
+                asesuisaTercerosDireccionesBean.setCodigoIdentificador(rs.getString("CODIGOIDENTIFICADOR"));
                 asesuisaTercerosDireccionesBean.setPais(rs.getString("PAIS"));
                 asesuisaTercerosDireccionesBean.setDpto(rs.getString("DPTO"));
                 asesuisaTercerosDireccionesBean.setMunicipio(rs.getString("MUNICIPIO"));
                 asesuisaTercerosDireccionesBean.setAvenida(rs.getString("AVENIDA"));
                 asesuisaTercerosDireccionesBean.setDirCompleta(rs.getString("DIRCOMPLETA"));
+                asesuisaTercerosDireccionesBean.setRazonSocial(rs.getString("RAZONSOCIAL"));
+                asesuisaTercerosDireccionesBean.setNumeroNIT(rs.getString("NIT"));
+                asesuisaTercerosDireccionesBean.setNroNRC(rs.getString("NRC"));
 
                 asesuisaTercerosDirecciones.add(asesuisaTercerosDireccionesBean);
             }

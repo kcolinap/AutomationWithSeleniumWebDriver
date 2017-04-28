@@ -20,19 +20,19 @@ public class VistaAsesuisa_TercerosDireccionesTest {
     private final static Logger Log = Logger.getLogger(VistaAsesuisa_TercerosDireccionesTest.class);
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp(String num) throws Exception{
 /*
 
         DataSetManager.createPartialDataSet("select * from asesuisa_terceros_dir ORDER BY PRUEBA ASC",
                 "asesuisa_terceros_dir",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset" + num + ".xml");
 
         DataSetManager.createPartialDataSet("select * from asesuisa_terceros_dir ORDER BY PRUEBA ASC",
                 "asesuisa_terceros_dir",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset" + num + ".xml");
 */
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @Test
@@ -61,8 +61,8 @@ public class VistaAsesuisa_TercerosDireccionesTest {
     }
 
     @After
-    public void tearDown() throws Exception{
+    public void tearDown(String num) throws Exception{
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosDirecciones_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }
