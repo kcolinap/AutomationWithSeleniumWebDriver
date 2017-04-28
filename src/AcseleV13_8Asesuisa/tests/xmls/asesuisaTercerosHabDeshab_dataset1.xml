@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <ASESUISA_TERCERO_HAB_DES PRUEBA="1"
+                            TERCERO_NOMBRE_1="ADRIANA" TERCERO_NOMBRE_2=""
+                            TERCERO_APELLIDO_1="MORENO" TERCERO_APELLIDO_2=""
+                            TERCERO_NIT="34909834529045" TERCERO_DUI=""
+                            TIPO_DOCUMENTO="" NUM_DOC_ID=""
+
+                            PRODUCTO="RoboyHurto" VIGENCIA="12" FECHA_DESDE="25-04-2017" FEHCA_HASTA=""
+                            EVENTO_APLICAR="" FECHA_MOVIMIENTO=""
+                            PLAN_FINANCIEMIENTO="UnPago" MONEDAS=""
+                            SUCURSAL="" FUNCIONAMIENTO_POLIZA="873405"
+                            CANAL_VENTA="895527" COMISION_NEGOCIABLE="" UNIDAD_COMERCIAL="922169"
+                            GIRO="917489" GIRO_ACTIV_ECONOMICA="1.0" SUMA_ASEGURADA="150000" TIPO_POLIZA="889071"/>
+</dataset>

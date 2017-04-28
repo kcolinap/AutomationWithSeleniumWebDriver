@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
  */
 public class EjecutarJar_Asesuisa {
 
-    private final static Logger log = Logger.getLogger(EjecutarJar_Asesuisa2.class);
+    private final static Logger log = Logger.getLogger(EjecutarJar_Asesuisa.class);
 
     public static void main(String[] args) {
 
@@ -221,7 +221,7 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "9": // i. Modos de Pago
                         System.out.println("Numero: " + tercero);
-                        prueba = "Terceros Modo de pago";
+                        prueba = "VistaAsesuisa_ModosdePagoTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_ModosdePagoTest mododePago = new VistaAsesuisa_ModosdePagoTest();
@@ -236,7 +236,7 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "10": // j. Roles revisión general
                         System.out.println("Numero: " + tercero);
-                        prueba = "Terceros Roles";
+                        prueba = "VistaAsesuisa_RolesTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_RolesTest roles = new VistaAsesuisa_RolesTest();
@@ -266,6 +266,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "16": // r. Habilitar/Deshabilitar – Terceros y luego Validarlos en la aplicación
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosHabDeshabTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosHabDeshabTest tercerosHabDeshabTest = new VistaAsesuisa_TercerosHabDeshabTest();
+                            tercerosHabDeshabTest.setUp(tercero);
+                            tercerosHabDeshabTest.mainTest();
+                            tercerosHabDeshabTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+
                         break;
                 }
                 break;
