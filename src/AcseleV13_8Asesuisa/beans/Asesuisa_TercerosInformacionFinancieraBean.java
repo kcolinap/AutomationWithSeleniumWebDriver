@@ -10,21 +10,106 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by kcolina on 06/03/2017.
+ * Created by cortiz on 26/04/2017.
  */
 public class Asesuisa_TercerosInformacionFinancieraBean extends Asesuisa_TercerosBean {
 
     private final static Logger log = Logger.getLogger(Asesuisa_TercerosInformacionFinancieraBean.class);
 
-    public static ArrayList getTercerosInformacionTecnicaBean() throws SQLException{
+    private String activos;
+    private String paslargoplazo;
+    private String reservadecap;
+    private String giro;
+    private String activosF;
+    private String pasivosc;
+    private String capitalp;
+    private String superavit;
+    private String nit;
+
+
+    public String getGiro() {
+        return giro;
+    }
+
+    public void setGiro(String giro) {
+        this.giro = giro;
+    }
+
+    public String getActivos() {
+        return activos;
+    }
+
+    public void setActivos(String activos) {
+        this.activos = activos;
+    }
+
+    public String getPaslargoplazo() {
+        return paslargoplazo;
+    }
+
+    public void setPaslargoplazo(String paslargoplazo) {
+        this.paslargoplazo = paslargoplazo;
+    }
+
+    public String getReservadecap() {
+        return reservadecap;
+    }
+
+    public void setReservadecap(String reservadecap) {
+        this.reservadecap = reservadecap;
+    }
+
+    public String getActivosF() {
+        return activosF;
+    }
+
+    public void setActivosF(String activosF) {
+        this.activosF = activosF;
+    }
+
+    public String getPasivosc() {
+        return pasivosc;
+    }
+
+    public void setPasivosc(String pasivosc) {
+        this.pasivosc = pasivosc;
+    }
+
+    public String getCapitalp() {
+        return capitalp;
+    }
+
+    public void setCapitalp(String capitalp) {
+        this.capitalp = capitalp;
+    }
+
+    public String getSuperavit() {
+        return superavit;
+    }
+
+    public void setSuperavit(String superavit) {
+        this.superavit = superavit;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+
+
+    public static ArrayList getTercerosInformacionFinancieraBean() throws SQLException{
 
         Connection conexion = null;
         Statement stmt;
         ResultSet rs;
-        ArrayList asesuisaTercerosInformacionTecnica = new ArrayList();
+        ArrayList asesuisaTercerosInformacionFinanciera = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM asesuisa_terceros_inftec ORDER BY prueba ASC");
+        queryLoad.append("SELECT * FROM ASESUISA_TERCEROS_INFFIN ORDER BY prueba ASC");
 
         try {
             conexion = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -32,14 +117,22 @@ public class Asesuisa_TercerosInformacionFinancieraBean extends Asesuisa_Tercero
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()){
-                Asesuisa_TercerosInformacionFinancieraBean asesuisaTercerosInformacionTecnicaBean = new Asesuisa_TercerosInformacionFinancieraBean();
+                Asesuisa_TercerosInformacionFinancieraBean asesuisaTercerosInformacionFinanciBean = new Asesuisa_TercerosInformacionFinancieraBean();
 
-                asesuisaTercerosInformacionTecnicaBean.setTipoTercero(rs.getString("tipoTercero"));
-                asesuisaTercerosInformacionTecnicaBean.setPrimerNombre(rs.getString("primerNombre"));
-                asesuisaTercerosInformacionTecnicaBean.setPrimerApellido(rs.getString("primerApellido"));
-                asesuisaTercerosInformacionTecnicaBean.setNumeroDocumento(rs.getString("NUMERODOCUMENTO"));
+                asesuisaTercerosInformacionFinanciBean.setActivos(rs.getString("ACTIVOS"));
+                asesuisaTercerosInformacionFinanciBean.setPaslargoplazo(rs.getString("PASLARGOPLAZO"));
+                asesuisaTercerosInformacionFinanciBean.setReservadecap(rs.getString("RESERVADECAP"));
+                asesuisaTercerosInformacionFinanciBean.setGiro(rs.getString("GIRO"));
+                asesuisaTercerosInformacionFinanciBean.setActivosF(rs.getString("ACTIVOSF"));
+                asesuisaTercerosInformacionFinanciBean.setPasivosc(rs.getString("PASIVOSC"));
+                asesuisaTercerosInformacionFinanciBean.setCapitalp(rs.getString("CAPITALP"));
+                asesuisaTercerosInformacionFinanciBean.setSuperavit(rs.getString("SUPERAVIT"));
+                asesuisaTercerosInformacionFinanciBean.setNit(rs.getString("NIT"));
 
-                asesuisaTercerosInformacionTecnica.add(asesuisaTercerosInformacionTecnicaBean);
+
+
+
+                asesuisaTercerosInformacionFinanciera.add(asesuisaTercerosInformacionFinanciBean);
             }
         }catch (Exception e){
             log.error(e);
@@ -49,6 +142,6 @@ public class Asesuisa_TercerosInformacionFinancieraBean extends Asesuisa_Tercero
             }
         }
 
-        return asesuisaTercerosInformacionTecnica;
+        return asesuisaTercerosInformacionFinanciera;
     }
 }
