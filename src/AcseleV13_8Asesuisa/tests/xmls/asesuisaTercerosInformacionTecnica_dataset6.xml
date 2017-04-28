@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 6: busqueda persona juridica por razon social. Consulta exitosa-->
+  <asesuisa_terceros_inftec
+          PRUEBA="1" TIPOTERCERO="LegalPerson" PRIMERNOMBRE="" PRIMERAPELLIDO="" NUMERODOCUMENTO=""
+          TIPODOCUMENTO="" CODIGOIDENTIFICADOR="" RAZONSOCIAL="MAPFRE RE, COMPAÑÍA DE REASEGUROS, S.A."
+          NRC="" TIPOB="1"
+  />
+</dataset>

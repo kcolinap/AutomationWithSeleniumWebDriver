@@ -10,6 +10,8 @@ public class Asesuisa_TercerosBean {
     private final static Logger log = Logger.getLogger(Asesuisa_TercerosBean.class);
 
     private String tipoTercero;
+
+    //Natural
     private String aseguradoAp;
     private String primerNombre;
     private String segundoNombre;
@@ -56,6 +58,23 @@ public class Asesuisa_TercerosBean {
     private String idiomaOmision;
     private String nitBuscar;
     private String descripcion;
+
+    //Juridico
+    private String ong;
+    private String razonSocial;
+    private String tlfEmpresa;
+    private String correoEmpresa;
+    private String nombreContacto;
+    private String cargoContacto;
+    private String correoContacto;
+    private String tlfContacto;
+    private String nivelIngreso;
+    private String celularContacto;
+    private String nroNRC;
+    private String nroEmpleados;
+    private String fechaFundacion;
+    private String agenteRetencion;
+
 
     public String getTipoTercero() {
         return tipoTercero;
@@ -431,5 +450,117 @@ public class Asesuisa_TercerosBean {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getOng() {
+        return ong;
+    }
+
+    public void setOng(String ong) {
+        this.ong = ong;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public String getTlfEmpresa() {
+        return tlfEmpresa;
+    }
+
+    public void setTlfEmpresa(String tlfEmpresa) {
+        this.tlfEmpresa = tlfEmpresa;
+    }
+
+    public String getCorreoEmpresa() {
+        return correoEmpresa;
+    }
+
+    public void setCorreoEmpresa(String correoEmpresa) {
+        this.correoEmpresa = correoEmpresa;
+    }
+
+    public String getNombreContacto() {
+        return nombreContacto;
+    }
+
+    public void setNombreContacto(String nombreContacto) {
+        this.nombreContacto = nombreContacto;
+    }
+
+    public String getCargoContacto() {
+        return cargoContacto;
+    }
+
+    public void setCargoContacto(String cargoContacto) {
+        this.cargoContacto = cargoContacto;
+    }
+
+    public String getCorreoContacto() {
+        return correoContacto;
+    }
+
+    public void setCorreoContacto(String correoContacto) {
+        this.correoContacto = correoContacto;
+    }
+
+    public String getTlfContacto() {
+        return tlfContacto;
+    }
+
+    public void setTlfContacto(String tlfContacto) {
+        this.tlfContacto = tlfContacto;
+    }
+
+    public String getNivelIngreso() {
+        return nivelIngreso;
+    }
+
+    public void setNivelIngreso(String nivelIngreso) {
+        this.nivelIngreso = nivelIngreso;
+    }
+
+    public String getCelularContacto() {
+        return celularContacto;
+    }
+
+    public void setCelularContacto(String celularContacto) {
+        this.celularContacto = celularContacto;
+    }
+
+    public String getNroNRC() {
+        return nroNRC;
+    }
+
+    public void setNroNRC(String nroNRC) {
+        this.nroNRC = nroNRC;
+    }
+
+    public String getNroEmpleados() {
+        return nroEmpleados;
+    }
+
+    public void setNroEmpleados(String nroEmpleados) {
+        this.nroEmpleados = nroEmpleados;
+    }
+
+    public String getFechaFundacion() {
+        return fechaFundacion;
+    }
+
+    public void setFechaFundacion(String fechaFundacion) {
+        this.fechaFundacion = fechaFundacion;
+    }
+
+    public String getAgenteRetencion() {
+        return agenteRetencion;
+    }
+
+    public void setAgenteRetencion(String agenteRetencion) {
+        this.agenteRetencion = agenteRetencion;
     }
 }

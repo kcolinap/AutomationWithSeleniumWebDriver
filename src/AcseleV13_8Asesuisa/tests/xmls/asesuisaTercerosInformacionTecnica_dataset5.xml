@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 5: busqueda persona juridica por codigo identificador. Consulta fallida-->
+  <asesuisa_terceros_inftec
+          PRUEBA="1" TIPOTERCERO="LegalPerson" PRIMERNOMBRE="" PRIMERAPELLIDO="" NUMERODOCUMENTO=""
+          TIPODOCUMENTO="" CODIGOIDENTIFICADOR="10101010813398" RAZONSOCIAL="" NRC="" TIPOB="1"
+  />
+</dataset>

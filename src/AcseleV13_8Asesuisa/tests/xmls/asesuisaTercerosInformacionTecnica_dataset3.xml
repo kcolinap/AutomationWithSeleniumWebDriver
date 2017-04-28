@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 3: busqueda persona natural por codigo identificador. Consulta exitosa-->
+  <asesuisa_terceros_inftec
+          PRUEBA="1" TIPOTERCERO="NaturalPerson" PRIMERNOMBRE="" PRIMERAPELLIDO="" NUMERODOCUMENTO=""
+          TIPODOCUMENTO="" CODIGOIDENTIFICADOR="10101010813531" RAZONSOCIAL="" NRC="" TIPOB="1"
+  />
+</dataset>

@@ -21,17 +21,17 @@ public class VistaAsesuisa_TercerosInformacionTecnicaTest {
     private final static Logger Log = Logger.getLogger(VistaAsesuisa_TercerosInformacionTecnicaTest.class);
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp(String num) throws Exception{
 
-        /*DataSetManager.createPartialDataSet("select * from asesuisa_terceros_inftec ORDER BY PRUEBA ASC",
+       /* DataSetManager.createPartialDataSet("select * from asesuisa_terceros_inftec ORDER BY PRUEBA ASC",
                 "asesuisa_terceros_inftec",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset" + num + ".xml");
 
         DataSetManager.createPartialDataSet("select * from asesuisa_terceros_inftec ORDER BY PRUEBA ASC",
                 "asesuisa_terceros_inftec",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset.xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset" + num + ".xml");
 */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset.xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @Test
@@ -60,8 +60,8 @@ public class VistaAsesuisa_TercerosInformacionTecnicaTest {
     }
 
     @After
-    public void tearDown() throws Exception{
+    public void tearDown(String num) throws Exception{
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset.xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaTercerosInformacionTecnica_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }
