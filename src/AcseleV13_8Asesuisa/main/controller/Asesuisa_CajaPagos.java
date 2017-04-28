@@ -9,6 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by aandrade on 26/04/2017.
  */
@@ -64,9 +67,6 @@ public class Asesuisa_CajaPagos {
 
     public void PagosCaja(Asesuisa_CajaPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
-        int tamanotr, numpagina;
-        String texto = null;
-        String texto1 = null;
         WebElement indextr;
 
         try {
@@ -79,9 +79,8 @@ public class Asesuisa_CajaPagos {
 
             // ***** Pestaña Seleccion de tercero *****
             // Tipo de transaccion
-            Select aatipotran = new Select(driver.findElement(By.xpath("//select[@name='transactionType']")));
-            aatipotran.selectByVisibleText("Pago");
-            //aatipotran.selectByValue("1");
+            Select tipotran = new Select(driver.findElement(By.xpath("//select[@name='transactionType']")));
+            tipotran.selectByVisibleText(bean.getTipotran());
             Thread.sleep(1000);
             // Selecciona Radio Boton ID del Tercero
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table[2]/tbody/tr[4]/td[1]/input")).click();
@@ -105,129 +104,89 @@ public class Asesuisa_CajaPagos {
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
             Thread.sleep(1000);
 
-
             // ***** Pestaña  Ingreso de caja *****
             driver.findElement(By.xpath("//*[@id=\"link_caja\"]/a")).click();
             Thread.sleep(1000);
             // Clic al check Tipo de pago
             driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[1]/input")).click();
             // Selecciona el Tipo de Pago
-            Select aatipopago = new Select(driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[2]/select")));
-            aatipopago.selectByVisibleText("Efectivo");
+            Select tipopago = new Select(driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[2]/select")));
+            tipopago.selectByVisibleText(bean.getTipopago());
+            // Selecciona Cuenta Bancaria
+            Select cuentab = new Select(driver.findElement(By.xpath("//*[@id=\"accountsTypePaymentSelect\"]")));
+            cuentab.selectByVisibleText(bean.getCuentab());
+            // Selecciona el boton Aceptar
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterReception_01\"]")).click();
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // Selecciona el boton Aceptar
-            driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterReception_01\"]")).click();
-            Thread.sleep(2000);
-
-
-
-
-
-
-
-
-
-/*
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_10\"]")).click();
             Thread.sleep(1000);
-            // Seleccionar el boton Buscar
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            // Asigna el monto de la cuota a una variable
+            String monto = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/table[1]/tbody/tr[3]/td[2]")).getText();
+
+            Thread.sleep(1000);
+            // Selecciona el boton Detalle Pago
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_05\"]")).click();
+
+            // Pantalla del Detalle
+            Thread.sleep(2000);
+            a.changeLastWindows(driver);
+            Thread.sleep(2000);
+            // Monto del Cheque
+            driver.findElement(By.xpath("//*[@id=\"_MontoCheque\"]")).clear();
+            driver.findElement(By.xpath("//*[@id=\"_MontoCheque\"]")).sendKeys(monto);
+            // Banco Emisor del Cheque
+            Select banemisor = new Select(driver.findElement(By.xpath("//*[@id=\"BancoEmisorCheque\"]")));
+            banemisor.selectByVisibleText(bean.getBancoe());
+            // Fecha del Cheque
+            java.util.Date date = new java.util.Date();
+            java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");
+            String fecha = sdf.format(date);
+            driver.findElement(By.xpath("//*[@id=\"_FechaCheque\"]")).sendKeys(fecha);
+            // Numero del Cheque
+            //String aanumcheque = "123456789";
+            driver.findElement(By.xpath("//*[@id=\"_NumeroChequeCaja\"]")).sendKeys(bean.getNumcheq());
+            Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
-            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span")).click();
+            // Boton Aceptar
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_registerCheckInfo_01\"]")).click();
+            Thread.sleep(1000);
+            // Boton Cerrar
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_voidPage_01\"]")).click();
             Thread.sleep(2000);
-            // Obtiene el total de paginas mostradas
-            numpagina = Integer.parseInt(driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[11]/div")).getText());
-
-            for (int l = 1; l < (numpagina); l++){
-
-                // Busca las facturas que esten en estado "Valida"
-                tamanotr = driver.findElements(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr")).size();
-                for (int j = 1; j < (tamanotr + 1); j++) {
-                    indextr = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[8]/div"));
-                    texto = indextr.getText();
-                    if (texto.equals("Valida")) {
-                        // Selecciona la linea de la tabla a Anular
-                        indextr.click();
-                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
-                        Thread.sleep(2000);
-
-                        // Selecciona el boton Anular
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[9]/div/div[5]/div/span")).click();
-                        Thread.sleep(2000);
-
-                        // Click a la lista Razon de Anulacion
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[3]/div/div")).click();
-
-                        // Selecciona la razon de anulacion
-                        Thread.sleep(1000);
-                        tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
-                        for (int k = 1; k < tamanotr; k++) {
-                            indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + k + "]/td/span"));
-                            texto1 = indextr.getText();
-
-                            if (bean.getRazon().equals(texto1)) {
-                                indextr.click();
-                                Thread.sleep(2000);
-                                break;
-                            }
-                        }
-
-                        // Selecciona Generar Nota de Credito Si
-                        Thread.sleep(1000);
-                        if (bean.getGenerar().equals("Si")) {
-                            driver.findElement(By.xpath("//*[@id=\"gwt-uid-48\"]")).click();
-                        }
-                        // Selecciona Generar Nota de Credito No
-                        else if (bean.getGenerar().equals("No")) {
-                            driver.findElement(By.xpath("//*[@id=\"gwt-uid-49\"]")).click();
-                        }
-
-                        Thread.sleep(1000);
-                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
-                        Thread.sleep(1000);
+            a.changeLastWindows(driver);
+            Thread.sleep(2000);
 
 
-                        // Selecciona primer Boton Aceptar
-                        if (bean.getAceptar1().equals("Si")) {
-                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[1]/div")).click();
+            // ***** Pestaña Aplicar Pagos  *****
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+            // Boton Finalizar transaccion
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayment_04\"]")).click();
+            Thread.sleep(10000);
+            // Seleccionar radio button Numero de factura
+            driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+            //Seleccionar boton imprimir factura
+            driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_09\"]")).click();
+            // Factura
+            Thread.sleep(2000);
+            a.changeLastWindows(driver);
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+            // cierra la ventana de factura
+            driver.close();
 
-                            // Selecciona segundo Boton Aceptar
-                            Thread.sleep(1000);
-                            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
-                            Thread.sleep(1000);
-                            if (bean.getAceptar2().equals("Si")) {
-                                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button")).click();
-                            }
-                            // Selecciona segundo Boton Cancelar
-                            else {
-                                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[2]/button")).click();
-                            }
-
-                        }
-                        // Selecciona primer Boton Cancelar
-                        else {
-                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div")).click();
-                        }
-
-                        // Muestra el resultado de la operacion
-                        Thread.sleep(5000);
-                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
-                        Thread.sleep(1000);
-                        break;
-                    }
-
-                }
-
-                if (texto.equals("Valida") || l == numpagina) {
-                    break; }
-                else {
-                    //Avanza a la siguiente pagina
-                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[3]/div/div/div[2]/div/div[13]/div/span")).click();
-                    Thread.sleep(2000);
-                }
-            }
-            */
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
