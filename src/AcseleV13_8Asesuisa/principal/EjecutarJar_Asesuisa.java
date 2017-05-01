@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"6", "6", "8"};
+       // args = new String[]{"10", "4", "3"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -524,7 +524,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "4": // d. Histórico de Siniestros
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_HistSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_HistSiniestroTest hSiniestro = new VistaAsesuisa_HistSiniestroTest();
+                            hSiniestro.setUp(tercero);
+                            hSiniestro.mainTest();
+                            hSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
+
                     case "5": // e. Cerrar, rechazar y reabrir Siniestros
                         System.out.println("Numero: " + tercero);
                         break;
