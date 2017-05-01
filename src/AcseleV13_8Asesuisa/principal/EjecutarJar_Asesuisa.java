@@ -465,9 +465,37 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Emision con plan de financiamiento
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionConPlanFinanciamientoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionConPlanFinanciamientoTest polizaEmisionConPlanFinanciamientoTest = new VistaAsesuisa_PolizaEmisionConPlanFinanciamientoTest();
+                            polizaEmisionConPlanFinanciamientoTest.setUp(tercero);
+                            polizaEmisionConPlanFinanciamientoTest.mainTest();
+                            polizaEmisionConPlanFinanciamientoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "2": // b. Emision sin plan de financiamiento
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "public class VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest {\n";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest polizaEmisionSinPlanFinanciamientoTest = new VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest();
+                            polizaEmisionSinPlanFinanciamientoTest.setUp(tercero);
+                            polizaEmisionSinPlanFinanciamientoTest.mainTest();
+                            polizaEmisionSinPlanFinanciamientoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "3": // c. Inclusión de varios OA
                         System.out.println("Numero: " + tercero);
