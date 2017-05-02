@@ -580,7 +580,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "4": // d. Histórico de Siniestros
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_HistSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_HistSiniestroTest hSiniestro = new VistaAsesuisa_HistSiniestroTest();
+                            hSiniestro.setUp(tercero);
+                            hSiniestro.mainTest();
+                            hSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
+
                     case "5": // e. Cerrar, rechazar y reabrir Siniestros
                         System.out.println("Numero: " + tercero);
                         break;
