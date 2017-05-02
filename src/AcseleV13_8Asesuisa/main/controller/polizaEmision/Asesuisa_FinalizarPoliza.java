@@ -25,8 +25,7 @@ public class Asesuisa_FinalizarPoliza {
             JavascriptExecutor jse = (JavascriptExecutor) driver;
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
-            Toolkit.getDefaultToolkit().beep();
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
             jse.executeScript("window.scrollBy(0,1000)", "");
             //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
@@ -36,6 +35,9 @@ public class Asesuisa_FinalizarPoliza {
             WebElement btnCalcular = driver.findElement(By.xpath("//input[@wicketpath='divCalculatePolicy_formCalculate_calculate']"));
             btnCalcular.click();
             a.waitSearchWicket(driver, "Espere Calculando");
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,11 +63,11 @@ public class Asesuisa_FinalizarPoliza {
 
             Thread.sleep(2000);
 
-            Boolean isPresent = driver.findElements(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check")).size() > 0;
+            Boolean isPresent = driver.findElements(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']")).size() > 0;
 
             if (isPresent){
 
-                WebElement ignorar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check"));
+                WebElement ignorar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_check']"));
                 ignorar.click();
                 Thread.sleep(1000);
 
@@ -75,9 +77,38 @@ public class Asesuisa_FinalizarPoliza {
                 WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton"));
                 btnContinuar.click();
 
-
             }
 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void ResumenPoliza(Metodos a, WebDriver driver, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            Thread.sleep(1000);
+
+            //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
+            //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
+            //a.waitSearchWicket(driver, "Espere Nueva Unidad de Riesgo");
+
+            Thread.sleep(10000);
+            Boolean fin = driver.findElements(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_text2']")).size() > 0;
+            if (fin) {
+
+                WebElement numeroPoliza = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_text2']"));
+                System.out.println("Numerp de la póliza emitida: " + numeroPoliza.getText());
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+
+            }
 
 
         } catch (Exception e) {
