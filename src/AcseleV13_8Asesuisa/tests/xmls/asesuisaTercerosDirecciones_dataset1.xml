@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!--Casop 1: agregar direccion a tercero natural. Resultado esperado: exitoso-->
+  <asesuisa_terceros_dir PRUEBA="1" TIPOTERCERO="NaturalPerson"
+                         PRIMERNOMBRE="JOSEPH" PRIMERAPELLIDO="DELGADO" NUMERODOCUMENTO=""
+                         PAIS="755505" DPTO="895477" MUNICIPIO="105.0" AVENIDA="PRINCIPAL DE tumeremo"
+                         DIRCOMPLETA="AL LADO DEL BANCO" CODIGOIDENTIFICADOR="10101010812789"/>
+</dataset>

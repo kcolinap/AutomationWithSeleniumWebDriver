@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"6", "6", "8"};
+        //args = new String[]{"6", "7", "4"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -214,6 +214,19 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "7": // g. Direcciónes
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_TercerosDireccionesTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosDireccionesTest tercerosDireccionesTest = new VistaAsesuisa_TercerosDireccionesTest();
+                            tercerosDireccionesTest.setUp(tercero);
+                            tercerosDireccionesTest.mainTest();
+                            tercerosDireccionesTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "8": // h. Documentos
                         System.out.println("Numero: " + tercero);

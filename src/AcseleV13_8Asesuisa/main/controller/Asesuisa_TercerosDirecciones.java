@@ -19,7 +19,7 @@ public class Asesuisa_TercerosDirecciones {
     public String nombreAutomatizacion = "Terceros - direcciones";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_TercerosDireccionesBean asesuisaTercerosDireccionesBean, int i, String folderName){
+    public void testLink(Asesuisa_TercerosDireccionesBean bean, int i, String folderName){
 
         try{
             Metodos m = new Metodos();
@@ -38,12 +38,22 @@ public class Asesuisa_TercerosDirecciones {
             Thread.sleep(1000);
 
             //Buscar tercero
-            buscarTerceros.BusquedaT(driver, m, asesuisaTercerosDireccionesBean, nombreAutomatizacion, i, folderName, 3,4,5,6, 7);
+            buscarTerceros.BusquedaT(driver, m, bean, nombreAutomatizacion, i, folderName, 3,4,5,6, 7);
             Thread.sleep(1500);
 
-            //Llamada a metodo agregar direccion
-            AgregarDirTerceroNatural(driver, m, asesuisaTercerosDireccionesBean,i,folderName,8,9, 10);
-            Thread.sleep(1500);
+            if ( (bean.getPais()==null) || (bean.getDpto()==null) || (bean.getMunicipio()==null) ) {
+                Consulta(driver, m, bean, i, folderName);
+            }else {
+
+                if ((driver.findElements(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size() > 0) &&
+                        (driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).getText().equals("No se encontró ningún Tercero con estas características"))) {
+                } else {
+                    //Llamada a metodo agregar direccion
+                    AgregarDirTercero(driver, m, bean, i, folderName, 8, 9, 10);
+                    Thread.sleep(1500);
+                }
+            }
+
 
             driver.quit();
 
@@ -56,23 +66,48 @@ public class Asesuisa_TercerosDirecciones {
         }
     }
 
-    public void AgregarDirTerceroNatural(WebDriver driver, Metodos m,
+    public void AgregarDirTercero(WebDriver driver, Metodos m,
                                          Asesuisa_TercerosDireccionesBean asesuisaTercerosDireccionesBean, int i,
                                          String folderName, int screen, int screen2, int screen3){
         try{
             JavascriptExecutor jse = (JavascriptExecutor) driver;
+           /* int tipoTercero=0;
+
+            if ( (asesuisaTercerosDireccionesBean.getTipoTercero() != null) &&
+                    (asesuisaTercerosDireccionesBean.getTipoTercero().equals("NaturalPerson")) ) {
+                tipoTercero = 0;
+            }else if  ( (asesuisaTercerosDireccionesBean.getTipoTercero() != null) &&
+                    (asesuisaTercerosDireccionesBean.getTipoTercero().equals("LegalPerson")) ){
+                tipoTercero=1;
+            }
+
+            switch (tipoTercero){
+                case 0:
+
+                    break;
+            }*/
 
             //Boton editar
             WebElement btnEditar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
             btnEditar.click();
-            Thread.sleep(2000);
+            Thread.sleep(500);
+            m.waitSearchWicket(driver, ". Entrando en modo edicion");
 
-            //ejecutar scroll
-            jse.executeScript("window.scrollBy(0,1500)", "");
-            Thread.sleep(1500);
+            if ( (asesuisaTercerosDireccionesBean.getTipoTercero() != null) &&
+                    (asesuisaTercerosDireccionesBean.getTipoTercero().equals("NaturalPerson")) ) {
+                //ejecutar scroll
+                jse.executeScript("window.scrollBy(0,1500)", "");
+                Thread.sleep(1500);
+            }else if  ( (asesuisaTercerosDireccionesBean.getTipoTercero() != null) &&
+                    (asesuisaTercerosDireccionesBean.getTipoTercero().equals("LegalPerson")) ){
+                //ejecutar scroll
+                jse.executeScript("window.scrollBy(0,1000)", "");
+                Thread.sleep(1500);
+            }
+
 
             //ScreenShot para capturar direcciones actuales
-            m.ScreenShotPool(driver, i, "screen" + screen, nombreAutomatizacion, folderName);
+            m.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             //Boton agregar direccion
@@ -80,8 +115,8 @@ public class Asesuisa_TercerosDirecciones {
             btnAgregar.click();
             Thread.sleep(1200);
 
-            jse.executeScript("window.scrollBy(0,290)", "");
-            Thread.sleep(1500);
+           /* jse.executeScript("window.scrollBy(0,290)", "");
+            Thread.sleep(1500);*/
 
             ///////////////////////////////////////////
             //LLenado del formulario direcciones
@@ -112,33 +147,73 @@ public class Asesuisa_TercerosDirecciones {
                 Thread.sleep(1500);
             }
 
-            if (asesuisaTercerosDireccionesBean.getDirCompleta()!=null){
-                WebElement dirCompleta = driver.findElement(By.xpath("//textarea[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_textAreaPanel_wrapperRepeater_2_textarea_field']"));
-                dirCompleta.click();
-                dirCompleta.sendKeys(asesuisaTercerosDireccionesBean.getDirCompleta());
-                Thread.sleep(1500);
+            if (  (driver.findElement(By.xpath("//textarea[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_textAreaPanel_wrapperRepeater_2_textarea_field']")).isEnabled())  ){
+                if (asesuisaTercerosDireccionesBean.getDirCompleta()!=null){
+                    WebElement dirCompleta = driver.findElement(By.xpath("//textarea[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_templateBasicThird_textAreaPanel_wrapperRepeater_2_textarea_field']"));
+                    dirCompleta.click();
+                    dirCompleta.sendKeys(asesuisaTercerosDireccionesBean.getDirCompleta());
+                    Thread.sleep(1500);
+                }
             }
+
             //////////////////////////////////////////////////
             //  FIN LLENADO DE FORMULARIO DIRECCIONES
             /////////////////////////////////////////////////
 
             //ScreenShoot para capturar informacion ingresada
-            m.ScreenShotPool(driver, i, "screen" + screen2, nombreAutomatizacion, folderName);
+            m.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(600);
 
             //Boton guardar
             WebElement guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_BasicThirdAddressInformation_registerFormThirdAddress_saveButton']"));
             guardar.click();
-            m.waitSearchWicket(driver,"Guardando direccion");
+            m.waitSearchWicket(driver,". Guardando direccion");
             Thread.sleep(500);
 
 
             //ScreenShoot para capturar nuevo bloque de direcciones
-            m.ScreenShotPool(driver, i, "screen" + screen3, nombreAutomatizacion, folderName);
+            m.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(600);
 
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void Consulta(WebDriver driver, Metodos m, Asesuisa_TercerosDireccionesBean bean, int i, String folderName){
+        try {
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            //Boton de consulta
+            WebElement btnConsultar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_consultThirdButton']"));
+            btnConsultar.click();
+            m.waitSearchWicket(driver, ". Entrando modo consulta");
+
+            //pantallazo
+            m.ScreenShotPool(driver,i,"screen7",nombreAutomatizacion,folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(600);
+
+            if ( (bean.getTipoTercero() != null) &&
+                    (bean.getTipoTercero().equals("NaturalPerson")) ) {
+                //ejecutar scroll
+                jse.executeScript("window.scrollBy(0,1500)", "");
+                Thread.sleep(1500);
+            }else if  ( (bean.getTipoTercero() != null) &&
+                    (bean.getTipoTercero().equals("LegalPerson")) ){
+                //ejecutar scroll
+                jse.executeScript("window.scrollBy(0,1000)", "");
+                Thread.sleep(1500);
+            }
+
+            //pantallazo
+            m.ScreenShotPool(driver,i,"screen8",nombreAutomatizacion,folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(600);
+
+        }catch (Exception e){
+        e.printStackTrace();
+    }
     }
 }

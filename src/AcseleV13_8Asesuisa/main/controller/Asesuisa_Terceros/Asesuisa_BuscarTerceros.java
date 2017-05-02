@@ -30,7 +30,7 @@ public class Asesuisa_BuscarTerceros {
             int tipoTercero=0;
             Select tipoT;
 
-            Thread.sleep(2000);
+            Thread.sleep(800);
             JavascriptExecutor jse = (JavascriptExecutor)driver;
             WebElement etiqueta, codigoIdentificador, razonSocial, nrc;
 
@@ -502,13 +502,13 @@ public class Asesuisa_BuscarTerceros {
 
                     //Codigo identificador
                     if(asesuisaTercerosBean.getCodigoIdentificador() != null){
-                        etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_18_fila_etiqueta']"));
+                        etiqueta = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_19_fila_etiqueta']"));
                         etiqueta.click();
                         Thread.sleep(1000);
-                        codigoIdentificador = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_18_fila_field']"));
+                        codigoIdentificador = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_19_fila_field']"));
                         codigoIdentificador.clear();
                         Thread.sleep(600);
-                        codigoIdentificador = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel2_18_fila_field']"));
+                        codigoIdentificador = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_19_fila_field']"));
                         codigoIdentificador.click();
                         Thread.sleep(600);
                         codigoIdentificador.sendKeys(asesuisaTercerosBean.getCodigoIdentificador());
@@ -547,7 +547,7 @@ public class Asesuisa_BuscarTerceros {
                     break ;
                 case 2:
                     //Establecer tipo tercero
-                    Thread.sleep(1000);
+                    Thread.sleep(600);
                     tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
                     tipoT.selectByValue(asesuisaTercerosBean.getTipoTercero());
                     Thread.sleep(1000);
@@ -615,29 +615,47 @@ public class Asesuisa_BuscarTerceros {
 
             jse.executeScript("window.scrollBy(0,-5000)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen3", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             jse.executeScript("window.scrollBy(0,400)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen4", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             jse.executeScript("window.scrollBy(0,500)", "");
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen5", nombreAutomatizacion, folderName);
             Toolkit.getDefaultToolkit().beep();
 
             Thread.sleep(500);
-            WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
+           /* WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformationLabel']"));
             otro.click();
-            Thread.sleep(500);
+            Thread.sleep(500);*/
 
             //Boton buscar
-            WebElement buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
-            buscar.click();
-            a.waitSearchWicket(driver, "Espera busqueda 1");
-            Thread.sleep(2000);
+            WebElement btnBuscar;
+            do{
+                btnBuscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
+                btnBuscar.click();
+                Thread.sleep(1000);
+                a.waitSearchWicket(driver,". Buscando tercero");
+                if (  (driver.findElements(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size()>0) &&
+                        (driver.findElement(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).getText().equals("No se encontró ningún Tercero con estas características"))){
+
+                    jse.executeScript("window.scrollBy(0,500)", "");
+                    Thread.sleep(800);
+
+                    //Pantallazo
+                    a.ScreenShotPool(driver,i,"screen6", nombreAutomatizacion, folderName);
+                    Thread.sleep(600);
+
+                    break busqueda;
+                }
+
+
+            }while(driver.findElements(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table")).size()==0);
+
 
             boolean muchosRegistros = driver.findElements(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_templateContainer_ConfirmExport_content_text']")).size() > 0;
             boolean noEncontrados = driver.findElements(By.xpath("//div[@wicketpath='SearchContent_ThirdInformation_errorSection_errorForm_errorMessage']")).size() > 0;
@@ -683,11 +701,11 @@ public class Asesuisa_BuscarTerceros {
                 selccionTercero.click();
 
                 jse.executeScript("window.scrollBy(0,500)", "");
-                Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen6" , nombreAutomatizacion, folderName);
                 Toolkit.getDefaultToolkit().beep();
 
-                ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 7, 8, 9, 10, 11, 12);
+                //ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 7, 8, 9, 10, 11, 12);
             }
 
         }catch (Exception e){
