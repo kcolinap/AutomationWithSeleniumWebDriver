@@ -162,7 +162,7 @@ public class Asesuisa_RenovacionPoliza {
                                int screenShoot1, int screenShoot2,int screenShoot3, int screenShoot4, int screenShoot5,
                                int screenShoot6,int screenShoot7, int screenShoot8, String folderName,
                                Asesuisa_RenovacionPolizaBean bean){
-        try{
+        salida: try{
 
             JavascriptExecutor jse = (JavascriptExecutor)driver;
             //pantallazo
@@ -174,6 +174,14 @@ public class Asesuisa_RenovacionPoliza {
             btnContinuar.click();
             m.waitSearchWicket(driver,". Aplicando evento");
 
+
+            //Evaluo si aparece mensaje
+            if ( (driver.findElements(By.className("w_windowMessage")).size()>0) ){
+                //pantallazo
+                m.ScreenShotPool(driver,i,"screen"+screenShoot2,nombreAutomatizacion,folderName);
+                Thread.sleep(800);
+                break salida;
+            }
             //pantallazo
             m.ScreenShotPool(driver,i,"screen"+screenShoot2,nombreAutomatizacion,folderName);
             Thread.sleep(800);
@@ -203,7 +211,7 @@ public class Asesuisa_RenovacionPoliza {
              * Aplicando evento
              */
 
-                salida:try{
+                try{
 
                     if ((driver.findElements(By.className("w_windowMessage")).size()>0) &&
                             (driver.findElement(By.id("_wicket_window_28")).getText().equals("Mensaje de Error"))){//Este if valida si se muestra el dialogo de error
