@@ -149,7 +149,7 @@ public class Asesuisa_CajaPagosBean {
     }
 
     public void setRamo(String ramo) {
-        this.monto = ramo;
+        this.ramo = ramo;
     }
 
 

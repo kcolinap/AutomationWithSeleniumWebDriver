@@ -51,7 +51,7 @@ public class Asesuisa_CajaPagos {
 
             /** Pagos Caja*/
 
-            PagosCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
+            PagosCaja(bean, a, i, folderName, 3, 4, 5, 6, 7,8,9,10,11,12);
             Thread.sleep(5000);
 
             //driver.quit();
@@ -65,7 +65,7 @@ public class Asesuisa_CajaPagos {
         }
     }
 
-    public void PagosCaja(Asesuisa_CajaPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
+    public void PagosCaja(Asesuisa_CajaPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10){
 
         WebElement indextr;
         String monto=null;
@@ -91,7 +91,7 @@ public class Asesuisa_CajaPagos {
             // Clic en Boton Seleccione el tercero
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_thirdPartySelection_02\"]")).click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             if(bean.getTipotran().equals("Pago")) {
@@ -101,19 +101,21 @@ public class Asesuisa_CajaPagos {
                 // Selecciona la cuota
                 driver.findElement(By.xpath("//*[@id=\"openItemID22050\"]")).click();
                 Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
                 Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
             }
+
 
             // ***** Pestaña  Ingreso de caja *****
             driver.findElement(By.xpath("//*[@id=\"link_caja\"]/a")).click();
             Thread.sleep(1000);
 
-
-
-
-
+            // Tipo de Transaccion PAGO
             if(bean.getTipotran().equals("Pago")) {
                 // Clic al check Tipo de pago
                 driver.findElement(By.xpath("//*[@id=\"cashierRegisterForm\"]/table/tbody/tr[3]/td[1]/input")).click();
@@ -127,31 +129,50 @@ public class Asesuisa_CajaPagos {
                 }
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterReception_01\"]")).click();
+                //Thread.sleep(1000);
+                //a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                //Thread.sleep(1000);
+                // Selecciona el boton Aceptar
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_10\"]")).click();
+                // Asigna el monto de la cuota a una variable
+                monto = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/table[1]/tbody/tr[3]/td[2]")).getText();
+
+            }
+            // Tipo de Transaccion PRIMA DEPOSITO
+            if(bean.getTipotran().equals("Prima depósito")) {
+                // Selecciona el Tipo de Pago
+                Select tipopago = new Select(driver.findElement(By.xpath("//*[@id=\"registerIncomingAmountForm\"]/table/tbody/tr[3]/td[1]/select[1]")));
+                tipopago.selectByVisibleText(bean.getTipopago());
+                // Selecciona Cuenta Bancaria
+                Select cuentab = new Select(driver.findElement(By.xpath("//*[@id=\"accountsTypePaymentSelect\"]")));
+                cuentab.selectByVisibleText(bean.getCuentab());
+                Thread.sleep(1000);
+                // Selecciona Moneda
+                Select moneda = new Select(driver.findElement(By.xpath("//*[@id=\"registerIncomingAmountForm\"]/table/tbody/tr[3]/td[1]/select[3]")));
+                moneda.selectByVisibleText(bean.getMoneda());
+                // Selecciona Monto
+                driver.findElement(By.xpath("//*[@id=\"amount\"]")).sendKeys(bean.getMonto());
+                // Selecciona Ramo
+                Select aaramo = new Select(driver.findElement(By.xpath("//*[@id=\"registerIncomingAmountForm\"]/table/tbody/tr[3]/td[1]/select[4]")));
+                aaramo.selectByVisibleText(bean.getRamo());
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+
+                // Clic al boton agregar
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_03\"]")).click();
                 Thread.sleep(1000);
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_cahsierRegisterReception_10\"]")).click();
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                 // Asigna el monto de la cuota a una variable
-                monto = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/table[1]/tbody/tr[3]/td[2]")).getText();
-            }
-            // AQUI
-            if(bean.getTipotran().equals("Prima depósito")) {
-
-                
+                monto = bean.getMonto();
 
             }
-
-
-
-
-
-
-
-
-
 
             Thread.sleep(1000);
             // Selecciona el boton Detalle Pago
@@ -207,32 +228,61 @@ public class Asesuisa_CajaPagos {
 
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot6, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             // Boton Aceptar
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_registerCheckInfo_01\"]")).click();
             Thread.sleep(1000);
             // Boton Cerrar
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_voidPage_01\"]")).click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             a.changeLastWindows(driver);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
 
             // ***** Pestaña Aplicar Pagos  *****
             Thread.sleep(1000);
-            //driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
+            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // Boton Finalizar transaccion
-            driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayment_04\"]")).click();
+            if(bean.getTipotran().equals("Pago")) {
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayment_04\"]")).click();
+                Thread.sleep(10000);
+                // Seleccionar radio button Numero de factura
+                driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                //Seleccionar boton imprimir factura
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_09\"]")).click();
+                // Factura
+                Thread.sleep(2000);
+                a.changeLastWindows(driver);
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // cierra la ventana de factura
+                driver.close();
+            }
+            else if(bean.getTipotran().equals("Prima depósito")) {
+                driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_05\"]")).click();
+                Thread.sleep(10000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            }
+
+            /*
             Thread.sleep(10000);
             // Seleccionar radio button Numero de factura
             driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             //Seleccionar boton imprimir factura
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_09\"]")).click();
@@ -240,10 +290,11 @@ public class Asesuisa_CajaPagos {
             Thread.sleep(2000);
             a.changeLastWindows(driver);
             Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // cierra la ventana de factura
             driver.close();
+            */
 
         } catch (Exception e) {
             e.printStackTrace();
