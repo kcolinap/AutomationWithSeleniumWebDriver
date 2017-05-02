@@ -3,7 +3,7 @@ package AcseleV13_8Asesuisa.beans;
 import org.apache.log4j.Logger;
 
 /**
- * Created by kcolina on 15/03/2017.
+ * Created by kcolina on 30/04/2017.
  */
 public class Asesuisa_SiniestroBean {
 
@@ -61,6 +61,69 @@ public class Asesuisa_SiniestroBean {
     //Informacion Objeto Asegurado
     private String tipoObjetoAsegurado;
     private String nroObjetoAsegurado;
+
+    //Atributos para la creacion
+    //private String ordenarPor;
+    //private String producto;
+    private String estadosCicloVida;
+    private String contratante;
+    private String aseguradoEstipulante;
+    private String idPoliza;
+    private String fechaDesde;
+    private String fechaHasta;
+    private String oficina;
+    private String numeroCotizacion;
+    private String numeroPropuesta;
+    private String numeroPoliza;
+    //private String fechaEmision;
+    private String moneda;
+   // private String tipoProduccion;
+    private String renovacionAutomatica;
+    private String tipoMoneda;
+    private String tipoVigencia;
+    private String vigencia;
+    //private String canalVenta;
+    private String frecuenciaPago;
+    private String fechaEventoAnterior;
+    private String fechaProximaGeneracionPrima;
+    private String fechaProximaFacturacion;
+    //private String tipoPoliza;
+    private String numeroPolizaAs;
+    private String flagSuspensionCancelacion;
+    private String fechaSuspensionCancelacon;
+    private String codigoSuperintendencia;
+    private String nombreArchivoTramas;
+    private String númeroPlan;
+    private String fechaInicialPolizaMatriz;
+    private String fechaFinalPolizaMatriz;
+    private String nombreAsegurado;
+    private String nombreBeneficiario;
+    private String periodoSuspensionCancelacion;
+    private String fechaInicioSuspCanc;
+    private String procSuspensionCancelacion;
+    private String montoPrimaArchivoTrama;
+    private String fechaEmisionAcsele;
+    private String numeroSolicitud;
+    private String fechaOcurrenciaSiniestro;
+    //private String sucursal;
+    private String numeroCaso;
+    private String fechaNotificacion;
+    private String fechaRecepcionReclamo;
+    //private String fechaOcurrencia;
+    private String lugarOcurrenciaSiniestro;
+    private String horaOcurrencia;
+    private String observacionesSiniestro;
+    private String nombresApellidos;
+    private String direccion;
+    private String telefonos;
+    private String correoElectronico;
+    private String envioComunicacionesSiniestro;
+    private String correoElectronicoSiniestro;
+    private String pagoMaximo;
+    private String montoSiniestro;
+    private String razon;
+
+
 
 
     //Getters and Setters
@@ -335,5 +398,413 @@ public class Asesuisa_SiniestroBean {
 
     public void setNroObjetoAsegurado(String nroObjetoAsegurado) {
         this.nroObjetoAsegurado = nroObjetoAsegurado;
+    }
+
+    public String getEstadosCicloVida() {
+        return estadosCicloVida;
+    }
+
+    public void setEstadosCicloVida(String estadosCicloVida) {
+        this.estadosCicloVida = estadosCicloVida;
+    }
+
+    public String getContratante() {
+        return contratante;
+    }
+
+    public void setContratante(String contratante) {
+        this.contratante = contratante;
+    }
+
+    public String getAseguradoEstipulante() {
+        return aseguradoEstipulante;
+    }
+
+    public void setAseguradoEstipulante(String aseguradoEstipulante) {
+        this.aseguradoEstipulante = aseguradoEstipulante;
+    }
+
+    public String getIdPoliza() {
+        return idPoliza;
+    }
+
+    public void setIdPoliza(String idPoliza) {
+        this.idPoliza = idPoliza;
+    }
+
+    public String getFechaDesde() {
+        return fechaDesde;
+    }
+
+    public void setFechaDesde(String fechaDesde) {
+        this.fechaDesde = fechaDesde;
+    }
+
+    public String getFechaHasta() {
+        return fechaHasta;
+    }
+
+    public void setFechaHasta(String fechaHasta) {
+        this.fechaHasta = fechaHasta;
+    }
+
+    public String getOficina() {
+        return oficina;
+    }
+
+    public void setOficina(String oficina) {
+        this.oficina = oficina;
+    }
+
+    public String getNumeroCotizacion() {
+        return numeroCotizacion;
+    }
+
+    public void setNumeroCotizacion(String numeroCotizacion) {
+        this.numeroCotizacion = numeroCotizacion;
+    }
+
+    public String getNumeroPropuesta() {
+        return numeroPropuesta;
+    }
+
+    public void setNumeroPropuesta(String numeroPropuesta) {
+        this.numeroPropuesta = numeroPropuesta;
+    }
+
+    public String getNumeroPoliza() {
+        return numeroPoliza;
+    }
+
+    public void setNumeroPoliza(String numeroPoliza) {
+        this.numeroPoliza = numeroPoliza;
+    }
+
+    public String getMoneda() {
+        return moneda;
+    }
+
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
+    }
+
+    public String getRenovacionAutomatica() {
+        return renovacionAutomatica;
+    }
+
+    public void setRenovacionAutomatica(String renovacionAutomatica) {
+        this.renovacionAutomatica = renovacionAutomatica;
+    }
+
+    public String getTipoMoneda() {
+        return tipoMoneda;
+    }
+
+    public void setTipoMoneda(String tipoMoneda) {
+        this.tipoMoneda = tipoMoneda;
+    }
+
+    public String getTipoVigencia() {
+        return tipoVigencia;
+    }
+
+    public void setTipoVigencia(String tipoVigencia) {
+        this.tipoVigencia = tipoVigencia;
+    }
+
+    public String getVigencia() {
+        return vigencia;
+    }
+
+    public void setVigencia(String vigencia) {
+        this.vigencia = vigencia;
+    }
+
+    public String getFrecuenciaPago() {
+        return frecuenciaPago;
+    }
+
+    public void setFrecuenciaPago(String frecuenciaPago) {
+        this.frecuenciaPago = frecuenciaPago;
+    }
+
+    public String getFechaEventoAnterior() {
+        return fechaEventoAnterior;
+    }
+
+    public void setFechaEventoAnterior(String fechaEventoAnterior) {
+        this.fechaEventoAnterior = fechaEventoAnterior;
+    }
+
+    public String getFechaProximaGeneracionPrima() {
+        return fechaProximaGeneracionPrima;
+    }
+
+    public void setFechaProximaGeneracionPrima(String fechaProximaGeneracionPrima) {
+        this.fechaProximaGeneracionPrima = fechaProximaGeneracionPrima;
+    }
+
+    public String getFechaProximaFacturacion() {
+        return fechaProximaFacturacion;
+    }
+
+    public void setFechaProximaFacturacion(String fechaProximaFacturacion) {
+        this.fechaProximaFacturacion = fechaProximaFacturacion;
+    }
+
+    public String getNumeroPolizaAs() {
+        return numeroPolizaAs;
+    }
+
+    public void setNumeroPolizaAs(String numeroPolizaAs) {
+        this.numeroPolizaAs = numeroPolizaAs;
+    }
+
+    public String getFlagSuspensionCancelacion() {
+        return flagSuspensionCancelacion;
+    }
+
+    public void setFlagSuspensionCancelacion(String flagSuspensionCancelacion) {
+        this.flagSuspensionCancelacion = flagSuspensionCancelacion;
+    }
+
+    public String getFechaSuspensionCancelacon() {
+        return fechaSuspensionCancelacon;
+    }
+
+    public void setFechaSuspensionCancelacon(String fechaSuspensionCancelacon) {
+        this.fechaSuspensionCancelacon = fechaSuspensionCancelacon;
+    }
+
+    public String getCodigoSuperintendencia() {
+        return codigoSuperintendencia;
+    }
+
+    public void setCodigoSuperintendencia(String codigoSuperintendencia) {
+        this.codigoSuperintendencia = codigoSuperintendencia;
+    }
+
+    public String getNombreArchivoTramas() {
+        return nombreArchivoTramas;
+    }
+
+    public void setNombreArchivoTramas(String nombreArchivoTramas) {
+        this.nombreArchivoTramas = nombreArchivoTramas;
+    }
+
+    public String getNúmeroPlan() {
+        return númeroPlan;
+    }
+
+    public void setNúmeroPlan(String númeroPlan) {
+        this.númeroPlan = númeroPlan;
+    }
+
+    public String getFechaInicialPolizaMatriz() {
+        return fechaInicialPolizaMatriz;
+    }
+
+    public void setFechaInicialPolizaMatriz(String fechaInicialPolizaMatriz) {
+        this.fechaInicialPolizaMatriz = fechaInicialPolizaMatriz;
+    }
+
+    public String getFechaFinalPolizaMatriz() {
+        return fechaFinalPolizaMatriz;
+    }
+
+    public void setFechaFinalPolizaMatriz(String fechaFinalPolizaMatriz) {
+        this.fechaFinalPolizaMatriz = fechaFinalPolizaMatriz;
+    }
+
+    public String getNombreAsegurado() {
+        return nombreAsegurado;
+    }
+
+    public void setNombreAsegurado(String nombreAsegurado) {
+        this.nombreAsegurado = nombreAsegurado;
+    }
+
+    public String getNombreBeneficiario() {
+        return nombreBeneficiario;
+    }
+
+    public void setNombreBeneficiario(String nombreBeneficiario) {
+        this.nombreBeneficiario = nombreBeneficiario;
+    }
+
+    public String getPeriodoSuspensionCancelacion() {
+        return periodoSuspensionCancelacion;
+    }
+
+    public void setPeriodoSuspensionCancelacion(String periodoSuspensionCancelacion) {
+        this.periodoSuspensionCancelacion = periodoSuspensionCancelacion;
+    }
+
+    public String getFechaInicioSuspCanc() {
+        return fechaInicioSuspCanc;
+    }
+
+    public void setFechaInicioSuspCanc(String fechaInicioSuspCanc) {
+        this.fechaInicioSuspCanc = fechaInicioSuspCanc;
+    }
+
+    public String getProcSuspensionCancelacion() {
+        return procSuspensionCancelacion;
+    }
+
+    public void setProcSuspensionCancelacion(String procSuspensionCancelacion) {
+        this.procSuspensionCancelacion = procSuspensionCancelacion;
+    }
+
+    public String getMontoPrimaArchivoTrama() {
+        return montoPrimaArchivoTrama;
+    }
+
+    public void setMontoPrimaArchivoTrama(String montoPrimaArchivoTrama) {
+        this.montoPrimaArchivoTrama = montoPrimaArchivoTrama;
+    }
+
+    public String getFechaEmisionAcsele() {
+        return fechaEmisionAcsele;
+    }
+
+    public void setFechaEmisionAcsele(String fechaEmisionAcsele) {
+        this.fechaEmisionAcsele = fechaEmisionAcsele;
+    }
+
+    public String getNumeroSolicitud() {
+        return numeroSolicitud;
+    }
+
+    public void setNumeroSolicitud(String numeroSolicitud) {
+        this.numeroSolicitud = numeroSolicitud;
+    }
+
+    public String getFechaOcurrenciaSiniestro() {
+        return fechaOcurrenciaSiniestro;
+    }
+
+    public void setFechaOcurrenciaSiniestro(String fechaOcurrenciaSiniestro) {
+        this.fechaOcurrenciaSiniestro = fechaOcurrenciaSiniestro;
+    }
+
+    public String getNumeroCaso() {
+        return numeroCaso;
+    }
+
+    public void setNumeroCaso(String numeroCaso) {
+        this.numeroCaso = numeroCaso;
+    }
+
+    public String getFechaNotificacion() {
+        return fechaNotificacion;
+    }
+
+    public void setFechaNotificacion(String fechaNotificacion) {
+        this.fechaNotificacion = fechaNotificacion;
+    }
+
+    public String getFechaRecepcionReclamo() {
+        return fechaRecepcionReclamo;
+    }
+
+    public void setFechaRecepcionReclamo(String fechaRecepcionReclamo) {
+        this.fechaRecepcionReclamo = fechaRecepcionReclamo;
+    }
+
+    public String getLugarOcurrenciaSiniestro() {
+        return lugarOcurrenciaSiniestro;
+    }
+
+    public void setLugarOcurrenciaSiniestro(String lugarOcurrenciaSiniestro) {
+        this.lugarOcurrenciaSiniestro = lugarOcurrenciaSiniestro;
+    }
+
+    public String getHoraOcurrencia() {
+        return horaOcurrencia;
+    }
+
+    public void setHoraOcurrencia(String horaOcurrencia) {
+        this.horaOcurrencia = horaOcurrencia;
+    }
+
+    public String getObservacionesSiniestro() {
+        return observacionesSiniestro;
+    }
+
+    public void setObservacionesSiniestro(String observacionesSiniestro) {
+        this.observacionesSiniestro = observacionesSiniestro;
+    }
+
+    public String getNombresApellidos() {
+        return nombresApellidos;
+    }
+
+    public void setNombresApellidos(String nombresApellidos) {
+        this.nombresApellidos = nombresApellidos;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefonos() {
+        return telefonos;
+    }
+
+    public void setTelefonos(String telefonos) {
+        this.telefonos = telefonos;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getEnvioComunicacionesSiniestro() {
+        return envioComunicacionesSiniestro;
+    }
+
+    public void setEnvioComunicacionesSiniestro(String envioComunicacionesSiniestro) {
+        this.envioComunicacionesSiniestro = envioComunicacionesSiniestro;
+    }
+
+    public String getCorreoElectronicoSiniestro() {
+        return correoElectronicoSiniestro;
+    }
+
+    public void setCorreoElectronicoSiniestro(String correoElectronicoSiniestro) {
+        this.correoElectronicoSiniestro = correoElectronicoSiniestro;
+    }
+
+    public String getPagoMaximo() {
+        return pagoMaximo;
+    }
+
+    public void setPagoMaximo(String pagoMaximo) {
+        this.pagoMaximo = pagoMaximo;
+    }
+
+    public String getMontoSiniestro() {
+        return montoSiniestro;
+    }
+
+    public void setMontoSiniestro(String montoSiniestro) {
+        this.montoSiniestro = montoSiniestro;
+    }
+
+    public String getRazon() {
+        return razon;
+    }
+
+    public void setRazon(String razon) {
+        this.razon = razon;
     }
 }

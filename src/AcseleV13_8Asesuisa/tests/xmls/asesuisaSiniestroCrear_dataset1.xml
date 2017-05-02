@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 1: Creacion por numero de poliza. Resultado: poliza no encontrada-->
+  <Asesuisa_Siniestro_Crear PRUEBA="1" ORDENARPOR="" NROPOLIZA="08-01-0108-00000273"
+                            FECHAOCURRENCIA="" SUCURSAL="420" EVENTO="Infarto del Miocardio"
+                            FECHA_NOTIFICACION=""/>
+</dataset>
