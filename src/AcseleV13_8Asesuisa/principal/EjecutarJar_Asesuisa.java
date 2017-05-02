@@ -440,7 +440,7 @@ public class EjecutarJar_Asesuisa {
                         }
                         log.info("--->>> Final de la prueba " + prueba);
                         break;
-                    case "9": // f. Caja Anulacion de Facturas
+                    case "9": // i. Caja Anulacion de Facturas
                         System.out.println("Numero: " + tercero);
                         prueba = "VistaAsesuisa_CajaAnularFacturaTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
@@ -449,6 +449,21 @@ public class EjecutarJar_Asesuisa {
                             cajaAnularFacturaTestTest.setUp(tercero);
                             cajaAnularFacturaTestTest.mainTest();
                             cajaAnularFacturaTestTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                        break;
+                    case "10": // j. Pagos en caja
+                        System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaPagosTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaPagosTest cajaPagosTest = new VistaAsesuisa_CajaPagosTest();
+                            cajaPagosTest.setUp(tercero);
+                            cajaPagosTest.mainTest();
+                            cajaPagosTest.tearDown(tercero);
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);
