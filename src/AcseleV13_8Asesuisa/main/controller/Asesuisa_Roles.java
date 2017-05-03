@@ -10,6 +10,9 @@ import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import java.util.List;
+
+import java.lang.Boolean;
 import java.util.Random;
 
 import java.awt.*;
@@ -17,7 +20,7 @@ import java.sql.SQLException;
 
 
 /**
- * Created by aandrade on 29/03/2017.
+ * Created by cortiz on 12/04/2017.
  */
 public class Asesuisa_Roles {
 
@@ -25,6 +28,8 @@ public class Asesuisa_Roles {
 
     public String nombreAutomatizacion = "Asesuisa Roles";
     private WebDriver driver;
+    Boolean creado ;
+
 
     public void testLink(Asesuisa_RolesBean bean, int i, String folderName, String num) {
 
@@ -53,8 +58,7 @@ public class Asesuisa_Roles {
                 Thread.sleep(2000);
                 driver.close();
                 a.regresarVentana(driver);     //regresar ventana
-                /*WebElement aClick = driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td/table/tbody/tr/td[3]/div"));
-                aClick.click();*/
+
                 //Entrando en Menu
                 //Ingreso a la opcion consulta de terceros
                 menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i, folderName);
@@ -71,7 +75,7 @@ public class Asesuisa_Roles {
             } else{
 
                 //Entrando en Menu
-                //Ingreso a la opcion consulta de terceros
+                //Ingreso a la opcion busqueda de terceros
                 menuMantenimiento.MantTerc_BuscarTercero(driver, nombreAutomatizacion, 2, i, folderName);
 
 
@@ -105,7 +109,9 @@ public class Asesuisa_Roles {
 
     public void CrearTercero(Asesuisa_RolesBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4,
                              int numScreenShoot5, int numScreenShoot6) {
-        try {
+        what:  try {
+
+            Thread.sleep(5000);
             Random rnd = new Random();
             if (bean.getTipoTercero() != null) {
                 Select tipoTercero = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_ThirdInformation_thirdPartyTypes']")));
@@ -163,8 +169,17 @@ public class Asesuisa_Roles {
             int i2 = (int) (rnd.nextDouble() * 1000000000 + 0000000002);
 
 
-            String numCad2 = String.valueOf(i1) + "55555";
+            String numCad2 = String.valueOf(i2);
             System.out.println(" " + numCad2);
+
+            if (numCad2.length() < 9) {
+
+                numCad2 = numCad2 + "555555";
+                System.out.println("8: " + numCad2); } else {
+                numCad2 = numCad2 + "55555";
+                System.out.println(" " + numCad2);
+
+            }
 
             // NIT
             if (bean.getNNIT() != null) {
@@ -203,10 +218,10 @@ public class Asesuisa_Roles {
 
             btnGuardar.click();
             a.waitSearchWicket(driver, "Espere, Guardando Tercero");
-
+            creado = true;
             Thread.sleep(3000);
 
-           /* Boolean bMensaje = driver.findElements(By.id("_wicket_window_0")).size() > 0;
+            Boolean bMensaje = driver.findElements(By.id("_wicket_window_0")).size() > 0;
             if (bMensaje){
                 WebElement mensajeErrorTipo = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_errorsPanel_content_errorsForm_table_repeaterErrors_1_error']"));
                 WebElement mensajeError = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_ThirdInformation_templateContainer_errorsPanel_content_errorsForm_table_repeaterErrors_1_errorsMessage1_repeaterMessage_1_message']"));
@@ -225,8 +240,8 @@ public class Asesuisa_Roles {
             }
             else {
                 System.out.println("failed");
-                //break; // what;
-            }*/
+                break what;
+            }
 
 
         } catch (Exception e) {
@@ -247,13 +262,16 @@ public class Asesuisa_Roles {
 
         try {
 
-            Thread.sleep(2000);
+
             JavascriptExecutor jse = (JavascriptExecutor) driver;
             WebElement etiqueta;
 
+            System.out.println("Buscando tercero");
+
+            Thread.sleep(5000);
             //Tipo tercero
             if (bean.getTipoTercero() != null) {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
                 tipoT.selectByValue(bean.getTipoTercero());
                 Thread.sleep(1000);
@@ -287,6 +305,7 @@ public class Asesuisa_Roles {
             Thread.sleep(1000);
             buscar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_searchButton']"));
             buscar.click();
+            a.waitSearchWicket(driver, "Espere, Buscando Tercero");
             jse.executeScript("window.scrollBy(0,300)", "");
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
@@ -294,13 +313,17 @@ public class Asesuisa_Roles {
 
 
 
+            //To locate table.
+            WebElement mytable = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table/tbody"));
 
-
+            //To locate rows of table.
+            List<WebElement> rows_table = mytable.findElements(By.tagName("tr"));
+            //To calculate no of rows In table.
+            int rows_count = rows_table.size();
 
             //seleccionar tercero encontrado
-
             Thread.sleep(2000);
-            WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
+            WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_" + rows_count + "_thirdPartyRadio']"));
             selccionTercero.click();
 
 
@@ -332,7 +355,7 @@ public class Asesuisa_Roles {
 
 
             if (bean.getTIPOROL() != null){
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_rolForm_rolComb']")));
                 tipoT.selectByVisibleText(bean.getTIPOROL());
                 Thread.sleep(1000);
@@ -1539,8 +1562,6 @@ public class Asesuisa_Roles {
             }
 
 
-
-
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
@@ -1550,10 +1571,6 @@ public class Asesuisa_Roles {
             guardar.click();
             Thread.sleep(4000);
 
-             /*if (tipoRol =="Vendedor"){
-
-
-             }*/
 
 
         } catch (Exception e) {
