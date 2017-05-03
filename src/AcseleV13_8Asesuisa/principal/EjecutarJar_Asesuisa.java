@@ -423,22 +423,7 @@ public class EjecutarJar_Asesuisa {
                         }
                         log.info("--->>> Final de la prueba " + prueba);
                         break;
-                    case "7": // g. Notas de credito de caja
-                        System.out.println("Numero: " + tercero);
-                        prueba = "VistaAsesuisa_CajaNotasCreditoTest";
-                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
-                        try {
-                            VistaAsesuisa_CajaNotasCreditoTest cajaNotasCreditoTest = new VistaAsesuisa_CajaNotasCreditoTest();
-                            cajaNotasCreditoTest.setUp(tercero);
-                            cajaNotasCreditoTest.mainTest();
-                            cajaNotasCreditoTest.tearDown(tercero);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            log.error("Test Case - " + prueba + " - " + e);
-                        }
-                        log.info("--->>> Final de la prueba " + prueba);
-                        break;
-                    case "8": // h. Modalidades de factura en caja
+                    case "7": // h. Modalidades de factura en caja
                         System.out.println("Numero: " + tercero);
                         prueba = "VistaAsesuisa_CajaModalidadesTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
@@ -447,6 +432,21 @@ public class EjecutarJar_Asesuisa {
                             cajaModalidadesTest.setUp(tercero);
                             cajaModalidadesTest.mainTest();
                             cajaModalidadesTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                        break;
+                    case "8": // g. Notas de credito de caja
+                        System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaNotasCreditoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaNotasCreditoTest cajaNotasCreditoTest = new VistaAsesuisa_CajaNotasCreditoTest();
+                            cajaNotasCreditoTest.setUp(tercero);
+                            cajaNotasCreditoTest.mainTest();
+                            cajaNotasCreditoTest.tearDown(tercero);
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);
