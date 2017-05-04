@@ -63,7 +63,7 @@ public class Asesuisa_ManteSiniestro {
 
     public void BusquedaT(Asesuisa_ManteSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShot5) {
 
-        try {
+        salida:   try {
 
             Thread.sleep(2000);
             JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -86,6 +86,24 @@ public class Asesuisa_ManteSiniestro {
             //Boton buscar
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]"));
             buscar.click();
+
+
+            /*WebElement bMensaje = driver.findElement(By.id("gwt-uid-6"));   //  ;.size() > 0
+
+            if (bMensaje){
+                WebElement mensajeError = driver.findElement(By.xpath("/*//*[@id=\"gwt-uid-6\"]"));
+                System.out.println(mensajeError.getText() + "\t" + mensajeError.getText());
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShot5, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                WebElement ErrorAceptar = driver.findElement(By.xpath("/*//*[@id=\"layoutButton\"]/div/div/div/span/span"));
+                ErrorAceptar.click();
+                driver.quit();
+            } else {
+                System.out.println("failed");
+                break salida ;
+            }*/
+
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
@@ -101,25 +119,81 @@ public class Asesuisa_ManteSiniestro {
                 WebElement ok = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span"));
                 ok.click();
 
+            Thread.sleep(30000);
+            a.changeLastWindows(driver);
+            Thread.sleep(2000);
+
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
-            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
 
-            //Boton cerrar
-            WebElement cerrar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_32\"]"));
+            if (bean.getCCOMENTARIO().equals("Siniestro Revisado")) {
+                //Boton cerrar
+            Thread.sleep(3000);
+            WebElement cerrar = driver.findElement(By.xpath("/html/body/div[13]/div[8]/input[2]"));
             cerrar.click();
-            Thread.sleep(2000);
+            }
 
-            //Boton rechazar
-            WebElement recharar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_32\"]"));
-            recharar.click();
-            Thread.sleep(2000);
-
-            //Boton rechazar
-            WebElement reabrir = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_31\"]"));
+            if (bean.getCCOMENTARIO().equals("Siniestro por analisis")) {
+           //Boton reabrir
+            WebElement reabrir = driver.findElement(By.xpath("/*//*[@id=\"idb_0402006_structure_31\"]"));
             reabrir.click();
             Thread.sleep(2000);
+            }
 
+            if (bean.getCCOMENTARIO().equals("Siniestro Rechazado")) {
+            //Boton rechazar
+            WebElement rechazar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_29\"]"));
+            rechazar.click();
+            Thread.sleep(2000);
+            }
+
+
+            // Cambiar de frame
+            driver.switchTo().frame("plantilla");
+
+
+
+            if (bean.getFOPERACION() != null) {
+                WebElement foperacion = driver.findElement(By.xpath("//*[@id=\"OperationDate\"]"));
+                foperacion.sendKeys(bean.getFOPERACION());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getCCOMENTARIO().equals("Siniestro Revisado")) {
+            if (bean.getMRECHAZOCIERRE() != null) {
+            Select motivoCierre = new Select(driver.findElement(By.xpath("/*//*[@id=\"ClosingMotive\"]")));
+            motivoCierre.selectByValue(bean.getMRECHAZOCIERRE());
+            }
+            }
+
+            if (bean.getCCOMENTARIO().equals("Siniestro por analisis")) {
+           if (bean.getMRECHAZOCIERRE() != null) {
+               Select motivoCierre = new Select(driver.findElement(By.xpath("//*[@id=\"ReopeningMotive\"]")));
+                motivoCierre.selectByValue(bean.getMRECHAZOCIERRE()); //*[@id="RejectionMotive"]
+            }
+            }
+
+            if (bean.getCCOMENTARIO().equals("Siniestro Rechazado")) {
+            if (bean.getMRECHAZOCIERRE() != null) {
+               Select motivoCierre = new Select(driver.findElement(By.xpath("//*[@id=\"RejectionMotive\"]")));
+                motivoCierre.selectByValue(bean.getMRECHAZOCIERRE());
+            }
+            }
+
+
+                if (bean.getCCOMENTARIO() != null) {
+            WebElement comentario = driver.findElement(By.xpath("//*[@id=\"ClaimComments\"]"));
+            comentario.sendKeys(bean.getCCOMENTARIO());
+            }
+            // Salir del frame
+            //driver.switchTo().parentFrame();
+            driver.switchTo().defaultContent();
+
+            Thread.sleep(3000);
+            WebElement btnAceptar2 = driver.findElement(By.xpath("/html/body/div[14]/div[2]/div[4]/input"));
+            btnAceptar2.click();
+            Thread.sleep(3000);
 
 
             Thread.sleep(1000);

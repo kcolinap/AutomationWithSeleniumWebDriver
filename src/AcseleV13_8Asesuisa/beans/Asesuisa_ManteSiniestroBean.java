@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by cortiz on 01/04/2017.
  */
-public class Asesuisa_ManteSiniestroBean implements Serializable {
+public class Asesuisa_ManteSiniestroBean extends Asesuisa_SiniestroBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(Asesuisa_ManteSiniestroBean.class);
 
@@ -115,7 +115,7 @@ public class Asesuisa_ManteSiniestroBean implements Serializable {
                 siniestroBean.setPRODUCTO(rs.getString("PRODUCTO"));
                 siniestroBean.setFOPERACION(rs.getString("FOPERACION"));
                 siniestroBean.setMRECHAZOCIERRE(rs.getString("MRECHAZOCIERRE"));
-                siniestroBean.setMRECHAZOCIERRE(rs.getString("CCOMENTARIO"));
+                siniestroBean.setCCOMENTARIO(rs.getString("CCOMENTARIO"));
 
 
                 siniestro.add(siniestroBean);
