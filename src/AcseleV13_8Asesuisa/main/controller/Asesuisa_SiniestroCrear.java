@@ -4,9 +4,11 @@ import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperacione
 import metodo.Metodos;
 import AcseleV13_8Asesuisa.beans.Asesuisa_SiniestroCrearBean;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -44,10 +46,21 @@ public class Asesuisa_SiniestroCrear {
             //Evaluo el camino a seguir dependiendo el resultado de la busqueda
             switch (polizaEncontrada){
                 case 0:
+                    System.out.println("No se encontro pòliza con el numero: "+bean.getNroPoliza());
                     break;
                 case 1:
                     //Agregar objeto afectado
                     ObjetoAfectado(driver, bean, i, m, nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    //pantallazo
+                    m.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion, folderName);
+                    Thread.sleep(800);
+
+                    AgregarCobertura(driver, bean, i,m,nombreAutomatizacion,folderName);
+                    Thread.sleep(800);
+
+                    System.out.println("Siniestro");
                     break;
                 default:
                     break;
@@ -197,7 +210,7 @@ public class Asesuisa_SiniestroCrear {
             btnSelecEvento.click();
             Thread.sleep(3500);
 
-            //Recorrro los eventos disponibles hasta encontrar el establecido
+            //Recorrro los eventos disponibles hasta encontrar el establecido en el xml
 
             int nroFilasEventos=driver.findElements(By.xpath("html/body/center/form/table[2]")).size();
             for (int k=2; i<nroFilasEventos; k++){
@@ -261,20 +274,117 @@ public class Asesuisa_SiniestroCrear {
             if (bean.getFechaNotificacion()==null){
                 Date fecha = new Date();
                 String starString= new SimpleDateFormat("dd/MM/yyyy").format(fecha);
-                fechaN = driver.findElement(By.xpath("html/body/div[1]/form/table[1]/tbody/tr/td[3]/font/input[1]"));
+                fechaN = driver.findElement(By.xpath("html/body/div[1]/form/table[2]/tbody/tr/td[3]/font/input[1]"));
                 fechaN.sendKeys(starString);
                 Thread.sleep(1500);
             }else{
-                fechaN = driver.findElement(By.xpath("html/body/div[1]/form/table[1]/tbody/tr/td[3]/font/input[1]"));
+                fechaN = driver.findElement(By.xpath("html/body/div[1]/form/table[2]/tbody/tr/td[3]/font/input[1]"));
                 fechaN.sendKeys(bean.getFechaNotificacion());//fechaO.sendKeys(bean.getFechaOcurrencia());
                 Thread.sleep(1500);
             }
 
+            //Nombre de la persona que reporta el siniestro
+            if (bean.getReporter()!=null){
+                WebElement reporter = driver.findElement(By.xpath("html/body/div[1]/form/table[3]/tbody/tr/td[3]/font/input[1]"));
+                reporter.sendKeys(bean.getReporter());
+                Thread.sleep(1500);
+            }
+
+            //Tlfn persona contacto
+            if (bean.getTlfAsegurado()!=null){
+                WebElement tlfAsegur = driver.findElement(By.xpath("html/body/div[1]/form/table[4]/tbody/tr/td[3]/font/input[1]"));
+                tlfAsegur.sendKeys(bean.getTlfAsegurado());
+                Thread.sleep(1500);
+            }
+
+            //Tlfn persona que reporta el siniestro
+            if (bean.getTlfReporter()!=null){
+                WebElement tlfReporter = driver.findElement(By.xpath("html/body/div[1]/form/table[5]/tbody/tr/td[3]/font/input[1]"));
+                tlfReporter.sendKeys(bean.getTlfReporter());
+                Thread.sleep(1500);
+            }
+
+            //Email de la persona asegurada
+            if (bean.getMailAsegurado()!=null){
+                WebElement mailAsegur = driver.findElement(By.xpath("html/body/div[1]/form/table[6]/tbody/tr/td[3]/font/input[1]"));
+                mailAsegur.sendKeys(bean.getMailAsegurado());
+                Thread.sleep(1500);
+            }
+
+            //Lugar de ocurrencia
+            if (bean.getLugarOcurrencia()!=null){
+                WebElement lugarOcurrencia = driver.findElement(By.xpath("html/body/div[1]/form/table[8]/tbody/tr/td[3]/font/textarea"));
+                lugarOcurrencia.sendKeys(bean.getLugarOcurrencia());
+                Thread.sleep(1500);
+            }
+
+            //pantallazo
+            m.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
+            Thread.sleep(800);
 
             /**
              * /////////////////////////////////////
              */
 
+            // Salir del frame
+            driver.switchTo().defaultContent();
+            Thread.sleep(2000);
+
+            //Boton aceptar
+            WebElement btnAceptar = driver.findElement(By.xpath("html/body/div[14]/div[2]/div[3]/div/input[2]"));
+            btnAceptar.click();
+            Thread.sleep(3000);
+
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void AgregarCobertura(WebDriver driver, Asesuisa_SiniestroCrearBean bean, int i, Metodos m,
+                                 String nombreAutomatizacion, String folderName){
+        try {
+            //Boton agregar
+            WebElement btnAgregar = driver.findElement(By.xpath("html/body/div[13]/form[2]/div[2]/input[1]"));
+            btnAgregar.click();
+            Thread.sleep(4000);
+
+            //Pago maximo
+            if (bean.getPagoMaximo()!=null){
+                WebElement pagoMaximo = driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[3]/td[2]/input"));
+                pagoMaximo.clear();
+                Thread.sleep(800);
+                //pagoMaximo=driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[3]/td[2]/input"));
+                pagoMaximo.sendKeys(bean.getPagoMaximo());
+                Thread.sleep(1500);
+            }
+
+            //selecciono el list moneda para que se formatee el monto
+            Select moneda = new Select(driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[4]/td[2]/select")));
+            moneda.selectByValue("2205");
+            Thread.sleep(800);
+
+            //Pantallazo
+            m.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion, folderName);
+            Thread.sleep(800);
+
+            //Boton enviar
+            WebElement btnEnviar = driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[5]/td/center/input[1]"));
+            btnEnviar.click();
+            Thread.sleep(4000);
+
+            //Manejo de alert para aceptar la reserva
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
+            Thread.sleep(3000);
 
         }catch (Exception e) {
             e.printStackTrace();

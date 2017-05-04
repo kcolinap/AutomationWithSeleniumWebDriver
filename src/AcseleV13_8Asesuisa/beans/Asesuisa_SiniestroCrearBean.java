@@ -42,6 +42,13 @@ public class Asesuisa_SiniestroCrearBean extends Asesuisa_SiniestroBean implemen
                 bean.setEventoSiniestro(rs.getString("EVENTO"));
                 bean.setFechaNotificacion(rs.getString("FECHA_NOTIFICACION"));
                 bean.setFechaOcurrencia(rs.getString("FECHAOCURRENCIA"));
+                bean.setReporter(rs.getString("REPORTER_NAME"));
+                bean.setTlfReporter(rs.getString("TLF_REPORTER"));
+                bean.setTlfAsegurado(rs.getString("TLF_ASEGURADO"));
+                bean.setMailAsegurado(rs.getString("MAIL_ASEGURADO"));
+                bean.setMailReporter(rs.getString("MAIL_REPORTER"));
+                bean.setLugarOcurrencia(rs.getString("LUGAR_OCURRENCIA"));
+                bean.setPagoMaximo(rs.getString("PAGOMAXIMO"));
 
                 creacionSiniestro.add(bean);
             }

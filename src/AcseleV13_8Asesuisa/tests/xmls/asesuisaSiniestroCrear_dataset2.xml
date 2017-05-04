@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 2: Creacion por numero de poliza. Producto: roboy hurto. resultado? -->
+  <Asesuisa_Siniestro_Crear PRUEBA="1" ORDENARPOR="" NROPOLIZA="09-01-0401-00000557"
+                            FECHAOCURRENCIA="" SUCURSAL="420" EVENTO="Robo por la Noche"
+                            FECHA_NOTIFICACION="" REPORTER_NAME="Kelvin" TLF_REPORTER="02123222222"
+                            TLF_ASEGURADO="04122222222" MAIL_ASEGURADO="kcolina@consisint.com"
+                            LUGAR_OCURRENCIA="Salvador" PAGOMAXIMO="2000"/>
+</dataset>

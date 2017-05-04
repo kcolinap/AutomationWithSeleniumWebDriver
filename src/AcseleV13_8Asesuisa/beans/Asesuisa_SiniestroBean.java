@@ -123,10 +123,67 @@ public class Asesuisa_SiniestroBean {
     private String montoSiniestro;
     private String razon;
 
+    //Campos para agregar objeto afectado
+    private String reporter;
+    private String tlfReporter;
+    private String tlfAsegurado;
+    private String mailAsegurado;
+    private String mailReporter;
+    private String lugarOcurrencia;
+
 
 
 
     //Getters and Setters
+
+
+    public String getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(String reporter) {
+        this.reporter = reporter;
+    }
+
+    public String getTlfReporter() {
+        return tlfReporter;
+    }
+
+    public void setTlfReporter(String tlfReporter) {
+        this.tlfReporter = tlfReporter;
+    }
+
+    public String getTlfAsegurado() {
+        return tlfAsegurado;
+    }
+
+    public void setTlfAsegurado(String tlfAsegurado) {
+        this.tlfAsegurado = tlfAsegurado;
+    }
+
+    public String getMailAsegurado() {
+        return mailAsegurado;
+    }
+
+    public void setMailAsegurado(String mailAsegurado) {
+        this.mailAsegurado = mailAsegurado;
+    }
+
+    public String getMailReporter() {
+        return mailReporter;
+    }
+
+    public void setMailReporter(String mailReporter) {
+        this.mailReporter = mailReporter;
+    }
+
+    public String getLugarOcurrencia() {
+        return lugarOcurrencia;
+    }
+
+    public void setLugarOcurrencia(String lugarOcurrencia) {
+        this.lugarOcurrencia = lugarOcurrencia;
+    }
 
     public String getOrdenarPor() {
         return ordenarPor;
