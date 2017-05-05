@@ -114,7 +114,7 @@ public class Asesuisa_CancelacionAnulacionPoliza {
                 msj="Poliza encontrada";
                 System.out.println(msj);
                 System.out.println("");
-                Thread.sleep(500);
+                Thread.sleep(1500);
 
                 optPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_ResultSearchSimplePolicy_groupPolicies_resultSearchPolicyTable_1_policy']"));
                 optPoliza.click();
