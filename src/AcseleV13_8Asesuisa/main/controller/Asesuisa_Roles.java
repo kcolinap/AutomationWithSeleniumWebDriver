@@ -218,7 +218,7 @@ public class Asesuisa_Roles {
 
             btnGuardar.click();
             a.waitSearchWicket(driver, "Espere, Guardando Tercero");
-            creado = true;
+            System.out.println("Tercero Creado ");
             Thread.sleep(3000);
 
             Boolean bMensaje = driver.findElements(By.id("_wicket_window_0")).size() > 0;
@@ -271,7 +271,7 @@ public class Asesuisa_Roles {
             Thread.sleep(5000);
             //Tipo tercero
             if (bean.getTipoTercero() != null) {
-                Thread.sleep(3000);
+                Thread.sleep(6000);
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='SearchContent_ThirdInformation_thirdPartyTypes']")));
                 tipoT.selectByValue(bean.getTipoTercero());
                 Thread.sleep(1000);
@@ -321,6 +321,8 @@ public class Asesuisa_Roles {
             //To calculate no of rows In table.
             int rows_count = rows_table.size();
 
+            System.out.println("Cantidad de filas con mismo nombre " + rows_count);
+
             //seleccionar tercero encontrado
             Thread.sleep(2000);
             WebElement selccionTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_" + rows_count + "_thirdPartyRadio']"));
@@ -355,7 +357,7 @@ public class Asesuisa_Roles {
 
 
             if (bean.getTIPOROL() != null){
-                Thread.sleep(4000);
+                Thread.sleep(6000);
                 Select tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_panelRol_rolForm_rolComb']")));
                 tipoT.selectByVisibleText(bean.getTIPOROL());
                 Thread.sleep(1000);
@@ -369,6 +371,7 @@ public class Asesuisa_Roles {
             Thread.sleep(1000);
          //   WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='ThirdInformationContent_thirdInformation_rolMessage']"));
 
+            System.out.println("Agregando " + tipoRol);
             switch (tipoRol){
 
                 case "Administracion":
