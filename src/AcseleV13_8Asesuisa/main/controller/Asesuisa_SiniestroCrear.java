@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -57,10 +58,10 @@ public class Asesuisa_SiniestroCrear {
                     m.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion, folderName);
                     Thread.sleep(800);
 
-                    AgregarCobertura(driver, bean, i,m,nombreAutomatizacion,folderName);
-                    Thread.sleep(800);
+                    /*AgregarCobertura(driver, bean, i,m,nombreAutomatizacion,folderName);
+                    Thread.sleep(800);*/
 
-                    System.out.println("Siniestro");
+                    //System.out.println("Siniestro");
                     break;
                 default:
                     break;
@@ -253,6 +254,10 @@ public class Asesuisa_SiniestroCrear {
     public void ObjetoAfectado(WebDriver driver, Asesuisa_SiniestroCrearBean bean, int i, Metodos m,
                                String nombreAutomatizacion, String folderName){
         try {
+
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            int campoFaltante=0;
+
             //pantallazo
             m.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
             Thread.sleep(800);
@@ -288,6 +293,8 @@ public class Asesuisa_SiniestroCrear {
                 WebElement reporter = driver.findElement(By.xpath("html/body/div[1]/form/table[3]/tbody/tr/td[3]/font/input[1]"));
                 reporter.sendKeys(bean.getReporter());
                 Thread.sleep(1500);
+            }else{
+                campoFaltante=2;
             }
 
             //Tlfn persona contacto
@@ -295,6 +302,8 @@ public class Asesuisa_SiniestroCrear {
                 WebElement tlfAsegur = driver.findElement(By.xpath("html/body/div[1]/form/table[4]/tbody/tr/td[3]/font/input[1]"));
                 tlfAsegur.sendKeys(bean.getTlfAsegurado());
                 Thread.sleep(1500);
+            }else{
+                campoFaltante=3;
             }
 
             //Tlfn persona que reporta el siniestro
@@ -302,6 +311,8 @@ public class Asesuisa_SiniestroCrear {
                 WebElement tlfReporter = driver.findElement(By.xpath("html/body/div[1]/form/table[5]/tbody/tr/td[3]/font/input[1]"));
                 tlfReporter.sendKeys(bean.getTlfReporter());
                 Thread.sleep(1500);
+            }else{
+                campoFaltante=4;
             }
 
             //Email de la persona asegurada
@@ -309,6 +320,8 @@ public class Asesuisa_SiniestroCrear {
                 WebElement mailAsegur = driver.findElement(By.xpath("html/body/div[1]/form/table[6]/tbody/tr/td[3]/font/input[1]"));
                 mailAsegur.sendKeys(bean.getMailAsegurado());
                 Thread.sleep(1500);
+            }else{
+                campoFaltante=5;
             }
 
             //Lugar de ocurrencia
@@ -316,7 +329,11 @@ public class Asesuisa_SiniestroCrear {
                 WebElement lugarOcurrencia = driver.findElement(By.xpath("html/body/div[1]/form/table[8]/tbody/tr/td[3]/font/textarea"));
                 lugarOcurrencia.sendKeys(bean.getLugarOcurrencia());
                 Thread.sleep(1500);
+            }else{
+                campoFaltante=6;
             }
+
+
 
             //pantallazo
             m.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
@@ -334,6 +351,49 @@ public class Asesuisa_SiniestroCrear {
             WebElement btnAceptar = driver.findElement(By.xpath("html/body/div[14]/div[2]/div[3]/div/input[2]"));
             btnAceptar.click();
             Thread.sleep(3000);
+
+            String nombreCampo;
+            switch (campoFaltante){
+                case 0:
+                    break;
+                case 2:
+                    nombreCampo="Persona que reporta el siniestro";
+                    System.out.println("El campo: "+nombreCampo+" es obligatorio");
+                    System.out.println("No se pudo agregar el objeto afectado");
+                    jse.executeScript("window.scrollBy(0,1000)", "");
+                    Thread.sleep(500);
+                    break;
+                case 3:
+                    nombreCampo="Telefono de contacto del asegurado";
+                    System.out.println("El campo: "+nombreCampo+" es obligatorio");
+                    System.out.println("No se pudo agregar el objeto afectado");
+                    jse.executeScript("window.scrollBy(0,1000)", "");
+                    Thread.sleep(500);
+                    break;
+                case 4:
+                    nombreCampo="Telefono de contacto persona que reporta el siniestro";
+                    System.out.println("El campo: "+nombreCampo+" es obligatorio");
+                    System.out.println("No se pudo agregar el objeto afectado");
+                    jse.executeScript("window.scrollBy(0,1000)", "");
+                    Thread.sleep(500);
+                    break;
+                case 5:
+                    nombreCampo="Email del asegurado";
+                    System.out.println("El campo: "+nombreCampo+" es obligatorio");
+                    System.out.println("No se pudo agregar el objeto afectado");
+                    jse.executeScript("window.scrollBy(0,1000)", "");
+                    Thread.sleep(500);
+                    break;
+                case 6:
+                    nombreCampo="Lugar de ocurrencia";
+                    System.out.println("El campo: "+nombreCampo+" es obligatorio");
+                    System.out.println("No se pudo agregar el objeto afectado");
+                    jse.executeScript("window.scrollBy(0,1000)", "");
+                    Thread.sleep(500);
+                    break;
+                default:
+                    break;
+            }
 
 
 

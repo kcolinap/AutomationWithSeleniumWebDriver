@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 5: Creacion por numero de poliza. Producto: roboy hurto. creacion correcta
+    objeto afectado agregado correctamente-->
+  <Asesuisa_Siniestro_Crear PRUEBA="1" ORDENARPOR="" NROPOLIZA="09-01-0401-00000550"
+                            FECHAOCURRENCIA="" SUCURSAL="420" EVENTO="Robo por la Noche"
+                            FECHA_NOTIFICACION="" REPORTER_NAME="Luis" TLF_REPORTER="02123111111"
+                            TLF_ASEGURADO="04111111" MAIL_ASEGURADO="kcolina@consisint.com"
+                            LUGAR_OCURRENCIA="Avenida principal" PAGOMAXIMO="2000"/>
+</dataset>
