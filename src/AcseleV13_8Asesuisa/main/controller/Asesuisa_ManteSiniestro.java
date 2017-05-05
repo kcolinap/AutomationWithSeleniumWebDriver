@@ -2,11 +2,12 @@ package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_ManteSiniestroBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-
 import java.awt.*;
 
 
@@ -19,6 +20,7 @@ public class Asesuisa_ManteSiniestro {
 
     public String nombreAutomatizacion = "Asesuisa Mantenimiento de siniestro";
     private WebDriver driver;
+
 
     public void testLink(Asesuisa_ManteSiniestroBean bean, int i, String folderName) {
 
@@ -43,8 +45,8 @@ public class Asesuisa_ManteSiniestro {
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            BusquedaT(bean, a, i, folderName, 3,4,5,6,7);
-          //  AgregarModoPago(bean, a, i, folderName,8,9,10,11,12);
+            BusquedaT(bean, a, i, folderName, 3,4,5,6,7,8,9,10);
+
 
 
             Thread.sleep(3000);
@@ -61,23 +63,31 @@ public class Asesuisa_ManteSiniestro {
         }
     }
 
-    public void BusquedaT(Asesuisa_ManteSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShot5) {
+    public void BusquedaT(Asesuisa_ManteSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShot5,
+                          int numScreenShoot6, int numScreenShoot7, int numScreenShoot8) {
 
         salida:   try {
 
             Thread.sleep(2000);
             JavascriptExecutor jse = (JavascriptExecutor) driver;
-            WebElement etiqueta;
+
 
 
             if (bean.getNSINIESTRO() != null) {
                 Thread.sleep(3000);
                 WebElement nsiniestro = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/div[3]/input"));
-                nsiniestro.sendKeys(bean.getNSINIESTRO());
+                driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/div[3]/input")).sendKeys(bean.getNSINIESTRO());
                 Thread.sleep(1000);
             }
 
-          //  jse.executeScript("window.scrollBy(0,-5000)", "");
+            if (bean.getFOCURRENCIA() != null) {
+                Thread.sleep(3000);
+                WebElement focurrencia = driver.findElement(By.xpath("//*[@id=\"dateFieldOccurrenceDate\"]/input"));
+                focurrencia.sendKeys(bean.getFOCURRENCIA());
+                Thread.sleep(1000);
+            }
+
+
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
@@ -87,39 +97,77 @@ public class Asesuisa_ManteSiniestro {
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]"));
             buscar.click();
 
+            if (bean.getCCOMENTARIO().equals("PorFecha")) {
+                //CASO 8
+                System.out.println("Busqueda de siniestro por fecha");
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                break salida;
+            }
 
-            /*WebElement bMensaje = driver.findElement(By.id("gwt-uid-6"));   //  ;.size() > 0
+                  //CASO 4
+            if  ((bean.getNSINIESTRO() == null) && (bean.getNPOLIZA() == null)) {
 
-            if (bMensaje){
-                WebElement mensajeError = driver.findElement(By.xpath("/*//*[@id=\"gwt-uid-6\"]"));
-                System.out.println(mensajeError.getText() + "\t" + mensajeError.getText());
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShot5, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
                 WebElement ErrorAceptar = driver.findElement(By.xpath("/*//*[@id=\"layoutButton\"]/div/div/div/span/span"));
                 ErrorAceptar.click();
-                driver.quit();
-            } else {
-                System.out.println("failed");
-                break salida ;
-            }*/
+                break salida;
+            }
 
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
-            //seleccionar siniestro encontrado
-
-            Thread.sleep(2000);
-            WebElement sencontrado = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
-            sencontrado.click();
 
 
+            if (bean.getCCOMENTARIO().equals("Caso5")){
+
+                System.out.println("Caso 5");
+
+             } else {
+                //seleccionar siniestro encontrado
+                Thread.sleep(2000);
+                WebElement sencontrado = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
+                sencontrado.click();
+
+            }
+
+
+
+            // case 7
+            if (bean.getCCOMENTARIO().equals("Exportar")) {
+                Thread.sleep(2000);
+                WebElement exportar = driver.findElement(By.xpath("//*[@id=\"buttonExport\"]/span/span"));
+                exportar.click();
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
+                Thread.sleep(4000);
+                WebElement aceptarExp = driver.findElement(By.xpath("//*[@id=\"layoutButton\"]/div/div/div/span/span"));
+                aceptarExp.click();
+                break salida;
+            }
                 Thread.sleep(2000);
                 WebElement ok = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]/span"));
                 ok.click();
 
-            Thread.sleep(30000);
+            if (bean.getCCOMENTARIO().equals("Caso5")) {
+                //caso 5
+                System.out.println("No selecciono siniestro luego de busqueda");
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot6, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                WebElement aceptarError = driver.findElement(By.xpath("//*[@id=\"layoutButton\"]/div/div/div"));
+                aceptarError.click();
+                break salida;
+            }
+
+
+            /////
+            Thread.sleep(6000);
             a.changeLastWindows(driver);
             Thread.sleep(2000);
 
@@ -182,7 +230,7 @@ public class Asesuisa_ManteSiniestro {
             }
 
 
-                if (bean.getCCOMENTARIO() != null) {
+            if (bean.getCCOMENTARIO() != null) {
             WebElement comentario = driver.findElement(By.xpath("//*[@id=\"ClaimComments\"]"));
             comentario.sendKeys(bean.getCCOMENTARIO());
             }
@@ -206,47 +254,7 @@ public class Asesuisa_ManteSiniestro {
         }
     }
 
-   public void AgregarModoPago(Asesuisa_ManteSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
-        try{
-            Thread.sleep(2000);
-            JavascriptExecutor jse = (JavascriptExecutor)driver;
-
-
-          /*//  if (bean.getMododePago() != null){
-                Thread.sleep(1000);
-                Select   tipoT = new Select(driver.findElement(By.xpath("//select[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_RolForm_rolComb']")));
-                tipoT.selectByValue(bean.getMododePago());
-                Thread.sleep(1000);
-
-          //  }*/
-
-
-
-            WebElement Agregar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_RolForm_AddButton']"));
-            Agregar.click();
-
-
-
-
-
-
-            driver.findElement(By.xpath("//*[@id=\"campos_obligatoriosPan\"]/h1/div/label")).click();
-            WebElement guardar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_PanelPayment__Mode_templateContainer_ModeForm_saveButton']"));
-            guardar.click();
-            Thread.sleep(4000);
-
-
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-        }
-
-
-
-    }
 
 
 
