@@ -45,7 +45,7 @@ public class Asesuisa_ManteSiniestro {
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            BusquedaT(bean, a, i, folderName, 3,4,5,6,7,8,9,10);
+            BusquedaT(bean, a, i, folderName, 3,4,5,6,7,8,9,10,11);
 
 
 
@@ -64,8 +64,9 @@ public class Asesuisa_ManteSiniestro {
     }
 
     public void BusquedaT(Asesuisa_ManteSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShot5,
-                          int numScreenShoot6, int numScreenShoot7, int numScreenShoot8) {
+                          int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9) {
 
+        int tamano;
         salida:   try {
 
             Thread.sleep(2000);
@@ -87,6 +88,31 @@ public class Asesuisa_ManteSiniestro {
                 Thread.sleep(1000);
             }
 
+            if (bean.getPRODUCTO() != null) {
+                Thread.sleep(3000);
+                WebElement producto = driver.findElement(By.xpath("//*[@id=\"comboProductoSimpleSearch\"]/div"));
+                producto.click();
+                Thread.sleep(1000);
+                WebElement selectProducto = null;
+                tamano = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
+                System.out.println("Tamaño: " + tamano);
+                for (int j = 1; j < 10; j++) {
+                    Thread.sleep(1000);
+                    selectProducto = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + j + "]/td"));
+                    System.out.println("Elemento recorrido: " + selectProducto.getText());
+
+
+                    if (selectProducto.getText().equals(bean.getPRODUCTO())) {
+
+                        Thread.sleep(1000);
+                        selectProducto.click();
+
+                        break ;
+                    }
+                }
+
+            }
+
 
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
@@ -97,14 +123,16 @@ public class Asesuisa_ManteSiniestro {
             WebElement buscar = driver.findElement(By.xpath("//*[@id=\"buttonBuscar\"]"));
             buscar.click();
 
-            if (bean.getCCOMENTARIO().equals("PorFecha")) {
+            if (bean.getCCOMENTARIO().equals("caso9")) {
                 //CASO 8
-                System.out.println("Busqueda de siniestro por fecha");
+                System.out.println("Busqueda por producto");
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
                 break salida;
             }
+
+
 
                   //CASO 4
             if  ((bean.getNSINIESTRO() == null) && (bean.getNPOLIZA() == null)) {
@@ -129,7 +157,7 @@ public class Asesuisa_ManteSiniestro {
 
              } else {
                 //seleccionar siniestro encontrado
-                Thread.sleep(2000);
+                Thread.sleep(4000);
                 WebElement sencontrado = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
                 sencontrado.click();
 
@@ -146,7 +174,7 @@ public class Asesuisa_ManteSiniestro {
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
                 Thread.sleep(4000);
-                WebElement aceptarExp = driver.findElement(By.xpath("//*[@id=\"layoutButton\"]/div/div/div/span/span"));
+                WebElement aceptarExp = driver.findElement(By.xpath("//*[@id=\"layoutButton\"]/div/div/div"));
                 aceptarExp.click();
                 break salida;
             }
@@ -182,11 +210,20 @@ public class Asesuisa_ManteSiniestro {
             cerrar.click();
             }
 
-            if (bean.getCCOMENTARIO().equals("Siniestro por analisis")) {
+            if ((bean.getCCOMENTARIO().equals("Siniestro por analisis")) && (bean.getPRODUCTO()) == null) {
            //Boton reabrir
-            WebElement reabrir = driver.findElement(By.xpath("/*//*[@id=\"idb_0402006_structure_31\"]"));
+           Thread.sleep(3000);
+            WebElement reabrir = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_31\"]"));
             reabrir.click();
             Thread.sleep(2000);
+            }
+
+            if (bean.getCCOMENTARIO().equals("Siniestro por analisis"))  {
+                //Boton reabrir
+                Thread.sleep(3000);
+                WebElement reabrir = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_30\"]"));
+                reabrir.click();
+                Thread.sleep(2000);
             }
 
             if (bean.getCCOMENTARIO().equals("Siniestro Rechazado")) {
@@ -203,10 +240,16 @@ public class Asesuisa_ManteSiniestro {
 
 
             if (bean.getFOPERACION() != null) {
+                Thread.sleep(4000);
                 WebElement foperacion = driver.findElement(By.xpath("//*[@id=\"OperationDate\"]"));
                 foperacion.sendKeys(bean.getFOPERACION());
                 Thread.sleep(1000);
+            } else {
+                System.out.println("Fecha Vacia");
+
             }
+
+
 
             if (bean.getCCOMENTARIO().equals("Siniestro Revisado")) {
             if (bean.getMRECHAZOCIERRE() != null) {
