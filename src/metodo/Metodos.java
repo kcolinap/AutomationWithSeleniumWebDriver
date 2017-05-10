@@ -108,13 +108,20 @@ public class Metodos {
         Thread.sleep(1000);
         /** Espere **/
         WebElement mensajeEspera = driver.findElement(By.id("waitMessage"));
+        int i = 0;
         while (mensajeEspera.isDisplayed()) {
-            //for (int k = 0; k < 12; k++) {
-                Thread.sleep(5000);
-                System.out.println("Espera " + tipoBusqueda);
-            //}
-            //System.out.println("1 minuto de espera");
-            //break;
+
+            Thread.sleep(5000);
+            i++;
+            System.out.println("Espera " + tipoBusqueda);
+            if (i == 12) {
+                System.out.println("1 minuto de espera");
+            }
+            else if (i == 24){
+                System.out.println("2 minutos de espera");
+                break;
+            }
+
         }
         Thread.sleep(1000);
 
@@ -196,7 +203,7 @@ public class Metodos {
             }
         }
 
-        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Rectangle screenRectangle = new Rectangle(screenSize);
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
