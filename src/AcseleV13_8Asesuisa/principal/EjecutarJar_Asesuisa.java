@@ -573,6 +573,16 @@ public class EjecutarJar_Asesuisa {
                         System.out.println("Numero: " + tercero);
                         prueba = "VistaAsesuisa_SiniestroCrearTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestroCrearTest siniestroCrearTest = new VistaAsesuisa_SiniestroCrearTest();
+                            siniestroCrearTest.setUp(tercero);
+                            siniestroCrearTest.mainTest();
+                            siniestroCrearTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "2": // b. Agregar y rechazar coberturas
                         System.out.println("Numero: " + tercero);

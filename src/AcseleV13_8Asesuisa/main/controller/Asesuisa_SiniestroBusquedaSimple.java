@@ -16,12 +16,12 @@ import sun.awt.windows.ThemeReader;
  */
 public class Asesuisa_SiniestroBusquedaSimple {
 
-   /* private final static Logger log = Logger.getLogger(Asesuisa_SiniestroBusquedaSimple.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_SiniestroBusquedaSimple.class);
 
     public String nombreAutomatizacion = "Busqueda simple de siniestro";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_SiniestroBusquedaSimpleBean asesuisaSiniestroBusquedaSimpleBean, int i,
+    public void testLink(Asesuisa_SiniestroBusquedaSimpleBean bean, int i,
                          String folderName){
         try {
 
@@ -39,7 +39,7 @@ public class Asesuisa_SiniestroBusquedaSimple {
             m.cambiarVentana(driver);
             Thread.sleep(1000);
 
-            BuscarSiniestro(driver, nombreAutomatizacion, 3,4,5,folderName);
+            BuscarSiniestro(driver, nombreAutomatizacion,bean,3,4,5,folderName);
 
             driver.quit();
 
@@ -90,6 +90,9 @@ public class Asesuisa_SiniestroBusquedaSimple {
                 producto = driver.findElement(By.xpath("/*//*[@id=\"comboProductoSimpleSearch\"]/input"));
 
             }
+        }catch (Exception e){
+            e.printStackTrace();e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
-    }*/
+    }
 }
