@@ -1,12 +1,19 @@
 package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CoberturasSiniestroBean;
+
+
+import metodo.Metodos;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
+
 import java.util.*;
 
 /**
  * Created by kcolina on 05/05/2017.
  */
-public class Asesuisa_CoberturasSiniestro {
+public class Asesuisa_CoberturasSiniestro extends As{
 
     public void testLink(){
 
