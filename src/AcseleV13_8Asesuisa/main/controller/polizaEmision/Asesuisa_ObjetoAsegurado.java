@@ -310,7 +310,7 @@ public class Asesuisa_ObjetoAsegurado {
                 else if (bean.getAsegurado2Nombre1() != null && bean.getAsegurado2Nombre2() == null && bean.getAsegurado2Apellido1() != null && bean.getAsegurado2Apellido2() == null) {
                     asegurado.sendKeys(bean.getAsegurado2Nombre1() + " " + bean.getAsegurado2Apellido1());
                 }
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 asegurado.sendKeys(Keys.ARROW_DOWN);
                 Thread.sleep(500);
                 asegurado.sendKeys(Keys.ENTER);

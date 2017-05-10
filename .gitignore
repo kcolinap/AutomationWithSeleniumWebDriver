@@ -9,6 +9,9 @@ out
 gen
 workspace.xml
 #.idea/artifacts/AutomationTestAcsele_jar.xml
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/dataSources.xml
 
 # Package Files #
 #.jar

@@ -74,7 +74,8 @@ public class Asesuisa_FinalizarPoliza {
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
                 Toolkit.getDefaultToolkit().beep();
 
-                WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton"));
+                Thread.sleep(2000);
+                WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
                 btnContinuar.click();
 
             }

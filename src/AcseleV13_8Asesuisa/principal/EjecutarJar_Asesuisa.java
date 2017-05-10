@@ -527,6 +527,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "3": // c. Inclusión de varios OA
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "public class VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest {\n";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest polizaEmisionVariosOAAutomotoresTest = new VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest();
+                            polizaEmisionVariosOAAutomotoresTest.setUp(tercero);
+                            polizaEmisionVariosOAAutomotoresTest.mainTest();
+                            polizaEmisionVariosOAAutomotoresTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "4": // d. Inclusión de varios UR
                         System.out.println("Numero: " + tercero);

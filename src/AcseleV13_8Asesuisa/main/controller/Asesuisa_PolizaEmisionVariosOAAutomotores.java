@@ -1,27 +1,25 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAAutomotoresBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_InformacionGeneralPoliza;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_PrePoliza;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_Tomador;
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.*;
-
 import metodo.Metodos;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
- * Created by agil on 21/02/2017.
+ * Created by agil on 10/05/2017.
  */
-public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
+public class Asesuisa_PolizaEmisionVariosOAAutomotores {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAVidaIntegral.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAAutomotores.class);
 
-    public String nombreAutomatizacion = "Asesuisa Poliza Emision Varios OA Vida Integral";
+    public String nombreAutomatizacion = "Asesuisa Emision Poliza con Varios OA";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_PolizaEmisionVariosOAVidaIntegralBean bean, int i, String folderName){
+    public void testLink(Asesuisa_PolizaEmisionVariosOAAutomotoresBean bean, int i, String folderName){
 
         try {
 
@@ -55,7 +53,7 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             Thread.sleep(2000);
             prePoliza.EvAplicar(a, driver, bean, nombreAutomatizacion, i, folderName, 4);
             Thread.sleep(2000);
-            informacionGeneralPoliza.InformacionGeneralVidaIntegral(a, driver, bean, nombreAutomatizacion, i, folderName, 4, 5, 6);
+            informacionGeneralPoliza.InformacionGeneralAutomotores(a, driver, bean, nombreAutomatizacion, i, folderName, 4, 5, 6);
             Thread.sleep(2000);
             tomador.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 7, 8);
             Thread.sleep(2000);
@@ -67,17 +65,24 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             Thread.sleep(2000);
             objetoAsegurado.Requisitos1(a, driver, bean, nombreAutomatizacion, i, folderName, 13);
             Thread.sleep(2000);
-            objetoAsegurado.ObjetoAsegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 14);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 14);
             Thread.sleep(2000);
-            objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 15, 16);
-            Thread.sleep(2000);
-            objetoAsegurado.Requisitos2(a, driver, bean, nombreAutomatizacion, i, folderName, 17);
-            Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 18);
-            Thread.sleep(2000);
-            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 19);
-            Thread.sleep(2000);
-            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 20);
+
+            boolean prueba = driver.findElements(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']")).size() > 0;
+
+            if (!prueba) {
+
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + 15, nombreAutomatizacion, folderName);
+                System.out.println("failed");
+            }
+            else {
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + 15, nombreAutomatizacion, folderName);
+                WebElement mensaje = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']"));
+                System.out.println("Mensaje: " + mensaje.getText());
+            }
+
 
 //            driver.quit();
 
