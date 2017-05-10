@@ -131,6 +131,19 @@ public class Asesuisa_CajaFactAgrup {
                 Thread.sleep(1000);
             }
 
+            // AQUI
+            // Mensajes de Alerta JavaScript
+            if (ExpectedConditions.alertIsPresent() != null) {
+                Thread.sleep(1000);
+                Alert alert = driver.switchTo().alert();
+                String alertmess = alert.getText();
+                alert.accept();
+                System.out.println(alertmess);
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
+
 
             // ***** Pestaña  Ingreso de caja *****
             driver.findElement(By.xpath("//*[@id=\"link_caja\"]/a")).click();
