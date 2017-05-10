@@ -4,10 +4,8 @@ import AcseleV13_8Asesuisa.beans.Asesuisa_CajaFactAgrupBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -49,7 +47,7 @@ public class Asesuisa_CajaFactAgrup {
 
             /** Pagos Caja Facturas Agrupadas*/
 
-            FactAgrupCaja(bean, a, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+            FactAgrupCaja(bean, a, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
             Thread.sleep(5000);
 
             //driver.quit();
@@ -63,7 +61,7 @@ public class Asesuisa_CajaFactAgrup {
         }
     }
 
-    public void FactAgrupCaja(Asesuisa_CajaFactAgrupBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10, int numScreenShoot11){
+    public void FactAgrupCaja(Asesuisa_CajaFactAgrupBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10, int numScreenShoot11, int numScreenShoot12){
 
         WebElement indextr;
         String monto = null;
@@ -105,7 +103,6 @@ public class Asesuisa_CajaFactAgrup {
                 driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[7]/a")).click();
                 Thread.sleep(1000);
 
-                // AQUI
                 int tamanotr = driver.findElements(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr")).size();
                 System.out.println("Numero de lineas: " + tamanotr);
                 // Busca la poliza de la primera compañia
@@ -125,6 +122,7 @@ public class Asesuisa_CajaFactAgrup {
                         break;
                     }
                 }
+
 
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
@@ -280,13 +278,10 @@ public class Asesuisa_CajaFactAgrup {
             Thread.sleep(1000);
 
 
-            driver.findElement(By.xpath("//*[@id=\"AAAAA\"]")).click();
-
-
             // Boton Finalizar transaccion
             if(bean.getTipotran().equals("Pago")) {
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayment_04\"]")).click();
-                Thread.sleep(10000);
+                Thread.sleep(20000);
                 // Seleccionar radio button Numero de factura 1
                 driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
                 // Seleccionar radio button Numero de factura 2
@@ -301,6 +296,12 @@ public class Asesuisa_CajaFactAgrup {
                 a.changeLastWindows(driver);
                 Thread.sleep(2000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot11, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // LA otra pantalla de factura
+                Thread.sleep(2000);
+                a.changeLastWindows(driver);
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot12, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
                 // cierra la ventana de factura
                 driver.close();
