@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!-- Caso : Busqueda por nro de siniestro existente en estatus rechazado. Resultado esperado: mensaje de alerta-->
+  <ASESUISA_COBERTURA_SINIESTRO PRUEBA="1" NROSINIESTRO="1010101010" NROPOLIZA=""
+                                FECHAOCURRENCIA="" PRODUCTO=""/>
+</dataset>

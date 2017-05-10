@@ -52,13 +52,14 @@ public class VistaAsesuisa_CoberturasSiniestroTest {
     @Before
     public void setUp(String num) throws Exception {
 
-        DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_COBERTURA_SINIESTRO ORDER BY PRUEBA ASC",
+       /* DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_COBERTURA_SINIESTRO ORDER BY PRUEBA ASC",
                 "ASESUISA_COBERTURA_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCoberturasSiniestro_dataset"+num+".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_COBERTURA_SINIESTRO ORDER BY PRUEBA ASC",
                 "ASESUISA_COBERTURA_SINIESTRO",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCoberturasSiniestro_dataset"+num+".xml");
+*/
 
         DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCoberturasSiniestro_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
 
