@@ -2,12 +2,16 @@ package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CajaPagosBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
+import com.sun.istack.internal.NotNull;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -106,6 +110,10 @@ public class Asesuisa_CajaPagos {
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
                 Thread.sleep(1000);
+
+                // Mensajes de Alerta JavaScript 2
+                a.alertJavaScriptAceptar(driver);
+
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
@@ -210,7 +218,7 @@ public class Asesuisa_CajaPagos {
                 driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
                 Thread.sleep(1000);
             }
-            else if (bean.getTipopago().equals("Tarjeta de D?bito o Cr?dito")) {
+            else if (bean.getTipopago().equals("Tarjeta de Débito o Crédito")) {
                 // Tipo de Tarjeta
                 Select tipot = new Select(driver.findElement(By.xpath("//*[@id=\"TipoTarjeta\"]")));
                 tipot.selectByVisibleText(bean.getTipotarj());
@@ -276,25 +284,6 @@ public class Asesuisa_CajaPagos {
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
-
-            /*
-            Thread.sleep(10000);
-            // Seleccionar radio button Numero de factura
-            driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
-            //Seleccionar boton imprimir factura
-            driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_09\"]")).click();
-            // Factura
-            Thread.sleep(2000);
-            a.changeLastWindows(driver);
-            Thread.sleep(2000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
-            // cierra la ventana de factura
-            driver.close();
-            */
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -21,8 +21,8 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "system";//"agil";
-    private String pass = "consis";//"a123456";
+    private String user = "cgarcia";//"agil";
+    private String pass = "cgarcia";//"a123456";
     private String acselUrl;
 
     public String test(WebDriver driver){
@@ -339,6 +339,37 @@ public class Metodos {
 
     public WebDriver getDriver() {
         return threadDriver.get();
+    }
+
+    public boolean isAlertPresent(WebDriver driver)
+    {
+        try
+        {
+            driver.switchTo().alert();
+            return true;
+        }   // try
+        catch (NoAlertPresentException Ex)
+        {
+            return false;
+        }   // catch
+    }   // isAlertPresent()
+
+    public void alertJavaScriptAceptar(WebDriver driver){
+
+        try {
+            // Mensajes de Alerta JavaScript
+            if(isAlertPresent(driver)){
+                Alert alert = driver.switchTo().alert();
+                String alertmess = alert.getText();
+                alert.accept();
+                System.out.println(alertmess);
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

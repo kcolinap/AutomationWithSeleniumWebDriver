@@ -104,8 +104,7 @@ public class Asesuisa_CajaFactAgrup {
                 Thread.sleep(1000);
 
                 int tamanotr = driver.findElements(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr")).size();
-                System.out.println("Numero de lineas: " + tamanotr);
-                // Busca la poliza de la primera compañia
+                // Selecciona la cuota de la primera compañia
                 for (j = 4; j < (tamanotr+1); j++) {
                     poliza = driver.findElement(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr["+j+"]/td[4]")).getText();
                     if(poliza.equals(bean.getPoliza())) {
@@ -114,7 +113,7 @@ public class Asesuisa_CajaFactAgrup {
                     }
                 }
 
-                // Busca la poliza de la segunda compañia
+                // Selecciona la cuota de la segunda compañia
                 for (j = 4; j < (tamanotr+1); j++) {
                     poliza = driver.findElement(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr["+j+"]/td[4]")).getText();
                     if(poliza.equals(bean.getPoliza2())) {
@@ -123,26 +122,16 @@ public class Asesuisa_CajaFactAgrup {
                     }
                 }
 
-
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
+
+                // Mensajes de Alerta JavaScript 2
+                a.alertJavaScriptAceptar(driver);
+
                 Thread.sleep(2000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
-
-            // AQUI
-            // Mensajes de Alerta JavaScript
-            if (ExpectedConditions.alertIsPresent() != null) {
-                Thread.sleep(1000);
-                Alert alert = driver.switchTo().alert();
-                String alertmess = alert.getText();
-                alert.accept();
-                System.out.println(alertmess);
-                Thread.sleep(1000);
-                driver.switchTo().defaultContent();
-            }
-
 
 
             // ***** Pestaña  Ingreso de caja *****
@@ -242,7 +231,7 @@ public class Asesuisa_CajaFactAgrup {
                 driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
                 Thread.sleep(1000);
             }
-            else if (bean.getTipopago().equals("Tarjeta de D?bito o Cr?dito")) {
+            else if (bean.getTipopago().equals("Tarjeta de Débito o Crédito")) {
                 // Tipo de Tarjeta
                 Select tipot = new Select(driver.findElement(By.xpath("//*[@id=\"TipoTarjeta\"]")));
                 tipot.selectByVisibleText(bean.getTipotarj());
@@ -275,20 +264,22 @@ public class Asesuisa_CajaFactAgrup {
             Thread.sleep(1000);
 
 
-
-            // AQUI
             // ***** Pestaña Aplicar Pagos  *****
             Thread.sleep(1000);
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
-            // Primera parte de la Pantalla
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
-            // Segunda parte de la Pantalla
-            jse.executeScript("window.scrollBy(0,800)", "");
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
+            // AQUI
+            if(bean.getTipotran().equals("Pago")) {
+
+                // Primera parte de la Pantalla
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // Segunda parte de la Pantalla
+                jse.executeScript("window.scrollBy(0,800)", "");
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            }
 
 
             // Boton Finalizar transaccion
@@ -310,7 +301,10 @@ public class Asesuisa_CajaFactAgrup {
                 Thread.sleep(2000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot11, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
-                // LA otra pantalla de factura
+                // cierra la ventana de factura
+                driver.close();
+
+                // La otra pantalla de factura
                 Thread.sleep(2000);
                 a.changeLastWindows(driver);
                 Thread.sleep(2000);
