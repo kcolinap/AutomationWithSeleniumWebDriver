@@ -100,7 +100,7 @@ public class Asesuisa_SiniestroCrear {
 
             //Id poliza
             if (bean.getNroPoliza()!=null){
-                WebElement nroPoliza = driver.findElement(By.xpath("html/body/table/tbody/tr[3]/td/table/tbody/tr[2]/td/table/tbody/tr[9]/td/form/div/div[1]/div/table[2]/tbody/tr/td[3]/font/input[1]"));
+                WebElement nroPoliza = driver.findElement(By.xpath("html/body/table/tbody/tr[3]/td/table/tbody/tr[2]/td/table[3]/tbody/tr/td[3]/font/input[1]"));
                 nroPoliza.sendKeys(bean.getNroPoliza());
                 Thread.sleep(1500);
             }
@@ -114,7 +114,7 @@ public class Asesuisa_SiniestroCrear {
             Thread.sleep(800);
 
             //Boton buscar
-            WebElement btnBuscar = driver.findElement(By.xpath("html/body/table/tbody/tr[4]/td/input[1]"));
+            WebElement btnBuscar = driver.findElement(By.xpath("html/body/input[3]"));
             btnBuscar.click();
             //m.waitSearchWicket(driver, ". Buscando poliza");
             Thread.sleep(2000);
@@ -259,7 +259,7 @@ public class Asesuisa_SiniestroCrear {
             int campoFaltante=0;
 
             //pantallazo
-            m.ScreenShotPool(driver, i, "screen8", nombreAutomatizacion, folderName);
+            m.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
             Thread.sleep(800);
 
             //Boton Agregar

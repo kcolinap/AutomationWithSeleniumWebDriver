@@ -189,14 +189,37 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
                     divSiniestro.click();
                     Thread.sleep(800);
 
+                    //Valido el estatus del siniestro
+                    String lblEstatus = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[3]/div/div[1]/div/div[3]/div[1]/table/tbody/tr/td[3]/div")).getText();
+                    if (lblEstatus.equals("Rechazado")){
+                        System.out.println("Siniestro con estatus: "+lblEstatus+". No se puede continuar con la operacion");
+                        //Pantallazo
+                        m.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion,folderName);
+                        Thread.sleep(800);
+                        siniestroEncontrado=0;
+                        break salidaBusqueda;
+                    }else if ( lblEstatus.equals("")){
+                        //Pantallazo
+                        m.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion,folderName);
+                        Thread.sleep(800);
+                        siniestroEncontrado=0;
+                        break salidaBusqueda;
+                    }
+
                     //Pantallazo
                     m.ScreenShotPool(driver,i,"screen4",nombreAutomatizacion,folderName);
                     Thread.sleep(800);
 
+                    //Boton OK
+                    WebElement btnOk = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[5]/div/div/div[1]/div/span"));
+                    btnOk.click();
+                    Thread.sleep(4000);
+
+                    break;
+
                 default:
                     break;
             }
-            System.out.println("Entre al metodo busqueda");
         }catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
