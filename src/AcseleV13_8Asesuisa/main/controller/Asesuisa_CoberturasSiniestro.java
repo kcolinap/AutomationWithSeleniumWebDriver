@@ -1,12 +1,15 @@
 package AcseleV13_8Asesuisa.main.controller;
 
 import AcseleV13_8Asesuisa.beans.Asesuisa_CoberturasSiniestroBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_SiniestroCrearBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
 
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.*;
 
@@ -20,6 +23,7 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
     public String nombreAutomatizacion = "Agregar-Rechazar Cobertura";
     private WebDriver driver;
     private int siniestroEncontrado=0;
+
 
     public void testLink(Asesuisa_CoberturasSiniestroBean bean, int i, String folderName){
 
@@ -89,7 +93,7 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
     public void BuscarSiniestro(WebDriver driver, Asesuisa_CoberturasSiniestroBean bean,
                                 String nombreAutomatizacion, Metodos m, int i, String folderName){
         salidaBusqueda:try {
-
+            WebDriverWait wait = new WebDriverWait(driver, 10);
             int camino;
             //Evaluo los campos
 
@@ -99,6 +103,12 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
             }else{
                 camino=2;
             }
+
+
+            Thread.sleep(4000);
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div[3]/div/span")));
+            Thread.sleep(2000);
 
             //boton buscar
             WebElement btnBuscar= driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div[3]/div/span/span"));
@@ -214,6 +224,29 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
                     WebElement btnOk = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div/div/div[5]/div/div/div[1]/div/span"));
                     btnOk.click();
                     Thread.sleep(4000);
+
+                    //Pantalla siniestro
+
+                    //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("html/body/div[13]/form[1]/div[2]/input[1]")));
+                    Thread.sleep(2000);
+                    m.changeLastWindows(driver);
+                    Thread.sleep(2000);
+
+                    //Pantallazo
+                    m.ScreenShotPool(driver,i,"screen5",nombreAutomatizacion,folderName);
+                    Thread.sleep(800);
+
+                    //Evaluo si hay objeto afectado agregado
+                    if ((driver.findElements(By.xpath("html/body/div[13]/form[1]/div[1]/select/option")).size()==0)){
+                        System.out.println("No se ha agregado objeto afectado. No se puede continuar con la operacion");
+                        siniestroEncontrado=0;
+                        break salidaBusqueda;
+                    }
+
+                    //Agrego la cobertura
+                    Asesuisa_SiniestroCrearBean bean2 = new Asesuisa_SiniestroCrearBean();
+                    AgregarCobertura(driver,bean2,i,m,nombreAutomatizacion,folderName);
+                    Thread.sleep(1500);
 
                     break;
 

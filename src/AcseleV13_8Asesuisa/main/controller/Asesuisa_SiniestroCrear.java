@@ -55,7 +55,7 @@ public class Asesuisa_SiniestroCrear {
                     Thread.sleep(800);
 
                     //pantallazo
-                    m.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion, folderName);
+                    m.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion, folderName);
                     Thread.sleep(800);
 
                     /*AgregarCobertura(driver, bean, i,m,nombreAutomatizacion,folderName);
@@ -83,7 +83,7 @@ public class Asesuisa_SiniestroCrear {
                              String folderName, Metodos m){
         salida: try{
 
-            Thread.sleep(2500);
+            Thread.sleep(5000);
             //Ordenar por
             if (bean.getOrdenarPor()!=null){
                 Select ordenarPor = new Select(driver.findElement(By.xpath("html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td[2]/select")));
@@ -117,7 +117,7 @@ public class Asesuisa_SiniestroCrear {
             WebElement btnBuscar = driver.findElement(By.xpath("html/body/input[3]"));
             btnBuscar.click();
             //m.waitSearchWicket(driver, ". Buscando poliza");
-            Thread.sleep(2000);
+            Thread.sleep(4000);
 
             //Evaluo si hay mensaje de error
             boolean existe = (driver.findElements(By.xpath("html/body/div[4]/center/table[2]/tbody/tr/td")).size()>0);
@@ -213,8 +213,8 @@ public class Asesuisa_SiniestroCrear {
 
             //Recorrro los eventos disponibles hasta encontrar el establecido en el xml
 
-            int nroFilasEventos=driver.findElements(By.xpath("html/body/center/form/table[2]")).size();
-            for (int k=2; i<nroFilasEventos; k++){
+            int nroFilasEventos=driver.findElements(By.xpath("html/body/center/form/table[2]/tbody/tr")).size();
+            for (int k=2; k<nroFilasEventos; k++){
                 if (bean.getEventoSiniestro()!=null){
                     if ( (driver.findElement(By.xpath("html/body/center/form/table[2]/tbody/tr[" + (k+1) +"]/td[2]")).getText().equals(bean.getEventoSiniestro())) ){
                         driver.findElement(By.xpath("html/body/center/form/table[2]/tbody/tr[" + (k+1) + "]/td[1]/input")).click();
@@ -242,7 +242,7 @@ public class Asesuisa_SiniestroCrear {
             //Boton aceptar
             WebElement btnAceptar = driver.findElement(By.xpath("html/body/div[4]/center/table/tbody/tr[2]/td[2]/input[3]"));
             btnAceptar.click();
-            Thread.sleep(3500);
+            Thread.sleep(5000);
 
 
         }catch (Exception e) {
@@ -281,7 +281,7 @@ public class Asesuisa_SiniestroCrear {
                 String starString= new SimpleDateFormat("dd/MM/yyyy").format(fecha);
                 fechaN = driver.findElement(By.xpath("html/body/div[1]/form/table[2]/tbody/tr/td[3]/font/input[1]"));
                 fechaN.sendKeys(starString);
-                Thread.sleep(1500);
+                    Thread.sleep(1500);
             }else{
                 fechaN = driver.findElement(By.xpath("html/body/div[1]/form/table[2]/tbody/tr/td[3]/font/input[1]"));
                 fechaN.sendKeys(bean.getFechaNotificacion());//fechaO.sendKeys(bean.getFechaOcurrencia());
@@ -336,7 +336,7 @@ public class Asesuisa_SiniestroCrear {
 
 
             //pantallazo
-            m.ScreenShotPool(driver, i, "screen9", nombreAutomatizacion, folderName);
+            m.ScreenShotPool(driver, i, "screen10", nombreAutomatizacion, folderName);
             Thread.sleep(800);
 
             /**
@@ -407,17 +407,46 @@ public class Asesuisa_SiniestroCrear {
                                  String nombreAutomatizacion, String folderName){
         try {
             //Boton agregar
-            WebElement btnAgregar = driver.findElement(By.xpath("html/body/div[13]/form[2]/div[2]/input[1]"));
+
+            WebElement btnAgregar = driver.findElement(By.xpath("html/body/div[13]/form[2]/div[3]/input[1]"));
             btnAgregar.click();
-            Thread.sleep(4000);
+            Thread.sleep(5000);
+
+            //Establecer monto
+            String txtFrase=driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[1]/td[2]/font")).getText();
+            StringTokenizer tokens = new StringTokenizer(txtFrase);
+            String aux="";
+            float nro;
+
+            for (int k=0; k<3; k++){
+
+                if (k==0){
+                    aux=tokens.nextToken();
+                    break;
+                }
+                tokens.nextToken();
+            }
+
+            nro=Float.valueOf(aux);
+            nro=(nro+500);
+            int nro2 = (int)nro;
+            String nroText=Float.toString(nro);
+
 
             //Pago maximo
+            WebElement pagoMaximo = driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[3]/td[2]/input"));
             if (bean.getPagoMaximo()!=null){
-                WebElement pagoMaximo = driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[3]/td[2]/input"));
+
                 pagoMaximo.clear();
                 Thread.sleep(800);
                 //pagoMaximo=driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[3]/td[2]/input"));
                 pagoMaximo.sendKeys(bean.getPagoMaximo());
+                Thread.sleep(1500);
+            }else{
+                pagoMaximo.clear();
+                Thread.sleep(800);
+                //pagoMaximo=driver.findElement(By.xpath("html/body/div[14]/div[2]/form/center/table/tbody[2]/tr[3]/td[2]/input"));
+                pagoMaximo.sendKeys(nroText);
                 Thread.sleep(1500);
             }
 
@@ -427,7 +456,7 @@ public class Asesuisa_SiniestroCrear {
             Thread.sleep(800);
 
             //Pantallazo
-            m.ScreenShotPool(driver, i, "screen11", nombreAutomatizacion, folderName);
+            m.ScreenShotPool(driver, i, "screen6", nombreAutomatizacion, folderName);
             Thread.sleep(800);
 
             //Boton enviar
@@ -445,6 +474,10 @@ public class Asesuisa_SiniestroCrear {
             }
 
             Thread.sleep(3000);
+
+            //Pantallazo
+            m.ScreenShotPool(driver, i, "screen7", nombreAutomatizacion, folderName);
+            Thread.sleep(800);
 
         }catch (Exception e) {
             e.printStackTrace();
