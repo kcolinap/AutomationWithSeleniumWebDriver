@@ -50,13 +50,13 @@ public class Asesuisa_CajaFactAgrup {
             FactAgrupCaja(bean, a, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
             Thread.sleep(5000);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
@@ -268,12 +268,14 @@ public class Asesuisa_CajaFactAgrup {
             Thread.sleep(1000);
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
             // AQUI
-            if(bean.getTipotran().equals("Pago")) {
+            //if(bean.getTipotran().equals("Pago")) {
 
                 // Primera parte de la Pantalla
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
+
+            if(bean.getTipotran().equals("Pago")) {
                 // Segunda parte de la Pantalla
                 jse.executeScript("window.scrollBy(0,800)", "");
                 Thread.sleep(1000);
@@ -315,7 +317,7 @@ public class Asesuisa_CajaFactAgrup {
             }
             else if(bean.getTipotran().equals("Prima depósito")) {
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_05\"]")).click();
-                Thread.sleep(10000);
+                Thread.sleep(15000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
