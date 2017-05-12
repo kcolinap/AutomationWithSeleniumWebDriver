@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!-- Caso 4: Busqueda por nro de siniestro existente en estatus abierto, sin objeto afectado.
+    Resultado esperado: no se puede continuar la operacion-->
+  <ASESUISA_COBERTURA_SINIESTRO PRUEBA="1" NROSINIESTRO="09-01-0301-00000722198" NROPOLIZA=""
+                                FECHAOCURRENCIA="" PRODUCTO=""/>
+</dataset>

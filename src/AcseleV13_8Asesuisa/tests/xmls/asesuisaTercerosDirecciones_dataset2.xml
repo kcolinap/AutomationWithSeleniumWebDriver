@@ -3,7 +3,7 @@
     <!--Casop 2: agregar direccion a tercero juridico. Resultado esperado: exitoso-->
   <asesuisa_terceros_dir PRUEBA="1" TIPOTERCERO="LegalPerson"
                          PRIMERNOMBRE="" PRIMERAPELLIDO="" NUMERODOCUMENTO=""
-                         PAIS="755505" DPTO="895477" MUNICIPIO="105.0" AVENIDA="PRINCIPAL DE tumeremo"
+                         PAIS="923246" DPTO="923480" MUNICIPIO="179.0" AVENIDA="PRINCIPAL DE tumeremo"
                          DIRCOMPLETA="AL LADO DEL BANCO" CODIGOIDENTIFICADOR=""
                          RAZONSOCIAL="ASEGURADORA SUIZA SALVADOREÑA, S.A." NIT="" NRC="2550"/>
 </dataset>
