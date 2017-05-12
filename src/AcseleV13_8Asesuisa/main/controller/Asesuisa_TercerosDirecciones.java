@@ -113,10 +113,11 @@ public class Asesuisa_TercerosDirecciones {
             //Boton agregar direccion
             WebElement btnAgregar = driver.findElement(By.xpath("//input[@wicketpath='ThirdInformationContent_thirdInformation_panelAddress_formThirdAddress_AddButton']"));
             btnAgregar.click();
+            m.waitSearchWicket(driver, " Agregando direccion");
             Thread.sleep(1200);
 
-           /* jse.executeScript("window.scrollBy(0,290)", "");
-            Thread.sleep(1500);*/
+            jse.executeScript("window.scrollBy(0,290)", "");
+            Thread.sleep(1500);
 
             ///////////////////////////////////////////
             //LLenado del formulario direcciones

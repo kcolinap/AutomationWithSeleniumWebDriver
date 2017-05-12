@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <!-- Caso 1: Busqueda sin llenar ningun campo. Resultado esperado: mensaje de alerta-->
+  <ASESUISA_COBERTURA_SINIESTRO PRUEBA="1" NROSINIESTRO="" NROPOLIZA=""
+                                FECHAOCURRENCIA="" PRODUCTO=""/>
+</dataset>
