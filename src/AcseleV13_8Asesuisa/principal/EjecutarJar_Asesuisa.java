@@ -12,6 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
+
         args = new String[]{"10", "6", "3"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
@@ -477,6 +478,21 @@ public class EjecutarJar_Asesuisa {
                             cajaPagosTest.setUp(tercero);
                             cajaPagosTest.mainTest();
                             cajaPagosTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+                        break;
+                    case "11": // j. Pagos en caja Facturas por Agrupacion
+                        System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_CajaFactAgrupTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_CajaFactAgrupTest cajaFactAgrupTest = new VistaAsesuisa_CajaFactAgrupTest();
+                            cajaFactAgrupTest.setUp(tercero);
+                            cajaFactAgrupTest.mainTest();
+                            cajaFactAgrupTest.tearDown(tercero);
                         } catch (Exception e) {
                             e.printStackTrace();
                             log.error("Test Case - " + prueba + " - " + e);

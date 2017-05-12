@@ -1,32 +1,24 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_CajaPagosBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_CajaFactAgrupBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import com.sun.istack.internal.NotNull;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
- * Created by aandrade on 26/04/2017.
+ * Created by aandrade on 03/05/2017.
  */
-public class Asesuisa_CajaPagos {
+public class Asesuisa_CajaFactAgrup {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_CajaPagos.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_CajaFactAgrup.class);
 
-    public String nombreAutomatizacion = "Asesuisa Caja Pagos";
+    public String nombreAutomatizacion = "Asesuisa Caja Facturas Agrup";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_CajaPagosBean bean, int i, String folderName){
+    public void testLink(Asesuisa_CajaFactAgrupBean bean, int i, String folderName){
 
         try {
 
@@ -53,9 +45,9 @@ public class Asesuisa_CajaPagos {
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            /** Pagos Caja*/
+            /** Pagos Caja Facturas Agrupadas*/
 
-            PagosCaja(bean, a, i, folderName, 3, 4, 5, 6, 7,8,9,10,11,12);
+            FactAgrupCaja(bean, a, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
             Thread.sleep(5000);
 
             //driver.quit();
@@ -69,18 +61,26 @@ public class Asesuisa_CajaPagos {
         }
     }
 
-    public void PagosCaja(Asesuisa_CajaPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10){
+    public void FactAgrupCaja(Asesuisa_CajaFactAgrupBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10, int numScreenShoot11, int numScreenShoot12){
 
         WebElement indextr;
-        String monto=null;
+        String monto = null;
+        String poliza = null;
+        int j = 0;
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         try {
 
-            // Ingresa Poliza a gestionar y presiona el boton Aceptar
-            WebElement descripcion = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table/tbody/tr[4]/td[2]/input"));
-            descripcion.sendKeys(bean.getPoliza());
+            // Ingresa Tercero a gestionar y presiona el boton Aceptar
+            WebElement tercero = driver.findElement(By.xpath("//*[@id=\"thirdPartyName\"]"));
+            tercero.sendKeys(bean.getTercero());
+            driver.findElement(By.xpath("//*[@name=\"policyNumber\"]")).click(); // /html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table/tbody/tr[4]/td[2]/input
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_thirdPartySelection_01\"]")).click();
             Thread.sleep(1000);
+
 
             // ***** Pestaña Seleccion de tercero *****
             // Tipo de transaccion
@@ -90,30 +90,45 @@ public class Asesuisa_CajaPagos {
             // Selecciona Radio Boton ID del Tercero
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table[2]/tbody/tr[4]/td[1]/input")).click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // Clic en Boton Seleccione el tercero
             driver.findElement(By.xpath("//*[@id=\"idb_040203703_thirdPartySelection_02\"]")).click();
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
             if(bean.getTipotran().equals("Pago")) {
                 // ***** Pestaña  Estado de cuenta *****
                 driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[7]/a")).click();
                 Thread.sleep(1000);
-                // Selecciona la cuota
-                driver.findElement(By.xpath("//*[@id=\"openItemID22050\"]")).click();
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
+
+                int tamanotr = driver.findElements(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr")).size();
+                // Selecciona la cuota de la primera compañia
+                for (j = 4; j < (tamanotr+1); j++) {
+                    poliza = driver.findElement(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr["+j+"]/td[4]")).getText();
+                    if(poliza.equals(bean.getPoliza())) {
+                        driver.findElement(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr["+j+"]/td[1]")).click();
+                        break;
+                    }
+                }
+
+                // Selecciona la cuota de la segunda compañia
+                for (j = 4; j < (tamanotr+1); j++) {
+                    poliza = driver.findElement(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr["+j+"]/td[4]")).getText();
+                    if(poliza.equals(bean.getPoliza2())) {
+                        driver.findElement(By.xpath("//*[@id=\"accountStatusTable\"]/tbody/tr["+j+"]/td[1]")).click();
+                        break;
+                    }
+                }
+
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
-                Thread.sleep(1000);
 
                 // Mensajes de Alerta JavaScript 2
                 a.alertJavaScriptAceptar(driver);
 
+                Thread.sleep(2000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
@@ -137,9 +152,7 @@ public class Asesuisa_CajaPagos {
                 }
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_cashierRegisterReception_01\"]")).click();
-                //Thread.sleep(1000);
-                //a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-                //Thread.sleep(1000);
+
                 // Selecciona el boton Aceptar
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
@@ -234,7 +247,6 @@ public class Asesuisa_CajaPagos {
                 driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
             }
 
-
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot6, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
@@ -255,17 +267,31 @@ public class Asesuisa_CajaPagos {
             // ***** Pestaña Aplicar Pagos  *****
             Thread.sleep(1000);
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[17]/a")).click();
-            Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
+            // AQUI
+            if(bean.getTipotran().equals("Pago")) {
+
+                // Primera parte de la Pantalla
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // Segunda parte de la Pantalla
+                jse.executeScript("window.scrollBy(0,800)", "");
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+            }
+
+
             // Boton Finalizar transaccion
             if(bean.getTipotran().equals("Pago")) {
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayment_04\"]")).click();
-                Thread.sleep(10000);
-                // Seleccionar radio button Numero de factura
+                Thread.sleep(20000);
+                // Seleccionar radio button Numero de factura 1
                 driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
+                // Seleccionar radio button Numero de factura 2
+                driver.findElement(By.xpath("//*[@id=\"receiptIndex1\"]")).click();
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
                 //Seleccionar boton imprimir factura
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_09\"]")).click();
@@ -273,7 +299,16 @@ public class Asesuisa_CajaPagos {
                 Thread.sleep(2000);
                 a.changeLastWindows(driver);
                 Thread.sleep(2000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot11, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // cierra la ventana de factura
+                driver.close();
+
+                // La otra pantalla de factura
+                Thread.sleep(2000);
+                a.changeLastWindows(driver);
+                Thread.sleep(2000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot12, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
                 // cierra la ventana de factura
                 driver.close();
@@ -281,7 +316,7 @@ public class Asesuisa_CajaPagos {
             else if(bean.getTipotran().equals("Prima depósito")) {
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayments_05\"]")).click();
                 Thread.sleep(10000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
             }
 
