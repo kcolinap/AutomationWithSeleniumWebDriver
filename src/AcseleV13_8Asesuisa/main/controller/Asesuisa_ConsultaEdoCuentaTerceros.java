@@ -25,6 +25,7 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
             Asesuisa_MenuConsultas menuConsultas  = new Asesuisa_MenuConsultas();
             Select tipoT;
 
+
             driver= m.entrarPagina(m.UrlAsesuisa());
             m.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             m.ValidandoSesion(driver,nombreAutomatizacion, i, folderName);
@@ -33,8 +34,21 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
             //Ingreso a la opcion estado de cuenta
             menuConsultas.EstadoCuentas(driver, nombreAutomatizacion, 2,i,folderName);
             Thread.sleep(1200);
+           if (alertPresente(driver)){
+                driver.switchTo().alert();
+                driver.switchTo().alert().accept();
+                driver.switchTo().defaultContent();
+                Thread.sleep(800);
+            }
+           // driver.switchTo().alert().accept();
             m.cambiarVentana(driver);
             Thread.sleep(1000);
+
+            //Alert alert= driver.switchTo().alert();
+            //Mensaje de alerta
+
+
+
 
             //Validar tipo tercero
             if (asesuisaConsultaEdoCuentaTercerosBean.getTipoTercero()!=null){

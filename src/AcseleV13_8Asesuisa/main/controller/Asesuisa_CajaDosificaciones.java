@@ -42,13 +42,13 @@ public class Asesuisa_CajaDosificaciones {
             DosificacionesCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(3000);
 
-           // driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
