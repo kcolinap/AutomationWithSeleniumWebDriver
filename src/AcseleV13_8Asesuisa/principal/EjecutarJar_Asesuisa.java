@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"6", "7", "4"};
+        args = new String[]{"10", "6", "3"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -611,6 +611,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "6": // f. Validar que no se puedan hacer operaciones o movimientos con Siniestros Cerrados o Rechazados
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_ValidacionOperacionSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_ValidacionOperacionSiniestroTest oSiniestro = new VistaAsesuisa_ValidacionOperacionSiniestroTest();
+                            oSiniestro.setUp(tercero);
+                            oSiniestro.mainTest();
+                            oSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "7": // g. Ajustes a las reservas de siniestros (casos bordes ajustes de reservas con valor cero)
                         System.out.println("Numero: " + tercero);
