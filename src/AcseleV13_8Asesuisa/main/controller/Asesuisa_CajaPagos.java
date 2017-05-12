@@ -54,13 +54,13 @@ public class Asesuisa_CajaPagos {
             PagosCaja(bean, a, i, folderName, 3, 4, 5, 6, 7,8,9,10,11,12);
             Thread.sleep(5000);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
