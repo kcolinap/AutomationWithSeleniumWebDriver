@@ -53,44 +53,33 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotores {
             Thread.sleep(2000);
             prePoliza.EvAplicar(a, driver, bean, nombreAutomatizacion, i, folderName, 4);
             Thread.sleep(2000);
-            informacionGeneralPoliza.InformacionGeneralAutomotores(a, driver, bean, nombreAutomatizacion, i, folderName, 4, 5, 6);
+            informacionGeneralPoliza.InformacionGeneralAutomotores(a, driver, bean, nombreAutomatizacion, i, folderName, 5, 6, 7);
             Thread.sleep(2000);
-            tomador.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 7, 8);
+            tomador.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 8, 9);
             Thread.sleep(2000);
-            unidadRiesgo.UnidadesRiesgo1(a, driver, bean, nombreAutomatizacion, i, folderName, 9);
+            unidadRiesgo.UnidadesRiesgoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 10);
             Thread.sleep(2000);
-            objetoAsegurado.ObjetoAsegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 10);
+            objetoAsegurado.ObjetoAseguradoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12, 13 ,14, 15, 16, 17, 18);
             Thread.sleep(2000);
-            objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12);
+            objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 19, 20);
             Thread.sleep(2000);
-            objetoAsegurado.Requisitos1(a, driver, bean, nombreAutomatizacion, i, folderName, 13);
+            objetoAsegurado.ObjetoAseguradoAutomotores2(a, driver, bean, nombreAutomatizacion, i, folderName, 21, 22, 23, 24, 25, 26, 27, 28);
             Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 14);
+            objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 29, 30);
             Thread.sleep(2000);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 31);
+            Thread.sleep(2000);
+            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 32);
+            Thread.sleep(2000);
+            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 33);
 
-            boolean prueba = driver.findElements(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']")).size() > 0;
-
-            if (!prueba) {
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + 15, nombreAutomatizacion, folderName);
-                System.out.println("failed");
-            }
-            else {
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + 15, nombreAutomatizacion, folderName);
-                WebElement mensaje = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']"));
-                System.out.println("Mensaje: " + mensaje.getText());
-            }
-
-
-//            driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-//                driver.quit();
+                driver.quit();
             }
         }
     }

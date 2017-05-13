@@ -1,11 +1,13 @@
 package util;
 
+import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.dbunit.ext.oracle.OracleDataTypeFactory;
 import org.dbunit.operation.DatabaseOperation;
 import org.dbunit.util.fileloader.DataFileLoader;
 import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
@@ -51,6 +53,11 @@ public class DataSetManager {
         IDatabaseConnection connection = DBUnitConnectionManager.createDBUnitSeleniumConnection();
         DataFileLoader loader = new FlatXmlDataFileLoader();
         IDataSet dataSet = loader.load(fileLocation);
+
+        DatabaseConfig dbConfig = connection.getConfig();
+
+        // added this line to get rid of the warning
+        dbConfig.setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new OracleDataTypeFactory());
 
         switch (operationType) {
 

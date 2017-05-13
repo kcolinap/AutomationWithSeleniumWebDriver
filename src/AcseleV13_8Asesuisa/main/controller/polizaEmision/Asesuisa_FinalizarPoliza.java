@@ -104,7 +104,7 @@ public class Asesuisa_FinalizarPoliza {
             if (fin) {
 
                 WebElement numeroPoliza = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_text2']"));
-                System.out.println("Numerp de la póliza emitida: " + numeroPoliza.getText());
+                System.out.println("Numero de la póliza emitida: " + numeroPoliza.getText());
 
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);

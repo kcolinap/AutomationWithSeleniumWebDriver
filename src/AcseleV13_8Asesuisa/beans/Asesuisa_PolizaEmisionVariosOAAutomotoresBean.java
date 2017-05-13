@@ -77,7 +77,7 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotoresBean extends Asesuisa_Poli
                 bean.setAsegurado2Nombre1(rs.getString("ASEGURADO_2_NOMBRE_1"));
                 bean.setAsegurado2Nombre2(rs.getString("ASEGURADO_2_NOMBRE_2"));
                 bean.setAsegurado2Apellido1(rs.getString("ASEGURADO_2_APELLIDO_1"));
-                bean.setAsegurado2Apellido1(rs.getString("ASEGURADO_2_APELLIDO_2"));
+                bean.setAsegurado2Apellido2(rs.getString("ASEGURADO_2_APELLIDO_2"));
 
                 tercero.add(bean);
             }

@@ -3,14 +3,14 @@
   <ASE_POLI_EMISION_VARIOS_OA PRUEBA="1"
                               PRODUCTO="Automotores"
                               VIGENCIA="12" FECHA_DESDE="10-05-2017" FEHCA_HASTA=""
-                              EVENTO_APLICAR="" FECHA_MOVIMIENTO="10-05-2017"
+                              EVENTO_APLICAR="" FECHA_MOVIMIENTO=""
 
                               PLAN_FINANCIEMIENTO="UnPago" MONEDAS=""
                               SUCURSAL="" TIPO_EMISION="ESTANDAR" TIPO_POLIZA="889072"
                               COMISION_NEGOCIABLE="" UNIDAD_COMERCIAL="922169" CANAL_VENTA="895528"
 
                               TOMADOR_NOMBRE_1="NOEMIS" TOMADOR_NOMBRE_2="CRISTINA"
-                              TOMADOR_APELLIDO_1="RODRIGUEZ" TOMADOR_APELLIDO_2=""
+                              TOMADOR_APELLIDO_1="RODRÍGUEZ" TOMADOR_APELLIDO_2=""
 
                               ASESOR_NOMBRE_1="" ASESOR_NOMBRE_2=""
                               ASESOR_APELLIDO_1="" ASESOR_APELLIDO_2=""
@@ -20,11 +20,11 @@
                               NUMERO_OBJETO_ASEGURADO_1=""
                               MARCA_1="924768" MODELO_1="57.0" ANIO_1="890182" NUMERO_ASIENTOS_1="5"
                               ASEGURADO_1_NOMBRE_1="NOEMIS" ASEGURADO_1_NOMBRE_2="CRISTINA"
-                              ASEGURADO_1_APELLIDO_1="RODRIGUEZ" ASEGURADO_1_APELLIDO_2=""
+                              ASEGURADO_1_APELLIDO_1="RODRÍGUEZ" ASEGURADO_1_APELLIDO_2=""
 
                               TIPO_OBJETO_ASEGURADO_2="Plan Full Extras - Automotores"
                               NUMERO_OBJETO_ASEGURADO_2=""
                               MARCA_2="924768" MODELO_2="57.0" ANIO_2="890182" NUMERO_ASIENTOS_2="5"
                               ASEGURADO_2_NOMBRE_1="NOEMIS" ASEGURADO_2_NOMBRE_2="CRISTINA"
-                              ASEGURADO_2_APELLIDO_1="RODRIGUEZ" ASEGURADO_2_APELLIDO_2=""/>
+                              ASEGURADO_2_APELLIDO_1="RODRÍGUEZ" ASEGURADO_2_APELLIDO_2=""/>
 </dataset>
