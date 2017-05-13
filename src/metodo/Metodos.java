@@ -21,8 +21,8 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "cgarcia";//"agil";
-    private String pass = "cgarcia";//"a123456";
+    private String user = "system";//"agil";
+    private String pass = "consis";//"a123456";
     private String acselUrl;
 
     public String test(WebDriver driver){
@@ -248,13 +248,10 @@ public class Metodos {
         Select instance2= new Select(getDriver.findElement(By.name("USER_PREFERENCE_COUNTRY_NAME")));
         Select language2 = new Select(getDriver.findElement(By.name("PARAMETER_LOCALE_NAME")));
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
-        System.out.println("mandando user");
-
-
+        //System.out.println("mandando user");
 
         user2.sendKeys(user);       /** Usuario  **/
         password2.sendKeys(pass);
-
 
         if (getDriver.getCurrentUrl().equals(UrlInterseguros())){
             instance2.selectByVisibleText("INTERSEGURO");

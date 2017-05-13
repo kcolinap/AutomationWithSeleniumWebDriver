@@ -20,14 +20,15 @@ public class Asesuisa_Tomador {
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 
             JavascriptExecutor jse = (JavascriptExecutor)driver;
-            //jse.executeScript("window.scrollBy(0,500)", "");
+            jse.executeScript("window.scrollBy(0,200)", "");
+            Thread.sleep(1000);
 
             if (bean.getTomador1Nombre1() != null || bean.getTomador1Nombre2() != null || bean.getTomador1Apellido1() != null || bean.getTomador1Apellido2() != null) {
 
                 Thread.sleep(1500);
                 WebElement tomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
                 tomador.click();
-                Thread.sleep(500);
+                Thread.sleep(1500);
                 tomador.click();
                 tomador = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_thirdTabs_repeaterSubTab_1_thirdRole_Tomador_thirdForm_AutoRisk_search']"));
 
