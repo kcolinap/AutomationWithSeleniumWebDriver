@@ -21,23 +21,23 @@ public class VistaAsesuisa_SiniestrosPagosTest {
     @org.junit.Test
     public void mainTest() throws SQLException {
 
-        ArrayList caja = null;
+        ArrayList siniestroPago = null;
 
         try {
-            caja = Asesuisa_SiniestrosPagosBean.getAsesuisa_SiniestrosPagos();
+            siniestroPago = Asesuisa_SiniestrosPagosBean.getAsesuisa_SiniestrosPagos();
         }catch (SQLException e) {
             log.error(e);
         }
 
-        for (int j = 0; j < caja.size(); j++) {
-            Asesuisa_SiniestrosPagosBean bean =(Asesuisa_SiniestrosPagosBean) caja.get(j);
+        for (int j = 0; j < siniestroPago.size(); j++) {
+            Asesuisa_SiniestrosPagosBean bean =(Asesuisa_SiniestrosPagosBean) siniestroPago.get(j);
 
             Asesuisa_SiniestrosPagos a = new Asesuisa_SiniestrosPagos();
             Metodos metodos = new Metodos();
             String horaC = metodos.horaCarpeta();
 
             try {
-                //a.testLink(bean, j, horaC);
+                a.testLink(bean, j, horaC);
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -48,22 +48,22 @@ public class VistaAsesuisa_SiniestrosPagosTest {
 
     @Before
     public void setUp(String num) throws Exception {
-//
+/*
          DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_SINIESTROS_PAGOS ORDER BY PRUEBA ASC",
                 "ASESUISA_SINIESTROS_PAGOS",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAnularFactura_dataset" + num + ".xml");
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaSiniestroPagoCrear_dataset" + num + ".xml");
 
         DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_SINIESTROS_PAGOS ORDER BY PRUEBA ASC",
                 "ASESUISA_SINIESTROS_PAGOS",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAnularFactura_dataset" + num + ".xml");
-//
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAnularFactura_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaSiniestroPagoCrear_dataset" + num + ".xml");
+*/
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaSiniestroPagoCrear_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
 
     }
 
     @After
     public void tearDown(String num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCajaAnularFactura_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaSiniestroPagoCrear_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }

@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"10", "5", "7"};
+        //args = new String[]{"10", "10", "1"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -688,6 +688,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "10": // j. Pago de siniestros (Crear pago)
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_SiniestroPagoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestrosPagosTest jSiniestro = new VistaAsesuisa_SiniestrosPagosTest();
+                            jSiniestro.setUp(tercero);
+                            jSiniestro.mainTest();
+                            jSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "11": // k. Aprobar pagos
                         System.out.println("Numero: " + tercero);
