@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <ASE_POLIZAEMISION_OA_VID_INTE PRUEBA="1"
-                                 PRODUCTO="PlanVidaIntegral" VIGENCIA="72" FECHADESDE="21-02-2017" FECHAHASTA=""
+                                 PRODUCTO="PlanVidaIntegral" VIGENCIA="72" FECHADESDE="04-05-2017" FECHAHASTA=""
                                  EVENTOAPLICAR="" FECHAMOVIMIENTO=""
-                                 PLANESFINANCIAMIENTO="DocePagos" MONEDAS="0"
+                                 PLANESFINANCIAMIENTO="UnPago" MONEDAS=""
                                  SUCURSAL="" NUMEROPOLIZA="" NUMEROPOLIZABLANCA="" NUMEROCOTIZACION=""
                                  FECHAEMISION="" TIPOPOLIZA="" TIPOPRODUCCION="" CANALVENTA=""
                                  CODIGORAMO="" CLASEPOLIZA="" OBSERVACIONSUSCRIPCION="" COMISIONNEGOCIABLE=""
@@ -12,11 +12,11 @@
                                  NOMBREAGENCIAVENTAS="" CIUDADAGENCIABANCARIA="" CANALVENTABANCASEGUROS=""
                                  GRUPOAGENCIA="" DISTRITOCOMERCIAL="" DISTRITOOPERATIVO="" SUPERVISORBANCASEGUROS=""
 
-                                 TOMADOR1NOMBRE1="DIXSON" TOMADOR1NOMBRE2=""
-                                 TOMADOR1APELLIDO1="SILVA" TOMADOR1APELLIDO2=""
+                                 TOMADOR1NOMBRE1="NOEMIS" TOMADOR1NOMBRE2="CRISTINA"
+                                 TOMADOR1APELLIDO1="RODRIGUEZ" TOMADOR1APELLIDO2=""
                                  PORCENTAJETOMADOR1="" PORCENTAJETOMADOR2=""
 
-                                 ASESOR1NOMBRE1="" ASESOR1NOMBRE2="" ASESOR1APELLIDO1="" ASESOR1APELLIDO2=""
+                                 ASESOR1NOMBRE1="NOEMIS" ASESOR1NOMBRE2="CRISTINA" ASESOR1APELLIDO1="RODRIGUEZ" ASESOR1APELLIDO2=""
                                  PORCENTAJEASESOR1="" PORCENTAJEASESOR2=""
                                  VENDEDOR1NOMBRE1="" VENDEDOR1NOMBRE2="" VENDEDOR1APELLIDO1="" VENDEDOR1APELLIDO2=""
                                  PORCENTAJEVENDEDOR1="" PORCENTAJEVENDEDOR2=""

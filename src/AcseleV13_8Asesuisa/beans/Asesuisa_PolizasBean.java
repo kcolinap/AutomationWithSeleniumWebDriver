@@ -26,6 +26,7 @@ public class Asesuisa_PolizasBean {
     private String numeroCotizacion;
     private String fechaEmision;
     private String tipoPoliza;
+    private String tipoEmision;
     private String tipoProduccion;
     private String canalVenta;
     private String codigoRamo;
@@ -75,6 +76,7 @@ public class Asesuisa_PolizasBean {
     private String numeroUnidadRiesgo2;
 
     // Objeto Asegurado
+    private String tipoObjetoAsegurado1;
     private String numeroObjetoAsegurado1;
     private String opcionAsegurado1;
     private String prima1;
@@ -83,6 +85,10 @@ public class Asesuisa_PolizasBean {
     private String rangoEdades1;
     private String codigoPlan1;
     private String nombrePlan1;
+    private String marca1;
+    private String modelo1;
+    private String anio1;
+    private String numeroAsientos1;
     private String numeroObjetoAsegurado2;
     private String opcionAsegurado2;
     private String prima2;
@@ -91,6 +97,11 @@ public class Asesuisa_PolizasBean {
     private String rangoEdades2;
     private String codigoPlan2;
     private String nombrePlan2;
+    private String tipoObjetoAsegurado2;
+    private String marca2;
+    private String modelo2;
+    private String anio2;
+    private String numeroAsientos2;
 
     // Asegurado
     private String asegurado1Nombre1;
@@ -846,5 +857,102 @@ public class Asesuisa_PolizasBean {
 
     public void setPorcentajeBeneficiario2(String porcentajeBeneficiario2) {
         this.porcentajeBeneficiario2 = porcentajeBeneficiario2;
+    }
+
+
+    public String getdPDVendedor() {
+        return dPDVendedor;
+    }
+
+    public void setdPDVendedor(String dPDVendedor) {
+        this.dPDVendedor = dPDVendedor;
+    }
+
+    public String getTipoObjetoAsegurado1() {
+        return tipoObjetoAsegurado1;
+    }
+
+    public void setTipoObjetoAsegurado1(String tipoObjetoAsegurado1) {
+        this.tipoObjetoAsegurado1 = tipoObjetoAsegurado1;
+    }
+
+    public String getMarca1() {
+        return marca1;
+    }
+
+    public void setMarca1(String marca1) {
+        this.marca1 = marca1;
+    }
+
+    public String getModelo1() {
+        return modelo1;
+    }
+
+    public void setModelo1(String modelo1) {
+        this.modelo1 = modelo1;
+    }
+
+    public String getAnio1() {
+        return anio1;
+    }
+
+    public void setAnio1(String anio1) {
+        this.anio1 = anio1;
+    }
+
+    public String getNumeroAsientos1() {
+        return numeroAsientos1;
+    }
+
+    public void setNumeroAsientos1(String numeroAsientos1) {
+        this.numeroAsientos1 = numeroAsientos1;
+    }
+
+    public String getMarca2() {
+        return marca2;
+    }
+
+    public void setMarca2(String marca2) {
+        this.marca2 = marca2;
+    }
+
+    public String getModelo2() {
+        return modelo2;
+    }
+
+    public void setModelo2(String modelo2) {
+        this.modelo2 = modelo2;
+    }
+
+    public String getAnio2() {
+        return anio2;
+    }
+
+    public void setAnio2(String anio2) {
+        this.anio2 = anio2;
+    }
+
+    public String getNumeroAsientos2() {
+        return numeroAsientos2;
+    }
+
+    public void setNumeroAsientos2(String numeroAsientos2) {
+        this.numeroAsientos2 = numeroAsientos2;
+    }
+
+    public String getTipoEmision() {
+        return tipoEmision;
+    }
+
+    public void setTipoEmision(String tipoEmision) {
+        this.tipoEmision = tipoEmision;
+    }
+
+    public String getTipoObjetoAsegurado2() {
+        return tipoObjetoAsegurado2;
+    }
+
+    public void setTipoObjetoAsegurado2(String tipoObjetoAsegurado2) {
+        this.tipoObjetoAsegurado2 = tipoObjetoAsegurado2;
     }
 }

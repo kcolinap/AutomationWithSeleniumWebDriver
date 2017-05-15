@@ -11,6 +11,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by aandrade on 17/04/2017.
  */
@@ -53,13 +57,13 @@ public class Asesuisa_CajaNotasCredito {
             NotasCreditoCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(5000);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
@@ -70,12 +74,15 @@ public class Asesuisa_CajaNotasCredito {
         String texto = null;
         String texto1 = null;
         WebElement indextr;
+        boolean anulacion = false;
+        String fechastring = null;
+        int dias;
 
         try {
             Thread.sleep(1000);
             // Seleccionar el boton Buscar
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div[1]/div/span")).click();
             Thread.sleep(2000);
             // Obtiene el total de paginas mostradas
@@ -88,7 +95,20 @@ public class Asesuisa_CajaNotasCredito {
             for (int j = 1; j < (tamanotr + 1); j++) {
                 indextr = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[8]/div"));
                 texto = indextr.getText();
-                if (texto.equals("Valida")) {
+
+                // Verifica que la fecha de emision sea menor a 30 dias de la fecha actual
+                // Fecha de emision
+                fechastring = driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[7]/div/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j + "]/td[2]/div")).getText();
+                DateFormat fechaHora = new SimpleDateFormat("dd-MM-yyyy");
+                Date convertido = fechaHora.parse(fechastring);
+                // Fecha Actual
+                java.util.Date date = new java.util.Date();
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy");
+                // Calcula el nuemro de dias
+                dias=(int) ((date.getTime()-convertido.getTime())/86400000);
+
+                // Si la factura es Valida y la fecha de emision es menor a 30 dias
+                if (texto.equals("Valida") && dias <= 30) {
                     // Selecciona la linea de la tabla a Anular
                     indextr.click();
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
@@ -98,70 +118,71 @@ public class Asesuisa_CajaNotasCredito {
                     driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[9]/div/div[5]/div/span")).click();
                     Thread.sleep(2000);
 
-                    // Click a la lista Razon de Anulacion
-                    driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[3]/div/div")).click();
+                        // Click a la lista Razon de Anulacion
+                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[1]/div/div[3]/div/div")).click();
 
-                    // Selecciona la razon de anulacion
-                    Thread.sleep(1000);
-                    tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
-                    for (int k = 1; k < tamanotr; k++) {
-                        indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + k + "]/td/span"));
-                        texto1 = indextr.getText();
-
-                        if (bean.getRazon().equals(texto1)) {
-                            indextr.click();
-                            Thread.sleep(2000);
-                            break;
-                        }
-                    }
-
-                    // Selecciona Generar Nota de Credito Si
-                    Thread.sleep(1000);
-                    if (bean.getGenerar().equals("Si")) {
-                        driver.findElement(By.xpath("//*[@id=\"gwt-uid-48\"]")).click();
-                    }
-                    // Selecciona Generar Nota de Credito No
-                    else if (bean.getGenerar().equals("No")) {
-                        driver.findElement(By.xpath("//*[@id=\"gwt-uid-49\"]")).click();
-                    }
-
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
-                    Thread.sleep(1000);
-
-
-                    // Selecciona primer Boton Aceptar
-                    if (bean.getAceptar1().equals("Si")) {
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[1]/div")).click();
-
-                        // Selecciona segundo Boton Aceptar
+                        // Selecciona la razon de anulacion
                         Thread.sleep(1000);
-                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
-                        Thread.sleep(1000);
-                        if (bean.getAceptar2().equals("Si")) {
-                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button")).click();
+                        tamanotr = driver.findElements(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr")).size();
+                        for (int k = 1; k < tamanotr; k++) {
+                            indextr = driver.findElement(By.xpath("//*[@id=\"VAADIN_COMBOBOX_OPTIONLIST\"]/div/div[2]/table/tbody/tr[" + k + "]/td/span"));
+                            texto1 = indextr.getText();
+
+                            if (bean.getRazon().equals(texto1)) {
+                                indextr.click();
+                                Thread.sleep(2000);
+                                break;
+                            }
                         }
-                        // Selecciona segundo Boton Cancelar
+
+                        // Selecciona Generar Nota de Credito Si
+                        Thread.sleep(1000);
+                        if (bean.getGenerar().equals("Si")) {
+                            driver.findElement(By.xpath("//*[@id=\"gwt-uid-48\"]")).click();
+                        }
+                        // Selecciona Generar Nota de Credito No
+                        else if (bean.getGenerar().equals("No")) {
+                            driver.findElement(By.xpath("//*[@id=\"gwt-uid-49\"]")).click();
+                        }
+
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+
+                        // Selecciona primer Boton Aceptar
+                        if (bean.getAceptar1().equals("Si")) {
+                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[1]/div")).click();
+
+                            // Selecciona segundo Boton Aceptar
+                            Thread.sleep(1000);
+                            a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                            Thread.sleep(1000);
+                            if (bean.getAceptar2().equals("Si")) {
+                                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[1]/button")).click();
+                            }
+                            // Selecciona segundo Boton Cancelar
+                            else {
+                                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[2]/button")).click();
+                            }
+
+                        }
+                        // Selecciona primer Boton Cancelar
                         else {
-                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div/div[3]/div/div[2]/button")).click();
+                            driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div")).click();
                         }
 
-                    }
-                    // Selecciona primer Boton Cancelar
-                    else {
-                        driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[5]/div/div[3]/div")).click();
-                    }
-
-                    // Muestra el resultado de la operacion
-                    Thread.sleep(5000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
-                    Thread.sleep(1000);
-                    break;
+                        // Muestra el resultado de la operacion
+                        Thread.sleep(5000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+                        anulacion = true;
+                        break;
                 }
 
             }
 
-                if (texto.equals("Valida") || l == numpagina) {
+                if (anulacion || l == numpagina) {
                     break; }
                 else {
                     //Avanza a la siguiente pagina

@@ -688,4 +688,106 @@ public class Asesuisa_InformacionGeneralPoliza {
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
+    public void InformacionGeneralAutomotores(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName,int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+        try { //TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+            WebElement otroElemento = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_PolicyInformation_BasicInformationLabel']"));
+
+            if (bean.getPlanesFinanciamiento() != null){
+                Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']")));
+                planFinanciamiento.selectByValue(bean.getPlanesFinanciamiento());
+                Thread.sleep(2000);
+            }
+
+            if (bean.getMonedas() != null){
+                Select moneda = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_ListCurrencies']")));
+                moneda.selectByValue(bean.getMonedas());
+                Thread.sleep(2000);
+            }
+
+            if (bean.getSucursal() != null){
+                Select sucursal= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
+                sucursal.selectByValue(bean.getSucursal());
+                Thread.sleep(3000);
+            }
+
+            if (bean.getTipoEmision() != null){
+                if (bean.getTipoEmision().toLowerCase().equals("express")){
+                    WebElement express = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_field_repeaterChoice_1_radio']"));
+                    express.click();
+                    Thread.sleep(1000);
+                    otroElemento.click();
+                    Thread.sleep(3000);
+                }
+                else if (bean.getTipoEmision().toLowerCase().equals("estandar")) {
+                    WebElement estandar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_7_fila_field_repeaterChoice_2_radio']"));
+                    estandar.click();
+                    Thread.sleep(1000);
+                    otroElemento.click();
+                    Thread.sleep(3000);
+                }
+            }
+
+            if (bean.getTipoPoliza() != null){
+                Select tipoPoliza= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_10_fila_repeaterSelect_1_field']")));
+                tipoPoliza.selectByValue(bean.getTipoPoliza());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getComisionNegociable() != null){
+                Select comisionNegociable= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_3_fila_repeaterSelect_1_field']")));
+                comisionNegociable.selectByValue(bean.getComisionNegociable());
+                Thread.sleep(1000);
+            }
+
+            if (bean.getUnidadComercial() != null){
+                Select comisionNegociable= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_repeaterSelect_1_field']")));
+                comisionNegociable.selectByValue(bean.getUnidadComercial());
+                Thread.sleep(2000);
+            }
+
+            if (bean.getCanalVenta() != null){
+                Select comisionNegociable= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_5_fila_repeaterSelect_1_field']")));
+                comisionNegociable.selectByValue(bean.getCanalVenta());
+                Thread.sleep(1000);
+            }
+
+            jse.executeScript("window.scrollBy(0,-1500)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,500)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(1000);
+
+            jse.executeScript("window.scrollBy(0,500)", "");
+            Thread.sleep(2000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+            Thread.sleep(2000);
+
+            WebElement btnGuardarInfGeneral = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_calculateButton']"));
+            btnGuardarInfGeneral.click();
+
+            a.waitSearchWicket(driver, "Espere Informacion General Poliza");
+            Thread.sleep(1000);
+
+            //btnGuardarInfGeneral.click();
+            //a.waitSearchWicket(driver, "Espere Informacion General Poliza");
+            Thread.sleep(10000);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
 }

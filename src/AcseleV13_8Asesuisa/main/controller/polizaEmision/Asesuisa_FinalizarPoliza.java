@@ -74,7 +74,8 @@ public class Asesuisa_FinalizarPoliza {
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName); //screenshot2
                 Toolkit.getDefaultToolkit().beep();
 
-                WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton"));
+                Thread.sleep(2000);
+                WebElement btnContinuar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_ErrorDialog_content_questionForm_ignoreValidationButton']"));
                 btnContinuar.click();
 
             }
@@ -103,7 +104,7 @@ public class Asesuisa_FinalizarPoliza {
             if (fin) {
 
                 WebElement numeroPoliza = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_EventSection_content_text2']"));
-                System.out.println("Numerp de la póliza emitida: " + numeroPoliza.getText());
+                System.out.println("Numero de la póliza emitida: " + numeroPoliza.getText());
 
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);

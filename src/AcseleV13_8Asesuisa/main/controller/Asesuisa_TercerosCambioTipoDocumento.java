@@ -20,10 +20,11 @@ public class Asesuisa_TercerosCambioTipoDocumento {
     private WebDriver driver;
     public String identi="";
     public boolean existeTercero=false;
+    public boolean status=true;
 
     public void testLink(Asesuisa_TercerosCambioTipoDocumentoBean bean, int i, String folderName){
 
-        try {
+        salidaTryPrincipal: try {
 
             Metodos m = new Metodos();
             Asesuisa_MenuMantenimiento asesuisaMenuMantenimiento = new Asesuisa_MenuMantenimiento();
@@ -46,8 +47,9 @@ public class Asesuisa_TercerosCambioTipoDocumento {
 
             if (existeTercero){
 
-            }else {
-
+            }else if (!status) {
+                break salidaTryPrincipal;
+            }else{
                 System.out.println("Vuelvo a busqueda para consultar los cambios en tercero");
 
                 //Vuelvo a busqueda para consultar los cambios en tercero
@@ -170,7 +172,7 @@ public class Asesuisa_TercerosCambioTipoDocumento {
         WebElement txtNroDoc, txtAux, txtAux2, btnGuardar;
         String tipoA = "", nombreDoc = "", nroDoc="";
 
-        try {
+        salidaTry: try {
             WebElement btnEditar;
             switch (testCase){
                 case 1://cambio de tipo documento
@@ -334,7 +336,10 @@ public class Asesuisa_TercerosCambioTipoDocumento {
                     break;
                 case 3:
                     Busqueda(driver, m, bean, folderName, 2, i, 3, 4, 5);
-
+                    if(!status){
+                        status=false;
+                        break salidaTry;
+                    }
                     //Boton editar
                     btnEditar = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_TableForm_associateButton']"));
                     btnEditar.click();
@@ -497,7 +502,7 @@ public class Asesuisa_TercerosCambioTipoDocumento {
         WebElement btnBuscar;
         WebElement optTercero;
 
-        try {
+        salidaTry: try {
             switch (tipoB) {
                 case 1:
                     //Boton buscar
@@ -560,7 +565,7 @@ public class Asesuisa_TercerosCambioTipoDocumento {
                         Thread.sleep(600);
                     }
 
-                    //PANTALLAZO
+                    //PANTALLAZO para capturar nombre apellido
                     m.ScreenShotPool(driver,i,"screen"+screen1,nombreAutomatizacion,folderName);
                     Thread.sleep(800);
 
@@ -583,6 +588,15 @@ public class Asesuisa_TercerosCambioTipoDocumento {
                     }while (driver.findElements(By.xpath("html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[1]/div/div/div[4]/div[1]/div[1]/table")).size()==0);
 
                     Thread.sleep(1500);
+
+                    //Evaluo si el tercero esta habiliutado, si no esta, lo habilito
+                    //si esta deshabilitado falla la prueba
+                    boolean statusLabel = driver.findElement(By.xpath("//span[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_status']")).getText().equals("Deshabilitado");
+                    if (statusLabel){
+                        System.out.println("El tercero se encuentra deshabilitado. No se puede continuar con la operacion");
+                        status=false;
+                        break salidaTry;
+                    }
 
                     optTercero = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_showDetailSearchTable_proof_ThirdPartyRadioGroup_resultsTable_1_thirdPartyRadio']"));
                     optTercero.click();

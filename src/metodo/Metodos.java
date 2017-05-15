@@ -248,13 +248,10 @@ public class Metodos {
         Select instance2= new Select(getDriver.findElement(By.name("USER_PREFERENCE_COUNTRY_NAME")));
         Select language2 = new Select(getDriver.findElement(By.name("PARAMETER_LOCALE_NAME")));
         WebElement button_sumit2 = getDriver.findElement(By.name("SecuritySubmit"));
-        System.out.println("mandando user");
-
-
+        //System.out.println("mandando user");
 
         user2.sendKeys(user);       /** Usuario  **/
         password2.sendKeys(pass);
-
 
         if (getDriver.getCurrentUrl().equals(UrlInterseguros())){
             instance2.selectByVisibleText("INTERSEGURO");
@@ -346,6 +343,37 @@ public class Metodos {
 
     public WebDriver getDriver() {
         return threadDriver.get();
+    }
+
+    public boolean isAlertPresent(WebDriver driver)
+    {
+        try
+        {
+            driver.switchTo().alert();
+            return true;
+        }   // try
+        catch (NoAlertPresentException Ex)
+        {
+            return false;
+        }   // catch
+    }   // isAlertPresent()
+
+    public void alertJavaScriptAceptar(WebDriver driver){
+
+        try {
+            // Mensajes de Alerta JavaScript
+            if(isAlertPresent(driver)){
+                Alert alert = driver.switchTo().alert();
+                String alertmess = alert.getText();
+                alert.accept();
+                System.out.println(alertmess);
+                Thread.sleep(1000);
+                driver.switchTo().defaultContent();
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
