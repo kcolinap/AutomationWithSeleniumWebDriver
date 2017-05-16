@@ -57,4 +57,77 @@ public class Asesuisa_UnidadRiesgo {
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
+
+    public void UnidadesRiesgoAutomotores1(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            Thread.sleep(4000);
+            jse.executeScript("window.scrollBy(0,600)", "");
+            //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
+            //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
+
+            WebElement btnNuevo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
+            btnNuevo.click();
+            Thread.sleep(1000);
+            //btnNuevo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
+            //btnNuevo.click();
+
+            a.waitSearchWicket(driver, "Espere Nueva Unidad de Riesgo");
+
+            Thread.sleep(1000);
+            jse.executeScript("window.scrollBy(0,1600)", "");
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(2000);
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_saveButtonRU']"));
+            btnGuardar.click();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void UnidadesRiesgoAutomotores2(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
+
+        try {//TipoElemento[@wicketpath='WicketpathElemento']
+
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+            Thread.sleep(4000);
+            jse.executeScript("window.scrollBy(0,600)", "");
+            //Select producto = new Select(driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']")));
+            //WebElement fechaDesde = driver.findElement(By.xpath("//TipoElemento[@wicketpath='WicketpathElemento']"));
+
+            WebElement btnNuevo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
+            btnNuevo.click();
+            Thread.sleep(1000);
+            //btnNuevo = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_registerFormRisk_NewButtonRisk']"));
+            //btnNuevo.click();
+
+            a.waitSearchWicket(driver, "Espere Nueva Unidad de Riesgo");
+
+            Thread.sleep(1000);
+            jse.executeScript("window.scrollBy(0,1600)", "");
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Toolkit.getDefaultToolkit().beep();
+
+            Thread.sleep(2000);
+            WebElement btnGuardar = driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_BasicInformationRiskUnit_RiskBasicInformationContent_registerFormRiskUnit_saveButtonRU']"));
+            btnGuardar.click();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
 }

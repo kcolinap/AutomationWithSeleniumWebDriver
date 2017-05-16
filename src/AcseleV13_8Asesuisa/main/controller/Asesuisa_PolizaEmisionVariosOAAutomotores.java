@@ -1,27 +1,25 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAVidaIntegralBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAAutomotoresBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_InformacionGeneralPoliza;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_PrePoliza;
-import AcseleV13_8Asesuisa.main.controller.polizaEmision.Asesuisa_Tomador;
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.*;
-
 import metodo.Metodos;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
- * Created by agil on 21/02/2017.
+ * Created by agil on 10/05/2017.
  */
-public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
+public class Asesuisa_PolizaEmisionVariosOAAutomotores {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAVidaIntegral.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAAutomotores.class);
 
-    public String nombreAutomatizacion = "Asesuisa Poliza Emision Varios OA Vida Integral";
+    public String nombreAutomatizacion = "Asesuisa Emision Poliza con Varios OA";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_PolizaEmisionVariosOAVidaIntegralBean bean, int i, String folderName){
+    public void testLink(Asesuisa_PolizaEmisionVariosOAAutomotoresBean bean, int i, String folderName){
 
         try {
 
@@ -55,37 +53,33 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             Thread.sleep(2000);
             prePoliza.EvAplicar(a, driver, bean, nombreAutomatizacion, i, folderName, 4);
             Thread.sleep(2000);
-            informacionGeneralPoliza.InformacionGeneralVidaIntegral(a, driver, bean, nombreAutomatizacion, i, folderName, 4, 5, 6);
+            informacionGeneralPoliza.InformacionGeneralAutomotores(a, driver, bean, nombreAutomatizacion, i, folderName, 5, 6, 7);
             Thread.sleep(2000);
-            tomador.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 7, 8);
+            tomador.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 8, 9);
             Thread.sleep(2000);
-            unidadRiesgo.UnidadesRiesgo1(a, driver, bean, nombreAutomatizacion, i, folderName, 9);
+            unidadRiesgo.UnidadesRiesgoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 10);
             Thread.sleep(2000);
-            objetoAsegurado.ObjetoAsegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 10);
+            objetoAsegurado.ObjetoAseguradoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12, 13 ,14, 15, 16, 17, 18);
             Thread.sleep(2000);
-            objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12);
+            objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 19, 20);
             Thread.sleep(2000);
-            objetoAsegurado.Requisitos1(a, driver, bean, nombreAutomatizacion, i, folderName, 13);
+            objetoAsegurado.ObjetoAseguradoAutomotores2(a, driver, bean, nombreAutomatizacion, i, folderName, 21, 22, 23, 24, 25, 26, 27, 28);
             Thread.sleep(2000);
-            objetoAsegurado.ObjetoAsegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 14);
+            objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 29, 30);
             Thread.sleep(2000);
-            objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 15, 16);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 31);
             Thread.sleep(2000);
-            objetoAsegurado.Requisitos2(a, driver, bean, nombreAutomatizacion, i, folderName, 17);
+            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 32);
             Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 18);
-            Thread.sleep(2000);
-            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 19);
-            Thread.sleep(2000);
-            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 20);
+            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 33);
 
-//            driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-//                driver.quit();
+                driver.quit();
             }
         }
     }
