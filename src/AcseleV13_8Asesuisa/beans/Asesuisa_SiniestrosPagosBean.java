@@ -16,15 +16,52 @@ public class Asesuisa_SiniestrosPagosBean {
 
     private final static Logger log = Logger.getLogger(Asesuisa_SiniestrosPagosBean.class);
 
-    private String poliza;
+    private String siniestro;
+    private String pagomax;
+    private String cobertura;
+    private String montosini;
+    private String tercero;
 
-    public String getPoliza() {
-        return poliza;
+    public String getSiniestro() {
+        return siniestro;
     }
 
-    public void setPoliza(String poliza) {
-        this.poliza = poliza;
+    public void setSiniestro(String siniestro) {
+        this.siniestro = siniestro;
     }
+
+    public String getPagomax() {
+        return pagomax;
+    }
+
+    public void setPagomax(String pagomax) {
+        this.pagomax = pagomax;
+    }
+
+    public String getCobertura() {
+        return cobertura;
+    }
+
+    public void setCobertura(String cobertura) {
+        this.cobertura = cobertura;
+    }
+
+    public String getMontosini() {
+        return montosini;
+    }
+
+    public void setMontosini(String montosini) {
+        this.montosini = montosini;
+    }
+
+    public String getTercero() {
+        return tercero;
+    }
+
+    public void setTercero(String tercero) {
+        this.tercero = tercero;
+    }
+
 
 
     public static ArrayList getAsesuisa_SiniestrosPagos() throws SQLException {
@@ -45,7 +82,11 @@ public class Asesuisa_SiniestrosPagosBean {
             while (rs.next()) {
                 Asesuisa_SiniestrosPagosBean siniestrosPagosBean = new Asesuisa_SiniestrosPagosBean();
 
-                siniestrosPagosBean.setPoliza(rs.getString("POLIZA"));
+                siniestrosPagosBean.setSiniestro(rs.getString("SINIESTRO"));
+                siniestrosPagosBean.setPagomax(rs.getString("PAGOMAX"));
+                siniestrosPagosBean.setCobertura(rs.getString("COBERTURA"));
+                siniestrosPagosBean.setMontosini(rs.getString("MONTOSINI"));
+                siniestrosPagosBean.setTercero(rs.getString("TERCERO"));
 
                 siniestroPago.add(siniestrosPagosBean);
             }

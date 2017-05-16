@@ -129,8 +129,8 @@ public class Asesuisa_CajaFactAgrup {
                 // Selecciona el boton Aceptar
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_statementAccount_01\"]")).click();
 
-                // Mensajes de Alerta JavaScript 2
-                a.alertJavaScriptAceptar(driver);
+
+
 
                 Thread.sleep(2000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
