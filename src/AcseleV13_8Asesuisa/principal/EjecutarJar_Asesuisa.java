@@ -526,7 +526,7 @@ public class EjecutarJar_Asesuisa {
                     case "2": // b. Emision sin plan de financiamiento
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest {\n";
+                        prueba = "VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest polizaEmisionSinPlanFinanciamientoTest = new VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest();
@@ -543,7 +543,7 @@ public class EjecutarJar_Asesuisa {
                     case "3": // c. Inclusión de varios OA
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest {\n";
+                        prueba = "VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest polizaEmisionVariosOAAutomotoresTest = new VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest();
@@ -559,6 +559,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "4": // d. Inclusión de varios UR
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionVariasURAutomotoresTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionVariasURAutomotoresTest polizaEmisionVariasURAutomotoresTest = new VistaAsesuisa_PolizaEmisionVariasURAutomotoresTest();
+                            polizaEmisionVariasURAutomotoresTest.setUp(tercero);
+                            polizaEmisionVariasURAutomotoresTest.mainTest();
+                            polizaEmisionVariasURAutomotoresTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "5": // e. Inclusión, edición y eliminación de Tomadores
                         System.out.println("Numero: " + tercero);

@@ -11,13 +11,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by agil on 10/05/2017.
+ * Created by agil on 13/05/2017.
  */
-public class Asesuisa_PolizaEmisionVariosOAAutomotoresBean extends Asesuisa_PolizasBean implements Serializable {
+public class Asesuisa_PolizaEmisionVariasURAutomotoresBean extends Asesuisa_PolizasBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAAutomotoresBean.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariasURAutomotoresBean.class);
 
-    public static ArrayList getAsesuisa_PolizaEmisionVariosOAAutomotores() throws SQLException {
+    public static ArrayList getAsesuisa_PolizaEmisionVariasURAutomotores() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
@@ -25,7 +25,7 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotoresBean extends Asesuisa_Poli
         ArrayList tercero = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASE_POLI_EMISION_VARIOS_OA ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASE_POLI_EMISION_VARIAS_UR ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -33,7 +33,7 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotoresBean extends Asesuisa_Poli
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                Asesuisa_PolizaEmisionVariosOAAutomotoresBean bean = new Asesuisa_PolizaEmisionVariosOAAutomotoresBean();
+                Asesuisa_PolizaEmisionVariasURAutomotoresBean bean = new Asesuisa_PolizaEmisionVariasURAutomotoresBean();
 
                 bean.setProducto(rs.getString("PRODUCTO"));
                 bean.setVigencia(rs.getString("VIGENCIA"));
@@ -57,7 +57,7 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotoresBean extends Asesuisa_Poli
                 bean.setAsesor1Nombre2(rs.getString("ASESOR_NOMBRE_2"));
                 bean.setAsesor1Apellido1(rs.getString("ASESOR_APELLIDO_1"));
                 bean.setAsesor1Apellido2(rs.getString("ASESOR_APELLIDO_2"));
-                bean.setNumeroUnidadRiesgo1(rs.getString("UNIDAD_RIESGO"));
+                bean.setNumeroUnidadRiesgo1(rs.getString("NUMERO_UNIDAD_RIESGO"));
                 bean.setTipoObjetoAsegurado1(rs.getString("TIPO_OBJETO_ASEGURADO_1"));
                 bean.setNumeroObjetoAsegurado1(rs.getString("NUMERO_OBJETO_ASEGURADO_1"));
                 bean.setMarca1(rs.getString("MARCA_1"));
