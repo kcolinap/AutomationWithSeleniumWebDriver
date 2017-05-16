@@ -576,6 +576,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "5": // e. Inclusión, edición y eliminación de Tomadores
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionTomadoresTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionTomadoresTest asesuisa_polizaEmisionTomadoresTest = new VistaAsesuisa_PolizaEmisionTomadoresTest();
+                            asesuisa_polizaEmisionTomadoresTest.setUp(tercero);
+                            asesuisa_polizaEmisionTomadoresTest.mainTest();
+                            asesuisa_polizaEmisionTomadoresTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "6": // f. nclusión, edición y eliminación de Beneficiarios Naturales
                         System.out.println("Numero: " + tercero);

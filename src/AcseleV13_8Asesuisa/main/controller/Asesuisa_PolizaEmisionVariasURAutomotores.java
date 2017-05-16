@@ -73,13 +73,13 @@ public class Asesuisa_PolizaEmisionVariasURAutomotores {
             Thread.sleep(2000);
             finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 34);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
