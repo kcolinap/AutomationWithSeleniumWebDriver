@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 4: Siniestro nuevo. se debe crear el pago exitosamente-->
+  <ASESUISA_PAGO_CONCEPTO PRUEBA="1" NROSINIESTRO="09-01-0401-0000050894" NROPOLIZA=""
+                          FECHAOCURRENCIA="" PRODUCTO="" IDTEST="4"/>
+</dataset>
