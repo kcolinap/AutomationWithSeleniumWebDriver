@@ -1,43 +1,42 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_CoberturasSiniestroBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_PagosPorConceptoBean;
 import AcseleV13_8Asesuisa.beans.Asesuisa_SiniestroCrearBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
-
 import metodo.Metodos;
+
 import org.apache.log4j.Logger;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.*;
-
 /**
- * Created by kcolina on 05/05/2017.
+ * Created by kcolina on 16/05/2017.
  */
-public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
+public class Asesuisa_PagosPorConcepto extends Asesuisa_SiniestroCrear {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_CoberturasSiniestro.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PagosPorConcepto.class);
 
-    public String nombreAutomatizacion = "Agregar-Rechazar Cobertura";
+    public String nombreAutomatizacion = "Pagos por concepto";
     private WebDriver driver;
     private int siniestroEncontrado=0;
 
-
-    public void testLink(Asesuisa_CoberturasSiniestroBean bean, int i, String folderName){
+    public void testLink(Asesuisa_PagosPorConceptoBean bean, int i, String folderName) {
 
         try {
+
             Metodos m = new Metodos();
             Asesuisa_MenuOperaciones menu = new Asesuisa_MenuOperaciones();
 
-            driver= m.entrarPagina(m.UrlAsesuisa());
-            m.IniciarSesion(driver,nombreAutomatizacion,i,folderName);
-            m.ValidandoSesion(driver,nombreAutomatizacion,i,folderName);
+            driver = m.entrarPagina(m.UrlAsesuisa());
+            m.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
+            m.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
             Thread.sleep(2000);
 
             //Ingreso a la mantenimiento de Siniestro
-            menu.OpeSini_MantenimientoSiniestro(driver, nombreAutomatizacion, 2,i,folderName);
+            menu.OpeSini_MantenimientoSiniestro(driver, nombreAutomatizacion, 2, i, folderName);
             Thread.sleep(1200);
 
             m.cambiarVentana(driver);
@@ -47,9 +46,9 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
             BuscarSiniestro(driver, bean, nombreAutomatizacion, m, i, folderName);
             Thread.sleep(1500);
 
-            if (siniestroEncontrado==0){
+            if (siniestroEncontrado == 0) {
 
-            }else{
+            } else {
                 //Agrego la cobertura
                 Asesuisa_SiniestroCrearBean bean2 = new Asesuisa_SiniestroCrearBean();
                 AgregarCobertura(driver,bean2,i,m,nombreAutomatizacion,folderName);
@@ -58,38 +57,18 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
 
             //Salida
             driver.quit();
-        }catch (Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
-            if (driver != null){
+            if (driver != null) {
                 driver.quit();
             }
+
         }
-
-
-        /*tokens.countTokens();
-        while(tokens.hasMoreTokens()){
-            System.out.println(tokens.nextToken());
-            tokens..countTokens();
-        }*/
-
-        /*for (int i=0; i<3; i++){
-
-            if (i==2){
-                aux=tokens.nextToken();
-                break;
-            }
-            tokens.nextToken();
-        }
-        System.out.println(aux);
-
-        nro=Float.valueOf(aux);
-        nro+=1000;
-        System.out.println(nro);*/
     }
 
-
-    public void BuscarSiniestro(WebDriver driver, Asesuisa_CoberturasSiniestroBean bean,
+    public void BuscarSiniestro(WebDriver driver, Asesuisa_PagosPorConceptoBean bean,
                                 String nombreAutomatizacion, Metodos m, int i, String folderName){
         salidaBusqueda:try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -97,10 +76,13 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
             //Evaluo los campos
 
             if ( (bean.getNroSiniestro()==null) && (bean.getNroPoliza()==null) && (bean.getFechaOcurrencia()==null) &&
-                    (bean.getProducto()==null) ){
-                camino=1;
-            }else{
+                    (bean.getProducto()==null) ) {
+                camino = 1;
+            }else if ( (bean.getNroSiniestro()==null) && (bean.getNroPoliza()==null) && (bean.getFechaOcurrencia()==null) &&
+                    (bean.getProducto()==null) && (bean.getIdTest().equals("4")) ) {
                 camino=2;
+            }else {//
+                camino=3;
             }
 
 
@@ -120,7 +102,7 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
                     Thread.sleep(800);
 
                     btnBuscar.click();
-                   // m.waitSearchWicket(driver, "Buscando siniestro");
+                    // m.waitSearchWicket(driver, "Buscando siniestro");
                     Thread.sleep(2000);
 
                     if (   (driver.findElements(By.className("v-window-wrap")).size()>0) &&
@@ -138,7 +120,7 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
 
 
                     break;
-                case 2:
+                case 3:
                     //evaluo los campos que tienen data
 
 
