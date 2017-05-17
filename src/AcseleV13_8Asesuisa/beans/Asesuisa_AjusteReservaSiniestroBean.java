@@ -25,7 +25,25 @@ public class Asesuisa_AjusteReservaSiniestroBean {
     private String FOPERACION;
     private String MRECHAZOCIERRE;
     private String CCOMENTARIO;
+    private String tipoajuste;
+    private String montosini;
     private String RAZONAJUSTE;
+
+    public String getTipoajuste() {
+        return tipoajuste;
+    }
+
+    public void setTipoajuste(String tipoajuste) {
+        this.tipoajuste = tipoajuste;
+    }
+
+    public String getMontosini() {
+        return montosini;
+    }
+
+    public void setMontosini(String montosini) {
+        this.montosini = montosini;
+    }
 
     public String getRAZONAJUSTE() {
         return RAZONAJUSTE;
@@ -124,7 +142,9 @@ public class Asesuisa_AjusteReservaSiniestroBean {
                 arSiniestroBean.setFOPERACION(rs.getString("FOPERACION"));
                 arSiniestroBean.setMRECHAZOCIERRE(rs.getString("MRECHAZOCIERRE"));
                 arSiniestroBean.setCCOMENTARIO(rs.getString("CCOMENTARIO"));
-                arSiniestroBean.setCCOMENTARIO(rs.getString("RAZONAJUSTE"));
+                arSiniestroBean.setTipoajuste(rs.getString("TIPOAJUSTE"));
+                arSiniestroBean.setMontosini(rs.getString("MONTOSINI"));
+                arSiniestroBean.setRAZONAJUSTE(rs.getString("RAZONAJUSTE"));
 
 
                 arSiniestro.add(arSiniestroBean);
