@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 7: Buscar por tercero juridico.
+    Resultado: Mostrar los siniestros asociados y seleccionar el primero-->
+  <ASESUISA_SINIESTRO_BAVANZADA PRUEBA="1" SUCURSAL="" NROPOLIZA="" TIPOPOLIZA="" TIPOPRODUCCION=""
+                                CODIGOIDENTIFICADOR="10101010813391" TIPOTERCERO="LegalPerson" IDCAMPO="5"/>
+</dataset>

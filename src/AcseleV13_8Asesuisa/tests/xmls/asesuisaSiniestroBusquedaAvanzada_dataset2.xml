@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 2: Buscar por numero de poliza no existente.
+    Resultado: Mensaje de error-->
+  <ASESUISA_SINIESTRO_BAVANZADA PRUEBA="1" SUCURSAL="" NROPOLIZA="1254125412636-6" TIPOPOLIZA="" TIPOPRODUCCION=""
+                                CODIGOIDENTIFICADOR="" TIPOTERCERO="" IDCAMPO="2"/>
+</dataset>

@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"10", "3", "3"};
+        //args = new String[]{"10", "17", "7"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -749,6 +749,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "17": // q. Módulo de búsqueda de Siniestros Búsqueda avanzada
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_SiniestroBusquedaAvanzadaTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestroBusquedaAvanzadaTest busquedaAvanzadaTest = new VistaAsesuisa_SiniestroBusquedaAvanzadaTest();
+                            busquedaAvanzadaTest.setUp(tercero);
+                            busquedaAvanzadaTest.mainTest();
+                            busquedaAvanzadaTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "18": // r. Módulo de búsqueda de Siniestros Búsqueda simple
                         System.out.println("Numero: " + tercero);
