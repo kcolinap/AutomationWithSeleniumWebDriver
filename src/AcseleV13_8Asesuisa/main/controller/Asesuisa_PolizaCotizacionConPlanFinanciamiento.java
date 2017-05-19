@@ -1,6 +1,6 @@
 package AcseleV13_8Asesuisa.main.controller;
 
-import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaEmisionVariosOAAutomotoresBean;
+import AcseleV13_8Asesuisa.beans.Asesuisa_PolizaCotizacionConPlanFinanciamientoBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
 import AcseleV13_8Asesuisa.main.controller.polizaEmision.*;
 import metodo.Metodos;
@@ -10,16 +10,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Created by agil on 10/05/2017.
+ * Created by agil on 19/05/2017.
  */
-public class Asesuisa_PolizaEmisionVariosOAAutomotores {
+public class Asesuisa_PolizaCotizacionConPlanFinanciamiento {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAAutomotores.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaCotizacionConPlanFinanciamiento.class);
 
-    public String nombreAutomatizacion = "Asesuisa Emision Poliza con Varios OA";
+    public String nombreAutomatizacion = "Asesuisa Poliza Cotizacion con plan de financiamiento";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_PolizaEmisionVariosOAAutomotoresBean bean, int i, String folderName){
+    public void testLink(Asesuisa_PolizaCotizacionConPlanFinanciamientoBean bean, int i, String folderName){
 
         try {
 
@@ -31,6 +31,7 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotores {
             Asesuisa_Tomador tomador = new Asesuisa_Tomador();
             Asesuisa_UnidadRiesgo unidadRiesgo = new Asesuisa_UnidadRiesgo();
             Asesuisa_ObjetoAsegurado objetoAsegurado = new Asesuisa_ObjetoAsegurado();
+            Asesuisa_Beneficiario beneficiario = new Asesuisa_Beneficiario();
             Asesuisa_FinalizarPoliza finalizarPoliza = new Asesuisa_FinalizarPoliza();
 
             driver = a.entrarPagina(a.UrlAsesuisa());
@@ -59,19 +60,28 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotores {
             Thread.sleep(2000);
             unidadRiesgo.UnidadesRiesgoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 10);
             Thread.sleep(2000);
-            objetoAsegurado.ObjetoAseguradoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12, 13 ,14, 15, 16, 17, 18);
+            objetoAsegurado.ObjetoAseguradoAutomotores1(a, driver, bean, nombreAutomatizacion, i, folderName, 11, 12, 13, 14, 15, 16, 17, 18);
             Thread.sleep(2000);
             objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 19, 20);
             Thread.sleep(2000);
-            objetoAsegurado.ObjetoAseguradoAutomotores2(a, driver, bean, nombreAutomatizacion, i, folderName, 21, 22, 23, 24, 25, 26, 27, 28);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 21, 22);
             Thread.sleep(2000);
-            objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 29, 30);
-            Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 31,32);
-            Thread.sleep(2000);
-            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 33);
-            Thread.sleep(2000);
-            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 34);
+
+            boolean prueba = driver.findElements(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']")).size() > 0;
+
+            if (!prueba) {
+
+                finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 23);
+                Thread.sleep(2000);
+                finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 24);
+            }
+            else {
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + 23, nombreAutomatizacion, folderName);
+                WebElement mensaje = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']"));
+                System.out.println("Mensaje: " + mensaje.getText());
+                System.out.println("failed");
+            }
 
             driver.quit();
 

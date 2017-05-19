@@ -699,19 +699,22 @@ public class Asesuisa_InformacionGeneralPoliza {
 
             if (bean.getPlanesFinanciamiento() != null){
                 Select planFinanciamiento = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_listFinancialPlans']")));
-                planFinanciamiento.selectByValue(bean.getPlanesFinanciamiento());
+                //planFinanciamiento.selectByValue(bean.getPlanesFinanciamiento());
+                planFinanciamiento.selectByVisibleText(bean.getPlanesFinanciamiento());
                 Thread.sleep(2000);
             }
 
             if (bean.getMonedas() != null){
                 Select moneda = new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_ListCurrencies']")));
-                moneda.selectByValue(bean.getMonedas());
+                //moneda.selectByValue(bean.getMonedas());
+                moneda.selectByVisibleText(bean.getMonedas());
                 Thread.sleep(2000);
             }
 
             if (bean.getSucursal() != null){
                 Select sucursal= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
-                sucursal.selectByValue(bean.getSucursal());
+//                sucursal.selectByValue(bean.getSucursal());
+                sucursal.selectByVisibleText(bean.getSucursal());
                 Thread.sleep(3000);
             }
 
@@ -734,7 +737,8 @@ public class Asesuisa_InformacionGeneralPoliza {
 
             if (bean.getTipoPoliza() != null){
                 Select tipoPoliza= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater_10_fila_repeaterSelect_1_field']")));
-                tipoPoliza.selectByValue(bean.getTipoPoliza());
+//                tipoPoliza.selectByValue(bean.getTipoPoliza());
+                tipoPoliza.selectByVisibleText(bean.getTipoPoliza());
                 Thread.sleep(1000);
             }
 
@@ -753,7 +757,8 @@ public class Asesuisa_InformacionGeneralPoliza {
 
             if (bean.getCanalVenta() != null){
                 Select comisionNegociable= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_5_fila_repeaterSelect_1_field']")));
-                comisionNegociable.selectByValue(bean.getCanalVenta());
+//                comisionNegociable.selectByValue(bean.getCanalVenta());
+                comisionNegociable.selectByVisibleText(bean.getCanalVenta());
                 Thread.sleep(1000);
             }
 

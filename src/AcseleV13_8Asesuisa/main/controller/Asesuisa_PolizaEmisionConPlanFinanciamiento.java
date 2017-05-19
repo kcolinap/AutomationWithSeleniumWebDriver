@@ -67,20 +67,20 @@ public class Asesuisa_PolizaEmisionConPlanFinanciamiento {
             Thread.sleep(2000);
             objetoAsegurado.Requisitos1(a, driver, bean, nombreAutomatizacion, i, folderName, 13);
             Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 14);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 14, 15);
             Thread.sleep(2000);
 
             boolean prueba = driver.findElements(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']")).size() > 0;
 
             if (!prueba) {
 
-                finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 15);
+                finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 16);
                 Thread.sleep(2000);
-                finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 16);
+                finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 17);
             }
             else {
                 Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + 15, nombreAutomatizacion, folderName);
+                a.ScreenShotPool(driver, i, "screen" + 16, nombreAutomatizacion, folderName);
                 WebElement mensaje = driver.findElement(By.xpath("//span[@wicketpath='modalWindowForm_ErrorDialog_content_text']"));
                 System.out.println("Mensaje: " + mensaje.getText());
                 System.out.println("failed");

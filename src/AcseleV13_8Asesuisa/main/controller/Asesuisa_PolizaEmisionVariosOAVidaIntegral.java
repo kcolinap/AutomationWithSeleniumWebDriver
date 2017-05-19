@@ -73,11 +73,11 @@ public class Asesuisa_PolizaEmisionVariosOAVidaIntegral {
             Thread.sleep(2000);
             objetoAsegurado.Requisitos2(a, driver, bean, nombreAutomatizacion, i, folderName, 17);
             Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 18);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 18, 19);
             Thread.sleep(2000);
-            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 19);
+            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 20);
             Thread.sleep(2000);
-            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 20);
+            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 21);
 
 //            driver.quit();
 
