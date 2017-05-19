@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import sun.awt.windows.ThemeReader;
 
 /**
- * Created by kcolina on 16/03/2017.
+ * Created by kcolina on 19/05/2017.
  */
 public class Asesuisa_SiniestroBusquedaSimple {
 
@@ -21,10 +21,11 @@ public class Asesuisa_SiniestroBusquedaSimple {
     public String nombreAutomatizacion = "Busqueda simple de siniestro";
     private WebDriver driver;
 
-    public void testLink(Asesuisa_SiniestroBusquedaSimpleBean bean, int i,
-                         String folderName){
+    public void TestLink(Asesuisa_SiniestroBusquedaSimpleBean bean, int i, String folderName){
         try {
 
+            String idCampo="";
+            int nroCampo;
             Metodos m = new Metodos();
             Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
 
@@ -39,8 +40,16 @@ public class Asesuisa_SiniestroBusquedaSimple {
             m.cambiarVentana(driver);
             Thread.sleep(1000);
 
-            BuscarSiniestro(driver, nombreAutomatizacion,bean,3,4,5,folderName);
+            //Evaluo por cual campo se hara la busqueda
+            idCampo=bean.getIdCampo();
+            Thread.sleep(1000);
+            nroCampo=Integer.parseInt(idCampo);
 
+            //Llamada al metodo BuscarSiniestro
+            BuscarSiniestro(driver,bean,m,i,nombreAutomatizacion,folderName,nroCampo);
+            Thread.sleep(1500);
+
+            //Salida de la funcionalidad
             driver.quit();
 
         }catch (Exception e){
@@ -52,43 +61,51 @@ public class Asesuisa_SiniestroBusquedaSimple {
         }
     }
 
-    public void BuscarSiniestro(WebDriver driver, String nombreAutomatizacion,
-                                Asesuisa_SiniestroBusquedaSimpleBean asesuisaSiniestroBusquedaSimpleBean, int screen1,
-                                int screen2, int screen3, String folderName){
+    public void BuscarSiniestro(WebDriver driver, Asesuisa_SiniestroBusquedaSimpleBean bean, Metodos m,
+                                int i, String nombreAutomatizacion, String folderName, int idCampo){
         try {
 
-            //Capturar los campos con los que se realizara la busqueda
-            if (asesuisaSiniestroBusquedaSimpleBean.getOrdenarPor()!=null){
-                Select ordenarPor = new Select(driver.findElement(By.xpath("/*//*[@id=\"orderBy\"]/input")));
-                ordenarPor.selectByValue(asesuisaSiniestroBusquedaSimpleBean.getOrdenarPor());
+            WebElement txtCampo;
+
+            //Selecciono el metodo de ordenamiento en caso de estar establecido en el xml
+            if (bean.getOrdenarPor()!=null){
+
+                //Click a la flecha para desplegar combo ordenarPor
+                driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div/div[3]/div/div/div[3]/div/div")).click();
                 Thread.sleep(800);
+
+                //Evaluo el nro de elemnto del combo
+                int nroOpciones= driver.findElements(By.xpath("html/body/div[2]/div[2]/div/div[2]/table/tbody/tr")).size();
+                for (int k=1;k==nroOpciones;k++){
+                    if( (driver.findElement(By.xpath("html/body/div[2]/div[2]/div/div[2]/table/tbody/tr["+k+"]/td")).equals(bean.getOrdenarPor())) ){
+                        driver.findElement(By.xpath("html/body/div[2]/div[2]/div/div[2]/table/tbody/tr["+k+"]/td")).click();
+                        Thread.sleep(1000);
+                        break;
+                    }
+                }
             }
 
-            if (asesuisaSiniestroBusquedaSimpleBean.getNroSiniestro()!=null){
-                WebElement nroSiniestro = driver.findElement(By.xpath("/*//*[@id=\"textFieldClaimNumbre\"]"));
-                nroSiniestro.sendKeys(asesuisaSiniestroBusquedaSimpleBean.getNroSiniestro());
-                Thread.sleep(800);
-            }
+            //Evaluo el campo por el cual se realizara la busqueda simple
+            switch (idCampo){
+                case 1:
+                    System.out.println("Búsqueda por: Nro de Siniestro");
+                    txtCampo = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/div[3]/input"));
+                    txtCampo.sendKeys(bean.getNroSiniestro());
 
-            if (asesuisaSiniestroBusquedaSimpleBean.getFechaOcurrencia()!=null){
-                WebElement fechaOcurrencia = driver.findElement(By.xpath("/*//*[@id=\"dateFieldOccurrenceDate\"]/input"));
-                fechaOcurrencia.sendKeys(asesuisaSiniestroBusquedaSimpleBean.getFechaOcurrencia());
-                Thread.sleep(800);
-            }
+                    //Click al elemento label del campo nro de siniestro
+                    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/div[2]/div")).click();
+                    Thread.sleep(800);
 
-            if (asesuisaSiniestroBusquedaSimpleBean.getNroPoliza()!=null){
-                WebElement nroPoliza = driver.findElement(By.xpath("/*//*[@id=\"dateFieldOccurrenceDate\"]/input"));
-                nroPoliza.sendKeys(asesuisaSiniestroBusquedaSimpleBean.getNroPoliza());
-                Thread.sleep(800);
-            }
+                    //Pantallazo
+                    m.ScreenShotPool(driver,i,"screen3",nombreAutomatizacion,folderName);
+                    Thread.sleep(800);
 
-            if (asesuisaSiniestroBusquedaSimpleBean.getProducto()!=null){
-                WebElement producto, btnSeleccionar;
-                btnSeleccionar = driver.findElement(By.xpath("/*//*[@id=\"comboProductoSimpleSearch\"]/div"));
-                btnSeleccionar.click();
-                Thread.sleep(500);
-                producto = driver.findElement(By.xpath("/*//*[@id=\"comboProductoSimpleSearch\"]/input"));
-
+                    //Llamada al metodo ValidarBusqueda
+                    //ValidarBusqueda(driver,m,i,nombreAutomatizacion,folderName);
+                    break;
+                default:
+                    System.out.println("default");
+                    break;
             }
         }catch (Exception e){
             e.printStackTrace();e.printStackTrace();
