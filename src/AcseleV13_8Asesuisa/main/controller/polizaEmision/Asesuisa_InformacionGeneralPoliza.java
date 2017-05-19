@@ -746,7 +746,8 @@ public class Asesuisa_InformacionGeneralPoliza {
 
             if (bean.getUnidadComercial() != null){
                 Select comisionNegociable= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_PolicyInformation_BasicInformation_registerForm_DataTemplate_tabPanel_repeaterTab_1_SubTabsInformation_repeater2_4_fila_repeaterSelect_1_field']")));
-                comisionNegociable.selectByValue(bean.getUnidadComercial());
+//                comisionNegociable.selectByValue(bean.getUnidadComercial());
+                comisionNegociable.selectByVisibleText(bean.getUnidadComercial());
                 Thread.sleep(2000);
             }
 

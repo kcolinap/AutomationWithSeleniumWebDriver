@@ -593,6 +593,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "6": // f. nclusión, edición y eliminación de Beneficiarios Naturales
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionBeneficiarioTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionBeneficiarioTest asesuisa_polizaEmisionBeneficiarioTest = new VistaAsesuisa_PolizaEmisionBeneficiarioTest();
+                            asesuisa_polizaEmisionBeneficiarioTest.setUp(tercero);
+                            asesuisa_polizaEmisionBeneficiarioTest.mainTest();
+                            asesuisa_polizaEmisionBeneficiarioTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "7": // g. Inclusión, edición y eliminación de Pagadores
                         System.out.println("Numero: " + tercero);
