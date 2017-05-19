@@ -3,10 +3,15 @@ package AcseleV13_8Asesuisa.main.controller;
 import AcseleV13_8Asesuisa.beans.Asesuisa_GeneracionDocumentosSiniestrosBean;
 import AcseleV13_8Asesuisa.beans.Asesuisa_ValidacionOperacionSiniestroBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
+import junit.framework.Assert;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
+import org.openqa.jetty.html.Break;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.JavascriptExecutor;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by cortiz on 17/05/2017.
@@ -28,16 +33,19 @@ public class Asesuisa_GeneracionDocumentosSiniestros {
             m.ValidandoSesion(driver,nombreAutomatizacion,i,folderName);
             Thread.sleep(2000);
 
-            //Entrando a la opcion crear siniestro
+
             //Entrando en Menu
             //Ingreso a la opcion Mantenimiento siniestros
             menu.OpeSini_MantenimientoSiniestro(driver, nombreAutomatizacion, 2, i, folderName);
-            Thread.sleep(1500);
+            Thread.sleep(2000);
             m.cambiarVentana(driver);
+            Thread.sleep(2000);
 
-            BusquedaSiniestro(bean, m, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+            BusquedaSiniestro(bean, m, i, folderName, 3, 4, 5, 6, 7, 8, 9);
 
-            Thread.sleep(1000);
+            GenerarDocumento(bean, m, i, folderName,10,11,12);
+
+            Thread.sleep(3000);
             driver.quit();
         }catch (Exception e){
             e.printStackTrace();
@@ -49,8 +57,8 @@ public class Asesuisa_GeneracionDocumentosSiniestros {
 
     }
 
-    public void BusquedaSiniestro(Asesuisa_ValidacionOperacionSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShot5,
-                                  int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9){
+    public void BusquedaSiniestro(Asesuisa_GeneracionDocumentosSiniestrosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5,
+                                  int numScreenShoot6, int numScreenShoot7){
 
 
          try {
@@ -82,9 +90,6 @@ public class Asesuisa_GeneracionDocumentosSiniestros {
             WebElement sencontrado = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
             sencontrado.click();
 
-            WebElement EstatusSiniestro = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr/td[3]/div"));
-            String stringEstatus = EstatusSiniestro.getText();
-
 
 
              Thread.sleep(1000);
@@ -97,22 +102,128 @@ public class Asesuisa_GeneracionDocumentosSiniestros {
             a.changeLastWindows(driver);
             Thread.sleep(2000);
 
+             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
+             WebElement cobertura = driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]/option"));
+             cobertura.click();
+
+             Thread.sleep(1000);
+             a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
+             Thread.sleep(1000);
+
+            // jse.executeScript("window.scrollBy(0,1000)", "");
+
+             WebElement documentos = driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_60\"]"));
+             documentos.click();
+
+             Thread.sleep(1000);
+             a.ScreenShotPool(driver, i, "screen" + numScreenShoot6, nombreAutomatizacion, folderName);
+             Thread.sleep(1000);
+
+             Thread.sleep(2000);
+             a.changeLastWindows(driver);
+             Thread.sleep(2000);
+
+             Thread.sleep(1000);
+             a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
+             Thread.sleep(1000);
 
 
+            /* WebElement nodocumentos = driver.findElement(By.xpath("/html/body/form/div/b/i/font"));
 
 
+           if  ((nodocumentos.getText()).equals("No hay documentos configurados")){
 
-
+               System.out.println("ESte siniestro no tiene documentos configurados ");
+               Assert.assertEquals("No hay documentos configurados", nodocumentos.getText());
+             }*/
 
 
         }catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    public void GenerarDocumento(Asesuisa_GeneracionDocumentosSiniestrosBean bean, Metodos a, int i, String folderName,
+                                 int numScreenShoot, int numScreenShoot2, int numScreenShoot3){
+
+        try {
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+
+            WebElement btnselArchivo = driver.findElement(By.xpath("//*[@id=\"theFile\"]"));
+            btnselArchivo.click();
+            Thread.sleep(1500);
+
+
+            switch (bean.getTIPODOC()){
+
+                case "xlsx":
+
+                    Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\asesuisaGeneraDocumentosSiniestroXlsx.exe");
+                    Thread.sleep(2000);
+
+                    break;
+
+                case "docx":
+
+                    Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\asesuisaGeneraDocumentosSiniestroDocx.exe");
+                    Thread.sleep(2000);
+                    break;
+
+                case "pdf":
+
+                    Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\asesuisaGeneraDocumentosSiniestroPdf.exe");
+                    Thread.sleep(2000);
+                    break;
+
+                case "txt":
+
+                    Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\asesuisaGeneraDocumentosSiniestroTxt.exe");
+                    Thread.sleep(2000);
+                    break;
+
+                case "png":
+
+                    Runtime.getRuntime().exec("C:\\AcseleTests\\AutomationTestAcsele\\AutoIT\\asesuisaGeneraDocumentosSiniestroPng.exe");
+                    Thread.sleep(2000);
+                    break;
+
+            }
+
+            if (bean.getCCOMENTARIO() != null) {
+                WebElement descripcion = driver.findElement(By.xpath("//*[@id=\"desc\"]"));
+                descripcion.sendKeys(bean.getCCOMENTARIO());
+            }
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);
+
+            WebElement btnCargar = driver.findElement(By.xpath("//*[@id=\"DivComDocuments\"]/form/table[2]/tbody/tr/td/input"));
+            btnCargar.click();
+            Thread.sleep(3000);
+
+            Thread.sleep(1000);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+            Thread.sleep(1000);  //*[@id="inner"]/a
+
+            WebElement vtnclose = driver.findElement(By.xpath("//*[@id=\"inner\"]/a"));
+            vtnclose.click();
+
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
     }
 

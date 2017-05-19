@@ -36,7 +36,7 @@ public class VistaAsesuisa_GeneracionDocumentosSiniestrosTest {
             String horaC = m.horaCarpeta();
 
             try{
-               a.testLink(bean, j, horaC);
+            a.testLink(bean, j, horaC);
             }catch (Exception e){
                 e.printStackTrace();
                 Log.error("Test Case - " + a.nombreAutomatizacion + " - " + e);
@@ -46,8 +46,8 @@ public class VistaAsesuisa_GeneracionDocumentosSiniestrosTest {
     @Before
     public void setUp(String num) throws Exception {
 
-
-       /* DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_GENERADOCSIN ORDER BY PRUEBA ASC",
+/*
+      DataSetManager.createPartialDataSet("SELECT * FROM ASESUISA_GENERADOCSIN ORDER BY PRUEBA ASC",
                 "ASESUISA_GENERADOCSIN",
                 "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaGeneradocSiniestro_dataset" + num + ".xml");
 

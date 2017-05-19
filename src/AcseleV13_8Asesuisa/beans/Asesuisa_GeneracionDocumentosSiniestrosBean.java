@@ -24,6 +24,15 @@ public class Asesuisa_GeneracionDocumentosSiniestrosBean extends Asesuisa_Sinies
     private String FOPERACION;
     private String MRECHAZOCIERRE;
     private String CCOMENTARIO;
+    private String TIPODOC;
+
+    public String getTIPODOC() {
+        return TIPODOC;
+    }
+
+    public void setTIPODOC(String TIPODOC) {
+        this.TIPODOC = TIPODOC;
+    }
 
     public String getID() {
         return ID;
@@ -108,12 +117,10 @@ public class Asesuisa_GeneracionDocumentosSiniestrosBean extends Asesuisa_Sinies
                 Asesuisa_GeneracionDocumentosSiniestrosBean bean = new Asesuisa_GeneracionDocumentosSiniestrosBean();
 
                 bean.setNSINIESTRO(rs.getString("NSINIESTRO"));
-                bean.setNPOLIZA(rs.getString("NPOLIZA"));
-                bean.setFOCURRENCIA(rs.getString("FOCURRENCIA"));
-                bean.setPRODUCTO(rs.getString("PRODUCTO"));
-                bean.setFOPERACION(rs.getString("FOPERACION"));
-                bean.setMRECHAZOCIERRE(rs.getString("MRECHAZOCIERRE"));
+                bean.setNPOLIZA(rs.getString("NROCAJA"));
                 bean.setCCOMENTARIO(rs.getString("CCOMENTARIO"));
+                bean.setTIPODOC(rs.getString("TIPODOC"));
+
 
                 docSiniestro.add(bean);
             }
