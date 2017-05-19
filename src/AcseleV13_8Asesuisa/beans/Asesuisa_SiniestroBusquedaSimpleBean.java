@@ -48,8 +48,8 @@ public class Asesuisa_SiniestroBusquedaSimpleBean extends Asesuisa_SiniestroBean
 
                 bean.setOrdenarPor(rs.getString("ORDENARPOR"));
                 bean.setNroSiniestro(rs.getString("NROSINIESTRO"));
-                bean.setNroPoliza(rs.getString("FECHAOCURRENCIA"));
-                bean.setFechaOcurrencia(rs.getString("NROPOLIZA"));
+                bean.setNroPoliza(rs.getString("NROPOLIZA"));
+                bean.setFechaOcurrencia(rs.getString("FECHAOCURRENCIA"));
                 bean.setProducto(rs.getString("PRODUCTO"));
                 bean.setIdCampo(rs.getString("IDCAMPO"));
 
