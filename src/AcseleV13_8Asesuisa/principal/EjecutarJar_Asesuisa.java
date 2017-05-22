@@ -160,13 +160,13 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
-                    case "3": // c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
+                    case "3": // NA c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // d. Edición de Terceros.
+                    case "4": // NA d. Edición de Terceros.
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "VistaAsesuisa_TercerosEditarTest";
+                        /*prueba = "VistaAsesuisa_TercerosEditarTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_TercerosEditarTest tercerosEditarTest = new VistaAsesuisa_TercerosEditarTest();
@@ -178,7 +178,7 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
+                        */
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
@@ -212,7 +212,7 @@ public class EjecutarJar_Asesuisa {
                         }
                         log.info("--->>> Final de la prueba " + prueba);
                         break;
-                    case "7": // g. Direcciónes
+                    case "7": // g. Direcciones
                         System.out.println("Numero: " + tercero);
 
                         prueba = "VistaAsesuisa_TercerosDireccionesTest";
@@ -617,7 +617,7 @@ public class EjecutarJar_Asesuisa {
                     case "9": // i. Emisión con facultativo
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "10": // i. Cotización con facultativo
+                    case "10": // i. Cotización con plan de financiamiento
                         System.out.println("Numero: " + tercero);
 
                         prueba = "VistaAsesuisa_PolizaCotizacionConPlanFinanciamientoTest";
@@ -634,7 +634,7 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
-                    case "11": // i. Cotización sin facultativo
+                    case "11": // i. Cotización sin plan de financiamiento
                         System.out.println("Numero: " + tercero);
 
                         prueba = "VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest";
@@ -869,9 +869,9 @@ public class EjecutarJar_Asesuisa {
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
                 switch (segundo){
-                    case "1": // a. Generación de trazas
+                    case "1": // NA a. Generación de trazas
                         System.out.println("Numero: " + tercero);
-                        prueba = "Generar Traza";
+                        /*prueba = "Generar Traza";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_GenerarTrazaTest generarTraza = new VistaAsesuisa_GenerarTrazaTest();
@@ -883,10 +883,11 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
 
                         }
+                        */
                         break;
-                    case "2": // b. Detalle de las trazas
+                    case "2": // NA b. Detalle de las trazas
                         System.out.println("Numero: " + tercero);
-                        prueba = "MostrarDetalleauditoria";
+                        /*prueba = "MostrarDetalleauditoria";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaTrazaDetalleAuditoriaTest vistaTrazaDetalleAuditoria = new VistaTrazaDetalleAuditoriaTest();
@@ -898,10 +899,11 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
 
                         }
+                        */
                         break;
-                    case "3": //c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
+                    case "3": // NA c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
                         System.out.println("Numero: " + tercero);
-                        prueba = "Exportar traza auditoria";
+                        /*prueba = "Exportar traza auditoria";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_ExportarTrazaAuditoriaTest vistaExportarTrazaAuditoria = new VistaAsesuisa_ExportarTrazaAuditoriaTest();
@@ -914,9 +916,8 @@ public class EjecutarJar_Asesuisa {
 
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
+                        */
                         break;
-
                 }
                 break;
 
