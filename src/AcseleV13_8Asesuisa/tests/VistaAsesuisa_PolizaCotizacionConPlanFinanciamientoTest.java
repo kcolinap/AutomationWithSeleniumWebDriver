@@ -46,20 +46,20 @@ public class VistaAsesuisa_PolizaCotizacionConPlanFinanciamientoTest {
     @Before
     public void setUp(String num) throws Exception {
 
-        /*DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLI_COTIZA_SIN_PLAN_FIN ORDER BY PRUEBA ASC",
-                "ASE_POLI_COTIZA_SIN_PLAN_FIN",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionSinPlanFinanciamiento_dataset" + num + ".xml");
+        /*DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLI_COTIZA_CON_PLAN_FIN ORDER BY PRUEBA ASC",
+                "ASE_POLI_COTIZA_CON_PLAN_FIN",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionConPlanFinanciamiento_dataset" + num + ".xml");
 
-        DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLI_COTIZA_SIN_PLAN_FIN ORDER BY PRUEBA ASC",
-                "ASE_POLI_COTIZA_SIN_PLAN_FIN",
-                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionSinPlanFinanciamiento_dataset" + num + ".xml");
+        DataSetManager.createPartialDataSet("SELECT * FROM ASE_POLI_COTIZA_CON_PLAN_FIN ORDER BY PRUEBA ASC",
+                "ASE_POLI_COTIZA_CON_PLAN_FIN",
+                "C:/AcseleTests/AutomationTestAcsele/src/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionConPlanFinanciamiento_dataset" + num + ".xml");
         */
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionSinPlanFinanciamiento_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionConPlanFinanciamiento_dataset" + num + ".xml", DataSetManager.REFRESH_OPERATION);
     }
 
     @After
     public void tearDown(String num) throws Exception {
 
-        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionSinPlanFinanciamiento_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
+        DataSetManager.loadDataSet("/AcseleV13_8Asesuisa/tests/xmls/asesuisaCotizacionConPlanFinanciamiento_dataset" + num + ".xml", DataSetManager.DELETE_OPERATION);
     }
 }

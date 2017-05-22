@@ -636,6 +636,20 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "11": // i. Cotización sin facultativo
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest polizaCotizacionSinPlanFinanciamientoTest = new VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest();
+                            polizaCotizacionSinPlanFinanciamientoTest.setUp(tercero);
+                            polizaCotizacionSinPlanFinanciamientoTest.mainTest();
+                            polizaCotizacionSinPlanFinanciamientoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "12": // i. Cotización con varios OA y UR
                         System.out.println("Numero: " + tercero);

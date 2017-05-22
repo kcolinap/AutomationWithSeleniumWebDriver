@@ -11,23 +11,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by agil on 19/05/2017.
+ * Created by agil on 22/05/2017.
  */
-public class Asesuisa_PolizaCotizacionConPlanFinanciamientoBean extends Asesuisa_PolizasBean implements Serializable {
+public class Asesuisa_PolizaCotizacionSinPlanFinanciamientoBean extends Asesuisa_PolizasBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaCotizacionConPlanFinanciamientoBean.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaCotizacionSinPlanFinanciamientoBean.class);
 
-    private String beneficiarioPorcentajeEditar;
-
-    public String getBeneficiarioPorcentajeEditar() {
-        return beneficiarioPorcentajeEditar;
-    }
-
-    public void setBeneficiarioPorcentajeEditar(String beneficiarioPorcentajeEditar) {
-        this.beneficiarioPorcentajeEditar = beneficiarioPorcentajeEditar;
-    }
-
-    public static ArrayList getAsesuisa_PolizaCotizacionConPlanFinanciamiento() throws SQLException {
+    public static ArrayList getAsesuisa_PolizaCotizacionSinPlanFinanciamiento() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
@@ -35,7 +25,7 @@ public class Asesuisa_PolizaCotizacionConPlanFinanciamientoBean extends Asesuisa
         ArrayList tercero = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASE_POLI_COTIZA_CON_PLAN_FIN ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASE_POLI_COTIZA_SIN_PLAN_FIN ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -43,7 +33,7 @@ public class Asesuisa_PolizaCotizacionConPlanFinanciamientoBean extends Asesuisa
             rs = stmt.executeQuery(queryLoad.toString());
 
             while (rs.next()) {
-                Asesuisa_PolizaCotizacionConPlanFinanciamientoBean bean = new Asesuisa_PolizaCotizacionConPlanFinanciamientoBean();
+                Asesuisa_PolizaCotizacionSinPlanFinanciamientoBean bean = new Asesuisa_PolizaCotizacionSinPlanFinanciamientoBean();
 
                 bean.setProducto(rs.getString("PRODUCTO"));
                 bean.setVigencia(rs.getString("VIGENCIA"));

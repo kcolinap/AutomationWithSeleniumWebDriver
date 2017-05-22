@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <ASE_POLI_COTIZA_SIN_PLAN_FIN PRUEBA="1"
+  <ASE_POLI_COTIZA_CON_PLAN_FIN PRUEBA="1"
                                 PRODUCTO="Automotores" VIGENCIA="Anual" FECHA_DESDE="19-05-2017" FEHCA_HASTA=""
                                 EVENTO_APLICAR="" FECHA_MOVIMIENTO=""
 
-                                PLAN_FINANCIEMIENTO="" MONEDAS=""
+                                PLAN_FINANCIEMIENTO="Anual" MONEDAS=""
                                 SUCURSAL="" TIPO_EMISION="ESTANDAR" TIPO_POLIZA="Colectiva"
                                 COMISION_NEGOCIABLE="" UNIDAD_COMERCIAL="Formación" CANAL_VENTA="Bancario"
 
