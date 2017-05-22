@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 1: Bsuqeda sin colocar ningun campo
+  Resultado esperado mensaje de error -->
+  <ASESUISA_SINIESTRO_BSIMPLE PRUEBA="1" ORDENARPOR="" NROSINIESTRO="" FECHAOCURRENCIA=""
+                              NROPOLIZA="" PRODUCTO ="" IDCAMPO="0"/>
+</dataset>

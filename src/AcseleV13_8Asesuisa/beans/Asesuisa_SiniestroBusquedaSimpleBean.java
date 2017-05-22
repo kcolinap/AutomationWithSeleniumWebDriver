@@ -11,11 +11,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Created by kcolina on 15/03/2017.
+ * Created by kcolina on 19/05/2017.
  */
 public class Asesuisa_SiniestroBusquedaSimpleBean extends Asesuisa_SiniestroBean implements Serializable {
 
     private final static Logger log = Logger.getLogger(Asesuisa_SiniestroBusquedaSimpleBean.class);
+
+    private String idCampo;
+
+    public String getIdCampo() {
+        return idCampo;
+    }
+
+    public void setIdCampo(String idCampo) {
+        this.idCampo = idCampo;
+    }
 
     public static ArrayList getSiniestroBusquedaSimpleBean() throws SQLException{
 
@@ -25,7 +35,7 @@ public class Asesuisa_SiniestroBusquedaSimpleBean extends Asesuisa_SiniestroBean
         ArrayList asesuisaSiniestroBusquedaSimple = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("select");
+        queryLoad.append("select * from ASESUISA_SINIESTRO_BSIMPLE ORDER BY PRUEBA ASC");
 
         try{
             conexion = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -34,15 +44,16 @@ public class Asesuisa_SiniestroBusquedaSimpleBean extends Asesuisa_SiniestroBean
 
             while (rs.next()){
 
-                Asesuisa_SiniestroBusquedaSimpleBean asesuisaSiniestroBusquedaSimpleBean = new Asesuisa_SiniestroBusquedaSimpleBean();
+                Asesuisa_SiniestroBusquedaSimpleBean bean = new Asesuisa_SiniestroBusquedaSimpleBean();
 
-                asesuisaSiniestroBusquedaSimpleBean.setOrdenarPor(rs.getString("ORDENARPOR"));
-                asesuisaSiniestroBusquedaSimpleBean.setNroSiniestro(rs.getString("NUMEROSINIESTRO"));
-                asesuisaSiniestroBusquedaSimpleBean.setNroPoliza(rs.getString("NUMEROPOLIZA"));
-                asesuisaSiniestroBusquedaSimpleBean.setFechaOcurrencia(rs.getString("FECHAOCURRENCIA"));
-                asesuisaSiniestroBusquedaSimpleBean.setProducto(rs.getString("PRODUCTO"));
+                bean.setOrdenarPor(rs.getString("ORDENARPOR"));
+                bean.setNroSiniestro(rs.getString("NROSINIESTRO"));
+                bean.setNroPoliza(rs.getString("NROPOLIZA"));
+                bean.setFechaOcurrencia(rs.getString("FECHAOCURRENCIA"));
+                bean.setProducto(rs.getString("PRODUCTO"));
+                bean.setIdCampo(rs.getString("IDCAMPO"));
 
-                asesuisaSiniestroBusquedaSimple.add(asesuisaSiniestroBusquedaSimpleBean);
+                asesuisaSiniestroBusquedaSimple.add(bean);
             }
 
         }catch (SQLException e){

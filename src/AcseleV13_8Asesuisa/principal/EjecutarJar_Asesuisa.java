@@ -815,6 +815,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "18": // r. Módulo de búsqueda de Siniestros Búsqueda simple
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_SiniestroBusquedaSimpleTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestroBusquedaSimpleTest busquedaSimpleTest = new VistaAsesuisa_SiniestroBusquedaSimpleTest();
+                            busquedaSimpleTest.setUp(tercero);
+                            busquedaSimpleTest.mainTest();
+                            busquedaSimpleTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "19": // s. Generación de documentos en Siniestros.
                         System.out.println("Numero: " + tercero);
