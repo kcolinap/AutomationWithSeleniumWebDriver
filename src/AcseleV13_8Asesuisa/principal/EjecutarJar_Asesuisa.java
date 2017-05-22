@@ -770,6 +770,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "7": // g. Ajustes a las reservas de siniestros (casos bordes ajustes de reservas con valor cero)
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_AjusteReservaSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_AjusteReservaSiniestroTest aSiniestro =  new VistaAsesuisa_AjusteReservaSiniestroTest();
+                            aSiniestro.setUp(tercero);
+                            aSiniestro.mainTest();
+                            aSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "8": // h. Ajuste automático de reservas
                         System.out.println("Numero: " + tercero);
