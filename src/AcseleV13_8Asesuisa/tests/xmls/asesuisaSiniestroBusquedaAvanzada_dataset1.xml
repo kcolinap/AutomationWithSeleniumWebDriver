@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 1: Buscar sin colocar ningun campo.
+    Resultado: Mensaje de error-->
+  <ASESUISA_SINIESTRO_BAVANZADA PRUEBA="1" SUCURSAL="" NROPOLIZA="" TIPOPOLIZA="" TIPOPRODUCCION=""
+                                CODIGOIDENTIFICADOR="" TIPOTERCERO="" IDCAMPO="0"/>
+</dataset>
