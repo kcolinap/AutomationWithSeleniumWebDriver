@@ -830,6 +830,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "19": // s. Generación de documentos en Siniestros.
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_GeneracionDocumentosSiniestrosTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_GeneracionDocumentosSiniestrosTest docSiniestros = new VistaAsesuisa_GeneracionDocumentosSiniestrosTest();
+                            docSiniestros.setUp(tercero);
+                            docSiniestros.mainTest();
+                            docSiniestros.tearDown(tercero);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "20": // t. Edición y modificación de Siniestros (varios OA).
                         System.out.println("Numero: " + tercero);
