@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"10", "3", "3"};
+        args = new String[]{"12", "1", "3"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -842,6 +842,19 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Export de Tablas Dinámicas
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_TablaDinamicaExportTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TablaDinamicaExportTest vistaAsesuisaTablaDinamicaExportTest = new VistaAsesuisa_TablaDinamicaExportTest();
+                            vistaAsesuisaTablaDinamicaExportTest.setUp(tercero);
+                            vistaAsesuisaTablaDinamicaExportTest.mainTest();
+                            vistaAsesuisaTablaDinamicaExportTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "2": // b. Import de Dinámicas
                         System.out.println("Numero: " + tercero);
