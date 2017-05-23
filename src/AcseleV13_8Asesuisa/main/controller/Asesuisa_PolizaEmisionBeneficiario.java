@@ -66,7 +66,7 @@ public class Asesuisa_PolizaEmisionBeneficiario {
             Thread.sleep(2000);
             objetoAsegurado.Asegurado1(a, driver, bean, nombreAutomatizacion, i, folderName, 19, 20);
             Thread.sleep(2000);
-            beneficiario.AgregarTomador(a, driver, bean, nombreAutomatizacion, i, folderName, 21, 22);
+            beneficiario.AgregarBeneficiario(a, driver, bean, nombreAutomatizacion, i, folderName, 21, 22);
             Thread.sleep(2000);
             EditarBeneficiario(a, driver, bean, nombreAutomatizacion, i, folderName, 23, 24, 25);
             Thread.sleep(2000);

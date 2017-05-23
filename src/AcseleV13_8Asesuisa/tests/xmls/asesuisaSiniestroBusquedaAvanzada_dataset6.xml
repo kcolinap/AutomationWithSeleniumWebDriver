@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 6: Buscar por tercero natural.
+    Resultado: Mostrar los siniestros asociados y seleccionar el primero-->
+  <ASESUISA_SINIESTRO_BAVANZADA PRUEBA="1" SUCURSAL="" NROPOLIZA="" TIPOPOLIZA="" TIPOPRODUCCION=""
+                                CODIGOIDENTIFICADOR="10101010813152" TIPOTERCERO="NaturalPerson" IDCAMPO="4"/>
+</dataset>

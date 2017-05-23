@@ -17,7 +17,7 @@ public class Asesuisa_Beneficiario {
 
     private final static Logger log = Logger.getLogger(Asesuisa_Beneficiario.class);
 
-    public void AgregarTomador(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
+    public void AgregarBeneficiario(Metodos a, WebDriver driver, Asesuisa_PolizasBean bean, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2){
 
         try { //TipoElemento[@wicketpath='WicketpathElemento']
 

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 5: Bsuqeda por nro de poliza
+  Resultado esperado: De haber siniestro con ese numero de poliza, selecciona el primero,
+   si no hay registros, manda mensaje de no existencia-->
+  <ASESUISA_SINIESTRO_BSIMPLE PRUEBA="1" ORDENARPOR="" NROSINIESTRO="" FECHAOCURRENCIA=""
+                              NROPOLIZA="09-01-0401-00000577" PRODUCTO ="" IDCAMPO="3"/>
+</dataset>

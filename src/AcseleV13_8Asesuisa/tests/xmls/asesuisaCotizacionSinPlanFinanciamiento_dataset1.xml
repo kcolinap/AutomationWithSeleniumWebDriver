@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <ASE_POLI_COTIZA_SIN_PLAN_FIN PRUEBA="1"
+                                PRODUCTO="Automotores" VIGENCIA="Anual" FECHA_DESDE="19-05-2017" FEHCA_HASTA=""
+                                EVENTO_APLICAR="" FECHA_MOVIMIENTO=""
+
+                                PLAN_FINANCIEMIENTO="" MONEDAS=""
+                                SUCURSAL="" TIPO_EMISION="ESTANDAR" TIPO_POLIZA="Colectiva"
+                                COMISION_NEGOCIABLE="" UNIDAD_COMERCIAL="Formación" CANAL_VENTA="Bancario"
+
+                                TOMADOR_NOMBRE_1="NOEMIS" TOMADOR_NOMBRE_2="CRISTINA"
+                                TOMADOR_APELLIDO_1="RODRÍGUEZ" TOMADOR_APELLIDO_2=""
+
+                                ASESOR_NOMBRE_1="" ASESOR_NOMBRE_2=""
+                                ASESOR_APELLIDO_1="" ASESOR_APELLIDO_2=""
+
+                                NUMERO_UNIDAD_RIESGO=""
+                                TIPO_OBJETO_ASEGURADO_1="Plan Full Extras - Automotores" NUMERO_OBJETO_ASEGURADO_1=""
+                                MARCA_1="CHEVROLET" MODELO_1="COBALT" ANIO_1="2013" NUMERO_ASIENTOS_1="5"
+
+                                ASEGURADO_1_NOMBRE_1="NOEMIS" ASEGURADO_1_NOMBRE_2="CRISTINA"
+                                ASEGURADO_1_APELLIDO_1="RODRÍGUEZ" ASEGURADO_1_APELLIDO_2=""/>
+</dataset>

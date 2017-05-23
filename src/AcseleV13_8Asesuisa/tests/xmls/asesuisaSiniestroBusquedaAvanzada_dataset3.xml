@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 3: Buscar por numero de poliza existente.
+    Resultado: Mostrar los siniestros asociado y seleccionar el primero-->
+  <ASESUISA_SINIESTRO_BAVANZADA PRUEBA="1" SUCURSAL="" NROPOLIZA="08-01-0109-00000875" TIPOPOLIZA="" TIPOPRODUCCION=""
+                                CODIGOIDENTIFICADOR="" TIPOTERCERO="" IDCAMPO="2"/>
+</dataset>
