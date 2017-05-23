@@ -3,6 +3,7 @@ package AcseleV13_8Asesuisa.main.controller;
 import AcseleV13_8Asesuisa.beans.Asesuisa_CajaAnularFacturaBean;
 import AcseleV13_8Asesuisa.beans.Asesuisa_SiniestrosPagosBean;
 import AcseleV13_8Asesuisa.main.controller.Asesuisa_Menu.Asesuisa_MenuOperaciones;
+import AcseleV13_8Asesuisa.principal.EjecutarJar_Asesuisa;
 import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -10,7 +11,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import util.DBUnitConnectionManager;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,8 +33,10 @@ public class Asesuisa_SiniestrosPagos {
 
     public void testLink(Asesuisa_SiniestrosPagosBean bean, int i, String folderName){
 
+
         try {
 
+            //System.out.println("Siniestro: " + bean.getNumSiniestro());
             // Instanciando clases
             Metodos a = new Metodos();
             Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
@@ -45,24 +53,25 @@ public class Asesuisa_SiniestrosPagos {
             a.cambiarVentana(driver);
             Thread.sleep(2000);
 
-            /** Pagos Siniestros Crear*/
+            //     ** Pagos Siniestros Crear*
 
-            PagosSiniestros(bean, a, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+            PagosSiniestros(bean, a, i, folderName, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
             Thread.sleep(5000);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }
 
     public void PagosSiniestros(Asesuisa_SiniestrosPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5,
-                                int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10, int numScreenShoot11, int numScreenShoot12, int numScreenShoot13, int numScreenShoot14){
+                                int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10, int numScreenShoot11, int numScreenShoot12, int numScreenShoot13, int numScreenShoot14,
+                                int numScreenShoot15, int numScreenShoot16, int numScreenShoot17, int numScreenShoot18){
 
         String pagomax = null;
         String varpagomax;
@@ -71,8 +80,11 @@ public class Asesuisa_SiniestrosPagos {
         try {
             Thread.sleep(2000);
             // Introduce el numero de siniestro
+            System.out.println("Valor de getNumSiniestro2:  " + bean.getNumSiniestro());
+            System.out.println("Valor de Accion:  " + bean.getAccion());
             WebElement numsiniestro = driver.findElement(By.xpath("//*[@id=\"textFieldClaimNumbre\"]"));
-            numsiniestro.sendKeys(bean.getSiniestro());
+            numsiniestro.sendKeys(bean.getNumSiniestro());
+            //numsiniestro.sendKeys(bean.getSiniestro());
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
             // Selecciona el boton buscar
@@ -101,7 +113,7 @@ public class Asesuisa_SiniestrosPagos {
 
 
                 /****  Enviar Pago *****/
-                if(bean.getCobertura().equals("Enviar")) {
+                if(bean.getAccion().equals("Enviar")) {
 
                     // *** Cobertura Agregar ***
                     // Selecciona Agregar Cobertura
@@ -162,7 +174,7 @@ public class Asesuisa_SiniestrosPagos {
 
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
                     Thread.sleep(1000);
-                    jse.executeScript("window.scrollBy(0,800)", "");
+                    jse.executeScript("window.scrollBy(0,600)", "");
                     Thread.sleep(1000);
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
                     Thread.sleep(1000);
@@ -194,7 +206,6 @@ public class Asesuisa_SiniestrosPagos {
                     driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[1]/input[2]")).click();
                     Thread.sleep(2000);
                     // Cambia la fecha de compromiso
-                    // Fecha del Cheque
                     java.util.Date date = new java.util.Date();
                     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
                     String fecha = sdf.format(date);
@@ -228,15 +239,36 @@ public class Asesuisa_SiniestrosPagos {
                     Thread.sleep(1000);
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot14, nombreAutomatizacion, folderName);
                     Thread.sleep(1000);
+
+                    // Selecciona el buton "Atras"
+                    driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[16]/td[1]/input[5]")).click();
+                    Thread.sleep(2000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot15, nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
+                    jse.executeScript("window.scrollBy(0,800)", "");
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot16, nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
+
+                    // Selecciona el buton "Enviar"
+                    driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_14\"]")).click();
+                    Thread.sleep(3000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot17, nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
+                    jse.executeScript("window.scrollBy(0,500)", "");
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot18, nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
+
                 }
 
-            /****  Aprobar Pago *****/
+            /****  Aprobar, Anular y Cancelar Pago *****/
            // else if(bean.getCobertura().equals("Aprobar")) {
            else {
 
                 // *** Cobertura Pagos ***
                 // Selecciona la Cobertura
-                driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]/option[2]")).click();
+                driver.findElement(By.xpath("//*[@id=\"coverageSelect\"]/option[1]")).click();
                 Thread.sleep(1000);
                 // Selecciona Pagos
                 driver.findElement(By.xpath("//*[@id=\"idb_0402006_structure_09\"]")).click();
@@ -252,50 +284,132 @@ public class Asesuisa_SiniestrosPagos {
                 jse.executeScript("window.scrollBy(0,-800)", "");
 
                 // Selecciona la Orden de Pago
-                driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
-                Thread.sleep(1000);
+                //driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
+                //Thread.sleep(1000);
 
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
                 Thread.sleep(1000);
 
-                // Selecciona una Accion
-                Select accion = new Select(driver.findElement(By.xpath("//*[@id=\"actions\"]")));
-                accion.selectByVisibleText(bean.getCobertura());
-                Thread.sleep(2000);
+                    /****  Aprobar Pago *****/
 
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
-                // Selecciona el boton Aceptar
-                driver.findElement(By.xpath("//*[@id=\"validateClaims_01\"]")).click();
-                // Acepta el popup JavaScript
-                a.alertJavaScriptAceptar(driver);
-
-                Thread.sleep(1000);
-                a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
-                Thread.sleep(1000);
-
-                // Selecciona una Sucursal
-                //Select sucursal = new Select(driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select")));
-                //accion.selectByVisibleText("San Salvador");
-
-                // Boton Enviar
-                Thread.sleep(2000);
-                driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[5]/td/button")).click();
-                Thread.sleep(5000);
+                    if(bean.getAccion().equals("Aprobar")) {
 
 
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
-                    Thread.sleep(1000);
-                    jse.executeScript("window.scrollBy(0,800)", "");
-                    Thread.sleep(1000);
-                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot11, nombreAutomatizacion, folderName);
-                    Thread.sleep(1000);
+                        // Cambia la fecha de compromiso
+                        java.util.Date date = new java.util.Date();
+                        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+                        String fecha = sdf.format(date);
+                        driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[4]/input[1]")).clear();
+                        driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr/td[4]/input[1]")).sendKeys(fecha);
+                        Thread.sleep(2000);
+                        // Boton Cambiar
+                        driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_03\"]")).click();
+                        Thread.sleep(1000);
+                        driver.findElement(By.xpath("//*[@id=\"panel-3\"]/div[3]/span/button[1]")).click();
+                        Thread.sleep(2000);
+//
+                        // Selecciona la Orden de Pago
+                        driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
+                        Thread.sleep(1000);
+
+                        // Seleccionar Accion Aprobar
+                        Select accion = new Select(driver.findElement(By.xpath("//*[@id=\"actions\"]")));
+                        accion.selectByVisibleText(bean.getAccion());
+                        Thread.sleep(2000);
+
+                        // Selecionar Ignorar validaciones
+                        driver.findElement(By.xpath("//*[@id=\"checkIgnoreValidateClaims\"]")).click();
+                        Thread.sleep(1000);
+
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                        // Selecionar boton Aceptar
+                        driver.findElement(By.xpath("//*[@id=\"validateClaims_01\"]")).click();
+                        Thread.sleep(1000);
+
+                        // Selecciona el boton Aceptar
+                        //driver.findElement(By.xpath("//*[@id=\"validateClaims_01\"]")).click();
+                        // Acepta el popup JavaScript
+                        a.alertJavaScriptAceptar(driver);
+                        Thread.sleep(3000);
+
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                        // Selecciona una Sucursal
+                        //Select sucursal = new Select(driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[3]/td[1]/table/tbody/tr/td[2]/select")));
+                        //accion.selectByVisibleText("San Salvador");
+
+                        // Boton Enviar
+                        Thread.sleep(2000);
+                        driver.findElement(By.xpath("//*[@id=\"divBranchOffice\"]/form/table/tbody/tr[5]/td/button")).click();
+                        Thread.sleep(5000);
 
 
-                    // AQUI... Falta Rechazar y aprobar... usar siniestro: 09-01-0301-00000834356
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot11, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+                        jse.executeScript("window.scrollBy(0,400)", "");
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot12, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+                    }
 
+                    /****  Cancelar Pago *****/
+                    else if(bean.getAccion().equals("Cancelar")) {
+                        // Selecciona la Orden de Pago
+                        driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                        // Seleccionar Accion Cancelar
+                        Select accion = new Select(driver.findElement(By.xpath("//*[@id=\"actions\"]")));
+                        accion.selectByVisibleText(bean.getAccion());
+                        Thread.sleep(2000);
+
+                        // Acepta el popup JavaScript
+                        a.alertJavaScriptAceptar(driver);
+                        Thread.sleep(5000);
+
+                        jse.executeScript("window.scrollBy(0,-800)", "");
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+                        jse.executeScript("window.scrollBy(0,600)", "");
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+                    }
+
+                    /****  Rechazar Pago *****/
+                    else if(bean.getAccion().equals("Rechazar")) {
+                        // Selecciona la Orden de Pago
+                        driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                        // Seleccionar Accion Rechazar
+                        Select accion = new Select(driver.findElement(By.xpath("//*[@id=\"actions\"]")));
+                        accion.selectByVisibleText(bean.getAccion());
+                        Thread.sleep(2000);
+
+                        // Acepta el popup JavaScript
+                        a.alertJavaScriptAceptar(driver);
+                        Thread.sleep(5000);
+
+                        jse.executeScript("window.scrollBy(0,-800)", "");
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+                        jse.executeScript("window.scrollBy(0,600)", "");
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
+
+                    }
 
             }
 
@@ -306,4 +420,5 @@ public class Asesuisa_SiniestrosPagos {
         }
 
     }
+
 }

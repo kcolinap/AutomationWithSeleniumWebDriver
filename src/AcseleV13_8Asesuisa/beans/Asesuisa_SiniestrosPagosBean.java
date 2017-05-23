@@ -18,9 +18,10 @@ public class Asesuisa_SiniestrosPagosBean {
 
     private String siniestro;
     private String pagomax;
-    private String cobertura;
+    private String accion;
     private String montosini;
     private String tercero;
+    private String numSiniestro;
 
     public String getSiniestro() {
         return siniestro;
@@ -38,12 +39,12 @@ public class Asesuisa_SiniestrosPagosBean {
         this.pagomax = pagomax;
     }
 
-    public String getCobertura() {
-        return cobertura;
+    public String getAccion() {
+        return accion;
     }
 
-    public void setCobertura(String cobertura) {
-        this.cobertura = cobertura;
+    public void setAccion(String accion) {
+        this.accion = accion;
     }
 
     public String getMontosini() {
@@ -62,20 +63,40 @@ public class Asesuisa_SiniestrosPagosBean {
         this.tercero = tercero;
     }
 
+    public String getNumSiniestro() {
+        return numSiniestro;
+    }
 
+    public void setNumSiniestro(String numSiniestro) {
+        this.numSiniestro = numSiniestro;
+    }
 
     public static ArrayList getAsesuisa_SiniestrosPagos() throws SQLException {
 
         Connection conn = null;
         Statement stmt;
+        Statement stmt2;
         ResultSet rs;
+        ResultSet rs2;
         ArrayList siniestroPago = new ArrayList();
+        String    siniNumero=null;
+
 
         StringBuilder queryLoad = new StringBuilder();
         queryLoad.append("SELECT * FROM ASESUISA_SINIESTROS_PAGOS ORDER BY PRUEBA ASC");
+        conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+
+        // Busca el numero de un nuevo siniestro en la tabla ASESUISA_SINIESTROS_NUMERO
+        try{
+            stmt2 = conn.createStatement();
+            rs2 = stmt2.executeQuery("SELECT * FROM ASESUISA_SINIESTROS_NUMERO WHERE PRUEBA =1");
+            rs2.next();
+            siniNumero = rs2.getString("NUMSINIESTRO");
+            System.out.println("Numero de Siniestro:  " + siniNumero);
+        }catch(SQLException ex){System.out.println(ex);}
 
         try {
-            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+            //conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
             stmt = conn.createStatement();
             rs = stmt.executeQuery(queryLoad.toString());
 
@@ -84,12 +105,14 @@ public class Asesuisa_SiniestrosPagosBean {
 
                 siniestrosPagosBean.setSiniestro(rs.getString("SINIESTRO"));
                 siniestrosPagosBean.setPagomax(rs.getString("PAGOMAX"));
-                siniestrosPagosBean.setCobertura(rs.getString("COBERTURA"));
+                siniestrosPagosBean.setAccion(rs.getString("ACCION"));
                 siniestrosPagosBean.setMontosini(rs.getString("MONTOSINI"));
                 siniestrosPagosBean.setTercero(rs.getString("TERCERO"));
+                siniestrosPagosBean.setNumSiniestro(siniNumero);
 
                 siniestroPago.add(siniestrosPagosBean);
             }
+
         }catch(SQLException e) {
             log.error(e);
         }finally{
@@ -99,5 +122,9 @@ public class Asesuisa_SiniestrosPagosBean {
         }
         return siniestroPago;
     }
+
+
+
+
 
 }
