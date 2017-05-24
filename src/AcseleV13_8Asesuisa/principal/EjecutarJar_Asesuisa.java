@@ -295,6 +295,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "13": // m.Información financiera
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_TercerosInformacionFinancieraTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosInformacionFinancieraTest infFinac = new VistaAsesuisa_TercerosInformacionFinancieraTest();
+                            infFinac.setUp(tercero);
+                            infFinac.mainTest();
+                            infFinac.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
                         break;
                     case "14": // o. Líneas de Crédito (Garantías)
                         System.out.println("Numero: " + tercero);
