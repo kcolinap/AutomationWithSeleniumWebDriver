@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"10", "3", "3"};
+       // args = new String[]{"10", "20", "4"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -772,6 +772,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "20": // t. Edición y modificación de Siniestros (varios OA).
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_EdicionModificacionSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_EdicionModificacionSiniestroTest edicionSiniestro = new VistaAsesuisa_EdicionModificacionSiniestroTest();
+                            edicionSiniestro.setUp(tercero);
+                            edicionSiniestro.mainTest();
+                            edicionSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "21": // u. Propiedades Padre/Hijo
                         System.out.println("Numero: " + tercero);

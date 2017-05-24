@@ -53,7 +53,15 @@ public class Asesuisa_EdicionModificacionSiniestroBean extends Asesuisa_Siniestr
     private String MONPREINI2;
     private String NOMAPEELID2;
     private String NOLICENCIA2;
+    private String ano;
 
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
 
     public String getNSINIESTRO() {
         return NSINIESTRO;
