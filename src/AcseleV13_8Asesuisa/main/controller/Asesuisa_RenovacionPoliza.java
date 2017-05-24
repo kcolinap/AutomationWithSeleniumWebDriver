@@ -202,6 +202,12 @@ public class Asesuisa_RenovacionPoliza {
             m.ScreenShotPool(driver,i,"screen"+screenShoot4,nombreAutomatizacion,folderName);
             Thread.sleep(800);
 
+            if (driver.findElements(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']")).size()==0){
+                System.out.println("Se agotó el tiempo de espera. No se pudo completar la operación");
+                Thread.sleep(500);
+                break salida;
+            }
+
             //Boton aplicar
             WebElement btnAplicar = driver.findElement(By.xpath("//input[@wicketpath='modalWindowForm_EventSection_content_CloseForm_ApplyPolicy']"));
             btnAplicar.click();

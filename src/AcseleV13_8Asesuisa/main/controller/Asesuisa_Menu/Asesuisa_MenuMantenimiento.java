@@ -54,8 +54,8 @@ public class Asesuisa_MenuMantenimiento {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
-            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[37]/div[2]")); // Buscar (FrontEnd)
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[2]")); // Mantenimiento de Tercero (FrontEnd)
+            WebElement menu3 = driver.findElement(By.xpath("/html/body/div[38]/div[2]")); // Buscar (FrontEnd)
             menu1.click();
             menu2.click();
             Thread.sleep(1000);
@@ -223,15 +223,20 @@ public class Asesuisa_MenuMantenimiento {
 
     /** Mantenimiento General **/
 
-        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShot){
+        public void MantGeral_TablasDinamicas(WebDriver driver, String nombreAutomatizacion, int numScreenShot, int i, String folderName){
             try {
+                Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[8]")); // Mantenimiento General
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[43]/div[1]")); // Tablas Dinámicas
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[8]")); // Mantenimiento General
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[44]/div[1]")); // Tablas Dinámicas
                 menu1.click();
                 menu2.click();
-                a.ScreenShot(driver, "screen" + numScreenShot, nombreAutomatizacion); //screenshot2
+                Thread.sleep(1000);
+                action.moveToElement(menu3).build().perform();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShot, nombreAutomatizacion,folderName); //screenshot2
                 Toolkit.getDefaultToolkit().beep();
+                Thread.sleep(1000);
                 menu3.click();
             }catch (Exception e){
                 e.printStackTrace();

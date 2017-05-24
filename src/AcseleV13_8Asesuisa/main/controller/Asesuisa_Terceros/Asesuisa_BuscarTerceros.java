@@ -705,7 +705,7 @@ public class Asesuisa_BuscarTerceros {
                 a.ScreenShotPool(driver, i, "screen6" , nombreAutomatizacion, folderName);
                 Toolkit.getDefaultToolkit().beep();
 
-                //ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 7, 8, 9, 10, 11, 12);
+                ConsultaT(driver, a, nombreAutomatizacion, i, folderName, 7, 8, 9, 10, 11, 12);
             }
 
         }catch (Exception e){

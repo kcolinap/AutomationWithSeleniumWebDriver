@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 1: Busqueda con campo nombre de tabla vacio
+  Resultado esperado: Mensaje de error-->
+  <ASESUISA_TDINAMICA_EXPORT PRUEBA="1" NTABLA_DINAMICA="" FORMATO=""/>
+</dataset>

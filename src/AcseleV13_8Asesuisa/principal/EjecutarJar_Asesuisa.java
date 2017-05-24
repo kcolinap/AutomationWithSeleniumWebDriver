@@ -13,7 +13,6 @@ public class EjecutarJar_Asesuisa {
     public static void main(String[] args) {
 
         //args = new String[]{"10", "17", "7"};
-        //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
         String segundo = args[1];
@@ -107,7 +106,7 @@ public class EjecutarJar_Asesuisa {
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
 
-                prueba = "";
+                prueba = "VistaAsesuisa_RenovacionPolizaTest";
                 log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                 try {
                     VistaAsesuisa_RenovacionPolizaTest renovacionPolizaTestPolizaTest = new VistaAsesuisa_RenovacionPolizaTest();
@@ -296,6 +295,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "13": // m.Información financiera
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_TercerosInformacionFinancieraTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TercerosInformacionFinancieraTest infFinac = new VistaAsesuisa_TercerosInformacionFinancieraTest();
+                            infFinac.setUp(tercero);
+                            infFinac.mainTest();
+                            infFinac.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
                         break;
                     case "14": // o. Líneas de Crédito (Garantías)
                         System.out.println("Numero: " + tercero);
@@ -857,6 +868,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "20": // t. Edición y modificación de Siniestros (varios OA).
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_EdicionModificacionSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_EdicionModificacionSiniestroTest edicionSiniestro = new VistaAsesuisa_EdicionModificacionSiniestroTest();
+                            edicionSiniestro.setUp(tercero);
+                            edicionSiniestro.mainTest();
+                            edicionSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "21": // u. Propiedades Padre/Hijo
                         System.out.println("Numero: " + tercero);
@@ -928,6 +951,19 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Export de Tablas Dinámicas
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_TablaDinamicaExportTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TablaDinamicaExportTest vistaAsesuisaTablaDinamicaExportTest = new VistaAsesuisa_TablaDinamicaExportTest();
+                            vistaAsesuisaTablaDinamicaExportTest.setUp(tercero);
+                            vistaAsesuisaTablaDinamicaExportTest.mainTest();
+                            vistaAsesuisaTablaDinamicaExportTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "2": // b. Import de Dinámicas
                         System.out.println("Numero: " + tercero);

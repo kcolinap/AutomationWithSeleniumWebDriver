@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 3: Export de tabla existente
+  Resultado esperado: Export correcto-->
+  <ASESUISA_TDINAMICA_EXPORT PRUEBA="1" NTABLA_DINAMICA="TDSumaFac" FORMATO="XML"/>
+</dataset>
