@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        args = new String[]{"12", "1", "3"};
+        //args = new String[]{"6", "1", "10"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -107,7 +107,7 @@ public class EjecutarJar_Asesuisa {
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
 
-                prueba = "";
+                prueba = "VistaAsesuisa_RenovacionPolizaTest";
                 log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                 try {
                     VistaAsesuisa_RenovacionPolizaTest renovacionPolizaTestPolizaTest = new VistaAsesuisa_RenovacionPolizaTest();

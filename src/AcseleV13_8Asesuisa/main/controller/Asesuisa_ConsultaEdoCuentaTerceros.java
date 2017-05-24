@@ -115,7 +115,7 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getDctoIdentificacion()!=null){
-                txtDoc = driver.findElement(By.xpath("//*[@id=\"IdentifierI\"]"));
+                txtDoc = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[13]/tbody/tr/td[3]/font/input[1]"));
                 txtDoc.sendKeys(asesuisaConsultaEdoCuentaTercerosBean.getDctoIdentificacion());
                 Thread.sleep(500);
             }
@@ -175,16 +175,18 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
         Select paisOrigen;
         boolean result;
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        Alert alert= driver.switchTo().alert();
+        //Alert alert= driver.switchTo().alert();
 
-        //Mensaje de alerta
-        if (alertPresente(driver))
-            alert.accept();
 
 
         try {
 
             Thread.sleep(1500);
+
+            //Mensaje de alerta
+        /*if (alertPresente(driver))
+            alert.accept();*/
+            m.alertJavaScriptAceptar(driver);
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getRazonSocial()!=null){
                 txtRazonSocial = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[2]/tbody/tr/td[3]/font/input[1]"));
@@ -193,8 +195,8 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxRazon = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[2]/tbody/tr/td[2]/font"));
                 auxRazon.click();
                 Thread.sleep(2500);
-                if (alertPresente(driver))
-                    alert.accept();
+                /*if (alertPresente(driver))
+                    alert.accept();*/
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getCodigoIJuridico()!=null){
@@ -203,20 +205,20 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 Thread.sleep(800);
 
                 WebElement auxLogin = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[9]/tbody/tr/td[3]/font/input[1]"));
-                if (alertPresente(driver))
-                    alert.accept();
+               /* if (alertPresente(driver))
+                    alert.accept();*/
                 auxLogin.click();
                 Thread.sleep(2500);
-                if (alertPresente(driver))
-                    alert.accept();
+               /* if (alertPresente(driver))
+                    alert.accept();*/
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getPaisOrigen()!=null){
                 paisOrigen = new Select(driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[3]/tbody/tr/td[3]/font/select")));
                 paisOrigen.selectByValue(asesuisaConsultaEdoCuentaTercerosBean.getPaisOrigen());
                 Thread.sleep(2500);
-                if (alertPresente(driver))
-                    alert.accept();
+                /*if (alertPresente(driver))
+                    alert.accept();*/
                 /*WebElement auxPais = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[3]/tbody/tr/td[1]/font"));
                 auxPais.click();
                 Thread.sleep(2500);
@@ -230,8 +232,8 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxtlfn = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[5]/tbody/tr/td[2]/font"));
                 auxtlfn.click();
                 Thread.sleep(2500);
-                if (alertPresente(driver))
-                    alert.accept();
+                /*if (alertPresente(driver))
+                    alert.accept();*/
             }
 
             if (asesuisaConsultaEdoCuentaTercerosBean.getEmailContacto()!=null){
@@ -241,12 +243,12 @@ public class Asesuisa_ConsultaEdoCuentaTerceros {
                 WebElement auxEmail = driver.findElement(By.xpath("html/body/table[3]/tbody/tr[3]/td/form/table[11]/tbody/tr/td[2]/font"));
                 auxEmail.click();
                 Thread.sleep(2500);
-                if (alertPresente(driver))
-                    alert.accept();
+                /*if (alertPresente(driver))
+                    alert.accept();*/
             }
 
-            if (alertPresente(driver))
-                alert.accept();
+           /* if (alertPresente(driver))
+                alert.accept();*/
 
             //Pantallazos
             Thread.sleep(1500);
