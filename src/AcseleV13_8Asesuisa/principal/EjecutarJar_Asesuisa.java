@@ -106,7 +106,7 @@ public class EjecutarJar_Asesuisa {
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
 
-                prueba = "";
+                prueba = "VistaAsesuisa_RenovacionPolizaTest";
                 log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                 try {
                     VistaAsesuisa_RenovacionPolizaTest renovacionPolizaTestPolizaTest = new VistaAsesuisa_RenovacionPolizaTest();
@@ -939,6 +939,19 @@ public class EjecutarJar_Asesuisa {
                 switch (segundo){
                     case "1": // a. Export de Tablas Dinámicas
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_TablaDinamicaExportTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_TablaDinamicaExportTest vistaAsesuisaTablaDinamicaExportTest = new VistaAsesuisa_TablaDinamicaExportTest();
+                            vistaAsesuisaTablaDinamicaExportTest.setUp(tercero);
+                            vistaAsesuisaTablaDinamicaExportTest.mainTest();
+                            vistaAsesuisaTablaDinamicaExportTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "2": // b. Import de Dinámicas
                         System.out.println("Numero: " + tercero);
