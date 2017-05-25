@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Asesuisa_PolizaEmisionVariosOAAutomotoresBean extends Asesuisa_PolizasBean implements Serializable {
 
-    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionSinPlanFinanciamientoBean.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_PolizaEmisionVariosOAAutomotoresBean.class);
 
     public static ArrayList getAsesuisa_PolizaEmisionVariosOAAutomotores() throws SQLException {
 

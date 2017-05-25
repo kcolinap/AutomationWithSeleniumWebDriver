@@ -18,7 +18,7 @@ public class Asesuisa_FinalizarPoliza {
 
     private final static Logger log = Logger.getLogger(Asesuisa_ObjetoAsegurado.class);
 
-    public void Calcular(Metodos a, WebDriver driver, String nombreAutomatizacion, int i, String folderName, int numScreenShoot) {
+    public void Calcular(Metodos a, WebDriver driver, String nombreAutomatizacion, int i, String folderName, int numScreenShoot, int numScreenShoot2) {
 
         try {//TipoElemento[@wicketpath='WicketpathElemento']
 
@@ -37,7 +37,7 @@ public class Asesuisa_FinalizarPoliza {
             a.waitSearchWicket(driver, "Espere Calculando");
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <ASE_POLI_EMISION_TOMADORES PRUEBA="1" PRODUCTO="Automotores"
+                              VIGENCIA="12" FECHA_DESDE="16-05-2017" FEHCA_HASTA=""
+                              EVENTO_APLICAR="" FECHA_MOVIMIENTO=""
+
+                              PLAN_FINANCIEMIENTO="UnPago" MONEDAS=""
+                              SUCURSAL="" TIPO_EMISION="ESTANDAR" TIPO_POLIZA="889072"
+                              COMISION_NEGOCIABLE="" UNIDAD_COMERCIAL="922169" CANAL_VENTA="895528"
+
+                              TOMADOR_NOMBRE_1="NOEMIS" TOMADOR_NOMBRE_2="CRISTINA"
+                              TOMADOR_APELLIDO_1="RODRÍGUEZ" TOMADOR_APELLIDO_2=""
+                              TOMADOR_PORCENTAJE_EDIT="50"/>
+</dataset>

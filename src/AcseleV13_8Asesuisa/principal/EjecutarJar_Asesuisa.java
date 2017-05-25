@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"10", "10", "1"};
+        //args = new String[]{"7", "10", "4"};
         //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
@@ -160,13 +160,13 @@ public class EjecutarJar_Asesuisa {
                         log.info("--->>> Final de la prueba " + prueba);
 
                         break;
-                    case "3": // c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
+                    case "3": // NA c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // d. Edición de Terceros.
+                    case "4": // NA d. Edición de Terceros.
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "VistaAsesuisa_TercerosEditarTest";
+                        /*prueba = "VistaAsesuisa_TercerosEditarTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_TercerosEditarTest tercerosEditarTest = new VistaAsesuisa_TercerosEditarTest();
@@ -178,7 +178,7 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
+                        */
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
@@ -212,7 +212,7 @@ public class EjecutarJar_Asesuisa {
                         }
                         log.info("--->>> Final de la prueba " + prueba);
                         break;
-                    case "7": // g. Direcciónes
+                    case "7": // g. Direcciones
                         System.out.println("Numero: " + tercero);
 
                         prueba = "VistaAsesuisa_TercerosDireccionesTest";
@@ -526,7 +526,7 @@ public class EjecutarJar_Asesuisa {
                     case "2": // b. Emision sin plan de financiamiento
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest {\n";
+                        prueba = "VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest polizaEmisionSinPlanFinanciamientoTest = new VistaAsesuisa_PolizaEmisionSinPlanFinanciamientoTest();
@@ -543,7 +543,7 @@ public class EjecutarJar_Asesuisa {
                     case "3": // c. Inclusión de varios OA
                         System.out.println("Numero: " + tercero);
 
-                        prueba = "VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest {\n";
+                        prueba = "VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest polizaEmisionVariosOAAutomotoresTest = new VistaAsesuisa_PolizaEmisionVariosOAAutomotoresTest();
@@ -559,12 +559,54 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "4": // d. Inclusión de varios UR
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionVariasURAutomotoresTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionVariasURAutomotoresTest polizaEmisionVariasURAutomotoresTest = new VistaAsesuisa_PolizaEmisionVariasURAutomotoresTest();
+                            polizaEmisionVariasURAutomotoresTest.setUp(tercero);
+                            polizaEmisionVariasURAutomotoresTest.mainTest();
+                            polizaEmisionVariasURAutomotoresTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "5": // e. Inclusión, edición y eliminación de Tomadores
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionTomadoresTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionTomadoresTest asesuisa_polizaEmisionTomadoresTest = new VistaAsesuisa_PolizaEmisionTomadoresTest();
+                            asesuisa_polizaEmisionTomadoresTest.setUp(tercero);
+                            asesuisa_polizaEmisionTomadoresTest.mainTest();
+                            asesuisa_polizaEmisionTomadoresTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "6": // f. nclusión, edición y eliminación de Beneficiarios Naturales
                         System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaEmisionBeneficiarioTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaEmisionBeneficiarioTest asesuisa_polizaEmisionBeneficiarioTest = new VistaAsesuisa_PolizaEmisionBeneficiarioTest();
+                            asesuisa_polizaEmisionBeneficiarioTest.setUp(tercero);
+                            asesuisa_polizaEmisionBeneficiarioTest.mainTest();
+                            asesuisa_polizaEmisionBeneficiarioTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "7": // g. Inclusión, edición y eliminación de Pagadores
                         System.out.println("Numero: " + tercero);
@@ -573,6 +615,43 @@ public class EjecutarJar_Asesuisa {
                         System.out.println("Numero: " + tercero);
                         break;
                     case "9": // i. Emisión con facultativo
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "10": // i. Cotización con plan de financiamiento
+                        System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaCotizacionConPlanFinanciamientoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaCotizacionConPlanFinanciamientoTest polizaCotizacionConPlanFinanciamientoTest = new VistaAsesuisa_PolizaCotizacionConPlanFinanciamientoTest();
+                            polizaCotizacionConPlanFinanciamientoTest.setUp(tercero);
+                            polizaCotizacionConPlanFinanciamientoTest.mainTest();
+                            polizaCotizacionConPlanFinanciamientoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+                        break;
+                    case "11": // i. Cotización sin plan de financiamiento
+                        System.out.println("Numero: " + tercero);
+
+                        prueba = "VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest polizaCotizacionSinPlanFinanciamientoTest = new VistaAsesuisa_PolizaCotizacionSinPlanFinanciamientoTest();
+                            polizaCotizacionSinPlanFinanciamientoTest.setUp(tercero);
+                            polizaCotizacionSinPlanFinanciamientoTest.mainTest();
+                            polizaCotizacionSinPlanFinanciamientoTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
+                        break;
+                    case "12": // i. Cotización con varios OA y UR
                         System.out.println("Numero: " + tercero);
                         break;
 
@@ -630,6 +709,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "3": // c. Pagos por conceptos
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_PagosPorConceptoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PagosPorConceptoTest pagosConcepto = new VistaAsesuisa_PagosPorConceptoTest();
+                            pagosConcepto.setUp(tercero);
+                            pagosConcepto.mainTest();
+                            pagosConcepto.tearDown(tercero);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "4": // d. Histórico de Siniestros
                         System.out.println("Numero: " + tercero);
@@ -679,6 +770,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "7": // g. Ajustes a las reservas de siniestros (casos bordes ajustes de reservas con valor cero)
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_AjusteReservaSiniestroTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_AjusteReservaSiniestroTest aSiniestro =  new VistaAsesuisa_AjusteReservaSiniestroTest();
+                            aSiniestro.setUp(tercero);
+                            aSiniestro.mainTest();
+                            aSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "8": // h. Ajuste automático de reservas
                         System.out.println("Numero: " + tercero);
@@ -721,12 +824,48 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "17": // q. Módulo de búsqueda de Siniestros Búsqueda avanzada
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_SiniestroBusquedaAvanzadaTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestroBusquedaAvanzadaTest busquedaAvanzadaTest = new VistaAsesuisa_SiniestroBusquedaAvanzadaTest();
+                            busquedaAvanzadaTest.setUp(tercero);
+                            busquedaAvanzadaTest.mainTest();
+                            busquedaAvanzadaTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "18": // r. Módulo de búsqueda de Siniestros Búsqueda simple
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_SiniestroBusquedaSimpleTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestroBusquedaSimpleTest busquedaSimpleTest = new VistaAsesuisa_SiniestroBusquedaSimpleTest();
+                            busquedaSimpleTest.setUp(tercero);
+                            busquedaSimpleTest.mainTest();
+                            busquedaSimpleTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "19": // s. Generación de documentos en Siniestros.
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_GeneracionDocumentosSiniestrosTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_GeneracionDocumentosSiniestrosTest docSiniestros = new VistaAsesuisa_GeneracionDocumentosSiniestrosTest();
+                            docSiniestros.setUp(tercero);
+                            docSiniestros.mainTest();
+                            docSiniestros.tearDown(tercero);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "20": // t. Edición y modificación de Siniestros (varios OA).
                         System.out.println("Numero: " + tercero);
@@ -742,9 +881,9 @@ public class EjecutarJar_Asesuisa {
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
                 switch (segundo){
-                    case "1": // a. Generación de trazas
+                    case "1": // NA a. Generación de trazas
                         System.out.println("Numero: " + tercero);
-                        prueba = "Generar Traza";
+                        /*prueba = "Generar Traza";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_GenerarTrazaTest generarTraza = new VistaAsesuisa_GenerarTrazaTest();
@@ -756,10 +895,11 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
 
                         }
+                        */
                         break;
-                    case "2": // b. Detalle de las trazas
+                    case "2": // NA b. Detalle de las trazas
                         System.out.println("Numero: " + tercero);
-                        prueba = "MostrarDetalleauditoria";
+                        /*prueba = "MostrarDetalleauditoria";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaTrazaDetalleAuditoriaTest vistaTrazaDetalleAuditoria = new VistaTrazaDetalleAuditoriaTest();
@@ -771,10 +911,11 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
 
                         }
+                        */
                         break;
-                    case "3": //c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
+                    case "3": // NA c. Exportar documentos ( Exportar en Excel y Pdf) - Incluye la validación detallada de los reportes
                         System.out.println("Numero: " + tercero);
-                        prueba = "Exportar traza auditoria";
+                        /*prueba = "Exportar traza auditoria";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_ExportarTrazaAuditoriaTest vistaExportarTrazaAuditoria = new VistaAsesuisa_ExportarTrazaAuditoriaTest();
@@ -787,9 +928,8 @@ public class EjecutarJar_Asesuisa {
 
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-
+                        */
                         break;
-
                 }
                 break;
 

@@ -30,7 +30,8 @@ public class Asesuisa_PrePoliza {
             }*/
 
             Select vigenciaSelect = new Select(driver.findElement(By.xpath("//select[@wicketpath='CreatePolicy_createPolicyForm_validitiesComboBox']")));
-            vigenciaSelect.selectByValue(bean.getVigencia());
+//            vigenciaSelect.selectByValue(bean.getVigencia());
+            vigenciaSelect.selectByVisibleText(bean.getVigencia());
             Thread.sleep(2000);
 
             WebElement fechaDes = driver.findElement(By.xpath("//input[@wicketpath='CreatePolicy_createPolicyForm_initialDate']"));

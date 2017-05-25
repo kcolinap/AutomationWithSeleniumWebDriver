@@ -67,11 +67,11 @@ public class Asesuisa_PolizaEmisionVariosOAAutomotores {
             Thread.sleep(2000);
             objetoAsegurado.Asegurado2(a, driver, bean, nombreAutomatizacion, i, folderName, 29, 30);
             Thread.sleep(2000);
-            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 31);
+            finalizarPoliza.Calcular(a, driver, nombreAutomatizacion, i, folderName, 31,32);
             Thread.sleep(2000);
-            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 32);
+            finalizarPoliza.ResumenAplicar(a, driver, nombreAutomatizacion, i, folderName, 33);
             Thread.sleep(2000);
-            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 33);
+            finalizarPoliza.ResumenPoliza(a, driver, nombreAutomatizacion, i, folderName, 34);
 
             driver.quit();
 

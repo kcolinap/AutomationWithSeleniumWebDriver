@@ -18,7 +18,7 @@ import java.util.*;
  */
 public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
 
-    private final static Logger log = Logger.getLogger(Asesuisa_SiniestroCrear.class);
+    private final static Logger log = Logger.getLogger(Asesuisa_CoberturasSiniestro.class);
 
     public String nombreAutomatizacion = "Agregar-Rechazar Cobertura";
     private WebDriver driver;
@@ -50,7 +50,10 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
             if (siniestroEncontrado==0){
 
             }else{
-
+                //Agrego la cobertura
+                Asesuisa_SiniestroCrearBean bean2 = new Asesuisa_SiniestroCrearBean();
+                AgregarCobertura(driver,bean2,i,m,nombreAutomatizacion,folderName);
+                Thread.sleep(1500);
             }
 
             //Salida
@@ -63,11 +66,7 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
             }
         }
 
-        String cadena = "elemento1 elemento2 elemento3";
 
-        String linea = "0.00 y 700.00", aux="";
-        StringTokenizer tokens = new StringTokenizer(linea);
-        float nro;
         /*tokens.countTokens();
         while(tokens.hasMoreTokens()){
             System.out.println(tokens.nextToken());
@@ -243,10 +242,10 @@ public class Asesuisa_CoberturasSiniestro extends Asesuisa_SiniestroCrear{
                         break salidaBusqueda;
                     }
 
-                    //Agrego la cobertura
-                    Asesuisa_SiniestroCrearBean bean2 = new Asesuisa_SiniestroCrearBean();
-                    AgregarCobertura(driver,bean2,i,m,nombreAutomatizacion,folderName);
-                    Thread.sleep(1500);
+                    //Si llega a este punto significa que el siniestro ha sido encontrado, no se
+                    //encuentra en rechazo y tiene objeto afectado
+                    //se procede a activar centinela para agregar cobertura
+                    siniestroEncontrado=1;
 
                     break;
 

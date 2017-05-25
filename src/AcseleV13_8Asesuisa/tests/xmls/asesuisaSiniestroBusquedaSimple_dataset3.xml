@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 3: Bsuqeda por nro de siniestro existente
+  Resultado esperado: Mostrar el siniestro de manera correcta -->
+  <ASESUISA_SINIESTRO_BSIMPLE PRUEBA="1" ORDENARPOR="" NROSINIESTRO="09-01-0401-00000577148" FECHAOCURRENCIA=""
+                              NROPOLIZA="" PRODUCTO ="" IDCAMPO="1"/>
+</dataset>

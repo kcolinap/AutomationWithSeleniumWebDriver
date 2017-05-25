@@ -446,36 +446,39 @@ public class Asesuisa_ObjetoAsegurado {
             Thread.sleep(1000);
             a.waitSearchWicket(driver, "Espere Agregando el Tipo de Objeto Asegurado 1");
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             /******/
             WebElement otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_styleAcordeon_label']"));
 
             if (bean.getMarca1() != null){
                 Select marca= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
-                marca.selectByValue(bean.getMarca1());
+                //marca.selectByValue(bean.getMarca1());
+                marca.selectByVisibleText(bean.getMarca1());
                 otro.click();
                 Thread.sleep(30000);
             }
 
             if (bean.getModelo1() != null){
                 Select modelo= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater_1_fila_repeaterSelect_2_field']")));
-                modelo.selectByValue(bean.getModelo1());
+                //modelo.selectByValue(bean.getModelo1());
+                modelo.selectByVisibleText(bean.getModelo1());
                 otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_styleAcordeon_label']"));
                 otro.click();
                 Thread.sleep(15000);
             }
 
             if (bean.getAnio1() != null){
-                Select anio= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater2_5_fila_repeaterSelect_1_field']")));
-                anio.selectByValue(bean.getAnio1());
+                Select anio= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater2_4_fila_repeaterSelect_1_field']")));
+                //anio.selectByValue(bean.getAnio1());
+                anio.selectByVisibleText(bean.getAnio1());
                 otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_styleAcordeon_label']"));
                 otro.click();
-                Thread.sleep(15000);
+                Thread.sleep(20000);
             }
 
             if (bean.getNumeroAsientos1() != null){
-                WebElement numAsientos= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater2_8_fila_field']"));
+                WebElement numAsientos= driver.findElement(By.xpath("//input[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater2_7_fila_field']"));
                 numAsientos.sendKeys(bean.getNumeroAsientos1());
                 otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_styleAcordeon_label']"));
                 otro.click();

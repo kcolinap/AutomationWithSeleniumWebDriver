@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <!--Caso 2: Siniestro en estado rechazado-->
+  <ASESUISA_PAGO_CONCEPTO PRUEBA="1" NROSINIESTRO="02-01-0401-0000002210" NROPOLIZA=""
+                          FECHAOCURRENCIA="" PRODUCTO=""/>
+</dataset>
