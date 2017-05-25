@@ -92,7 +92,7 @@ public class Asesuisa_CajaFactAgrup {
             tipotran.selectByVisibleText(bean.getTipotran());
             Thread.sleep(1000);
             // Selecciona Radio Boton ID del Tercero
-            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table[2]/tbody/tr[4]/td[1]/input")).click();
+            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table/tbody/tr[4]/td[1]/input")).click();
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
