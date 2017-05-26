@@ -62,13 +62,13 @@ public class Asesuisa_TercerosHabDeshab {
             Thread.sleep(1000);
             AgregarTercero(bean, a, i, folderName, habilitado, 17, 18, 19, 20, 21);
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //driver.quit();
+                driver.quit();
             }
         }
     }

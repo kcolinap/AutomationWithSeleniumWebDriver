@@ -46,7 +46,7 @@ public class Asesuisa_Tomador {
                 }
                 Thread.sleep(2000);
                 tomador.sendKeys(Keys.ARROW_DOWN);
-                Thread.sleep(500);
+                Thread.sleep(1000);
                 tomador.sendKeys(Keys.ENTER);
 
             }

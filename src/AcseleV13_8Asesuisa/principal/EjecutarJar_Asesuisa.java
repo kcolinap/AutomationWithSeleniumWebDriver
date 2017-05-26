@@ -162,10 +162,10 @@ public class EjecutarJar_Asesuisa {
                     case "3": // NA c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // NA d. Edición de Terceros.
+                    case "4": // d. Edición de Terceros.
                         System.out.println("Numero: " + tercero);
 
-                        /*prueba = "VistaAsesuisa_TercerosEditarTest";
+                        prueba = "VistaAsesuisa_TercerosEditarTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_TercerosEditarTest tercerosEditarTest = new VistaAsesuisa_TercerosEditarTest();
@@ -177,7 +177,7 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-                        */
+
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
