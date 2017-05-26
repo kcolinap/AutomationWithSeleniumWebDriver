@@ -65,11 +65,11 @@ public class Asesuisa_CajaAsociarCajero {
             if(bean.getCajero() != null && bean.getNrocaja() != null){
                 Thread.sleep(1000);
                 Select cajero = new Select(driver.findElement(By.xpath("//select[@name='cashierID']")));
-                cajero.selectByValue(bean.getCajero());
+                cajero.selectByVisibleText(bean.getCajero());
 
                 Thread.sleep(1000);
                 Select nrocaja = new Select(driver.findElement(By.xpath("//select[@name='cashierRegisterID']")));
-                nrocaja.selectByValue(bean.getNrocaja());
+                nrocaja.selectByVisibleText(bean.getNrocaja());
 
                 Thread.sleep(1000);
                 a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);

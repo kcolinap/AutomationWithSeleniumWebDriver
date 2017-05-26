@@ -308,7 +308,7 @@ public class Asesuisa_SiniestrosPagos {
                         Thread.sleep(1000);
                         driver.findElement(By.xpath("//*[@id=\"panel-3\"]/div[3]/span/button[1]")).click();
                         Thread.sleep(2000);
-//
+
                         // Selecciona la Orden de Pago
                         driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
                         Thread.sleep(1000);
