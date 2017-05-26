@@ -13,6 +13,7 @@ public class EjecutarJar_Asesuisa {
     public static void main(String[] args) {
 
         //args = new String[]{"10", "17", "7"};
+        //System.out.println("El tamaño del arreglo es: " + args.length);
 
         String primero = args[0];
         String segundo = args[1];
@@ -162,10 +163,10 @@ public class EjecutarJar_Asesuisa {
                     case "3": // NA c. Creación de Terceros con diferente tipo y documento de identidad un tercero existente
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // NA d. Edición de Terceros.
+                    case "4": // d. Edición de Terceros.
                         System.out.println("Numero: " + tercero);
 
-                        /*prueba = "VistaAsesuisa_TercerosEditarTest";
+                        prueba = "VistaAsesuisa_TercerosEditarTest";
                         log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
                         try {
                             VistaAsesuisa_TercerosEditarTest tercerosEditarTest = new VistaAsesuisa_TercerosEditarTest();
@@ -177,7 +178,7 @@ public class EjecutarJar_Asesuisa {
                             log.error("Test Case - " + prueba + " - " + e);
                         }
                         log.info("--->>> Final de la prueba " + prueba);
-                        */
+
                         break;
                     case "5": // e. Edición de Terceros. Cambiar tipo y documento de identidad por los datos de un tercero existente
                         System.out.println("Numero: " + tercero);
@@ -802,6 +803,18 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "10": // j. Pago de siniestros (Crear pago)
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_SiniestroPagoTest";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_SiniestrosPagosTest jSiniestro = new VistaAsesuisa_SiniestrosPagosTest();
+                            jSiniestro.setUp(tercero);
+                            jSiniestro.mainTest();
+                            jSiniestro.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
                         break;
                     case "11": // k. Aprobar pagos
                         System.out.println("Numero: " + tercero);

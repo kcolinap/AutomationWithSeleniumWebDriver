@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
   <ASE_POLI_EMISION_SIN_PLAN_FIN PRUEBA="1"
-                                 PRODUCTO="PlanVidaIntegral" VIGENCIA="72" FECHA_DESDE="28-04-2017" FEHCA_HASTA=""
+                                 PRODUCTO="PlanVidaIntegral" VIGENCIA="6  años" FECHA_DESDE="28-04-2017" FEHCA_HASTA=""
                                  EVENTO_APLICAR="" FECHA_MOVIMIENTO="28-04-2017"
 
                                  PLAN_FINANCIEMIENTO="" MONEDAS=""
                                  SUCURSAL="" TIPO_POLIZA="" COMISION_NEGOCIABLE=""
                                  CODIGO_AGENCIA_VENTAS="41"
                                  TOMADOR_NOMBRE_1="NOEMIS" TOMADOR_NOMBRE_2="CRISTINA"
-                                 TOMADOR_APELLIDO_1="RODRIGUEZ" TOMADOR_APELLIDO_2=""
+                                 TOMADOR_APELLIDO_1="RODRÍGUEZ" TOMADOR_APELLIDO_2=""
                                  ASESOR_NOMBRE_1="NOEMIS" ASESOR_NOMBRE_2="CRISTINA"
-                                 ASESOR_APELLIDO_1="RODRIGUEZ" ASESOR_APELLIDO_2=""
+                                 ASESOR_APELLIDO_1="RODRÍGUEZ" ASESOR_APELLIDO_2=""
                                  NUMERO_OBJETO_ASEGURADO="" OPCION_SEGURO="840333"
                                  ASEGURADO_NOMBRE_1="NOEMIS" ASEGURADO_NOMBRE_2="CRISTINA"
-                                 ASEGURADO_APELLIDO_1="RODRIGUEZ" ASEGURADO_APELLIDO_2=""/>
+                                 ASEGURADO_APELLIDO_1="RODRÍGUEZ" ASEGURADO_APELLIDO_2=""/>
 </dataset>

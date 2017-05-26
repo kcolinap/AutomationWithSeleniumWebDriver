@@ -469,6 +469,7 @@ public class Asesuisa_ObjetoAsegurado {
             }
 
             if (bean.getAnio1() != null){
+                Thread.sleep(2000);
                 Select anio= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater2_4_fila_repeaterSelect_1_field']")));
                 //anio.selectByValue(bean.getAnio1());
                 anio.selectByVisibleText(bean.getAnio1());
@@ -604,22 +605,26 @@ public class Asesuisa_ObjetoAsegurado {
 
             if (bean.getMarca2() != null){
                 Select marca= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater_1_fila_repeaterSelect_1_field']")));
-                marca.selectByValue(bean.getMarca2());
+//                marca.selectByValue(bean.getMarca2());
+                marca.selectByVisibleText(bean.getMarca2());
                 otro.click();
                 Thread.sleep(30000);
             }
 
             if (bean.getModelo2() != null){
                 Select modelo= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater_1_fila_repeaterSelect_2_field']")));
-                modelo.selectByValue(bean.getModelo2());
+//                modelo.selectByValue(bean.getModelo2());
+                modelo.selectByVisibleText(bean.getModelo2());
                 otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_styleAcordeon_label']"));
                 otro.click();
                 Thread.sleep(15000);
             }
 
             if (bean.getAnio2() != null){
+                Thread.sleep(2000);
                 Select anio= new Select(driver.findElement(By.xpath("//select[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_SubTabsInformation_repeater2_5_fila_repeaterSelect_1_field']")));
-                anio.selectByValue(bean.getAnio2());
+//                anio.selectByValue(bean.getAnio2());
+                anio.selectByVisibleText(bean.getAnio2());
                 otro = driver.findElement(By.xpath("//div[@wicketpath='policyInformationContent_RiskInformation_InsuranceRiskUnit_RiskBasicInformation_InformationInsurance_registerForm_templateIO_tabPanel_repeaterTab_2_styleAcordeon_label']"));
                 otro.click();
                 Thread.sleep(15000);
