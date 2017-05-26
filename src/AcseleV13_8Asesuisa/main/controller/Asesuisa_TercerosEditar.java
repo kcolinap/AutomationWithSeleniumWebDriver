@@ -47,13 +47,13 @@ public class Asesuisa_TercerosEditar {
             EditarTercero(bean, a, i, folderName, 7, 8, 9, 10, 11, 12);
 
 
-            //driver.quit();
+            driver.quit();
 
         } catch (Exception e) {
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
             if (driver != null){
-                //  driver.quit();
+                driver.quit();
             }
         }
     }
