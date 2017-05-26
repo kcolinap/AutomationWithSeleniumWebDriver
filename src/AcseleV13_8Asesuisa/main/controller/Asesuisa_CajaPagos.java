@@ -266,6 +266,7 @@ public class Asesuisa_CajaPagos {
                 // Banco Receptor
                 Select banemisor = new Select(driver.findElement(By.xpath("//*[@id=\"BancoReceptorNotaAbono\"]")));
                 banemisor.selectByVisibleText(bean.getBancoe());
+                Thread.sleep(2000);
                 // Cuenta Bancaria
                 Select cuentaBanco = new Select(driver.findElement(By.xpath("//*[@id=\"CtaBancariaBancRecep\"]")));
                 cuentaBanco.selectByVisibleText(bean.getCuentab());
