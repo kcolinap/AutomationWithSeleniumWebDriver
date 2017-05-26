@@ -11,6 +11,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.*;
+import util.DBUnitConnectionManager;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -67,6 +73,11 @@ public class Asesuisa_SiniestroCrear {
                     break;
             }
 
+            // Actualiza el Nuevo numero de Siniestro generado en la tabla ASESUISA_SINIESTROS_NUMERO - Arnaldo A
+            Thread.sleep(1000);
+            String numsini=driver.findElement(By.xpath("/html/body/div[14]/div[1]/form/table/thead/tr/th[1]/span/div/a")).getAttribute("alt");
+            ActualizarNumSiniestro(numsini);
+
             Thread.sleep(1000);
             driver.quit();
         }catch (Exception e){
@@ -100,7 +111,7 @@ public class Asesuisa_SiniestroCrear {
 
             //Id poliza
             if (bean.getNroPoliza()!=null){
-                WebElement nroPoliza = driver.findElement(By.xpath("html/body/table/tbody/tr[3]/td/table/tbody/tr[2]/td/table[3]/tbody/tr/td[3]/font/input[1]"));
+                WebElement nroPoliza = driver.findElement(By.id("NumeroPoliza"));
                 nroPoliza.sendKeys(bean.getNroPoliza());
                 Thread.sleep(1500);
             }
@@ -114,7 +125,7 @@ public class Asesuisa_SiniestroCrear {
             Thread.sleep(800);
 
             //Boton buscar
-            WebElement btnBuscar = driver.findElement(By.xpath("html/body/input[3]"));
+            WebElement btnBuscar = driver.findElement(By.id("idb_040201401_searchformpolicy_01"));
             btnBuscar.click();
             //m.waitSearchWicket(driver, ". Buscando poliza");
             Thread.sleep(4000);
@@ -482,6 +493,23 @@ public class Asesuisa_SiniestroCrear {
         }catch (Exception e) {
             e.printStackTrace();
             log.error("Test Case - " + nombreAutomatizacion + " - " + e);
+        }
+    }
+
+    // Actualiza el Numero de Siniestro en la tabla ASESUISA_SINIESTROS_NUMERO - Arnaldo A
+    public void ActualizarNumSiniestro(String numSiniestro)
+    {
+        Connection conn = null;
+        Statement stmt;
+        ResultSet rs;
+
+        try {
+            conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
+            stmt = conn.createStatement();
+            //rs = stmt.executeQuery(queryLoad.toString());
+            stmt.execute("Update ASESUISA_SINIESTROS_NUMERO set NUMSINIESTRO ='"+numSiniestro+"' WHERE prueba = 1");
+        } catch(SQLException e) {
+            log.error(e);
         }
     }
 }

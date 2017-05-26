@@ -88,7 +88,7 @@ public class Asesuisa_CajaPagos {
             tipotran.selectByVisibleText(bean.getTipotran());
             Thread.sleep(1000);
             // Selecciona Radio Boton ID del Tercero
-            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table[2]/tbody/tr[4]/td[1]/input")).click();
+            driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table/tbody/tr/td/form/table/tbody/tr[4]/td[1]/input")).click();
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
@@ -218,7 +218,7 @@ public class Asesuisa_CajaPagos {
                 driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
                 Thread.sleep(1000);
             }
-            else if (bean.getTipopago().equals("Tarjeta de Débito o Crédito")) {
+            else if (bean.getTipopago().equals("Tarjeta de D?bito o Cr?dito")) {
                 // Tipo de Tarjeta
                 Select tipot = new Select(driver.findElement(By.xpath("//*[@id=\"TipoTarjeta\"]")));
                 tipot.selectByVisibleText(bean.getTipotarj());
@@ -232,6 +232,43 @@ public class Asesuisa_CajaPagos {
                 driver.findElement(By.xpath("//*[@id=\"_NombrePagadorCaja\"]")).sendKeys(bean.getPagador());
                 // DIU del Pagador
                 driver.findElement(By.xpath("//*[@id=\"_NumeroDUI\"]")).sendKeys(bean.getDiu());
+            }
+
+            else if (bean.getTipopago().equals("Call Center")) {
+                // Fecha del Voucher
+                java.util.Date date = new java.util.Date();
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+                String fecha = sdf.format(date);
+                driver.findElement(By.xpath("//*[@id=\"_FechaVoucher\"]")).sendKeys(fecha);
+                // Número de Autorización
+                driver.findElement(By.xpath("//*[@id=\"_NumeroAutorizacion\"]")).sendKeys(bean.getNumpos());
+                // Número de Factura
+                driver.findElement(By.xpath("//*[@id=\"_NumeroFactura\"]")).sendKeys(bean.getVoucher());
+                // Referencia
+                driver.findElement(By.xpath("//*[@id=\"_NumeroReferencia\"]")).sendKeys(bean.getDiu());
+                // Monto del Voucher
+                driver.findElement(By.xpath("//*[@id=\"_MontoVoucher\"]")).clear();
+                driver.findElement(By.xpath("//*[@id=\"_MontoVoucher\"]")).sendKeys(monto);
+            }
+
+            else if (bean.getTipopago().equals("Nota de Abono")) {
+
+                // Monto de la Nota de Abono
+                driver.findElement(By.xpath("//*[@id=\"_MontoNotaAbono\"]")).clear();
+                driver.findElement(By.xpath("//*[@id=\"_MontoNotaAbono\"]")).sendKeys(monto);
+                // Fecha de la Nota de Abono
+                java.util.Date date = new java.util.Date();
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+                String fecha = sdf.format(date);
+                driver.findElement(By.xpath("//*[@id=\"_FechaNotaAbono\"]")).sendKeys(fecha);
+                // Referencia
+                driver.findElement(By.xpath("//*[@id=\"_NumeroReferencia\"]")).sendKeys(bean.getNumcheq());
+                // Banco Receptor
+                Select banemisor = new Select(driver.findElement(By.xpath("//*[@id=\"BancoReceptorNotaAbono\"]")));
+                banemisor.selectByVisibleText(bean.getBancoe());
+                // Cuenta Bancaria
+                Select cuentaBanco = new Select(driver.findElement(By.xpath("//*[@id=\"CtaBancariaBancRecep\"]")));
+                cuentaBanco.selectByVisibleText(bean.getCuentab());
             }
 
 
@@ -262,6 +299,16 @@ public class Asesuisa_CajaPagos {
             if(bean.getTipotran().equals("Pago")) {
                 driver.findElement(By.xpath("//*[@id=\"idb_040203703_applyPayment_04\"]")).click();
                 Thread.sleep(10000);
+                // Evalua si la operacion fue satisfactoria
+                if (driver.findElements(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/form/table[3]/tbody/tr/td[2]/b")).size()>0) {
+                    String numerror = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table[1]/tbody/tr[1]/td/form/table[3]/tbody/tr/td[2]/b")).getText();
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
+                    String mensaje = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[3]/td/table[2]/tbody/tr[2]/td[2]")).getText();
+                    System.out.println("El resultado de la Transaccion no fue exitosa. Error: " + numerror + "  Mensaje:  " + mensaje);
+                }
+
                 // Seleccionar radio button Numero de factura
                 driver.findElement(By.xpath("//*[@id=\"receiptIndex0\"]")).click();
                 Thread.sleep(1000);
