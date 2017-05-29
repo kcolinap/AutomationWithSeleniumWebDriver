@@ -108,7 +108,7 @@ public class Asesuisa_CajaNotasCredito {
                 dias=(int) ((date.getTime()-convertido.getTime())/86400000);
 
                 // Si la factura es Valida y la fecha de emision es menor a 30 dias
-                if (texto.equals("Valida") && dias <= 30) {
+                if (texto.equals("Valida") && dias <= 5) {
                     // Selecciona la linea de la tabla a Anular
                     indextr.click();
                     a.ScreenShotPool(driver, i, "screen" + numScreenShoot2, nombreAutomatizacion, folderName);

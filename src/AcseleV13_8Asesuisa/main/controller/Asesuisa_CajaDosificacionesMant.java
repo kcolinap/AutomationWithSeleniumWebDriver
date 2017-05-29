@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
+
 /**
  * Created by aandrade on 10/04/2017.
  */
@@ -121,6 +123,19 @@ public class Asesuisa_CajaDosificacionesMant {
             else if (bean.getOperacion().equals("ASOCIACION CAJAS")) {
                 // Selecciona el boton Consultar
                 driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287\"]/div/div[2]/div[2]/div/div[2]/div/div[9]/div/div[5]/div/span")).click();
+                Thread.sleep(1000);
+                // Selecciona la primera caja disponible de la lista
+                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[2]/div/div[3]/div/select[1]/option[1]")).click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // Selecciona la flecha izquierda
+                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[2]/div/div[3]/div/div[2]/div[1]/span")).click();
+                Thread.sleep(1000);
+                a.ScreenShotPool(driver, i, "screen" + numScreenShoot4, nombreAutomatizacion, folderName);
+                Thread.sleep(1000);
+                // Selecciona Aceptar
+                driver.findElement(By.xpath("//*[@id=\"WControllervaadinservlet-1750660287-window-overlays\"]/div[5]/div/div/div[5]/div/div/div[2]/div/div[5]/div/div[1]/div/span")).click();
             }
             // Si la operacion es Aprobar
             else if (bean.getOperacion().equals("APROBAR")) {
@@ -144,10 +159,19 @@ public class Asesuisa_CajaDosificacionesMant {
             }
 
             Thread.sleep(1000);
-            a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
+            a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
         } catch (Exception e) {
+
+            try {
+                a.ScreenShotPool(driver, i, "error DosificacionesCajaMant", nombreAutomatizacion, folderName);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }

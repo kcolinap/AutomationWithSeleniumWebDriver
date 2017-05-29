@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
+
 /**
  * Created by aandrade on 06/04/2017.
  */
@@ -169,6 +171,16 @@ public class Asesuisa_CajaDosificaciones {
            }
 
         } catch (Exception e) {
+
+            try {
+                a.ScreenShotPool(driver, i, "error DosificacionesCaja", nombreAutomatizacion, folderName);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }

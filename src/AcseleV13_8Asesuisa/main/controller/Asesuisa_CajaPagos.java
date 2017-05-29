@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -25,13 +26,14 @@ public class Asesuisa_CajaPagos {
 
     public String nombreAutomatizacion = "Asesuisa Caja Pagos";
     private WebDriver driver;
+    Metodos a = new Metodos();
 
     public void testLink(Asesuisa_CajaPagosBean bean, int i, String folderName){
 
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            //Metodos a = new Metodos();
             Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
 
             driver = a.entrarPagina(a.UrlAsesuisa());
@@ -55,7 +57,7 @@ public class Asesuisa_CajaPagos {
 
             /** Pagos Caja*/
 
-            PagosCaja(bean, a, i, folderName, 3, 4, 5, 6, 7,8,9,10,11,12);
+            PagosCaja(bean, i, folderName, 3, 4, 5, 6, 7,8,9,10,11,12);
             Thread.sleep(5000);
 
             driver.quit();
@@ -69,7 +71,7 @@ public class Asesuisa_CajaPagos {
         }
     }
 
-    public void PagosCaja(Asesuisa_CajaPagosBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10){
+    public void PagosCaja(Asesuisa_CajaPagosBean bean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7, int numScreenShoot8, int numScreenShoot9, int numScreenShoot10){
 
         WebElement indextr;
         String monto=null;
@@ -334,6 +336,16 @@ public class Asesuisa_CajaPagos {
             }
 
         } catch (Exception e) {
+
+            try {
+                a.ScreenShotPool(driver, i, "error PagosCaja", nombreAutomatizacion, folderName);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }

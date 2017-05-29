@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,13 +22,14 @@ public class Asesuisa_CajaAnularFactura {
 
     public String nombreAutomatizacion = "Asesuisa Caja Anular Factura";
     private WebDriver driver;
+    Metodos a = new Metodos();
 
     public void testLink(Asesuisa_CajaAnularFacturaBean bean, int i, String folderName){
 
         try {
 
             // Instanciando clases
-            Metodos a = new Metodos();
+            //Metodos a = new Metodos();
             Asesuisa_MenuOperaciones menuOperaciones = new Asesuisa_MenuOperaciones();
 
             driver = a.entrarPagina(a.UrlAsesuisa());
@@ -51,7 +53,7 @@ public class Asesuisa_CajaAnularFactura {
 
             /** Anular Factura Caja*/
 
-            AnularFacturaCaja(bean, a, i, folderName, 3, 4, 5, 6, 7);
+            AnularFacturaCaja(bean, i, folderName, 3, 4, 5, 6, 7);
             Thread.sleep(5000);
 
             driver.quit();
@@ -65,7 +67,7 @@ public class Asesuisa_CajaAnularFactura {
         }
     }
 
-    public void AnularFacturaCaja(Asesuisa_CajaAnularFacturaBean bean, Metodos a, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
+    public void AnularFacturaCaja(Asesuisa_CajaAnularFacturaBean bean, int i, String folderName, int numScreenShoot, int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5){
 
         int tamanotr, numpagina;
         String texto = null;
@@ -205,6 +207,15 @@ public class Asesuisa_CajaAnularFactura {
                 }
             } // for
         } catch (Exception e) {
+
+            try {
+                a.ScreenShotPool(driver, i, "error AnularFacturaCaja", nombreAutomatizacion, folderName);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }
