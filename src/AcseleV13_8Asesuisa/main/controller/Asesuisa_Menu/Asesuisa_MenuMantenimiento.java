@@ -99,8 +99,8 @@ public class Asesuisa_MenuMantenimiento {
             try {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[4]")); // Caja
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[40]/div[4]")); // Caja
                 action.moveToElement(menu1).build().perform();
                 action.moveToElement(menu2).build().perform();
                 action.moveToElement(menu3).build().perform();
@@ -119,8 +119,8 @@ public class Asesuisa_MenuMantenimiento {
             try {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[5]")); // Asociar Caja con Cajero
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[40]/div[5]")); // Asociar Caja con Cajero
                 menu1.click();
                 menu2.click();
                 Thread.sleep(1000);
@@ -149,10 +149,10 @@ public class Asesuisa_MenuMantenimiento {
                 try {
                     Actions action = new Actions(driver);
                     WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
-                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[14]")); // Facturacion
-                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[40]/div[1]")); // Dosificacion de Facturas
-                    WebElement menu5 = driver.findElement(By.xpath("/html/body/div[41]/div[1]")); // Creacion
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[40]/div[14]")); // Facturacion
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[41]/div[1]")); // Dosificacion de Facturas
+                    WebElement menu5 = driver.findElement(By.xpath("/html/body/div[42]/div[1]")); // Creacion
                     action.moveToElement(menu1).build().perform();
                     action.moveToElement(menu2).build().perform();
                     action.moveToElement(menu3).build().perform();
@@ -174,10 +174,10 @@ public class Asesuisa_MenuMantenimiento {
             try {
                 Actions action = new Actions(driver);
                 WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
-                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[14]")); // Facturacion
-                WebElement menu4 = driver.findElement(By.xpath("/html/body/div[40]/div[1]")); // Dosificacion de Facturas
-                WebElement menu5 = driver.findElement(By.xpath("/html/body/div[41]/div[2]")); // Mantenimiento
+                WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                WebElement menu3 = driver.findElement(By.xpath("/html/body/div[40]/div[14]")); // Facturacion
+                WebElement menu4 = driver.findElement(By.xpath("/html/body/div[41]/div[1]")); // Dosificacion de Facturas
+                WebElement menu5 = driver.findElement(By.xpath("/html/body/div[42]/div[2]")); // Mantenimiento
                 action.moveToElement(menu1).build().perform();
                 action.moveToElement(menu2).build().perform();
                 action.moveToElement(menu3).build().perform();
@@ -199,9 +199,9 @@ public class Asesuisa_MenuMantenimiento {
                 try {
                     Actions action = new Actions(driver);
                     WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[4]")); // Mantenimiento
-                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[36]/div[7]")); // UAA (Administrador de Cuentas Universal)
-                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[39]/div[14]")); // Facturacion
-                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[40]/div[2]")); // Modalidad de Facturas
+                    WebElement menu2 = driver.findElement(By.xpath("/html/body/div[37]/div[7]")); // UAA (Administrador de Cuentas Universal)
+                    WebElement menu3 = driver.findElement(By.xpath("/html/body/div[40]/div[14]")); // Facturacion
+                    WebElement menu4 = driver.findElement(By.xpath("/html/body/div[41]/div[2]")); // Modalidad de Facturas
                     action.moveToElement(menu1).build().perform();
                     action.moveToElement(menu2).build().perform();
                     action.moveToElement(menu3).build().perform();
