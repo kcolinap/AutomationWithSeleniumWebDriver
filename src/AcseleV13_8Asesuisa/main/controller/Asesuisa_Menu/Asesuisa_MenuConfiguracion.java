@@ -42,7 +42,7 @@ public class Asesuisa_MenuConfiguracion {
         try {
             Actions action = new Actions(driver);
             WebElement menu1 = driver.findElement(By.xpath("/html/body/div[3]/div[3]"));//configuracion
-            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[26]/div[5]"));//mantenimiento productos
+            WebElement menu2 = driver.findElement(By.xpath("/html/body/div[27]/div[5]"));//mantenimiento productos
             Thread.sleep(1000);
 
             action.moveToElement(menu1).build().perform();

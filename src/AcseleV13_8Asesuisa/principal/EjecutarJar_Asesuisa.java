@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-        //args = new String[]{"10", "17", "7"};
+      // args = new String[]{"10", "16", "4"};
 
         String primero = args[0];
         String segundo = args[1];
@@ -820,6 +820,19 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "16": // p. pago express en siniestro
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_PagoExpressSiniestroTest ";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PagoExpressSiniestroTest  PagoExpressSiniestroTest = new VistaAsesuisa_PagoExpressSiniestroTest ();
+                            PagoExpressSiniestroTest.setUp(tercero);
+                            PagoExpressSiniestroTest.mainTest();
+                            PagoExpressSiniestroTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "17": // q. Módulo de búsqueda de Siniestros Búsqueda avanzada
                         System.out.println("Numero: " + tercero);

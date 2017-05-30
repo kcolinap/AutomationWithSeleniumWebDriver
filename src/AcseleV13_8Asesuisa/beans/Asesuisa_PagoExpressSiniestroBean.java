@@ -16,22 +16,14 @@ public class Asesuisa_PagoExpressSiniestroBean extends Asesuisa_SiniestroBean{
 
     private final static Logger log = Logger.getLogger(Asesuisa_PagoExpressSiniestroBean.class);
 
-    private String ID;
+
     private String NSINIESTRO;
-    private String NPOLIZA;
-    private String FOCURRENCIA;
     private String PRODUCTO;
-    private String FOPERACION;
-    private String MRECHAZOCIERRE;
-    private String CCOMENTARIO;
+    private String RAZON;
+    private String MONTO;
+    private String ACCION;
+    private String BANDERA;
 
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
 
     public String getNSINIESTRO() {
         return NSINIESTRO;
@@ -39,22 +31,6 @@ public class Asesuisa_PagoExpressSiniestroBean extends Asesuisa_SiniestroBean{
 
     public void setNSINIESTRO(String NSINIESTRO) {
         this.NSINIESTRO = NSINIESTRO;
-    }
-
-    public String getNPOLIZA() {
-        return NPOLIZA;
-    }
-
-    public void setNPOLIZA(String NPOLIZA) {
-        this.NPOLIZA = NPOLIZA;
-    }
-
-    public String getFOCURRENCIA() {
-        return FOCURRENCIA;
-    }
-
-    public void setFOCURRENCIA(String FOCURRENCIA) {
-        this.FOCURRENCIA = FOCURRENCIA;
     }
 
     public String getPRODUCTO() {
@@ -65,39 +41,46 @@ public class Asesuisa_PagoExpressSiniestroBean extends Asesuisa_SiniestroBean{
         this.PRODUCTO = PRODUCTO;
     }
 
-    public String getFOPERACION() {
-        return FOPERACION;
+    public String getRAZON() {
+        return RAZON;
     }
 
-    public void setFOPERACION(String FOPERACION) {
-        this.FOPERACION = FOPERACION;
+    public void setRAZON(String RAZON) {
+        this.RAZON = RAZON;
     }
 
-    public String getMRECHAZOCIERRE() {
-        return MRECHAZOCIERRE;
+    public String getMONTO() {
+        return MONTO;
     }
 
-    public void setMRECHAZOCIERRE(String MRECHAZOCIERRE) {
-        this.MRECHAZOCIERRE = MRECHAZOCIERRE;
+    public void setMONTO(String MONTO) {
+        this.MONTO = MONTO;
     }
 
-    public String getCCOMENTARIO() {
-        return CCOMENTARIO;
+    public String getACCION() {
+        return ACCION;
     }
 
-    public void setCCOMENTARIO(String CCOMENTARIO) {
-        this.CCOMENTARIO = CCOMENTARIO;
+    public void setACCION(String ACCION) {
+        this.ACCION = ACCION;
     }
-    public static ArrayList getOperacionSiniestroBean() throws SQLException {
 
+    public String getBANDERA() {
+        return BANDERA;
+    }
 
-        Connection conn = null;
+    public void setBANDERA(String BANDERA) {
+        this.BANDERA = BANDERA;
+    }
+
+    public static ArrayList getPagoSiniestroBean() throws SQLException {
+    Connection conn = null;
         Statement stmt;
         ResultSet rs;
-        ArrayList operacionSiniestro = new ArrayList();
+        ArrayList pagoSiniestro = new ArrayList();
 
         StringBuilder queryLoad = new StringBuilder();
-        queryLoad.append("SELECT * FROM ASESUISA_MANTENIMIENTOSIN ORDER BY PRUEBA ASC");
+        queryLoad.append("SELECT * FROM ASESUISA_SINIESTRO_PAGOEXPRESS ORDER BY PRUEBA ASC");
 
         try {
             conn = DBUnitConnectionManager.getSeleniumDataSource().getConnection();
@@ -108,14 +91,13 @@ public class Asesuisa_PagoExpressSiniestroBean extends Asesuisa_SiniestroBean{
                 Asesuisa_PagoExpressSiniestroBean bean = new Asesuisa_PagoExpressSiniestroBean();
 
                 bean.setNSINIESTRO(rs.getString("NSINIESTRO"));
-                bean.setNPOLIZA(rs.getString("NPOLIZA"));
-                bean.setFOCURRENCIA(rs.getString("FOCURRENCIA"));
                 bean.setPRODUCTO(rs.getString("PRODUCTO"));
-                bean.setFOPERACION(rs.getString("FOPERACION"));
-                bean.setMRECHAZOCIERRE(rs.getString("MRECHAZOCIERRE"));
-                bean.setCCOMENTARIO(rs.getString("CCOMENTARIO"));
+                bean.setRAZON(rs.getString("RAZON"));
+                bean.setMONTO(rs.getString("MONTO"));
+                bean.setACCION(rs.getString("ACCION"));
+                bean.setBANDERA(rs.getString("BANDERA"));
 
-                operacionSiniestro.add(bean);
+                pagoSiniestro.add(bean);
             }
 
         }catch(SQLException e){
@@ -126,6 +108,7 @@ public class Asesuisa_PagoExpressSiniestroBean extends Asesuisa_SiniestroBean{
             }
         }
 
-        return operacionSiniestro;
+        return pagoSiniestro;
     }
+
 }
