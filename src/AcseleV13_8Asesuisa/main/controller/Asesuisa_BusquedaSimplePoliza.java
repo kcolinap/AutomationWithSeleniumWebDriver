@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by agil on 23/03/2017.
@@ -29,14 +31,14 @@ public class Asesuisa_BusquedaSimplePoliza {
             driver = a.entrarPagina(a.UrlAsesuisa());
             a.IniciarSesion(driver, nombreAutomatizacion, i, folderName);
             a.ValidandoSesion(driver, nombreAutomatizacion, i, folderName);
-            Thread.sleep(5000);
+            a.esperaXpath(driver, 5, "/html/body/table/tbody/tr[1]/td/table/tbody/tr/td[1]/img");
 
             //Entrando en Menu
             menuOperaciones.OpePol_CotizacionSuscripcionEdicion_MantenimientoEdicionFrontEnd(driver, nombreAutomatizacion, 2, i, folderName);
 
-            Thread.sleep(2000);
+            //Thread.sleep(2000);
             a.cambiarVentana(driver);
-            Thread.sleep(2000);
+            //Thread.sleep(2000);
 
             /** Buscar Poliza */
 
@@ -60,6 +62,9 @@ public class Asesuisa_BusquedaSimplePoliza {
         try {
 
             //WebElement prueba = driver.findElement(By.xpath("//input[@wicketpath='SearchContent_ThirdInformation_templateContainer_searchForm_templateThird_repeaterPanel1_2_fila_field']"));
+
+            a.esperaXpath(driver, 5, "//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']");
+//            new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']")));
 
             if (bean.getNumeroPoliza() != null) {
                 WebElement numPoliza = driver.findElement(By.xpath("//input[@wicketpath='ConsultPolicy_searchForm_policyNumber']"));

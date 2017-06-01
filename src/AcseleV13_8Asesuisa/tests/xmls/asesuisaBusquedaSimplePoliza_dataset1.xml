@@ -1,7 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <ASE_BUSQUEDA_SIMPLE_POLIZA PRUEBA="1" NUMEROPOLIZA="08-01-0204-00000223"/>
-  <!--08-01-0204-00000223  Numero Malo -->
-  <!--08-01-0108-00000223  Tercero presenta cumulo-->
-  <!--08-01-0204-00000023  Tercero sin cumulo-->
+  <ASE_BUSQUEDA_SIMPLE_POLIZA PRUEBA="1" NUMEROPOLIZA="09-01-0301-00000922"/>
 </dataset>
