@@ -56,7 +56,7 @@ public class Asesuisa_PagoExpressSiniestro {
             m.cambiarVentana(driver);
 
             BusquedaSiniestro(bean, m, i, folderName, 9, 10, 11, 12, 13, 14, 15, 16, 17);
-            PagoExpressSiniestro(bean, m, i, folderName, 18,19,20,21,22,23);
+            PagoExpressSiniestro(bean, m, i, folderName, 18,19,20,21,22,23,24);
 
             Thread.sleep(1000);
             driver.quit();
@@ -235,9 +235,9 @@ public class Asesuisa_PagoExpressSiniestro {
             //seleccionar siniestro encontrado
 
              if (bean.getPRODUCTO() != null) {
-
+                 Thread.sleep(2000);
              //To locate table.
-             WebElement mytable = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[1]/div[1]/div/table/tbody"));
+             WebElement mytable = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody"));
 
              //To locate rows of table.
              List<WebElement> rows_table = mytable.findElements(By.tagName("tr"));
@@ -253,22 +253,20 @@ public class Asesuisa_PagoExpressSiniestro {
                  WebElement estadoSin =   driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[" + j +"]/td[3]/div"));// estado del siniestro
                  if ((estadoSin.getText().equals("Abierto")  || (estadoSin.getText().equals("Reabierto")))) {
                  sencontrado.click();
-                 /* Thread.sleep(1000);
+                  Thread.sleep(1000);
              a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
              Thread.sleep(1000);
-            WebElement ok = driver.findElement(By.xpath("*//*//**//*[@id=\"buttonOk\"]/span"));
+            WebElement ok = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]"));
             ok.click();
 
             Thread.sleep(3000);
             a.changeLastWindows(driver);
-            Thread.sleep(2000);*/
-             this.PagoExpressSiniestro(bean, m, i, folderName, 18, 19, 20, 21, 22, 23);
+            Thread.sleep(2000);
+             this.PagoExpressSiniestro(bean, m, i, folderName, 18, 19, 20, 21, 22, 23,24);
                      Thread.sleep(2000);
                      driver.close();
                      m.regresarVentana(driver);
               if (pagexitoso == 1){
-
-
                  break;
               }
               }
@@ -278,19 +276,20 @@ public class Asesuisa_PagoExpressSiniestro {
              }
 
              //seleccionar siniestro encontrado
-             Thread.sleep(3000);
-             WebElement sencontrado = driver.findElement(By.xpath("//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
+             Thread.sleep(4000);
+
+             WebElement sencontrado = driver.findElement(By.xpath("/*//*[@id=\"layoutResultTable\"]/div[1]/div/div[3]/div[1]/table/tbody/tr[1]/td[2]/div"));
              sencontrado.click();
 
-            /* Thread.sleep(1000);
+         Thread.sleep(1000);
              a.ScreenShotPool(driver, i, "screen" + numScreenShoot3, nombreAutomatizacion, folderName);
              Thread.sleep(1000);
-            WebElement ok = driver.findElement(By.xpath("*//*//**//*[@id=\"buttonOk\"]/span"));
+            WebElement ok = driver.findElement(By.xpath("//*[@id=\"buttonOk\"]"));
             ok.click();
 
             Thread.sleep(3000);
             a.changeLastWindows(driver);
-            Thread.sleep(2000);*/
+            Thread.sleep(2000);
 
 
 
@@ -319,7 +318,7 @@ public class Asesuisa_PagoExpressSiniestro {
     }
 
     public void PagoExpressSiniestro(Asesuisa_PagoExpressSiniestroBean bean, Metodos a, int i, String folderName, int numScreenShoot
-            , int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6)
+            , int numScreenShoot2, int numScreenShoot3, int numScreenShoot4, int numScreenShoot5, int numScreenShoot6, int numScreenShoot7)
     {
         salida:  try {
 
@@ -366,13 +365,11 @@ public class Asesuisa_PagoExpressSiniestro {
           jse.executeScript("window.scrollBy(0,200)", "");
 
 
-            Thread.sleep(3000);
-
-
+            Thread.sleep(5000);
             jse.executeScript("window.scrollBy(0,200)", "");
 
-                    WebElement btnTerPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
-                    btnTerPoliza.click();
+                WebElement btnTerPoliza = driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_04\"]"));
+                btnTerPoliza.click();
 
 
             Thread.sleep(1000);
@@ -412,19 +409,19 @@ public class Asesuisa_PagoExpressSiniestro {
             //To calculate no of rows In table.
             int rows_count = rows_table.size();
 
-            System.out.println("Cantidad de filas con mismo nombre " + rows_count);
+            System.out.println("Cantidad de filas" + rows_count);
 
 
             WebElement btneditar = driver.findElement(By.xpath("//*[@id=\"paymentTable\"]/tbody/tr[" + rows_count + "]/td[1]/input[2]"));
             btneditar.click();
 
-            Thread.sleep(2000);
+            Thread.sleep(4000);
 
-            WebElement fecInicial = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[5]/input[2]"));
+                WebElement fecInicial = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table/tbody/tr[4]/td[5]/input[2]"));
 
             jse.executeScript("window.scrollBy(0,200)", "");
 
-            WebElement fecCompromiso = driver.findElement(By.xpath("/*//*[@id=\"idTablePayments\"]/tbody/tr[4]/td[4]/input[2]"));
+            WebElement fecCompromiso = driver.findElement(By.xpath("/html/body/div[14]/div[2]/form/table/tbody/tr[4]/td[4]/input[2]"));
             fecCompromiso.sendKeys(Keys.chord(Keys.CONTROL, "a"));
             fecCompromiso.sendKeys(fecInicial.getText());
 
@@ -443,36 +440,42 @@ public class Asesuisa_PagoExpressSiniestro {
                 WebElement monto = driver.findElement(By.xpath("//*[@id=\"amount1\"]"));
                 monto.sendKeys(Keys.chord(Keys.CONTROL, "a"));
                 monto.sendKeys(bean.getMONTO());
+                Thread.sleep(1000);
             }
 
             Thread.sleep(1000);
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot5, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
-            /*WebElement cclick = driver.findElement(By.xpath("/*//*[@id=\"idTablePayments\"]/tbody/tr[8]/td[1]"));
-            cclick.click();
-*/
-
             Thread.sleep(2000);
             WebElement btnEnviar = driver.findElement(By.xpath("//*[@id=\"idb_0402006_claimPaymentDetail_01\"]"));
+                Thread.sleep(1000);
             btnEnviar.click();
 
                 a.alertJavaScriptAceptar(driver);
+                if (bean.getACCION().equals("5")) {
+                    break salida;
+                }
 
-                dmontoReserva =   Double.parseDouble(montoReserva.getText());
-                montoxml = Double.parseDouble(bean.getMONTO());
+ /*               dmontoReserva =   Double.parseDouble(montoReserva.getText());
+                montoxml = Double.parseDouble(bean.getMONTO());*/
 
-            if   (montoxml> dmontoReserva) {
+          //  if   (montoxml> dmontoReserva) {
+                if   (bean.getMONTO().equals("1000000")) {
                 WebElement valmonto = driver.findElement(By.xpath("//*[@id=\"idTablePayments\"]/tbody/tr[14]/td/font/ul/li"));
 
                 if (valmonto.getText().equals("El monto total a ser pagado no puede ser mayor a la reserva")) {
-
+                    jse.executeScript("window.scrollBy(0,400)", "");
                     System.out.println("El monto total a ser pagado no puede ser mayor a la reserva");
+                    Thread.sleep(1000);
+                    a.ScreenShotPool(driver, i, "screen" + numScreenShoot7, nombreAutomatizacion, folderName);
+                    Thread.sleep(1000);
                     Assert.assertEquals("El monto total a ser pagado no puede ser mayor a la reserva", valmonto.getText());
-
+                    break salida;
                 } else {
 
                     System.out.println("NO valida monto total a ser pagado no puede ser mayor a la reserva! failed");
+                    break salida;
                 }
             }
 
@@ -483,11 +486,10 @@ public class Asesuisa_PagoExpressSiniestro {
 
             jse.executeScript("window.scrollBy(0,500)", "");
 
-
-            Thread.sleep(2000);
+            Thread.sleep(5000);
 
             WebElement estadoPago = driver.findElement(By.xpath("//*[@id=\"statusMessage\"]"));
-
+                estadoPago.click();
 
             if (estadoPago.getText().equals("Pagado")) {
 

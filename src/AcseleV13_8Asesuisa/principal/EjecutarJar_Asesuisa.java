@@ -12,7 +12,7 @@ public class EjecutarJar_Asesuisa {
 
     public static void main(String[] args) {
 
-     // args = new String[]{"10", "16", "4"};
+     // args = new String[]{"10", "16", "2"};
 
         String primero = args[0];
         String segundo = args[1];
