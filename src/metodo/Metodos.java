@@ -21,8 +21,8 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "system";//"agil";
-    private String pass = "consis";//"a123456";
+    private String user = "cortizr";//"agil";
+    private String pass = "cortizr";//"a123456";
     private String acselUrl;
 
     public String test(WebDriver driver){
