@@ -4,7 +4,9 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -21,8 +23,8 @@ import java.util.List;
  */
 public class Metodos {
 
-    private String user = "system";//"agil";
-    private String pass = "consis";//"a123456";
+    private String user = "cortizr";//"agil";
+    private String pass = "cortizr";//"a123456";
     private String acselUrl;
 
     public String test(WebDriver driver){
@@ -239,7 +241,7 @@ public class Metodos {
             IniciarSesion(getDriver, nombrePrueba);*/
         }
         System.out.println("Ahora esta logeado");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
     }
 
     public void IniciarSesion(WebDriver getDriver, String nombrePrueba, int i, String folderName) throws IOException, InterruptedException {
@@ -271,6 +273,48 @@ public class Metodos {
         button_sumit2.click();
     }
 
+    public WebDriver esperaXpath(WebDriver driver, int segundos, String elemento){
+
+        try {
+
+            new WebDriverWait(driver, segundos).until(ExpectedConditions.elementToBeClickable(By.xpath(elemento)));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return driver;
+
+    }
+
+    public WebDriver esperaId(WebDriver driver, int segundos, String elemento){
+
+        try {
+
+            new WebDriverWait(driver, segundos).until(ExpectedConditions.visibilityOfElementLocated(By.id(elemento)));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return driver;
+
+    }
+
+    public WebDriver esperaClassName(WebDriver driver, int segundos, String elemento){
+
+        try {
+
+            new WebDriverWait(driver, segundos).until(ExpectedConditions.visibilityOfElementLocated(By.className(elemento)));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return driver;
+
+    }
+
 
     public void changeLastWindows(WebDriver getDriver) throws InterruptedException, IOException{
         // Cambiar de ventana
@@ -292,7 +336,7 @@ public class Metodos {
         Iterator<String> it = sid.iterator();
         String parentId = it.next();
         System.out.println(parentId);
-        Thread.sleep(2000);
+        Thread.sleep(500);
         String childId = it.next();
         System.out.println(childId);
         //swtiching control to child Window

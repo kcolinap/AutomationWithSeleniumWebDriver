@@ -332,6 +332,9 @@ public class EjecutarJar_Asesuisa {
                         }
 
                         break;
+                    case "17": // s. Creación de Terceros con diferente tipo de documento de identidad un tercero existente
+                        System.out.println("Numero: " + tercero);
+                        break;
                 }
                 break;
 
@@ -833,6 +836,19 @@ public class EjecutarJar_Asesuisa {
                         break;
                     case "16": // p. pago express en siniestro
                         System.out.println("Numero: " + tercero);
+                        prueba = "VistaAsesuisa_PagoExpressSiniestroTest ";
+                        log.info("--->>> Ejecutando la prueba " + segundo + " " + prueba);
+                        try {
+                            VistaAsesuisa_PagoExpressSiniestroTest  PagoExpressSiniestroTest = new VistaAsesuisa_PagoExpressSiniestroTest ();
+                            PagoExpressSiniestroTest.setUp(tercero);
+                            PagoExpressSiniestroTest.mainTest();
+                            PagoExpressSiniestroTest.tearDown(tercero);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("Test Case - " + prueba + " - " + e);
+                        }
+                        log.info("--->>> Final de la prueba " + prueba);
+
                         break;
                     case "17": // q. Módulo de búsqueda de Siniestros Búsqueda avanzada
                         System.out.println("Numero: " + tercero);
@@ -1061,30 +1077,30 @@ public class EjecutarJar_Asesuisa {
 
                 break;
 
-            case "17": // 17) Template Tool
+            case "17": // 17) Preliquidación, Liquidación de Terceros, y Ctas Tecnicas
 
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
                 switch (segundo){
-                    case "1": // a.Transformadores revisión general
+                    case "1": // a. Preliquidación de Terceros
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "2": // b. eliminar transformadores
+                    case "2": // b. Liquidación de Terceros
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "3": // c. incluir transformadores manual
+                    case "3": // c. Liquidacion de cuenta tecnica
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // d. importar transformadores de un archivo
+                    case "4": // d. Consulta de cuenta tecnica
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "5": // e. Incluir etiqueta a transformador
+                    case "5": // e. Previsualizacion de cuenta tecnica
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "6": // f. Propiedades tipo listas
+                    case "6": // f. Validación de ctas técnicas liquidadas
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "7": // g. Formulaciones de Vaadin
+                    case "7": // g. Consulta de terceros liquidados
                         System.out.println("Numero: " + tercero);
                         break;
                 }
@@ -1101,31 +1117,24 @@ public class EjecutarJar_Asesuisa {
                 }
                 break;
 
-            case "19": // 19) Listas Restrictivas:
+            case "19": // 19) Validaciones Adicionales:
 
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
                 switch (segundo){
-                    case "1": // a. Crear listas
+                    case "1": // a. Configurador de Movimientos y Generación de Movimientos (entry tool)  AEASESUISA-2871
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "2": // b. Crear coincidencias
+                    case "2": // b. Validación de Movimientos y Generación de Movimientos (entry tool)  AEASESUISA-2871
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "3": // c. Trazas de coincidencias
+                    case "3": // c. Creación de Inspecciones
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "4": // d. Emitir póliza con tercero en cualquier rol (tomador, asegurado vida, beneficiario natural o jurídico)
-                              // que se encuentre en las listas debe salir alerta y validar traza de auditoria
+                    case "4": // d. Consultas de Inspecciones
                         System.out.println("Numero: " + tercero);
                         break;
-                    case "5": // e. Revisar trazas de auditoria de todas las operaciones de listas restrictivas
-                        System.out.println("Numero: " + tercero);
-                        break;
-                    case "6": // f. Consultas de listas restrictivas
-                        System.out.println("Numero: " + tercero);
-                        break;
-                    case "7": // g. Import/Export de listas restrictivas
+                    case "5": // e. Edición de Inspecciones
                         System.out.println("Numero: " + tercero);
                         break;
                 }
@@ -1159,7 +1168,36 @@ public class EjecutarJar_Asesuisa {
                 }
                 break;
 
-            case "22": // 22) Cuentas Tecnicas
+            case "22": // 17) Template Tool
+
+                System.out.println("Caso: " + args[0]);
+                System.out.println("Bloque: " + segundo);
+                switch (segundo){
+                    case "1": // a.Transformadores revisión general
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "2": // b. eliminar transformadores
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "3": // c. incluir transformadores manual
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "4": // d. importar transformadores de un archivo
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "5": // e. Incluir etiqueta a transformador
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "6": // f. Propiedades tipo listas
+                        System.out.println("Numero: " + tercero);
+                        break;
+                    case "7": // g. Formulaciones de Vaadin
+                        System.out.println("Numero: " + tercero);
+                        break;
+                }
+                break;
+
+            /*case "22": // 22) Cuentas Tecnicas
 
                 System.out.println("Caso: " + args[0]);
                 System.out.println("Bloque: " + segundo);
@@ -1175,7 +1213,7 @@ public class EjecutarJar_Asesuisa {
                         break;
                 }
                 break;
-
+            */
             case "23": // 23) Envio de notificación por evento de pólizas
 
                 System.out.println("Caso: " + args[0]);

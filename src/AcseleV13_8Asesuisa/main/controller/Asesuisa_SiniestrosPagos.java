@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import util.DBUnitConnectionManager;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -306,9 +307,12 @@ public class Asesuisa_SiniestrosPagos {
                         // Boton Cambiar
                         driver.findElement(By.xpath("//*[@id=\"idb_0402006_generateClaimPayment_03\"]")).click();
                         Thread.sleep(1000);
+                        Thread.sleep(1000);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                        Thread.sleep(1000);
                         driver.findElement(By.xpath("//*[@id=\"panel-3\"]/div[3]/span/button[1]")).click();
                         Thread.sleep(2000);
-//
+
                         // Selecciona la Orden de Pago
                         driver.findElement(By.xpath("//*[@id=\"paymentCheck\"]")).click();
                         Thread.sleep(1000);
@@ -323,7 +327,7 @@ public class Asesuisa_SiniestrosPagos {
                         Thread.sleep(1000);
 
                         Thread.sleep(1000);
-                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot8, nombreAutomatizacion, folderName);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
                         Thread.sleep(1000);
 
                         // Selecionar boton Aceptar
@@ -337,7 +341,7 @@ public class Asesuisa_SiniestrosPagos {
                         Thread.sleep(3000);
 
                         Thread.sleep(1000);
-                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot9, nombreAutomatizacion, folderName);
+                        a.ScreenShotPool(driver, i, "screen" + numScreenShoot10, nombreAutomatizacion, folderName);
                         Thread.sleep(1000);
 
                         // Selecciona una Sucursal
@@ -415,6 +419,16 @@ public class Asesuisa_SiniestrosPagos {
 
 
         } catch (Exception e) {
+
+            try {
+                a.ScreenShotPool(driver, i, "error PagosSiniestros", nombreAutomatizacion, folderName);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+
             e.printStackTrace();
             log.info("Test Case - " + nombreAutomatizacion + " - " + e);
         }

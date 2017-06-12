@@ -6,6 +6,8 @@ import metodo.Metodos;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -129,14 +131,7 @@ public class Asesuisa_GeneracionDocumentosSiniestros {
              Thread.sleep(1000);
 
 
-            /* WebElement nodocumentos = driver.findElement(By.xpath("/html/body/form/div/b/i/font"));
 
-
-           if  ((nodocumentos.getText()).equals("No hay documentos configurados")){
-
-               System.out.println("ESte siniestro no tiene documentos configurados ");
-               Assert.assertEquals("No hay documentos configurados", nodocumentos.getText());
-             }*/
 
 
         }catch (Exception e) {
@@ -154,8 +149,10 @@ public class Asesuisa_GeneracionDocumentosSiniestros {
             a.ScreenShotPool(driver, i, "screen" + numScreenShoot, nombreAutomatizacion, folderName);
             Thread.sleep(1000);
 
-            WebElement btnselArchivo = driver.findElement(By.xpath("//*[@id=\"theFile\"]"));
-            btnselArchivo.click();
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//*[@id=\"theFile\"]"))));
+          // WebElement btnselArchivo = driver.findElement(By.xpath("//*[@id=\"theFile\"]"));
+            driver.findElement(By.xpath("//*[@id=\"theFile\"]")).click();
             Thread.sleep(1500);
 
 
